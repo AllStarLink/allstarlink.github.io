@@ -51,6 +51,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/allmon3/</loc>
+         <lastmod>2024-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/allmon3/config/</loc>
+         <lastmod>2024-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/allmon3/install/</loc>
+         <lastmod>2024-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/allmon3/usermgmt/</loc>
+         <lastmod>2024-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/developers/</loc>
          <lastmod>2024-06-21</lastmod>
          <changefreq>daily</changefreq>

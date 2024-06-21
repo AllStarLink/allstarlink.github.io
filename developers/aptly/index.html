@@ -285,6 +285,26 @@
         
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../allmon3/" class="md-tabs__link">
+          
+  
+    
+  
+  Allmon3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
     
   
   
@@ -1011,6 +1031,138 @@
       
   
   
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../allmon3/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Allmon3
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Allmon3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/usermgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -1043,7 +1195,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           
@@ -1059,14 +1211,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
           </label>
@@ -1300,7 +1452,7 @@ Loading packages...
 all components is:</p>
 <pre><code class="language-bash">aptly publish update bookworm
 </code></pre>
-<p>Whe other distributions are supported, replace "bookworm"
+<p>When other distributions are supported, replace "bookworm"
 with the appropriate distribution. Upon execution, a prompt
 will appear for the GPG signing key for the repository. Provide it.</p>
 <p>And example, successful publication looks like:</p>
@@ -1315,7 +1467,7 @@ Cleaning up prefix &quot;.&quot; components beta, devel, main...
 Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
 </code></pre>
 <h2 id="searching-for-packages">Searching for Packages</h2>
-<p>Listingn and searching for packages inside of a local repo is done
+<p>Listing and searching for packages inside of a local repo is done
 with the <code>aptly repo search</code> command and uses the
 (Aptly Package Query Language)[https://www.aptly.info/doc/feature/query/]
 to filter/select packages.</p>
@@ -1342,7 +1494,7 @@ asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 </code></pre>
-<h6 id="search-by-name-glob-version-range">Search by name glob + version range</h6>
+<h5 id="search-by-name-glob-version-range">Search by name glob + version range</h5>
 <pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (&gt;= 1.0)'
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all

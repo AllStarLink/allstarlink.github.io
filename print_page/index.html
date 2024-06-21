@@ -284,6 +284,26 @@
     
     
       <li class="md-tabs__item">
+        <a href="../allmon3/" class="md-tabs__link">
+          
+  
+    
+  
+  Allmon3
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../developers/" class="md-tabs__link">
           
   
@@ -1036,11 +1056,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../developers/" class="md-nav__link ">
+            <a href="../allmon3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Developer Guide
+    Allmon3
   </span>
   
 
@@ -1055,6 +1075,138 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Allmon3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../allmon3/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../allmon3/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../allmon3/usermgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../developers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
           </label>
@@ -1494,7 +1646,7 @@ as described in <a href="#pi-cockpit-updates">Cockpit Updates</a>.</p>
 <p>When finished with the admin system, click on <strong>Session</strong>
 in the upper right and then choose <strong>Logout</strong>.</p></section><section class="print-page" id="user-guide-install"><h1 id="user-guide-install-debian-12-install">Debian 12 Install</h1>
 <p>These instructions are for installing ASL3 on various x86 systems. AllStarLink v3 is supported on Debian 12 Bookworm systems, and those based on Bookworm (e.g. Raspberry Pi OS). Both the x86_64/amd64 and arm64/aarch64 platforms are supported through apt/deb installation packages.</p>
-<p>Note that currently the project does not support armv7l/armhf platforms because all known use of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, and 5. If you have a platform that must use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
+<p>Note that currently the project does not support armv7l/armhf platforms because all known use of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, 5, and Zero 2 W. If you have a platform that must use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
 <h2 id="user-guide-install-os-install">OS Install</h2>
 <p>You’re going to start off by installing a new Debian 12 OS on your PC computer or virtual machine. There are instructions all over the internet that detail how to install Debian 12. Briefly you:</p>
 <ul>
@@ -2610,6 +2762,413 @@ ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
 </code></pre></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+                        <h1 class='nav-section-title' id='section-allmon3'>
+                            Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="allmon3"><h1 id="allmon3-allmon3">Allmon3</h1>
+<p>Allmon is the standard web-based monitoring and management for the AllStarLink v3.
+Allmon3 is the next generation of web dashboards for AllStarLink,
+rewritten for performance, scalability, and responsiveness.</p>
+<h1 id="allmon3-design-goals">Design Goals</h1>
+<p>Allmon3 features and functionality shall be governed by the following guidelines:</p>
+<ul>
+<li>Use of modern web responsive design for usability on all device form factors and screen sizes</li>
+<li>Clear separation between long-running tasks and client-based display updates</li>
+<li>Permit reduced workload on potentially slow repeater site links by cleanly supporting the ability to run only the pollers on the device controlling the repeater and run the dashboard in the cloud; easy prevention of unnecessary web traffic, spidering, etc.</li>
+<li>Prioritization of the common use cases of AllStarLink for feature enhancements</li>
+</ul>
+<h1 id="allmon3-community">Community</h1>
+<p>All code of Allmon3 not otherwise licensed (e.g., Bootstrap, etc.) is licensed
+under the <a href="https://www.gnu.org/licenses/why-affero-gpl.html">GNU Affero General Public License v3</a>.
+The choice of the AGPLv3 promotes giving back to the amateur radio and
+ASL communities.</p></section><section class="print-page" id="allmon3-install"><h1 id="allmon3-install-installation">Installation</h1>
+<h2 id="allmon3-install-supported-platforms">Supported Platforms</h2>
+<p>Allmon3 is only supported on:*</p>
+<ul>
+<li>Debian 12 Bookworm (including Raspoberry Pi OS 12)</li>
+<li>Debian 11 Bullseye (including Raspberry PiOS 11)</li>
+</ul>
+<h2 id="allmon3-install-asl3-packages-install">ASL3 Packages Install</h2>
+<h3 id="allmon3-install-debian-12">Debian 12</h3>
+<ul>
+<li>Install the AllStarLink repository file</li>
+</ul>
+<pre><code class="language-bash">sudo -s
+cd /tmp
+wget https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
+sudo dpkg -i asl-apt-repos.deb12_all.deb
+sudo apt update
+</code></pre>
+<ul>
+<li>Install allmon3:</li>
+</ul>
+<pre><code class="language-bash">sudo apt install allmon3
+</code></pre>
+<h3 id="allmon3-install-debian-11">Debian 11</h3>
+<ul>
+<li>Enable the Debian 11 <code>bullseye-backports</code> package repository:</li>
+</ul>
+<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
+gpg --export 0E98404D386FA1D9 | sudo apt-key add -
+gpg --export 6ED0E7B82643E131 | sudo apt-key add -
+echo &quot;deb https://deb.debian.org/debian bullseye-backports main&quot; &gt; /etc/apt/sources.list.d/bullseye-backports.list
+apt update
+</code></pre>
+<ul>
+<li>Install the dependencies</li>
+</ul>
+<pre><code>apt install -y apache2 python3-argon2 
+apt install -y -t bullseye-backports python3-websockets python3-aiohttp python3-aiohttp-session
+</code></pre>
+<ul>
+<li>Install Allmon3</li>
+</ul>
+<pre><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.bullseye_all.deb
+dpkg -i allmon3_1.2.0-1.bullseye_all.deb
+</code></pre>
+<h3 id="allmon3-install-debian-10">Debian 10</h3>
+<p>Note: Allmon v1.2.1 will be the last version for Debian 10. Please
+upgrade your AllStarLink system to AllStarLink v3 on Debian 12.</p>
+<ul>
+<li>Enable the Debian 10 <code>buster-backports</code> package repository:</li>
+</ul>
+<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
+gpg --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
+gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
+gpg --export 04EE7237B7D453EC | sudo apt-key add -
+gpg --export 648ACFD622F3D138 | sudo apt-key add -
+gpg --export 0E98404D386FA1D9 | sudo apt-key add -
+gpg --export 6ED0E7B82643E131 | sudo apt-key add -
+echo &quot;deb https://deb.debian.org/debian buster-backports main&quot; &gt; /etc/apt/sources.list.d/buster-backports.list
+apt update
+</code></pre>
+<ul>
+<li>Install the dependencies</li>
+</ul>
+<pre><code>apt install -y apache2 python3-argon2 
+apt install -y -t buster-backports python3-async-timeout python3-attr python3-multidict python3-yarl python3-pip
+</code></pre>
+<ul>
+<li>Install Python modules using PIP3</li>
+</ul>
+<pre><code>apt remove python3-aiohttp python3-websockets
+pip3 install aiohttp
+pip3 install aiohttp_session
+pip3 install websockets
+</code></pre>
+<ul>
+<li>Update the CA Certificate chain since Debian 10 is out of support</li>
+</ul>
+<pre><code>apt install ca-certificates
+update-ca-certificates --fresh
+</code></pre>
+<ul>
+<li>Install Allmon3 (debian10 version)</li>
+</ul>
+<pre><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.buster_all.deb
+dpkg -i allmon3_1.2.0-1.buster_all.debntu.com --recv-keys 6ED0E7B82643E131
+</code></pre>
+<h2 id="allmon3-install-install-from-source">Install from Source</h2>
+<p>Installation from source is not supported in the general use case. However, 
+<code>make install</code> should yield a working system.</p></section><section class="print-page" id="allmon3-config"><h1 id="allmon3-config-configuration">Configuration</h1>
+<p>All configuration resides in <code>/etc/allmon3</code>. The stock configuration
+files are always available at <code>/usr/share/doc/allmon3/</code> for recovery
+and documentation.</p>
+<p>After changing any configuration file, the service <code>allmon3</code> must be
+restarted using <code>systemctl restart allmon3</code>.</p>
+<h2 id="allmon3-config-node-configuration">Node Configuration</h2>
+<p>Allmon3's node connections are configured in <code>/etc/allmon3/allmon3.ini</code>. The
+<code>allmon3.ini</code> file is a standard INI-formatted file. Each stanza in 
+the file is a node number. Each node stanza then can take the following
+options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Req'd / Opt</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>host</strong></td>
+<td>Req'd</td>
+<td>-</td>
+<td>DNS name or IP address of the Asterisk/ASL node</td>
+</tr>
+<tr>
+<td><strong>port</strong></td>
+<td>Opt</td>
+<td>5038</td>
+<td>Port of the Asterisk manager</td>
+</tr>
+<tr>
+<td><strong>user</strong></td>
+<td>Req'd</td>
+<td>-</td>
+<td>username of the Asterisk monitor, most commonly 'admin'</td>
+</tr>
+<tr>
+<td><strong>pass</strong></td>
+<td>Req'd</td>
+<td>-</td>
+<td>password of the monitor user</td>
+</tr>
+<tr>
+<td><strong>multinodes</strong></td>
+<td>Opt</td>
+<td>-</td>
+<td>this node is a server hosting multiple nodes and this is the "primary" record for the host.</td>
+</tr>
+<tr>
+<td><strong>voters</strong></td>
+<td>Opt</td>
+<td>n[,n,...]</td>
+<td>List voters on this server, comma separate. No value disabled voters</td>
+</tr>
+<tr>
+<td><strong>pollinterval</strong></td>
+<td>Opt</td>
+<td>1</td>
+<td>polling interval to asterisk in default is 1. this value can be expressed as a decimal fraction of a second - e.g., .5 is 500ms, .375 is 375ms, etc.</td>
+</tr>
+<tr>
+<td><strong>vpollinterval</strong></td>
+<td>Opt</td>
+<td>1</td>
+<td>Broadcast interval of voter data in seconds default is 1. this value can be expressed as a decimal fraction of a second - e.g., .5 is 500ms, .375 is 375ms, etc.</td>
+</tr>
+<tr>
+<td><strong>retryinterval</strong></td>
+<td>Opt</td>
+<td>15</td>
+<td>Seconds between retries if initial connection to asterisk is lost (optional, default 15)</td>
+</tr>
+<tr>
+<td><strong>retrycount</strong></td>
+<td>Opt</td>
+<td>"Infinite"</td>
+<td>number of times to retry a lost asterisk connection before ending (default infinite)</td>
+</tr>
+</tbody>
+</table>
+<p>An example minimal node configuration would be:</p>
+<pre><code>[12345]
+host = 127.0.0.1
+user = admin
+pass = Passw0rd
+</code></pre>
+<p>An example of a server with multiple nodes on it:</p>
+<pre><code>[12345]
+host = 127.0.0.1
+user = admin
+pass = Passw0rd
+multinodes = 12345, 23456
+</code></pre>
+<p>Here's an example for monitoring three ASL Nodes:</p>
+<pre><code>[50815]
+host=172.17.16.36
+user=admin
+pass=password
+
+[460180]
+host=172.17.16.217
+user=admin
+pass=password
+
+[48496]
+host=192.2.0.145
+user=admin
+pass=password
+voter=y
+votertitle=Megavoter
+</code></pre>
+<h2 id="allmon3-config-server-customization">Server Customization</h2>
+<p>Allmon3 has multiple configuration files to consider:</p>
+<ul>
+<li>
+<p><code>/etc/allmon3/web.ini</code> - This is the customization interface
+for the Allmon3 web interface. I</p>
+</li>
+<li>
+<p><code>/etc/allmon3/custom.css</code> - Certain CSS customizations to change
+colors in the application. Follows standard CSS rules and syntax.</p>
+</li>
+<li>
+<p><code>/etc/allmon3/menu.ini</code> - Allows for the customization of the
+Allmon3 web menu. By default, the menu is a list of all nodes
+found in <code>allmon3.ini</code>. Customized menus can be configured
+as described in <code>menu.ini.example</code>.</p>
+</li>
+</ul>
+<h3 id="allmon3-config-webini">web.ini</h3>
+<p>The <code>web.ini</code> file has four configuration sections - 
+<em>web</em>, <em>syscmds</em>, <em>node-overrides</em>, and <em>voter-titles</em>. </p>
+<h4 id="allmon3-config-web">[web]</h4>
+<p>The <em>web</em> section has the basic customizations
+for the Allmon3 site. Each item in this section
+is documented in the file.  </p>
+<h4 id="allmon3-config-syscmds">[syscmds]</h4>
+<p>The <em>syscmds</em> section defines the templates in the "system commands" menu.
+This stanza lists commands that are templates for the systems command
+modal dialog. The format is:</p>
+<pre><code>[syscmds]
+  command text = Command Label
+  command text = Command Label
+  command text = Command Label
+  ...
+</code></pre>
+<p>In any command text the @ will be replaced with the node the command
+modal was selected from. For example:</p>
+<pre><code>    rpt status @ = Show Node Status
+</code></pre>
+<p>wll result in the command 'rpt status 1999' assuming this command was
+selected from Node #1999.</p>
+<p>It is possible to create optional stanzas named in the format
+<code>[syscmds-NODE]</code> (e.g. <code>[syscmds-1999]</code>) and have those commands
+templates appear only for the given NODE listed. Example:</p>
+<pre><code>[syscmds-1999]
+rpt cmd @ cop 999 xxx = Execute function 999
+</code></pre>
+<h4 id="allmon3-config-node-overrides">[node-overrides]</h4>
+<p>The <em>node-overrides</em> section can be used to override information
+from the ASL database. Using this section, the AllStarLink DB
+labels for a node may be replaces with custom text. The format is:</p>
+<pre><code>[node-overrides]
+    NODE1 = TEXT HERE
+    NODE2 = TEXT HERE 2
+</code></pre>
+<p>This section must exist even if it's empty. For example:</p>
+<pre><code>[node-overrides]
+    1999 = My special private node
+    2010 = Wild Party Node
+</code></pre>
+<h4 id="allmon3-config-voter-titles">[voter-titles]</h4>
+<p>The <em>voter-titles</em> section is used to set display names for voters.
+This functions identically to <code>[node-overrides]</code>. For any
+voter not named here, voters will have an auto-generated
+name of "Voter NODE".</p>
+<h3 id="allmon3-config-menuini">menu.ini</h3>
+<p>If this file is present in the api/ subdirectory of Allmon3's web interface
+and named <code>menu.ini</code>, this file will override the default behavior of the
+web interface simply listing the configured nodes in the left navbar.
+If this file is not present, all nodes in allmon3.ini/allmon3.ini.php
+will display singly in configured order.</p>
+<p>NOTE: Not listing a node in the menu WILL NOT cause the node to go
+un-polled if it is already configured in allmon3.ini. This allows
+the system administrator to have "hidden" nodes. If you want to completely
+stop polling an Asterisk/ASL node, the node must be removed from allmon3.ini.</p>
+<p>The format for this file is as follows:</p>
+<pre><code>[ TITLE ]                         :: The stanza header is the label
+                                  :: for this menu item
+type  = ( menu | single )         :: If type = menu, the item is interpreted as a dropdown
+                                  :: menu with each LABEL item displaying. If the
+                                  :: type = single, then only a the first LABEL = TARGET
+                                  :: will be displayed as a non-dropdown. In the case of
+                                  :: type = single, the [ TITLE ] is ignored completely
+
+LABEL = TARGET                    :: Each [ TITLE ] displays one or more LABELS
+LABEL = TARGET                    :: with a link to TARGET. When TARGET is all numbers
+LABEL = TARGET                    :: then TARGET is assumed to be a ASL node and
+                                  :: the link will filter down to the TARGET node
+                                  :: specified. Any other pattern will be interpreted
+                                  :: as a full or partial URL/URI.
+                                  ::
+                                  :: Of special node, creating a menu item of
+                                  :: multiple nodes to display, TARGET and simply be
+                                  :: #NODE,NODE,NODE - e.g. #1999,1998,1997
+</code></pre>
+<p>Note that the order of the nodes within a stanza is irrelevant. They will be displayed
+as sorted alphabetically ascending according to UTF-8 (e.g. 0-9, A-Z, +).</p>
+<p>An example custom menu may look like:</p>
+<pre><code>[ W8WKY ]
+type = menu
+W8WKY = 43211
+48496 = 48496
+45839 = 45839
+
+[ N8XPK ]
+type = menu
+N8XPK = 42993
+43118 = 43118
+47987 = 47987
+
+[ Test ]
+type = single
+AllStarLink = https://www.allstarlink.org
+</code></pre>
+<h2 id="allmon3-config-using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
+<p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code>
+package, install <code>nginx</code> using the above directions. After configuring
+nginx, edit <code>/etc/nginx/sites-available/default</code> (or your preferred site
+configuration) and add an <code>include</code> directive within the appropriate
+<code>server { }</code> configuration block. For example:</p>
+<pre><code>server {
+    listen 80 default_server;
+
+    [... other stuff ...]
+
+    include /etc/allmon3/nginx.conf;
+
+    [... other stuff ...]
+}
+</code></pre></section><section class="print-page" id="allmon3-usermgmt"><h1 id="allmon3-usermgmt-user-management">User Management</h1>
+<p>Allmon3 supports a robust multi-user configuration that 
+permits per-node granular access as desired and that
+abstracts Allmon3 from the Asterisk AMI Manager 
+configuration.</p>
+<p>Usernames and passwords are stored in <code>/etc/allmon3/users</code>.</p>
+<p>The default-configured username and
+password combination is<code>allmon3 / password</code>.</p>
+<p><span style="color:red; size=1.2em"><strong>You <em>must</em> change this before exposing a host to the Internet</strong></span></p>
+<h2 id="allmon3-usermgmt-user-database">User Database</h2>
+<p>Allmon3's user database is managed by <code>allmon3-passwd</code>. Adding a new user
+or editing an existing user is the same command. If the user does not exist,
+it will be added. If the user does exist, the password will be updated. 
+To add or edit a user's password: </p>
+<pre><code>$ allmon3-passwd allmon3
+Enter the password for allmon3: password
+Confirm the password for allmon3: password
+</code></pre>
+<p>That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the
+Argon2 hash changed for the user.</p>
+<p>Deleting a user is simply adding the <code>--delete</code> flag to the command:</p>
+<pre><code>$ allmon3-passwd --delete allmon3
+</code></pre>
+<p>After changing a user password, the allmon3 damon must be reloaded
+with <code>systemctl reload allmon3</code>.</p>
+<h2 id="allmon3-usermgmt-per-node-restrictions-for-users">Per-Node Restrictions for Users</h2>
+<p>Allmon3 implements a lightweight access control system to restrict commands
+from certain users to certain nodes. Restrictions are configured in
+<code>/etc/allmon3/user-restrictions</code>. Given that the average use case is
+all users have similar access, the access control is implemented in
+a named-restrictions model for least configuration complexity.</p>
+<p>The logic is as follows when checking the restricted access list:</p>
+<ol>
+<li>
+<p>If the user is not listed in <code>user-restrictions</code> at all
+than the user is permitted commands on all configured nodes.</p>
+</li>
+<li>
+<p>If the user is listed in <code>user-restrictions</code> and is listed
+as restricted to the node being commanded, the user is permitted
+to issue the command.</p>
+</li>
+<li>
+<p>If the user is listed in <code>user-restrictions</code> but the node
+is not listed for that user, the user is prohibited from
+issuing the command.</p>
+</li>
+</ol>
+<p>The format of the <code>user-restrictions</code> file is:</p>
+<pre><code>user1 | NODE[,NODE,NODE...]
+user2 | NODE
+
+</code></pre>
+<p>Lines beginning with # are comments.</p></section><h1 class='nav-section-title-end'>Ended: Allmon3</h1>
                         <h1 class='nav-section-title' id='section-developer-guide'>
                             Developer Guide <a class='headerlink' href='#section-developer-guide' title='Permanent link'>↵</a>
                         </h1>
@@ -2872,7 +3431,7 @@ Loading packages...
 all components is:</p>
 <pre><code class="language-bash">aptly publish update bookworm
 </code></pre>
-<p>Whe other distributions are supported, replace "bookworm"
+<p>When other distributions are supported, replace "bookworm"
 with the appropriate distribution. Upon execution, a prompt
 will appear for the GPG signing key for the repository. Provide it.</p>
 <p>And example, successful publication looks like:</p>
@@ -2887,7 +3446,7 @@ Cleaning up prefix &quot;.&quot; components beta, devel, main...
 Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
 </code></pre>
 <h2 id="developers-aptly-searching-for-packages">Searching for Packages</h2>
-<p>Listingn and searching for packages inside of a local repo is done
+<p>Listing and searching for packages inside of a local repo is done
 with the <code>aptly repo search</code> command and uses the
 (Aptly Package Query Language)[https://www.aptly.info/doc/feature/query/]
 to filter/select packages.</p>
@@ -2914,7 +3473,7 @@ asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 </code></pre>
-<h6 id="developers-aptly-search-by-name-glob-version-range">Search by name glob + version range</h6>
+<h5 id="developers-aptly-search-by-name-glob-version-range">Search by name glob + version range</h5>
 <pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (&gt;= 1.0)'
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
