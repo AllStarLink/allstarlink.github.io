@@ -551,11 +551,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/known-issues/" class="md-nav__link">
+      <a href="../user-guide/known-issues-diffs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Known Issues
+    Differences & Issues
   </span>
   
 
@@ -1362,7 +1362,7 @@ make ASL3 the best AllStar release yet.</p>
 <li><a href="#user-guide-install">Debian 12 x86 Install</a></li>
 <li><a href="#user-guide-menu">ASL3 Menu</a></li>
 <li><a href="#user-guide-updates">Updating ASL3</a></li>
-<li><a href="#user-guide-known-issues">Known Issues</a></li>
+<li><a href="#user-guide-known-issues-diffs">Known Issues</a></li>
 </ul></section><section class="print-page" id="user-guide-whats-new"><h1 id="user-guide-whats-new-whats-new">What's New?</h1>
 <p>Ready to get on with installation? We thought so, but first consider that ASL3 is very new. You'll probably want to install on removable media or on a non-production system. You probably don't want to install a production system right away. Give yourself some time to test that everything works as you'd expect.</p>
 <p>Note: if you have installed an earlier version of ASL you need to know that ASL3 has many changes and that there's a bit of a learning curve. For those who have used ASL2 or other versions of AllStar you should be aware of a few important details:</p>
@@ -1396,15 +1396,8 @@ make ASL3 the best AllStar release yet.</p>
 <li>The USB configuration files now contain the tune settings. There is no tune file for each node as in ASL2. The tune menus and the Asterisk CLI write to the new tune setting locations.</li>
 <li>There is no need to edit or use a script to update the access list, formerly known as the blacklist and whitelist. The settings are different because the access list is now per node rather than for all nodes as in other AllStar versions. It's also much easier to use the ASL3 menu to build the access lists.</li>
 </ul>
-<h2 id="user-guide-whats-new-dev-entry-changes">/dev Entry Changes</h2>
-<p>As ASL3 is based on Debian 12, users with Raspberry Pi devices must
-note that the serial port on the Pi header is now <code>/dev/serial0</code>
-rather than the historical <code>/dev/ttyAMA0</code>. If you are following
-directions for Pi serial port operations, such as programming an
-SA818/DRA181-based radio hat, use <code>/dev/serial0</code> in place of the
-<code>/dev/ttyAMA0</code> reference.</p>
 <h2 id="user-guide-whats-new-ap-measurement">A&amp;P Measurement</h2>
-<p>Adoption and Performance measurements are to help ASL understand growth and technical aspects of ASL3. No sensitive or private information is collected. For details see <a href="https://github.com/AllStarLink/ASL3-Usage">GitHub/AllStarLink/ASL3-Usage</a>. Reports are available at <a href="https://repo.allstarlink.org/usage/reports/">repo.allstarlink.org/usage/reports/</a>.</p>
+<p>Adoption and Performance measurements are to help ASL understand growth and technical aspects of ASL3. No sensitive or private information is collected. For details see <a href="https://github.com/AllStarLink/ASL3-Usage">GitHub/AllStarLink/ASL3-Usage</a>. Reports are available at <a href="https://repo.allstarlink.org/reports/">repo.allstarlink.org/reports/</a>.</p>
 <h2 id="user-guide-whats-new-help-and-report-bugs">Help and Report Bugs</h2>
 <p>The <a href="https://community.allstarlink.org/">AllStarLink Community</a> is the primary support for all versions of ASL including ASL3. Please do not use the help desk for ASL technical help.</p>
 <p>Report bugs to <a href="https://github.com/AllStarLink">AllStarLink GitHub</a>. There are numerous ASL3 repos. If you're not sure which repo for reporting bugs, feel free to use Community.</p></section><section class="print-page" id="user-guide-pi-detailed"><h1 id="user-guide-pi-detailed-raspberry-pi-install">Raspberry Pi Install</h1>
@@ -1791,10 +1784,37 @@ be followed for security and practicality reasons.</strong></p>
 <p>AllStarLink v3 automatically manages and rebuilds the
 DAHDI kernel modules during software updates using
 the DKMS system. After an upgrade, rebooting into a new version
-of the Linux kernel will "Just Work".</p></section><section class="print-page" id="user-guide-known-issues"><h1 id="user-guide-known-issues-known-issues">Known Issues</h1>
+of the Linux kernel will "Just Work".</p></section><section class="print-page" id="user-guide-known-issues-diffs"><h1 id="user-guide-known-issues-diffs-known-issues-differences-with-legacy-versions">Known Issues &amp; Differences With Legacy Versions</h1>
+<p>As discussed in <a href="#user-guide-whats-new">What's New?</a>, AllStarLink v3 is
+a gigantic leap forward in platform and software ecosystem. 
+Many things are different in modern versions of Linux, Asterisk,
+and more. This page documents permanent differences with ASL3
+relative to legacy versions as well as any known issues that
+must be fixed in ASL3.</p>
+<h2 id="user-guide-known-issues-diffs-differences-with-legacy-versions">Differences with Legacy Versions</h2>
+<h3 id="user-guide-known-issues-diffs-serial-ports-available-by-default">Serial Port(s) Available by Default</h3>
+<p>On the ASL3 Pi Appliance, the system comes pre-configured
+for <code>/dev/serial0</code> (formerly <code>/dev/ttyAMA0</code>) accessibility.
+That means that Bluetooth and the default serial console
+are disabled. Any directions requiring editing of <code>config.txt</code>
+or <code>cmdline.txt</code> are unnecessary with the ASL3 appliance.</p>
+<h3 id="user-guide-known-issues-diffs-pi-dev-entry-changes">Pi /dev Entry Changes</h3>
+<p>As ASL3 is based on Debian 12, users with Raspberry Pi devices must
+note that the serial port on the Pi header is now <code>/dev/serial0</code>
+rather than the historical <code>/dev/ttyAMA0</code>. If you are following
+directions for Pi serial port operations, such as programming an
+SA818/DRA818-based radio hat or a Shari node, use 
+<code>/dev/serial0</code> in place of the <code>/dev/ttyAMA0</code> reference.</p>
+<h3 id="user-guide-known-issues-diffs-voterrtcm-default-port">Voter/RTCM Default Port</h3>
+<p>Modern installations of Asterisk runs as the unprivileged <code>asterisk</code> user rather than
+as <code>root</code>. Standard Linux convention prohibits non-root users to listen on a TCP
+port below 1024. The default port for Voters/RTCMs has been changed to <code>1667</code> when
+previously it was <code>667</code>. If voter port changes are difficult
+for the environment, see <a href="#adv-topics-incompatibles">Incompatible Changes in ASL3</a>
+for other potential workarounds.</p>
+<h2 id="user-guide-known-issues-diffs-known-issues">Known Issues</h2>
 <p>The following issues are currently known to exist in AllStarLink 3 and,
-where possible what the work-arounds are.</p>
-<h2 id="user-guide-known-issues-none">None</h2>
+where possible what the workarounds are.</p>
 <p>There are no known major issues with the various components of
 AllStarLink 3. As they arise, and if they cannot be quickly
 resolved, the issues and potential workarounds will be

@@ -524,15 +524,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dev-entry-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      /dev Entry Changes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ap-measurement" class="md-nav__link">
     <span class="md-ellipsis">
       A&amp;P Measurement
@@ -650,11 +641,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../known-issues/" class="md-nav__link">
+      <a href="../known-issues-diffs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Known Issues
+    Differences & Issues
   </span>
   
 
@@ -1431,15 +1422,8 @@
 <li>The USB configuration files now contain the tune settings. There is no tune file for each node as in ASL2. The tune menus and the Asterisk CLI write to the new tune setting locations.</li>
 <li>There is no need to edit or use a script to update the access list, formerly known as the blacklist and whitelist. The settings are different because the access list is now per node rather than for all nodes as in other AllStar versions. It's also much easier to use the ASL3 menu to build the access lists.</li>
 </ul>
-<h2 id="dev-entry-changes">/dev Entry Changes</h2>
-<p>As ASL3 is based on Debian 12, users with Raspberry Pi devices must
-note that the serial port on the Pi header is now <code>/dev/serial0</code>
-rather than the historical <code>/dev/ttyAMA0</code>. If you are following
-directions for Pi serial port operations, such as programming an
-SA818/DRA181-based radio hat, use <code>/dev/serial0</code> in place of the
-<code>/dev/ttyAMA0</code> reference.</p>
 <h2 id="ap-measurement">A&amp;P Measurement</h2>
-<p>Adoption and Performance measurements are to help ASL understand growth and technical aspects of ASL3. No sensitive or private information is collected. For details see <a href="https://github.com/AllStarLink/ASL3-Usage">GitHub/AllStarLink/ASL3-Usage</a>. Reports are available at <a href="https://repo.allstarlink.org/usage/reports/">repo.allstarlink.org/usage/reports/</a>.</p>
+<p>Adoption and Performance measurements are to help ASL understand growth and technical aspects of ASL3. No sensitive or private information is collected. For details see <a href="https://github.com/AllStarLink/ASL3-Usage">GitHub/AllStarLink/ASL3-Usage</a>. Reports are available at <a href="https://repo.allstarlink.org/reports/">repo.allstarlink.org/reports/</a>.</p>
 <h2 id="help-and-report-bugs">Help and Report Bugs</h2>
 <p>The <a href="https://community.allstarlink.org/">AllStarLink Community</a> is the primary support for all versions of ASL including ASL3. Please do not use the help desk for ASL technical help.</p>
 <p>Report bugs to <a href="https://github.com/AllStarLink">AllStarLink GitHub</a>. There are numerous ASL3 repos. If you're not sure which repo for reporting bugs, feel free to use Community.</p>

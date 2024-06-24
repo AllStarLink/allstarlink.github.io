@@ -12,7 +12,7 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/user-guide/known-issues/">
+        <link rel="canonical" href="https://allstarlink.github.io/user-guide/known-issues-diffs/">
       
       
         <link rel="prev" href="../updates/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Known Issues - AllStarLink Manual</title>
+        <title>Differences & Issues - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#known-issues" class="md-skip">
+        <a href="#known-issues-differences-with-legacy-versions" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Known Issues
+              Differences & Issues
             
           </span>
         </div>
@@ -578,7 +578,7 @@
           
   
   <span class="md-ellipsis">
-    Known Issues
+    Differences & Issues
   </span>
   
 
@@ -589,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    Known Issues
+    Differences & Issues
   </span>
   
 
@@ -611,9 +611,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#none" class="md-nav__link">
+  <a href="#differences-with-legacy-versions" class="md-nav__link">
     <span class="md-ellipsis">
-      None
+      Differences with Legacy Versions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Differences with Legacy Versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-ports-available-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial Port(s) Available by Default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pi-dev-entry-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pi /dev Entry Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voterrtcm-default-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voter/RTCM Default Port
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Issues
     </span>
   </a>
   
@@ -1362,10 +1404,37 @@
                   
 
 
-<h1 id="known-issues">Known Issues</h1>
+<h1 id="known-issues-differences-with-legacy-versions">Known Issues &amp; Differences With Legacy Versions</h1>
+<p>As discussed in <a href="../whats-new/">What's New?</a>, AllStarLink v3 is
+a gigantic leap forward in platform and software ecosystem. 
+Many things are different in modern versions of Linux, Asterisk,
+and more. This page documents permanent differences with ASL3
+relative to legacy versions as well as any known issues that
+must be fixed in ASL3.</p>
+<h2 id="differences-with-legacy-versions">Differences with Legacy Versions</h2>
+<h3 id="serial-ports-available-by-default">Serial Port(s) Available by Default</h3>
+<p>On the ASL3 Pi Appliance, the system comes pre-configured
+for <code>/dev/serial0</code> (formerly <code>/dev/ttyAMA0</code>) accessibility.
+That means that Bluetooth and the default serial console
+are disabled. Any directions requiring editing of <code>config.txt</code>
+or <code>cmdline.txt</code> are unnecessary with the ASL3 appliance.</p>
+<h3 id="pi-dev-entry-changes">Pi /dev Entry Changes</h3>
+<p>As ASL3 is based on Debian 12, users with Raspberry Pi devices must
+note that the serial port on the Pi header is now <code>/dev/serial0</code>
+rather than the historical <code>/dev/ttyAMA0</code>. If you are following
+directions for Pi serial port operations, such as programming an
+SA818/DRA818-based radio hat or a Shari node, use 
+<code>/dev/serial0</code> in place of the <code>/dev/ttyAMA0</code> reference.</p>
+<h3 id="voterrtcm-default-port">Voter/RTCM Default Port</h3>
+<p>Modern installations of Asterisk runs as the unprivileged <code>asterisk</code> user rather than
+as <code>root</code>. Standard Linux convention prohibits non-root users to listen on a TCP
+port below 1024. The default port for Voters/RTCMs has been changed to <code>1667</code> when
+previously it was <code>667</code>. If voter port changes are difficult
+for the environment, see <a href="../../adv-topics/incompatibles/">Incompatible Changes in ASL3</a>
+for other potential workarounds.</p>
+<h2 id="known-issues">Known Issues</h2>
 <p>The following issues are currently known to exist in AllStarLink 3 and,
-where possible what the work-arounds are.</p>
-<h2 id="none">None</h2>
+where possible what the workarounds are.</p>
 <p>There are no known major issues with the various components of
 AllStarLink 3. As they arise, and if they cannot be quickly
 resolved, the issues and potential workarounds will be
