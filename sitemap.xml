@@ -156,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/user-guide/support/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/user-guide/updates/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
