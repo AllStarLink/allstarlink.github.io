@@ -802,6 +802,8 @@
       
         
       
+        
+      
     
     
       
@@ -878,6 +880,27 @@
   
   <span class="md-ellipsis">
     USB Audio Interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/sa818modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SA818 RF Modules
   </span>
   
 
@@ -2349,7 +2372,8 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
                         <section class="print-page" id="adv-topics"><h1 id="adv-topics-advanced-topics">Advanced Topics</h1>
 <ul>
 <li><a href="#adv-topics-commands">New Commands</a></li>
-<li><a href="#adv-topics-usbinterfaces">USB Interfaces</a></li>
+<li><a href="#adv-topics-usbinterfaces">USB Audio Interfaces</a></li>
+<li><a href="#adv-topics-sa818modules">SA818 RF Modules</a></li>
 <li><a href="#adv-topics-conftmpl">Asterisk Templates</a></li>
 <li><a href="httpreg/">HTTP Registration</a></li>
 <li><a href="#adv-topics-allowdenylists">Allow and Deny Lists</a></li>
@@ -2431,7 +2455,79 @@ EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune sav
 </ul>
 <p>The ASL3 menu and Asterisk CLI USB config commands handle these changes.</p>
 <h3 id="adv-topics-usbinterfaces-eeprom-operation">EEPROM Operation</h3>
-<p>chan_simpleusb and chan_usbradio allows users to store configuration information in the EEPROM attached to their Coverwritence(s).  The CM119A can have manufacturer information in the same area that stores the user consusbration.  The CM119B does have manufacturer data in the area that stores user configuration.  The manufacturer data cannot be overwriten.  The user configuration data has been moved higher in memory to prevent overwriting the manufacturer data.  If you use the EEPROM to store configuration data, you will need to save it to the EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-conftmpl"><h1 id="adv-topics-conftmpl-asterisk-templates">Asterisk Templates</h1>
+<p>chan_simpleusb and chan_usbradio allows users to store configuration information in the EEPROM attached to their Coverwritence(s).  The CM119A can have manufacturer information in the same area that stores the user consusbration.  The CM119B does have manufacturer data in the area that stores user configuration.  The manufacturer data cannot be overwriten.  The user configuration data has been moved higher in memory to prevent overwriting the manufacturer data.  If you use the EEPROM to store configuration data, you will need to save it to the EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-sa818modules"><h1 id="adv-topics-sa818modules-sa818-rf-modules">SA818 RF Modules</h1>
+<p>Setting up an SA818 RF module is much easier on ASL3.</p>
+<p>Two new commands were added to ASL3 Pi Appliance systems to program the module.
+We believe that most will prefer using <code>sa818-menu</code>, a visual interface to the RF module settings.
+But, for those who prefer a command line interface we have also included <code>sa818</code>.</p>
+<h2 id="adv-topics-sa818modules-sa818-menu">sa818-menu</h2>
+<p>To program your SA818 with the menu executing the following command from the Linux shell :</p>
+<pre><code>sa818-menu
+</code></pre>
+<p>Here, you will be able to view the last saved (or default) settings.  The settings include :</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Band</td>
+<td>Specify the module type (VHF, UHF)</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td>Narrow (12.5KHz) or <strong>Wide (25.0KHz)</strong></td>
+</tr>
+<tr>
+<td>Receive Frequency</td>
+<td></td>
+</tr>
+<tr>
+<td>Transmit Frequency</td>
+<td></td>
+</tr>
+<tr>
+<td>Squelch Value</td>
+<td>Default = <strong>1</strong></td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Default = <strong>1</strong></td>
+</tr>
+<tr>
+<td>Sub-audible tone</td>
+<td><strong>None</strong>, CTCSS, DCS</td>
+</tr>
+<tr>
+<td>Pre-Emphasis/De-emphasis</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>High pass Filter</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>Low pass Filter</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>Serial Port</td>
+<td>Default = <strong>/dev/serial0</strong> or <strong>/dev/ttyUSB0</strong></td>
+</tr>
+<tr>
+<td>Connection Speed</td>
+<td>Default = <strong>9600</strong></td>
+</tr>
+</tbody>
+</table>
+<p>If you change the sub-audible tone setting to CTCSS or DCS you will be presented with a list of possible tone frequencies.  When using CTCSS tones, you will also have a setting for the CTCSS Reverse Burst (Tail Tone).</p>
+<p>The RF module will be programmed when you exit the menu.</p>
+<p>Note: if you make changes that you do not wish to have stored then use the ESC key to exit the menu.</p>
+<h2 id="adv-topics-sa818modules-sa818">sa818</h2>
+<p>To program your SA818 using the command line you can execute the <code>sa818</code> command.  For command usage information, use <code>sa818 --help</code>.</p></section><section class="print-page" id="adv-topics-conftmpl"><h1 id="adv-topics-conftmpl-asterisk-templates">Asterisk Templates</h1>
 <p>Asterisk now has a template configuration option. This can make editing Asterisk conf flies less tedious. So far, ASL3 is using templated configurations in the "rpt.conf", "simpleusb.conf", and "usbradio.conf" files.</p>
 <h2 id="adv-topics-conftmpl-etcasteriskrptconf">/etc/asterisk/rpt.conf</h2>
 <p>The "rpt.conf" file remains basically the same as it was in ASL2.  But, the organization has changed to make it easier to maintain, particularly for multi-node systems.</p>
