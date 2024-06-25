@@ -1838,10 +1838,20 @@ for other potential workarounds.</p>
 <h2 id="user-guide-known-issues-diffs-known-issues">Known Issues</h2>
 <p>The following issues are currently known to exist in AllStarLink 3 and,
 where possible what the workarounds are.</p>
-<p>There are no known major issues with the various components of
-AllStarLink 3. As they arise, and if they cannot be quickly
-resolved, the issues and potential workarounds will be
-listed here.</p></section><h1 class='nav-section-title-end'>Ended: User Guide</h1>
+<h3 id="user-guide-known-issues-diffs-resize2fs_once-error">resize2fs_once "Error"</h3>
+<p>There are intermittent cases of errors on the screen or in 
+the system logs about a failure of a service named 
+<code>resize2fs_once.service</code> after the final first boot upon
+installation. The error may report that it
+"Failed to start" or "timed out". If the <code>/</code> partition has
+been properly resized - which has been the case in every known 
+occurrence of the error - then there is no action to take
+and the issue will not appear on subsequent reboots.</p>
+<p>A properly resized <code>/</code> should be a bit smaller than the full
+size of the SD card or USB drive use with the device.
+In Cockpit, look at the Storage tab:</p>
+<p><a class="glightbox" href="../user-guide/img/known_issue_resize2fs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Known issue resize2fs" src="../user-guide/img/known_issue_resize2fs.png" width="600" /></a></p>
+<p>In this example, <code>/</code> is a 31G partition on a 32G SD card.</p></section><h1 class='nav-section-title-end'>Ended: User Guide</h1>
                         <h1 class='nav-section-title' id='section-pi-appliance'>
                             Pi Appliance <a class='headerlink' href='#section-pi-appliance' title='Permanent link'>↵</a>
                         </h1>
