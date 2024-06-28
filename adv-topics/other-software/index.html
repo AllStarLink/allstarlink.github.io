@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/broadcastify/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/other-software/">
       
       
-        <link rel="prev" href="../incompatibles/">
+        <link rel="prev" href="../allowdenylists/">
       
       
-        <link rel="next" href="../misc/">
+        <link rel="next" href="../sip-phone/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Streaming Node Audio to Broadcastify - AllStarLink Manual</title>
+        <title>Other Software Products - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#streaming-node-audio-to-broadcastify" class="md-skip">
+        <a href="#other-software-products" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Streaming Node Audio to Broadcastify
+              Other Software Products
             
           </span>
         </div>
@@ -1018,10 +1018,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../other-software/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Other Software Products
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1030,6 +1050,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#web-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Dashboards
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1081,30 +1130,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Streaming Node Audio to Broadcastify
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../broadcastify/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1113,53 +1142,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-required-software" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install required software
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-ezstream-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setup Ezstream Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migrating-an-existing-feed" class="md-nav__link">
-    <span class="md-ellipsis">
-      Migrating an existing feed
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1472,93 +1454,17 @@
                   
 
 
-<h1 id="streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
-<p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
-<p>After you have your account and feed credentials, you a ready to setup Allstar.</p>
-<h2 id="install-required-software">Install required software</h2>
-<p>As of 8/5/2023, ezstream, version 1.0.2, contains a bug that prevents it from streaming MP3 data.  The following instructions will walk you through the steps to download and compile the necessary packages.</p>
-<p>Log into your node and type the following commands.</p>
-<pre><code>sudo -s
-cd /usr/src
-
-git clone https://gitlab.xiph.org/xiph/ezstream.git
-cd ezstream
-git checkout master
-
-wget https://gitlab.xiph.org/xiph/ezstream/uploads/ba768fa1349c65b60affd496cf4282ed/ezstream-1.0.2.patch
-
-patch src/stream.c ezstream-1.0.2.patch
-
-apt-get update
-apt-get install check libshout-dev libtagc0-dev lame
-
-./autogen.sh
-./configure
-make
-make install
-
-</code></pre>
-<p>Press control-d to exit from superuser.</p>
-<p>This will compile and install ezstream.  It will also install lame.</p>
-<h2 id="setup-ezstream-configuration">Setup Ezstream Configuration</h2>
-<p>Edit /etc/ezstream.xml with your favorite editor.  You will be creating a new file.</p>
-<p>Add the following to the file.</p>
-<pre><code>&lt;ezstream&gt;
-    &lt;servers&gt;
-        &lt;server&gt;
-            &lt;protocol&gt;HTTP&lt;/protocol&gt;
-            &lt;hostname&gt;Replace with Broadcastify URL&lt;/hostname&gt;
-            &lt;port&gt;80&lt;/port&gt;
-            &lt;password&gt;Replace with your stream password&lt;/password&gt;
-            &lt;tls&gt;none&lt;/tls&gt;
-        &lt;/server&gt;
-    &lt;/servers&gt;
-
-    &lt;streams&gt;
-        &lt;stream&gt;
-            &lt;mountpoint&gt;Replace with your mount point path&lt;/mountpoint&gt;
-            &lt;format&gt;MP3&lt;/format&gt;
-                &lt;stream_name&gt;Replace with your feed name&lt;/stream_name&gt;
-                &lt;stream_url&gt;Your web page&lt;/stream_url&gt;
-                &lt;stream_genre&gt;Amateur Radio&lt;/stream_genre&gt;
-                &lt;stream_description&gt;Replace with your stream description&lt;/stream_description&gt;
-                &lt;stream_bitrate&gt;16&lt;/stream_bitrate&gt;
-                &lt;stream_channels&gt;1&lt;/stream_channels&gt;
-                &lt;stream_samplerate&gt;22050&lt;/stream_samplerate&gt;
-                &lt;stream_public&gt;Yes&lt;/stream_public&gt;
-        &lt;/stream&gt;
-    &lt;/streams&gt;
-
-    &lt;intakes&gt;
-        &lt;intake&gt;
-            &lt;type&gt;stdin&lt;/type&gt;
-        &lt;/intake&gt;
-    &lt;/intakes&gt;
-
-
-&lt;/ezstream&gt;
-</code></pre>
-<p>Save the file.</p>
-<p>Edit /etc/asterisk/rpt.conf.  Add the following line to the bottom of the node that you want to broadcast.</p>
-<pre><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/local/bin/ezstream -qvc /etc/ezstream.xml 2&gt;/tmp/ezstreamlog.txt
-</code></pre>
-<p>The above parameters have these meanings.</p>
-<pre><code>-- preset cbr 16 = use constant bit rate 16
--r = Assume the input file is raw pcm
--m m = Mode mono
--s 8 = sample rate 8
---bitwidth 16 = bit width is 16 (default)
-</code></pre>
-<p>After these changes have been made, you will need to restart asterisk with the following command.</p>
-<pre><code>sudo systemctl restart asterisk
-</code></pre>
-<p>If you experience any problems, look at /tmp/ezstreamlog.txt for error messages.</p>
-<h2 id="migrating-an-existing-feed">Migrating an existing feed</h2>
-<p>If you have an existing feed, you will need to upgrade your existing xml file to the new format.  You can use the following commands.</p>
-<pre><code>cd /etc
-ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
-cp ezstream.xml ~/
-mv ezstream.new ezstream.xml
+<h1 id="other-software-products">Other Software Products</h1>
+<p>The following information relates to software components related to AllStarLink.</p>
+<h2 id="web-dashboards">Web Dashboards</h2>
+<p>The primary web dashboard supported by AllStarLink is <a href="../../allmon3/">Allmon3</a>.</p>
+<p>But, we know there are other dashboards available and everyone has their own personal favorite.
+We also know that some of the other dashboards make use of database ("astdb.txt").
+Typically, this DB has been downloaded by a PHP script ("astdb.php") and updated with the help of boot scripts and cron jobs.</p>
+<p>To support these other dashboards we have included a systemd service to download and update the "astdb.txt" database.  By default, this service and its associated timer are disabled.  If you have installed a dashboard that is dependent on this database you will need to execute the following commands :</p>
+<pre><code class="language-bash">systemctl enable asl3-update-astdb.service
+systemctl enable asl3-update-astdb.timer
+systemctl start asl3-update-astdb.timer
 </code></pre>
 
 
@@ -1595,7 +1501,7 @@ mv ezstream.new ezstream.xml
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../incompatibles/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Incompatible Changes in ASL3">
+          <a href="../allowdenylists/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Allow and Deny Lists">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1605,20 +1511,20 @@ mv ezstream.new ezstream.xml
                 Previous
               </span>
               <div class="md-ellipsis">
-                Incompatible Changes in ASL3
+                Allow and Deny Lists
               </div>
             </div>
           </a>
         
         
           
-          <a href="../misc/" class="md-footer__link md-footer__link--next" aria-label="Next: Miscellaneous">
+          <a href="../sip-phone/" class="md-footer__link md-footer__link--next" aria-label="Next: Setting up a SIP Phone">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Miscellaneous
+                Setting up a SIP Phone
               </div>
             </div>
             <div class="md-footer__button md-icon">

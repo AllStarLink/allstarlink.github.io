@@ -829,6 +829,8 @@
       
         
       
+        
+      
     
     
       
@@ -989,6 +991,27 @@
   
   <span class="md-ellipsis">
     Allow and Deny Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/other-software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Software Products
   </span>
   
 
@@ -2449,6 +2472,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-conftmpl">Asterisk Templates</a></li>
 <li><a href="httpreg/">HTTP Registration</a></li>
 <li><a href="#adv-topics-allowdenylists">Allow and Deny Lists</a></li>
+<li><a href="#adv-topics-other-software">Other Software Products</a></li>
 <li><a href="#adv-topics-sip-phone">SIP Phone Setup</a></li>
 <li><a href="#adv-topics-incompatibles">Incompatibilities</a></li>
 <li><a href="#adv-topics-broadcastify">Broadcastify</a></li>
@@ -2663,7 +2687,18 @@ node_lookup_method = both   ;method used to lookup nodes
 <ul>
 <li>At the asterisk CLI&gt; <code>database del allowlist</code></li>
 <li>To delete all allowed nodes CLI&gt; <code>database del allowlist/yournode</code></li>
-</ul></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
+</ul></section><section class="print-page" id="adv-topics-other-software"><h1 id="adv-topics-other-software-other-software-products">Other Software Products</h1>
+<p>The following information relates to software components related to AllStarLink.</p>
+<h2 id="adv-topics-other-software-web-dashboards">Web Dashboards</h2>
+<p>The primary web dashboard supported by AllStarLink is <a href="#allmon3">Allmon3</a>.</p>
+<p>But, we know there are other dashboards available and everyone has their own personal favorite.
+We also know that some of the other dashboards make use of database ("astdb.txt").
+Typically, this DB has been downloaded by a PHP script ("astdb.php") and updated with the help of boot scripts and cron jobs.</p>
+<p>To support these other dashboards we have included a systemd service to download and update the "astdb.txt" database.  By default, this service and its associated timer are disabled.  If you have installed a dashboard that is dependent on this database you will need to execute the following commands :</p>
+<pre><code class="language-bash">systemctl enable asl3-update-astdb.service
+systemctl enable asl3-update-astdb.timer
+systemctl start asl3-update-astdb.timer
+</code></pre></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
 <p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the depreciation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the sip stack and is the supported sip channel for the future.</p>
 <h2 id="adv-topics-sip-phone-update-modulesconf">Update modules.conf</h2>
 <p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following at the bottom of the file:</p>
