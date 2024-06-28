@@ -2,172 +2,177 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://allstarlink.github.io/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/allowdenylists/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/broadcastify/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/commands/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/conftmpl/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/httpreg/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/incompatibles/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/adv-topics/misc/</loc>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/sa818modules/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/sip-phone/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/adv-topics/usbinterfaces/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/allmon3/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/allmon3/config/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/allmon3/install/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/allmon3/usermgmt/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/developers/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/developers/aptly/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/developers/package-builds/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/developers/source-install/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-basics/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-console/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-firewall/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-network/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-services/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/pi/cockpit-updates/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/install/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/known-issues-diffs/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/menu/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/pi-detailed/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/support/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/updates/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/whats-new/</loc>
-         <lastmod>2024-06-27</lastmod>
+         <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -899,6 +899,8 @@
       
         
       
+        
+      
     
     
       
@@ -1122,6 +1124,27 @@
   
   <span class="md-ellipsis">
     Streaming Node Audio to Broadcastify
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/misc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Miscellaneous
   </span>
   
 
@@ -1456,8 +1479,10 @@ existing configurations.</p>
 specify the <code>DEBIAN_FRONTEND=noninteractive</code> variable:</p>
 <pre><code class="language-bash">DEBIAN_FRONTEND=noninteractive sudo apt update
 DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
-sudo reboot
 </code></pre>
+<p>Using this command will automatically choose "N" to any 
+question about configuration - i.e. it will always keep
+your installed version.</p>
 <h2 id="note-on-dahdi">Note on DAHDI</h2>
 <p>In the past, managing the DAHDI kernel module needed
 by app_rpt had been problematic during kernel upgrades.
