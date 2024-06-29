@@ -831,6 +831,8 @@
       
         
       
+        
+      
     
     
       
@@ -1096,6 +1098,27 @@
   
   <span class="md-ellipsis">
     Miscellaneous
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/hotspot_hd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Half Duplex Hot Spots
   </span>
   
 
@@ -3023,7 +3046,32 @@ is the possibility for some problems and bugs.</p>
 <p>Changing package streams is accomplished with <code>asl-repo-switch -l STREAM</code>.
 For example: <code>asl-repo-switch -l beta</code>. Note that packages 
 will not be reverted to older versions if one moves
-from beta back to prod.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+from beta back to prod.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-half-duplex-hot-spots">Half Duplex Hot Spots</h1>
+<p>This applies to all most all hot spots as they have one radio acting as both receiver and transmitter.</p>
+<p>To improve hot spot operation by shorting the unkey delay these steps must be performed.</p>
+<p>First when setting up a hot spot with the asl-menu select the Duplex 1 option.</p>
+<ul>
+<li>From the node's landing page click the  Web Admin Portal</li>
+<li>Select terminal</li>
+<li>Type <code>sudo asl-menu</code></li>
+<li>Select <code>6. Expert Configuration Menu</code></li>
+<li>Select <code>1. Edit rpt.conf</code></li>
+<li>Select <code>2. /bin/nano   &lt;---- easiest</code> if asked</li>
+<li>Scroll down below the line with <code>[&lt;your node number&gt;](node-main)</code></li>
+<li>On a blank line that is above <code>[functions]</code><ul>
+<li>type <code>wait_times = wait-times_hd</code></li>
+<li>press enter and type <code>hangtime=100</code></li>
+<li>Save with cntl-X, enter, yes.</li>
+</ul>
+</li>
+<li>On the asl-menu select <code>&lt;Back to Main Menu&gt;</code></li>
+<li>Select <code>1. Node Settings</code></li>
+<li>Select <code>2. Restart Asterisk</code></li>
+<li>Select <code>&lt;Back&gt;</code></li>
+<li>Select <code>&lt;Exit Main Menu&gt;</code></li>
+<li>Select <code>&lt;Yes&gt;</code></li>
+</ul>
+<p>We will make this a single menu with the next release.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>
