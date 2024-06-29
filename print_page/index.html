@@ -904,6 +904,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/incompatibles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Incompatibilities with Legacy Versions &amp; Configs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/usbinterfaces/" class="md-nav__link">
         
   
@@ -1035,27 +1056,6 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adv-topics/incompatibles/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Incompatible Changes in ASL3
   </span>
   
 
@@ -1469,7 +1469,7 @@ make ASL3 the best AllStar release yet.</p>
                             User Guide <a class='headerlink' href='#section-user-guide' title='Permanent link'>↵</a>
                         </h1>
                         <section class="print-page" id="user-guide"><h1 id="user-guide-asl3-user-guide">ASL3 User Guide</h1>
-<p>This is the AllStarLink version 3 User's Guide. No doubt you're you've noticed this is not a Wiki. The <a href="https://wiki.allstarlink.org">ASL Wiki</a> still exists while this manual covers ASL3 specifics.</p>
+<p>This is the AllStarLink version 3 User's Guide. No doubt you're you've noticed this is not a Wiki. The <a href="https://wiki.allstarlink.org">ASL Wiki</a> still exists, largely to document ASL1 and ASL3, while this manual covers ASL3 specifics and is the future home for all ASL documentation.</p>
 <p>Did you see the "Next" and "Previous" menu items? Those will page to the next section of this document in the order of the bullets below. We think you'll find this an orderly way to learn about ASL3.  Lets get started.</p>
 <ul>
 <li><a href="#user-guide-whats-new">What's New?</a></li>
@@ -1574,7 +1574,7 @@ node number as you proceed through these directions.</p>
 <li>
 <p>Download the <a href="https://repo.allstarlink.org/images/pi/">latest release image</a>. This will
 be named <code>allstar3-arm64-X.Y.Z.img.xz</code> where "X.Y.Z" is the version. The version will
-be something like 3.0.1. Save it to your local <code>Downloads</code> directory.</p>
+be something like 3.0.10. Save it to your local <code>Downloads</code> directory.</p>
 </li>
 <li>
 <p>Launch <strong>Raspberry Pi Imager</strong> from the start menu.</p>
@@ -2490,6 +2490,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
                         <section class="print-page" id="adv-topics"><h1 id="adv-topics-advanced-topics">Advanced Topics</h1>
 <ul>
 <li><a href="#adv-topics-commands">New Commands</a></li>
+<li><a href="#adv-topics-incompatibles">Incompatibilities with Legacy Versions &amp; Configs</a></li>
 <li><a href="#adv-topics-usbinterfaces">USB Audio Interfaces</a></li>
 <li><a href="#adv-topics-sa818modules">SA818 RF Modules</a></li>
 <li><a href="#adv-topics-conftmpl">Asterisk Templates</a></li>
@@ -2497,7 +2498,6 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-allowdenylists">Allow and Deny Lists</a></li>
 <li><a href="#adv-topics-other-software">Other Software Products</a></li>
 <li><a href="#adv-topics-sip-phone">SIP Phone Setup</a></li>
-<li><a href="#adv-topics-incompatibles">Incompatibilities</a></li>
 <li><a href="#adv-topics-broadcastify">Broadcastify</a></li>
 <li><a href="#adv-topics-misc">Miscellaneous</a></li>
 <li><a href="#adv-topics-hotspot_hd">Hot Spot Unkey Delay</a></li>
@@ -2566,7 +2566,33 @@ have manufacturer data in the area that stores user configuration.  The
 manufacturer data cannot be overwritten.  The user configuration data has been
 moved higher in memory to prevent overwriting the manufacturer data.  If you
 use the EEPROM to store configuration data, you will need to save it to the
-EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-usbinterfaces"><h1 id="adv-topics-usbinterfaces-usb-audio-interfaces">USB Audio Interfaces</h1>
+EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-incompatibles"><h1 id="adv-topics-incompatibles-incompatibilities-with-legacy-versions-configs">Incompatibilities with Legacy Versions &amp; Configs</h1>
+<p>AllStarLink v3 has certain incompatible changes with older
+versions of the AllStarLink system.</p>
+<h2 id="adv-topics-incompatibles-voterrtcm-default-port">Voter/RTCM Default Port</h2>
+<p>Modern installations of Asterisk runs as the unprivileged <code>asterisk</code> user rather than
+as <code>root</code>. Standard Linux convention prohibits non-root users to listen on a TCP
+port below 1024. The default port for Voters/RTCMs has been changed to <code>1667</code> when
+previously it was <code>667</code>.</p>
+<p>If the Voter/RTCM port cannot be easily changed, then the following
+configuration can be made to the underlying operating system:</p>
+<pre><code class="language-bash">echo net.ipv4.ip_unprivileged_port_start=667 &gt; /etc/sysctl.d/aslport667.conf
+sysctl -p
+systemctl restart asterisk
+</code></pre>
+<p>If running the AllStarLink Pi Appliance (or another system with a firewall),
+inbound to port 667/UDP must be permitted. For directions on how to do this
+with the Pi Appliance see <a href="#pi-cockpit-firewall">Managing the Firewall</a>.</p>
+<h2 id="adv-topics-incompatibles-usb-udev">USB udev</h2>
+<p>A udev rule is needed to allow Asterisk running as non-root access to the USB system. ASL3 systems installed from debs, apt install or images will already have this rule in place.</p>
+<pre><code class="language-text">/etc/udev/rules.d/90-asl3.rules
+SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;0d8c&quot;, GROUP=&quot;plugdev&quot;, TAG+=&quot;uaccess&quot;
+</code></pre>
+<p>The UDev subsystem must be reloaded and then the USB device re-inserted
+into the port. UDev is reloaded with the command</p>
+<pre><code class="language-bash">udevadm control --reload
+</code></pre>
+<p>Alternatively, reboot the system.</p></section><section class="print-page" id="adv-topics-usbinterfaces"><h1 id="adv-topics-usbinterfaces-usb-audio-interfaces">USB Audio Interfaces</h1>
 <p>Setting up USB audio interfaces is much easier with ASL3.</p>
 <ul>
 <li>The USB audio interface "tune" settings have been moved into their respective configuration files; "simpleusb.conf" and "usbradio.conf". The separate tune files (e.g. "simple-tune-usb1999.conf") no longer exist.</li>
@@ -2899,33 +2925,7 @@ systemctl start asl3-update-astdb.timer
 <h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
 <p>If you have trouble connecting your sip phone, start the asterisk command line with <code>asterisk -rvvv</code>.  Enter the command <code>pjsip set logger on</code>.  This will show the communications between the sip phone and asterisk.  It will also show the actions in your dial plan.</p>
 <h2 id="adv-topics-sip-phone-security">Security</h2>
-<p>If you will be exposing your system to the outside world.  You should consider using fail2ban to protect the system.</p></section><section class="print-page" id="adv-topics-incompatibles"><h1 id="adv-topics-incompatibles-incompatible-changes-in-asl3">Incompatible Changes in ASL3</h1>
-<p>AllStarLink v3 has certain incompatible changes with older
-versions of the AllStarLink system.</p>
-<h2 id="adv-topics-incompatibles-voterrtcm-default-port">Voter/RTCM Default Port</h2>
-<p>Modern installations of Asterisk runs as the unprivileged <code>asterisk</code> user rather than
-as <code>root</code>. Standard Linux convention prohibits non-root users to listen on a TCP
-port below 1024. The default port for Voters/RTCMs has been changed to <code>1667</code> when
-previously it was <code>667</code>.</p>
-<p>If the Voter/RTCM port cannot be easily changed, then the following
-configuration can be made to the underlying operating system:</p>
-<pre><code class="language-bash">echo net.ipv4.ip_unprivileged_port_start=667 &gt; /etc/sysctl.d/aslport667.conf
-sysctl -p
-systemctl restart asterisk
-</code></pre>
-<p>If running the AllStarLink Pi Appliance (or another system with a firewall),
-inbound to port 667/UDP must be permitted. For directions on how to do this
-with the Pi Appliance see <a href="#pi-cockpit-firewall">Managing the Firewall</a>.</p>
-<h2 id="adv-topics-incompatibles-usb-udev">USB udev</h2>
-<p>A udev rule is needed to allow Asterisk running as non-root access to the USB system. ASL3 systems installed from debs, apt install or images will already have this rule in place.</p>
-<pre><code class="language-text">/etc/udev/rules.d/90-asl3.rules
-SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;0d8c&quot;, GROUP=&quot;plugdev&quot;, TAG+=&quot;uaccess&quot;
-</code></pre>
-<p>The UDev subsystem must be reloaded and then the USB device re-inserted
-into the port. UDev is reloaded with the command</p>
-<pre><code class="language-bash">udevadm control --reload
-</code></pre>
-<p>Alternatively, reboot the system.</p></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
+<p>If you will be exposing your system to the outside world.  You should consider using fail2ban to protect the system.</p></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
 <p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>,
 you will need a Broadcastify account. You can then apply for a feed.
 This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a>
