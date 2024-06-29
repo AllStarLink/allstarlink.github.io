@@ -1118,7 +1118,7 @@
         
   
   <span class="md-ellipsis">
-    Half Duplex Hot Spots
+    Hot Spot Unkey Delay
   </span>
   
 
@@ -2500,7 +2500,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-incompatibles">Incompatibilities</a></li>
 <li><a href="#adv-topics-broadcastify">Broadcastify</a></li>
 <li><a href="#adv-topics-misc">Miscellaneous</a></li>
-<li><a href="#adv-topics-hotspot_hd">Shorten Hotspot unkey Delay</a></li>
+<li><a href="#adv-topics-hotspot_hd">Hot Spot Unkey Delay</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -3047,10 +3047,12 @@ is the possibility for some problems and bugs.</p>
 <p>Changing package streams is accomplished with <code>asl-repo-switch -l STREAM</code>.
 For example: <code>asl-repo-switch -l beta</code>. Note that packages 
 will not be reverted to older versions if one moves
-from beta back to prod.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-half-duplex-hot-spots">Half Duplex Hot Spots</h1>
-<p>This applies to all most all hot spots as they have one radio acting as both receiver and transmitter.</p>
-<p>To improve hot spot operation by shorting the unkey delay these steps must be performed.</p>
-<p>First when setting up a hot spot with the asl-menu select the Duplex 1 option.</p>
+from beta back to prod.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-unkey-delay">Hot Spot Unkey Delay</h1>
+<p>When setting up a hot spot select the Duplex 1 option with the asl-menu
+will allow the hot spot to function. However the unkey delay of the
+radio transmiter will be too long.</p>
+<p>These steps will shorting the unkey delay and will greatly
+improve hot spot responsiveness.</p>
 <ul>
 <li>From the node's landing page click the  Web Admin Portal</li>
 <li>Select terminal</li>
@@ -3072,7 +3074,7 @@ from beta back to prod.</p></section><section class="print-page" id="adv-topics-
 <li>Select <code>&lt;Exit Main Menu&gt;</code></li>
 <li>Select <code>&lt;Yes&gt;</code></li>
 </ul>
-<p>We will make this a single menu with the next release.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+<p>This setup will likely be a single menu selection with the next release of ASL3.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>
