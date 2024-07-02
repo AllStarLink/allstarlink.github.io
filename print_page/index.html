@@ -1944,7 +1944,19 @@ and the issue will not appear on subsequent reboots.</p>
 size of the SD card or USB drive used with the device.
 In Cockpit, look at the Storage tab:</p>
 <p><a class="glightbox" href="../user-guide/img/known_issue_resize2fs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Known issue resize2fs" src="../user-guide/img/known_issue_resize2fs.png" width="600" /></a></p>
-<p>In this example, <code>/</code> is a 31G partition on a 32G SD card.</p></section><section class="print-page" id="user-guide-support"><h1 id="user-guide-support-asl3-support">ASL3 Support</h1>
+<p>In this example, <code>/</code> is a 31G partition on a 32G SD card.</p>
+<h3 id="user-guide-known-issues-diffs-shutdownrestart-issues-with-ezstreambroadcastify-enabled">Shutdown/Restart Issues with EZStream/Broadcastify Enabled</h3>
+<p>With the configuration for <a href="#adv-topics-broadcastify">Broadcastify</a> enabled,
+shutting down or restarting Asterisk is not quick or always reliable. When
+issuing <code>systemctl stop</code> or <code>systemctl restart</code> for the <code>asterisk.service</code> unit
+it will take upwards of 90 seconds to properly terminate and exit/respawn.
+Make sure any <code>lame</code> and <code>ezstream</code> processed are killed and not orphaned.</p>
+<pre><code class="language-bash"># ps auxww | grep asterisk
+asterisk 1443572  0.0  0.0   2416  1024 ?        S    10:13   0:00 /bin/sh -c /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
+asterisk 1443573  0.1  0.1  11920  5120 ?        S    10:13   0:00 /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - -
+asterisk 1443574  0.0  0.2  55232 10240 ?        S    10:13   0:00 /usr/bin/ezstream -qvc /etc/ezstream.xml
+</code></pre>
+<p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p></section><section class="print-page" id="user-guide-support"><h1 id="user-guide-support-asl3-support">ASL3 Support</h1>
 <h2 id="user-guide-support-support">Support</h2>
 <p>Primary support for all versions of ASL (including ASL3) continues to be the <a href="https://community.allstarlink.org/">AllStarLink Community</a>.
 Please do not use the ASL Helpdesk for technical help.
@@ -2999,7 +3011,7 @@ your node is 63001 then look for <code>[63001](node-main)</code>. Within that co
 stanza, add the following line:</p>
 </li>
 </ul>
-<pre><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml 2&gt;/var/log/ezstream.log
+<pre><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
 </code></pre>
 <p>The above parameters have these meanings:</p>
 <pre><code>-- preset cbr 16` = use constant bit rate 16

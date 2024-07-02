@@ -673,6 +673,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shutdownrestart-issues-with-ezstreambroadcastify-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shutdown/Restart Issues with EZStream/Broadcastify Enabled
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1579,6 +1588,18 @@ size of the SD card or USB drive used with the device.
 In Cockpit, look at the Storage tab:</p>
 <p><a class="glightbox" href="../img/known_issue_resize2fs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Known issue resize2fs" src="../img/known_issue_resize2fs.png" width="600" /></a></p>
 <p>In this example, <code>/</code> is a 31G partition on a 32G SD card.</p>
+<h3 id="shutdownrestart-issues-with-ezstreambroadcastify-enabled">Shutdown/Restart Issues with EZStream/Broadcastify Enabled</h3>
+<p>With the configuration for <a href="../../adv-topics/broadcastify/">Broadcastify</a> enabled,
+shutting down or restarting Asterisk is not quick or always reliable. When
+issuing <code>systemctl stop</code> or <code>systemctl restart</code> for the <code>asterisk.service</code> unit
+it will take upwards of 90 seconds to properly terminate and exit/respawn.
+Make sure any <code>lame</code> and <code>ezstream</code> processed are killed and not orphaned.</p>
+<pre><code class="language-bash"># ps auxww | grep asterisk
+asterisk 1443572  0.0  0.0   2416  1024 ?        S    10:13   0:00 /bin/sh -c /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
+asterisk 1443573  0.1  0.1  11920  5120 ?        S    10:13   0:00 /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - -
+asterisk 1443574  0.0  0.2  55232 10240 ?        S    10:13   0:00 /usr/bin/ezstream -qvc /etc/ezstream.xml
+</code></pre>
+<p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p>
 
 
 
