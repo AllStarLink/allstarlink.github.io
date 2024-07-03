@@ -1785,14 +1785,14 @@ development tools to keep the kernel module updated, and the asl3-menu.</p>
 automated updates of kernels through the standard <code>apt upgrade</code> process.
 There is no longer any reason to hold back kernel upgrades with the ASL3
 packaging.</p>
-<p>The following packages are also installed with ASL3:</p>
+<p>The following packages are also available and can be installed with ASL3:</p>
 <p><code>allmon3</code> - The updated web interface to AllStarLink which includes strong
 support for mobile devices and screens of all sizes and shapes.</p>
-<p><code>asl3-update-nodelist</code> - And updated node service to maintain a local
-database copy of the AllStarLink node database. While, in general, the
+<p><code>asl3-update-nodelist</code> - An updated node service to maintain a local copy of the AllStarLink node database (rpt_extnodes). While, in general, the
 preferred method of node lookup is DNS, some installations with
 slow Internet or DNS servers that have very long cache timers may benefit
-from this method of node lookup instead.</p>
+from this method of node lookup instead.
+This package also include a service to maintain a local copy of the AllStarLink node information database (astdb.txt).</p>
 <h2 id="user-guide-install-node-configuration">Node Configuration</h2>
 <p>Next step is to configure the node settings. YouTuber Freddie Mac has a nice ASL3 RPi installation and configuration video. See the part where the asl-menu is shown <a href="https://youtu.be/aeuj-yI8qrU">https://youtu.be/aeuj-yI8qrU</a>. Also see <a href="#user-guide-menu">ASL3 Menu</a> for details.</p>
 <h2 id="user-guide-install-docker">Docker</h2>
@@ -2623,7 +2623,9 @@ But, for those who prefer a command line interface we have also included <code>s
 <p>To program your SA818 with the menu executing the following command from the Linux shell :</p>
 <pre><code>sa818-menu
 </code></pre>
-<p>Here, you will be able to view the last saved (or default) settings.  The settings include :</p>
+<p>Here, you will be able to view the last saved (or default) settings.
+Please note that the "last saved" settings are those saved by the <code>sa818-menu</code> command on your system.  We have no way to "read" settings from the SA818 RF module.</p>
+<p>The settings include :</p>
 <table>
 <thead>
 <tr>
@@ -3638,8 +3640,14 @@ comfortable using various development tools and the Linux CLI.</p>
 <li>Installs and runs Asterisk as root (this is, in general, bad)</li>
 </ul>
 <h2 id="developers-source-install-install-phreaknetsh-script">Install phreaknet.sh script</h2>
-<p>The phreaknet script compiles and patches Asterisk and DAHDI.</p>
-<pre><code class="language-bash">cd /usr/src &amp;&amp; wget https://docs.phreaknet.org/script/phreaknet.sh &amp;&amp; chmod +x phreaknet.sh &amp;&amp; ./phreaknet.sh make
+<p>The phreaknet script compiles and patches Asterisk and DAHDI.  You should install the script with the following commands :</p>
+<pre><code class="language-bash">cd /usr/src
+wget https://docs.phreaknet.org/script/phreaknet.sh
+chmod +x phreaknet.sh
+./phreaknet.sh make
+</code></pre>
+<p>Once installed, you can keep the script updated with :</p>
+<pre><code class="language-bash">phreaknet update
 </code></pre>
 <h2 id="developers-source-install-install-asterisk-20-lts">Install Asterisk 20 LTS</h2>
 <p>Use -t or -b for developer mode. Both are optional.</p>
@@ -3667,10 +3675,7 @@ git clone https://github.com/AllStarLink/app_rpt.git
 <p>This adds ASL3 configs to the full set of Asterisk configuration files. ASL3 modules.conf limits what actually runs.</p>
 <pre><code class="language-bash">cp /usr/src/app_rpt/configs/rpt/* /etc/asterisk
 </code></pre>
-<blockquote>
-<p>reboot the system</p>
-</blockquote>
-<p>You should now have a complete ASL3 install.</p>
+<p>After restarting Asterisk (or rebooting the system) you should now have a complete ASL3 install.  You can use the following command as a quick check :</p>
 <pre><code class="language-bash">asterisk -rx &quot;rpt localnodes&quot;
 </code></pre>
 <p>You should see node 1999.</p></section><section class="print-page" id="developers-aptly"><h1 id="developers-aptly-allstarlink-apt-repos">AllStarLink Apt Repos</h1>
