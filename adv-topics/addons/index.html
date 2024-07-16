@@ -12,13 +12,9 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/sip-phone/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/addons/">
       
       
-        <link rel="prev" href="../other-software/">
-      
-      
-        <link rel="next" href="../broadcastify/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +22,7 @@
     
     
       
-        <title>Setting up a SIP Phone - AllStarLink Manual</title>
+        <title>Add-ons - AllStarLink Manual</title>
       
     
     
@@ -103,7 +99,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setting-up-a-sip-phone" class="md-skip">
+        <a href="#add-ons" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +132,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setting up a SIP Phone
+              Add-ons
             
           </span>
         </div>
@@ -267,12 +263,10 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../" class="md-tabs__link">
           
   
@@ -809,8 +803,6 @@
       
   
   
-    
-  
   
   
     
@@ -847,19 +839,16 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           
@@ -875,13 +864,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Advanced Topics
@@ -1062,30 +1051,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Setting up a SIP Phone
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sip-phone/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1094,89 +1063,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#update-modulesconf" class="md-nav__link">
-    <span class="md-ellipsis">
-      Update modules.conf
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-extensionsconf" class="md-nav__link">
-    <span class="md-ellipsis">
-      Update extensions.conf
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#update-pjsipconf" class="md-nav__link">
-    <span class="md-ellipsis">
-      Update pjsip.conf
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restart-your-asterisk" class="md-nav__link">
-    <span class="md-ellipsis">
-      Restart your asterisk
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-config-with-multiple-sip-phones" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example config with multiple sip phones
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1531,184 +1417,48 @@
                   
 
 
-<h1 id="setting-up-a-sip-phone">Setting up a SIP Phone</h1>
-<p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the depreciation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the sip stack and is the supported sip channel for the future.</p>
-<h2 id="update-modulesconf">Update modules.conf</h2>
-<p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following at the bottom of the file:</p>
-<pre><code>    ;
-    ;modules for pjsip
-    ;
-    noload = app_voicemail.so
-    load = bridge_builtin_features.so
-    load = bridge_builtin_interval_features.so
-    load = bridge_holding.so
-    load = bridge_native_rtp.so
-    load = bridge_simple.so
-    load = bridge_softmix.so
-    load = chan_bridge_media.so
-    load = chan_pjsip.so
-    load = func_pjsip_endpoint.so
-    load = func_sorcery.so
-    load = func_devstate.so
-    load = res_pjproject.so
-    load = res_pjsip_acl.so
-    load = res_pjsip_authenticator_digest.so
-    load = res_pjsip_caller_id.so
-    load = res_pjsip_dialog_info_body_generator.so
-    load = res_pjsip_diversion.so
-    load = res_pjsip_dtmf_info.so
-    load = res_pjsip_endpoint_identifier_anonymous.so
-    load = res_pjsip_endpoint_identifier_ip.so
-    load = res_pjsip_endpoint_identifier_user.so
-    load = res_pjsip_exten_state.so
-    load = res_pjsip_header_funcs.so
-    load = res_pjsip_logger.so
-    load = res_pjsip_messaging.so
-    load = res_pjsip_mwi_body_generator.so
-    load = res_pjsip_mwi.so
-    load = res_pjsip_nat.so
-    load = res_pjsip_notify.so
-    load = res_pjsip_one_touch_record_info.so
-    load = res_pjsip_outbound_authenticator_digest.so
-    load = res_pjsip_outbound_publish.so
-    load = res_pjsip_outbound_registration.so
-    load = res_pjsip_path.so
-    load = res_pjsip_pidf_body_generator.so
-    load = res_pjsip_pidf_digium_body_supplement.so
-    load = res_pjsip_pidf_eyebeam_body_supplement.so
-    load = res_pjsip_publish_asterisk.so
-    load = res_pjsip_pubsub.so
-    load = res_pjsip_refer.so
-    load = res_pjsip_registrar.so
-    load = res_pjsip_rfc3326.so
-    load = res_pjsip_sdp_rtp.so
-    load = res_pjsip_send_to_voicemail.so
-    load = res_pjsip_session.so
-    load = res_pjsip.so
-    noload = res_pjsip_t38.so
-    noload = res_pjsip_transport_websocket.so
-    load = res_pjsip_xpidf_body_generator.so
-    load = res_rtp_asterisk.so
-    load = res_sorcery_astdb.so
-    load = res_sorcery_config.so
-    load = res_sorcery_memory.so
-    load = res_sorcery_realtime.so
-</code></pre>
-<h2 id="update-extensionsconf">Update extensions.conf</h2>
-<p>The next step is to update extension.conf.  This creates a dial plan that controls access to your node by sip phones.  Edit /etc/asterisk/extensions.conf and add the following to the bottom of the file.  This example will set up extension 1001 as your local phone and the dialing plan for your node.</p>
-<pre><code>    [sip-phones]
-    exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
-
-    exten =&gt; ${NODE},1,Ringing
-    exten =&gt; ${NODE},n,Answer(3000)
-    exten =&gt; ${NODE},n,Set(NODENUM=${CALLERID(number)})
-    exten =&gt; ${NODE},n,Playback(extension)
-    exten =&gt; ${NODE},n,SayDigits(${NODENUM})
-    exten =&gt; ${NODE},n,Playback(connected)
-    exten =&gt; ${NODE},n,Playback(rpt/node)
-    exten =&gt; ${NODE},n,SayDigits(${EXTEN})
-    exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
-    exten =&gt; ${NODE},n,Hangup
-</code></pre>
-<p>The above dial plan will allow your sip phone to dial your node number.  This dial plan announces the extension number and the connecting node number.  The orange highlighted lines can be removed if you do not want the announcement.</p>
-<p>The ${NODE} variable is defined at the top of extensions.conf and should be your assigned node number.  See the following.</p>
-<pre><code>    [globals]
-    HOMENPA = 999 ; change this to your Area Code
-    NODE = 1999   ; change this to your node number
-</code></pre>
-<p>The entry <strong>1001</strong> in extensions.conf is the extension number for your sip phone.  If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
-<p><em>Note:  If you attempt to copy extensions.conf from a previous release of AllStarLink, it will fail.  AllStarLink version 3 requires comma delimiters instead of pipe symbols for standard asterisk functions.  The rpt function continues to use a pipe delimiter.  This is subject to change in a future release.</em></p>
-<h2 id="update-pjsipconf">Update pjsip.conf</h2>
-<p>You are now ready to configure pjsip.  Edit /etc/asterisk/pjsip.conf.  Don’t get overwhelmed by all of the text in the sample configuration.  pjsip supports several configurations.  This document focuses on the necessary entries to get a sip phone operational.</p>
-<p>Scroll down to the Basic UDP transport section.  It should look like the following:</p>
-<pre><code>    ; Basic UDP transport
-    ;
-    [transport-udp]
-    type=transport
-    protocol=udp    ;udp,tcp,tls,ws,wss,flow
-    bind=0.0.0.0:5060
-</code></pre>
-<p>Scroll down to the section titled Endpoint Configured For Use With A Sip Phone.  For each extension, you will need to enter 3 sections.  Here is an example for extension 1001.</p>
-<pre><code>    [1001]
-    type=endpoint
-    transport=transport-udp
-    context=sip-phones
-    disallow=all
-    allow=ulaw
-    allow=alaw
-    allow=gsm
-    auth=1001
-    aors=1001
-    callerid=&quot;My CallerID&quot;
-    ;
-    ; A few more transports to pick from, and some related options below them.
-    ;
-    ;transport=transport-tls
-    ;media_encryption=sdes
-    ;transport=transport-udp-ipv6
-    ;transport=transport-udp-nat
-    ;direct_media=no
-    ;
-    ; MWI related options
-
-    ;aggregate_mwi=yes
-    ;mailboxes=6001@default,7001@default
-    ;mwi_from_user=6001
-    ;
-    ; Extension and Device state options
-    ;
-    ;device_state_busy_at=1
-    ;allow_subscribe=yes
-    ;sub_min_expiry=30
-    ;
-    ; STIR/SHAKEN support.
-    ;
-    ;stir_shaken=no
-    ;stir_shaken_profile=my_profile
-
-    [1001]
-    type=auth
-    auth_type=userpass
-    password=1001
-    username=1001
-
-    [1001]
-    type=aor
-    max_contacts=4
-    ;contact=sip:6001@192.0.2.1:5060
-</code></pre>
-<p>If you want to use a different extension number, you will need to change <strong>[1001]</strong> with your desired number.  The item <strong>callerid="My CallerID"</strong> should also be updated for your preferred caller identifier.</p>
-<p>The items <strong>password=1001</strong> and <strong>username=1001</strong> should be updated to match the username and password you want for your extension number.  You should use a complex password.  Do not use the extension number.  You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here </a>to generate a complex password.</p>
-<p>These three sections can be replicated for each extension that you want to add to the system.</p>
-<h2 id="restart-your-asterisk">Restart your asterisk</h2>
-<p>After completing these changes, you must restart asterisk or reboot your system.</p>
-<pre><code class="language-bash">systemctl restart asterisk
-</code></pre>
-<h2 id="example-config-with-multiple-sip-phones">Example config with multiple sip phones</h2>
-<p>As noted above you can have more sip phones.  Here is an example of a simple dial plan that has multiple extensions.</p>
-<pre><code>    [sip-phones]
-    ; Extension 210 - Line 1
-    ; Extension 211 - Line 2
-    ; Extension 212 - Garage
-    ; Extension 213 - Cordless ATA
-    ; Extension 1000 - Voice Mail
-
-    exten =&gt; 210,1,Dial(PJSIP/210,60,rT)
-    exten =&gt; 211,1,Dial(PJSIP/211,60,rT)
-    exten =&gt; 212,1,Dial(PJSIP/212,60,rT)
-    exten =&gt; 213,1,Dial(PJSIP/213,60,rT)
-    exten =&gt; 1000,1,VoiceMailMain(210)
-    exten =&gt; 1000,2,Hangup
-
-    ; Allow SIP calls to local nodes
-    exten =&gt; 1998,1,rpt(1998|P)
-    exten =&gt; 1999,1,rpt(1999|P)
-</code></pre>
-<p>This example includes voicemail.  To use voice mail, you will need to change <code>noload = app_voicemail.so</code>to <code>load = app_voicemail.so.</code></p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you have trouble connecting your sip phone, start the asterisk command line with <code>asterisk -rvvv</code>.  Enter the command <code>pjsip set logger on</code>.  This will show the communications between the sip phone and asterisk.  It will also show the actions in your dial plan.</p>
-<h2 id="security">Security</h2>
-<p>If you will be exposing your system to the outside world.  You should consider using fail2ban to protect the system.</p>
+<h1 id="add-ons">Add-ons</h1>
+<p>The following information relates to software components related to AllStarLink.</p>
+<h2 id="software-add-ons">Software Add-ons</h2>
+<p>The following are software add-ons known to work with ASL3 :</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://allscan.info">AllScan</a></td>
+<td>AllStar Favorites Management &amp; Scanning Web App</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hardware-add-ons">Hardware Add-ons</h2>
+<p>The following are software add-ons known to work with ASL3 :</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://kits4hams.com">SHARI</a></td>
+<td>SA818 Ham Allstar Radio Interface</td>
+</tr>
+<tr>
+<td><a href="https://hotspotradios.com">HotSpot Radio</a></td>
+<td>Allstarlink Node HotSpotRadio</td>
+</tr>
+</tbody>
+</table>
+<h2 id="note-to-developers-and-vendors">Note to developers and vendors</h2>
+<p>We are happy to add your AllStarLink-related software or hardware product to the list above.
+All we ask is that you your product fully support ASL3, that you have documentation that details how to install your product on an ASL3 system, that you provide contact information for those who need support for your product, and that you agree to work with the AllStarLink development team if any issues arise.
+For more information, please contact us at <a href="mailto:development@allstarlink.org">development@allstarlink.org</a></p>
 
 
 
@@ -1739,44 +1489,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../other-software/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Other Software Products">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Other Software Products
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../broadcastify/" class="md-footer__link md-footer__link--next" aria-label="Next: Streaming Node Audio to Broadcastify">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Streaming Node Audio to Broadcastify
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

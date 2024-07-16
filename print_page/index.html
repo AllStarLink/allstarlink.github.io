@@ -2849,7 +2849,7 @@ systemctl start asl3-update-astdb.timer
     HOMENPA = 999 ; change this to your Area Code
     NODE = 1999   ; change this to your node number
 </code></pre>
-<p>The entry in blue is the extension number for your sip phone.  If you want to use a different extension number, change this entry to match your extension.</p>
+<p>The entry <strong>1001</strong> in extensions.conf is the extension number for your sip phone.  If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
 <p><em>Note:  If you attempt to copy extensions.conf from a previous release of AllStarLink, it will fail.  AllStarLink version 3 requires comma delimiters instead of pipe symbols for standard asterisk functions.  The rpt function continues to use a pipe delimiter.  This is subject to change in a future release.</em></p>
 <h2 id="adv-topics-sip-phone-update-pjsipconf">Update pjsip.conf</h2>
 <p>You are now ready to configure pjsip.  Edit /etc/asterisk/pjsip.conf.  Don’t get overwhelmed by all of the text in the sample configuration.  pjsip supports several configurations.  This document focuses on the necessary entries to get a sip phone operational.</p>
@@ -2910,8 +2910,8 @@ systemctl start asl3-update-astdb.timer
     max_contacts=4
     ;contact=sip:6001@192.0.2.1:5060
 </code></pre>
-<p>If you want to use a different extension number, you will need to update the items in yellow with your desired number.  The item in orange should also be updated for your preferred caller identifier.</p>
-<p>The items marked in blue should be updated to match the username and password you want for your extension number.  You should use a complex password.  Do not use the extension number.  You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here </a>to generate a complex password.</p>
+<p>If you want to use a different extension number, you will need to change <strong>[1001]</strong> with your desired number.  The item <strong>callerid="My CallerID"</strong> should also be updated for your preferred caller identifier.</p>
+<p>The items <strong>password=1001</strong> and <strong>username=1001</strong> should be updated to match the username and password you want for your extension number.  You should use a complex password.  Do not use the extension number.  You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here </a>to generate a complex password.</p>
 <p>These three sections can be replicated for each extension that you want to add to the system.</p>
 <h2 id="adv-topics-sip-phone-restart-your-asterisk">Restart your asterisk</h2>
 <p>After completing these changes, you must restart asterisk or reboot your system.</p>
