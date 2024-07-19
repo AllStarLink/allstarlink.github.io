@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1500,15 +1523,15 @@ password combination is<code>allmon3 / password</code>.</p>
 or editing an existing user is the same command. If the user does not exist,
 it will be added. If the user does exist, the password will be updated. 
 To add or edit a user's password: </p>
-<pre><code>$ allmon3-passwd allmon3
+<p><div class="highlight"><pre><span></span><code>$ allmon3-passwd allmon3
 Enter the password for allmon3: password
 Confirm the password for allmon3: password
-</code></pre>
-<p>That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the
+</code></pre></div>
+That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the
 Argon2 hash changed for the user.</p>
 <p>Deleting a user is simply adding the <code>--delete</code> flag to the command:</p>
-<pre><code>$ allmon3-passwd --delete allmon3
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ allmon3-passwd --delete allmon3
+</code></pre></div>
 <p>After changing a user password, the allmon3 damon must be reloaded
 with <code>systemctl reload allmon3</code>.</p>
 <h2 id="per-node-restrictions-for-users">Per-Node Restrictions for Users</h2>
@@ -1535,11 +1558,10 @@ issuing the command.</p>
 </li>
 </ol>
 <p>The format of the <code>user-restrictions</code> file is:</p>
-<pre><code>user1 | NODE[,NODE,NODE...]
+<p><div class="highlight"><pre><span></span><code>user1 | NODE[,NODE,NODE...]
 user2 | NODE
-
-</code></pre>
-<p>Lines beginning with # are comments.</p>
+</code></pre></div>
+Lines beginning with # are comments.</p>
 
 
 

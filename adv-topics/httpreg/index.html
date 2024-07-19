@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1441,21 +1464,21 @@
 <h1 id="http-registration">HTTP Registration</h1>
 <p>AllStarLink is moving from IAX2 to HTTP registration. ASL3 has a new module for http registration. ASL3 menu users need not be concerned about this change. The asl3-menu sets this for you.</p>
 <p>The conf new file is <code>/etc/asterisk/rpt_http_registrations.conf</code>. The setting values are the same as they were in IAX2 registration.</p>
-<pre><code class="language-text">[General]
+<div class="highlight"><pre><span></span><code>[General]
 
 [registrations]
 ;Change the register =&gt; line to match your assigned node number and password.
 register =&gt; 1999:password@register.allstarlink.org    ; This must be changed to your node number, password
-</code></pre>
+</code></pre></div>
 <p>While IAX registration still works, please do not register with both HTTP and IAX. That would result in unnecessary server load for no gain. The long term plan is to do away with IAX registration. HTTP registration also allows load balancing and other advantages not available with IAX. The ASL3 IAX module has been replaced with the Asterisk LTS IAX2 module for upstream compatibility.</p>
 <p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
-<pre><code class="language-text">[general]
+<p><div class="highlight"><pre><span></span><code>[general]
 node_lookup_method = both   ;method used to lookup nodes
                     ;both = dns lookup first, followed by external file (default)
                     ;dns = dns lookup only
                     ;file = external file lookup only
-</code></pre>
-<p>The node lookup routines will output debug information showing the node lookups if the debug level is set to 4 or higher.</p>
+</code></pre></div>
+The node lookup routines will output debug information showing the node lookups if the debug level is set to 4 or higher.</p>
 
 
 

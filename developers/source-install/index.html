@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1526,14 +1549,14 @@ comfortable using various development tools and the Linux CLI.</p>
 </ul>
 <h2 id="install-phreaknetsh-script">Install phreaknet.sh script</h2>
 <p>The phreaknet script compiles and patches Asterisk and DAHDI.  You should install the script with the following commands :</p>
-<pre><code class="language-bash">cd /usr/src
-wget https://docs.phreaknet.org/script/phreaknet.sh
-chmod +x phreaknet.sh
-./phreaknet.sh make
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/src
+wget<span class="w"> </span>https://docs.phreaknet.org/script/phreaknet.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>phreaknet.sh
+./phreaknet.sh<span class="w"> </span>make
+</code></pre></div>
 <p>Once installed, you can keep the script updated with :</p>
-<pre><code class="language-bash">phreaknet update
-</code></pre>
+<div class="highlight"><pre><span></span><code>phreaknet<span class="w"> </span>update
+</code></pre></div>
 <h2 id="install-asterisk-20-lts">Install Asterisk 20 LTS</h2>
 <p>Use -t or -b for developer mode. Both are optional.</p>
 <ul>
@@ -1544,26 +1567,26 @@ chmod +x phreaknet.sh
 <li>The -v is to install the latest of the major version specified, 20 in this case</li>
 <li>Use -f to force a reinstall (upgrade)</li>
 </ul>
-<pre><code>phreaknet install -d -b -v 20
-</code></pre>
+<div class="highlight"><pre><span></span><code>phreaknet install -d -b -v 20
+</code></pre></div>
 <p>Asterisk should be running at this point but not app_rpt. Check the install with <code>asterisk -r</code>.</p>
 <h2 id="clone-asl3-repo">Clone ASL3 repo</h2>
-<pre><code class="language-bash">cd /usr/src
-git clone https://github.com/AllStarLink/app_rpt.git
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AllStarLink/app_rpt.git
+</code></pre></div>
 <h2 id="install-asl3">Install ASL3</h2>
 <p>This script does a git pull of app_rpt and compiles the branch you are on.</p>
-<pre><code class="language-bash">cd app_rpt
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>app_rpt
 ./rpt_install.sh
-</code></pre>
+</code></pre></div>
 <h2 id="install-asl3-configs">Install ASL3 configs</h2>
 <p>This adds ASL3 configs to the full set of Asterisk configuration files. ASL3 modules.conf limits what actually runs.</p>
-<pre><code class="language-bash">cp /usr/src/app_rpt/configs/rpt/* /etc/asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/usr/src/app_rpt/configs/rpt/*<span class="w"> </span>/etc/asterisk
+</code></pre></div>
 <p>After restarting Asterisk (or rebooting the system) you should now have a complete ASL3 install.  You can use the following command as a quick check :</p>
-<pre><code class="language-bash">asterisk -rx &quot;rpt localnodes&quot;
-</code></pre>
-<p>You should see node 1999.</p>
+<p><div class="highlight"><pre><span></span><code>asterisk<span class="w"> </span>-rx<span class="w"> </span><span class="s2">&quot;rpt localnodes&quot;</span>
+</code></pre></div>
+You should see node 1999.</p>
 
 
 

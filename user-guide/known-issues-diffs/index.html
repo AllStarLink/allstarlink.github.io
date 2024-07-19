@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
       
@@ -708,6 +710,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1594,11 +1617,11 @@ shutting down or restarting Asterisk is not quick or always reliable. When
 issuing <code>systemctl stop</code> or <code>systemctl restart</code> for the <code>asterisk.service</code> unit
 it will take upwards of 90 seconds to properly terminate and exit/respawn.
 Make sure any <code>lame</code> and <code>ezstream</code> processed are killed and not orphaned.</p>
-<pre><code class="language-bash"># ps auxww | grep asterisk
-asterisk 1443572  0.0  0.0   2416  1024 ?        S    10:13   0:00 /bin/sh -c /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-asterisk 1443573  0.1  0.1  11920  5120 ?        S    10:13   0:00 /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - -
-asterisk 1443574  0.0  0.2  55232 10240 ?        S    10:13   0:00 /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># ps auxww | grep asterisk</span>
+asterisk<span class="w"> </span><span class="m">1443572</span><span class="w">  </span><span class="m">0</span>.0<span class="w">  </span><span class="m">0</span>.0<span class="w">   </span><span class="m">2416</span><span class="w">  </span><span class="m">1024</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span>/usr/bin/lame<span class="w"> </span>--preset<span class="w"> </span>cbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>m<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span><span class="w"> </span>--bitwidth<span class="w"> </span><span class="m">16</span><span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>/usr/bin/ezstream<span class="w"> </span>-qvc<span class="w"> </span>/etc/ezstream.xml
+asterisk<span class="w"> </span><span class="m">1443573</span><span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">11920</span><span class="w">  </span><span class="m">5120</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/lame<span class="w"> </span>--preset<span class="w"> </span>cbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>m<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span><span class="w"> </span>--bitwidth<span class="w"> </span><span class="m">16</span><span class="w"> </span>-<span class="w"> </span>-
+asterisk<span class="w"> </span><span class="m">1443574</span><span class="w">  </span><span class="m">0</span>.0<span class="w">  </span><span class="m">0</span>.2<span class="w">  </span><span class="m">55232</span><span class="w"> </span><span class="m">10240</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/ezstream<span class="w"> </span>-qvc<span class="w"> </span>/etc/ezstream.xml
+</code></pre></div>
 <p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p>
 
 

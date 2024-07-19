@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1485,10 +1508,10 @@
 We also know that some of the other dashboards make use of database ("astdb.txt").
 Typically, this DB has been downloaded by a PHP script ("astdb.php") and updated with the help of boot scripts and cron jobs.</p>
 <p>To support these other dashboards we have included a systemd service to download and update the "astdb.txt" database.  By default, this service and its associated timer are disabled.  If you have installed a dashboard that is dependent on this database you will need to execute the following commands :</p>
-<pre><code class="language-bash">systemctl enable asl3-update-astdb.service
-systemctl enable asl3-update-astdb.timer
-systemctl start asl3-update-astdb.timer
-</code></pre>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl3-update-astdb.service
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl3-update-astdb.timer
+systemctl<span class="w"> </span>start<span class="w"> </span>asl3-update-astdb.timer
+</code></pre></div>
 
 
 

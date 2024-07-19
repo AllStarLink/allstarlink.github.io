@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1597,13 +1620,13 @@ Asterisk becomes 20.9.0 then the package version should reset back to
 <p>Create a <a href="https://github.com/AllStarLink/asl3-asterisk/releases">Release</a>
 to store the .deb files in. The name of the release should follow the 
 format:</p>
-<pre><code>ASTERISK_VERSION_asl3-RPT_VERSION-PACKAGE_VERSION
-</code></pre>
+<div class="highlight"><pre><span></span><code>ASTERISK_VERSION_asl3-RPT_VERSION-PACKAGE_VERSION
+</code></pre></div>
 <p>For the above example of Asterisk "20.7.0", app_rpt "1.2", and 
-package version "1" the release tag and name would be:</p>
-<pre><code>20.7.0_asl3-1.2-1
-</code></pre>
-<p>Note: GitHub acts oddly about + signs in the tags and release
+package version "1" the release tag and name would be:
+<div class="highlight"><pre><span></span><code>20.7.0_asl3-1.2-1
+</code></pre></div>
+Note: GitHub acts oddly about + signs in the tags and release
 names so it's converted to an underscore.</p>
 <h2 id="executing-the-github-action-to-build-packages">Executing the GitHub Action to Build Packages</h2>
 <p>The following steps build the Debian packages:</p>

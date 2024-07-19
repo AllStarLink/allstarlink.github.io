@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1510,10 +1533,12 @@ Terminal screen.</p>
 </li>
 <li>
 <p>At the prompt enter the command:</p>
-<p><code>nmcli device wifi connect MYNETWORK password MYPASSWORD</code></p>
+<div class="highlight"><pre><span></span><code>nmcli device wifi connect MYNETWORK password MYPASSWORD
+</code></pre></div>
 <p>where <code>MYNETWORK</code> is the name ("SSID") and <code>MYPASSWORD</code> is the password ("Key").
 To join the network "RadioSite" with the password "RF1234":</p>
-<p><code>nmcli device wifi connect RadioSite password RF1234</code></p>
+<div class="highlight"><pre><span></span><code>nmcli device wifi connect RadioSite password RF1234
+</code></pre></div>
 <p>If there is a space in the name or password, you must use quotes around the
 element with the space in it.</p>
 </li>
@@ -1521,8 +1546,9 @@ element with the space in it.</p>
 <p>If the network is not currently active (i.e. adding a network where the appliance
 will be in the future) or the SSID is hidden, adding is slightly more complicated.
 Again, substitute <code>MYNETWORK</code> and <code>MYPASSWORD</code> with as appropriate.</p>
-<p><code>nmcli conn add type wifi con-name MYNETWORK ifname wlan0 ssid MYPASSWORD
-nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD</code></p>
+<div class="highlight"><pre><span></span><code>nmcli conn add type wifi con-name MYNETWORK ifname wlan0 ssid MYPASSWORD
+nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD
+</code></pre></div>
 </li>
 </ol>
 <p>Note: DO NOT use the <code>raspi-config</code> tool to attempt to set the Wifi network and

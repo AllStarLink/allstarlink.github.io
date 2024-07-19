@@ -398,6 +398,8 @@
       
         
       
+        
+      
     
     
       
@@ -579,6 +581,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1479,6 +1502,7 @@ make ASL3 the best AllStar release yet.</p>
 <li><a href="#user-guide-updates">Updating ASL3</a></li>
 <li><a href="#user-guide-known-issues-diffs">Known Issues</a></li>
 <li><a href="#user-guide-support">ASL3 Support</a></li>
+<li><a href="#user-guide-betatest">Beta Testing</a></li>
 </ul></section><section class="print-page" id="user-guide-whats-new"><h1 id="user-guide-whats-new-whats-new">What's New?</h1>
 <p>Ready to get on with installation? We thought so, but first consider that ASL3 is very new. You'll probably want to install on removable media or on a non-production system. You probably don't want to install a production system right away. Give yourself some time to test that everything works as you'd expect.</p>
 <p>Note: if you have installed an earlier version of ASL you need to know that ASL3 has many changes and that there's a bit of a learning curve. For those who have used ASL2 or other versions of AllStar you should be aware of a few important details:</p>
@@ -1766,16 +1790,16 @@ in the upper right and then choose <strong>Logout</strong>.</p>
 </ul>
 <h2 id="user-guide-install-allstarlink-package-repo-install">AllStarLink Package Repo Install</h2>
 <p>Once your Debian system is up and running, install the ASL package repositories:</p>
-<pre><code class="language-bash">cd /tmp
-wget https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
-sudo dpkg -i asl-apt-repos.deb12_all.deb
-sudo apt update
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
 <h2 id="user-guide-install-asl3-packages-install">ASL3 Packages Install</h2>
 <p>Now the packages may be installed and updated directly from the AllStarLink package
 repository:</p>
-<pre><code class="language-bash">sudo apt install asl3
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3
+</code></pre></div>
 <p>This will install the complete ASL3 system including
 all of the Asterisk app_rpt-enabled packages
 (asl3-asterisk, asl3-asterisk-config, asl3-asterisk-doc, asl3-asterisk-modules),
@@ -1804,11 +1828,11 @@ The ASL3 menu will help you get started with many common configurations includin
 The ASL3 menu will also help you maintain your system.</p>
 <p>Your system may have been setup to automatically start the ASL3 menu as soon as you have logged in.
 If not, you can access the ASL3 menu by executing the following command from the Linux shell :</p>
-<pre><code class="language-bash">asl-menu
-</code></pre>
+<div class="highlight"><pre><span></span><code>asl-menu
+</code></pre></div>
 <p>Note: if you are not logged in as the "root" user you will need to use</p>
-<pre><code class="language-bash">sudo asl-menu
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>asl-menu
+</code></pre></div>
 <p>When the ASL3 menu is running you will be presented with options to configure a node, access the Asterisk CLI, backup (or restore) your ASL settings, access the Linux CLI, perform some basic diagnostics, and perform some common system actions.</p>
 <h2 id="user-guide-menu-node-settings">Node settings</h2>
 <p>For new installs you will want to select the ASL3 "Node Settings" menu option.
@@ -1859,9 +1883,9 @@ painless for users.</p>
 <p>Whether AllStarLink v3 is installed on a standard Debian 12
 installation or you are using the Pi appliance image,
 updates follow the standard Debian format:</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt upgrade -y
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
 <p>This will update all AllStarLink v3 software as well as
 the underlying operating system. AllStarLink will never
 release any update that is a "breaking change" through
@@ -1872,24 +1896,24 @@ process or a well-documented manual step-by-step process.</p>
 file. It is generally best to answer such questions with
 <code>N</code> meaning "keep your currently-installed version. Such a question
 will look like:</p>
-<pre><code class="language-bash">Configuration file '/etc/asterisk/rpt.conf'
- ==&gt; Modified (by you or by a script) since installation.
- ==&gt; Package distributor has shipped an updated version.
-   What would you like to do about it ?  Your options are:
-    Y or I  : install the package maintainer's version
-    N or O  : keep your currently-installed version
-      D     : show the differences between the versions
-      Z     : start a shell to examine the situation
- The default action is to keep your current version.
-*** rpt.conf (Y/I/N/O/D/Z) [default=N] ? N
-</code></pre>
+<div class="highlight"><pre><span></span><code>Configuration<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;/etc/asterisk/rpt.conf&#39;</span>
+<span class="w"> </span><span class="o">==</span>&gt;<span class="w"> </span>Modified<span class="w"> </span><span class="o">(</span>by<span class="w"> </span>you<span class="w"> </span>or<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>script<span class="o">)</span><span class="w"> </span>since<span class="w"> </span>installation.
+<span class="w"> </span><span class="o">==</span>&gt;<span class="w"> </span>Package<span class="w"> </span>distributor<span class="w"> </span>has<span class="w"> </span>shipped<span class="w"> </span>an<span class="w"> </span>updated<span class="w"> </span>version.
+<span class="w">   </span>What<span class="w"> </span>would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span><span class="k">do</span><span class="w"> </span>about<span class="w"> </span>it<span class="w"> </span>?<span class="w">  </span>Your<span class="w"> </span>options<span class="w"> </span>are:
+<span class="w">    </span>Y<span class="w"> </span>or<span class="w"> </span>I<span class="w">  </span>:<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>maintainer<span class="err">&#39;</span>s<span class="w"> </span>version
+<span class="w">    </span>N<span class="w"> </span>or<span class="w"> </span>O<span class="w">  </span>:<span class="w"> </span>keep<span class="w"> </span>your<span class="w"> </span>currently-installed<span class="w"> </span>version
+<span class="w">      </span>D<span class="w">     </span>:<span class="w"> </span>show<span class="w"> </span>the<span class="w"> </span>differences<span class="w"> </span>between<span class="w"> </span>the<span class="w"> </span>versions
+<span class="w">      </span>Z<span class="w">     </span>:<span class="w"> </span>start<span class="w"> </span>a<span class="w"> </span>shell<span class="w"> </span>to<span class="w"> </span>examine<span class="w"> </span>the<span class="w"> </span>situation
+<span class="w"> </span>The<span class="w"> </span>default<span class="w"> </span>action<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>version.
+***<span class="w"> </span>rpt.conf<span class="w"> </span><span class="o">(</span>Y/I/N/O/D/Z<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>N<span class="o">]</span><span class="w"> </span>?<span class="w"> </span>N
+</code></pre></div>
 <p>AllStarLink will clearly announce when there is a change that may break
 existing configurations.</p>
 <p>If you want updates to install without any questions being asked
 specify the <code>DEBIAN_FRONTEND=noninteractive</code> variable:</p>
-<pre><code class="language-bash">DEBIAN_FRONTEND=noninteractive sudo apt update
-DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
 <p>Using this command will automatically choose "N" to any 
 question about configuration - i.e. it will always keep
 your installed version.</p>
@@ -1953,11 +1977,11 @@ shutting down or restarting Asterisk is not quick or always reliable. When
 issuing <code>systemctl stop</code> or <code>systemctl restart</code> for the <code>asterisk.service</code> unit
 it will take upwards of 90 seconds to properly terminate and exit/respawn.
 Make sure any <code>lame</code> and <code>ezstream</code> processed are killed and not orphaned.</p>
-<pre><code class="language-bash"># ps auxww | grep asterisk
-asterisk 1443572  0.0  0.0   2416  1024 ?        S    10:13   0:00 /bin/sh -c /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-asterisk 1443573  0.1  0.1  11920  5120 ?        S    10:13   0:00 /usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - -
-asterisk 1443574  0.0  0.2  55232 10240 ?        S    10:13   0:00 /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># ps auxww | grep asterisk</span>
+asterisk<span class="w"> </span><span class="m">1443572</span><span class="w">  </span><span class="m">0</span>.0<span class="w">  </span><span class="m">0</span>.0<span class="w">   </span><span class="m">2416</span><span class="w">  </span><span class="m">1024</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span>/usr/bin/lame<span class="w"> </span>--preset<span class="w"> </span>cbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>m<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span><span class="w"> </span>--bitwidth<span class="w"> </span><span class="m">16</span><span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>/usr/bin/ezstream<span class="w"> </span>-qvc<span class="w"> </span>/etc/ezstream.xml
+asterisk<span class="w"> </span><span class="m">1443573</span><span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">11920</span><span class="w">  </span><span class="m">5120</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/lame<span class="w"> </span>--preset<span class="w"> </span>cbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>m<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span><span class="w"> </span>--bitwidth<span class="w"> </span><span class="m">16</span><span class="w"> </span>-<span class="w"> </span>-
+asterisk<span class="w"> </span><span class="m">1443574</span><span class="w">  </span><span class="m">0</span>.0<span class="w">  </span><span class="m">0</span>.2<span class="w">  </span><span class="m">55232</span><span class="w"> </span><span class="m">10240</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/ezstream<span class="w"> </span>-qvc<span class="w"> </span>/etc/ezstream.xml
+</code></pre></div>
 <p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p></section><section class="print-page" id="user-guide-support"><h1 id="user-guide-support-asl3-support">ASL3 Support</h1>
 <h2 id="user-guide-support-support">Support</h2>
 <p>Primary support for all versions of ASL (including ASL3) continues to be the <a href="https://community.allstarlink.org/">AllStarLink Community</a>.
@@ -1973,7 +1997,90 @@ You can also ask for guidance in the <a href="https://community.allstarlink.org/
 <h2 id="user-guide-support-enhancement-requests">Enhancement Requests</h2>
 <p>Obviously, we cannot promise anything but we do want to hear your ideas.  Please file a GitHub "Issue" :-)</p>
 <h2 id="user-guide-support-contributing">Contributing</h2>
-<p>Have you identified a problem and have a solution?  We welcome your help.  Please file a GitHub issue with all the details.  Even better, create a GitHub "Pull request" for us to review.</p></section><h1 class='nav-section-title-end'>Ended: User Guide</h1>
+<p>Have you identified a problem and have a solution?  We welcome your help.  Please file a GitHub issue with all the details.  Even better, create a GitHub "Pull request" for us to review.</p></section><section class="print-page" id="user-guide-betatest"><h1 id="user-guide-betatest-beta-testing">Beta Testing</h1>
+<p>Beta testing is the final phase of software testing before
+releasing a product to the general public. During this
+stage, a group of users representing the target audience
+validates the product. They explore its features, uncover bugs,
+and provide feedback.</p>
+<p>AllStarLink releases software packages to a beta channel on a periodic
+basis to address bug fixes and feature enhancements. The beta
+channel of packages is available to all users. However, please
+only select to run packages from the beta channel if you meet the
+following criteria:</p>
+<ol>
+<li>
+<p>If something goes wrong, your can easily recover your node 
+from backups or other saved configuration.</p>
+</li>
+<li>
+<p>You have generalized Linux skills such as understanding
+basic commands, ability to use the shell terminal of Linux,
+ability to copy/paste output data into bug reports, etc.</p>
+</li>
+<li>
+<p>You acknowledge that a beta release may have other bugs,
+incomplete fixes, or may in rare cases not work right at all
+<em>for your configuration</em> and that you can live with this.</p>
+</li>
+<li>
+<p>You may need to edit configuration files to fix issues
+or test things or to roll back to previous versions of
+software.</p>
+</li>
+</ol>
+<p>If you cannot adhere to the above four conditions, you should
+not use the beta channel software.</p>
+<h2 id="user-guide-betatest-enabling-beta-channel-software">Enabling Beta Channel Software</h2>
+<p>Enabling beta channel software is done with the <code>asl-repo-switch</code>
+command as root. Set the channel to "beta" using
+<code>asl-repo-switch -l beta</code>. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># asl-repo-switch -l beta</span>
+Setting<span class="w"> </span>level<span class="w"> </span>beta...<span class="w"> </span>DONE
+Run<span class="w"> </span><span class="s1">&#39;apt update&#39;</span><span class="w"> </span>to<span class="w"> </span>refresh<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>repo<span class="w"> </span>cache.
+</code></pre></div>
+<h2 id="user-guide-betatest-disabling-beta-channel-software">Disabling Beta Channel Software</h2>
+<p>Disabling beta channel software is done with the <code>asl-repo-switch</code>
+command as root. Set the channel to "main" using <code>asl-repo-switch -l main</code>.
+For example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># asl-repo-switch -l main</span>
+Setting<span class="w"> </span>level<span class="w"> </span>main...<span class="w"> </span>DONE
+Run<span class="w"> </span><span class="s1">&#39;apt update&#39;</span><span class="w"> </span>to<span class="w"> </span>refresh<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>repo<span class="w"> </span>cache.
+</code></pre></div>
+<h2 id="user-guide-betatest-installing-updates-using-beta-channel">Installing Updates Using Beta Channel</h2>
+<p>The most common case to use the beta channel for software packages
+is to test a proposed fix to a problem you are having. In those
+cases, the following commands should be run <strong>one at a time</strong>
+from a terminal/console as root (using sudo or sudo -s):</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>asl-repo-switch<span class="w"> </span>-l<span class="w"> </span>beta
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>asl-repo-switch<span class="w"> </span>-l<span class="w"> </span>main
+</code></pre></div>
+<p>This will do a one-time installation of the packages in the beta
+channel and then switch back to main.</p>
+<h2 id="user-guide-betatest-resetting-installation-of-asl-back-to-production">Resetting Installation of ASL Back to Production</h2>
+<p>To reset your packages for ASL3 back to the production-release
+main versions:</p>
+<p>For Pi Appliances:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>asl-repo-switch<span class="w"> </span>-r
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--reinstall<span class="w"> </span>asl3<span class="w"> </span>asl3-asterisk<span class="w"> </span>asl3-asterisk-config<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>asl3-asterisk-modules<span class="w"> </span>asl3-menu<span class="w"> </span>asl3-update-nodelist<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>asl3-pi-appliance<span class="w"> </span>allmon3
+</code></pre></div></p>
+<p>For Debian 12 general installations:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>asl-repo-switch<span class="w"> </span>-r
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--reinstall<span class="w"> </span>asl3<span class="w"> </span>asl3-asterisk<span class="w"> </span>asl3-asterisk-config<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>asl3-asterisk-modules<span class="w"> </span>asl3-menu<span class="w"> </span>asl3-update-nodelist
+</code></pre></div></p>
+<p>For DAHDI Kernel packages after doing the above, as necessary:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--reinstall<span class="w"> </span>dahdi-linux<span class="w"> </span>dahdi-dkms
+</code></pre></div></p>
+<p>Note that you may need to merge or fix configurations when rolling
+back from beta software to production. This is unusual 
+but possible.</p></section><h1 class='nav-section-title-end'>Ended: User Guide</h1>
                         <h1 class='nav-section-title' id='section-pi-appliance'>
                             Pi Appliance <a class='headerlink' href='#section-pi-appliance' title='Permanent link'>↵</a>
                         </h1>
@@ -2276,10 +2383,12 @@ Terminal screen.</p>
 </li>
 <li>
 <p>At the prompt enter the command:</p>
-<p><code>nmcli device wifi connect MYNETWORK password MYPASSWORD</code></p>
+<div class="highlight"><pre><span></span><code>nmcli device wifi connect MYNETWORK password MYPASSWORD
+</code></pre></div>
 <p>where <code>MYNETWORK</code> is the name ("SSID") and <code>MYPASSWORD</code> is the password ("Key").
 To join the network "RadioSite" with the password "RF1234":</p>
-<p><code>nmcli device wifi connect RadioSite password RF1234</code></p>
+<div class="highlight"><pre><span></span><code>nmcli device wifi connect RadioSite password RF1234
+</code></pre></div>
 <p>If there is a space in the name or password, you must use quotes around the
 element with the space in it.</p>
 </li>
@@ -2287,8 +2396,9 @@ element with the space in it.</p>
 <p>If the network is not currently active (i.e. adding a network where the appliance
 will be in the future) or the SSID is hidden, adding is slightly more complicated.
 Again, substitute <code>MYNETWORK</code> and <code>MYPASSWORD</code> with as appropriate.</p>
-<p><code>nmcli conn add type wifi con-name MYNETWORK ifname wlan0 ssid MYPASSWORD
-nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD</code></p>
+<div class="highlight"><pre><span></span><code>nmcli conn add type wifi con-name MYNETWORK ifname wlan0 ssid MYPASSWORD
+nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD
+</code></pre></div>
 </li>
 </ol>
 <p>Note: DO NOT use the <code>raspi-config</code> tool to attempt to set the Wifi network and
@@ -2541,12 +2651,12 @@ be resolved by DNS.</p>
 <p>The operation of this ASL3 feature can be controlled by changing the following information in rpt.conf.</p>
 </li>
 </ul>
-<pre><code>[general]
+<div class="highlight"><pre><span></span><code>[general]
 node_lookup_method = both   ;method used to lookup nodes
                             ;both = dns lookup first, followed by external file (default)
                             ;dns = dns lookup only
                             ;file = external file lookup only
-</code></pre>
+</code></pre></div>
 <h2 id="adv-topics-commands-chan_simpleusb-commands">chan_simpleusb commands</h2>
 <p><code>susb show settings</code>  is used to show the currently selected node's settings.
 This replaces <code>susb tune</code>.</p>
@@ -2590,22 +2700,22 @@ port below 1024. The default port for Voters/RTCMs has been changed to <code>166
 previously it was <code>667</code>.</p>
 <p>If the Voter/RTCM port cannot be easily changed, then the following
 configuration can be made to the underlying operating system:</p>
-<pre><code class="language-bash">echo net.ipv4.ip_unprivileged_port_start=667 &gt; /etc/sysctl.d/aslport667.conf
-sysctl -p
-systemctl restart asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>net.ipv4.ip_unprivileged_port_start<span class="o">=</span><span class="m">667</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/sysctl.d/aslport667.conf
+sysctl<span class="w"> </span>-p
+systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
+</code></pre></div>
 <p>If running the AllStarLink Pi Appliance (or another system with a firewall),
 inbound to port 667/UDP must be permitted. For directions on how to do this
 with the Pi Appliance see <a href="#pi-cockpit-firewall">Managing the Firewall</a>.</p>
 <h2 id="adv-topics-incompatibles-usb-udev">USB udev</h2>
 <p>A udev rule is needed to allow Asterisk running as non-root access to the USB system. ASL3 systems installed from debs, apt install or images will already have this rule in place.</p>
-<pre><code class="language-text">/etc/udev/rules.d/90-asl3.rules
+<div class="highlight"><pre><span></span><code>/etc/udev/rules.d/90-asl3.rules
 SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;0d8c&quot;, GROUP=&quot;plugdev&quot;, TAG+=&quot;uaccess&quot;
-</code></pre>
+</code></pre></div>
 <p>The UDev subsystem must be reloaded and then the USB device re-inserted
 into the port. UDev is reloaded with the command</p>
-<pre><code class="language-bash">udevadm control --reload
-</code></pre>
+<div class="highlight"><pre><span></span><code>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>Alternatively, reboot the system.</p></section><section class="print-page" id="adv-topics-usbinterfaces"><h1 id="adv-topics-usbinterfaces-usb-audio-interfaces">USB Audio Interfaces</h1>
 <p>Setting up USB audio interfaces is much easier with ASL3.</p>
 <ul>
@@ -2623,8 +2733,8 @@ We believe that most will prefer using <code>sa818-menu</code>, a visual interfa
 But, for those who prefer a command line interface we have also included <code>sa818</code>.</p>
 <h2 id="adv-topics-sa818modules-sa818-menu">sa818-menu</h2>
 <p>To program your SA818 with the menu executing the following command from the Linux shell :</p>
-<pre><code>sa818-menu
-</code></pre>
+<div class="highlight"><pre><span></span><code>sa818-menu
+</code></pre></div>
 <p>Here, you will be able to view the last saved (or default) settings.
 Please note that the "last saved" settings are those saved by the <code>sa818-menu</code> command on your system.  We have no way to "read" settings from the SA818 RF module.</p>
 <p>The settings include :</p>
@@ -2696,7 +2806,7 @@ Please note that the "last saved" settings are those saved by the <code>sa818-me
 <p>The "rpt.conf" file remains basically the same as it was in ASL2.  But, the organization has changed to make it easier to maintain, particularly for multi-node systems.</p>
 <p>The template for a node in rpt.conf is named "[node-main]".  Every node tagged with "(node-main)" inherits all the template settings.  Template settings are overwritten by nodes with "(main-node)" attached.</p>
 <p>As you will see, adding a new node requires the addition of just a few lines.  For example adding three nodes to your system may need nothing more than:</p>
-<pre><code class="language-text">[1999](node-main)
+<div class="highlight"><pre><span></span><code>[1999](node-main)
 rxchannel = SimpleUSB/1999
 idrecording = |iWB6NIL
 startup_macro = *32000
@@ -2708,28 +2818,28 @@ morse = morse_1998
 
 [1997](node-main)
 ;This might be a hub node if &quot;rxchannel = dahdi/pseudo&quot; is in the template
-</code></pre>
+</code></pre></div>
 <h2 id="adv-topics-conftmpl-etcasterisksimpleusbconf-etcasteriskusbradioconf">/etc/asterisk/simpleusb.conf, /etc/asterisk/usbradio.conf</h2>
 <p>The "/etc/asterisk/simpleusb.conf" and "/etc/asterisk/usbradio.conf" files have also adopted a templated configuration.  Again, the template for a node is named "[node-main]".  Every node tagged with "(node-main)" inherits all the template settings.  Template settings are overwritten by nodes with "(main-node)" attached.</p>
 <h2 id="adv-topics-conftmpl-asl-menu-support">ASL menu support</h2>
 <p>The new ASL3 menu is fully aware of the templated configuration and handles adding, updating, and removing nodes.</p></section><section class="print-page" id="adv-topics-httpreg"><h1 id="adv-topics-httpreg-http-registration">HTTP Registration</h1>
 <p>AllStarLink is moving from IAX2 to HTTP registration. ASL3 has a new module for http registration. ASL3 menu users need not be concerned about this change. The asl3-menu sets this for you.</p>
 <p>The conf new file is <code>/etc/asterisk/rpt_http_registrations.conf</code>. The setting values are the same as they were in IAX2 registration.</p>
-<pre><code class="language-text">[General]
+<div class="highlight"><pre><span></span><code>[General]
 
 [registrations]
 ;Change the register =&gt; line to match your assigned node number and password.
 register =&gt; 1999:password@register.allstarlink.org    ; This must be changed to your node number, password
-</code></pre>
+</code></pre></div>
 <p>While IAX registration still works, please do not register with both HTTP and IAX. That would result in unnecessary server load for no gain. The long term plan is to do away with IAX registration. HTTP registration also allows load balancing and other advantages not available with IAX. The ASL3 IAX module has been replaced with the Asterisk LTS IAX2 module for upstream compatibility.</p>
 <p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
-<pre><code class="language-text">[general]
+<p><div class="highlight"><pre><span></span><code>[general]
 node_lookup_method = both   ;method used to lookup nodes
                     ;both = dns lookup first, followed by external file (default)
                     ;dns = dns lookup only
                     ;file = external file lookup only
-</code></pre>
-<p>The node lookup routines will output debug information showing the node lookups if the debug level is set to 4 or higher.</p></section><section class="print-page" id="adv-topics-allowdenylists"><h1 id="adv-topics-allowdenylists-allow-and-deny-lists">Allow and Deny Lists</h1>
+</code></pre></div>
+The node lookup routines will output debug information showing the node lookups if the debug level is set to 4 or higher.</p></section><section class="print-page" id="adv-topics-allowdenylists"><h1 id="adv-topics-allowdenylists-allow-and-deny-lists">Allow and Deny Lists</h1>
 <p>These changes can easily be made from the ASL3 menu. Here's how to change and view the lists at the Asterisk CLI should you choose to do so. These lists were previously referred to as whitelist and blacklist.</p>
 <p>ASL3 provides a way to establish either an "allowlist" or a "denylist" to limit access to your node(s).  New to ASL3 is the capability for nodes on the same server to have different lists.  Unlike ASL2, no modifications or scripts are required to the configuration files and there is no need to restart or reload the server.  All changes are made to the Asterisk database.  As soon as you make a change it takes effect.</p>
 <p>The "allowlist" allows inbound connects and blocks all others. Nodes on the same server are always allowed. If any nodes are on the "allowlist" the "denylist" is ignored.</p>
@@ -2761,14 +2871,14 @@ node_lookup_method = both   ;method used to lookup nodes
 We also know that some of the other dashboards make use of database ("astdb.txt").
 Typically, this DB has been downloaded by a PHP script ("astdb.php") and updated with the help of boot scripts and cron jobs.</p>
 <p>To support these other dashboards we have included a systemd service to download and update the "astdb.txt" database.  By default, this service and its associated timer are disabled.  If you have installed a dashboard that is dependent on this database you will need to execute the following commands :</p>
-<pre><code class="language-bash">systemctl enable asl3-update-astdb.service
-systemctl enable asl3-update-astdb.timer
-systemctl start asl3-update-astdb.timer
-</code></pre></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl3-update-astdb.service
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl3-update-astdb.timer
+systemctl<span class="w"> </span>start<span class="w"> </span>asl3-update-astdb.timer
+</code></pre></div></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
 <p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the depreciation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the sip stack and is the supported sip channel for the future.</p>
 <h2 id="adv-topics-sip-phone-update-modulesconf">Update modules.conf</h2>
 <p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following at the bottom of the file:</p>
-<pre><code>    ;
+<div class="highlight"><pre><span></span><code>    ;
     ;modules for pjsip
     ;
     noload = app_voicemail.so
@@ -2826,10 +2936,10 @@ systemctl start asl3-update-astdb.timer
     load = res_sorcery_config.so
     load = res_sorcery_memory.so
     load = res_sorcery_realtime.so
-</code></pre>
+</code></pre></div>
 <h2 id="adv-topics-sip-phone-update-extensionsconf">Update extensions.conf</h2>
 <p>The next step is to update extension.conf.  This creates a dial plan that controls access to your node by sip phones.  Edit /etc/asterisk/extensions.conf and add the following to the bottom of the file.  This example will set up extension 1001 as your local phone and the dialing plan for your node.</p>
-<pre><code>    [sip-phones]
+<div class="highlight"><pre><span></span><code>    [sip-phones]
     exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
 
     exten =&gt; ${NODE},1,Ringing
@@ -2842,27 +2952,27 @@ systemctl start asl3-update-astdb.timer
     exten =&gt; ${NODE},n,SayDigits(${EXTEN})
     exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
     exten =&gt; ${NODE},n,Hangup
-</code></pre>
+</code></pre></div>
 <p>The above dial plan will allow your sip phone to dial your node number.  This dial plan announces the extension number and the connecting node number.  The orange highlighted lines can be removed if you do not want the announcement.</p>
 <p>The ${NODE} variable is defined at the top of extensions.conf and should be your assigned node number.  See the following.</p>
-<pre><code>    [globals]
+<div class="highlight"><pre><span></span><code>    [globals]
     HOMENPA = 999 ; change this to your Area Code
     NODE = 1999   ; change this to your node number
-</code></pre>
+</code></pre></div>
 <p>The entry <strong>1001</strong> in extensions.conf is the extension number for your sip phone.  If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
 <p><em>Note:  If you attempt to copy extensions.conf from a previous release of AllStarLink, it will fail.  AllStarLink version 3 requires comma delimiters instead of pipe symbols for standard asterisk functions.  The rpt function continues to use a pipe delimiter.  This is subject to change in a future release.</em></p>
 <h2 id="adv-topics-sip-phone-update-pjsipconf">Update pjsip.conf</h2>
 <p>You are now ready to configure pjsip.  Edit /etc/asterisk/pjsip.conf.  Don’t get overwhelmed by all of the text in the sample configuration.  pjsip supports several configurations.  This document focuses on the necessary entries to get a sip phone operational.</p>
 <p>Scroll down to the Basic UDP transport section.  It should look like the following:</p>
-<pre><code>    ; Basic UDP transport
+<div class="highlight"><pre><span></span><code>    ; Basic UDP transport
     ;
     [transport-udp]
     type=transport
     protocol=udp    ;udp,tcp,tls,ws,wss,flow
     bind=0.0.0.0:5060
-</code></pre>
+</code></pre></div>
 <p>Scroll down to the section titled Endpoint Configured For Use With A Sip Phone.  For each extension, you will need to enter 3 sections.  Here is an example for extension 1001.</p>
-<pre><code>    [1001]
+<div class="highlight"><pre><span></span><code>    [1001]
     type=endpoint
     transport=transport-udp
     context=sip-phones
@@ -2909,17 +3019,17 @@ systemctl start asl3-update-astdb.timer
     type=aor
     max_contacts=4
     ;contact=sip:6001@192.0.2.1:5060
-</code></pre>
+</code></pre></div>
 <p>If you want to use a different extension number, you will need to change <strong>[1001]</strong> with your desired number.  The item <strong>callerid="My CallerID"</strong> should also be updated for your preferred caller identifier.</p>
 <p>The items <strong>password=1001</strong> and <strong>username=1001</strong> should be updated to match the username and password you want for your extension number.  You should use a complex password.  Do not use the extension number.  You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here </a>to generate a complex password.</p>
 <p>These three sections can be replicated for each extension that you want to add to the system.</p>
 <h2 id="adv-topics-sip-phone-restart-your-asterisk">Restart your asterisk</h2>
 <p>After completing these changes, you must restart asterisk or reboot your system.</p>
-<pre><code class="language-bash">systemctl restart asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
+</code></pre></div>
 <h2 id="adv-topics-sip-phone-example-config-with-multiple-sip-phones">Example config with multiple sip phones</h2>
 <p>As noted above you can have more sip phones.  Here is an example of a simple dial plan that has multiple extensions.</p>
-<pre><code>    [sip-phones]
+<div class="highlight"><pre><span></span><code>    [sip-phones]
     ; Extension 210 - Line 1
     ; Extension 211 - Line 2
     ; Extension 212 - Garage
@@ -2936,7 +3046,7 @@ systemctl start asl3-update-astdb.timer
     ; Allow SIP calls to local nodes
     exten =&gt; 1998,1,rpt(1998|P)
     exten =&gt; 1999,1,rpt(1999|P)
-</code></pre>
+</code></pre></div>
 <p>This example includes voicemail.  To use voice mail, you will need to change <code>noload = app_voicemail.so</code>to <code>load = app_voicemail.so.</code></p>
 <h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
 <p>If you have trouble connecting your sip phone, start the asterisk command line with <code>asterisk -rvvv</code>.  Enter the command <code>pjsip set logger on</code>.  This will show the communications between the sip phone and asterisk.  It will also show the actions in your dial plan.</p>
@@ -2949,62 +3059,60 @@ provides information on applying for a feed.</p>
 <p>After you have your account and feed credentials, you a ready to setup AllStar.</p>
 <h2 id="adv-topics-broadcastify-setup-a-feed">Setup a Feed</h2>
 <ul>
-<li>Log into your node either using Cockpit or SSH and type the following commands:</li>
-</ul>
-<pre><code class="language-bash">sudo apt update
-sudo apt install libshout-dev libtagc0-dev lame ezstream
-</code></pre>
-<ul>
-<li>Edit <code>/etc/ezstream.xml</code> with your favorite editor - for example
+<li>
+<p>Log into your node either using Cockpit or SSH and type the following commands:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libshout-dev<span class="w"> </span>libtagc0-dev<span class="w"> </span>lame<span class="w"> </span>ezstream
+</code></pre></div></p>
+</li>
+<li>
+<p>Edit <code>/etc/ezstream.xml</code> with your favorite editor - for example
 <code>sudo nano -w /etc/ezstream.xml</code>.  You will be
 creating a new file. Copy, paste, and edit the following contents
-into the file:</li>
-</ul>
-<pre><code class="language-xml">&lt;ezstream&gt;
-    &lt;servers&gt;
-        &lt;server&gt;
-            &lt;protocol&gt;HTTP&lt;/protocol&gt;
-            &lt;hostname&gt;Replace with Broadcastify URL&lt;/hostname&gt;
-            &lt;port&gt;80&lt;/port&gt;
-            &lt;password&gt;Replace with your stream password&lt;/password&gt;
-            &lt;tls&gt;none&lt;/tls&gt;
-        &lt;/server&gt;
-    &lt;/servers&gt;
+into the file:
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;ezstream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servers&gt;</span>
+<span class="w">        </span><span class="nt">&lt;server&gt;</span>
+<span class="w">            </span><span class="nt">&lt;protocol&gt;</span>HTTP<span class="nt">&lt;/protocol&gt;</span>
+<span class="w">            </span><span class="nt">&lt;hostname&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>Broadcastify<span class="w"> </span>URL<span class="nt">&lt;/hostname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;port&gt;</span>80<span class="nt">&lt;/port&gt;</span>
+<span class="w">            </span><span class="nt">&lt;password&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>password<span class="nt">&lt;/password&gt;</span>
+<span class="w">            </span><span class="nt">&lt;tls&gt;</span>none<span class="nt">&lt;/tls&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/server&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/servers&gt;</span>
 
-    &lt;streams&gt;
-        &lt;stream&gt;
-            &lt;mountpoint&gt;Replace with your mount point path&lt;/mountpoint&gt;
-            &lt;format&gt;MP3&lt;/format&gt;
-                &lt;stream_name&gt;Replace with your feed name&lt;/stream_name&gt;
-                &lt;stream_url&gt;Your web page&lt;/stream_url&gt;
-                &lt;stream_genre&gt;Amateur Radio&lt;/stream_genre&gt;
-                &lt;stream_description&gt;Replace with your stream description&lt;/stream_description&gt;
-                &lt;stream_bitrate&gt;16&lt;/stream_bitrate&gt;
-                &lt;stream_channels&gt;1&lt;/stream_channels&gt;
-                &lt;stream_samplerate&gt;22050&lt;/stream_samplerate&gt;
-                &lt;stream_public&gt;Yes&lt;/stream_public&gt;
-        &lt;/stream&gt;
-    &lt;/streams&gt;
+<span class="w">    </span><span class="nt">&lt;streams&gt;</span>
+<span class="w">        </span><span class="nt">&lt;stream&gt;</span>
+<span class="w">            </span><span class="nt">&lt;mountpoint&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>mount<span class="w"> </span>point<span class="w"> </span>path<span class="nt">&lt;/mountpoint&gt;</span>
+<span class="w">            </span><span class="nt">&lt;format&gt;</span>MP3<span class="nt">&lt;/format&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_name&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>feed<span class="w"> </span>name<span class="nt">&lt;/stream_name&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_url&gt;</span>Your<span class="w"> </span>web<span class="w"> </span>page<span class="nt">&lt;/stream_url&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_genre&gt;</span>Amateur<span class="w"> </span>Radio<span class="nt">&lt;/stream_genre&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_description&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>description<span class="nt">&lt;/stream_description&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_bitrate&gt;</span>16<span class="nt">&lt;/stream_bitrate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_channels&gt;</span>1<span class="nt">&lt;/stream_channels&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_samplerate&gt;</span>22050<span class="nt">&lt;/stream_samplerate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_public&gt;</span>Yes<span class="nt">&lt;/stream_public&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/stream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/streams&gt;</span>
 
-    &lt;intakes&gt;
-        &lt;intake&gt;
-            &lt;type&gt;stdin&lt;/type&gt;
-        &lt;/intake&gt;
-    &lt;/intakes&gt;
-&lt;/ezstream&gt;
-</code></pre>
-<ul>
+<span class="w">    </span><span class="nt">&lt;intakes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;intake&gt;</span>
+<span class="w">            </span><span class="nt">&lt;type&gt;</span>stdin<span class="nt">&lt;/type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/intake&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/intakes&gt;</span>
+<span class="nt">&lt;/ezstream&gt;</span>
+</code></pre></div></p>
+</li>
 <li>
 <p>Save the file.</p>
 </li>
 <li>
-<p>Ensure the file is owned and readable only by the asterisk user:</p>
+<p>Ensure the file is owned and readable only by the asterisk user:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>asterisk:asterisk<span class="w"> </span>/etc/ezstream.xml
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">660</span><span class="w"> </span>/etc/ezstream.xml
+</code></pre></div></p>
 </li>
-</ul>
-<pre><code class="language-bash">sudo chown asterisk:asterisk /etc/ezstream.xml
-sudo chmod 660 /etc/ezstream.xml
-</code></pre>
-<ul>
 <li>
 <p>Edit <code>/etc/asterisk/rpt.conf</code> with your favorite editor - e.g. <code>sudo nano -w /etc/asterisk/rpt.conf</code></p>
 </li>
@@ -3012,31 +3120,31 @@ sudo chmod 660 /etc/ezstream.xml
 <p>Locate the node stanza for the node from which to stream to
 broadcastify. The stanza is <code>[NNNNN](node-main)</code>. For example, if
 your node is 63001 then look for <code>[63001](node-main)</code>. Within that configuration
-stanza, add the following line:</p>
+stanza, add the following line:
+<div class="highlight"><pre><span></span><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
+</code></pre></div></p>
 </li>
 </ul>
-<pre><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre>
-<p>The above parameters have these meanings:</p>
-<pre><code>-- preset cbr 16` = use constant bit rate 16
+<p>The above parameters have these meanings:
+<div class="highlight"><pre><span></span><code>-- preset cbr 16` = use constant bit rate 16
 -r = Assume the input file is raw pcm
 -m m = Mode mono
 -s 8 = sample rate 8
 --bitwidth 16 = bit width is 16 (default)   
-</code></pre>
+</code></pre></div></p>
 <ul>
-<li>After these changes have been made, you will need to restart asterisk:</li>
+<li>After these changes have been made, you will need to restart asterisk:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
+</code></pre></div></li>
 </ul>
-<pre><code class="language-bash">sudo systemctl restart asterisk
-</code></pre>
 <p>If you experience any problems, look at /var/log/ezstream.log for error messages.</p>
 <h2 id="adv-topics-broadcastify-migrating-an-existing-feed">Migrating an existing feed</h2>
-<p>If you have an existing feed, you will need to upgrade your existing xml file to the new format.  You can use the following commands.</p>
-<pre><code>cd /etc
+<p>If you have an existing feed, you will need to upgrade your existing xml file to the new format.  You can use the following commands.
+<div class="highlight"><pre><span></span><code>cd /etc
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre></section><section class="print-page" id="adv-topics-misc"><h1 id="adv-topics-misc-miscellaneous">Miscellaneous</h1>
+</code></pre></div></p></section><section class="print-page" id="adv-topics-misc"><h1 id="adv-topics-misc-miscellaneous">Miscellaneous</h1>
 <p>The following are miscellaneous advanced topics.</p>
 <h2 id="adv-topics-misc-asl-repo-switch-command">asl-repo-switch Command</h2>
 <p>The <code>asl-repo-switch</code> command changes the system's package stream
@@ -3120,49 +3228,53 @@ ASL communities.</p></section><section class="print-page" id="allmon3-install"><
 <h2 id="allmon3-install-asl3-packages-install">ASL3 Packages Install</h2>
 <h3 id="allmon3-install-debian-12">Debian 12</h3>
 <ul>
-<li>Install the AllStarLink repository file</li>
+<li>
+<p>Install the AllStarLink repository file
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-s
+<span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div></p>
+</li>
+<li>
+<p>Install allmon3:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>allmon3
+</code></pre></div></p>
+</li>
 </ul>
-<pre><code class="language-bash">sudo -s
-cd /tmp
-wget https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
-sudo dpkg -i asl-apt-repos.deb12_all.deb
-sudo apt update
-</code></pre>
-<ul>
-<li>Install allmon3:</li>
-</ul>
-<pre><code class="language-bash">sudo apt install allmon3
-</code></pre>
 <h3 id="allmon3-install-debian-11">Debian 11</h3>
 <ul>
-<li>Enable the Debian 11 <code>bullseye-backports</code> package repository:</li>
-</ul>
-<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
+<li>
+<p>Enable the Debian 11 <code>bullseye-backports</code> package repository:
+<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
 gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
 gpg --export 0E98404D386FA1D9 | sudo apt-key add -
 gpg --export 6ED0E7B82643E131 | sudo apt-key add -
 echo &quot;deb https://deb.debian.org/debian bullseye-backports main&quot; &gt; /etc/apt/sources.list.d/bullseye-backports.list
 apt update
-</code></pre>
-<ul>
-<li>Install the dependencies</li>
-</ul>
-<pre><code>apt install -y apache2 python3-argon2 
+</code></pre></div></p>
+</li>
+<li>
+<p>Install the dependencies
+<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
 apt install -y -t bullseye-backports python3-websockets python3-aiohttp python3-aiohttp-session
-</code></pre>
-<ul>
-<li>Install Allmon3</li>
-</ul>
-<pre><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.bullseye_all.deb
+</code></pre></div></p>
+</li>
+<li>
+<p>Install Allmon3
+<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.bullseye_all.deb
 dpkg -i allmon3_1.2.0-1.bullseye_all.deb
-</code></pre>
+</code></pre></div></p>
+</li>
+</ul>
 <h3 id="allmon3-install-debian-10">Debian 10</h3>
 <p>Note: Allmon v1.2.1 will be the last version for Debian 10. Please
 upgrade your AllStarLink system to AllStarLink v3 on Debian 12.</p>
 <ul>
-<li>Enable the Debian 10 <code>buster-backports</code> package repository:</li>
-</ul>
-<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
+<li>
+<p>Enable the Debian 10 <code>buster-backports</code> package repository:
+<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
 gpg --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
 gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
 gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
@@ -3172,33 +3284,35 @@ gpg --export 0E98404D386FA1D9 | sudo apt-key add -
 gpg --export 6ED0E7B82643E131 | sudo apt-key add -
 echo &quot;deb https://deb.debian.org/debian buster-backports main&quot; &gt; /etc/apt/sources.list.d/buster-backports.list
 apt update
-</code></pre>
-<ul>
-<li>Install the dependencies</li>
-</ul>
-<pre><code>apt install -y apache2 python3-argon2 
+</code></pre></div></p>
+</li>
+<li>
+<p>Install the dependencies
+<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
 apt install -y -t buster-backports python3-async-timeout python3-attr python3-multidict python3-yarl python3-pip
-</code></pre>
-<ul>
-<li>Install Python modules using PIP3</li>
-</ul>
-<pre><code>apt remove python3-aiohttp python3-websockets
+</code></pre></div></p>
+</li>
+<li>
+<p>Install Python modules using PIP3
+<div class="highlight"><pre><span></span><code>apt remove python3-aiohttp python3-websockets
 pip3 install aiohttp
 pip3 install aiohttp_session
 pip3 install websockets
-</code></pre>
-<ul>
-<li>Update the CA Certificate chain since Debian 10 is out of support</li>
-</ul>
-<pre><code>apt install ca-certificates
+</code></pre></div></p>
+</li>
+<li>
+<p>Update the CA Certificate chain since Debian 10 is out of support
+<div class="highlight"><pre><span></span><code>apt install ca-certificates
 update-ca-certificates --fresh
-</code></pre>
-<ul>
-<li>Install Allmon3 (debian10 version)</li>
-</ul>
-<pre><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.buster_all.deb
+</code></pre></div></p>
+</li>
+<li>
+<p>Install Allmon3 (debian10 version)
+<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.buster_all.deb
 dpkg -i allmon3_1.2.0-1.buster_all.debntu.com --recv-keys 6ED0E7B82643E131
-</code></pre>
+</code></pre></div></p>
+</li>
+</ul>
 <h2 id="allmon3-install-install-from-source">Install from Source</h2>
 <p>Installation from source is not supported in the general use case. However, 
 <code>make install</code> should yield a working system.</p></section><section class="print-page" id="allmon3-config"><h1 id="allmon3-config-configuration">Configuration</h1>
@@ -3284,21 +3398,21 @@ options:</p>
 </tr>
 </tbody>
 </table>
-<p>An example minimal node configuration would be:</p>
-<pre><code>[12345]
+<p>An example minimal node configuration would be:
+<div class="highlight"><pre><span></span><code>[12345]
 host = 127.0.0.1
 user = admin
 pass = Passw0rd
-</code></pre>
-<p>An example of a server with multiple nodes on it:</p>
-<pre><code>[12345]
+</code></pre></div></p>
+<p>An example of a server with multiple nodes on it:
+<div class="highlight"><pre><span></span><code>[12345]
 host = 127.0.0.1
 user = admin
 pass = Passw0rd
 multinodes = 12345, 23456
-</code></pre>
-<p>Here's an example for monitoring three ASL Nodes:</p>
-<pre><code>[50815]
+</code></pre></div></p>
+<p>Here's an example for monitoring three ASL Nodes:
+<div class="highlight"><pre><span></span><code>[50815]
 host=172.17.16.36
 user=admin
 pass=password
@@ -3314,7 +3428,7 @@ user=admin
 pass=password
 voter=y
 votertitle=Megavoter
-</code></pre>
+</code></pre></div></p>
 <h2 id="allmon3-config-server-customization">Server Customization</h2>
 <p>Allmon3 has multiple configuration files to consider:</p>
 <ul>
@@ -3344,37 +3458,37 @@ is documented in the file.  </p>
 <p>The <em>syscmds</em> section defines the templates in the "system commands" menu.
 This stanza lists commands that are templates for the systems command
 modal dialog. The format is:</p>
-<pre><code>[syscmds]
+<p><div class="highlight"><pre><span></span><code>[syscmds]
   command text = Command Label
   command text = Command Label
   command text = Command Label
   ...
-</code></pre>
-<p>In any command text the @ will be replaced with the node the command
-modal was selected from. For example:</p>
-<pre><code>    rpt status @ = Show Node Status
-</code></pre>
-<p>wll result in the command 'rpt status 1999' assuming this command was
+</code></pre></div>
+In any command text the @ will be replaced with the node the command
+modal was selected from. For example:
+<div class="highlight"><pre><span></span><code>    rpt status @ = Show Node Status
+</code></pre></div>
+wll result in the command 'rpt status 1999' assuming this command was
 selected from Node #1999.</p>
 <p>It is possible to create optional stanzas named in the format
 <code>[syscmds-NODE]</code> (e.g. <code>[syscmds-1999]</code>) and have those commands
 templates appear only for the given NODE listed. Example:</p>
-<pre><code>[syscmds-1999]
+<div class="highlight"><pre><span></span><code>[syscmds-1999]
 rpt cmd @ cop 999 xxx = Execute function 999
-</code></pre>
+</code></pre></div>
 <h4 id="allmon3-config-node-overrides">[node-overrides]</h4>
 <p>The <em>node-overrides</em> section can be used to override information
 from the ASL database. Using this section, the AllStarLink DB
 labels for a node may be replaces with custom text. The format is:</p>
-<pre><code>[node-overrides]
+<p><div class="highlight"><pre><span></span><code>[node-overrides]
     NODE1 = TEXT HERE
     NODE2 = TEXT HERE 2
-</code></pre>
-<p>This section must exist even if it's empty. For example:</p>
-<pre><code>[node-overrides]
+</code></pre></div>
+This section must exist even if it's empty. For example:</p>
+<div class="highlight"><pre><span></span><code>[node-overrides]
     1999 = My special private node
     2010 = Wild Party Node
-</code></pre>
+</code></pre></div>
 <h4 id="allmon3-config-voter-titles">[voter-titles]</h4>
 <p>The <em>voter-titles</em> section is used to set display names for voters.
 This functions identically to <code>[node-overrides]</code>. For any
@@ -3391,7 +3505,7 @@ un-polled if it is already configured in allmon3.ini. This allows
 the system administrator to have "hidden" nodes. If you want to completely
 stop polling an Asterisk/ASL node, the node must be removed from allmon3.ini.</p>
 <p>The format for this file is as follows:</p>
-<pre><code>[ TITLE ]                         :: The stanza header is the label
+<p><div class="highlight"><pre><span></span><code>[ TITLE ]                         :: The stanza header is the label
                                   :: for this menu item
 type  = ( menu | single )         :: If type = menu, the item is interpreted as a dropdown
                                   :: menu with each LABEL item displaying. If the
@@ -3409,11 +3523,11 @@ LABEL = TARGET                    :: then TARGET is assumed to be a ASL node and
                                   :: Of special node, creating a menu item of
                                   :: multiple nodes to display, TARGET and simply be
                                   :: #NODE,NODE,NODE - e.g. #1999,1998,1997
-</code></pre>
-<p>Note that the order of the nodes within a stanza is irrelevant. They will be displayed
+</code></pre></div>
+Note that the order of the nodes within a stanza is irrelevant. They will be displayed
 as sorted alphabetically ascending according to UTF-8 (e.g. 0-9, A-Z, +).</p>
-<p>An example custom menu may look like:</p>
-<pre><code>[ W8WKY ]
+<p>An example custom menu may look like:
+<div class="highlight"><pre><span></span><code>[ W8WKY ]
 type = menu
 W8WKY = 43211
 48496 = 48496
@@ -3428,14 +3542,14 @@ N8XPK = 42993
 [ Test ]
 type = single
 AllStarLink = https://www.allstarlink.org
-</code></pre>
+</code></pre></div></p>
 <h2 id="allmon3-config-using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code>
 package, install <code>nginx</code> using the above directions. After configuring
 nginx, edit <code>/etc/nginx/sites-available/default</code> (or your preferred site
 configuration) and add an <code>include</code> directive within the appropriate
 <code>server { }</code> configuration block. For example:</p>
-<pre><code>server {
+<div class="highlight"><pre><span></span><code>server {
     listen 80 default_server;
 
     [... other stuff ...]
@@ -3444,7 +3558,7 @@ configuration) and add an <code>include</code> directive within the appropriate
 
     [... other stuff ...]
 }
-</code></pre></section><section class="print-page" id="allmon3-usermgmt"><h1 id="allmon3-usermgmt-user-management">User Management</h1>
+</code></pre></div></section><section class="print-page" id="allmon3-usermgmt"><h1 id="allmon3-usermgmt-user-management">User Management</h1>
 <p>Allmon3 supports a robust multi-user configuration that 
 permits per-node granular access as desired and that
 abstracts Allmon3 from the Asterisk AMI Manager 
@@ -3458,15 +3572,15 @@ password combination is<code>allmon3 / password</code>.</p>
 or editing an existing user is the same command. If the user does not exist,
 it will be added. If the user does exist, the password will be updated. 
 To add or edit a user's password: </p>
-<pre><code>$ allmon3-passwd allmon3
+<p><div class="highlight"><pre><span></span><code>$ allmon3-passwd allmon3
 Enter the password for allmon3: password
 Confirm the password for allmon3: password
-</code></pre>
-<p>That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the
+</code></pre></div>
+That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the
 Argon2 hash changed for the user.</p>
 <p>Deleting a user is simply adding the <code>--delete</code> flag to the command:</p>
-<pre><code>$ allmon3-passwd --delete allmon3
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ allmon3-passwd --delete allmon3
+</code></pre></div>
 <p>After changing a user password, the allmon3 damon must be reloaded
 with <code>systemctl reload allmon3</code>.</p>
 <h2 id="allmon3-usermgmt-per-node-restrictions-for-users">Per-Node Restrictions for Users</h2>
@@ -3493,11 +3607,10 @@ issuing the command.</p>
 </li>
 </ol>
 <p>The format of the <code>user-restrictions</code> file is:</p>
-<pre><code>user1 | NODE[,NODE,NODE...]
+<p><div class="highlight"><pre><span></span><code>user1 | NODE[,NODE,NODE...]
 user2 | NODE
-
-</code></pre>
-<p>Lines beginning with # are comments.</p></section><h1 class='nav-section-title-end'>Ended: Allmon3</h1>
+</code></pre></div>
+Lines beginning with # are comments.</p></section><h1 class='nav-section-title-end'>Ended: Allmon3</h1>
                         <h1 class='nav-section-title' id='section-developer-guide'>
                             Developer Guide <a class='headerlink' href='#section-developer-guide' title='Permanent link'>↵</a>
                         </h1>
@@ -3570,13 +3683,13 @@ Asterisk becomes 20.9.0 then the package version should reset back to
 <p>Create a <a href="https://github.com/AllStarLink/asl3-asterisk/releases">Release</a>
 to store the .deb files in. The name of the release should follow the 
 format:</p>
-<pre><code>ASTERISK_VERSION_asl3-RPT_VERSION-PACKAGE_VERSION
-</code></pre>
+<div class="highlight"><pre><span></span><code>ASTERISK_VERSION_asl3-RPT_VERSION-PACKAGE_VERSION
+</code></pre></div>
 <p>For the above example of Asterisk "20.7.0", app_rpt "1.2", and 
-package version "1" the release tag and name would be:</p>
-<pre><code>20.7.0_asl3-1.2-1
-</code></pre>
-<p>Note: GitHub acts oddly about + signs in the tags and release
+package version "1" the release tag and name would be:
+<div class="highlight"><pre><span></span><code>20.7.0_asl3-1.2-1
+</code></pre></div>
+Note: GitHub acts oddly about + signs in the tags and release
 names so it's converted to an underscore.</p>
 <h2 id="developers-package-builds-executing-the-github-action-to-build-packages">Executing the GitHub Action to Build Packages</h2>
 <p>The following steps build the Debian packages:</p>
@@ -3643,14 +3756,14 @@ comfortable using various development tools and the Linux CLI.</p>
 </ul>
 <h2 id="developers-source-install-install-phreaknetsh-script">Install phreaknet.sh script</h2>
 <p>The phreaknet script compiles and patches Asterisk and DAHDI.  You should install the script with the following commands :</p>
-<pre><code class="language-bash">cd /usr/src
-wget https://docs.phreaknet.org/script/phreaknet.sh
-chmod +x phreaknet.sh
-./phreaknet.sh make
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/src
+wget<span class="w"> </span>https://docs.phreaknet.org/script/phreaknet.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>phreaknet.sh
+./phreaknet.sh<span class="w"> </span>make
+</code></pre></div>
 <p>Once installed, you can keep the script updated with :</p>
-<pre><code class="language-bash">phreaknet update
-</code></pre>
+<div class="highlight"><pre><span></span><code>phreaknet<span class="w"> </span>update
+</code></pre></div>
 <h2 id="developers-source-install-install-asterisk-20-lts">Install Asterisk 20 LTS</h2>
 <p>Use -t or -b for developer mode. Both are optional.</p>
 <ul>
@@ -3661,26 +3774,26 @@ chmod +x phreaknet.sh
 <li>The -v is to install the latest of the major version specified, 20 in this case</li>
 <li>Use -f to force a reinstall (upgrade)</li>
 </ul>
-<pre><code>phreaknet install -d -b -v 20
-</code></pre>
+<div class="highlight"><pre><span></span><code>phreaknet install -d -b -v 20
+</code></pre></div>
 <p>Asterisk should be running at this point but not app_rpt. Check the install with <code>asterisk -r</code>.</p>
 <h2 id="developers-source-install-clone-asl3-repo">Clone ASL3 repo</h2>
-<pre><code class="language-bash">cd /usr/src
-git clone https://github.com/AllStarLink/app_rpt.git
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/usr/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AllStarLink/app_rpt.git
+</code></pre></div>
 <h2 id="developers-source-install-install-asl3">Install ASL3</h2>
 <p>This script does a git pull of app_rpt and compiles the branch you are on.</p>
-<pre><code class="language-bash">cd app_rpt
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>app_rpt
 ./rpt_install.sh
-</code></pre>
+</code></pre></div>
 <h2 id="developers-source-install-install-asl3-configs">Install ASL3 configs</h2>
 <p>This adds ASL3 configs to the full set of Asterisk configuration files. ASL3 modules.conf limits what actually runs.</p>
-<pre><code class="language-bash">cp /usr/src/app_rpt/configs/rpt/* /etc/asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/usr/src/app_rpt/configs/rpt/*<span class="w"> </span>/etc/asterisk
+</code></pre></div>
 <p>After restarting Asterisk (or rebooting the system) you should now have a complete ASL3 install.  You can use the following command as a quick check :</p>
-<pre><code class="language-bash">asterisk -rx &quot;rpt localnodes&quot;
-</code></pre>
-<p>You should see node 1999.</p></section><section class="print-page" id="developers-aptly"><h1 id="developers-aptly-allstarlink-apt-repos">AllStarLink Apt Repos</h1>
+<p><div class="highlight"><pre><span></span><code>asterisk<span class="w"> </span>-rx<span class="w"> </span><span class="s2">&quot;rpt localnodes&quot;</span>
+</code></pre></div>
+You should see node 1999.</p></section><section class="print-page" id="developers-aptly"><h1 id="developers-aptly-allstarlink-apt-repos">AllStarLink Apt Repos</h1>
 <p>AllStarLink's primary installation method is through the use of
 Debian packages and the Apt deployment system.</p>
 <h2 id="developers-aptly-repository-structure">Repository Structure</h2>
@@ -3718,15 +3831,15 @@ mapping is:</p>
 <p>All local repositories are merged and published into a single
 public-facing repository. This is usable by one of the following
 <code>.list</code> configurations in<code>/etc/apt/sources.list.d</code>:</p>
-<pre><code class="language-bash"># Primary AllStarLink Repo for Production Packages
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg] https://repo.allstarlink.org/public bookworm main
+<div class="highlight"><pre><span></span><code><span class="c1"># Primary AllStarLink Repo for Production Packages</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w"> </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main
 
-# Include Beta Component for Testing
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg]  https://repo.allstarlink.org/public bookworm main beta
+<span class="c1"># Include Beta Component for Testing</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w">  </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>beta
 
-# Include Beta and Devel component for Development
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg]  https://repo.allstarlink.org/public bookworm main beta devel
-</code></pre>
+<span class="c1"># Include Beta and Devel component for Development</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w">  </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>beta<span class="w"> </span>devel
+</code></pre></div>
 <p>All packages in the repository are signed by GPG and the key is provided with
 repository installation .deb file.</p>
 <h2 id="developers-aptly-aptly-github-runner-integrations">Aptly + GitHub Runner Integrations</h2>
@@ -3744,57 +3857,57 @@ in addition to using the web-based API.</p>
 <p>All commands to Aptly must be run as the <code>aptly</code> user. To do this,
 each account on the repository server should be member of the <code>sudo</code>
 and <code>aptly</code> UNIX groups.</p>
-<p>Before issuing any Aptly commands run the following:</p>
-<pre><code class="language-bash">alias aptly=&quot;sudo -u aptly -- aptly&quot;
-</code></pre>
-<p>to ensure that all commands are run as the <code>aptly</code> user.</p>
+<p>Before issuing any Aptly commands run the following:
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">aptly</span><span class="o">=</span><span class="s2">&quot;sudo -u aptly -- aptly&quot;</span>
+</code></pre></div>
+to ensure that all commands are run as the <code>aptly</code> user.</p>
 <h2 id="developers-aptly-adding-a-file-to-a-local-repo">Adding a File to a Local Repo</h2>
-<p>Adding a file to the local repo is straight-forward:</p>
-<pre><code class="language-bash">aptly repo add REPO FILE-or-DIR
-</code></pre>
+<p>Adding a file to the local repo is straight-forward:
+<div class="highlight"><pre><span></span><code>aptly<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>REPO<span class="w"> </span>FILE-or-DIR
+</code></pre></div></p>
 <p>For example, to add the latest Allmon3 to the production
-repository:</p>
-<pre><code class="language-bash">$ aptly repo add asl3-prod allmon3_1.2.1-2_all.deb
-Loading packages...
-[+] allmon3_1.2.1-2_all added
-</code></pre>
+repository:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>asl3-prod<span class="w"> </span>allmon3_1.2.1-2_all.deb
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>allmon3_1.2.1-2_all<span class="w"> </span>added
+</code></pre></div></p>
 <h2 id="developers-aptly-publishing-repositories">Publishing Repositories</h2>
 <p>Coalescing and publishing the public repository with
-all components is:</p>
-<pre><code class="language-bash">aptly publish update bookworm
-</code></pre>
-<p>When other distributions are supported, replace "bookworm"
+all components is:
+<div class="highlight"><pre><span></span><code>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+</code></pre></div>
+When other distributions are supported, replace "bookworm"
 with the appropriate distribution. Upon execution, a prompt
 will appear for the GPG signing key for the repository. Provide it.</p>
-<p>And example, successful publication looks like:</p>
-<pre><code class="language-bash">$ aptly publish update bookworm
-Loading packages...
-Generating metadata files and linking package files...
-Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix &quot;.&quot; components beta, devel, main...
+<p>And example, successful publication looks like:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+Loading<span class="w"> </span>packages...
+Generating<span class="w"> </span>metadata<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>linking<span class="w"> </span>package<span class="w"> </span>files...
+Finalizing<span class="w"> </span>metadata<span class="w"> </span>files...
+Signing<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Clearsigning<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Cleaning<span class="w"> </span>up<span class="w"> </span>prefix<span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span>components<span class="w"> </span>beta,<span class="w"> </span>devel,<span class="w"> </span>main...
 
-Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
-</code></pre>
+Publish<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>repo<span class="w"> </span>./bookworm<span class="w"> </span><span class="o">[</span>all,<span class="w"> </span>amd64,<span class="w"> </span>arm64,<span class="w"> </span>armhf<span class="o">]</span><span class="w"> </span>publishes<span class="w"> </span><span class="o">{</span>beta:<span class="w"> </span><span class="o">[</span>asl3-beta<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>devel:<span class="w"> </span><span class="o">[</span>asl3-devel<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>main:<span class="w"> </span><span class="o">[</span>asl3-prod<span class="o">]}</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>successfully<span class="w"> </span>updated.
+</code></pre></div></p>
 <h2 id="developers-aptly-searching-for-packages">Searching for Packages</h2>
 <p>Listing and searching for packages inside of a local repo is done
 with the <code>aptly repo search</code> command and uses the
 (Aptly Package Query Language)[https://www.aptly.info/doc/feature/query/]
 to filter/select packages.</p>
-<p>A simple <code>aptly repo search REPO</code> will show all packages. For example:</p>
-<pre><code class="language-bash">$ aptly repo search asl3-prod
+<p>A simple <code>aptly repo search REPO</code> will show all packages. For example:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod
 allmon3_1.2.1-2_all
 asl-apt-repos_1.3-1.deb12_all
 asl3_3.0.0-1.deb_all
-[...]
-</code></pre>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div></p>
 <h5 id="developers-aptly-search-by-name">Search by name</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (asl3)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (asl3)&#39;</span>
 asl3_3.0.0-1.deb_all
-</code></pre>
+</code></pre></div>
 <h5 id="developers-aptly-search-by-name-glob-version">Search by name glob + version</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -3804,9 +3917,9 @@ asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
-</code></pre>
+</code></pre></div>
 <h5 id="developers-aptly-search-by-name-glob-version-range">Search by name glob + version range</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (&gt;= 1.0)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (&gt;= 1.0)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -3816,12 +3929,12 @@ asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
-</code></pre>
+</code></pre></div>
 <h2 id="developers-aptly-promoting-packages-to-prod">Promoting Packages to Prod</h2>
 <p>Using the hypothetical example of promoting asl3-asterisk packages
 from beta to production.</p>
-<p>(1) Test package selection using <code>aptly repo search</code></p>
-<pre><code class="language-bash">$ $ aptly repo search asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<p>(1) Test package selection using <code>aptly repo search</code>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
@@ -3837,37 +3950,37 @@ asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64
-</code></pre>
-<p>(2) Move the packages into the production repository using <code>aptly repo move</code></p>
-<pre><code class="language-bash">$ aptly repo move asl3-beta asl3-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
-Loading packages...
-[o] asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-</code></pre>
-<p>(3) Update the repository publication</p>
-<pre><code class="language-bash">$ aptly publish update bookworm
-Loading packages...
-Generating metadata files and linking package files...
-Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix &quot;.&quot; components beta, devel, main...
+</code></pre></div></p>
+<p>(2) Move the packages into the production repository using <code>aptly repo move</code>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>move<span class="w"> </span>asl3-beta<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+</code></pre></div></p>
+<p>(3) Update the repository publication
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+Loading<span class="w"> </span>packages...
+Generating<span class="w"> </span>metadata<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>linking<span class="w"> </span>package<span class="w"> </span>files...
+Finalizing<span class="w"> </span>metadata<span class="w"> </span>files...
+Signing<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Clearsigning<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Cleaning<span class="w"> </span>up<span class="w"> </span>prefix<span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span>components<span class="w"> </span>beta,<span class="w"> </span>devel,<span class="w"> </span>main...
 
-Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
-</code></pre>
+Publish<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>repo<span class="w"> </span>./bookworm<span class="w"> </span><span class="o">[</span>all,<span class="w"> </span>amd64,<span class="w"> </span>arm64,<span class="w"> </span>armhf<span class="o">]</span><span class="w"> </span>publishes<span class="w"> </span><span class="o">{</span>beta:<span class="w"> </span><span class="o">[</span>asl3-beta<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>devel:<span class="w"> </span><span class="o">[</span>asl3-devel<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>main:<span class="w"> </span><span class="o">[</span>asl3-prod<span class="o">]}</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>successfully<span class="w"> </span>updated.
+</code></pre></div></p>
 <h2 id="developers-aptly-note-on-all-architecture-packages">Note on 'all' Architecture Packages</h2>
 <p>The architecture <code>all</code> denotes that the package contains no
 binary compiled code and runs on any architecture. This is meaningful
@@ -3877,19 +3990,18 @@ and CAN exist in the repository. The GitHub Runner builder will delete
 the <code>all</code> packages for the <code>arm64</code> build since the <code>arm64</code> and <code>amd64</code> 
 builds should occur simultaneously.</p>
 <p>To delete an extra set of <code>all</code> packages that may have ended up in the
-repository:</p>
-<pre><code class="language-bash">$ aptly repo search asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
+repository:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;</span>
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all
 
-$ aptly repo remove asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
-Loading packages...
-[-] asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all removed
-[-] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all removed
-[-] asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all removed
-
-</code></pre></section><h1 class='nav-section-title-end'>Ended: Developer Guide</h1></div>
+$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>remove<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;</span>
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: Developer Guide</h1></div>
 
 
 

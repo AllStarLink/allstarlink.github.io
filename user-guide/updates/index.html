@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
       
@@ -651,6 +653,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1495,9 +1518,9 @@ painless for users.</p>
 <p>Whether AllStarLink v3 is installed on a standard Debian 12
 installation or you are using the Pi appliance image,
 updates follow the standard Debian format:</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt upgrade -y
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
 <p>This will update all AllStarLink v3 software as well as
 the underlying operating system. AllStarLink will never
 release any update that is a "breaking change" through
@@ -1508,24 +1531,24 @@ process or a well-documented manual step-by-step process.</p>
 file. It is generally best to answer such questions with
 <code>N</code> meaning "keep your currently-installed version. Such a question
 will look like:</p>
-<pre><code class="language-bash">Configuration file '/etc/asterisk/rpt.conf'
- ==&gt; Modified (by you or by a script) since installation.
- ==&gt; Package distributor has shipped an updated version.
-   What would you like to do about it ?  Your options are:
-    Y or I  : install the package maintainer's version
-    N or O  : keep your currently-installed version
-      D     : show the differences between the versions
-      Z     : start a shell to examine the situation
- The default action is to keep your current version.
-*** rpt.conf (Y/I/N/O/D/Z) [default=N] ? N
-</code></pre>
+<div class="highlight"><pre><span></span><code>Configuration<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;/etc/asterisk/rpt.conf&#39;</span>
+<span class="w"> </span><span class="o">==</span>&gt;<span class="w"> </span>Modified<span class="w"> </span><span class="o">(</span>by<span class="w"> </span>you<span class="w"> </span>or<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>script<span class="o">)</span><span class="w"> </span>since<span class="w"> </span>installation.
+<span class="w"> </span><span class="o">==</span>&gt;<span class="w"> </span>Package<span class="w"> </span>distributor<span class="w"> </span>has<span class="w"> </span>shipped<span class="w"> </span>an<span class="w"> </span>updated<span class="w"> </span>version.
+<span class="w">   </span>What<span class="w"> </span>would<span class="w"> </span>you<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span><span class="k">do</span><span class="w"> </span>about<span class="w"> </span>it<span class="w"> </span>?<span class="w">  </span>Your<span class="w"> </span>options<span class="w"> </span>are:
+<span class="w">    </span>Y<span class="w"> </span>or<span class="w"> </span>I<span class="w">  </span>:<span class="w"> </span>install<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>maintainer<span class="err">&#39;</span>s<span class="w"> </span>version
+<span class="w">    </span>N<span class="w"> </span>or<span class="w"> </span>O<span class="w">  </span>:<span class="w"> </span>keep<span class="w"> </span>your<span class="w"> </span>currently-installed<span class="w"> </span>version
+<span class="w">      </span>D<span class="w">     </span>:<span class="w"> </span>show<span class="w"> </span>the<span class="w"> </span>differences<span class="w"> </span>between<span class="w"> </span>the<span class="w"> </span>versions
+<span class="w">      </span>Z<span class="w">     </span>:<span class="w"> </span>start<span class="w"> </span>a<span class="w"> </span>shell<span class="w"> </span>to<span class="w"> </span>examine<span class="w"> </span>the<span class="w"> </span>situation
+<span class="w"> </span>The<span class="w"> </span>default<span class="w"> </span>action<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>keep<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>version.
+***<span class="w"> </span>rpt.conf<span class="w"> </span><span class="o">(</span>Y/I/N/O/D/Z<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span>N<span class="o">]</span><span class="w"> </span>?<span class="w"> </span>N
+</code></pre></div>
 <p>AllStarLink will clearly announce when there is a change that may break
 existing configurations.</p>
 <p>If you want updates to install without any questions being asked
 specify the <code>DEBIAN_FRONTEND=noninteractive</code> variable:</p>
-<pre><code class="language-bash">DEBIAN_FRONTEND=noninteractive sudo apt update
-DEBIAN_FRONTEND=noninteractive sudo apt upgrade -y
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
 <p>Using this command will automatically choose "N" to any 
 question about configuration - i.e. it will always keep
 your installed version.</p>

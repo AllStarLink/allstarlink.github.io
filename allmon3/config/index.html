@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1644,21 +1667,21 @@ options:</p>
 </tr>
 </tbody>
 </table>
-<p>An example minimal node configuration would be:</p>
-<pre><code>[12345]
+<p>An example minimal node configuration would be:
+<div class="highlight"><pre><span></span><code>[12345]
 host = 127.0.0.1
 user = admin
 pass = Passw0rd
-</code></pre>
-<p>An example of a server with multiple nodes on it:</p>
-<pre><code>[12345]
+</code></pre></div></p>
+<p>An example of a server with multiple nodes on it:
+<div class="highlight"><pre><span></span><code>[12345]
 host = 127.0.0.1
 user = admin
 pass = Passw0rd
 multinodes = 12345, 23456
-</code></pre>
-<p>Here's an example for monitoring three ASL Nodes:</p>
-<pre><code>[50815]
+</code></pre></div></p>
+<p>Here's an example for monitoring three ASL Nodes:
+<div class="highlight"><pre><span></span><code>[50815]
 host=172.17.16.36
 user=admin
 pass=password
@@ -1674,7 +1697,7 @@ user=admin
 pass=password
 voter=y
 votertitle=Megavoter
-</code></pre>
+</code></pre></div></p>
 <h2 id="server-customization">Server Customization</h2>
 <p>Allmon3 has multiple configuration files to consider:</p>
 <ul>
@@ -1704,37 +1727,37 @@ is documented in the file.  </p>
 <p>The <em>syscmds</em> section defines the templates in the "system commands" menu.
 This stanza lists commands that are templates for the systems command
 modal dialog. The format is:</p>
-<pre><code>[syscmds]
+<p><div class="highlight"><pre><span></span><code>[syscmds]
   command text = Command Label
   command text = Command Label
   command text = Command Label
   ...
-</code></pre>
-<p>In any command text the @ will be replaced with the node the command
-modal was selected from. For example:</p>
-<pre><code>    rpt status @ = Show Node Status
-</code></pre>
-<p>wll result in the command 'rpt status 1999' assuming this command was
+</code></pre></div>
+In any command text the @ will be replaced with the node the command
+modal was selected from. For example:
+<div class="highlight"><pre><span></span><code>    rpt status @ = Show Node Status
+</code></pre></div>
+wll result in the command 'rpt status 1999' assuming this command was
 selected from Node #1999.</p>
 <p>It is possible to create optional stanzas named in the format
 <code>[syscmds-NODE]</code> (e.g. <code>[syscmds-1999]</code>) and have those commands
 templates appear only for the given NODE listed. Example:</p>
-<pre><code>[syscmds-1999]
+<div class="highlight"><pre><span></span><code>[syscmds-1999]
 rpt cmd @ cop 999 xxx = Execute function 999
-</code></pre>
+</code></pre></div>
 <h4 id="node-overrides">[node-overrides]</h4>
 <p>The <em>node-overrides</em> section can be used to override information
 from the ASL database. Using this section, the AllStarLink DB
 labels for a node may be replaces with custom text. The format is:</p>
-<pre><code>[node-overrides]
+<p><div class="highlight"><pre><span></span><code>[node-overrides]
     NODE1 = TEXT HERE
     NODE2 = TEXT HERE 2
-</code></pre>
-<p>This section must exist even if it's empty. For example:</p>
-<pre><code>[node-overrides]
+</code></pre></div>
+This section must exist even if it's empty. For example:</p>
+<div class="highlight"><pre><span></span><code>[node-overrides]
     1999 = My special private node
     2010 = Wild Party Node
-</code></pre>
+</code></pre></div>
 <h4 id="voter-titles">[voter-titles]</h4>
 <p>The <em>voter-titles</em> section is used to set display names for voters.
 This functions identically to <code>[node-overrides]</code>. For any
@@ -1751,7 +1774,7 @@ un-polled if it is already configured in allmon3.ini. This allows
 the system administrator to have "hidden" nodes. If you want to completely
 stop polling an Asterisk/ASL node, the node must be removed from allmon3.ini.</p>
 <p>The format for this file is as follows:</p>
-<pre><code>[ TITLE ]                         :: The stanza header is the label
+<p><div class="highlight"><pre><span></span><code>[ TITLE ]                         :: The stanza header is the label
                                   :: for this menu item
 type  = ( menu | single )         :: If type = menu, the item is interpreted as a dropdown
                                   :: menu with each LABEL item displaying. If the
@@ -1769,11 +1792,11 @@ LABEL = TARGET                    :: then TARGET is assumed to be a ASL node and
                                   :: Of special node, creating a menu item of
                                   :: multiple nodes to display, TARGET and simply be
                                   :: #NODE,NODE,NODE - e.g. #1999,1998,1997
-</code></pre>
-<p>Note that the order of the nodes within a stanza is irrelevant. They will be displayed
+</code></pre></div>
+Note that the order of the nodes within a stanza is irrelevant. They will be displayed
 as sorted alphabetically ascending according to UTF-8 (e.g. 0-9, A-Z, +).</p>
-<p>An example custom menu may look like:</p>
-<pre><code>[ W8WKY ]
+<p>An example custom menu may look like:
+<div class="highlight"><pre><span></span><code>[ W8WKY ]
 type = menu
 W8WKY = 43211
 48496 = 48496
@@ -1788,14 +1811,14 @@ N8XPK = 42993
 [ Test ]
 type = single
 AllStarLink = https://www.allstarlink.org
-</code></pre>
+</code></pre></div></p>
 <h2 id="using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code>
 package, install <code>nginx</code> using the above directions. After configuring
 nginx, edit <code>/etc/nginx/sites-available/default</code> (or your preferred site
 configuration) and add an <code>include</code> directive within the appropriate
 <code>server { }</code> configuration block. For example:</p>
-<pre><code>server {
+<div class="highlight"><pre><span></span><code>server {
     listen 80 default_server;
 
     [... other stuff ...]
@@ -1804,7 +1827,7 @@ configuration) and add an <code>include</code> directive within the appropriate
 
     [... other stuff ...]
 }
-</code></pre>
+</code></pre></div>
 
 
 

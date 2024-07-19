@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1494,62 +1517,60 @@ provides information on applying for a feed.</p>
 <p>After you have your account and feed credentials, you a ready to setup AllStar.</p>
 <h2 id="setup-a-feed">Setup a Feed</h2>
 <ul>
-<li>Log into your node either using Cockpit or SSH and type the following commands:</li>
-</ul>
-<pre><code class="language-bash">sudo apt update
-sudo apt install libshout-dev libtagc0-dev lame ezstream
-</code></pre>
-<ul>
-<li>Edit <code>/etc/ezstream.xml</code> with your favorite editor - for example
+<li>
+<p>Log into your node either using Cockpit or SSH and type the following commands:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libshout-dev<span class="w"> </span>libtagc0-dev<span class="w"> </span>lame<span class="w"> </span>ezstream
+</code></pre></div></p>
+</li>
+<li>
+<p>Edit <code>/etc/ezstream.xml</code> with your favorite editor - for example
 <code>sudo nano -w /etc/ezstream.xml</code>.  You will be
 creating a new file. Copy, paste, and edit the following contents
-into the file:</li>
-</ul>
-<pre><code class="language-xml">&lt;ezstream&gt;
-    &lt;servers&gt;
-        &lt;server&gt;
-            &lt;protocol&gt;HTTP&lt;/protocol&gt;
-            &lt;hostname&gt;Replace with Broadcastify URL&lt;/hostname&gt;
-            &lt;port&gt;80&lt;/port&gt;
-            &lt;password&gt;Replace with your stream password&lt;/password&gt;
-            &lt;tls&gt;none&lt;/tls&gt;
-        &lt;/server&gt;
-    &lt;/servers&gt;
+into the file:
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;ezstream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servers&gt;</span>
+<span class="w">        </span><span class="nt">&lt;server&gt;</span>
+<span class="w">            </span><span class="nt">&lt;protocol&gt;</span>HTTP<span class="nt">&lt;/protocol&gt;</span>
+<span class="w">            </span><span class="nt">&lt;hostname&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>Broadcastify<span class="w"> </span>URL<span class="nt">&lt;/hostname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;port&gt;</span>80<span class="nt">&lt;/port&gt;</span>
+<span class="w">            </span><span class="nt">&lt;password&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>password<span class="nt">&lt;/password&gt;</span>
+<span class="w">            </span><span class="nt">&lt;tls&gt;</span>none<span class="nt">&lt;/tls&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/server&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/servers&gt;</span>
 
-    &lt;streams&gt;
-        &lt;stream&gt;
-            &lt;mountpoint&gt;Replace with your mount point path&lt;/mountpoint&gt;
-            &lt;format&gt;MP3&lt;/format&gt;
-                &lt;stream_name&gt;Replace with your feed name&lt;/stream_name&gt;
-                &lt;stream_url&gt;Your web page&lt;/stream_url&gt;
-                &lt;stream_genre&gt;Amateur Radio&lt;/stream_genre&gt;
-                &lt;stream_description&gt;Replace with your stream description&lt;/stream_description&gt;
-                &lt;stream_bitrate&gt;16&lt;/stream_bitrate&gt;
-                &lt;stream_channels&gt;1&lt;/stream_channels&gt;
-                &lt;stream_samplerate&gt;22050&lt;/stream_samplerate&gt;
-                &lt;stream_public&gt;Yes&lt;/stream_public&gt;
-        &lt;/stream&gt;
-    &lt;/streams&gt;
+<span class="w">    </span><span class="nt">&lt;streams&gt;</span>
+<span class="w">        </span><span class="nt">&lt;stream&gt;</span>
+<span class="w">            </span><span class="nt">&lt;mountpoint&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>mount<span class="w"> </span>point<span class="w"> </span>path<span class="nt">&lt;/mountpoint&gt;</span>
+<span class="w">            </span><span class="nt">&lt;format&gt;</span>MP3<span class="nt">&lt;/format&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_name&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>feed<span class="w"> </span>name<span class="nt">&lt;/stream_name&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_url&gt;</span>Your<span class="w"> </span>web<span class="w"> </span>page<span class="nt">&lt;/stream_url&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_genre&gt;</span>Amateur<span class="w"> </span>Radio<span class="nt">&lt;/stream_genre&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_description&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>description<span class="nt">&lt;/stream_description&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_bitrate&gt;</span>16<span class="nt">&lt;/stream_bitrate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_channels&gt;</span>1<span class="nt">&lt;/stream_channels&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_samplerate&gt;</span>22050<span class="nt">&lt;/stream_samplerate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_public&gt;</span>Yes<span class="nt">&lt;/stream_public&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/stream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/streams&gt;</span>
 
-    &lt;intakes&gt;
-        &lt;intake&gt;
-            &lt;type&gt;stdin&lt;/type&gt;
-        &lt;/intake&gt;
-    &lt;/intakes&gt;
-&lt;/ezstream&gt;
-</code></pre>
-<ul>
+<span class="w">    </span><span class="nt">&lt;intakes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;intake&gt;</span>
+<span class="w">            </span><span class="nt">&lt;type&gt;</span>stdin<span class="nt">&lt;/type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/intake&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/intakes&gt;</span>
+<span class="nt">&lt;/ezstream&gt;</span>
+</code></pre></div></p>
+</li>
 <li>
 <p>Save the file.</p>
 </li>
 <li>
-<p>Ensure the file is owned and readable only by the asterisk user:</p>
+<p>Ensure the file is owned and readable only by the asterisk user:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>asterisk:asterisk<span class="w"> </span>/etc/ezstream.xml
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">660</span><span class="w"> </span>/etc/ezstream.xml
+</code></pre></div></p>
 </li>
-</ul>
-<pre><code class="language-bash">sudo chown asterisk:asterisk /etc/ezstream.xml
-sudo chmod 660 /etc/ezstream.xml
-</code></pre>
-<ul>
 <li>
 <p>Edit <code>/etc/asterisk/rpt.conf</code> with your favorite editor - e.g. <code>sudo nano -w /etc/asterisk/rpt.conf</code></p>
 </li>
@@ -1557,31 +1578,31 @@ sudo chmod 660 /etc/ezstream.xml
 <p>Locate the node stanza for the node from which to stream to
 broadcastify. The stanza is <code>[NNNNN](node-main)</code>. For example, if
 your node is 63001 then look for <code>[63001](node-main)</code>. Within that configuration
-stanza, add the following line:</p>
+stanza, add the following line:
+<div class="highlight"><pre><span></span><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
+</code></pre></div></p>
 </li>
 </ul>
-<pre><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre>
-<p>The above parameters have these meanings:</p>
-<pre><code>-- preset cbr 16` = use constant bit rate 16
+<p>The above parameters have these meanings:
+<div class="highlight"><pre><span></span><code>-- preset cbr 16` = use constant bit rate 16
 -r = Assume the input file is raw pcm
 -m m = Mode mono
 -s 8 = sample rate 8
 --bitwidth 16 = bit width is 16 (default)   
-</code></pre>
+</code></pre></div></p>
 <ul>
-<li>After these changes have been made, you will need to restart asterisk:</li>
+<li>After these changes have been made, you will need to restart asterisk:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
+</code></pre></div></li>
 </ul>
-<pre><code class="language-bash">sudo systemctl restart asterisk
-</code></pre>
 <p>If you experience any problems, look at /var/log/ezstream.log for error messages.</p>
 <h2 id="migrating-an-existing-feed">Migrating an existing feed</h2>
-<p>If you have an existing feed, you will need to upgrade your existing xml file to the new format.  You can use the following commands.</p>
-<pre><code>cd /etc
+<p>If you have an existing feed, you will need to upgrade your existing xml file to the new format.  You can use the following commands.
+<div class="highlight"><pre><span></span><code>cd /etc
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre>
+</code></pre></div></p>
 
 
 

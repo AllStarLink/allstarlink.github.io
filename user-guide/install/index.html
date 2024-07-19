@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
       
@@ -678,6 +680,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1527,16 +1550,16 @@
 </ul>
 <h2 id="allstarlink-package-repo-install">AllStarLink Package Repo Install</h2>
 <p>Once your Debian system is up and running, install the ASL package repositories:</p>
-<pre><code class="language-bash">cd /tmp
-wget https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
-sudo dpkg -i asl-apt-repos.deb12_all.deb
-sudo apt update
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>https://repo.allstarlink.org/public/asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>asl-apt-repos.deb12_all.deb
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
 <h2 id="asl3-packages-install">ASL3 Packages Install</h2>
 <p>Now the packages may be installed and updated directly from the AllStarLink package
 repository:</p>
-<pre><code class="language-bash">sudo apt install asl3
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3
+</code></pre></div>
 <p>This will install the complete ASL3 system including
 all of the Asterisk app_rpt-enabled packages
 (asl3-asterisk, asl3-asterisk-config, asl3-asterisk-doc, asl3-asterisk-modules),

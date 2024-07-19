@@ -405,6 +405,8 @@
       
         
       
+        
+      
     
     
       
@@ -586,6 +588,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1522,15 +1545,15 @@ mapping is:</p>
 <p>All local repositories are merged and published into a single
 public-facing repository. This is usable by one of the following
 <code>.list</code> configurations in<code>/etc/apt/sources.list.d</code>:</p>
-<pre><code class="language-bash"># Primary AllStarLink Repo for Production Packages
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg] https://repo.allstarlink.org/public bookworm main
+<div class="highlight"><pre><span></span><code><span class="c1"># Primary AllStarLink Repo for Production Packages</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w"> </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main
 
-# Include Beta Component for Testing
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg]  https://repo.allstarlink.org/public bookworm main beta
+<span class="c1"># Include Beta Component for Testing</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w">  </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>beta
 
-# Include Beta and Devel component for Development
-deb [signed-by=/etc/apt/keyrings/allstarlink.gpg]  https://repo.allstarlink.org/public bookworm main beta devel
-</code></pre>
+<span class="c1"># Include Beta and Devel component for Development</span>
+deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/etc/apt/keyrings/allstarlink.gpg<span class="o">]</span><span class="w">  </span>https://repo.allstarlink.org/public<span class="w"> </span>bookworm<span class="w"> </span>main<span class="w"> </span>beta<span class="w"> </span>devel
+</code></pre></div>
 <p>All packages in the repository are signed by GPG and the key is provided with
 repository installation .deb file.</p>
 <h2 id="aptly-github-runner-integrations">Aptly + GitHub Runner Integrations</h2>
@@ -1548,57 +1571,57 @@ in addition to using the web-based API.</p>
 <p>All commands to Aptly must be run as the <code>aptly</code> user. To do this,
 each account on the repository server should be member of the <code>sudo</code>
 and <code>aptly</code> UNIX groups.</p>
-<p>Before issuing any Aptly commands run the following:</p>
-<pre><code class="language-bash">alias aptly=&quot;sudo -u aptly -- aptly&quot;
-</code></pre>
-<p>to ensure that all commands are run as the <code>aptly</code> user.</p>
+<p>Before issuing any Aptly commands run the following:
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">aptly</span><span class="o">=</span><span class="s2">&quot;sudo -u aptly -- aptly&quot;</span>
+</code></pre></div>
+to ensure that all commands are run as the <code>aptly</code> user.</p>
 <h2 id="adding-a-file-to-a-local-repo">Adding a File to a Local Repo</h2>
-<p>Adding a file to the local repo is straight-forward:</p>
-<pre><code class="language-bash">aptly repo add REPO FILE-or-DIR
-</code></pre>
+<p>Adding a file to the local repo is straight-forward:
+<div class="highlight"><pre><span></span><code>aptly<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>REPO<span class="w"> </span>FILE-or-DIR
+</code></pre></div></p>
 <p>For example, to add the latest Allmon3 to the production
-repository:</p>
-<pre><code class="language-bash">$ aptly repo add asl3-prod allmon3_1.2.1-2_all.deb
-Loading packages...
-[+] allmon3_1.2.1-2_all added
-</code></pre>
+repository:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>asl3-prod<span class="w"> </span>allmon3_1.2.1-2_all.deb
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>allmon3_1.2.1-2_all<span class="w"> </span>added
+</code></pre></div></p>
 <h2 id="publishing-repositories">Publishing Repositories</h2>
 <p>Coalescing and publishing the public repository with
-all components is:</p>
-<pre><code class="language-bash">aptly publish update bookworm
-</code></pre>
-<p>When other distributions are supported, replace "bookworm"
+all components is:
+<div class="highlight"><pre><span></span><code>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+</code></pre></div>
+When other distributions are supported, replace "bookworm"
 with the appropriate distribution. Upon execution, a prompt
 will appear for the GPG signing key for the repository. Provide it.</p>
-<p>And example, successful publication looks like:</p>
-<pre><code class="language-bash">$ aptly publish update bookworm
-Loading packages...
-Generating metadata files and linking package files...
-Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix &quot;.&quot; components beta, devel, main...
+<p>And example, successful publication looks like:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+Loading<span class="w"> </span>packages...
+Generating<span class="w"> </span>metadata<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>linking<span class="w"> </span>package<span class="w"> </span>files...
+Finalizing<span class="w"> </span>metadata<span class="w"> </span>files...
+Signing<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Clearsigning<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Cleaning<span class="w"> </span>up<span class="w"> </span>prefix<span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span>components<span class="w"> </span>beta,<span class="w"> </span>devel,<span class="w"> </span>main...
 
-Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
-</code></pre>
+Publish<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>repo<span class="w"> </span>./bookworm<span class="w"> </span><span class="o">[</span>all,<span class="w"> </span>amd64,<span class="w"> </span>arm64,<span class="w"> </span>armhf<span class="o">]</span><span class="w"> </span>publishes<span class="w"> </span><span class="o">{</span>beta:<span class="w"> </span><span class="o">[</span>asl3-beta<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>devel:<span class="w"> </span><span class="o">[</span>asl3-devel<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>main:<span class="w"> </span><span class="o">[</span>asl3-prod<span class="o">]}</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>successfully<span class="w"> </span>updated.
+</code></pre></div></p>
 <h2 id="searching-for-packages">Searching for Packages</h2>
 <p>Listing and searching for packages inside of a local repo is done
 with the <code>aptly repo search</code> command and uses the
 (Aptly Package Query Language)[https://www.aptly.info/doc/feature/query/]
 to filter/select packages.</p>
-<p>A simple <code>aptly repo search REPO</code> will show all packages. For example:</p>
-<pre><code class="language-bash">$ aptly repo search asl3-prod
+<p>A simple <code>aptly repo search REPO</code> will show all packages. For example:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod
 allmon3_1.2.1-2_all
 asl-apt-repos_1.3-1.deb12_all
 asl3_3.0.0-1.deb_all
-[...]
-</code></pre>
+<span class="o">[</span>...<span class="o">]</span>
+</code></pre></div></p>
 <h5 id="search-by-name">Search by name</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (asl3)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (asl3)&#39;</span>
 asl3_3.0.0-1.deb_all
-</code></pre>
+</code></pre></div>
 <h5 id="search-by-name-glob-version">Search by name glob + version</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -1608,9 +1631,9 @@ asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
-</code></pre>
+</code></pre></div>
 <h5 id="search-by-name-glob-version-range">Search by name glob + version range</h5>
-<pre><code class="language-bash">$ aptly repo search asl3-prod 'Name (~ asl3-asterisk*), Version (&gt;= 1.0)'
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (&gt;= 1.0)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -1620,12 +1643,12 @@ asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
-</code></pre>
+</code></pre></div>
 <h2 id="promoting-packages-to-prod">Promoting Packages to Prod</h2>
 <p>Using the hypothetical example of promoting asl3-asterisk packages
 from beta to production.</p>
-<p>(1) Test package selection using <code>aptly repo search</code></p>
-<pre><code class="language-bash">$ $ aptly repo search asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<p>(1) Test package selection using <code>aptly repo search</code>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
@@ -1641,37 +1664,37 @@ asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64
-</code></pre>
-<p>(2) Move the packages into the production repository using <code>aptly repo move</code></p>
-<pre><code class="language-bash">$ aptly repo move asl3-beta asl3-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
-Loading packages...
-[o] asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-[o] asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all moved
-[o] asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
-[o] asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64 moved
-</code></pre>
-<p>(3) Update the repository publication</p>
-<pre><code class="language-bash">$ aptly publish update bookworm
-Loading packages...
-Generating metadata files and linking package files...
-Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix &quot;.&quot; components beta, devel, main...
+</code></pre></div></p>
+<p>(2) Move the packages into the production repository using <code>aptly repo move</code>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>move<span class="w"> </span>asl3-beta<span class="w"> </span>asl3-prod<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;</span>
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-modules-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64<span class="w"> </span>moved
+<span class="o">[</span>o<span class="o">]</span><span class="w"> </span>asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64<span class="w"> </span>moved
+</code></pre></div></p>
+<p>(3) Update the repository publication
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>publish<span class="w"> </span>update<span class="w"> </span>bookworm
+Loading<span class="w"> </span>packages...
+Generating<span class="w"> </span>metadata<span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>linking<span class="w"> </span>package<span class="w"> </span>files...
+Finalizing<span class="w"> </span>metadata<span class="w"> </span>files...
+Signing<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Clearsigning<span class="w"> </span>file<span class="w"> </span><span class="s1">&#39;Release&#39;</span><span class="w"> </span>with<span class="w"> </span>gpg,<span class="w"> </span>please<span class="w"> </span>enter<span class="w"> </span>your<span class="w"> </span>passphrase<span class="w"> </span>when<span class="w"> </span>prompted:
+Cleaning<span class="w"> </span>up<span class="w"> </span>prefix<span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span>components<span class="w"> </span>beta,<span class="w"> </span>devel,<span class="w"> </span>main...
 
-Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-beta]}, {devel: [asl3-devel]}, {main: [asl3-prod]} has been successfully updated.
-</code></pre>
+Publish<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>repo<span class="w"> </span>./bookworm<span class="w"> </span><span class="o">[</span>all,<span class="w"> </span>amd64,<span class="w"> </span>arm64,<span class="w"> </span>armhf<span class="o">]</span><span class="w"> </span>publishes<span class="w"> </span><span class="o">{</span>beta:<span class="w"> </span><span class="o">[</span>asl3-beta<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>devel:<span class="w"> </span><span class="o">[</span>asl3-devel<span class="o">]}</span>,<span class="w"> </span><span class="o">{</span>main:<span class="w"> </span><span class="o">[</span>asl3-prod<span class="o">]}</span><span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>successfully<span class="w"> </span>updated.
+</code></pre></div></p>
 <h2 id="note-on-all-architecture-packages">Note on 'all' Architecture Packages</h2>
 <p>The architecture <code>all</code> denotes that the package contains no
 binary compiled code and runs on any architecture. This is meaningful
@@ -1681,19 +1704,18 @@ and CAN exist in the repository. The GitHub Runner builder will delete
 the <code>all</code> packages for the <code>arm64</code> build since the <code>arm64</code> and <code>amd64</code> 
 builds should occur simultaneously.</p>
 <p>To delete an extra set of <code>all</code> packages that may have ended up in the
-repository:</p>
-<pre><code class="language-bash">$ aptly repo search asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
+repository:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>search<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;</span>
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all
 
-$ aptly repo remove asl3-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
-Loading packages...
-[-] asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all removed
-[-] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all removed
-[-] asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all removed
-
-</code></pre>
+$<span class="w"> </span>aptly<span class="w"> </span>repo<span class="w"> </span>remove<span class="w"> </span>asl3-beta<span class="w"> </span><span class="s1">&#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;</span>
+Loading<span class="w"> </span>packages...
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+<span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
+</code></pre></div></p>
 
 
 

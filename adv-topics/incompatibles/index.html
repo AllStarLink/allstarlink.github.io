@@ -407,6 +407,8 @@
       
         
       
+        
+      
     
     
       
@@ -588,6 +590,27 @@
   
   <span class="md-ellipsis">
     ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
   </span>
   
 
@@ -1496,22 +1519,22 @@ port below 1024. The default port for Voters/RTCMs has been changed to <code>166
 previously it was <code>667</code>.</p>
 <p>If the Voter/RTCM port cannot be easily changed, then the following
 configuration can be made to the underlying operating system:</p>
-<pre><code class="language-bash">echo net.ipv4.ip_unprivileged_port_start=667 &gt; /etc/sysctl.d/aslport667.conf
-sysctl -p
-systemctl restart asterisk
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>net.ipv4.ip_unprivileged_port_start<span class="o">=</span><span class="m">667</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/sysctl.d/aslport667.conf
+sysctl<span class="w"> </span>-p
+systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
+</code></pre></div>
 <p>If running the AllStarLink Pi Appliance (or another system with a firewall),
 inbound to port 667/UDP must be permitted. For directions on how to do this
 with the Pi Appliance see <a href="../../pi/cockpit-firewall/">Managing the Firewall</a>.</p>
 <h2 id="usb-udev">USB udev</h2>
 <p>A udev rule is needed to allow Asterisk running as non-root access to the USB system. ASL3 systems installed from debs, apt install or images will already have this rule in place.</p>
-<pre><code class="language-text">/etc/udev/rules.d/90-asl3.rules
+<div class="highlight"><pre><span></span><code>/etc/udev/rules.d/90-asl3.rules
 SUBSYSTEM==&quot;usb&quot;, ATTRS{idVendor}==&quot;0d8c&quot;, GROUP=&quot;plugdev&quot;, TAG+=&quot;uaccess&quot;
-</code></pre>
+</code></pre></div>
 <p>The UDev subsystem must be reloaded and then the USB device re-inserted
 into the port. UDev is reloaded with the command</p>
-<pre><code class="language-bash">udevadm control --reload
-</code></pre>
+<div class="highlight"><pre><span></span><code>udevadm<span class="w"> </span>control<span class="w"> </span>--reload
+</code></pre></div>
 <p>Alternatively, reboot the system.</p>
 
 
