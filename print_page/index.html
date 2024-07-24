@@ -1116,11 +1116,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../adv-topics/misc/" class="md-nav__link">
+      <a href="../adv-topics/hotspot_hd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Miscellaneous
+    Hot Spot Unkey Delay
   </span>
   
 
@@ -1137,11 +1137,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../adv-topics/hotspot_hd/" class="md-nav__link">
+      <a href="../adv-topics/autopatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Hot Spot Unkey Delay
+    Autopatch
   </span>
   
 
@@ -2623,8 +2623,8 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-other-software">Other Software Products</a></li>
 <li><a href="#adv-topics-sip-phone">SIP Phone Setup</a></li>
 <li><a href="#adv-topics-broadcastify">Broadcastify</a></li>
-<li><a href="#adv-topics-misc">Miscellaneous</a></li>
 <li><a href="#adv-topics-hotspot_hd">Hot Spot Unkey Delay</a></li>
+<li><a href="#adv-topics-autopatch">Autopatch</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -3144,34 +3144,7 @@ stanza, add the following line:
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre></div></p></section><section class="print-page" id="adv-topics-misc"><h1 id="adv-topics-misc-miscellaneous">Miscellaneous</h1>
-<p>The following are miscellaneous advanced topics.</p>
-<h2 id="adv-topics-misc-asl-repo-switch-command">asl-repo-switch Command</h2>
-<p>The <code>asl-repo-switch</code> command changes the system's package stream
-for AllStarLink between three possibilities:</p>
-<ul>
-<li>
-<p><strong>prod</strong> - Packages for production-quality use.</p>
-</li>
-<li>
-<p><strong>beta</strong> - Packages that are ready for general testing and
-are expected to be promoted to prod.</p>
-</li>
-<li>
-<p><strong>devel</strong> - Development quality packages that are for
-development testing only. While these packages are available
-to the general user, use of this component in extremely
-discouraged without a developer's guidance.</p>
-</li>
-</ul>
-<p>In general, all ASL systems should run the <code>prod</code> stream.
-People wanting to test forthcoming features and changes
-should run the <code>beta</code> stream with the understanding there
-is the possibility for some problems and bugs.</p>
-<p>Changing package streams is accomplished with <code>asl-repo-switch -l STREAM</code>.
-For example: <code>asl-repo-switch -l beta</code>. Note that packages 
-will not be reverted to older versions if one moves
-from beta back to prod.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-unkey-delay">Hot Spot Unkey Delay</h1>
+</code></pre></div></p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-unkey-delay">Hot Spot Unkey Delay</h1>
 <p>When setting up a hot spot select the Duplex 1 option with the asl-menu
 will allow the hot spot to function. However the unkey delay of the
 radio transmiter will be too long.</p>
@@ -3198,7 +3171,150 @@ improve hot spot responsiveness.</p>
 <li>Select <code>&lt;Exit Main Menu&gt;</code></li>
 <li>Select <code>&lt;Yes&gt;</code></li>
 </ul>
-<p>This setup will likely be a single menu selection with the next release of ASL3.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+<p>This setup will likely be a single menu selection with the next release of ASL3.</p></section><section class="print-page" id="adv-topics-autopatch"><h1 id="adv-topics-autopatch-autopatch">Autopatch</h1>
+<p>The autopatch feature in app_rpt allows users on the radio to interconnect with the public switched telephone network.</p>
+<h2 id="adv-topics-autopatch-regulatory-issues">Regulatory Issues</h2>
+<p><em>Some countries do not allow third-party traffic through autopatching or 
+telephone interconnection on amateur radio frequencies. In addition, if a system 
+is linked between one country which allows autopatching and one which doesn't, 
+just the passing of the traffic itself across the link could be considered a 
+violation of the rules in the prohibiting country. In countries which permit 
+autopatching, users need be made aware of this and should take the node off-link 
+before using the autopatch.</em></p>
+<h2 id="adv-topics-autopatch-security-issues">Security Issues</h2>
+<p><em>The examples provided here do not secure the autopatch against toll fraud. A lot 
+can be done to prevent or reduce toll fraud, but the prevention measures vary by 
+where you are located geographically. Most of the prevention measures will be in 
+extensions.conf. You can write contexts to reject certain number sequences. 
+The <a href="http://www.asteriskdocs.org/">asterisk book</a> should be consulted to see how to do 
+this, Before placing any autopatch in service, please make sure you have secured 
+your system so that toll fraud does not become an issue.</em></p>
+<h2 id="adv-topics-autopatch-selecting-a-voip-provider">Selecting a VOIP Provider</h2>
+<p>Call termination into the public switched telephone network is a service offered by
+a Voice Over IP provider (VOIP). This is a highly competitive business, 
+and there are lots of VOIP providers offering termination for Asterisk users. 
+Termination is usually provided using the SIP protocol, while IAX is offered 
+by a few providers.</p>
+<p>When selecting an VOIP provider, make sure they provide setup instructions with 
+example configurations including usernames, and passwords. Quite a few VOIPs will 
+automatically generate a custom SIP or IAX stanza for insertion into sip.conf, 
+or iax.conf respectively.</p>
+<h2 id="adv-topics-autopatch-configuration-files">Configuration Files</h2>
+<p>Three configuration files will be used to setup the autopatch: <strong>rpt.conf</strong>, <strong>extensions.conf</strong> and 
+<strong>iax.conf</strong> or <strong>sip.conf</strong>. The VOIP provider should provide a stanza for you to insert in 
+<strong>iax.conf</strong> or <strong>sip.conf</strong>. The configuration below shows how each of these files are 
+used when an outgoing autopatch call is made.</p>
+<p>In the <strong>rpt.conf</strong> configuration file, a context in extensions.conf is defined 
+in a node stanza using the context key:</p>
+<p><div class="highlight"><pre><span></span><code>[1234]
+
+context = autopatch                 ; dialing context for phone
+callerid = &quot;Repeater&quot; &lt;0000000000&gt;  ; callerid for phone calls
+accountcode = RADIO                 ; account code (optional)
+</code></pre></div>
+Also in the <strong>rpt.conf</strong> file, entries are added to the function stanza so 
+that users can bring up or take down the autopatch:
+<div class="highlight"><pre><span></span><code>[functions]
+61 = autopatchup,noct=1,farenddisconnect=1,dialtime=20000,context=autopatch
+62 = autopatchdn 
+</code></pre></div></p>
+<p>In <strong>extensions.conf</strong>, a stanza for the autopatch context is added which 
+refers to the peer stanza in iax.conf or sip.conf. </p>
+<p>For outbound IAX connections extensions.conf
+<div class="highlight"><pre><span></span><code>[autopatch] 
+
+exten =&gt; _1NXXNXXXXXX,1,Dial,IAX2/peername/${EXTEN} 
+exten =&gt; _1NXXNXXXXXX,2,Congestion 
+</code></pre></div>
+For outbound SIP connections it should look like this:
+<div class="highlight"><pre><span></span><code>[autopatch] 
+
+exten =&gt; _1NXXNXXXXXX,1,Dial,SIP/peername/${EXTEN} 
+exten =&gt; _1NXXNXXXXXX,2,Congestion 
+</code></pre></div></p>
+<p>The peer stanza you insert in <strong>iax.conf</strong> or <strong>sip.conf</strong> should preferably be 
+provided by your VOIP provider. You'll want to use the stanza they identify for 
+performing outgoing connections. A nonoperational example of an iax2 peer stanza 
+looks like this:
+<div class="highlight"><pre><span></span><code>[peername]
+type=peer 
+host=127.0.0.1 
+secret=nunya
+auth=md5 
+disallow=all 
+allow=gsm 
+allow=ulaw
+</code></pre></div></p>
+<h2 id="adv-topics-autopatch-autopatch-options">Autopatch Options</h2>
+<p>There are several options that can be passed to the autopatchup command class.</p>
+<p>This table summarizes what they do:</p>
+<table>
+<thead>
+<tr>
+<th>Autopatch Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context</td>
+<td>Override the context specified for the autopatch in rpt.conf</td>
+</tr>
+<tr>
+<td>dialtime</td>
+<td>The maximum time to wait between DTMF digits when a telephone number is being dialed. The patch will automatically disconnect if this time is exceeded. The value is specified in milliseconds.</td>
+</tr>
+<tr>
+<td>farenddisconnect</td>
+<td>When set to 1, the patch will automatically disconnect when the called party hangs up. The default is send a circuit busy tone until the radio user brings the patch down.</td>
+</tr>
+<tr>
+<td>noct</td>
+<td>When this is set to 1, the courtesy tone during an autopatch call will be disabled. The default is to send the courtesy tone whenever the radio user unkeys.</td>
+</tr>
+<tr>
+<td>quiet</td>
+<td>When set to 1, do not send dial tone, voice responses, just try to connect the call.</td>
+</tr>
+<tr>
+<td>voxalways</td>
+<td>When set to 1, enables vox mode.</td>
+</tr>
+<tr>
+<td>exten</td>
+<td>Overrides the default autopatch extension.</td>
+</tr>
+<tr>
+<td>nostar</td>
+<td>Disables the repeater function prefix</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adv-topics-autopatch-simplex-autopatch">Simplex Autopatch</h2>
+<p>For nodes with duplex set to 0 or 1, Simplex Autopatch operation is supported.
+This is accomplished by using a VOX on the audio coming from the telephone call, 
+because of the half-duplex nature of the node. To avoid having audio from the 
+telephone call keep the transmitter engaged for extended periods of time (if there 
+is some source of continuous audio), there are two time-out values. </p>
+<p>Vox timeout, which is the maximum amount of time that the VOX can hold the transmitter 
+engaged, which by default is 10 seconds. The other one is the Vox recovery time, which
+is the amount of time that the Vox is disabled during times of continuous audio, after
+the Vox timeout, which is 2 seconds. During continuous audio, it transmits for 
+10 seconds, then stops for 2 seconds (so that you can transmit to it and perhaps 
+disconnect the call), then transmits for another 10 seconds, then stops for 2 seconds.
+This repeats until the call is disconnected.</p>
+<p>Additionally, to prevent 'chop-off' of the first syllable or two of the audio from the 
+telephone call, the audio is delayed to allow for the transmitter to start transmitting 
+and any CTCSS tones to be decoded. This delay is typically 500ms, but can be adjusted
+using the 'simplexpatchdelay' parameter. It is specified in units of 20 milliseconds.</p>
+<p>These time-out values may be overridden by using the following configuration parameters
+located in the [node-number] section of <strong>rpt.conf</strong>:
+<div class="highlight"><pre><span></span><code>[1999]
+voxtimeout = 10000 ; vox timeout time in ms
+voxrecover = 2000  ; vox recover time in ms
+simplexpatchdelay = 25 ; Delay for transmit while in patch in 20ms increments
+simplexphonedelay = 25 ; Delay for phone while in patch for 20ms increments
+</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>
