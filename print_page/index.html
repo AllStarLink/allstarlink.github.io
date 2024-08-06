@@ -400,6 +400,8 @@
       
         
       
+        
+      
     
     
       
@@ -560,6 +562,27 @@
   
   <span class="md-ellipsis">
     Differences & Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/passwords/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logins and Passwords
   </span>
   
 
@@ -830,6 +853,8 @@
       
         
           
+        
+      
         
       
         
@@ -1142,6 +1167,27 @@
   
   <span class="md-ellipsis">
     Autopatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
   </span>
   
 
@@ -1501,6 +1547,7 @@ make ASL3 the best AllStar release yet.</p>
 <li><a href="#user-guide-menu">ASL3 Menu</a></li>
 <li><a href="#user-guide-updates">Updating ASL3</a></li>
 <li><a href="#user-guide-known-issues-diffs">Known Issues</a></li>
+<li><a href="#user-guide-passwords">Logins and Passwords</a></li>
 <li><a href="#user-guide-support">ASL3 Support</a></li>
 <li><a href="#user-guide-betatest">Beta Testing</a></li>
 </ul></section><section class="print-page" id="user-guide-whats-new"><h1 id="user-guide-whats-new-whats-new">What's New?</h1>
@@ -1982,7 +2029,67 @@ asterisk<span class="w"> </span><span class="m">1443572</span><span class="w">  
 asterisk<span class="w"> </span><span class="m">1443573</span><span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">0</span>.1<span class="w">  </span><span class="m">11920</span><span class="w">  </span><span class="m">5120</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/lame<span class="w"> </span>--preset<span class="w"> </span>cbr<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>m<span class="w"> </span>-s<span class="w"> </span><span class="m">8</span><span class="w"> </span>--bitwidth<span class="w"> </span><span class="m">16</span><span class="w"> </span>-<span class="w"> </span>-
 asterisk<span class="w"> </span><span class="m">1443574</span><span class="w">  </span><span class="m">0</span>.0<span class="w">  </span><span class="m">0</span>.2<span class="w">  </span><span class="m">55232</span><span class="w"> </span><span class="m">10240</span><span class="w"> </span>?<span class="w">        </span>S<span class="w">    </span><span class="m">10</span>:13<span class="w">   </span><span class="m">0</span>:00<span class="w"> </span>/usr/bin/ezstream<span class="w"> </span>-qvc<span class="w"> </span>/etc/ezstream.xml
 </code></pre></div>
-<p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p></section><section class="print-page" id="user-guide-support"><h1 id="user-guide-support-asl3-support">ASL3 Support</h1>
+<p>If Asterisk is shutdown, the processes above must be stopped with a <code>kill -9 PID</code> command.</p></section><section class="print-page" id="user-guide-passwords"><h1 id="user-guide-passwords-logins-and-passwords">Logins and Passwords</h1>
+<p>Yes, there are many "different" logins and passwords associated with AllStarLink, the ASL3 software, and the related applications.  A typical ASL3 server / node will directly or indirectly use the following login/password pairs :</p>
+<ul>
+<li>AllStarLink login (for "node" information)</li>
+<li>Linux login</li>
+<li>AMI user/secret</li>
+<li>Web application (Allmon3) login</li>
+</ul>
+<h2 id="user-guide-passwords-allstarlink-website-wwwallstarlinkorg">AllStarLink website (<a href="https://www.allstarlink.org">www.allstarlink.org</a>)</h2>
+<p>Th AllStarLink website is where you register for an AllStarLink account, add ASL servers, and request ASL nodes.</p>
+<ul>
+<li>
+<p>Your AllStarLink account with have a "login" and "password"</p>
+</li>
+<li>
+<p>Using the AllStarLink website's "Portal" menu you can:</p>
+<ul>
+<li>
+<p>Add/configure "servers" (computers) that will be running the ASL software.  Each "server" specifies the IAX port used to communicate with your node.  Most nodes will use the default port (4569).  The most common reason to specify an alternate port would be configuring multiple servers that would be running behind a NAT router (e.g. when the servers would be sharing the same public IP).</p>
+</li>
+<li>
+<p>Add/configure "nodes" that will be running on a server.  Each ASL "node" will have an associated password.  You will use the node number and password pair when configuring your ASL node.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Some desktop and mobile applications use "Web Transceiver" to connect to AllStarLink nodes.  Many of these applications use your AllStarLink website login and password for authentication.</p>
+</li>
+</ul>
+<h2 id="user-guide-passwords-linux">Linux</h2>
+<p>Your desktop, laptop, Raspberry Pi, or Virtual Machine will be running the Linux operating system (e.g. Debian).  To access the operating system on your OS you will need a login "user" and "password".</p>
+<p>You will use the Linux "user" and "password" when logging in to your system :</p>
+<ul>
+<li>with the systems display / keyboard</li>
+<li>over the network using SSH</li>
+<li>over the network using the Cockpit web page</li>
+</ul>
+<p>You may have heard about the Linux "root" account.  The root account is also called the super-user; it is a login that bypasses all security protection on your system.  The root account should only be used to perform system administration, and only used for as short a time as possible.  With ASL3, we are trying to limit our usage of the "root" account.</p>
+<!---
+How do I setup a Linux login?
+
+- For those using the Raspberry Pi Imager you will use the "OS Customisation" to setup a new login account.  Here, you will specify your login "user" and "password" (or provide an SSH public key for password-less access)
+
+- For those installing the Debian OS using the install .iso you should be prompted to setup an initial account.  This is where you will specify your login "user" and "password".
+
+- Some VM's will have you use a pre-configured image with a default "user" and "password".  Check the documentation associated with the image for details.
+--->
+
+<p>Note: there is NO DEFAULT USER included in the ASL3 Raspberry Pi Appliance image.</p>
+<h2 id="user-guide-passwords-asterisk-manager-interface-ami">Asterisk Manager Interface (AMI)</h2>
+<p>Your AllStarLink server system runs as process named "asterisk" that is the heart of your node(s).  The Asterisk Manager Interface, AMI, is the standard management interface into your Asterisk server.</p>
+<p>The AMI configuration, stored in "/etc/asterisk/manager.conf", includes "user" categories and associated "secret" passwords.  For example :</p>
+<div class="highlight"><pre><span></span><code>[admin]
+secret = my-AMI-password
+...
+</code></pre></div>
+<p>This "user" (admin) and "secret" (my-AMI-password) would need to be specified in the configuration file for any applications that use AMI to interact with Asterisk.</p>
+<h2 id="user-guide-passwords-web-applications-eg-allmon3">Web Applications (e.g. Allmon3)</h2>
+<p>Many will install one (or more) web applications that monitor/control their ASL nodes.  These applications can provide access to many users on the web and those users may have no relation to those who setup/administer/use your systems.  As such, these applications typically maintain their own list of users and associated passwords.</p>
+<p>Please refer to the web application manual for information on how to manage who is allowed access to the web pages.</p>
+<p>Also, as mentioned above, many of these applications use AMI to interact with your Asterisk and your nodes.  The web application manual should have information on where to specify the AMI credentials.</p></section><section class="print-page" id="user-guide-support"><h1 id="user-guide-support-asl3-support">ASL3 Support</h1>
 <h2 id="user-guide-support-support">Support</h2>
 <p>Primary support for all versions of ASL (including ASL3) continues to be the <a href="https://community.allstarlink.org/">AllStarLink Community</a>.
 Please do not use the ASL Helpdesk for technical help.
@@ -2625,6 +2732,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-broadcastify">Broadcastify</a></li>
 <li><a href="#adv-topics-hotspot_hd">Hot Spot Unkey Delay</a></li>
 <li><a href="#adv-topics-autopatch">Autopatch</a></li>
+<li><a href="#adv-topics-permissions">Permissions</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -2679,9 +2787,11 @@ It shows the number of in-bound and out-bound connections.  It also shows the cu
 <h2 id="adv-topics-commands-debugging">Debugging</h2>
 <p>Previously app_rpt and associated channels supported setting the debug level with an associated app / channel command.  These app / channel commands have been removed and replaced with the asterisk command:</p>
 <p><code>core set debug x module</code> Where x is the debug level and module is the name of the app or module.</p>
-<p>Examples:
-<code>core set debug 5 app_rpt.so</code>
-<code>core set debug 3 chan_echolink.so</code></p>
+<p>Examples:</p>
+<ul>
+<li><code>core set debug 5 app_rpt.so</code></li>
+<li><code>core set debug 3 chan_echolink.so</code></li>
+</ul>
 <h3 id="adv-topics-commands-usb-eeprom-operation">USB EEPROM Operation</h3>
 <p>chan_simpleusb and chan_usbradio allow users to store configuration information in the
 EEPROM attached to their interface(s).  The CM119A can have manufacturer
@@ -3314,7 +3424,85 @@ voxtimeout = 10000 ; vox timeout time in ms
 voxrecover = 2000  ; vox recover time in ms
 simplexpatchdelay = 25 ; Delay for transmit while in patch in 20ms increments
 simplexphonedelay = 25 ; Delay for phone while in patch for 20ms increments
-</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+</code></pre></div></p></section><section class="print-page" id="adv-topics-permissions"><h1 id="adv-topics-permissions-permissions">Permissions</h1>
+<h2 id="adv-topics-permissions-asterisk-vs-root">"asterisk" vs "root"</h2>
+<p>One of the new features with ASL3 is that the Asterisk process now runs as the "asterisk" user (not as the super-user; "root").
+While sometimes handy this was potentially very dangerous.
+This change was made for increased security.
+It's a good thing!</p>
+<p>We acknowledge that there are some applications, commands, and scripts that you may want to bring over from older (and other) versions of ASL and that these may be impacted by ASL3's heightened security.
+Porting these over to ASL3 may require some simple changes to filesystem permissions.
+Other issues may need other solutions (e.g. you can't execute a command that requires "root" privileges when you are not the "root" user).
+For guidance, reach out to the <a href="https://community.allstarlink.org/">AllStarLink Community</a>.</p>
+<p>In short, in ASL3 the Asterisk process now runs as the "asterisk" user.
+If you modify the "/etc/asterisk/rpt.conf" file to execute a command (or script) it will NOT have super-user ("root") privileges.
+The command itself and any file it references must be readable by the "asterisk" user.
+Any files that the command needs to modify must be writable by the "asterisk" user.
+Lastly, the parent directory of any file being created must also be writable.</p>
+<h2 id="adv-topics-permissions-filesystem-permissions">Filesystem Permissions</h2>
+<p>The following is a very brief overview of Linux filesystem permissions.
+More in-depth information is available on the internet (search for “linux file permissions”).</p>
+<p>On a Linux system, each file (and directory) has permissions that effect access by the “owner”, permissions that effect access to those logins in the same “group”, and permissions that effect access to “other” logins.
+The permissions determine whether you (or some other process) can read, write, or execute the files (or search in directories).
+There are commands to change the ownership (“chown”) and permissions (“chmod”) for each file/directory.</p>
+<h3 id="adv-topics-permissions-file-permissions">File permissions</h3>
+<p>You can use the <code>ls -l [FILE]</code> command to view file permissions.
+The permissions determine whether the calling process can read ("r"), write ("w"), or execute ("x") the file.
+Here are some examples :</p>
+<div class="highlight"><pre><span></span><code>node63001:~/examples $ ls -l *file*
+-rw------- 1 root root     0 Aug  5 08:28 1-file-owner-root-can-read-write
+-rw-r----- 1 root asterisk 0 Aug  5 08:28 2-file-add-group-asterisk-can-read
+-rw-r--r-- 1 root asterisk 0 Aug  5 08:27 3-file-add-everyone-can-read
+
+node63001:~/examples $ ls -l *script*
+-rwx------ 1 root root     0 Aug  5 08:28 1-script-owner-root-can-read-write-execute
+-rwxr-x--- 1 root asterisk 0 Aug  5 08:28 2-script-add-group-asterisk-can-read-execute
+-rwxr-xr-x 1 root asterisk 0 Aug  5 08:27 3-script-add-everyone-can-read-execute
+</code></pre></div>
+<p>In each case, the file permissions progress from the most restrictive (only the file owner can read/execute) to most available (all users can read/execute).</p>
+<h3 id="adv-topics-permissions-directory-permissions">Directory permissions</h3>
+<p>You can use the <code>ls -ld &lt;directory&gt;</code> command to view the permissions on a directory (vs. the contents of a directory).
+The permissions determine whether the calling process can read ("r"), write ("w"), or search ("x") the directory.
+Here are some examples :</p>
+<div class="highlight"><pre><span></span><code>node63001:~/examples $ ls -ld *dir*
+drwx------ 2 root root     4096 Aug  5 09:56 1-dir-owner-root-can-read-write-search
+drwxr-x--- 2 root asterisk 4096 Aug  5 09:56 2-dir-add-group-asterisk-can-read-search
+drwxr-xr-x 2 root asterisk 4096 Aug  5 09:56 3-dir-add-everyone-can-read-search
+</code></pre></div>
+<p>In each case, the directory permissions progress from the most restrictive (only the directory owner can read/write/search) to most available (all users can read/search).</p>
+<h3 id="adv-topics-permissions-changing-permissions">Changing permissions</h3>
+<p>The following commands can be used to change the permissions of files and directories :</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Sample Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chown</td>
+<td>change file owner and group</td>
+<td># chown root /var/asl-backups/asl-backup-files</td>
+</tr>
+<tr>
+<td>chgrp</td>
+<td>change group ownership</td>
+<td># chgrp asterisk /var/spool/asterisk/monitor</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td>change file mode bits</td>
+<td># chmod 640 /etc/asterisk/manager.conf</td>
+</tr>
+</tbody>
+</table>
+<p>Any process with "write" permission to a file can update (including completely overwrite) the file.
+A process with "write" permission to a directory can add/remove/rename files in that directory.
+If a command/script is writable then it can be changed to "do something different" when it is next executed.
+When updating filesystem permissions, please remember that doing so can potentially expose the contents of files (and directories) to others.
+Be cautious!</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>

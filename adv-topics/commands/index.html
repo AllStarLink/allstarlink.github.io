@@ -409,6 +409,8 @@
       
         
       
+        
+      
     
     
       
@@ -569,6 +571,27 @@
   
   <span class="md-ellipsis">
     Differences & Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/passwords/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logins and Passwords
   </span>
   
 
@@ -841,6 +864,8 @@
       
         
           
+        
+      
         
       
         
@@ -1298,6 +1323,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1638,9 +1684,11 @@ It shows the number of in-bound and out-bound connections.  It also shows the cu
 <h2 id="debugging">Debugging</h2>
 <p>Previously app_rpt and associated channels supported setting the debug level with an associated app / channel command.  These app / channel commands have been removed and replaced with the asterisk command:</p>
 <p><code>core set debug x module</code> Where x is the debug level and module is the name of the app or module.</p>
-<p>Examples:
-<code>core set debug 5 app_rpt.so</code>
-<code>core set debug 3 chan_echolink.so</code></p>
+<p>Examples:</p>
+<ul>
+<li><code>core set debug 5 app_rpt.so</code></li>
+<li><code>core set debug 3 chan_echolink.so</code></li>
+</ul>
 <h3 id="usb-eeprom-operation">USB EEPROM Operation</h3>
 <p>chan_simpleusb and chan_usbradio allow users to store configuration information in the
 EEPROM attached to their interface(s).  The CM119A can have manufacturer
