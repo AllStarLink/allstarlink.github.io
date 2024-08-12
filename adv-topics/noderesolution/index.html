@@ -1611,15 +1611,23 @@
 
 
 <h1 id="node-resolution">Node Resolution</h1>
-<p>app_rpt has three ways to resolve a node number to an IP address. </p>
+<p>app_rpt has three ways to resolve a node number to an IP address.</p>
 <ul>
-<li>An external node directory file.</li>
-<li>Domain Name Service (DNS).</li>
 <li>Statically entered in rpt.conf</li>
+<li>Domain Name Service (DNS).</li>
+<li>An external node directory file.</li>
 </ul>
 <p>The above mechanisms are used to translate a node number into its respective public IP address.  Connections are made directly between nodes using their public IP addresses.</p>
-<p>app_rpt first looks to see if the node is statically configured.  If it is not found, the setting for <strong>node_lookup_method</strong> in the <strong>[general]</strong> stanza of rpt.conf determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.  For more information see <a href="https://allstarlink.github.io/adv-topics/httpreg/">HTTP Registration</a></p>
-<p><em>Note:  The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server.</em> </p>
+<p>app_rpt first looks to see if the node is statically configured.  If it is not found, the setting for <strong>node_lookup_method</strong> in the <strong>[general]</strong> stanza of rpt.conf determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.</p>
+<p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
+<p><div class="highlight"><pre><span></span><code>[general]
+node_lookup_method = both   ;method used to lookup nodes
+                    ;both = dns lookup first, followed by external file (default)
+                    ;dns = dns lookup only
+                    ;file = external file lookup only
+</code></pre></div>
+The node lookup routines will output debug information showing the node lookups if the debug level is set to 4 or higher.</p>
+<p><em>Note:  The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server.</em> Related see <a href="https://allstarlink.github.io/adv-topics/httpreg/">HTTP Registration</a></p>
 <h2 id="external-node-directory-file">External Node Directory File</h2>
 <p>app_rpt can use an external node directory file to perform node resolution.  The <a href="https://github.com/AllStarLink/asl3-update-nodelist">asl3-update-nodeList</a> service is used to periodically download the current list of authenticated nodes.</p>
 <p>The name of this file is configured in rpt.conf using the <strong>extnodefile</strong> key and value.  By default the name of this file is /var/lib/asterisk/rpt_extnodes.  Multiple files can be specified based on your requirements.  The file names are separated with a comma.</p>
