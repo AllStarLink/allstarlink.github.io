@@ -904,6 +904,8 @@
       
         
       
+        
+      
     
     
       
@@ -1211,6 +1213,27 @@
   
   <span class="md-ellipsis">
     Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/noderesolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Resolution
   </span>
   
 
@@ -2943,6 +2966,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-hotspot_hd">Hot Spot Unkey Delay</a></li>
 <li><a href="#adv-topics-autopatch">Autopatch</a></li>
 <li><a href="#adv-topics-permissions">Permissions</a></li>
+<li><a href="#adv-topics-noderesolution">Node Resolution</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -3712,7 +3736,38 @@ drwxr-xr-x 2 root asterisk 4096 Aug  5 09:56 3-dir-add-everyone-can-read-search
 A process with "write" permission to a directory can add/remove/rename files in that directory.
 If a command/script is writable then it can be changed to "do something different" when it is next executed.
 When updating filesystem permissions, please remember that doing so can potentially expose the contents of files (and directories) to others.
-Be cautious!</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+Be cautious!</p></section><section class="print-page" id="adv-topics-noderesolution"><h1 id="adv-topics-noderesolution-node-resolution">Node Resolution</h1>
+<p>app_rpt has three ways to resolve a node number to an IP address. </p>
+<ul>
+<li>An external node directory file.</li>
+<li>Domain Name Service (DNS).</li>
+<li>Statically entered in rpt.conf</li>
+</ul>
+<p>The above mechanisms are used to translate a node number into its respective public IP address.  Connections are made directly between nodes using their public IP addresses.</p>
+<p>app_rpt first looks to see if the node is statically configured.  If it is not found, the setting for <strong>node_lookup_method</strong> in the <strong>[general]</strong> stanza of rpt.conf determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.  For more information see <a href="https://allstarlink.github.io/adv-topics/httpreg/">HTTP Registration</a></p>
+<p><em>Note:  The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server.</em> </p>
+<h2 id="adv-topics-noderesolution-external-node-directory-file">External Node Directory File</h2>
+<p>app_rpt can use an external node directory file to perform node resolution.  The <a href="https://github.com/AllStarLink/asl3-update-nodelist">asl3-update-nodeList</a> service is used to periodically download the current list of authenticated nodes.</p>
+<p>The name of this file is configured in rpt.conf using the <strong>extnodefile</strong> key and value.  By default the name of this file is /var/lib/asterisk/rpt_extnodes.  Multiple files can be specified based on your requirements.  The file names are separated with a comma.</p>
+<p>When a file based lookup is performed, app_rpt reloads the external file before searching for a match.  This allows external scripts the opportunity to keep the file updated.</p>
+<p>Here is an example of the external file format:</p>
+<div class="highlight"><pre><span></span><code>[extnodes]
+
+2000=radio@162.248.93.134:4569/2000,162.248.93.134
+2001=radio@162.248.93.134:4569/2001,162.248.93.134
+</code></pre></div>
+<h2 id="adv-topics-noderesolution-domain-name-service-dns">Domain Name Service DNS</h2>
+<p>AllStarLink now provides a DNS service for performing node resolution.  DNS is an Internet standard and is more efficient than using a file base solution.</p>
+<p>When using DNS app_rpt must know the length of the longest node number.  The current maximum is 6 digits.  This number can be  overridden in rpt.conf by adding the <strong>max_dns_node_length</strong> key and value to the <strong>[general]</strong> stanza.</p>
+<p>For more information on DNS see <a href="https://wiki.allstarlink.org/wiki/DNS_Servers">AllStarLink DNS Servers</a>.</p>
+<h2 id="adv-topics-noderesolution-statically-configured-node">Statically Configured Node</h2>
+<p>In some cases, it is desirable to statically define the node information.  This is commonly used for private nodes or private networks.</p>
+<p>To configure a static node, enter the information for the node in rpt.conf under the <strong>[node]</strong> stanza.  Here is an example configuration:</p>
+<div class="highlight"><pre><span></span><code>[nodes]
+1001 = radio@192.168.0.1/1001,NONE
+1998 = radio@127.0.0.1:4568/1998,NONE
+1999 = radio@192.168.0.2:4569/1999,NONE
+</code></pre></div></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>
