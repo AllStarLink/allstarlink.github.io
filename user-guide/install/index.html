@@ -556,6 +556,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#os-install" class="md-nav__link">
     <span class="md-ellipsis">
       OS Install
@@ -1005,6 +1014,8 @@
       
         
       
+        
+      
     
     
       
@@ -1342,6 +1353,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/uefi-secureboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UEFI and SecureBoot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1629,8 +1661,72 @@
 
 
 <h1 id="debian-12-install">Debian 12 Install</h1>
-<p>These instructions are for installing ASL3 on various x86 systems. AllStarLink v3 is supported on Debian 12 Bookworm systems, and those based on Bookworm (e.g. Raspberry Pi OS). Both the x86_64/amd64 and arm64/aarch64 platforms are supported through apt/deb installation packages.</p>
-<p>Note that currently the project does not support armv7l/armhf platforms because all known use of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, 5, and Zero 2 W. If you have a platform that must use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
+<p>These instructions are for installing ASL3 on general purpose operating systems manually. For
+installation on Raspberry Pis, consider using the <a href="../pi-detailed/">AllStarLink 3 Pi Appliance</a></p>
+<div class="admonition note">
+<p class="admonition-title">Architecture Support</p>
+<p>Currently, the project does not support armv7l/armhf platforms because all known uses of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, 5, and Zero 2 W. If you have a platform that can use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Asterisk/app_rpt on VMs/Cloud</p>
+<p>Asterisk/app_rpt works fine on virtual machines in a cloud environment (often terms "VPS"). However
+Asterisk/app_rpt requires certain kernel modules to function properly and these are provided
+by ASL3 in the dkms-dahdi package. There are, however, two situations where Asterisk/app_rpt
+will not work:</p>
+<ol>
+<li>
+<p>When the VPS provider is using a customized Debian using the "cloud" kernel. If the
+output of <code>uname -r</code> refers to the kernel as something similar to 
+"6.1.0-12-cloud-x86_64" then you <strong>cannot</strong> use that OS for ASL because it lacks the
+capabilities build the needed kernel modules. You must install a standard Debian 12
+image which is probably a "custom install" for your provider. Ask your VPS provider
+for support.</p>
+</li>
+<li>
+<p>When the virtual machine is using an emulated Linux kernel. Microsoft Windows 
+Subsystem for Linux (WSL2) is a good example of this situation. The kernel is
+custom and not related to the operating system distribution. Asterisk/app_rpt
+cannot work in this type of setup.</p>
+</li>
+</ol>
+</div>
+<h2 id="system-requirements">System Requirements</h2>
+<p>The following are the system requirements for an ASL3 system:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Minimum Required</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPU/Platform</strong></td>
+<td>1 CPU, 64-bit, x86_64 (amd64) or ArmV8 (arm64)</td>
+<td>2 - 4 CPUs depending on the number of hardware devices connected to the system</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>512M</td>
+<td>2 G</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>8G (for OS + software)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">UEFI / SecureBoot</p>
+<p>For x86_64/amd64 platforms, it is recommended to disable UEFI and SecureBoot
+if you do not need those features and your platform supports a "legacy BIOS" mode.
+While they are a good security feature, given that
+AllStarLink v3 requires building a kernel module, it adds likely-undesired complexity
+for most ASL users. If you need or want to use UEFI/SecureBoot see
+<a href="../../adv-topics/uefi-secureboot/">the advanced topic document</a>.</p>
+</div>
 <h2 id="os-install">OS Install</h2>
 <p>You’re going to start off by installing a new Debian 12 OS on your PC computer or virtual machine. There are instructions all over the internet that detail how to install Debian 12. Briefly you:</p>
 <ul>
@@ -1672,7 +1768,11 @@ slow Internet or DNS servers that have very long cache timers may benefit
 from this method of node lookup instead.
 Install with <code>sudo apt install asl3-update-nodelist</code>.</p>
 <h2 id="node-configuration">Node Configuration</h2>
-<p>Next step is to configure the node settings. YouTuber Freddie Mac has a nice ASL3 RPi installation and configuration video. See the part where the asl-menu is shown <a href="https://youtu.be/aeuj-yI8qrU">https://youtu.be/aeuj-yI8qrU</a>. Also see <a href="../menu/">ASL3 Menu</a> for details.</p>
+<p>Next step is to configure the node settings. It is recommended to use the
+<code>asl-menu</code> command to manage the configuration for common use cases. See
+<a href="../menu/">ASL3 Menu</a> for details. YouTuber Freddie Mac has a nice
+<a href="https://youtu.be/aeuj-yI8qrU">ASL3 RPi installation and configuration video</a>. See
+the part where the asl-menu is shown. </p>
 <h2 id="docker">Docker</h2>
 <p>Docker support will be coming in the near future.</p>
 

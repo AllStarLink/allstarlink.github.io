@@ -906,6 +906,8 @@
       
         
       
+        
+      
     
     
       
@@ -1234,6 +1236,27 @@
   
   <span class="md-ellipsis">
     Node Resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/uefi-secureboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UEFI and SecureBoot
   </span>
   
 
@@ -1589,7 +1612,7 @@ make ASL3 the best AllStar release yet.</p>
 <ul>
 <li><a href="#user-guide-whats-new">What's New?</a></li>
 <li><a href="#user-guide-pi-detailed">Raspberry Pi Image Install</a></li>
-<li><a href="#user-guide-install">Debian 12 x86 Install</a></li>
+<li><a href="#user-guide-install">Debian 12 Install</a></li>
 <li><a href="#user-guide-menu">ASL3 Menu</a></li>
 <li><a href="#user-guide-updates">Updating ASL3</a></li>
 <li><a href="#user-guide-known-issues-diffs">Known Issues</a></li>
@@ -1871,8 +1894,72 @@ as described in <a href="#pi-cockpit-updates">Cockpit Updates</a>.</p>
 in the upper right and then choose <strong>Logout</strong>.</p>
 <h2 id="user-guide-pi-detailed-node-configuration">Node Configuration</h2>
 <p>Next step is to configure the node settings. YouTuber Freddie Mac has a nice ASL3 installation and configuration video. See <a href="https://youtu.be/aeuj-yI8qrU">https://youtu.be/aeuj-yI8qrU</a>.  Also see <a href="#user-guide-menu">ASL3 Menu</a> for details.</p></section><section class="print-page" id="user-guide-install"><h1 id="user-guide-install-debian-12-install">Debian 12 Install</h1>
-<p>These instructions are for installing ASL3 on various x86 systems. AllStarLink v3 is supported on Debian 12 Bookworm systems, and those based on Bookworm (e.g. Raspberry Pi OS). Both the x86_64/amd64 and arm64/aarch64 platforms are supported through apt/deb installation packages.</p>
-<p>Note that currently the project does not support armv7l/armhf platforms because all known use of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, 5, and Zero 2 W. If you have a platform that must use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
+<p>These instructions are for installing ASL3 on general purpose operating systems manually. For
+installation on Raspberry Pis, consider using the <a href="#user-guide-pi-detailed">AllStarLink 3 Pi Appliance</a></p>
+<div class="admonition note">
+<p class="admonition-title">Architecture Support</p>
+<p>Currently, the project does not support armv7l/armhf platforms because all known uses of AllStarLink is on hardware which supports the Bookworm arm64 distribution such as Raspberry Pi 3, 4, 5, and Zero 2 W. If you have a platform that can use armv7l/armhf 32-bit packages only please file an issue at <a href="https://github.com/AllStarLink/ASL3/issues">ASL3 on GitHub</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Asterisk/app_rpt on VMs/Cloud</p>
+<p>Asterisk/app_rpt works fine on virtual machines in a cloud environment (often terms "VPS"). However
+Asterisk/app_rpt requires certain kernel modules to function properly and these are provided
+by ASL3 in the dkms-dahdi package. There are, however, two situations where Asterisk/app_rpt
+will not work:</p>
+<ol>
+<li>
+<p>When the VPS provider is using a customized Debian using the "cloud" kernel. If the
+output of <code>uname -r</code> refers to the kernel as something similar to 
+"6.1.0-12-cloud-x86_64" then you <strong>cannot</strong> use that OS for ASL because it lacks the
+capabilities build the needed kernel modules. You must install a standard Debian 12
+image which is probably a "custom install" for your provider. Ask your VPS provider
+for support.</p>
+</li>
+<li>
+<p>When the virtual machine is using an emulated Linux kernel. Microsoft Windows 
+Subsystem for Linux (WSL2) is a good example of this situation. The kernel is
+custom and not related to the operating system distribution. Asterisk/app_rpt
+cannot work in this type of setup.</p>
+</li>
+</ol>
+</div>
+<h2 id="user-guide-install-system-requirements">System Requirements</h2>
+<p>The following are the system requirements for an ASL3 system:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Minimum Required</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPU/Platform</strong></td>
+<td>1 CPU, 64-bit, x86_64 (amd64) or ArmV8 (arm64)</td>
+<td>2 - 4 CPUs depending on the number of hardware devices connected to the system</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>512M</td>
+<td>2 G</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>8G (for OS + software)</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">UEFI / SecureBoot</p>
+<p>For x86_64/amd64 platforms, it is recommended to disable UEFI and SecureBoot
+if you do not need those features and your platform supports a "legacy BIOS" mode.
+While they are a good security feature, given that
+AllStarLink v3 requires building a kernel module, it adds likely-undesired complexity
+for most ASL users. If you need or want to use UEFI/SecureBoot see
+<a href="#adv-topics-uefi-secureboot">the advanced topic document</a>.</p>
+</div>
 <h2 id="user-guide-install-os-install">OS Install</h2>
 <p>You’re going to start off by installing a new Debian 12 OS on your PC computer or virtual machine. There are instructions all over the internet that detail how to install Debian 12. Briefly you:</p>
 <ul>
@@ -1914,7 +2001,11 @@ slow Internet or DNS servers that have very long cache timers may benefit
 from this method of node lookup instead.
 Install with <code>sudo apt install asl3-update-nodelist</code>.</p>
 <h2 id="user-guide-install-node-configuration">Node Configuration</h2>
-<p>Next step is to configure the node settings. YouTuber Freddie Mac has a nice ASL3 RPi installation and configuration video. See the part where the asl-menu is shown <a href="https://youtu.be/aeuj-yI8qrU">https://youtu.be/aeuj-yI8qrU</a>. Also see <a href="#user-guide-menu">ASL3 Menu</a> for details.</p>
+<p>Next step is to configure the node settings. It is recommended to use the
+<code>asl-menu</code> command to manage the configuration for common use cases. See
+<a href="#user-guide-menu">ASL3 Menu</a> for details. YouTuber Freddie Mac has a nice
+<a href="https://youtu.be/aeuj-yI8qrU">ASL3 RPi installation and configuration video</a>. See
+the part where the asl-menu is shown. </p>
 <h2 id="user-guide-install-docker">Docker</h2>
 <p>Docker support will be coming in the near future.</p></section><section class="print-page" id="user-guide-menu"><h1 id="user-guide-menu-asl3-menu">ASL3 Menu</h1>
 <p>Once you have installed ASL3 on your system you will want to configure your node.
@@ -2967,6 +3058,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-autopatch">Autopatch</a></li>
 <li><a href="#adv-topics-permissions">Permissions</a></li>
 <li><a href="#adv-topics-noderesolution">Node Resolution</a></li>
+<li><a href="#adv-topics-uefi-secureboot">UEFI &amp; SecureBoot</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -3767,7 +3859,126 @@ The node lookup routines will output debug information showing the node lookups 
 1001 = radio@192.168.0.1/1001,NONE
 1998 = radio@127.0.0.1:4568/1998,NONE
 1999 = radio@192.168.0.2:4569/1999,NONE
-</code></pre></div></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+</code></pre></div></section><section class="print-page" id="adv-topics-uefi-secureboot"><h1 id="adv-topics-uefi-secureboot-uefi-and-secureboot">UEFI and SecureBoot</h1>
+<p>UEFI (Unified Extensible Firmware Interface) is a modern firmware
+interface that replaces the older BIOS system, providing a more
+flexible and powerful environment for booting and managing hardware. It
+supports larger hard drives, faster boot times, and a more user-friendly
+interface.</p>
+<p>Secure Boot is a feature of UEFI that ensures only trusted software is
+loaded during the boot process, protecting the system from malware and
+unauthorized software. It works by verifying the digital signatures of
+boot loaders and operating system files against a database of trusted
+certificates.</p>
+<p>Together, UEFI and Secure Boot enhance the security and efficiency of
+modern computing systems.</p>
+<p>Given a quirk of how Asterisk + app_rpt needs a kernel module (driver)
+not already contained in the core system provided by Debian, installing
+AllStarLink on a system requiring UEFI/SecureBoot requires additional
+steps to create what's called a Machine Owner Key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Raspberry Pi does not use or support UEFI or SecureBoot</p>
+</div>
+<h2 id="adv-topics-uefi-secureboot-generating-a-machine-owner-key">Generating a Machine Owner Key</h2>
+<p>Generation of a Machine Owner Key (MOK) is can be done with the
+<code>asl-setup-dkms-mok</code> utility. This tool appeared in the package
+asl3-3.3.0-1.</p>
+<ol>
+<li>
+<p>Run the command <code>sudo asl-setup-dkms-mok</code>. This will prompt for 
+several items of information. An example run will look like:</p>
+<div class="highlight"><pre><span></span><code>$ sudo asl-setup-dkms-mok
+!!!
+!!! WARNING - RUNNING THIS SCRIPT WILL REGENERATE THE
+!!! DEFAULT MACHINE OWNER KEY (MOK) FOR SECURE BOOT. IN GENERAL YOU
+!!! ARE RUNNING THIS SCRIPT BECAUSE YOU NEED TO AND YOU KNOW WHY
+!!! YOU ARE DOING IT. HOWEVER BE WARNED!
+!!!
+ENTER &quot;galaxy&quot; TO CONTINUE&gt;&gt; galaxy
+
+Generating an MOK requires a name for the certificate. This can be
+anything, however your name or your callsign is recommended.
+
+Name or callsign&gt;&gt; N8EI
+
+Generating the MOK...
+......+...+...+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*................+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.+.........+......+...+.+...........+...+.+...+..+.+...+..............+.......+...........+.........+................+..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.....+............+.........+.+.....+....+...+...+..............+.+..+...............+.+..+...+.+........+.+......+........+...............+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.......+...+............+..+....+............+..+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*....+.....+...+...........................+......+.......+...............+.....+......+..........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+
+Enter a one-time password for this key. This password will be prompted
+for at the next reboot to properly install the key in the UEFI
+bootloader keyring. This does not need to be an incredibly complex
+password and you may write it down until it&#39;s used.
+
+input password:
+input password again:
+
+Setup /etc/dkms/framework.conf.d/asl.conf
+Generate /etc/dkms/asl_sign_helper.sh
+
+You must reboot the system and enter the OTP to load the key into SecureBoot
+This will appear on your directly-connected monitor or your cloud console
+</code></pre></div>
+</li>
+<li>
+<p>Prepare to Reboot the System. Make sure a monitor is attached to the system or, if using
+a cloud virtual machine / VPS, make sure that a remote virtual
+console is connected. Then, reboot the system.</p>
+<div class="admonition warning">
+<p class="admonition-title">MOK Load Staging is One-Time Only</p>
+<p>Note that the MOK is only staged for load one time. If the MOK load prompt
+is not responded to at the first/next reboot, the MOK staged for load
+is wiped and Step #1 will have to be run again.</p>
+</div>
+</li>
+<li>
+<p>Complete the steps to review, unlock, and load the MOK</p>
+<div class="admonition tip">
+<p class="admonition-title">The next step varies by vendor</p>
+<p>The next step uses screenshots from a Linux/QEMU virtual
+environment. Every device manufacturer or cloud provider will
+have a slightly different process or look.</p>
+</div>
+<p><a class="glightbox" href="../adv-topics/img/mok-1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 1" src="../adv-topics/img/mok-1.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 3" src="../adv-topics/img/mok-3.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 4" src="../adv-topics/img/mok-4.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 5" src="../adv-topics/img/mok-5.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 6" src="../adv-topics/img/mok-6.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 7" src="../adv-topics/img/mok-7.png" width="400" /></a></p>
+<p><a class="glightbox" href="../adv-topics/img/mok-8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 8" src="../adv-topics/img/mok-8.png" width="400" /></a></p>
+</li>
+<li>
+<p>Reboot the system back into Linux and log in.</p>
+</li>
+<li>
+<p>Check that the MOK created is now loaded by looking for the "name"
+you provided the certificate in step 1. In this example, the MOK was
+named "N8EI".</p>
+<div class="highlight"><pre><span></span><code>sudo dmesg | grep -i N8EI
+</code></pre></div>
+<p>The output will look like:
+<div class="highlight"><pre><span></span><code>$ sudo dmesg | grep -i N8EI
+[    0.674788] integrity: Loaded X.509 cert &#39;N8EI: 92ed492eeb11594eb25af5cc70ff0587115f2577&#39;
+</code></pre></div></p>
+</li>
+<li>
+<p>Rebuild the <strong>dahdi-dkms</strong> package so that the modules are signed by the MOK
+so that the kernel will load then.</p>
+<div class="highlight"><pre><span></span><code>apt install --reinstall -y dahdi-dkms
+</code></pre></div>
+</li>
+<li>
+<p>Test the module loads successfully:</p>
+<div class="highlight"><pre><span></span><code> $ sudo modprobe dahdi dahd_dummy dahdi_transcode
+$ lsmod | grep dahdi
+dahdi_dummy            16384  0
+dahdi_transcode        16384  0
+dahdi                 258048  2 dahdi_dummy,dahdi_transcode
+</code></pre></div>
+</li>
+</ol></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-allmon3'>
                             Allmon3 <a class='headerlink' href='#section-allmon3' title='Permanent link'>↵</a>
                         </h1>
