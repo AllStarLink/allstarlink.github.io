@@ -1736,6 +1736,7 @@ for most ASL users. If you need or want to use UEFI/SecureBoot see
 <li>Do install <code>web server</code> (if you plan to use Allmon3 or other web management packages)</li>
 <li>Do install <code>SSH server</code></li>
 </ul>
+<p>Note: When setting up users and passwords you may be prompted to set the password for the 'root' account.  If you do not provide a password then the root account will be disabled and the system's initial user account (that will requested on the next screen) will be given the power to become root using the "sudo" command.  If you do provide a password then the "sudo" command will not be installed on your system.  Our recommendation is to NOT set the 'root' password and rely on using the "sudo" command only when needed.</p>
 <h2 id="allstarlink-package-repo-install">AllStarLink Package Repo Install</h2>
 <p>Once your Debian system is up and running, install the ASL package repositories:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
