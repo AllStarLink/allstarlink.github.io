@@ -2143,6 +2143,45 @@ for other potential workarounds.</p>
 <h2 id="user-guide-known-issues-diffs-known-issues">Known Issues</h2>
 <p>The following issues are currently known to exist in AllStarLink 3 and,
 where possible what the workarounds are.</p>
+<h3 id="user-guide-known-issues-diffs-dtmf-linking-dns-lookup-timeouts">DTMF Linking + DNS Lookup Timeouts</h3>
+<p>There are intermittent cases of linking problems in the following situation:</p>
+<ol>
+<li>When a linking command (e.g. <code>*3</code>) is sent in DTMF; AND</li>
+<li>Certain network configurations or situations do not resolve DNS "fast enough"</li>
+</ol>
+<p>This issue is fully described in <a href="https://github.com/AllStarLink/app_rpt/issues/392">app_rpt GitHub issue #392</a>. In summary, if the DTMF finaly entry, decoding, and DNS resolution
+for a link command collectively takes longer than 3 seconds, linking can
+fail in silent and indeterminate ways.</p>
+<p>If this problem is occurring <strong>consistently</strong>, changing the node lookup
+method to "file" works around the issue until updated code to resolve this problem
+can be developed and tested:</p>
+<ol>
+<li>
+<p>If you are not running the ASL3 Pi Appliance, install the asl3-update-nodelist
+application:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>asl3-update-nodelist
+</code></pre></div>
+</li>
+<li>
+<p>Edit <code>/etc/asterisk/rpt.conf</code>. Somewhere at or around line 10 (depending on
+file customizations) and change the <code>node_lookup_method</code> to <code>file</code>
+instead of <code>both</code>. An example looks like:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>general<span class="o">]</span>
+<span class="nv">node_lookup_method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>file<span class="w">       </span><span class="p">;</span>method<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>lookup<span class="w"> </span>nodes
+<span class="w">                                </span><span class="p">;</span><span class="nv">both</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dns<span class="w"> </span>lookup<span class="w"> </span>first,<span class="w"> </span>followed<span class="w"> </span>by<span class="w"> </span>external<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
+<span class="w">                                </span><span class="p">;</span><span class="nv">dns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dns<span class="w"> </span>lookup<span class="w"> </span>only
+<span class="w">                                </span><span class="p">;</span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>external<span class="w"> </span>file<span class="w"> </span>lookup<span class="w"> </span>only
+</code></pre></div>
+<p>This file is editable using <code>asl-menu</code>.</p>
+</li>
+<li>
+<p>Restart Asterisk using <code>asl-menu</code> or <code>systemctl restsart asterisk</code>.</p>
+</li>
+</ol>
+<p>Once the fix is completed and made available, it will be announced on the
+<a href="https://community.allstarlink.org">ASL Community</a> and you should change
+<code>node_lookup_method</code> to <code>both</code>. Eventually the "file" method will be
+retired.</p>
 <h3 id="user-guide-known-issues-diffs-resize2fs_once-error">resize2fs_once "Error"</h3>
 <p>There are intermittent cases of errors on the screen or in 
 the system logs about a failure of a service named 
