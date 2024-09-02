@@ -76,6 +76,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/adv-topics/tts/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/adv-topics/uefi-secureboot/</loc>
          <lastmod>2024-09-02</lastmod>
          <changefreq>daily</changefreq>
@@ -126,6 +131,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/mans/asl-find-sound/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/mans/asl-node-lookup/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/mans/asl-play-arn/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/mans/asl-say/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/mans/asl-setup-dkms-mok/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/pi/</loc>
          <lastmod>2024-09-02</lastmod>
          <changefreq>daily</changefreq>
@@ -162,6 +192,11 @@
     </url>
     <url>
          <loc>https://allstarlink.github.io/user-guide/</loc>
+         <lastmod>2024-09-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/user-guide/asl-cmds-tools/</loc>
          <lastmod>2024-09-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
