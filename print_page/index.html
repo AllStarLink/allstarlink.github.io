@@ -3797,6 +3797,15 @@ If you modify the "/etc/asterisk/rpt.conf" file to execute a command (or script)
 The command itself and any file it references must be readable by the "asterisk" user.
 Any files that the command needs to modify must be writable by the "asterisk" user.
 Lastly, the parent directory of any file being created must also be writable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Asterisk User and Sudo</p>
+<p>Do not give general access to <code>sudo</code> to the <code>asterisk</code> user. This is very
+<strong>dangerous</strong> and poor practice. While people will state "I've always
+done it this way" it is, in fact, a serious security risk. As AllStarLink
+is run on the public internet for many repeater sites, the development
+team prioritizes security of the system. For common uses of this, namely
+restarting services and shutting down a node, see <a href="#adv-topics-permissions-managing-services-and-os-shutdownsreboots">Managing Services and OS Shutdowns/Reboots</a>.</p>
+</div>
 <h2 id="adv-topics-permissions-filesystem-permissions">Filesystem Permissions</h2>
 <p>The following is a very brief overview of Linux filesystem permissions.
 More in-depth information is available on the internet (search for “linux file permissions”).</p>
@@ -3860,7 +3869,45 @@ drwxr-xr-x 2 root asterisk 4096 Aug  5 09:56 3-dir-add-everyone-can-read-search
 A process with "write" permission to a directory can add/remove/rename files in that directory.
 If a command/script is writable then it can be changed to "do something different" when it is next executed.
 When updating filesystem permissions, please remember that doing so can potentially expose the contents of files (and directories) to others.
-Be cautious!</p></section><section class="print-page" id="adv-topics-noderesolution"><h1 id="adv-topics-noderesolution-node-resolution">Node Resolution</h1>
+Be cautious!</p>
+<h3 id="adv-topics-permissions-managing-services-and-os-shutdownsreboots">Managing Services and OS Shutdowns/Reboots</h3>
+<p>Beginning with <strong>asl3-3.4.0</strong>, AllStarLink v3 comes with a PolicyKit ruleset
+to permit the asterisk user to execute a limited number of actions
+without the need for sudo or prompting for a password. Those are:</p>
+<ul>
+<li><code>systemctl stop asterisk</code></li>
+<li><code>systemctl restart asterisk</code></li>
+<li><code>systemctl start asterisk</code></li>
+<li><code>systemctl stop allmon3</code></li>
+<li><code>systemctl restart allmon3</code></li>
+<li><code>systemctl start allmon3</code></li>
+<li><code>/usr/sbin/poweroff</code></li>
+<li><code>/usr/sbin/reboot</code></li>
+</ul>
+<p>Using a combination of wrapper scripts and appropriate function
+configuration, Asterisk can restart itself, Allmon3, shutdown the system,
+or reboot the system. Use of the wrapper scripts for <code>systemctl</code>
+commands is essential for a clean execution of the scripts under the
+polkit rules. The provided wrappers are:</p>
+<ul>
+<li><code>/etc/asterisk/scripts/allmon3-restart</code></li>
+<li><code>/etc/asterisk/scripts/allmon3-start</code></li>
+<li><code>/etc/asterisk/scripts/allmon3-stop</code></li>
+<li><code>/etc/asterisk/scripts/asterisk-restart</code></li>
+<li><code>/etc/asterisk/scripts/asterisk-start</code></li>
+<li><code>/etc/asterisk/scripts/asterisk-stop</code></li>
+</ul>
+<p>These privileges can be used inside <code>/etc/asterisk/rpt.conf</code>
+within the <code>[functions]</code> stanza as follows:</p>
+<div class="highlight"><pre><span></span><code>9001 = cmd,/etc/asterisk/scripts/asterisk-restart
+9002 = cmd,/etc/asterisk/scripts/asterisk-stop
+9003 = cmd,/etc/asterisk/scripts/allmon3-restart
+9004 = cmd,/etc/asterisk/scripts/allmon3-stop
+9005 = cmd,/usr/sbin/shutdown
+9006 = cmd,/usr/sbin/reboot
+</code></pre></div>
+<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the
+system, etc.</p></section><section class="print-page" id="adv-topics-noderesolution"><h1 id="adv-topics-noderesolution-node-resolution">Node Resolution</h1>
 <p>app_rpt has three ways to resolve a node number to an IP address.</p>
 <ul>
 <li>Statically entered in rpt.conf</li>
