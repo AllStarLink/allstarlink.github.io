@@ -953,6 +953,8 @@
       
         
       
+        
+      
     
     
       
@@ -1008,6 +1010,27 @@
   
   <span class="md-ellipsis">
     New Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/iaxreg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAX-Based Registration
   </span>
   
 
@@ -3430,6 +3453,7 @@ Unported license ("CC-BY-SA")</p></section><h1 class='nav-section-title-end'>End
 <li><a href="#adv-topics-noderesolution">Node Resolution</a></li>
 <li><a href="#adv-topics-uefi-secureboot">UEFI &amp; SecureBoot</a></li>
 <li><a href="#adv-topics-tts">Text to Speech</a></li>
+<li><a href="#adv-topics-iaxreg">Using IAX Registration</a></li>
 </ul></section><section class="print-page" id="adv-topics-commands"><h1 id="adv-topics-commands-new-commands">New Commands</h1>
 <p>New and different ASL3 commands are mentioned here. Older ASL commands are still documented on the  <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a></p>
 <h2 id="adv-topics-commands-app_rpt-commands">app_rpt commands</h2>
@@ -3497,7 +3521,63 @@ have manufacturer data in the area that stores user configuration.  The
 manufacturer data cannot be overwritten.  The user configuration data has been
 moved higher in memory to prevent overwriting the manufacturer data.  If you
 use the EEPROM to store configuration data, you will need to save it to the
-EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-incompatibles"><h1 id="adv-topics-incompatibles-incompatibilities-with-legacy-versions-configs">Incompatibilities with Legacy Versions &amp; Configs</h1>
+EEPROM after upgrading.  Use <code>susb tune save</code> or <code>radio tune save</code>.</p></section><section class="print-page" id="adv-topics-iaxreg"><h1 id="adv-topics-iaxreg-iax-based-registration">IAX-Based Registration</h1>
+<p>This documents how to use IAX-based registration instead of 
+HTTP-based registration with ASL3.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do Not Do This "Just Because"</p>
+<p>Only convert your node to using IAX-based registration because you
+have a known problem using HTTP registration. Use of IAX registration
+is significantly higher server use than HTTP registration and 99+% of all
+users <strong>DO NOT</strong> have a reason to use it.</p>
+</div>
+<h2 id="adv-topics-iaxreg-reason-to-use-iax-based-registration">Reason to use IAX-Based Registration</h2>
+<p>The following are the <strong>only</strong> reasons to use IAX-based registration
+with ASL3:</p>
+<ol>
+<li>
+<p>Outbound HTTP/HTTPS is blocked but you have outbound UDP port access
+available. For example, your node sits behind a proxy or other security
+or content filtering device that breaks ASLv3 registration.</p>
+</li>
+<li>
+<p>Your node is behind a connections that handle HTTP traffic differently
+than IAX traffic. A known example is AT&amp;T and T-Mobile hotspots. These
+hotspots intercept/direct web (HTTP/HTTPS) traffic and route it differently
+from IAX traffic. In these use cases, the HTTP-based registration will
+register a proxy/accelerator IP address rather than the IP being used
+by the node.</p>
+</li>
+</ol>
+<h2 id="adv-topics-iaxreg-using-iax-registration-instead-of-http-registration">Using IAX Registration Instead of HTTP Registration</h2>
+<p>To change from HTTP to IAX registration, do the following <strong>as root</strong>
+(i.e. use <code>sudo -s</code>):</p>
+<ol>
+<li>Edit <code>/etc/asterisk/modules.conf</code> and change the line for
+<code>res_rpt_http_registrations.so</code> from "load" to "noload":
+    <div class="highlight"><pre><span></span><code>noload =&gt; res_rpt_http_registrations.so
+</code></pre></div></li>
+<li>
+<p>Edit <code>/etc/asterisk/iax.conf</code> and add a <code>register =&gt;</code> line
+under the <code>[general]</code> stanza. This can be copied from a functional
+<code>rpt_http_registrations.conf</code> file:
+    <div class="highlight"><pre><span></span><code>[general]
+register =&gt; 63001:VerySecret@register.allstarlink.org
+</code></pre></div></p>
+</li>
+<li>
+<p>Restart asterisk with <code>systemctl restart asterisk</code></p>
+</li>
+<li>
+<p>Run the asterisk console with <code>asterisk -r</code> and test the IAX registration
+with the command <code>iax2 show registry</code>:
+    <div class="highlight"><pre><span></span><code>node63001*CLI&gt; iax2 show registry
+Host                  dnsmgr  Username  Perceived                 Refresh  State
+34.105.111.212:4569   Y       63001     192.0.2.171:4569          180      Registered
+</code></pre></div></p>
+<p>If it lists "State" as "Registered" you're all set.</p>
+</li>
+</ol></section><section class="print-page" id="adv-topics-incompatibles"><h1 id="adv-topics-incompatibles-incompatibilities-with-legacy-versions-configs">Incompatibilities with Legacy Versions &amp; Configs</h1>
 <p>AllStarLink v3 has certain incompatible changes with older
 versions of the AllStarLink system.</p>
 <h2 id="adv-topics-incompatibles-voterrtcm-default-port">Voter/RTCM Default Port</h2>
