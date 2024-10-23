@@ -2502,7 +2502,7 @@ where possible what the workarounds are.</p>
 <li>When a linking command (e.g. <code>*3</code>) is sent in DTMF; AND</li>
 <li>Certain network configurations or situations do not resolve DNS "fast enough"</li>
 </ol>
-<p>This issue is fully described in <a href="https://github.com/AllStarLink/app_rpt/issues/392">app_rpt GitHub issue #392</a>. In summary, if the DTMF finaly entry, decoding, and DNS resolution
+<p>This issue is fully described in <a href="https://github.com/AllStarLink/app_rpt/issues/392">app_rpt GitHub issue #392</a>. In summary, if the DTMF entry, decoding, and DNS resolution
 for a link command collectively takes longer than 3 seconds, linking can
 fail in silent and indeterminate ways.</p>
 <p>If this problem is occurring <strong>consistently</strong>, changing the node lookup
@@ -2510,25 +2510,24 @@ method to "file" works around the issue until updated code to resolve this probl
 can be developed and tested:</p>
 <ol>
 <li>
-<p>If you are not running the ASL3 Pi Appliance, install the asl3-update-nodelist
-application:</p>
+<p>Install the asl3-update-nodelist package (not needed for those running the ASL3 Pi Appliance):</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>asl3-update-nodelist
 </code></pre></div>
 </li>
 <li>
-<p>For everyone, edit <code>/etc/asterisk/rpt.conf</code>. Somewhere at or around line 10 (depending on
-file customizations) and change the <code>node_lookup_method</code> to <code>file</code>
-instead of <code>both</code>. An example looks like:</p>
+<p>Edit <code>/etc/asterisk/rpt.conf</code>. Somewhere at or around line 10 (depending on
+file customizations) you will need to change the <code>node_lookup_method</code> to <code>file</code>
+instead of <code>both</code>. After your change the file shoud look like:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>general<span class="o">]</span>
 <span class="nv">node_lookup_method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>file<span class="w">       </span><span class="p">;</span>method<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>lookup<span class="w"> </span>nodes
 <span class="w">                                </span><span class="p">;</span><span class="nv">both</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dns<span class="w"> </span>lookup<span class="w"> </span>first,<span class="w"> </span>followed<span class="w"> </span>by<span class="w"> </span>external<span class="w"> </span>file<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>
 <span class="w">                                </span><span class="p">;</span><span class="nv">dns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dns<span class="w"> </span>lookup<span class="w"> </span>only
 <span class="w">                                </span><span class="p">;</span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>external<span class="w"> </span>file<span class="w"> </span>lookup<span class="w"> </span>only
 </code></pre></div>
-<p>This file is editable using <code>asl-menu</code>.</p>
+<p>This file can be updated using <code>asl-menu</code> "Expert Configuration Menu" / "Edit rpt.conf file" or your favorite editor.</p>
 </li>
 <li>
-<p>Restart Asterisk using <code>asl-menu</code> or <code>systemctl restsart asterisk</code>.</p>
+<p>Restart Asterisk using <code>asl-menu</code> "Node Settings" / "Restart Asterisk" or <code>systemctl restart asterisk</code>.</p>
 </li>
 </ol>
 <p>Once the fix is completed and made available, it will be announced on the
@@ -3778,183 +3777,187 @@ Typically, this DB has been downloaded by a PHP script ("astdb.php") and updated
 systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl3-update-astdb.timer
 systemctl<span class="w"> </span>start<span class="w"> </span>asl3-update-astdb.timer
 </code></pre></div></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
-<p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the depreciation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the sip stack and is the supported sip channel for the future.</p>
+<p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the deprecation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the SIP stack and is the supported SIP channel for the future.</p>
 <h2 id="adv-topics-sip-phone-update-modulesconf">Update modules.conf</h2>
-<p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following close to the bottom of the file, but above the [global] stanza:</p>
-<div class="highlight"><pre><span></span><code>    ;
-    ;modules for pjsip
-    ;
-    noload = app_voicemail.so
-    load = bridge_builtin_features.so
-    load = bridge_builtin_interval_features.so
-    load = bridge_holding.so
-    load = bridge_native_rtp.so
-    load = bridge_simple.so
-    load = bridge_softmix.so
-    load = chan_bridge_media.so
-    load = chan_pjsip.so
-    load = func_pjsip_endpoint.so
-    load = func_sorcery.so
-    load = func_devstate.so
-    load = res_pjproject.so
-    load = res_pjsip_acl.so
-    load = res_pjsip_authenticator_digest.so
-    load = res_pjsip_caller_id.so
-    load = res_pjsip_dialog_info_body_generator.so
-    load = res_pjsip_diversion.so
-    load = res_pjsip_dtmf_info.so
-    load = res_pjsip_endpoint_identifier_anonymous.so
-    load = res_pjsip_endpoint_identifier_ip.so
-    load = res_pjsip_endpoint_identifier_user.so
-    load = res_pjsip_exten_state.so
-    load = res_pjsip_header_funcs.so
-    load = res_pjsip_logger.so
-    load = res_pjsip_messaging.so
-    load = res_pjsip_mwi_body_generator.so
-    load = res_pjsip_mwi.so
-    load = res_pjsip_nat.so
-    load = res_pjsip_notify.so
-    load = res_pjsip_one_touch_record_info.so
-    load = res_pjsip_outbound_authenticator_digest.so
-    load = res_pjsip_outbound_publish.so
-    load = res_pjsip_outbound_registration.so
-    load = res_pjsip_path.so
-    load = res_pjsip_pidf_body_generator.so
-    load = res_pjsip_pidf_digium_body_supplement.so
-    load = res_pjsip_pidf_eyebeam_body_supplement.so
-    load = res_pjsip_publish_asterisk.so
-    load = res_pjsip_pubsub.so
-    load = res_pjsip_refer.so
-    load = res_pjsip_registrar.so
-    load = res_pjsip_rfc3326.so
-    load = res_pjsip_sdp_rtp.so
-    load = res_pjsip_send_to_voicemail.so
-    load = res_pjsip_session.so
-    load = res_pjsip.so
-    noload = res_pjsip_t38.so
-    noload = res_pjsip_transport_websocket.so
-    load = res_pjsip_xpidf_body_generator.so
-    load = res_rtp_asterisk.so
-    load = res_sorcery_astdb.so
-    load = res_sorcery_config.so
-    load = res_sorcery_memory.so
-    load = res_sorcery_realtime.so
+<p>chan_pjsip requires a number of modules to be loaded.  You should start by editing <code>/etc/asterisk/modules.conf</code> and add the following close to the bottom of the file, but above the [global] stanza:</p>
+<div class="highlight"><pre><span></span><code>;
+;modules for pjsip
+;
+noload = app_voicemail.so
+load = bridge_builtin_features.so
+load = bridge_builtin_interval_features.so
+load = bridge_holding.so
+load = bridge_native_rtp.so
+load = bridge_simple.so
+load = bridge_softmix.so
+load = chan_bridge_media.so
+load = chan_pjsip.so
+load = func_pjsip_endpoint.so
+load = func_sorcery.so
+load = func_devstate.so
+load = res_pjproject.so
+load = res_pjsip_acl.so
+load = res_pjsip_authenticator_digest.so
+load = res_pjsip_caller_id.so
+load = res_pjsip_dialog_info_body_generator.so
+load = res_pjsip_diversion.so
+load = res_pjsip_dtmf_info.so
+load = res_pjsip_endpoint_identifier_anonymous.so
+load = res_pjsip_endpoint_identifier_ip.so
+load = res_pjsip_endpoint_identifier_user.so
+load = res_pjsip_exten_state.so
+load = res_pjsip_header_funcs.so
+load = res_pjsip_logger.so
+load = res_pjsip_messaging.so
+load = res_pjsip_mwi_body_generator.so
+load = res_pjsip_mwi.so
+load = res_pjsip_nat.so
+load = res_pjsip_notify.so
+load = res_pjsip_one_touch_record_info.so
+load = res_pjsip_outbound_authenticator_digest.so
+load = res_pjsip_outbound_publish.so
+load = res_pjsip_outbound_registration.so
+load = res_pjsip_path.so
+load = res_pjsip_pidf_body_generator.so
+load = res_pjsip_pidf_digium_body_supplement.so
+load = res_pjsip_pidf_eyebeam_body_supplement.so
+load = res_pjsip_publish_asterisk.so
+load = res_pjsip_pubsub.so
+load = res_pjsip_refer.so
+load = res_pjsip_registrar.so
+load = res_pjsip_rfc3326.so
+load = res_pjsip_sdp_rtp.so
+load = res_pjsip_send_to_voicemail.so
+load = res_pjsip_session.so
+load = res_pjsip.so
+noload = res_pjsip_t38.so
+noload = res_pjsip_transport_websocket.so
+load = res_pjsip_xpidf_body_generator.so
+load = res_rtp_asterisk.so
+load = res_sorcery_astdb.so
+load = res_sorcery_config.so
+load = res_sorcery_memory.so
+load = res_sorcery_realtime.so
 
 [global]
 </code></pre></div>
 <h2 id="adv-topics-sip-phone-update-extensionsconf">Update extensions.conf</h2>
-<p>The next step is to update extension.conf.  This creates a dial plan that controls access to your node by sip phones.  Edit /etc/asterisk/extensions.conf and add the following to the bottom of the file.  This example will set up extension 1001 as your local phone and the dialing plan for your node.</p>
-<div class="highlight"><pre><span></span><code>    [sip-phones]
-    exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
+<p>The next step is to update <code>extension.conf</code>.  This creates a dial plan that controls access to your node by SIP phones.  Edit <code>/etc/asterisk/extensions.conf</code> and add the following to the bottom of the file.  This example will set up extension <strong>1001</strong> as your local phone and the dialing plan for your node.</p>
+<div class="highlight"><pre><span></span><code>[sip-phones]
+exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
 
-    exten =&gt; ${NODE},1,Ringing
-    exten =&gt; ${NODE},n,Answer(3000)
-    exten =&gt; ${NODE},n,Set(NODENUM=${CALLERID(number)})
-    exten =&gt; ${NODE},n,Playback(extension)
-    exten =&gt; ${NODE},n,SayDigits(${NODENUM})
-    exten =&gt; ${NODE},n,Playback(rpt/connected)
-    exten =&gt; ${NODE},n,Playback(rpt/node)
-    exten =&gt; ${NODE},n,SayDigits(${EXTEN})
-    exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
-    exten =&gt; ${NODE},n,Hangup
+exten =&gt; ${NODE},1,Ringing
+exten =&gt; ${NODE},n,Answer(3000)
+exten =&gt; ${NODE},n,Set(NODENUM=${CALLERID(number)})
+exten =&gt; ${NODE},n,Playback(extension)
+exten =&gt; ${NODE},n,SayDigits(${NODENUM})
+exten =&gt; ${NODE},n,Playback(rpt/connected)
+exten =&gt; ${NODE},n,Playback(rpt/node)
+exten =&gt; ${NODE},n,SayDigits(${EXTEN})
+exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
+exten =&gt; ${NODE},n,Hangup
 </code></pre></div>
-<p>The above dial plan will allow your SIP phone to dial your node number.  In this example one should use *99 to enable PTT and # to disable PTT from the SIP phone.  VOX is also an option for phone connections.  When using VOX, one may want to mute the mic on the phone when not transmitting and unmute to transmit.  VOX is enable by adding a 'v' to the rpt app line like this: "exten =&gt; ${NODE},n,rpt(${EXTEN}|Pv)"  This dial plan announces the extension number and the connecting node number.  The lines with SayDigits and Playback can be removed if you do not want the announcement.</p>
-<p>The ${NODE} variable is defined at the top of extensions.conf and should be your assigned node number.  See the following.</p>
-<div class="highlight"><pre><span></span><code>    [globals]
-    HOMENPA = 999 ; change this to your Area Code
-    NODE = 1999   ; change this to your node number
+<p>The above dial plan will allow your SIP phone to dial your node number.  In this example one should use *99 to enable PTT and # to disable PTT from the SIP phone.  VOX is also an option for phone connections.  When using VOX, one may want to mute the mic on the phone when not transmitting and unmute to transmit.  VOX is enable by adding a 'v' to the rpt app line like this:</p>
+<div class="highlight"><pre><span></span><code>exten =&gt; ${NODE},n,rpt(${EXTEN}|Pv)
 </code></pre></div>
-<p>The entry <strong>1001</strong> in extensions.conf is the extension number for your sip phone.  If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
-<p><em>Note:  If you attempt to copy extensions.conf from a previous release of AllStarLink, it will fail.  AllStarLink version 3 requires comma delimiters instead of pipe symbols for standard asterisk functions.  The rpt function continues to use a pipe delimiter.  This is subject to change in a future release.</em></p>
+<p>This dial plan announces the extension number and the connecting node number.  The lines with SayDigits and Playback can be removed if you do not want the announcement.</p>
+<p>The ${NODE} variable is defined at the top of <code>extensions.conf</code> and should be your assigned node number.  See the following.</p>
+<div class="highlight"><pre><span></span><code>[globals]
+HOMENPA = 999 ; change this to your Area Code
+NODE = 1999   ; change this to your node number
+</code></pre></div>
+<p>The entry <strong>1001</strong> in <code>extensions.conf</code> is the extension number for your SIP phone.  If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
+<p><em>Note:  If you attempt to copy <code>extensions.conf</code> from a previous release of AllStarLink, it will fail.  AllStarLink version 3 requires comma delimiters instead of pipe symbols for standard asterisk functions.  The rpt function continues to use a pipe delimiter.  This is subject to change in a future release.</em></p>
 <h2 id="adv-topics-sip-phone-update-pjsipconf">Update pjsip.conf</h2>
-<p>You are now ready to configure pjsip.  Edit /etc/asterisk/pjsip.conf.  Don’t get overwhelmed by all of the text in the sample configuration.  pjsip supports several configurations.  This document focuses on the necessary entries to get a sip phone operational.</p>
-<p>Scroll down to the Basic UDP transport section.  It should look like the following:</p>
-<div class="highlight"><pre><span></span><code>    ; Basic UDP transport
-    ;
-    [transport-udp]
-    type=transport
-    protocol=udp    ;udp,tcp,tls,ws,wss,flow
-    bind=0.0.0.0:5060
+<p>You are now ready to configure pjsip.  Edit <code>/etc/asterisk/pjsip.conf</code>.  Don’t get overwhelmed by all of the text in the sample configuration.  pjsip supports several configurations.  This document focuses on the necessary entries to get a SIP phone operational.</p>
+<p>Scroll down to the <strong>Basic UDP transport</strong> section.  It should be updated to look like the following:</p>
+<div class="highlight"><pre><span></span><code>; Basic UDP transport
+;
+[transport-udp]
+type=transport
+protocol=udp    ;udp,tcp,tls,ws,wss,flow
+bind=0.0.0.0:5060
 </code></pre></div>
-<p>Scroll down to the section titled Endpoint Configured For Use With A Sip Phone.  For each extension, you will need to enter 3 sections.  Here is an example for extension 1001.</p>
-<div class="highlight"><pre><span></span><code>    [1001]
-    type=endpoint
-    transport=transport-udp
-    context=sip-phones
-    disallow=all
-    allow=ulaw
-    allow=alaw
-    allow=gsm
-    auth=1001
-    aors=1001
-    callerid=&quot;My CallerID&quot;
-    ;
-    ; A few more transports to pick from, and some related options below them.
-    ;
-    ;transport=transport-tls
-    ;media_encryption=sdes
-    ;transport=transport-udp-ipv6
-    ;transport=transport-udp-nat
-    ;direct_media=no
-    ;
-    ; MWI related options
+<p><em>Note:  After the bind port address (0.0.0.0) is the incoming port number (5060).  This UDP port must not be blocked by your network firewall.</em></p>
+<p>Scroll down to the section titled <strong>Endpoint Configured For Use With A Sip Phone</strong>.  For each extension, you will need to enter 3 sections.  Here is an example for extension <strong>1001</strong>.</p>
+<div class="highlight"><pre><span></span><code>[1001]
+type=endpoint
+transport=transport-udp
+context=sip-phones
+disallow=all
+allow=ulaw
+allow=alaw
+allow=gsm
+auth=1001
+aors=1001
+callerid=&quot;My CallerID&quot;
+;
+; A few more transports to pick from, and some related options below them.
+;
+;transport=transport-tls
+;media_encryption=sdes
+;transport=transport-udp-ipv6
+;transport=transport-udp-nat
+;direct_media=no
+;
+; MWI related options
 
-    ;aggregate_mwi=yes
-    ;mailboxes=6001@default,7001@default
-    ;mwi_from_user=6001
-    ;
-    ; Extension and Device state options
-    ;
-    ;device_state_busy_at=1
-    ;allow_subscribe=yes
-    ;sub_min_expiry=30
-    ;
-    ; STIR/SHAKEN support.
-    ;
-    ;stir_shaken=no
-    ;stir_shaken_profile=my_profile
+;aggregate_mwi=yes
+;mailboxes=6001@default,7001@default
+;mwi_from_user=6001
+;
+; Extension and Device state options
+;
+;device_state_busy_at=1
+;allow_subscribe=yes
+;sub_min_expiry=30
+;
+; STIR/SHAKEN support.
+;
+;stir_shaken=no
+;stir_shaken_profile=my_profile
 
-    [1001]
-    type=auth
-    auth_type=userpass
-    password=1001
-    username=1001
+[1001]
+type=auth
+auth_type=userpass
+password=1001
+username=1001
 
-    [1001]
-    type=aor
-    max_contacts=4
-    ;contact=sip:6001@192.0.2.1:5060
+[1001]
+type=aor
+max_contacts=4
+;contact=sip:6001@192.0.2.1:5060
 </code></pre></div>
 <p>If you want to use a different extension number, you will need to change <strong>[1001]</strong> with your desired number.  The item <strong>callerid="My CallerID"</strong> should also be updated for your preferred caller identifier.</p>
 <p>The items <strong>password=1001</strong> and <strong>username=1001</strong> should be updated to match the username and password you want for your extension number.  You should use a complex password.  Do not use the extension number.  You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here </a>to generate a complex password.</p>
 <p>These three sections can be replicated for each extension that you want to add to the system.</p>
-<h2 id="adv-topics-sip-phone-restart-your-asterisk">Restart your asterisk</h2>
+<h2 id="adv-topics-sip-phone-restart-asterisk">Restart asterisk</h2>
 <p>After completing these changes, you must restart asterisk or reboot your system.</p>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>asterisk
 </code></pre></div>
-<h2 id="adv-topics-sip-phone-example-config-with-multiple-sip-phones">Example config with multiple sip phones</h2>
-<p>As noted above you can have more sip phones.  Here is an example of a simple dial plan that has multiple extensions.</p>
-<div class="highlight"><pre><span></span><code>    [sip-phones]
-    ; Extension 210 - Line 1
-    ; Extension 211 - Line 2
-    ; Extension 212 - Garage
-    ; Extension 213 - Cordless ATA
-    ; Extension 1000 - Voice Mail
+<h2 id="adv-topics-sip-phone-example-config-with-multiple-sip-phones">Example config with multiple SIP phones</h2>
+<p>As noted above you can have more SIP phones.  Here is an example of a simple dial plan that has multiple extensions.</p>
+<div class="highlight"><pre><span></span><code>[sip-phones]
+; Extension 210 - Line 1
+; Extension 211 - Line 2
+; Extension 212 - Garage
+; Extension 213 - Cordless ATA
+; Extension 1000 - Voice Mail
 
-    exten =&gt; 210,1,Dial(PJSIP/210,60,rT)
-    exten =&gt; 211,1,Dial(PJSIP/211,60,rT)
-    exten =&gt; 212,1,Dial(PJSIP/212,60,rT)
-    exten =&gt; 213,1,Dial(PJSIP/213,60,rT)
-    exten =&gt; 1000,1,VoiceMailMain(210)
-    exten =&gt; 1000,2,Hangup
+exten =&gt; 210,1,Dial(PJSIP/210,60,rT)
+exten =&gt; 211,1,Dial(PJSIP/211,60,rT)
+exten =&gt; 212,1,Dial(PJSIP/212,60,rT)
+exten =&gt; 213,1,Dial(PJSIP/213,60,rT)
+exten =&gt; 1000,1,VoiceMailMain(210)
+exten =&gt; 1000,2,Hangup
 
-    ; Allow SIP calls to local nodes
-    exten =&gt; 1998,1,rpt(1998|P)
-    exten =&gt; 1999,1,rpt(1999|P)
+; Allow SIP calls to local nodes
+exten =&gt; 1998,1,rpt(1998|P)
+exten =&gt; 1999,1,rpt(1999|P)
 </code></pre></div>
 <p>This example includes voicemail.  To use voice mail, you will need to change <code>noload = app_voicemail.so</code>to <code>load = app_voicemail.so.</code></p>
 <h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
-<p>If you have trouble connecting your sip phone, start the asterisk command line with <code>asterisk -rvvv</code>.  Enter the command <code>pjsip set logger on</code>.  This will show the communications between the sip phone and asterisk.  It will also show the actions in your dial plan.</p>
+<p>If you have trouble connecting your SIP phone, start the asterisk command line with <code>asterisk -rvvv</code>.  Enter the command <code>pjsip set logger on</code>.  This will show the communications between the SIP phone and asterisk.  It will also show the actions in your dial plan.</p>
 <h2 id="adv-topics-sip-phone-security">Security</h2>
 <p>If you will be exposing your system to the outside world.  You should consider using fail2ban to protect the system.</p></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
 <p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>,
