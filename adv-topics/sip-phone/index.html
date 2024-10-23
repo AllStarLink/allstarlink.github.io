@@ -1925,7 +1925,7 @@
 <h1 id="setting-up-a-sip-phone">Setting up a SIP Phone</h1>
 <p>This document describes the steps necessary to set up a SIP phone in ASL3.  The setup procedure has changed due to the depreciation of chan_sip.  Users are now required to use chan_pjsip.  chan_pjsip brings new features to the sip stack and is the supported sip channel for the future.</p>
 <h2 id="update-modulesconf">Update modules.conf</h2>
-<p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following at the bottom of the file:</p>
+<p>chan_pjsip requires a number of modules to be loaded.  You should start by editing /etc/asterisk/modules.conf and add the following close to the bottom of the file, but above the [global] stanza:</p>
 <div class="highlight"><pre><span></span><code>    ;
     ;modules for pjsip
     ;
@@ -1984,6 +1984,8 @@
     load = res_sorcery_config.so
     load = res_sorcery_memory.so
     load = res_sorcery_realtime.so
+
+[global]
 </code></pre></div>
 <h2 id="update-extensionsconf">Update extensions.conf</h2>
 <p>The next step is to update extension.conf.  This creates a dial plan that controls access to your node by sip phones.  Edit /etc/asterisk/extensions.conf and add the following to the bottom of the file.  This example will set up extension 1001 as your local phone and the dialing plan for your node.</p>
