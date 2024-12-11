@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/permissions/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/multinodesnetwork/">
       
       
-        <link rel="prev" href="../autopatch/">
+        <link rel="prev" href="../tts/">
       
       
-        <link rel="next" href="../noderesolution/">
+        <link rel="next" href="../../developers/package-builds/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Permissions - AllStarLink Manual</title>
+        <title>Multiple Nodes on the Same Network - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#permissions" class="md-skip">
+        <a href="#multiple-nodes-on-the-same-network" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Permissions
+              Multiple Nodes on the Same Network
             
           </span>
         </div>
@@ -1707,30 +1707,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Permissions
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1739,86 +1719,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#asterisk-vs-root" class="md-nav__link">
-    <span class="md-ellipsis">
-      "asterisk" vs "root"
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filesystem-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filesystem Permissions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Filesystem Permissions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      File permissions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#directory-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Directory permissions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changing permissions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#managing-services-and-os-shutdownsreboots" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing Services and OS Shutdowns/Reboots
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1891,10 +1791,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../multinodesnetwork/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Multiple Nodes on the Same Network
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1903,6 +1823,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#assigning-a-different-iax-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assigning a Different IAX Port
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assigning a Different IAX Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-iaxconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing iax.conf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing the Portal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telling-local-nodes-about-their-neighbors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telling Local Nodes About Their Neighbors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telling Local Nodes About Their Neighbors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-node-630010" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Node 630010
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-node-630011" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring Node 630011
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-linking-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Linking Locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2048,132 +2063,181 @@
                   
 
 
-<h1 id="permissions">Permissions</h1>
-<h2 id="asterisk-vs-root">"asterisk" vs "root"</h2>
-<p>One of the new features with ASL3 is that the Asterisk process now runs as the "asterisk" user (not as the super-user; "root").
-While sometimes handy this was potentially very dangerous.
-This change was made for increased security.
-It's a good thing!</p>
-<p>We acknowledge that there are some applications, commands, and scripts that you may want to bring over from older (and other) versions of ASL and that these may be impacted by ASL3's heightened security.
-Porting these over to ASL3 may require some simple changes to filesystem permissions.
-Other issues may need other solutions (e.g. you can't execute a command that requires "root" privileges when you are not the "root" user).
-For guidance, reach out to the <a href="https://community.allstarlink.org/">AllStarLink Community</a>.</p>
-<p>In short, in ASL3 the Asterisk process now runs as the "asterisk" user.
-If you modify the "/etc/asterisk/rpt.conf" file to execute a command (or script) it will NOT have super-user ("root") privileges.
-The command itself and any file it references must be readable by the "asterisk" user.
-Any files that the command needs to modify must be writable by the "asterisk" user.
-Lastly, the parent directory of any file being created must also be writable.</p>
-<div class="admonition warning">
-<p class="admonition-title">Asterisk User and Sudo</p>
-<p>Do not give general access to <code>sudo</code> to the <code>asterisk</code> user. This is very
-<strong>dangerous</strong> and poor practice. While people will state "I've always
-done it this way" it is, in fact, a serious security risk. As AllStarLink
-is run on the public internet for many repeater sites, the development
-team prioritizes security of the system. For common uses of this, namely
-restarting services and shutting down a node, see <a href="#managing-services-and-os-shutdownsreboots">Managing Services and OS Shutdowns/Reboots</a>.</p>
-</div>
-<h2 id="filesystem-permissions">Filesystem Permissions</h2>
-<p>The following is a very brief overview of Linux filesystem permissions.
-More in-depth information is available on the internet (search for “linux file permissions”).</p>
-<p>On a Linux system, each file (and directory) has permissions that effect access by the “owner”, permissions that effect access to those logins in the same “group”, and permissions that effect access to “other” logins.
-The permissions determine whether you (or some other process) can read, write, or execute the files (or search in directories).
-There are commands to change the ownership (“chown”) and permissions (“chmod”) for each file/directory.</p>
-<h3 id="file-permissions">File permissions</h3>
-<p>You can use the <code>ls -l [FILE]</code> command to view file permissions.
-The permissions determine whether the calling process can read ("r"), write ("w"), or execute ("x") the file.
-Here are some examples :</p>
-<div class="highlight"><pre><span></span><code>node63001:~/examples $ ls -l *file*
--rw------- 1 root root     0 Aug  5 08:28 1-file-owner-root-can-read-write
--rw-r----- 1 root asterisk 0 Aug  5 08:28 2-file-add-group-asterisk-can-read
--rw-r--r-- 1 root asterisk 0 Aug  5 08:27 3-file-add-everyone-can-read
-
-node63001:~/examples $ ls -l *script*
--rwx------ 1 root root     0 Aug  5 08:28 1-script-owner-root-can-read-write-execute
--rwxr-x--- 1 root asterisk 0 Aug  5 08:28 2-script-add-group-asterisk-can-read-execute
--rwxr-xr-x 1 root asterisk 0 Aug  5 08:27 3-script-add-everyone-can-read-execute
-</code></pre></div>
-<p>In each case, the file permissions progress from the most restrictive (only the file owner can read/execute) to most available (all users can read/execute).</p>
-<h3 id="directory-permissions">Directory permissions</h3>
-<p>You can use the <code>ls -ld &lt;directory&gt;</code> command to view the permissions on a directory (vs. the contents of a directory).
-The permissions determine whether the calling process can read ("r"), write ("w"), or search ("x") the directory.
-Here are some examples :</p>
-<div class="highlight"><pre><span></span><code>node63001:~/examples $ ls -ld *dir*
-drwx------ 2 root root     4096 Aug  5 09:56 1-dir-owner-root-can-read-write-search
-drwxr-x--- 2 root asterisk 4096 Aug  5 09:56 2-dir-add-group-asterisk-can-read-search
-drwxr-xr-x 2 root asterisk 4096 Aug  5 09:56 3-dir-add-everyone-can-read-search
-</code></pre></div>
-<p>In each case, the directory permissions progress from the most restrictive (only the directory owner can read/write/search) to most available (all users can read/search).</p>
-<h3 id="changing-permissions">Changing permissions</h3>
-<p>The following commands can be used to change the permissions of files and directories :</p>
+<h1 id="multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
+<p>Multiple AllStarLink nodes on the same IP subnet (i.e. your "local network") when
+those nodes are behind a NAT device can be a challenge. The reason is that
+AllStarLink works exclusively with public IP addresses. When two nodes
+are on the same network behind a NAT/router they independently need to
+use a public IP address with the AllStarLink system but need to know about each
+other's local IPs rather than their shared public IP. Additionally both nodes
+cannot use the same UDP port as they will fight over it with the NAT/router.</p>
+<p>For this example, let's consider two nodes on the same subnet. The nodes are:</p>
 <table>
 <thead>
 <tr>
-<th>Command</th>
-<th>Description</th>
-<th>Sample Usage</th>
+<th>Node</th>
+<th>Local IP</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>chown</td>
-<td>change file owner and group</td>
-<td># chown root /var/asl-backups/asl-backup-files</td>
+<td>630010</td>
+<td>192.168.0.10</td>
 </tr>
 <tr>
-<td>chgrp</td>
-<td>change group ownership</td>
-<td># chgrp asterisk /var/spool/asterisk/monitor</td>
-</tr>
-<tr>
-<td>chmod</td>
-<td>change file mode bits</td>
-<td># chmod 640 /etc/asterisk/manager.conf</td>
+<td>630011</td>
+<td>192.168.0.11</td>
 </tr>
 </tbody>
 </table>
-<p>Any process with "write" permission to a file can update (including completely overwrite) the file.
-A process with "write" permission to a directory can add/remove/rename files in that directory.
-If a command/script is writable then it can be changed to "do something different" when it is next executed.
-When updating filesystem permissions, please remember that doing so can potentially expose the contents of files (and directories) to others.
-Be cautious!</p>
-<h3 id="managing-services-and-os-shutdownsreboots">Managing Services and OS Shutdowns/Reboots</h3>
-<p>Beginning with <strong>asl3-3.4.0</strong>, AllStarLink v3 comes with a PolicyKit ruleset
-to permit the asterisk user to execute a limited number of actions
-without the need for sudo or prompting for a password. Those are:</p>
-<ul>
-<li><code>systemctl stop asterisk</code></li>
-<li><code>systemctl restart asterisk</code></li>
-<li><code>systemctl start asterisk</code></li>
-<li><code>systemctl stop allmon3</code></li>
-<li><code>systemctl restart allmon3</code></li>
-<li><code>systemctl start allmon3</code></li>
-<li><code>/usr/sbin/poweroff</code></li>
-<li><code>/usr/sbin/reboot</code></li>
-</ul>
-<p>Using a combination of wrapper scripts and appropriate function
-configuration, Asterisk can restart itself, Allmon3, shutdown the system,
-or reboot the system. Use of the wrapper scripts for <code>systemctl</code>
-commands is essential for a clean execution of the scripts under the
-polkit rules. The provided wrappers are:</p>
-<ul>
-<li><code>/etc/asterisk/scripts/allmon3-restart</code></li>
-<li><code>/etc/asterisk/scripts/allmon3-start</code></li>
-<li><code>/etc/asterisk/scripts/allmon3-stop</code></li>
-<li><code>/etc/asterisk/scripts/asterisk-restart</code></li>
-<li><code>/etc/asterisk/scripts/asterisk-start</code></li>
-<li><code>/etc/asterisk/scripts/asterisk-stop</code></li>
-</ul>
-<p>These privileges can be used inside <code>/etc/asterisk/rpt.conf</code>
-within the <code>[functions]</code> stanza as follows:</p>
-<div class="highlight"><pre><span></span><code>9001 = cmd,/etc/asterisk/scripts/asterisk-restart
-9002 = cmd,/etc/asterisk/scripts/asterisk-stop
-9003 = cmd,/etc/asterisk/scripts/allmon3-restart
-9004 = cmd,/etc/asterisk/scripts/allmon3-stop
-9005 = cmd,/usr/sbin/shutdown
-9006 = cmd,/usr/sbin/reboot
+<p>These nodes are behind a NAT/router with a public IP address of 203.0.113.186.</p>
+<p>When each node connects and registers with AllStarLink, its perceived registration
+IP address will be 203.0.113.186. If another node asks "where is node 630010" it 
+would get back the answer 203.0.113.186. However, this is also the case for the
+internal nodes. If node 630011 asks "where is node 630010" it also gets back
+203.0.113.186. For various network reasons, this will not work.</p>
+<p>One also has to consider the UDP port. By default, each Asterisk system 
+uses the default UDP port of 4569. This is a published standard. However, through
+a NAT device, only one system can use the port at a time. Thus our local
+nodes 630010 and 630011 will fight over that port.</p>
+<p>The make two (or more) nodes on the same network function, the following
+steps must be taken:</p>
+<ol>
+<li>Assign each node's server a different IAX port</li>
+<li>Tell each node's server about the other node's internal address and port</li>
+</ol>
+<p>In this example, node 630011 will be assigned a different UDP port. The table
+then of the nodes is:</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Local IP</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>630010</td>
+<td>192.168.0.10</td>
+<td>UDP 4569</td>
+</tr>
+<tr>
+<td>630011</td>
+<td>192.168.0.11</td>
+<td>UDP 4570</td>
+</tr>
+</tbody>
+</table>
+<p>This document assumes one knows how to forward the port internally for one's
+router/NAT device and that is has already been done.</p>
+<h2 id="assigning-a-different-iax-port">Assigning a Different IAX Port</h2>
+<p>There are two places where the IAX port must be changed when using a
+non-standard port:</p>
+<ol>
+<li><code>/etc/asterisk/iax.conf</code></li>
+<li>The AllStarLink Portal for that node's server</li>
+</ol>
+<h3 id="changing-iaxconf">Changing iax.conf</h3>
+<p>The best way to edit the IAX port is to use <code>asl-menu</code>. Run <code>sudo asl-menu</code>.
+Choose <strong>1 Node Settings</strong> and then <strong>4 Update Asterisk IAX port</strong>. Set
+the new UDP port in the box and hit <strong>OK</strong>. Then choose <strong>2 Restart Asterisk</strong>.
+Then close <code>asl-menu</code>.</p>
+<p>Alternatively, edit the file directly. As root (i.e. sudo -s), edit the file <code>/etc/asterisk/iax.conf</code>. Find the line:</p>
+<div class="highlight"><pre><span></span><code><span class="na">bindport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4569</span>
 </code></pre></div>
-<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the
-system, etc.</p>
+<p>and change it to a different port. The ASL3 appliance comes preconfigured to permit
+traffic on any port between 4560 and 4580. It is recommended to choose a port in
+this range for any alternative IAX port. In this example, the node 630011 will be
+changed to port 4570. Edit the file to state:</p>
+<div class="highlight"><pre><span></span><code><span class="na">bindport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4570</span>
+</code></pre></div>
+<p>and save and close the file. Restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="changing-the-portal">Changing the Portal</h3>
+<div class="admonition note">
+<p class="admonition-title">Server-Node Relationship</p>
+<p>Following the operating model, the base Asterisk/app_rpt installation is the "Server"
+and a "Server" hosts one or more "Nodes". Make sure that each node is assigned to a
+different server if the nodes are configured on different installations.</p>
+</div>
+<p>Do the following to change a node's server's IAX port.</p>
+<ol>
+<li>
+<p>Logon to https://www.allstarlink.org using your AllStarLink username
+and password.</p>
+</li>
+<li>
+<p>Click on <strong>Portal</strong> and then <strong>Node Settings</strong>.</p>
+</li>
+<li>
+<p>In the table, find the Server for the node you want to edit. In this example
+node 630011 is located on server node63011. Remember or jot down the server
+name.</p>
+</li>
+<li>
+<p>Click on <strong>Portal</strong> and then <strong>Server Settings</strong>.</p>
+</li>
+<li>
+<p>Click on the server from step #4 (in this case "node630011")</p>
+</li>
+<li>
+<p>In the field <strong>IAX Port</strong> change the port number to the port configured
+in "Changing iax.conf" above. In this example, the port will be 4570.</p>
+</li>
+<li>
+<p>Click <strong>Submit</strong></p>
+</li>
+</ol>
+<p>Propagation of the change takes 1-2 minutes.</p>
+<h2 id="telling-local-nodes-about-their-neighbors">Telling Local Nodes About Their Neighbors</h2>
+<p>Each node on the same network needs to be hardcoded with information
+about the other node. In this example, node 630010 needs to be hardcoded
+for where 630011 is and vice-versa.</p>
+<h3 id="configuring-node-630010">Configuring Node 630010</h3>
+<p>As root (i.e. sudo -s) edit the file <code>/etc/asterisk/rpt.conf</code>. Locate
+the line with the node's own definition. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630010,NONE</span>
+</code></pre></div>
+<p>After this line, add its local neighbor by its IP address <em>and</em> the alternative
+IAX port. In this example, add 630011 as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630010,NONE</span>
+<span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@192.168.0.11:4570/630011,NONE</span>
+</code></pre></div>
+<p>Note the inclusion of the port as <code>:4570</code>. This pattern can be repeated for multiple nodes
+on the same network. Save the file and restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="configuring-node-630011">Configuring Node 630011</h3>
+<p>The other node repeats same process but in the opposite direction. 
+As root (i.e. sudo -s) edit the file <code>/etc/asterisk/rpt.conf</code>. Locate
+the line with the node's own definition. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630011,NONE</span>
+</code></pre></div>
+<p>After this line, add its local neighbor by its IP address <em>and</em> the standard
+IAX port since it is unchanged. In this example, add 630010 as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630011,NONE</span>
+<span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@192.168.0.10:4569/630010,NONE</span>
+</code></pre></div>
+<p>Note the inclusion of the port as <code>:4569</code>. This pattern can be repeated for multiple nodes
+on the same network. Save the file and restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="testing-linking-locally">Testing Linking Locally</h3>
+<p>Test linking the two nodes together to ensure configuration. In this example, node
+630010 will connect to node 630011 using the Asterisk CLI:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 3 630011
+</code></pre></div>
+<p>Then the link should be shown to 630011 with the command:</p>
+<div class="highlight"><pre><span></span><code>rpt nodes 630010
+</code></pre></div>
+<p>that should display:</p>
+<div class="highlight"><pre><span></span><code>node630010*CLI&gt; rpt nodes 630010
+
+************************* CONNECTED NODES *************************
+
+T630011
+</code></pre></div>
+<p>Disconnect the links with:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 1 630011
+</code></pre></div>
+<p>After that, everything should work. The most common issue with this configuration
+is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p>
 
 
 
@@ -2209,7 +2273,7 @@ system, etc.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../autopatch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Autopatch">
+          <a href="../tts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ASL Text-to-Speech">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2219,20 +2283,20 @@ system, etc.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Autopatch
+                ASL Text-to-Speech
               </div>
             </div>
           </a>
         
         
           
-          <a href="../noderesolution/" class="md-footer__link md-footer__link--next" aria-label="Next: Node Resolution">
+          <a href="../../developers/package-builds/" class="md-footer__link md-footer__link--next" aria-label="Next: Building ASL3-Asterisk">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Node Resolution
+                Building ASL3-Asterisk
               </div>
             </div>
             <div class="md-footer__button md-icon">

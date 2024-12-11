@@ -1339,6 +1339,8 @@
       
         
       
+        
+      
     
     
       
@@ -1762,6 +1764,27 @@
   
   <span class="md-ellipsis">
     ASL Text-to-Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/multinodesnetwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple Nodes on the Same Network
   </span>
   
 
@@ -5436,7 +5459,181 @@ to <code>asl-tts</code>. As an example:</p>
 <p>Note, since all files are squashed down to 8K uLaw format, there is no value
 in the "medium" or "high" quality models. Always use the low quality model.</p>
 <h2 id="adv-topics-tts-reporting-bugs">Reporting Bugs</h2>
-<p>Report bugs to <a href="https://github.com/AllStarLink/asl3-tts/issues">https://github.com/AllStarLink/asl3-tts/issues</a></p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
+<p>Report bugs to <a href="https://github.com/AllStarLink/asl3-tts/issues">https://github.com/AllStarLink/asl3-tts/issues</a></p></section><section class="print-page" id="adv-topics-multinodesnetwork"><h1 id="adv-topics-multinodesnetwork-multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
+<p>Multiple AllStarLink nodes on the same IP subnet (i.e. your "local network") when
+those nodes are behind a NAT device can be a challenge. The reason is that
+AllStarLink works exclusively with public IP addresses. When two nodes
+are on the same network behind a NAT/router they independently need to
+use a public IP address with the AllStarLink system but need to know about each
+other's local IPs rather than their shared public IP. Additionally both nodes
+cannot use the same UDP port as they will fight over it with the NAT/router.</p>
+<p>For this example, let's consider two nodes on the same subnet. The nodes are:</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Local IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>630010</td>
+<td>192.168.0.10</td>
+</tr>
+<tr>
+<td>630011</td>
+<td>192.168.0.11</td>
+</tr>
+</tbody>
+</table>
+<p>These nodes are behind a NAT/router with a public IP address of 203.0.113.186.</p>
+<p>When each node connects and registers with AllStarLink, its perceived registration
+IP address will be 203.0.113.186. If another node asks "where is node 630010" it 
+would get back the answer 203.0.113.186. However, this is also the case for the
+internal nodes. If node 630011 asks "where is node 630010" it also gets back
+203.0.113.186. For various network reasons, this will not work.</p>
+<p>One also has to consider the UDP port. By default, each Asterisk system 
+uses the default UDP port of 4569. This is a published standard. However, through
+a NAT device, only one system can use the port at a time. Thus our local
+nodes 630010 and 630011 will fight over that port.</p>
+<p>The make two (or more) nodes on the same network function, the following
+steps must be taken:</p>
+<ol>
+<li>Assign each node's server a different IAX port</li>
+<li>Tell each node's server about the other node's internal address and port</li>
+</ol>
+<p>In this example, node 630011 will be assigned a different UDP port. The table
+then of the nodes is:</p>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Local IP</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>630010</td>
+<td>192.168.0.10</td>
+<td>UDP 4569</td>
+</tr>
+<tr>
+<td>630011</td>
+<td>192.168.0.11</td>
+<td>UDP 4570</td>
+</tr>
+</tbody>
+</table>
+<p>This document assumes one knows how to forward the port internally for one's
+router/NAT device and that is has already been done.</p>
+<h2 id="adv-topics-multinodesnetwork-assigning-a-different-iax-port">Assigning a Different IAX Port</h2>
+<p>There are two places where the IAX port must be changed when using a
+non-standard port:</p>
+<ol>
+<li><code>/etc/asterisk/iax.conf</code></li>
+<li>The AllStarLink Portal for that node's server</li>
+</ol>
+<h3 id="adv-topics-multinodesnetwork-changing-iaxconf">Changing iax.conf</h3>
+<p>The best way to edit the IAX port is to use <code>asl-menu</code>. Run <code>sudo asl-menu</code>.
+Choose <strong>1 Node Settings</strong> and then <strong>4 Update Asterisk IAX port</strong>. Set
+the new UDP port in the box and hit <strong>OK</strong>. Then choose <strong>2 Restart Asterisk</strong>.
+Then close <code>asl-menu</code>.</p>
+<p>Alternatively, edit the file directly. As root (i.e. sudo -s), edit the file <code>/etc/asterisk/iax.conf</code>. Find the line:</p>
+<div class="highlight"><pre><span></span><code><span class="na">bindport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4569</span>
+</code></pre></div>
+<p>and change it to a different port. The ASL3 appliance comes preconfigured to permit
+traffic on any port between 4560 and 4580. It is recommended to choose a port in
+this range for any alternative IAX port. In this example, the node 630011 will be
+changed to port 4570. Edit the file to state:</p>
+<div class="highlight"><pre><span></span><code><span class="na">bindport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4570</span>
+</code></pre></div>
+<p>and save and close the file. Restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="adv-topics-multinodesnetwork-changing-the-portal">Changing the Portal</h3>
+<div class="admonition note">
+<p class="admonition-title">Server-Node Relationship</p>
+<p>Following the operating model, the base Asterisk/app_rpt installation is the "Server"
+and a "Server" hosts one or more "Nodes". Make sure that each node is assigned to a
+different server if the nodes are configured on different installations.</p>
+</div>
+<p>Do the following to change a node's server's IAX port.</p>
+<ol>
+<li>
+<p>Logon to https://www.allstarlink.org using your AllStarLink username
+and password.</p>
+</li>
+<li>
+<p>Click on <strong>Portal</strong> and then <strong>Node Settings</strong>.</p>
+</li>
+<li>
+<p>In the table, find the Server for the node you want to edit. In this example
+node 630011 is located on server node63011. Remember or jot down the server
+name.</p>
+</li>
+<li>
+<p>Click on <strong>Portal</strong> and then <strong>Server Settings</strong>.</p>
+</li>
+<li>
+<p>Click on the server from step #4 (in this case "node630011")</p>
+</li>
+<li>
+<p>In the field <strong>IAX Port</strong> change the port number to the port configured
+in "Changing iax.conf" above. In this example, the port will be 4570.</p>
+</li>
+<li>
+<p>Click <strong>Submit</strong></p>
+</li>
+</ol>
+<p>Propagation of the change takes 1-2 minutes.</p>
+<h2 id="adv-topics-multinodesnetwork-telling-local-nodes-about-their-neighbors">Telling Local Nodes About Their Neighbors</h2>
+<p>Each node on the same network needs to be hardcoded with information
+about the other node. In this example, node 630010 needs to be hardcoded
+for where 630011 is and vice-versa.</p>
+<h3 id="adv-topics-multinodesnetwork-configuring-node-630010">Configuring Node 630010</h3>
+<p>As root (i.e. sudo -s) edit the file <code>/etc/asterisk/rpt.conf</code>. Locate
+the line with the node's own definition. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630010,NONE</span>
+</code></pre></div>
+<p>After this line, add its local neighbor by its IP address <em>and</em> the alternative
+IAX port. In this example, add 630011 as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630010,NONE</span>
+<span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@192.168.0.11:4570/630011,NONE</span>
+</code></pre></div>
+<p>Note the inclusion of the port as <code>:4570</code>. This pattern can be repeated for multiple nodes
+on the same network. Save the file and restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="adv-topics-multinodesnetwork-configuring-node-630011">Configuring Node 630011</h3>
+<p>The other node repeats same process but in the opposite direction. 
+As root (i.e. sudo -s) edit the file <code>/etc/asterisk/rpt.conf</code>. Locate
+the line with the node's own definition. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630011,NONE</span>
+</code></pre></div>
+<p>After this line, add its local neighbor by its IP address <em>and</em> the standard
+IAX port since it is unchanged. In this example, add 630010 as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="na">630011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@127.0.0.1/630011,NONE</span>
+<span class="na">630010</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">radio@192.168.0.10:4569/630010,NONE</span>
+</code></pre></div>
+<p>Note the inclusion of the port as <code>:4569</code>. This pattern can be repeated for multiple nodes
+on the same network. Save the file and restart asterisk with <code>systemctl restart asterisk</code>.</p>
+<h3 id="adv-topics-multinodesnetwork-testing-linking-locally">Testing Linking Locally</h3>
+<p>Test linking the two nodes together to ensure configuration. In this example, node
+630010 will connect to node 630011 using the Asterisk CLI:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 3 630011
+</code></pre></div>
+<p>Then the link should be shown to 630011 with the command:</p>
+<div class="highlight"><pre><span></span><code>rpt nodes 630010
+</code></pre></div>
+<p>that should display:</p>
+<div class="highlight"><pre><span></span><code>node630010*CLI&gt; rpt nodes 630010
+
+************************* CONNECTED NODES *************************
+
+T630011
+</code></pre></div>
+<p>Disconnect the links with:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 1 630011
+</code></pre></div>
+<p>After that, everything should work. The most common issue with this configuration
+is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p></section><h1 class='nav-section-title-end'>Ended: Advanced Topics</h1>
                         <h1 class='nav-section-title' id='section-developer-guide'>
                             Developer Guide <a class='headerlink' href='#section-developer-guide' title='Permanent link'>↵</a>
                         </h1>
