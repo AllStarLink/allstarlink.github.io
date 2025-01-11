@@ -4934,7 +4934,7 @@ improve hot spot responsiveness.</p>
 <li>Select <code>&lt;Yes&gt;</code></li>
 </ul>
 <p>This setup will likely be a single menu selection with the next release of ASL3.</p></section><section class="print-page" id="adv-topics-autopatch"><h1 id="adv-topics-autopatch-autopatch">Autopatch</h1>
-<p>The autopatch feature in app_rpt allows users on the radio to interconnect with the public switched telephone network.</p>
+<p>The autopatch feature in app_rpt allows users on the radio to interconnect with the public switched telephone network.  This means a HAM operator can dial a phone number from the radio and be connected to a phone.  The reverse is also possible with someone being able to dial a phone number and be connected to the node.  This is achieved using an account with a VOIP service provider and connecting the Allstar node.</p>
 <h2 id="adv-topics-autopatch-regulatory-issues">Regulatory Issues</h2>
 <p><em>Some countries do not allow third-party traffic through autopatching or 
 telephone interconnection on amateur radio frequencies. In addition, if a system 
@@ -4945,12 +4945,13 @@ autopatching, users need be made aware of this and should take the node off-link
 before using the autopatch.</em></p>
 <h2 id="adv-topics-autopatch-security-issues">Security Issues</h2>
 <p><em>The examples provided here do not secure the autopatch against toll fraud. A lot 
-can be done to prevent or reduce toll fraud, but the prevention measures vary by 
+can be done to prevent or reduce toll fraud but the prevention measures vary by 
 where you are located geographically. Most of the prevention measures will be in 
 extensions.conf. You can write contexts to reject certain number sequences. 
 The <a href="http://www.asteriskdocs.org/">asterisk book</a> should be consulted to see how to do 
-this, Before placing any autopatch in service, please make sure you have secured 
-your system so that toll fraud does not become an issue.</em></p>
+this and you be done before placing any autopatch in service. Please make sure you have secured your system so that toll fraud does not become an issue.</em></p>
+<h2 id="adv-topics-autopatch-duplex-and-vox">Duplex and VOX</h2>
+<p>Nodes with duplex set to 0 or 1 will use VOX automatically.  Nodes with duplex set to 2 or higher can use phone mode. In phone mode, one can key up the radio by dialing *99 and unkey by dialing #.  One can configure simplex autopatch to not use VOX, but simplex reverse autopatch must use VOX, so it is preferable to use VOX both ways for simplex nodes.  Nodes configured for VOX autopatch should advise callers to mute their phone and unmute only when talking.  Additional info can be found in the <a href="#adv-topics-autopatch-simplex-autopatch">Simplex Autopatch</a> section.</p>
 <h2 id="adv-topics-autopatch-selecting-a-voip-provider">Selecting a VOIP Provider</h2>
 <p>Call termination into the public switched telephone network is a service offered by
 a Voice Over IP provider (VOIP). This is a highly competitive business, 
@@ -4960,15 +4961,40 @@ by a few providers.</p>
 <p>When selecting an VOIP provider, make sure they provide setup instructions with 
 example configurations including usernames, and passwords. Quite a few VOIPs will 
 automatically generate a custom SIP or IAX stanza for insertion into sip.conf, 
-or iax.conf respectively.</p>
+or iax.conf respectively. Not all providers will supply configuration examples. 
+This guide includes example configuration files that may need adjustments to get 
+working with specific providers and ASL versions.</p>
+<p>This guide will document the general process for setting up IAX2 and SIP providers with examples for voip.ms IAX and flowroute.com SIP.  Any provider should be setup in a similar fashion.</p>
+<h2 id="adv-topics-autopatch-voip-provider-setup">VOIP Provider Setup</h2>
+<p>Whatever provider one chooses, the same things must be setup.  Different providers will have different names for each item but the setup will be similar.</p>
+<ul>
+<li>A phone number or DID must be purchased.</li>
+<li>E911 service should be setup.</li>
+<li>CallerID must be setup for the DID.</li>
+<li>Inbound routing will need to be setup so calls are routed to the node via IAX2 or SIP.</li>
+<li>Authentication for outbound calls must be configured.</li>
+</ul>
+<h2 id="adv-topics-autopatch-firewall-setup">Firewall Setup</h2>
+<ul>
+<li>If using IAX, the firewall will already be configured properly. If using SIP, you will need to update the firewall rules to allow SIP traffic with:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>root@localhost:/#<span class="w"> </span>firewall-cmd<span class="w"> </span>--add-service<span class="o">=</span>SIP<span class="w"> </span>--permanent
+</code></pre></div>
+<ul>
+<li>On the router/firewall, forward/open ports as required:<ul>
+<li>For traffic from IAX/SIP provider you need to allow TCP and UDP port 5060 to the node.</li>
+<li>For traffic from WAN needs to allow the UDP port range 10000-20000 to the node.</li>
+</ul>
+</li>
+</ul>
 <h2 id="adv-topics-autopatch-configuration-files">Configuration Files</h2>
 <p>Four configuration files will be used to setup the autopatch: <strong>rpt.conf</strong>, 
-<strong>extensions.conf</strong>, <strong>modules.conf</strong>, and <strong>iax.conf</strong> or <strong>sip.conf</strong>. 
+<strong>extensions.conf</strong>, <strong>modules.conf</strong>, and either <strong>iax.conf</strong> or <strong>pjsip.conf</strong>. 
 The VOIP provider should provide a stanza for you to insert in <strong>iax.conf</strong> 
-or <strong>sip.conf</strong>. The configuration below shows how each of these files are 
-used when an outgoing autopatch call is made.</p>
-<p>In the <strong>modules.conf</strong> file, add these modules at the bottom of the file, but 
-above the [global] stanza:</p>
+or <strong>pjsip.conf</strong>. The configuration below shows how each of these files are 
+used when an outgoing autopatch or reverse autopatch call is made.</p>
+<h3 id="adv-topics-autopatch-modulesconf">modules.conf</h3>
+<p>In the <strong>/etc/asterisk/modules.conf</strong> file, add the following lines at the bottom of the file, but above the [global] stanza:</p>
 <div class="highlight"><pre><span></span><code>load =&gt; bridge_builtin_features.so
 load =&gt; bridge_builtin_interval_features.so
 load =&gt; bridge_holding.so
@@ -4976,56 +5002,88 @@ load =&gt; bridge_native_rtp.so
 load =&gt; bridge_simple.so
 load =&gt; bridge_softmix.so
 load =&gt; chan_bridge_media.so
+load =&gt; app_verbose.so
+load =&gt; app_read.so
 </code></pre></div>
-<p>In the <strong>rpt.conf</strong> configuration file, a context in extensions.conf is defined 
-in a node stanza using the context key:</p>
+<p>If using a SIP trunking provider, add these additional lines at the bottom of 
+modules.conf, above the [global] stanza:</p>
+<div class="highlight"><pre><span></span><code>;
+; modules for pjsip
+;
+noload = app_voicemail.so
+load = bridge_builtin_features.so
+load = bridge_builtin_interval_features.so
+load = bridge_holding.so
+load = bridge_native_rtp.so
+load = bridge_simple.so
+load = bridge_softmix.so
+load = chan_bridge_media.so
+load = chan_pjsip.so
+load = func_pjsip_endpoint.so
+load = func_sorcery.so
+load = func_devstate.so
+load = res_pjproject.so
+load = res_pjsip_acl.so
+load = res_pjsip_authenticator_digest.so
+load = res_pjsip_caller_id.so
+load = res_pjsip_dialog_info_body_generator.so
+load = res_pjsip_diversion.so
+load = res_pjsip_dtmf_info.so
+load = res_pjsip_endpoint_identifier_anonymous.so
+load = res_pjsip_endpoint_identifier_ip.so
+load = res_pjsip_endpoint_identifier_user.so
+load = res_pjsip_exten_state.so
+load = res_pjsip_header_funcs.so
+load = res_pjsip_logger.so
+load = res_pjsip_messaging.so
+load = res_pjsip_mwi_body_generator.so
+load = res_pjsip_mwi.so
+load = res_pjsip_nat.so
+load = res_pjsip_notify.so
+load = res_pjsip_one_touch_record_info.so
+load = res_pjsip_outbound_authenticator_digest.so
+load = res_pjsip_outbound_publish.so
+load = res_pjsip_outbound_registration.so
+load = res_pjsip_path.so
+load = res_pjsip_pidf_body_generator.so
+load = res_pjsip_pidf_digium_body_supplement.so
+load = res_pjsip_pidf_eyebeam_body_supplement.so
+load = res_pjsip_publish_asterisk.so
+load = res_pjsip_pubsub.so
+load = res_pjsip_refer.so
+load = res_pjsip_registrar.so
+load = res_pjsip_rfc3326.so
+load = res_pjsip_sdp_rtp.so
+load = res_pjsip_send_to_voicemail.so
+load = res_pjsip_session.so
+load = res_pjsip.so
+noload = res_pjsip_t38.so
+noload = res_pjsip_transport_websocket.so
+load = res_pjsip_xpidf_body_generator.so
+load = res_rtp_asterisk.so
+load = res_sorcery_astdb.so
+load = res_sorcery_config.so
+load = res_sorcery_memory.so
+load = res_sorcery_realtime.so
+</code></pre></div>
+<h3 id="adv-topics-autopatch-rptconf">rpt.conf</h3>
+<p>In the <strong>/etc/asterisk/rpt.conf</strong> configuration file, the stanza for the node needs to specify the context for the autopatch.  The name of the context should match the name added to extensions.conf:</p>
 <p><div class="highlight"><pre><span></span><code>[1234]
-
-context = autopatch                 ; dialing context for phone
-callerid = &quot;Repeater&quot; &lt;0000000000&gt;  ; callerid for phone calls
-accountcode = RADIO                 ; account code (optional)
+context = autopatch                ; dialing context for phone
+callerid = &quot;Repeater&quot; &lt;0000000000&gt; ; callerid for phone calls
+accountcode = RADIO                ; account code (optional)
 </code></pre></div>
-Also in the <strong>rpt.conf</strong> file, entries are added to the function stanza so 
-that users can bring up or take down the autopatch:
+You should also add entries to the function stanza so that users can bring up or take down the autopatch:</p>
 <div class="highlight"><pre><span></span><code>[functions]
-61 = autopatchup,noct=1,farenddisconnect=1,dialtime=20000,context=autopatch
-62 = autopatchdn 
-</code></pre></div></p>
-<p>In <strong>extensions.conf</strong>, a stanza for the autopatch context is added which 
-refers to the peer stanza in iax.conf or sip.conf. </p>
-<p>For outbound IAX connections extensions.conf
-<div class="highlight"><pre><span></span><code>[autopatch] 
-
-exten =&gt; _1NXXNXXXXXX,1,Dial,IAX2/peername/${EXTEN} 
-exten =&gt; _1NXXNXXXXXX,2,Congestion 
+61 = autopatchup,noct=1,farenddisconnect=1,dialtime=20000,context=autopatch,quiet=1
+0 = cmd,/var/lib/asterisk/hangupPhones ; Hangup all phone patches
 </code></pre></div>
-For outbound SIP connections it should look like this:
-<div class="highlight"><pre><span></span><code>[autopatch] 
-
-exten =&gt; _1NXXNXXXXXX,1,Dial,SIP/peername/${EXTEN} 
-exten =&gt; _1NXXNXXXXXX,2,Congestion 
-</code></pre></div></p>
-<p>The peer stanza you insert in <strong>iax.conf</strong> or <strong>sip.conf</strong> should 
-preferably be provided by your VOIP provider. You'll want to use the stanza 
-they identify for performing outgoing connections.  The SIP module has been 
-removed from ASL3 and one must now use PJSIP. A nonoperational example 
-of an iax2 peer stanza looks like this:
-<div class="highlight"><pre><span></span><code>[peername]
-type=peer 
-host=127.0.0.1 
-secret=nunya
-auth=md5 
-disallow=all 
-allow=gsm 
-allow=ulaw
-</code></pre></div></p>
-<h2 id="adv-topics-autopatch-autopatch-options">Autopatch Options</h2>
-<p>There are several options that can be passed to the autopatchup command class.</p>
-<p>This table summarizes what they do:</p>
+<h4 id="adv-topics-autopatch-autopatch-options">Autopatch Options</h4>
+<p>There are several options that can be passed to the autopatchup command class.  This table summarizes what they do:</p>
 <table>
 <thead>
 <tr>
-<th>Autopatch Option</th>
+<th>Option</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -5040,19 +5098,19 @@ allow=ulaw
 </tr>
 <tr>
 <td>farenddisconnect</td>
-<td>When set to 1, the patch will automatically disconnect when the called party hangs up. The default is send a circuit busy tone until the radio user brings the patch down.</td>
+<td>When set to 1, the patch will automatically disconnect when the called party hangs up. The default is to send a circuit busy tone until the radio user brings the patch down.</td>
 </tr>
 <tr>
 <td>noct</td>
-<td>When this is set to 1, the courtesy tone during an autopatch call will be disabled. The default is to send the courtesy tone whenever the radio user unkeys.</td>
+<td>When set to 1, the courtesy tone during an autopatch call will be disabled. The default is to send the courtesy tone whenever the radio user unkeys.</td>
 </tr>
 <tr>
 <td>quiet</td>
-<td>When set to 1, do not send dial tone, voice responses, just try to connect the call.</td>
+<td>When set to 1, do not send dial tone or voice responses, just try to connect the call.</td>
 </tr>
 <tr>
 <td>voxalways</td>
-<td>When set to 1, enables vox mode.</td>
+<td>When set to 1, enables VOX mode.</td>
 </tr>
 <tr>
 <td>exten</td>
@@ -5064,6 +5122,230 @@ allow=ulaw
 </tr>
 </tbody>
 </table>
+<h4 id="adv-topics-autopatch-create-a-script-to-handle-terminating-calls">Create a Script to Handle Terminating Calls</h4>
+<p>Create the following script to handle terminating calls. Without this script you will be unable to forcefully terminate <strong>incoming</strong> calls:</p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>/var/lib/asterisk/hangupPhones
+</code></pre></div>
+<p>Paste this script into the file:</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+# Target pattern to match (adjust as needed for different calls)
+TARGET_PATTERN=&quot;IAX2/voipms-&quot;
+# TARGET_PATTERN=&quot;PJSIP/flowroute-&quot;
+# Get the list of channels and their concise details
+CHANNELS=$(asterisk -rx &quot;core show channels concise&quot;)
+echo &quot;Checking for matching channels...&quot;
+echo &quot;--------------------------------&quot;
+# Iterate over each line to find the target channel
+while IFS= read -r line; do
+    if [[ $line == $TARGET_PATTERN* ]]; then
+        CHANNEL=$(echo &quot;$line&quot; | awk -F&#39;!&#39; &#39;{print $1}&#39;)
+        CALLERID=$(echo &quot;$line&quot; | awk -F&#39;!&#39; &#39;{print $3}&#39;)
+        echo &quot;Found matching channel: $CHANNEL with Caller ID: $CALLERID&quot;
+        echo &quot;Hanging up channel: $CHANNEL&quot;
+        asterisk -rx &quot;channel request hangup $CHANNEL&quot;
+    fi
+done &lt;&lt;&lt; &quot;$CHANNELS&quot;
+</code></pre></div>
+<p>Save the file and make it executable:</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/var/lib/asterisk/hangupPhones
+</code></pre></div>
+<h3 id="adv-topics-autopatch-extensionsconf">extensions.conf</h3>
+<p>In the <strong>/etc/asterisk/extensions.conf</strong> file, a stanza for the autopatch context is added which refers to the peer stanza in iax.conf or pjsip.conf.  These examples will likely need to be adjusted to work with a specific provider: </p>
+<p>For outbound IAX connections, add an [autopatch] stanza with:</p>
+<div class="highlight"><pre><span></span><code>[autopatch] 
+
+; Match any 10-digit number (e.g., North American local format).
+exten =&gt; _NXXNXXXXXX,1,Dial(IAX2/voipms/${EXTEN})
+; After the call is completed, hang up the line.
+exten =&gt; _NXXNXXXXXX,n,Hangup()
+</code></pre></div>
+<p>For outbound SIP connections (using IP auth), add and [autopatch] stanza with:</p>
+<div class="highlight"><pre><span></span><code>[autopatch]
+
+; Match any 10-digit number (e.g., North American local format).
+exten =&gt; _NXXNXXXXXX,1,Dial(PJSIP/flowroute-endpoint/sip:[tech-prefix]*+1${EXTEN}@us-east-va.sip.flowroute.com)
+; After the call is completed, hang up the line.
+exten =&gt; _NXXNXXXXXX,n,Hangup()
+</code></pre></div>
+<p>To setup the 911 extension, add the following lines to the [autopatch] stanza:</p>
+<div class="highlight"><pre><span></span><code>; Match 911
+exten =&gt; 911,1,Dial(IAX2/voipms/${EXTEN})
+; The Dial command routes the call through the IAX2 channel to the &quot;voipms&quot; trunk,
+; passing the dialed number (${EXTEN}) to the provider.
+
+; After the call is completed, hang up the line.
+exten =&gt; 911,n,Hangup()
+
+; Optional: Reroute 911 to another number
+; Uncomment the following lines to enable this feature:
+; Instead of routing 911 directly, reroute it to the specified number (e.g., 1234567890).
+; This could be used to route emergency calls to a different service or internal security.
+; exten =&gt; 911,1,Dial(IAX2/voipms/1234567890)
+; After the rerouted call is completed, hang up the line.
+; exten =&gt; 911,n,Hangup()
+</code></pre></div>
+<p>You will also want to add a [reverse-autopatch] stanza with the following lines:</p>
+<div class="highlight"><pre><span></span><code>; REVERSE-AUTOPATCH - REPEATER RECEIVES INCOMING CALLS
+
+[reverse-autopatch]
+; Change below to the voip DID number
+VOIPDID = 5555554321
+
+exten =&gt; _X.,1,Verbose(1, Caller ${CALLERID(all)} has entered IVR menu)
+; wait a bit before answering
+exten =&gt; _X.,n,Wait(2)
+
+; Answer the incoming call.
+exten =&gt; _X.,n,Answer()
+
+; Wait for 1 second to ensure the line is stable before playing the prompt.
+exten =&gt; _X.,n,Wait(1)
+
+; Optional: Bypass PIN for trusted caller
+; Uncomment the below line to enable this feature:
+; If the incoming call is from a trusted number (5551234567 or 5559876543 in this example),
+; skip the PIN code and go directly to the &quot;${VOIPDID}&quot; label.
+;exten =&gt; _X.,n,GotoIf($[&quot;${CALLERID(num)}&quot; = &quot;+15555551234&quot;]?5555554321,1)
+; Example of how to &quot;trust&quot; two (or more) phone numbers
+; exten =&gt; _X.,n,GotoIf($[&quot;${CALLERID(num)}&quot; = &quot;5551234567&quot; | &quot;${CALLERID(num)}&quot; = &quot;5559876543&quot;]?${VOIPDID},1)
+
+; Initialize an attempt counter
+exten =&gt; _X.,n,Set(ATTEMPTS=0)
+; Play a message that asks the caller to enter their PIN followed by the pound/hash key, along with other information like mute/unmute procedure, ID with callsign, etc.
+exten =&gt; _X.,n(start),Playback(message)
+
+; Wait for the caller to enter a 4-digit PIN.
+; - &quot;PIN&quot; is the variable where the entered digits will be stored.
+; - &quot;beep&quot; will play a beep sound to prompt the user.
+; - &quot;4&quot; specifies the PIN length (4 digits).
+; - &quot;,,5&quot; sets a 5-second timeout for the user to start entering the PIN.
+exten =&gt; _X.,n,Read(PIN,beep,4,,,5)
+
+; SET YOUR PIN(s) HERE! THESE PIN(s) WILL BE USED TO PATCH INTO THE REPEATER
+; Check if the entered PIN is one of the valid PINs.
+; - If the PIN is correct, the call will go to the label &quot;wait-for-pound&quot;.
+; - If not, it will continue to the next step.
+exten =&gt; _X.,n,GotoIf($[&quot;${PIN}&quot; = &quot;1234&quot;]?wait-for-pound)
+; Example of how to set up two (or more) PINs:
+; exten =&gt; _X.,n,GotoIf($[&quot;${PIN}&quot; = &quot;1234&quot; | &quot;${PIN}&quot; = &quot;5678&quot;]?wait-for-pound)
+
+; Increment the attempt counter
+exten =&gt; _X.,n,Set(ATTEMPTS=$[${ATTEMPTS}+1])
+
+; If the PIN is invalid, play a message saying it was incorrect.
+; &quot;confbridge-invalid&quot; says: &quot;You have entered an invalid option.&quot;
+exten =&gt; _X.,n,Playback(confbridge-invalid)
+
+; Check if the attempt counter has reached 3
+exten =&gt; _X.,n,GotoIf($[${ATTEMPTS} &gt;= 3]?too-many-failures)
+
+; Go back to the start and ask the user to enter the PIN again.
+; This gives the user another chance to enter a valid PIN.
+exten =&gt; _X.,n,Goto(start)
+
+; If the user fails to enter a valid PIN after 3 attempts, play a message saying they have entered too many invalid PINs.
+; &quot;confbridge-pin-bad&quot; says: &quot;You have entered too many invalid personal identification numbers.&quot;
+exten =&gt; _X.,n(too-many-failures),Playback(confbridge-pin-bad)
+
+; Hang up the call after the failure message.
+exten =&gt; _X.,n,Hangup()
+
+; After the valid PIN is entered, wait for the user to press the &quot;#&quot; key.
+; - This command waits for the user to press &quot;#&quot; to confirm the PIN entry.
+; - The 5-second timeout will give the user time to press &quot;#&quot;.
+exten =&gt; _X.,n(wait-for-pound),WaitExten(5)
+
+; If the user presses &quot;#&quot;, go to the &quot;${VOIPDID}&quot; label.
+exten =&gt; #,1,Goto(${VOIPDID},1)
+
+; If &quot;#&quot; is not pressed, go to the start label.
+exten =&gt; _X.,89,Goto(start)
+
+; If the correct PIN was entered and &quot;#&quot; was pressed, play a message confirming the connection.
+; &quot;rpt/connected&quot; could say something like: &quot;You are now connected.&quot;
+exten =&gt; ${VOIPDID},1,Playback(rpt/connected)
+
+; Connect the caller to the repeater using the &quot;rpt&quot; command.
+; The &quot;|P&quot; option is used to specify &quot;phone&quot; mode in app_rpt.
+exten =&gt; ${VOIPDID},n,rpt(${NODE}|Pv)
+
+; Hang up the call after the connection is made.
+exten =&gt; ${VOIPDID},n,Hangup()
+</code></pre></div>
+<h3 id="adv-topics-autopatch-iaxconf">iax.conf</h3>
+<p>If using an IAX provider, you will need to update the <strong>/etc/asterisk/iax.conf</strong> file.  Items in between brackets should be replaced with specific account info, except the stanza names themselves:</p>
+<p>First, add the following lines to the [general] stanza :</p>
+<div class="highlight"><pre><span></span><code>; ENTER YOUR VOIP.MS CREDENTIALS AND SERVER HERE
+register =&gt; [VOIPMS_ID]:[VOIPMS_PASSWORD]@[VOIPMS_HOST]
+; Example: register =&gt; 123456:supersecretpassword@dallas1.voip.ms
+</code></pre></div>
+<p>Then, add this new stanza :</p>
+<div class="highlight"><pre><span></span><code>[voipms]
+username=[VOIPMS_ID]; ENTER YOUR 6-DIGIT VOIP.MS USERNAME HERE
+type=friend
+context=reverse-autopatch
+host=[VOIPMS_HOST]; ENTER THE VOIP.MS SERVER ADDRESS YOU SELECTED FOR YOUR DID HERE
+secret=[VOIPMS_PASSWORD]; ENTER YOUR VOIP.MS IAX PASSWORD HERE
+disallow=all
+allow=ulaw
+allow=g726aal2
+allow=gsm
+codecpriority=host
+insecure=port,invite
+requirecalltoken=yes
+</code></pre></div>
+<h3 id="adv-topics-autopatch-pjsipconf">pjsip.conf</h3>
+<p>If using a SIP provider, replace (or create) the <strong>/etc/asterisk/pjsip.conf</strong> file.  The file (below) is based on a node behind NAT and should be updated for specific providers and accounts:</p>
+<div class="highlight"><pre><span></span><code>;===============TRANSPORT
+
+[sip-trans]
+type=transport
+protocol=udp
+bind=0.0.0.0
+local_net=[LAN Network IP]/24
+local_net=127.0.0.1/32
+external_media_address=[INET IP]
+external_signaling_address=[INET IP]
+
+;===============TRUNK
+
+[flowroute-reg]
+type=registration
+outbound_auth=flowroute-auth
+server_uri=sip:us-east-va.sip.flowroute.com
+client_uri=sip:[Tech Prefix]@us-east-va.sip.flowroute.com
+retry_interval=60
+contact_user=[VOIP DID]@[WAN IP]
+
+[flowroute-auth]
+type=auth
+auth_type=userpass
+password=[password]
+username=[Tech Prefix]
+;realm=us-west-or.sip.flowroute.com
+
+[flowroute-aor]
+type=aor
+contact=sip:[WAN IP]:5060
+
+[flowroute-endpoint]
+type=endpoint
+context=reverse-autopatch
+disallow=all
+allow=ulaw
+allow=g726aal2
+allow=alaw
+allow=gsm
+;outbound_auth=flowroute-auth
+aors=flowroute-aor
+;outbound_proxy = sip:us-west-or.sip.flowroute.com
+from_domain=[WAN IP]
+
+[flowroute-id]
+type=identify
+endpoint=flowroute-endpoint
+match=us-east-va.sip.flowroute.com
+</code></pre></div>
 <h2 id="adv-topics-autopatch-simplex-autopatch">Simplex Autopatch</h2>
 <p>For nodes with duplex set to 0 or 1, Simplex Autopatch operation is supported.
 This is accomplished by using a VOX on the audio coming from the telephone call, 
@@ -5071,9 +5353,9 @@ because of the half-duplex nature of the node. To avoid having audio from the
 telephone call keep the transmitter engaged for extended periods of time (if there 
 is some source of continuous audio), there are two time-out values. </p>
 <p>Vox timeout, which is the maximum amount of time that the VOX can hold the transmitter 
-engaged, which by default is 10 seconds. The other one is the Vox recovery time, which
-is the amount of time that the Vox is disabled during times of continuous audio, after
-the Vox timeout, which is 2 seconds. During continuous audio, it transmits for 
+engaged, which by default is 10 seconds. The other one is the VOX recovery time, which
+is the amount of time that the VOX is disabled during times of continuous audio, after
+the VOX timeout, which is 2 seconds. During continuous audio, it transmits for 
 10 seconds, then stops for 2 seconds (so that you can transmit to it and perhaps 
 disconnect the call), then transmits for another 10 seconds, then stops for 2 seconds.
 This repeats until the call is disconnected.</p>
@@ -5082,13 +5364,13 @@ telephone call, the audio is delayed to allow for the transmitter to start trans
 and any CTCSS tones to be decoded. This delay is typically 500ms, but can be adjusted
 using the 'simplexpatchdelay' parameter. It is specified in units of 20 milliseconds.</p>
 <p>These time-out values may be overridden by using the following configuration parameters
-located in the [node-number] section of <strong>rpt.conf</strong>:
+located in the [node-number] section of rpt.conf:</p>
 <div class="highlight"><pre><span></span><code>[1999]
-voxtimeout = 10000 ; vox timeout time in ms
-voxrecover = 2000  ; vox recover time in ms
+voxtimeout = 10000     ; VOX timeout time in ms
+voxrecover = 2000      ; VOX recover time in ms
 simplexpatchdelay = 25 ; Delay for transmit while in patch in 20ms increments
 simplexphonedelay = 25 ; Delay for phone while in patch for 20ms increments
-</code></pre></div></p></section><section class="print-page" id="adv-topics-permissions"><h1 id="adv-topics-permissions-permissions">Permissions</h1>
+</code></pre></div></section><section class="print-page" id="adv-topics-permissions"><h1 id="adv-topics-permissions-permissions">Permissions</h1>
 <h2 id="adv-topics-permissions-asterisk-vs-root">"asterisk" vs "root"</h2>
 <p>One of the new features with ASL3 is that the Asterisk process now runs as the "asterisk" user (not as the super-user; "root").
 While sometimes handy this was potentially very dangerous.
