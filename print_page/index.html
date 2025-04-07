@@ -297,6 +297,26 @@
   
 
       
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../config/config-structure/" class="md-tabs__link">
+          
+  
+    
+  
+  Config Files
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1919,6 +1939,78 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Config Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Config Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/config-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2750,9 +2842,9 @@ pass=password
 host=192.2.0.145
 user=admin
 pass=password
-voter=y
-votertitle=Megavoter
+voters=48496
 </code></pre></div></p>
+<p>NOTE: Adding a <code>voters</code> option does not automatically make the VOTER status show up in Allmon3. You will need to manually configure the voter instance in <code>menu.ini</code>, see below.</p>
 <h2 id="allmon3-config-server-customization">Server Customization</h2>
 <p>Allmon3 has multiple configuration files to consider:</p>
 <ul>
@@ -2818,6 +2910,10 @@ This section must exist even if it's empty. For example:</p>
 This functions identically to <code>[node-overrides]</code>. For any
 voter not named here, voters will have an auto-generated
 name of "Voter NODE".</p>
+<div class="highlight"><pre><span></span><code>[voter-titles]
+    ;1999 = My special private node
+    48496 = VHF VOTER System
+</code></pre></div>
 <h3 id="allmon3-config-menuini">menu.ini</h3>
 <p>If this file is present in the api/ subdirectory of Allmon3's web interface
 and named <code>menu.ini</code>, this file will override the default behavior of the
@@ -2863,10 +2959,25 @@ N8XPK = 42993
 43118 = 43118
 47987 = 47987
 
+[ VHF VOTER ]
+type = single
+VOTER = voter.html#48496
+
 [ Test ]
 type = single
 AllStarLink = https://www.allstarlink.org
 </code></pre></div></p>
+<p>VOTER instances are not automatically displayed. You will need to manually add them to <code>menu.ini</code> in order to create a navigation button to access them.</p>
+<p>NOTE: Adding a VOTER instance will require creating a <code>menu.ini</code>. As noted previously, the presence of this file will mean that the default behaviour of Allmon3 to automatically display all configured nodes will be changed. As a result, in additon to configuring your VOTER instance, you will also need to manually configure all the rest of your nodes, so that they will be displayed.</p>
+<p>The format is the same as other buttons, the critical part is the target (right side of the link). That must point to <code>voter.html#NODE</code>, where <code>NODE</code> is the node number you defined in <code>allmon3.ini</code>. The target can also be a FQDN, if you are pointing to a remote system (properly configured).</p>
+<div class="highlight"><pre><span></span><code>[ LOCAL VOTER ]       ; ignored for single menu items
+type = single
+BUTTON_NAME = voter.html#NODE
+
+[ REMOTE VOTER ]
+type = single
+Remote_VOTER = http://somesite.org/allmon3/voter.html#1999
+</code></pre></div>
 <h2 id="allmon3-config-using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code>
 package, install <code>nginx</code> using the above directions. After configuring
@@ -6324,7 +6435,63 @@ Loading<span class="w"> </span>packages...
 <span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
 <span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
 <span class="o">[</span>-<span class="o">]</span><span class="w"> </span>asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all<span class="w"> </span>removed
-</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: Developer Guide</h1></div>
+</code></pre></div></p></section><h1 class='nav-section-title-end'>Ended: Developer Guide</h1>
+                        <h1 class='nav-section-title' id='section-config-files'>
+                            Config Files <a class='headerlink' href='#section-config-files' title='Permanent link'>↵</a>
+                        </h1>
+                        <section class="print-page" id="config-config-structure"><h1 id="config-config-structure-structure-of-config-files">Structure of Config Files</h1>
+<p>Configuration files have a simple structure consisting of stanzas, key/value pairs and comments. A stanza is a block of text within a configuration file. It starts with a name (or number) surrounded by square brackets on a line by itself. Configuration files will have one or more stanzas. Each stanza continues until the next stanza or end of file. </p>
+<div class="highlight"><pre><span></span><code>[this is a stanza]
+...
+
+[this is another stanza]
+...
+</code></pre></div>
+<p>Stanzas contain one or more ker/value pairs. Key/value pairs set various values within each stanza.</p>
+<div class="highlight"><pre><span></span><code>myname=timothy ; There are some who call me Tim?
+</code></pre></div>
+<p>Config file comments are preceded with a semicolon. In this example of two nodes the stanza is the node number and the key/value pairs set the CW ID and the ID timer:</p>
+<div class="highlight"><pre><span></span><code>[1998]
+idrecording = |iW1ABC
+idtime = 540000          ; 9 minutes
+
+[1999]
+idrecording = |iW1XYZ
+idtime = 540000 
+</code></pre></div>
+<h2 id="config-config-structure-settings-to-name-other-stanzas">Settings to name other Stanzas</h2>
+<p>Some key=value pairs point to other stanzas. This allows nodes on the same server to have the same settings (without duplicate entries) or different settings in some cases. For example the phone patch command may be *6 on one node, yet *61 on another.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>[1000]
+functions=functionsVHF
+
+[1001]
+functions=functionsVHF   ;same functions as node 1000
+
+[1002]
+functions=functionsUHF
+
+[functionsVHF]
+; Two meter Autopatch up is *6
+6=autopatchup,noct=1,farenddisconnect=1,dialtime=20000 
+0=autopatchdn       ; Autopatch down
+
+[functionsUHF]
+; 440 Autopatch up is *61
+61=autopatchup,noct=1,farenddisconnect=1,dialtime=20000  ; Autopatch up
+0=autopatchdn       ; Autopatch down
+</code></pre></div>
+<h2 id="config-config-structure-named-stanzas-in-rptconf">Named Stanzas in rpt.conf</h2>
+<ul>
+<li>controlstates=</li>
+<li>functions=</li>
+<li>link_functions=</li>
+<li>macro=</li>
+<li>phone_functions=</li>
+<li>telemetry=</li>
+<li>wait_times=</li>
+</ul>
+<p><strong>Note:</strong> A stanza is also called a context in Asterisk PBX terminology, particularly related to the dialplan.</p></section><h1 class='nav-section-title-end'>Ended: Config Files</h1></div>
 
 
 

@@ -306,6 +306,26 @@
   
 
       
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../config/config-structure/" class="md-tabs__link">
+          
+  
+    
+  
+  Config Files
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -2074,6 +2094,78 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Config Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Config Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/config-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2200,9 +2292,9 @@ pass=password
 host=192.2.0.145
 user=admin
 pass=password
-voter=y
-votertitle=Megavoter
+voters=48496
 </code></pre></div></p>
+<p>NOTE: Adding a <code>voters</code> option does not automatically make the VOTER status show up in Allmon3. You will need to manually configure the voter instance in <code>menu.ini</code>, see below.</p>
 <h2 id="server-customization">Server Customization</h2>
 <p>Allmon3 has multiple configuration files to consider:</p>
 <ul>
@@ -2268,6 +2360,10 @@ This section must exist even if it's empty. For example:</p>
 This functions identically to <code>[node-overrides]</code>. For any
 voter not named here, voters will have an auto-generated
 name of "Voter NODE".</p>
+<div class="highlight"><pre><span></span><code>[voter-titles]
+    ;1999 = My special private node
+    48496 = VHF VOTER System
+</code></pre></div>
 <h3 id="menuini">menu.ini</h3>
 <p>If this file is present in the api/ subdirectory of Allmon3's web interface
 and named <code>menu.ini</code>, this file will override the default behavior of the
@@ -2313,10 +2409,25 @@ N8XPK = 42993
 43118 = 43118
 47987 = 47987
 
+[ VHF VOTER ]
+type = single
+VOTER = voter.html#48496
+
 [ Test ]
 type = single
 AllStarLink = https://www.allstarlink.org
 </code></pre></div></p>
+<p>VOTER instances are not automatically displayed. You will need to manually add them to <code>menu.ini</code> in order to create a navigation button to access them.</p>
+<p>NOTE: Adding a VOTER instance will require creating a <code>menu.ini</code>. As noted previously, the presence of this file will mean that the default behaviour of Allmon3 to automatically display all configured nodes will be changed. As a result, in additon to configuring your VOTER instance, you will also need to manually configure all the rest of your nodes, so that they will be displayed.</p>
+<p>The format is the same as other buttons, the critical part is the target (right side of the link). That must point to <code>voter.html#NODE</code>, where <code>NODE</code> is the node number you defined in <code>allmon3.ini</code>. The target can also be a FQDN, if you are pointing to a remote system (properly configured).</p>
+<div class="highlight"><pre><span></span><code>[ LOCAL VOTER ]       ; ignored for single menu items
+type = single
+BUTTON_NAME = voter.html#NODE
+
+[ REMOTE VOTER ]
+type = single
+Remote_VOTER = http://somesite.org/allmon3/voter.html#1999
+</code></pre></div>
 <h2 id="using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code>
 package, install <code>nginx</code> using the above directions. After configuring
