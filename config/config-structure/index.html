@@ -18,6 +18,8 @@
         <link rel="prev" href="../../developers/aptly/">
       
       
+        <link rel="next" href="../rpt_conf/">
+      
       
       <link rel="icon" href="../../assets/allstarlink.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
@@ -1368,6 +1370,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1821,6 +1829,69 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/daq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAQ Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/litz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Long Tone Zero (LiTZ)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1959,6 +2030,8 @@
       
         
       
+        
+      
     
     
       
@@ -2074,6 +2147,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rpt_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rpt.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2097,17 +2191,17 @@
 
 
 <h1 id="structure-of-config-files">Structure of Config Files</h1>
-<p>Configuration files have a simple structure consisting of stanzas, key/value pairs and comments. A stanza is a block of text within a configuration file. It starts with a name (or number) surrounded by square brackets on a line by itself. Configuration files will have one or more stanzas. Each stanza continues until the next stanza or end of file. </p>
+<p>Configuration files have a simple structure consisting of stanzas, <code>key=value</code> pairs and comments. A stanza is a block of text within a configuration file. It starts with a name (or number) surrounded by square brackets on a line by itself. Configuration files will have one or more stanzas. Each stanza continues until the next stanza or end of file. </p>
 <div class="highlight"><pre><span></span><code>[this is a stanza]
 ...
 
 [this is another stanza]
 ...
 </code></pre></div>
-<p>Stanzas contain one or more ker/value pairs. Key/value pairs set various values within each stanza.</p>
+<p>Stanzas contain one or more <code>key=value</code> pairs. <code>Key=value</code> pairs set various values within each stanza.</p>
 <div class="highlight"><pre><span></span><code>myname=timothy ; There are some who call me Tim?
 </code></pre></div>
-<p>Config file comments are preceded with a semicolon. In this example of two nodes the stanza is the node number and the key/value pairs set the CW ID and the ID timer:</p>
+<p>Config file comments are preceded with a semicolon. In this example of two nodes the stanza is the node number and the <code>key=value</code> pairs set the CW ID and the ID timer:</p>
 <div class="highlight"><pre><span></span><code>[1998]
 idrecording = |iW1ABC
 idtime = 540000          ; 9 minutes
@@ -2117,7 +2211,7 @@ idrecording = |iW1XYZ
 idtime = 540000 
 </code></pre></div>
 <h2 id="settings-to-name-other-stanzas">Settings to name other Stanzas</h2>
-<p>Some key=value pairs point to other stanzas. This allows nodes on the same server to have the same settings (without duplicate entries) or different settings in some cases. For example the phone patch command may be *6 on one node, yet *61 on another.</p>
+<p>Within the <a href="../rpt_conf/#node-number-stanza"><code>[node]</code></a> stanza in <code>rpt.conf</code>, some <code>key=value</code> pairs point to other stanzas. This allows nodes on the same <code>Asterisk/app_rpt</code> server to have the same settings (without duplicate entries) or different settings in some cases. For example, the phone patch command may be *6 on one node, yet *61 on another.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>[1000]
 functions=functionsVHF
@@ -2139,13 +2233,19 @@ functions=functionsUHF
 0=autopatchdn       ; Autopatch down
 </code></pre></div>
 <h2 id="named-stanzas-in-rptconf">Named Stanzas in rpt.conf</h2>
+<p>The <code>key=value</code> pairs that redirect to other named stanzas in <code>rpt.conf</code> are:</p>
 <ul>
 <li>controlstates=</li>
+<li>events=</li>
 <li>functions=</li>
 <li>link_functions=</li>
 <li>macro=</li>
+<li>morse=</li>
+<li>nodes=</li>
 <li>phone_functions=</li>
+<li>scheduler=</li>
 <li>telemetry=</li>
+<li>tonemacro=</li>
 <li>wait_times=</li>
 </ul>
 <p><strong>Note:</strong> A stanza is also called a context in Asterisk PBX terminology, particularly related to the dialplan.</p>
@@ -2199,6 +2299,22 @@ functions=functionsUHF
             </div>
           </a>
         
+        
+          
+          <a href="../rpt_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: Rpt.conf">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Rpt.conf
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
