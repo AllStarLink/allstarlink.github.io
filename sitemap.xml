@@ -5,6 +5,10 @@
          <lastmod>2025-04-20</lastmod>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/adv-topics/</loc>
+         <lastmod>2025-04-20</lastmod>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/adv-topics/addons/</loc>
          <lastmod>2025-04-20</lastmod>
     </url>
@@ -121,11 +125,19 @@
          <lastmod>2025-04-20</lastmod>
     </url>
     <url>
+         <loc>https://allstarlink.github.io/config/</loc>
+         <lastmod>2025-04-20</lastmod>
+    </url>
+    <url>
          <loc>https://allstarlink.github.io/config/config-structure/</loc>
          <lastmod>2025-04-20</lastmod>
     </url>
     <url>
          <loc>https://allstarlink.github.io/config/rpt_conf/</loc>
+         <lastmod>2025-04-20</lastmod>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/developers/</loc>
          <lastmod>2025-04-20</lastmod>
     </url>
     <url>
@@ -138,6 +150,10 @@
     </url>
     <url>
          <loc>https://allstarlink.github.io/developers/source-install/</loc>
+         <lastmod>2025-04-20</lastmod>
+    </url>
+    <url>
+         <loc>https://allstarlink.github.io/mans/</loc>
          <lastmod>2025-04-20</lastmod>
     </url>
     <url>
