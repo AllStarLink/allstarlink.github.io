@@ -1,0 +1,3525 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AllStarLink Manual">
+      
+      
+        <meta name="author" content="AllStarLink Team">
+      
+      
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/remotebase/">
+      
+      
+        <link rel="prev" href="../litz/">
+      
+      
+        <link rel="next" href="../rxtoneburst/">
+      
+      
+      <link rel="icon" href="../../assets/allstarlink.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>Remote Base Nodes - AllStarLink Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="allstarlink" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#remote-base-nodes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
+      
+  <img src="../../assets/allstar-logo-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AllStarLink Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Remote Base Nodes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/" class="md-tabs__link">
+          
+  
+    
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/menu/" class="md-tabs__link">
+          
+  
+    
+  
+  Basic Operation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../commands/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developers/package-builds/" class="md-tabs__link">
+          
+  
+    
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mans/asl-find-sound/" class="md-tabs__link">
+          
+  
+    
+  
+  Man Pages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../config/config-structure/" class="md-tabs__link">
+          
+  
+    
+  
+  Config Files
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AllStarLink Manual" class="md-nav__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
+      
+  <img src="../../assets/allstar-logo-small.png" alt="logo">
+
+    </a>
+    AllStarLink Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../user-guide/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Important Considerations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/pi-detailed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian 12</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian 12</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debian 12 Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Post Installation</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Post Installation</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updating ASL3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/known-issues-diffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differences & Known Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3 Install and Config</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3 Install and Config</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Allmon3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/usermgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic Operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL3 Menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/asl-cmds-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL Commands and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/passwords/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logins and Passwords
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Troubleshooting Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-get-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started With Cockpit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cockpit Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal / Console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-firewall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing the Firewall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    New Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incompatibles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Incompatibilities, Changes, and Known Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../noderesolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../httpreg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP-Based Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iaxreg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAX-Based Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usbinterfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USB Audio Interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audio-level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calibrating Audio Levels For The AllStarLink System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SA818 RF Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conftmpl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asterisk Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../allowdenylists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allow and Deny Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sip-phone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../broadcastify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming Node Audio to Broadcastify
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hotspot_hd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hot Spot Un-key Delay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autopatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autopatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uefi-secureboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UEFI and SecureBoot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL Text-to-Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multinodesnetwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple Nodes on the Same Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aprs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    APRS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../daq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAQ Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../litz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Long Tone Zero (LiTZ)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behavior-of-standard-nodes-versus-remote-base-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Behavior of Standard Nodes Versus Remote Base Nodes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Required
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What's Required">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Number
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-interface-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Interface (Audio)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-interface-cable-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Interface Cable (Control)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-radios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Radios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Operation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-node-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Node Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-node-number-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Node Number Stanza
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote Base Node Number Stanza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authlevel" class="md-nav__link">
+    <span class="md-ellipsis">
+      authlevel=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#civaddr" class="md-nav__link">
+    <span class="md-ellipsis">
+      civaddr=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dusbabek" class="md-nav__link">
+    <span class="md-ellipsis">
+      dusbabek=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      functions=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioaddr" class="md-nav__link">
+    <span class="md-ellipsis">
+      ioaddr=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioport" class="md-nav__link">
+    <span class="md-ellipsis">
+      ioport=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iospeed" class="md-nav__link">
+    <span class="md-ellipsis">
+      iospeed=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mars" class="md-nav__link">
+    <span class="md-ellipsis">
+      mars=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phone_functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      phone_functions=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote_inact_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_inact_timeout=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_timeout=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote_timeout_warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_timeout_warning=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote_timeout_warning_freq" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_timeout_warning_freq=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rxchannel" class="md-nav__link">
+    <span class="md-ellipsis">
+      rxchannel=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split2m" class="md-nav__link">
+    <span class="md-ellipsis">
+      split2m=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split70cm" class="md-nav__link">
+    <span class="md-ellipsis">
+      split70cm=
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-memory-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Memory Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-base-txlimits-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Base Txlimits Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-remote-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Remote Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doug-hall-rbi-1-remote-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doug Hall (RBI-1) Remote Base
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Doug Hall (RBI-1) Remote Base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rbi-1-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBI-1 Connections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbi-1-rptconf-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBI-1 rpt.conf Settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Software Products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/package-builds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building ASL3-Asterisk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/source-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Source-Based Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/aptly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AllStarLink Apt Repos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Man Pages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Man Pages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-find-sound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-find-sound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-node-lookup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-node-lookup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-play-arn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-play-arn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-say/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-say
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-setup-dkms-mok/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-setup-dkms-mok
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Config Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Config Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/config-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/rpt_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rpt.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="remote-base-nodes">Remote Base Nodes</h1>
+<p>The primary purpose of a remote base node is to make outgoing RF connections using a frequency agile radio to allow access to frequencies which are not part of your Internet connected radio system.</p>
+<p>Remote base nodes are configured differently than a standard node. A completely different set of internal functions in <code>Asterisk/app_rpt</code> is used when operating a node as a remote base. Usually, the only reason to set up a node as a remote base is when you wish to change the operating parameters of the the attached radio remotely, or if you only want the radio to be used by a single user at a time.</p>
+<p>If you want a <em>public</em> node number for a remote base, it must specifically be requested in the <a href="https://allstarlink.org/portal">AllStarLink Portal</a>. You must be sure to answer yes to <code>Is node a remote base station?</code>, and then optionally <code>If remote base, is it frequency agile?</code> questions. You can, alternatively`, configure a private node.</p>
+<h2 id="security-issues">Security Issues</h2>
+<p>Unfettered access to remote bases can be a <strong>security issue</strong>. If the remote base has no login protection it could be used by unscrupulous individuals to violate amateur radio rules and regulations. We <strong>strongly</strong> advise that all remote bases be protected by requiring a login code (see <a href="#remote-base-authentication">Remote Base Authentication</a> below). </p>
+<h2 id="behavior-of-standard-nodes-versus-remote-base-nodes">Behavior of Standard Nodes Versus Remote Base Nodes</h2>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Standard Node</th>
+<th>Remote Base Node</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command Decoding</td>
+<td>Remote or Local. DTMF can be optionally decoded on the receive audio input</td>
+<td>Remote only. No DTMF will be decoded on the receive audio input</td>
+</tr>
+<tr>
+<td>Duplexing</td>
+<td>Configurable: duplex or half-duplex</td>
+<td>Half-duplex only</td>
+</tr>
+<tr>
+<td></td>
+<td>Frequency and Mode Agility</td>
+<td>Fixed frequency operation, and channelized operation only using arguments passed in to app_rpt from extensions.conf</td>
+</tr>
+<tr>
+<td>Multiple connections</td>
+<td>Multiple nodes can connect. Operates as a conference bridge</td>
+<td>Only one node can connect at a time</td>
+</tr>
+<tr>
+<td>Login Protection</td>
+<td>No</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h2 id="whats-required">What's Required</h2>
+<p>In order to configure a remote base you will need the following:</p>
+<h3 id="node-number">Node Number</h3>
+<p>Either request a public node number or choose a private node number.</p>
+<h3 id="radio-interface-audio">Radio Interface (Audio)</h3>
+<p>A free port on a radio interface such a URI adapter must be made available for use by the remote base. This is needed for the audio transport and keying.</p>
+<h3 id="radio-interface-cable-control">Radio Interface Cable (Control)</h3>
+<p>A radio interface cable must be constructed or purchased to interface the radio to the node for control. Depending on the radio, this could be a USB to serial cable for CAT commands, or similar. </p>
+<h3 id="supported-radios">Supported Radios</h3>
+<p>See the <a href="#remote"><code>remote=</code></a> setting below for a list of supported or partially supported radios.</p>
+<h2 id="remote-base-operation">Remote Base Operation</h2>
+<p>The following is an example of how you would use a remote base:</p>
+<ul>
+<li>Send node *3&lt;node&gt; to connect to the remote base node</li>
+<li>Use <a href="#functions"><code>[functions_remote]</code></a> commands to operate the remote base</li>
+<li>
+<ul>
+<li>Send *4&lt;node&gt;*000# to set the remote base to memory channel 00</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Send *4&lt;node&gt;*1146*940*1# to set the VFO to 146.940-</li>
+</ul>
+</li>
+<li>Send *1&lt;node&gt; to disconnect from the remote base node</li>
+</ul>
+<h2 id="remote-base-node-definition">Remote Base Node Definition</h2>
+<p>A remote base needs to be defined as such in the <code>[nodes]</code> context. Specifically, the node definition would need to have the last option changed from "NONE" to "Y".</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>1998 = radio@127.0.0.1/1998,Y                  ; Remote base node on this server
+</code></pre></div>
+<h2 id="remote-base-node-number-stanza">Remote Base Node Number Stanza</h2>
+<p>The node number stanza is a critical stanza in <code>rpt.conf</code>. It is the same concept as for a "normal node". </p>
+<div class="highlight"><pre><span></span><code>[1998]    ; Replace with your assigned or private node number
+</code></pre></div>
+<p>The node number stanza is set to the <strong>assigned node number</strong> <em>or</em> a <strong>private node number</strong> (if a private node is being configured). The <a href="../../user-guide/menu/">asl-menu</a> utility, via the <strong>Node Setup</strong> menu, should normally be used to create node stanzas for both public and private nodes.</p>
+<p>The node number stanza contains all the configurable options for that specific node using a <code>key=value</code> pair syntax. The following configurable options are available to use:</p>
+<h3 id="authlevel">authlevel=</h3>
+<p>The <code>authlevel=</code> option is used to enable or disable login requirements for a remote base.</p>
+<ul>
+<li>authlevel = 0 Disables all access control (not recommended, unsecured)</li>
+<li>authlevel = 1 Enables access control, and waits for key up before prompting for the access code</li>
+<li>authlevel = 2 Enables access control, and prompts for the access code at the time of connection</li>
+</ul>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>authlevel = 0   ; allow everyone 
+</code></pre></div>
+<p>See <a href="#remote-base-authentication">Remote Base Authentication</a> and <a href="#remote-base-txlimits-stanza">Remote Base TX Limits</a> for additional details.</p>
+<h3 id="civaddr">civaddr=</h3>
+<p>ICOM radios use the ICOM Communications Interface V (CI-V) for remote control. The <code>civaddr=</code> is used to set the CI-V address. The value is a 2 digit hexadecimal number. If this option is not specified, then the CI-V address will be set to the default of 88.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>civaddr = 88  ; set CIV to 88
+</code></pre></div>
+<h3 id="dusbabek">dusbabek=</h3>
+<p>This option is a "Jim Special", and documentation around it is sparse. It accepts parameters of <code>yes</code> or <code>no</code>, and MAY be required for the radio you are interfacing to. Try it, you may or may not need it.</p>
+<p>Specifically, it may be required for the Syntor-X (using <code>remote=xcat</code>).</p>
+<h3 id="functions">functions=</h3>
+<p>The <code>functions=</code> option is a pointer to a remote base function stanza. It operates the same as the normal <a href="../../config/rpt_conf/#functions"><code>functions=</code></a> option. You will likely want to define a functions stanza that is unique for your remote base, so that you can tailor what functions are available to use. </p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>functions = functions-remote   ; name the functions stanza &#39;functions-remote&#39;
+
+[functions-remote]
+0=remote,1                              ; Retrieve Memory
+1=remote,2                              ; Set freq.
+2=remote,3                              ; Set tx PL tone
+3=remote,4                              ; Set rx PL tone
+40=remote,100                           ; Rx PL off
+41=remote,101                           ; Rx PL on
+42=remote,102                           ; Tx PL off
+43=remote,103                           ; Tx PL on
+44=remote,104                           ; Low Power
+45=remote,105                           ; Medium Power
+46=remote,106                           ; High Power
+711=remote,107                          ; Bump down ­20Hz
+714=remote,108                          ; Bump ­down 100Hz
+717=remote,109                          ; Bump ­down 500Hz
+713=remote,110                          ; Bump up 20Hz
+716=remote,111                          ; Bump up 100Hz
+719=remote,112                          ; Bump up 500Hz
+721=remote,113                          ; Scan -­ slow
+724=remote,114                          ; Scan ­- quick
+727=remote,115                          ; Scan ­- fast
+723=remote,116                          ; Scan + slow
+726=remote,117                          ; Scan + quick
+729=remote,118                          ; Scan + fast
+79=remote,119                           ; Tune 
+51=remote,5                             ; Long status query
+52=remote,140                           ; Short status query
+67=remote,210                           ; Send a *
+69=remote,211                           ; Send a #
+91=remote,99,CALLSIGN,[LICENSETAG]      ; Remote base login.
+                                        ; Define a different dtmf sequence for each user which is 
+                                        ; authorized to use the remote base to control access to it.
+                                        ; For example: 
+9139583=remote,99,WB6NIL,G              ; would grant access 
+                                        ; to the remote base and announce WB6NIL as being logged in.
+                                        ; For example:
+9148351=remote,99,WA6ZFT,E              ; would grant access 
+                                        ; to the remote base and announce WA6ZFT as being logged in.
+                                        ; When the remote base is disconnected from the originating 
+                                        ; node, the user will be logged out. The LICENSETAG parameter 
+                                        ; can be optionally specified to enforce TX band limits.
+98=cop,6                                ; Remote base telephone key
+</code></pre></div>
+<p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="../../config/rpt_conf/#funcchar"><code>[funchar]</code></a>, usually *).</p>
+<p><strong>NOTE:</strong> When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998, to set the remote base to high power, you would send *41998*46 (after you connected to that node with something like *31998).</p>
+<p>See <a href="#remote-base-commands">Remote Base Commands</a> for functions that are specifically available for remote base nodes.</p>
+<h3 id="ioaddr">ioaddr=</h3>
+<p>The <code>ioaddr=</code> option sets a parallel port control I/O address. It is specified as a hexadecimal number with a 0x prefix. The parallel port is used when the Doug Hall RBI-1 interface is employed.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>ioaddr = 0x378   ; set RBI-1 /Parallel Port I/O address on LPT1
+</code></pre></div>
+<h3 id="ioport">ioport=</h3>
+<p>The <code>ioport=</code> option sets the serial port for the control interface to the remote base radio. On Linux Systems, these are typically path names to special files in the <code>/dev</code> directory.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>ioport = /dev/ttyS1   ; Linux com1
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code>ioport = /dev/ttyUSB0 ; USB to serial adapter
+</code></pre></div>
+<h3 id="iospeed">iospeed=</h3>
+<p>The <code>iospeed=</code> option sets the serial port baud rate for the control interface to the remote base radio.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>iospeed = 4800         ; Use 4800 baud
+</code></pre></div>
+<p>Valid <code>iospeed</code> values are:</p>
+<ul>
+<li>2400</li>
+<li>4800</li>
+<li>9600 (default if <code>iospeed</code> is not specified)</li>
+<li>19200</li>
+<li>38400</li>
+<li>57600</li>
+</ul>
+<h3 id="mars">mars=</h3>
+<p>The <code>mars=</code> option is only used with the IC-706MKIIG remote. When set to <code>1</code>, it enables access to additional bands via remote, as shown below.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>mars = 0        ; set to 1 to enable MARS bands
+</code></pre></div>
+<p>MARS bands available:</p>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>Frequency Range</th>
+<th>Allowed Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LMR UHF</td>
+<td>450-470MHz</td>
+<td>FM</td>
+</tr>
+<tr>
+<td>LMR VHF</td>
+<td>148-174MHz</td>
+<td>FM</td>
+</tr>
+<tr>
+<td>VHF-AM</td>
+<td>108-144MHz</td>
+<td>AM</td>
+</tr>
+<tr>
+<td>AM BCB</td>
+<td>550-1750kHz</td>
+<td>AM</td>
+</tr>
+<tr>
+<td>HF SWL</td>
+<td>1750kHz-30MHz</td>
+<td>AM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phone_functions">phone_functions=</h3>
+<p>The <code>phone_functions=</code> is a pointer to a remote base phone function stanza. It operates the same as the normal <a href="../../config/rpt_conf/#phone_functions"><code>phone_functions=</code></a> option. You will likely want to define a phone functions stanza that is unique for your remote base, so that you can tailor what functions are available to use. </p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>phone_functions = functions-remote
+
+[functions-remote]
+...
+</code></pre></div>
+<h3 id="remote">remote=</h3>
+<p>The <code>remote=</code> option sets the type of radio. It <strong>must</strong> be defined, as it ensures that the node will be defined as a remote base node and not a standard node, and determines the protocol for communicating with the radio over the <code>ioport</code>.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>remote = xcat   ; set xcat interface
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Model</th>
+<th>remote= Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>Dumb</td>
+<td>y</td>
+<td>Use for any single channel remote base radios, with no remote tuning capability</td>
+</tr>
+<tr>
+<td>N/A</td>
+<td>Parallel Port</td>
+<td>pp16</td>
+<td>Parallel port programmable 16 channels? Perhaps parallel port BCD bit-banging, such for Motorola radios that can be driven from their accessory port? Interface information not available</td>
+</tr>
+<tr>
+<td>Doug Hall</td>
+<td>Remote Base Interface</td>
+<td>rbi</td>
+<td>Requires Parallel Port Address https://wiki.allstarlink.org/wiki/Remote_Base:_Doug_Hall_RBI-1</td>
+</tr>
+<tr>
+<td>ICOM</td>
+<td>IC-706MKIIG</td>
+<td>ic706</td>
+<td><strong>IC-706MKIIG only</strong>. Must specify serial port using <code>ioport=</code>. Must specify CIV address using <code>civaddr=</code>. Also note <code>mars=</code> option. Earlier versions return data format is different and will lock up the software</td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>Various</td>
+<td>kenwood</td>
+<td>Should work for many/most Kenwood radios, unless otherwise specified</td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TM-D700</td>
+<td>tmd700</td>
+<td></td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TS-440</td>
+<td>kenwood</td>
+<td>Some functions may not work</td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TS-450</td>
+<td>kenwood</td>
+<td>Some functions may not work</td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TS-950</td>
+<td>kenwood</td>
+<td>Some functions may not work</td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TM-271</td>
+<td>tm271</td>
+<td>Must specify serial port using <code>ioport=</code></td>
+</tr>
+<tr>
+<td>Kenwood</td>
+<td>TMG-707</td>
+<td>kenwood</td>
+<td>Must specify serial port using <code>ioport=</code></td>
+</tr>
+<tr>
+<td>Motorola</td>
+<td>Syntor Xcat</td>
+<td>xcat</td>
+<td>Must specify serial port using <code>ioport=</code>. Must specify CIV address using <code>civaddr=</code></td>
+</tr>
+<tr>
+<td>Ritron Patriot</td>
+<td>RTX-150</td>
+<td>rtx150</td>
+<td>Interface information not available</td>
+</tr>
+<tr>
+<td>Ritron Partiot</td>
+<td>RTX-450</td>
+<td>rtx450</td>
+<td></td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-100</td>
+<td>ft100</td>
+<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-897GXII</td>
+<td>ft100</td>
+<td>See FT-100. Some commands may not work.</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-857</td>
+<td>ft897</td>
+<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-897</td>
+<td>ft897</td>
+<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-890</td>
+<td>ft100</td>
+<td>See FT-100. Some commands may not work</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-900</td>
+<td>ft100</td>
+<td>See FT-100. Some commands may not work</td>
+</tr>
+<tr>
+<td>Yaesu</td>
+<td>FT-950</td>
+<td>ft950</td>
+<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 38400</td>
+</tr>
+</tbody>
+</table>
+<p>Many Yaesu models should work for the most part with one of the above, back to 747/757 vintage for frequency and mode anyway. The FT-817 has completely different commands, so it won't work.</p>
+<h3 id="remote_inact_timeout">remote_inact_timeout=</h3>
+<p>This option specifies the amount of time without keying from the link, before the link is determined to be inactive. Set to <code>0</code> to disable timeout.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>remote_inact_timeout = 0   ; do not time out
+</code></pre></div>
+<h3 id="remote_timeout">remote_timeout=</h3>
+<p>This option specifies the session time out for the remote base. Set to <code>0</code> to disable. This option does not appear to be implemented in code.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>remote_timeout = 0   ; do not timeout
+</code></pre></div>
+<p>Default is 3600 (seconds?).</p>
+<h3 id="remote_timeout_warning">remote_timeout_warning=</h3>
+<p>This option does not appear to be implemented in code.</p>
+<p>Default is 180 (seconds?).</p>
+<h3 id="remote_timeout_warning_freq">remote_timeout_warning_freq=</h3>
+<p>This option does not appear to be implemented in code.</p>
+<p>Default is 30 (seconds?).</p>
+<h3 id="rxchannel">rxchannel=</h3>
+<p>This option contains the type of channel driver which is being used for the audio and control (COR/PTT) interface to the remote base.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>rxchannel = SimpleUSB/1998
+</code></pre></div>
+<p>See the <a href="../../config/rpt_conf/#rxchannel"><code>rxchannel=</code></a> option for available channel drivers.</p>
+<h3 id="split2m">split2m=</h3>
+<p>This option defines the offset in kHz to use for 2m <a href="#remote-base-memory-stanza">memory chanels</a>. The default if not defined is 600 (kHz).</p>
+<h3 id="split70cm">split70cm=</h3>
+<p>This option defines the offset in kHz to use to 70cm <a href="#remote-base-memory-stanza">memory channels</a>. The default if not defined is 5000 (kHz), aka 5MHz.</p>
+<h2 id="remote-base-commands">Remote Base Commands</h2>
+<p>Remote base commands (<code>functionclass</code> of <code>remote</code>) provide DTMF functions for remote base control. The <code>remote</code> commands are only applicable to remote base node configurations.</p>
+<table>
+<thead>
+<tr>
+<th>remote</th>
+<th>Description</th>
+<th>Parameter(s) Accepted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Retrieve Memory</td>
+<td>00 to 99</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Set VFO frequency</td>
+<td>MMM*kkk*o# where MMM is frequency in MHz, kkk is kHz portion of the frequency, o is offset (1=minus, 2=simplex, 3=positive)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Set TX PL tone</td>
+<td>XXX*X ie 067*0 to set 67.0Hz</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Set RX PL tone</td>
+<td>XXX*X ie 067*0 to set 67.0Hz</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Long status query</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>Remote Base login</td>
+<td>CALLSIGN,LICENSETAG</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Rx PL off</td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>Rx PL on</td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td>Tx PL off</td>
+<td></td>
+</tr>
+<tr>
+<td>103</td>
+<td>Tx PL on</td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td>Low Power</td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td>Medium Power</td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td>High Power</td>
+<td></td>
+</tr>
+<tr>
+<td>107</td>
+<td>Bump -20</td>
+<td></td>
+</tr>
+<tr>
+<td>108</td>
+<td>Bump -100</td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td>Bump -500</td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td>Bump +20</td>
+<td></td>
+</tr>
+<tr>
+<td>111</td>
+<td>Bump +100</td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td>Bump +500</td>
+<td></td>
+</tr>
+<tr>
+<td>113</td>
+<td>Scan - slow</td>
+<td></td>
+</tr>
+<tr>
+<td>114</td>
+<td>Scan - quick</td>
+<td></td>
+</tr>
+<tr>
+<td>115</td>
+<td>Scan - fast</td>
+<td></td>
+</tr>
+<tr>
+<td>116</td>
+<td>Scan + slow</td>
+<td></td>
+</tr>
+<tr>
+<td>117</td>
+<td>Scan + quick</td>
+<td></td>
+</tr>
+<tr>
+<td>118</td>
+<td>Scan + fast</td>
+<td></td>
+</tr>
+<tr>
+<td>119</td>
+<td>Tune (brief AM transmission for automatic tuners)</td>
+<td></td>
+</tr>
+<tr>
+<td>140</td>
+<td>Short status query</td>
+<td></td>
+</tr>
+<tr>
+<td>210</td>
+<td>Send a *</td>
+<td></td>
+</tr>
+<tr>
+<td>211</td>
+<td>Send a #</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Not all commands above are supported by all radios. For example, radios which don't support SSB, would not be able to be placed in LSB or USB mode.</p>
+<p>See the <a href="#functions">Remote Base Functions</a> on how to define the DTMF commands for remote base functions.</p>
+<h2 id="remote-base-authentication">Remote Base Authentication</h2>
+<p>When <a href="#authlevel"><code>authlevel=</code></a> is greater than zero, the <a href="#remote-base-commands"><code>remote,99</code></a> command is used to define a different DTMF sequence (password) for each user authorized to use the remote base. The remote base will announce the callsign as access is granted.</p>
+<p>If using an <code>authlevel</code> greater than zero, be sure to define users in your <code>[functions]</code> stanza to authenticate against.</p>
+<p>The format of the function is: <code>DTMF_Password = remote,99,CALLSIGN,LICENSETAG</code>.</p>
+<p>The <code>LICENSETAG</code> is the corresponding entry in the <a href="#remote-base-txlimits-stanza"><code>[txlmiits]</code></a> stanza. The <code>LICENSETAG</code> is used for enforce TX frequency limits.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>[1998]           ; node number for the remote base
+; authlevel = 0  ; Anyone can use it
+; authlevel = 1  ; Requires log in, Waits for Tx key to ask for it
+authlevel = 2  ; Requires log in, asks for it automously
+
+[remote-functions]
+8xx=remote,99,OK,E ; where xx is the password
+</code></pre></div>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>9139583 = remote,99,WB6NIL,G   ; grant access to Jim (general)
+9148351 = remote,99,WA6ZFT,E   ; grant access to Steve (extra)
+</code></pre></div>
+<p>In the above example, DTMF "*9139583" would log in to the remote base as WB6NIL, with the TX Limits of the "G" class as defined in the <a href="#remote-base-txlimits-stanza"><code>[txlimits]</code></a> staza.</p>
+<p>When the remote base is disconnected from the originating node, the
+user will be logged out. </p>
+<h2 id="remote-base-memory-stanza">Remote Base Memory Stanza</h2>
+<p>Up to 100 (00 to 99) preset memory channels can be defined, to be recalled by the <code>remote,1</code> function command.</p>
+<p>If the <code>init</code> memory channel is optionally specified, the remote base will attempt to tune to this channel when a user connects.</p>
+<p>Remote base memories are in the format of:</p>
+<p>Remote base memory syntax: <code>CC=RRR.RRR,PPP.P,AAAAA</code> or <code>CC=RRR.RRR,PPP.P,OFFSET,AAAAA</code></p>
+<ul>
+<li>C = Memory (Channel) number</li>
+<li>R = RX Frequency (must be defined down to kHz)</li>
+<li>P = PL Frequency</li>
+<li>A = One or more Attributes</li>
+</ul>
+<p>Attributes are specified as a <em>non-delimited</em> string. The available Attributes are: </p>
+<ul>
+<li>a = AM, b = LSB, f = FM, u = USB</li>
+<li>l = Low Power, m = Medium Power, h = High Power</li>
+<li>
+<ul>
+<li>= Minus TX Offset, s = Simplex, + = Plus TX Offset</li>
+</ul>
+</li>
+<li>t = TX PL on, r = RX PL on</li>
+</ul>
+<p>To use a non-standard offset on the memory channel, it can be defined (in kHz), be sure to also specify either <code>-</code> or <code>+</code>, as necessary.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>[memory]
+init = 146.520,000.0,fm ; set to this channel on start
+00 = 146.580,100.0,m
+01 = 147.030,103.5,m+t
+02 = 147.240,103.5,m+t
+03 = 147.765,79.7,m-t
+04 = 146.460,100.0,m
+05 = 146.550,100.0,m
+06 = 147.540,000.0,fs
+07 = 147.540,123.0,shrt
+08 = 147.435,103.5,1035,h-t ; This would be for W6NUT in Los Angeles with input of 146.400, and a PL of 103.5Hz.
+</code></pre></div>
+<p><strong>NOTE:</strong> Not all attributes may be supported by all radios.</p>
+<h2 id="remote-base-txlimits-stanza">Remote Base Txlimits Stanza</h2>
+<p>The <code>[txlimits]</code> stanza defines TX privileges to be assigned to a particular license class (<code>LICENSETAG</code>).</p>
+<p>The <code>LICENSETAG</code> is used when configuring the <a href="#remote-base-authentication"><code>authentication</code></a> parameters for remote base users.</p>
+<div class="highlight"><pre><span></span><code>[txlimits]
+; In the example below, voice privileges are assigned for US ham
+; licensees for 40 meters through 10 meters.
+; Each line contains a LICENSETAG defined in a user login command,
+; then a set of band limit ranges. Up to 40 ranges per entry may be defined.
+;
+T = 28.300-28.500
+G = 7.175-7.300,14.225-14.300,18.110-18.168,21.275-21.450,24.930-24.990,28.300-29.700
+A = 7.125-7.300,14.175-14.300,18.110-18.168,21.225-21.450,24.930-24.990,28.300-29.700
+E = 7.125-7.300,14.150-14.300,18.110-18.168,21.200-21.450,24.930-24.990,28.300-29.700
+</code></pre></div>
+<h2 id="sample-remote-configuration">Sample Remote Configuration</h2>
+<div class="highlight"><pre><span></span><code>[1998]
+; Rx audio/signaling channel                                                                                   
+rxchannel = Radio/usb
+
+; Serial port for control
+ioport = /dev/ttyS1
+
+; Radio Type                
+remote = ft897 
+
+; Function list from link                                          
+functions = functions-remote  
+
+; Function list from phone         
+phone_functions = functions-remote
+
+; Authorization level                                         
+authlevel = 0      
+</code></pre></div>
+<h2 id="doug-hall-rbi-1-remote-base">Doug Hall (RBI-1) Remote Base</h2>
+<p><strong>The Doug Hall RBI-1 is long obsolete, but is documented here for reference.</strong></p>
+<p>The Doug Hall Electronics Model RBI-1 is frequency agile, multi port, remote base. It is possible to interface the RBI-1 to AllStar, but only on a PC.</p>
+<h3 id="rbi-1-connections">RBI-1 Connections</h3>
+<p>The RBI-1 uses the first three pins of the parallel port and can not be changed. There is no other interface method built into the <code>app_rpt</code> software. If you have been using the pins for anything else, you will need to migrate them to higher pins than the first three. See Parallel Port GPIO.</p>
+<p>Parallel port pinout is as follows:
+<div class="highlight"><pre><span></span><code>PP1 = data
+PP2 = clock
+PP3 = reset
+</code></pre></div></p>
+<p>No buffering is required. Attach directly to the RBI-1's DB9 interface on the correct parallel port pins.</p>
+<h3 id="rbi-1-rptconf-settings">RBI-1 rpt.conf Settings</h3>
+<p>In <code>rpt.conf</code> you will need to set lines in the node's stanza:</p>
+<div class="highlight"><pre><span></span><code>[1998]                              ; your node number 
+iobase=0x378                        ; (for lpt1)
+remote=rbi                          ; Doug Hall RBI-1
+functions=funtions-remote1998       ; Function list from link (a list of agile working commands) - use your node number
+memory=memory1998                   ; &#39;system stored&#39; radio presets, not required - use your node number
+
+[funtions-remote1998]               ;for RBI-1   use your node number
+
+0=remote,1                          ; Retrieve Radio Stored Memory Channel
+1=remote,2                          ; Set freq. VFO MMMMM*KKK*O   (Mhz digits, Khz digits, Offset)
+2=remote,3                          ; Set tx PL tone PL Tone HHH*D*
+3=remote,4                          ; Set rx PL tone         HHH*D*
+
+40=remote,100                       ; Rx PL off
+41=remote,101                       ; Rx PL on
+42=remote,102                       ; Tx PL off
+43=remote,103                       ; Tx PL on
+44=remote,104                       ; Low Power
+45=remote,105                       ; Medium Power
+46=remote,106                       ; High Power
+
+51=remote,5                         ; Long status query
+52=remote,140                       ; Short status query
+67=remote,210                       ; Send a *
+69=remote,211                       ; Send a #
+
+
+; Not Required but noted:
+
+[memory1998]                        ;Stored presets for radio, 
+                                    ;Format: (recall# xx) = (Freq 6 digits and decimal) (TX PL Tone )  ( CTCSS Tone )  (ofset + - S ) ( power l m h )
+init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose something safe in case of error. Not required. Can be remarked out.
+00=224.560,100.0,-l
+01=224.460,114.8,-l
+02=224.580,131.8,-l
+03=223.980,100.0,-l
+04=146.940,114.8,-lt
+10=442.175,162.2,+l
+11=444.475,114.8,+l
+12=444.150,100.0,+l
+;13=446.500,100.0,sl
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../litz/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Long Tone Zero (LiTZ)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Long Tone Zero (LiTZ)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../rxtoneburst/" class="md-footer__link md-footer__link--next" aria-label="Next: RX Toneburst">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                RX Toneburst
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 AllStarLink Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.allstarlink.org/" target="_blank" rel="noopener" title="AllStarLink Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6 31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5 50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5l112.2-112.3c31.5-31.5 82.5-31.5 114 0 27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/AllStarLink" target="_blank" rel="noopener" title="AllStarLink on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
