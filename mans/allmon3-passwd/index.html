@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/mans/asl-setup-dkms-mok/">
+        <link rel="canonical" href="https://allstarlink.github.io/mans/allmon3-passwd/">
       
       
-        <link rel="prev" href="../asl-say/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../config/">
+        <link rel="next" href="../asl-find-sound/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>asl-setup-dkms-mok - AllStarLink Manual</title>
+        <title>allmon3-passwd - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#asl-setup-dkms-mok" class="md-skip">
+        <a href="#allmon3-passwd" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              asl-setup-dkms-mok
+              allmon3-passwd
             
           </span>
         </div>
@@ -2125,10 +2125,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../allmon3-passwd/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    allmon3-passwd
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2137,6 +2157,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      NAME
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2230,30 +2279,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    asl-setup-dkms-mok
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../asl-setup-dkms-mok/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2262,71 +2291,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#name" class="md-nav__link">
-    <span class="md-ellipsis">
-      NAME
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#synopsis" class="md-nav__link">
-    <span class="md-ellipsis">
-      SYNOPSIS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
-    <span class="md-ellipsis">
-      DESCRIPTION
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      BUGS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copyright" class="md-nav__link">
-    <span class="md-ellipsis">
-      COPYRIGHT
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2463,16 +2427,33 @@
                   
 
 
-<h1 id="asl-setup-dkms-mok">asl-setup-dkms-mok</h1>
+<h1 id="allmon3-passwd">allmon3-passwd</h1>
 <h2 id="name">NAME</h2>
-<p><code>asl-setup-dkms-mok</code> - Configure the Machine Owner Key (MOK) for signing kernel packages, notably dahdi for ASL.</p>
-<h2 id="synopsis">SYNOPSIS</h2>
-<p>usage: <code>asl-setup-dkms-mok</code></p>
-<h2 id="description">DESCRIPTION</h2>
-<p>This script is a walkthrough script for generating a UEFI Machine Owner Key (MOK). A MOK is needed on systems with UEFI SecureBoot to properly authenticate the DAHDI-related kernel modules which are rebuilt on kernel upgrades with DKMS. See the AllStarLink manual for more information or https://wiki.debian.org/SecureBoot.</p>
-<h2 id="bugs">BUGS</h2>
-<p>Report bugs to https://github.com/AllStarLink/ASL3/issues</p>
-<h2 id="copyright">COPYRIGHT</h2>
+<p><code>allmon3-passwd</code> - Manage the <code>Allmon3</code> password file</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<p>usage: <code>allmon3-passwd [-h|--help] [--delete] [--debug] [--file FILE] [--version] &lt;user&gt;</code></p>
+<p>Positional arguments:</p>
+<p><strong>&lt;user&gt;</strong>: username to create/modify</p>
+<p>Optional arguments:</p>
+<p><strong>-h, --help</strong>: show help message and exit</p>
+<p><strong>--delete</strong>: delete the user specified by <code>&lt;user&gt;</code></p>
+<p><strong>--debug</strong>: enable debug-level logging output</p>
+<p><strong>--file FILE</strong>: alternate file to edit; default <code>/etc/allmon3/users</code></p>
+<p><strong>--version</strong>: print the the version of the software</p>
+<h1 id="description">DESCRIPTION</h1>
+<p>Allmon3's user database is managed by <code>allmon3-passwd</code>. Adding a new user or editing an existing user is the same command. If the user does not exist, it will be added. If the user does exist, the password will be updated.</p>
+<p>To add or edit a user's password:</p>
+<div class="highlight"><pre><span></span><code>allmon3-passwd allmon3
+ Enter the password for allmon3: password
+ Confirm the password for allmon3: password
+</code></pre></div>
+<p>The <code>/etc/allmon3/users</code> file is readable to see that the Argon2 hash has changed for the user.</p>
+<p>To delete a user, add the <code>--delete</code> flag to the command:</p>
+<div class="highlight"><pre><span></span><code>allmon3-passwd --delete allmon3
+</code></pre></div>
+<h1 id="bugs">BUGS</h1>
+<p>Report bugs to https://github.com/AllStarLink/Allmon3/issues</p>
+<h1 id="copyright">COPYRIGHT</h1>
 <p>Copyright (C) 2025 Jason McCormick and AllStarLink under the terms of the AGPL v3.</p>
 
 
@@ -2509,7 +2490,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../asl-say/" class="md-footer__link md-footer__link--prev" aria-label="Previous: asl-say">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Man Pages">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2519,20 +2500,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                asl-say
+                Man Pages
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../config/" class="md-footer__link md-footer__link--next" aria-label="Next: Config Files">
+          <a href="../asl-find-sound/" class="md-footer__link md-footer__link--next" aria-label="Next: asl-find-sound">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Config Files
+                asl-find-sound
               </div>
             </div>
             <div class="md-footer__button md-icon">

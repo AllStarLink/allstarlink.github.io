@@ -1330,6 +1330,8 @@
       
         
       
+        
+      
     
     
       
@@ -1553,6 +1555,27 @@
   
   <span class="md-ellipsis">
     DAQ Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/dns-servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Servers
   </span>
   
 
@@ -2039,6 +2062,8 @@
       
         
       
+        
+      
     
     
       
@@ -2080,6 +2105,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mans/allmon3-passwd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4776,7 +4822,54 @@ door = daq-cham-1,9,1,2017,*7,-
 </code></pre></div>
 <p>The above should be self-explanatory. You would need to configure a DAQ device in the <a href="#adv-topics-daq-daq-list-stanza"><code>[daq-list]</code></a> stanza.</p>
 <p>In the above example, a door alarm (just a friendly label, not used for anything else) on <code>daq-cham-1</code> pin <code>9</code> would execute macro <code>*7</code> on node <code>2017</code> on a high to low transition of the pin. It would ignore the first occurrence of this alarm, but if it persists the next time the alarm system is polled, it would execute (no idea how often that is). </p>
-<p><strong>This stanza may not normally appear in <code>rpt.conf</code> by default.</strong></p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
+<p><strong>This stanza may not normally appear in <code>rpt.conf</code> by default.</strong></p></section><section class="print-page" id="adv-topics-dns-servers"><h1 id="adv-topics-dns-servers-dns-servers">DNS Servers</h1>
+<p>AllStarLink's DNS-based node lookup issues queries to Amazon's Route53 servers that are synchronized to the node registration database.  This allows clients to retrieve node information such as IP addresses and IAX ports.</p>
+<h2 id="adv-topics-dns-servers-dns-node-lookup">DNS Node Lookup</h2>
+<p>The <code>nodes.allstarlink.org</code> domain name is populated with <code>SRV</code>, <code>TXT</code> and <code>A</code> records for every active node in the system.</p>
+<p><strong>NOTE:</strong> The DNS records for a node will remain available for a period of time after a node is no longer active. </p>
+<h3 id="adv-topics-dns-servers-srv-record">SRV Record</h3>
+<p>The <code>SRV</code> records return the IAX port of the server.</p>
+<p>A query such as:</p>
+<div class="highlight"><pre><span></span><code>dig SRV _iax._udp.&lt;nodenumber&gt;.nodes.allstarlink.org
+</code></pre></div>
+<p>will return a record for a node as follows:</p>
+<div class="highlight"><pre><span></span><code>_iax._udp.50000.nodes.allstarlink.org. 30 IN SRV 10 10 4569 50000.nodes.allstarlink.org.
+</code></pre></div>
+<p>where 4569 is the IAX port.</p>
+<p>A remote base node will return a record like:</p>
+<div class="highlight"><pre><span></span><code>_iax._udp.50000.nodes.allstarlink.org. 30 IN SRV 10 10 4569 50000.remotebase.nodes.allstarlink.org.
+</code></pre></div>
+<h3 id="adv-topics-dns-servers-a-record">A Record</h3>
+<p>The <code>A</code> records will return the IP address of the IAX server or the proxy IP, if defined.</p>
+<p>A query such as:</p>
+<div class="highlight"><pre><span></span><code>dig &lt;nodenumber&gt;.nodes.allstarlink.org
+
+and
+
+dig &lt;nodenumber&gt;.remotebase.nodes.allstarlink.org
+</code></pre></div>
+<p>will return:</p>
+<div class="highlight"><pre><span></span><code>2000.nodes.allstarlink.org. 60  IN  A   162.248.93.134
+</code></pre></div>
+<h3 id="adv-topics-dns-servers-txt-record">TXT Record</h3>
+<p>The <code>TXT</code> record is used for debugging purposes with a query below:</p>
+<div class="highlight"><pre><span></span><code>dig TXT &lt;nodenumber&gt;.nodes.allstarlink.org
+</code></pre></div>
+<p>will return:</p>
+<div class="highlight"><pre><span></span><code>&quot;NN=50000&quot; &quot;RT=2019-02-28 18:41:29&quot; &quot;RB=0&quot; &quot;IP=44.98.248.144&quot; &quot;PIP=&quot; &quot;PT=4569&quot; &quot;RH=register-west&quot;
+</code></pre></div>
+<p>Where:</p>
+<ul>
+<li>NN is the node number</li>
+<li>RT is the last update registration time</li>
+<li>RB is 1 for node is not a remote base, RB is 0 if it is a remote base</li>
+<li>IP is the IP address of the node</li>
+<li>PIP is the proxy IP of the node if set</li>
+<li>PT is the IAX port</li>
+<li>RH is the registration server the node last registered to.</li>
+</ul>
+<h2 id="adv-topics-dns-servers-asl-node-lookup"><code>asl-node-lookup</code></h2>
+<p>On ASL3 systems, the <a href="#mans-asl-node-lookup"><code>asl-node-lookup</code></a> command can also be used to query the DNS servers for information about a node.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
 <p>When setting up a hot spot, select the <code>Duplex 1</code> option in <a href="#user-guide-menu"><code>asl-menu</code></a> to allow the hot spot to function. However, the un-key delay of the radio transmitter will likely be too long.</p>
 <p>These steps will shorten the un-key delay and will greatly improve hot spot responsiveness:</p>
 <p>From the Linux CLI, launch the <code>asl-menu</code> with <code>sudo asl-menu</code>. Select the following options:</p>
@@ -5030,7 +5123,7 @@ node_lookup_method = both   ;method used to lookup nodes
 <h2 id="adv-topics-noderesolution-domain-name-service-dns">Domain Name Service DNS</h2>
 <p>AllStarLink now provides a DNS service for performing node resolution. DNS is an Internet standard and is more efficient than using a file base solution.</p>
 <p>When using DNS <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden in <code>rpt.conf</code> by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza.</p>
-<p>For more information on DNS see <a href="https://wiki.allstarlink.org/wiki/DNS_Servers">AllStarLink DNS Servers</a>.</p>
+<p>For more information on DNS see <a href="#adv-topics-dns-servers">AllStarLink DNS Servers</a>.</p>
 <h2 id="adv-topics-noderesolution-statically-configured-node">Statically Configured Node</h2>
 <p>In some cases, it is desirable to statically define the node information. This is commonly used for private nodes or private networks.</p>
 <p>To configure a static node, enter the information for the node in <code>rpt.conf</code> under the <code>[nodes]</code> stanza. Here is an example configuration:</p>
@@ -6724,7 +6817,34 @@ Loading packages...
 <p>Manual Pages are also installed on your Linux system when the utility is installed. You can view the built-in Linux <code>man</code> pages facility to get help on these utilities from the Linux CLI.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>man asl-find-sound
-</code></pre></div></section><section class="print-page" id="mans-asl-find-sound"><h1 id="mans-asl-find-sound-asl-find-sound">asl-find-sound</h1>
+</code></pre></div></section><section class="print-page" id="mans-allmon3-passwd"><h1 id="mans-allmon3-passwd-allmon3-passwd">allmon3-passwd</h1>
+<h2 id="mans-allmon3-passwd-name">NAME</h2>
+<p><code>allmon3-passwd</code> - Manage the <code>Allmon3</code> password file</p>
+<h1 id="mans-allmon3-passwd-synopsis">SYNOPSIS</h1>
+<p>usage: <code>allmon3-passwd [-h|--help] [--delete] [--debug] [--file FILE] [--version] &lt;user&gt;</code></p>
+<p>Positional arguments:</p>
+<p><strong>&lt;user&gt;</strong>: username to create/modify</p>
+<p>Optional arguments:</p>
+<p><strong>-h, --help</strong>: show help message and exit</p>
+<p><strong>--delete</strong>: delete the user specified by <code>&lt;user&gt;</code></p>
+<p><strong>--debug</strong>: enable debug-level logging output</p>
+<p><strong>--file FILE</strong>: alternate file to edit; default <code>/etc/allmon3/users</code></p>
+<p><strong>--version</strong>: print the the version of the software</p>
+<h1 id="mans-allmon3-passwd-description">DESCRIPTION</h1>
+<p>Allmon3's user database is managed by <code>allmon3-passwd</code>. Adding a new user or editing an existing user is the same command. If the user does not exist, it will be added. If the user does exist, the password will be updated.</p>
+<p>To add or edit a user's password:</p>
+<div class="highlight"><pre><span></span><code>allmon3-passwd allmon3
+ Enter the password for allmon3: password
+ Confirm the password for allmon3: password
+</code></pre></div>
+<p>The <code>/etc/allmon3/users</code> file is readable to see that the Argon2 hash has changed for the user.</p>
+<p>To delete a user, add the <code>--delete</code> flag to the command:</p>
+<div class="highlight"><pre><span></span><code>allmon3-passwd --delete allmon3
+</code></pre></div>
+<h1 id="mans-allmon3-passwd-bugs">BUGS</h1>
+<p>Report bugs to https://github.com/AllStarLink/Allmon3/issues</p>
+<h1 id="mans-allmon3-passwd-copyright">COPYRIGHT</h1>
+<p>Copyright (C) 2025 Jason McCormick and AllStarLink under the terms of the AGPL v3.</p></section><section class="print-page" id="mans-asl-find-sound"><h1 id="mans-asl-find-sound-asl-find-sound">asl-find-sound</h1>
 <h2 id="mans-asl-find-sound-name">NAME</h2>
 <p><code>asl-find-sound</code> - Display <code>app_rpt</code>-compatible sound devices</p>
 <h2 id="mans-asl-find-sound-synopsis">SYNOPSIS</h2>
