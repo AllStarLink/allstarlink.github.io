@@ -4030,7 +4030,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <h3 id="inxlat">inxlat=</h3>
 <p>The input translate option allows complete remapping of the <a href="#funcchar"><code>funcchar</code></a> and <a href="#endchar"><code>endchar</code></a> digits to different digits or digit sequences.</p>
 <p><code>inxlat</code> acts on the digits received by the radio receiver on the node.</p>
-<p>Format: <code>inxlat = funchars,endchars,passchars[,dialtone]</code></p>
+<p>Format: <code>inxlat = funcchars,endchars,passchars[,dialtone]</code></p>
 <p>where:</p>
 <ul>
 <li><code>funcchars</code> is the digit or digit sequence to replace <code>funcchar</code></li>
@@ -4041,7 +4041,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>inxlat = #456,#457,0123456789ABCD ; string xlat from radio port to sys
 </code></pre></div>
-<p>In the above example, on inbound DTMF, translate #456 as <code>funchar</code> (normally <code>*</code>), #457 as <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
+<p>In the above example, on inbound DTMF, translate #456 as <code>funcchar</code> (normally <code>*</code>), #457 as <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
 <h3 id="link_functions">link_functions=</h3>
 <p>This option allows you to override the stanza name used for the <code>link_functions</code> stanza in <code>rpt.conf</code>. The <code>link_functions=</code> setting directs the node to use a particular function stanza for functions dialed by users accessing the node <strong>via a link from another node</strong>. </p>
 <p>Sample:</p>
@@ -4162,7 +4162,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="outxlat">outxlat=</h3>
 <p>The output translate option allows complete remapping of the <a href="#funcchar"><code>funcchar</code></a> and <a href="#endchar"><code>endchar</code></a> digits to different digits or digit sequences.</p>
 <p><code>outxlat</code> acts on the digits sent by the node to a link.</p>
-<p>Format: <code>outxlat = funchars,endchars,passchars</code></p>
+<p>Format: <code>outxlat = funcchars,endchars,passchars</code></p>
 <p>where:</p>
 <ul>
 <li><code>funcchars</code> is the digit or digit sequence to replace <code>funcchar</code></li>
@@ -4172,7 +4172,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>outxlat = *7,*0,0123456789ABCD ; string xlat from sys to radio port
 </code></pre></div>
-<p>In the above example, on outbound DTMF, <em>7 generates a <code>funchar</code> (normally <code>*</code>), </em>0 generates an <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
+<p>In the above example, on outbound DTMF, <em>7 generates a <code>funcchar</code> (normally <code>*</code>), </em>0 generates an <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
 <p><strong>NOTE:</strong> This option is not well documented in the code, your mileage may vary.</p>
 <h3 id="parrotmode">parrotmode=</h3>
 <p>The "parrot" repeats everything it hears. Use this option to create an "echo reflector node", where everything you transmit to the node will be played back when you unkey.</p>
@@ -4656,7 +4656,7 @@ The default value is 180000(mS), or 3 minutes. </p>
 <p>The above example contains DTMF functions with all of the parameters discussed on previously.</p>
 <p>In the above example:</p>
 <ul>
-<li>*1 followed by a node number disconnects a specific link, recall that * is the default <a href="#funcchar"><code>funchar</code></a>. The <code>function class</code> is <code>ilink</code> and the <code>function method</code> is <code>1</code></li>
+<li>*1 followed by a node number disconnects a specific link, recall that * is the default <a href="#funcchar"><code>funcchar</code></a>. The <code>function class</code> is <code>ilink</code> and the <code>function method</code> is <code>1</code></li>
 <li>*6 followed by a phone number brings up the autopatch with the <code>function options</code> specified. Note that there is no <code>function method</code> defined, but there are <code>function options</code> present.</li>
 </ul>
 <h2 id="link-functions-stanza">Link Functions Stanza</h2>

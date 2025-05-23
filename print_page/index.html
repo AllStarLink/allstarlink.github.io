@@ -5583,7 +5583,7 @@ mv ezstream.new ezstream.xml
 </code></pre></div></section><section class="print-page" id="adv-topics-remotebase"><h1 id="adv-topics-remotebase-remote-base-nodes">Remote Base Nodes</h1>
 <p>The primary purpose of a remote base node is to make outgoing RF connections using a frequency agile radio to allow access to frequencies which are not part of your Internet connected radio system.</p>
 <p>Remote base nodes are configured differently than a standard node. A completely different set of internal functions in <code>Asterisk/app_rpt</code> is used when operating a node as a remote base. Usually, the only reason to set up a node as a remote base is when you wish to change the operating parameters of the the attached radio remotely, or if you only want the radio to be used by a single user at a time.</p>
-<p>If you want a <em>public</em> node number for a remote base, it must specifically be requested in the <a href="https://allstarlink.org/portal">AllStarLink Portal</a>. You must be sure to answer yes to <code>Is node a remote base station?</code>, and then optionally <code>If remote base, is it frequency agile?</code> questions. You can, alternatively`, configure a private node.</p>
+<p>If you want a <em>public</em> node number for a remote base, it must specifically be requested in the <a href="https://allstarlink.org/portal">AllStarLink Portal</a>. You must be sure to answer yes to <code>Is node a remote base station?</code>, and then optionally <code>If remote base, is it frequency agile?</code> questions. Alternatively, you can configure a private node.</p>
 <h2 id="adv-topics-remotebase-security-issues">Security Issues</h2>
 <p>Unfettered access to remote bases can be a <strong>security issue</strong>. If the remote base has no login protection it could be used by unscrupulous individuals to violate amateur radio rules and regulations. We <strong>strongly</strong> advise that all remote bases be protected by requiring a login code (see <a href="#adv-topics-remotebase-remote-base-authentication">Remote Base Authentication</a> below). </p>
 <h2 id="adv-topics-remotebase-behavior-of-standard-nodes-versus-remote-base-nodes">Behavior of Standard Nodes Versus Remote Base Nodes</h2>
@@ -5728,7 +5728,7 @@ mv ezstream.new ezstream.xml
                                         ; can be optionally specified to enforce TX band limits.
 98=cop,6                                ; Remote base telephone key
 </code></pre></div>
-<p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="#config-rpt_conf-funcchar"><code>[funchar]</code></a>, usually *).</p>
+<p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="#config-rpt_conf-funcchar"><code>[funcchar]</code></a>, usually *).</p>
 <p><strong>NOTE:</strong> When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998, to set the remote base to high power, you would send *41998*46 (after you connected to that node with something like *31998).</p>
 <p>See <a href="#adv-topics-remotebase-remote-base-commands">Remote Base Commands</a> for functions that are specifically available for remote base nodes.</p>
 <h3 id="adv-topics-remotebase-ioaddr">ioaddr=</h3>
@@ -7677,7 +7677,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <h3 id="config-rpt_conf-inxlat">inxlat=</h3>
 <p>The input translate option allows complete remapping of the <a href="#config-rpt_conf-funcchar"><code>funcchar</code></a> and <a href="#config-rpt_conf-endchar"><code>endchar</code></a> digits to different digits or digit sequences.</p>
 <p><code>inxlat</code> acts on the digits received by the radio receiver on the node.</p>
-<p>Format: <code>inxlat = funchars,endchars,passchars[,dialtone]</code></p>
+<p>Format: <code>inxlat = funcchars,endchars,passchars[,dialtone]</code></p>
 <p>where:</p>
 <ul>
 <li><code>funcchars</code> is the digit or digit sequence to replace <code>funcchar</code></li>
@@ -7688,7 +7688,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>inxlat = #456,#457,0123456789ABCD ; string xlat from radio port to sys
 </code></pre></div>
-<p>In the above example, on inbound DTMF, translate #456 as <code>funchar</code> (normally <code>*</code>), #457 as <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
+<p>In the above example, on inbound DTMF, translate #456 as <code>funcchar</code> (normally <code>*</code>), #457 as <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
 <h3 id="config-rpt_conf-link_functions">link_functions=</h3>
 <p>This option allows you to override the stanza name used for the <code>link_functions</code> stanza in <code>rpt.conf</code>. The <code>link_functions=</code> setting directs the node to use a particular function stanza for functions dialed by users accessing the node <strong>via a link from another node</strong>. </p>
 <p>Sample:</p>
@@ -7809,7 +7809,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="config-rpt_conf-outxlat">outxlat=</h3>
 <p>The output translate option allows complete remapping of the <a href="#config-rpt_conf-funcchar"><code>funcchar</code></a> and <a href="#config-rpt_conf-endchar"><code>endchar</code></a> digits to different digits or digit sequences.</p>
 <p><code>outxlat</code> acts on the digits sent by the node to a link.</p>
-<p>Format: <code>outxlat = funchars,endchars,passchars</code></p>
+<p>Format: <code>outxlat = funcchars,endchars,passchars</code></p>
 <p>where:</p>
 <ul>
 <li><code>funcchars</code> is the digit or digit sequence to replace <code>funcchar</code></li>
@@ -7819,7 +7819,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>outxlat = *7,*0,0123456789ABCD ; string xlat from sys to radio port
 </code></pre></div>
-<p>In the above example, on outbound DTMF, <em>7 generates a <code>funchar</code> (normally <code>*</code>), </em>0 generates an <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
+<p>In the above example, on outbound DTMF, <em>7 generates a <code>funcchar</code> (normally <code>*</code>), </em>0 generates an <code>endchar</code> (normally <code>#</code>), and pass all other digits listed in <code>passchars</code> normally.</p>
 <p><strong>NOTE:</strong> This option is not well documented in the code, your mileage may vary.</p>
 <h3 id="config-rpt_conf-parrotmode">parrotmode=</h3>
 <p>The "parrot" repeats everything it hears. Use this option to create an "echo reflector node", where everything you transmit to the node will be played back when you unkey.</p>
@@ -8303,7 +8303,7 @@ The default value is 180000(mS), or 3 minutes. </p>
 <p>The above example contains DTMF functions with all of the parameters discussed on previously.</p>
 <p>In the above example:</p>
 <ul>
-<li>*1 followed by a node number disconnects a specific link, recall that * is the default <a href="#config-rpt_conf-funcchar"><code>funchar</code></a>. The <code>function class</code> is <code>ilink</code> and the <code>function method</code> is <code>1</code></li>
+<li>*1 followed by a node number disconnects a specific link, recall that * is the default <a href="#config-rpt_conf-funcchar"><code>funcchar</code></a>. The <code>function class</code> is <code>ilink</code> and the <code>function method</code> is <code>1</code></li>
 <li>*6 followed by a phone number brings up the autopatch with the <code>function options</code> specified. Note that there is no <code>function method</code> defined, but there are <code>function options</code> present.</li>
 </ul>
 <h2 id="config-rpt_conf-link-functions-stanza">Link Functions Stanza</h2>
