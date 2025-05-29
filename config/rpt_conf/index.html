@@ -1339,6 +1339,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1599,6 +1609,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/eurorptr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    European Repeater Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/hotspot_hd/" class="md-nav__link">
         
   
@@ -1683,6 +1714,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Macros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/multinodesnetwork/" class="md-nav__link">
         
   
@@ -1746,11 +1798,95 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/permanentnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permanent Node Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/privatenodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Private Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/remotebase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
   </span>
   
 
@@ -1809,53 +1945,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/sleepmode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sleep Mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/broadcastify/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Streaming Node Audio to Broadcastify
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/remotebase/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Remote Base Nodes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/rxtoneburst/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RX Toneburst
   </span>
   
 
@@ -3844,6 +3959,7 @@ node_lookup_method = both           ;method used to lookup nodes
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>beaconing=1   ;Set to 1 to beacon. Defaults to 0
 </code></pre></div>
+<p>See <a href="../../adv-topics/eurorptr/">European Repeater Operation</a> for more information on the application of this option.</p>
 <h3 id="callerid">callerid=</h3>
 <p>This option allows the autopatch on the node to be identified with a specific caller ID. The default setting is as follows</p>
 <div class="highlight"><pre><span></span><code>callerid=&quot;Repeater&quot; &lt;0000000000&gt;
@@ -4107,7 +4223,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <div class="highlight"><pre><span></span><code>macro=macro   ; use stanza named macro
 
 [macro]
-1 = *32000*32001     ; connect to nodes 2000 and 2001
+1 = *32000 *32001#                  ; connect to nodes 2000 and 2001
 </code></pre></div>
 <p>The default is to have <code>macro=</code> point to a stanza called <code>macro</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#macro-stanza">Macro Stanza</a> for more detail on defining macros.</p>
@@ -4337,6 +4453,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>sleeptime = 300   ; go to sleep after 5 mins of no activity
 </code></pre></div>
+<p>See <a href="../../adv-topics/sleepmode/">Sleep Mode</a> for more information on what this timer does, and how it works.</p>
 <h3 id="startup_macro">startup_macro=</h3>
 <p>The <code>startup_macro</code> is executed once on system startup. Each node can have <strong>one</strong> startup macro defined in its node stanza.</p>
 <p>Sample:</p>
@@ -4688,7 +4805,7 @@ link_functions = my_link_functions   ; use a different stanza
 [macro]
 1 = *32000*32001     ; connect to nodes 2000 and 2001
 </code></pre></div>
-<p>See <a href="https://wiki.allstarlink.org/index.php?title=Macro_use_and_format">Full Macro Use And Format</a> for more information on macros.</p>
+<p>See the <a href="../../adv-topics/macros/">Macro</a> page for more information on macros.</p>
 <h2 id="morse-stanza">Morse Stanza</h2>
 <p>The <code>[morse]</code> stanza is a named stanza pointed to by the <a href="#morse">`morse=</a> option.</p>
 <p>Sample:</p>

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/adv-topics/remotebase/">
       
       
-        <link rel="prev" href="../broadcastify/">
+        <link rel="prev" href="../privatenodes/">
       
       
         <link rel="next" href="../rxtoneburst/">
@@ -1343,6 +1343,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1606,6 +1616,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../eurorptr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    European Repeater Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hotspot_hd/" class="md-nav__link">
         
   
@@ -1690,6 +1721,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Macros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../multinodesnetwork/" class="md-nav__link">
         
   
@@ -1753,6 +1805,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../permanentnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permanent Node Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -1774,53 +1847,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../sa818modules/" class="md-nav__link">
+      <a href="../privatenodes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SA818 RF Modules
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sip-phone/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Setting up a SIP Phone
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../broadcastify/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Streaming Node Audio to Broadcastify
+    Private Nodes
   </span>
   
 
@@ -2236,6 +2267,90 @@
   
   <span class="md-ellipsis">
     RX Toneburst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SA818 RF Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sip-phone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sleepmode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sleep Mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../broadcastify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming Node Audio to Broadcastify
   </span>
   
 
@@ -2868,6 +2983,14 @@
 44=remote,104                           ; Low Power
 45=remote,105                           ; Medium Power
 46=remote,106                           ; High Power
+51=remote,5                             ; Long status query
+52=remote,140                           ; Short status query
+61=remote,61                            ; Set mode to FM
+62=remote,62                            ; Set mode to USB
+63=remote,63                            ; Set mode to LSB
+64=remote,64                            ; Set mode to AM
+67=remote,210                           ; Send a *
+69=remote,211                           ; Send a #
 711=remote,107                          ; Bump down ­20Hz
 714=remote,108                          ; Bump ­down 100Hz
 717=remote,109                          ; Bump ­down 500Hz
@@ -2881,10 +3004,6 @@
 726=remote,117                          ; Scan + quick
 729=remote,118                          ; Scan + fast
 79=remote,119                           ; Tune 
-51=remote,5                             ; Long status query
-52=remote,140                           ; Short status query
-67=remote,210                           ; Send a *
-69=remote,211                           ; Send a #
 91=remote,99,CALLSIGN,[LICENSETAG]      ; Remote base login.
                                         ; Define a different dtmf sequence for each user which is 
                                         ; authorized to use the remote base to control access to it.
@@ -2900,7 +3019,10 @@
 98=cop,6                                ; Remote base telephone key
 </code></pre></div>
 <p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="../../config/rpt_conf/#funcchar"><code>[funcchar]</code></a>, usually *).</p>
-<p><strong>NOTE:</strong> When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998, to set the remote base to high power, you would send *41998*46 (after you connected to that node with something like *31998).</p>
+<div class="admonition note">
+<p class="admonition-title">Command Mode</p>
+<p>When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998 and you are already connected to the node, you would set the remote base to high power by sending *41998*46.</p>
+</div>
 <p>See <a href="#remote-base-commands">Remote Base Commands</a> for functions that are specifically available for remote base nodes.</p>
 <h3 id="ioaddr">ioaddr=</h3>
 <p>The <code>ioaddr=</code> option sets a parallel port control I/O address. It is specified as a hexadecimal number with a 0x prefix. The parallel port is used when the Doug Hall RBI-1 interface is employed.</p>
@@ -3168,23 +3290,28 @@
 </tr>
 <tr>
 <td>2</td>
-<td>Set VFO frequency</td>
+<td>Set VFO Frequency</td>
 <td>MMM*kkk*o# where MMM is frequency in MHz, kkk is kHz portion of the frequency, o is offset (1=minus, 2=simplex, 3=positive)</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Set TX PL tone</td>
+<td>Set TX PL Tone</td>
 <td>XXX*X ie 067*0 to set 67.0Hz</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Set RX PL tone</td>
+<td>Set RX PL Tone</td>
 <td>XXX*X ie 067*0 to set 67.0Hz</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Long status query</td>
+<td>Link Status Query (long)</td>
 <td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Set Operating Mode</td>
+<td>m, where m is 1 (FM), 2 (USB), 3, (LSB), or 4 (AM)</td>
 </tr>
 <tr>
 <td>99</td>
@@ -3193,22 +3320,22 @@
 </tr>
 <tr>
 <td>100</td>
-<td>Rx PL off</td>
-<td></td>
+<td>RX PL Off</td>
+<td>Default</td>
 </tr>
 <tr>
 <td>101</td>
-<td>Rx PL on</td>
+<td>RX PL On</td>
 <td></td>
 </tr>
 <tr>
 <td>102</td>
-<td>Tx PL off</td>
-<td></td>
+<td>TX PL Off</td>
+<td>Default</td>
 </tr>
 <tr>
 <td>103</td>
-<td>Tx PL on</td>
+<td>TX PL On</td>
 <td></td>
 </tr>
 <tr>
@@ -3228,62 +3355,62 @@
 </tr>
 <tr>
 <td>107</td>
-<td>Bump -20</td>
+<td>Bump -20Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>108</td>
-<td>Bump -100</td>
+<td>Bump -100Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>109</td>
-<td>Bump -500</td>
+<td>Bump -500Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>110</td>
-<td>Bump +20</td>
+<td>Bump +20Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>111</td>
-<td>Bump +100</td>
+<td>Bump +100Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>112</td>
-<td>Bump +500</td>
+<td>Bump +500Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>113</td>
-<td>Scan - slow</td>
+<td>Scan - Slow</td>
 <td></td>
 </tr>
 <tr>
 <td>114</td>
-<td>Scan - quick</td>
+<td>Scan - Quick</td>
 <td></td>
 </tr>
 <tr>
 <td>115</td>
-<td>Scan - fast</td>
+<td>Scan - Fast</td>
 <td></td>
 </tr>
 <tr>
 <td>116</td>
-<td>Scan + slow</td>
+<td>Scan + Slow</td>
 <td></td>
 </tr>
 <tr>
 <td>117</td>
-<td>Scan + quick</td>
+<td>Scan + Quick</td>
 <td></td>
 </tr>
 <tr>
 <td>118</td>
-<td>Scan + fast</td>
+<td>Scan + Fast</td>
 <td></td>
 </tr>
 <tr>
@@ -3293,7 +3420,7 @@
 </tr>
 <tr>
 <td>140</td>
-<td>Short status query</td>
+<td>Link Status Query (brief)</td>
 <td></td>
 </tr>
 <tr>
@@ -3492,7 +3619,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../broadcastify/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Streaming Node Audio to Broadcastify">
+          <a href="../privatenodes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Private Nodes">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3502,7 +3629,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
                 Previous
               </span>
               <div class="md-ellipsis">
-                Streaming Node Audio to Broadcastify
+                Private Nodes
               </div>
             </div>
           </a>

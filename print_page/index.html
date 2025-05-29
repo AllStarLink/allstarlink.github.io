@@ -1332,6 +1332,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1592,6 +1602,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/eurorptr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    European Repeater Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/hotspot_hd/" class="md-nav__link">
         
   
@@ -1676,6 +1707,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Macros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/multinodesnetwork/" class="md-nav__link">
         
   
@@ -1739,11 +1791,95 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/permanentnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permanent Node Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/permissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/privatenodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Private Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/remotebase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
   </span>
   
 
@@ -1802,53 +1938,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/sleepmode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sleep Mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/broadcastify/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Streaming Node Audio to Broadcastify
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adv-topics/remotebase/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Remote Base Nodes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adv-topics/rxtoneburst/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RX Toneburst
   </span>
   
 
@@ -4869,7 +4984,17 @@ dig &lt;nodenumber&gt;.remotebase.nodes.allstarlink.org
 <li>RH is the registration server the node last registered to.</li>
 </ul>
 <h2 id="adv-topics-dns-servers-asl-node-lookup"><code>asl-node-lookup</code></h2>
-<p>On ASL3 systems, the <a href="#mans-asl-node-lookup"><code>asl-node-lookup</code></a> command can also be used to query the DNS servers for information about a node.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
+<p>On ASL3 systems, the <a href="#mans-asl-node-lookup"><code>asl-node-lookup</code></a> command can also be used to query the DNS servers for information about a node.</p></section><section class="print-page" id="adv-topics-eurorptr"><h1 id="adv-topics-eurorptr-european-repeater-operation">European Repeater Operation</h1>
+<p>We realize that there are different requirements for repeater operation in different parts of the world. Until recently, we have not dealt much with these, not out of insensitivity, but out of unfamiliarity.</p>
+<p>Two things have been brought to our attention that we have added functionality to support.</p>
+<h2 id="adv-topics-eurorptr-id-beaconing">ID Beaconing</h2>
+<p>In the UK, it is necessary for a repeater to identify on a periodic basis, regardless of activity. This is controlled with the <a href="#config-rpt_conf-beaconing"><code>beaconing</code></a> setting in <a href="#config-rpt_conf"><code>rpt.conf</code></a>. </p>
+<p>To enable this feature, set the <code>beaconing</code> option to <code>1</code> in the <a href="#config-rpt_conf-node-number-stanza">Node Number Stanza</a>:</p>
+<div class="highlight"><pre><span></span><code>beaconing = 1                       ; Periodically identify at the idtime interval, regardless of activity
+</code></pre></div>
+<p>This option, when set to <code>1</code> will send the repeater ID at the <a href="#config-rpt_conf-idtime"><code>idtime</code></a> interval, regardless of whether there was repeater activity or not. By default (if not defined) this option is disabled.</p>
+<h2 id="adv-topics-eurorptr-rx-toneburst">RX Toneburst</h2>
+<p>Also, many countries still require access to the repeater be with a tone burst (generally 1750 Hz). See the <a href="#adv-topics-rxtoneburst">RX Toneburst</a> page for how to enable that feature.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
 <p>When setting up a hot spot, select the <code>Duplex 1</code> option in <a href="#user-guide-menu"><code>asl-menu</code></a> to allow the hot spot to function. However, the un-key delay of the radio transmitter will likely be too long.</p>
 <p>These steps will shorten the un-key delay and will greatly improve hot spot responsiveness:</p>
 <p>From the Linux CLI, launch the <code>asl-menu</code> with <code>sudo asl-menu</code>. Select the following options:</p>
@@ -4954,7 +5079,55 @@ litzcmd = *6911  ; Command sequence to execute upon LiTZ activation -- Call 911 
 litztime = 3000  ; Time required to hold down DTMF (default is 3000mS)
 </code></pre></div>
 <p>The above options would be placed in the node's configuration stanza in <code>rpt.conf</code>.</p>
-<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></section><section class="print-page" id="adv-topics-multinodesnetwork"><h1 id="adv-topics-multinodesnetwork-multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
+<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></section><section class="print-page" id="adv-topics-macros"><h1 id="adv-topics-macros-macros">Macros</h1>
+<h2 id="adv-topics-macros-what-is-a-macro">What is a 'macro'?</h2>
+<p>The purpose of a macro is to store a sequence of DTMF command(s). Macros may be called by direct command, by the system scheduler, or even by an external script. They can be a series of commands to make short work of a larger task.</p>
+<h2 id="adv-topics-macros-define-function">Define Function</h2>
+<p>The first thing to configure when setting up macros is to define the <a href="#config-rpt_conf-functions"><code>[function]</code></a> that will call them.</p>
+<p>This will define the DTMF prefix that will be used for calling macros.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>[functions]
+5 = macro
+</code></pre></div>
+<p>This will make <code>5</code> the prefix for calling a macro. Remember that the actual command needs to be prefixed with <a href="#config-rpt_conf-funcchar"><code>funcchar</code></a>, which is typically <code>*</code>. So in this case, <code>*512</code> would call macro 12 (defined in the <code>[macro]</code> stanza). </p>
+<h2 id="adv-topics-macros-configuring-macro-stanzas">Configuring Macro Stanzas</h2>
+<p>The next part of macro settings is the <a href="#config-rpt_conf-macro"><code>macro=</code></a> setting in <a href="#config-rpt_conf"><code>rpt.conf</code></a>. The example here points to a stanza named <code>[macro]</code>. This is likely already in your config. If the <code>macro=</code> setting does not exist, the default is to use a stanza named <code>[macro]</code>.  </p>
+<div class="highlight"><pre><span></span><code>[1999]                              ; Assigned node number
+rxchannel = SimpleUSB/1999          ; Rx audio/signaling channel
+duplex=2
+linktolink=no
+controlstates=controlstates         ; System control state list
+scheduler=scheduler
+events=events
+morse=morse
+macro=macro                         ; &lt;===== note this in your rpt.conf, if it exists
+tonemacro=tonemacro
+functions=functions
+phone_functions=phone_functions
+link_functions=link_functions
+wait_times=wait_times
+telemetry=telemetry
+</code></pre></div>
+<p>If you have more than one node on a given server and you want all nodes to have the same macros, then the above <code>macro=macro</code> (or nothing defined) is fine. If you want to assign different macros to different nodes on the server, see the <a href="#config-config-structure-settings-to-name-other-stanzas">Structure of Config Files</a> page which outlines how to redirect names to call other stanzas.</p>
+<p>Then, later in <code>rpt.conf</code> you need an actual <code>[macro]</code> stanza:</p>
+<div class="highlight"><pre><span></span><code>[macro]
+1=*81#                              ; Say time
+2=*81 P *31999 P *934#              ; Say time, pause, connect node 1999, pause, and turn off telemetry for net
+3=*31999 *934 *512#                 ; Here we connect node 1999, turn off telemetry, then call macro (12). 
+12=*949#                            ; Disable incoming connections
+</code></pre></div>
+<h2 id="adv-topics-macros-macro-definitions">Macro Definitions</h2>
+<p>Finally, define each desired macro in the appropriate <code>[macro]</code> stanza.</p>
+<p>Each macro command string is on the same line separated by a space, and ending the string with a <code>#</code> (hashtag). </p>
+<p>A <code>P</code> can be used to cause a pause of 500mS, or a series of them for more. This would allow time for a script or connection to execute before the next command is issued. The system reads/executes them left to right when called. You should test them after creating them to be sure timing has no interference before you actually need to use them. </p>
+<p>Looking at the above example, you can see how multiple DTMF commands can be chained together into a single macro, so that you wouldn't have to execute the commands individually.</p>
+<p>And note that use of our macro 2 (executed as <code>*52</code>) might also require us to create a new one to 'undo' any of our changes. Which, in this case, might be manually called at the end of the net.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>4=*11999 P *933#                    ; End of net macro, unlink from node 1999 and turn telemetry back on
+</code></pre></div>
+<h1 id="adv-topics-macros-scheduler-execution">Scheduler Execution</h1>
+<p>With the example configuration shown, macros are called with a <code>*5</code> prefix and followed with the number assigned in the [macro] stanza.</p>
+<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></section><section class="print-page" id="adv-topics-multinodesnetwork"><h1 id="adv-topics-multinodesnetwork-multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
 <p>Multiple AllStarLink nodes on the same IP subnet (i.e. your "local network" or "LAN") when those nodes are behind a NAT device can be a challenge. The reason is that AllStarLink works exclusively with public IP addresses. </p>
 <p>When two (or more) nodes are on the same network behind the same NAT/router, they independently need to use a public IP address with the AllStarLink system, and they also need to know about each other's local IPs (rather than their shared public IP). Additionally, both nodes cannot use the same UDP port as they will fight over it with the NAT/router.</p>
 <p>For this example, let's consider two nodes on the same subnet (LAN). The nodes are:</p>
@@ -5140,7 +5313,31 @@ node_lookup_method = both   ;method used to lookup nodes
 <div class="highlight"><pre><span></span><code>sudo systemctl enable asl3-update-astdb.service
 sudo systemctl enable asl3-update-astdb.timer
 sudo systemctl start asl3-update-astdb.timer
-</code></pre></div></section><section class="print-page" id="adv-topics-permissions"><h1 id="adv-topics-permissions-permissions">Permissions</h1>
+</code></pre></div></section><section class="print-page" id="adv-topics-permanentnode"><h1 id="adv-topics-permanentnode-permanent-node-connection">Permanent Node Connection</h1>
+<p>As opposed to a "normal" connection to a remote note, a "permanent" connection will attempt to create a <em>persistent</em> connection that will try and keep the nodes connected together as much as possible.</p>
+<p>Specifically, permanent connections:</p>
+<ul>
+<li>Will continuously attempt to reconnect</li>
+<li>Survive network outages and <strong>far end</strong> reboots</li>
+<li><strong>Near end</strong> reboots will <strong>NOT</strong> reconnect (use <a href="#config-rpt_conf-startup_macro"><code>startup_macro</code></a> for that)</li>
+<li>Must be disconnected by a "permanent disconnect" (<code>ilink,11</code>) command</li>
+<li>Either end may initiate the disconnect</li>
+<li>Does not block nodes from subsequently connecting again (use <a href="#adv-topics-allowdenylists">Allow and Deny Lists</a> for that)</li>
+</ul>
+<p>You could, for example, utilize this to keep your VHF and UHF repeaters (nodes) linked together "permanently", or keep a node connected to a (private) node that might be a UHF link to another system. </p>
+<h1 id="adv-topics-permanentnode-configuration">Configuration</h1>
+<p>The following commands should already exist in <a href="#config-rpt_conf"><code>rpt.conf</code></a>, but may need to be uncommented under your <a href="#config-rpt_conf-functions-stanza"><code>[functions]</code></a> stanza:</p>
+<div class="highlight"><pre><span></span><code>811 = ilink,11                      ; Disconnect a previously permanently connected link
+812 = ilink,12                      ; Permanently connect specified link -- monitor only
+813 = ilink,13                      ; Permanently connect specified link -- transceive
+818 = ilink,18                      ; Permanently Connect specified link -- local monitor only
+</code></pre></div>
+<p>In other words a <code>*813nnnnn</code> DTMF command will permanent connect your node to the node number represented by nnnnn.</p>
+<p>If you would like a permanent connection automatically when your node boots you need a <a href="#config-rpt_conf-startup_macro"><code>startup_macro</code></a> to initiate the initial connection. </p>
+<p>For example, under your <a href="#config-rpt_conf-node-number-stanza">Node Number Stanza</a> add:</p>
+<div class="highlight"><pre><span></span><code>startup_macro = *8131999            ; Permanently connect (transceive) to node 1999 when Asterisk starts            
+</code></pre></div>
+<p>Reload/restart your system and it will auto connect to the node you specified above.</p></section><section class="print-page" id="adv-topics-permissions"><h1 id="adv-topics-permissions-permissions">Permissions</h1>
 <h2 id="adv-topics-permissions-asterisk-vs-root"><code>asterisk</code> vs <code>root</code></h2>
 <p>One of the new features with ASL3 is that the Asterisk process now runs as the <code>asterisk</code> user (not as the super-user, <code>root</code>). While sometimes handy, this was potentially very dangerous. This change was made for increased security. It's a good thing!</p>
 <p>We acknowledge that there are some applications, commands, and scripts that you may want to bring over from older (and other) versions of ASL and that these may be impacted by ASL3's heightened security. Porting these over to ASL3 may require some simple changes to filesystem permissions.</p>
@@ -5238,349 +5435,55 @@ polkit rules. The provided wrappers are:</p>
 9005 = cmd,/usr/sbin/shutdown
 9006 = cmd,/usr/sbin/reboot
 </code></pre></div>
-<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></section><section class="print-page" id="adv-topics-sa818modules"><h1 id="adv-topics-sa818modules-sa818-rf-modules">SA818 RF Modules</h1>
-<p>SA818 RF modules are inexpensive RF transceiver modules, often used to build a personal RF "hot spot" AllStarLink node.</p>
-<p>Setting up an SA818 RF module is much easier on ASL3.</p>
-<p>Two new commands were added to ASL3 Pi Appliance systems to program the module. We believe that most will prefer using <code>sa818-menu</code>, a visual interface to the RF module settings. For those who prefer a command line interface, we have also included <code>sa818</code>.</p>
-<h2 id="adv-topics-sa818modules-sa818-menu">sa818-menu</h2>
-<p>To program your SA818 with the menu utility, use the following command from the Linux CLI:</p>
-<div class="highlight"><pre><span></span><code>sudo sa818-menu
+<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></section><section class="print-page" id="adv-topics-privatenodes"><h1 id="adv-topics-privatenodes-private-nodes">Private Nodes</h1>
+<p>Private nodes are nodes you create that do not directly connect to the AllStarLink (ASL) Network. In addition, you cannot directly connect to a private node from the ASL Network.</p>
+<p>They can co-exist on an existing server along with a public node, or they can run on independent hardware exclusively.</p>
+<h2 id="adv-topics-privatenodes-private-node-numbering">Private Node Numbering</h2>
+<p>The numbering system for private nodes is limited to node numbers under 2000 (ie 0000-1999). However, in practice it would be best advised to use 4 digit number to not confuse other parts of the dial plan in present or future expansion (thus using 1000-1999).</p>
+<p>If a private node is going to be connected to an ASL Public Network node, you may want to consider using a node number outside of the normal node numbers used by examples in most how-to's, such as 1998 and 1999. This is due to "loopback protection" in the <code>app_rpt</code> code that prevents connection of the same node (detected as a loop) when you connect to other networks.</p>
+<p>For example, if you have a private node 1999 connected to your public node 29999, and you proceed to connect 29999 with some other system like 2135 that also has someone connected that has a private node 1999 connected, it will be refused. <strong><em>This has been the source of many hairs being pulled out when folks do not realize why they can not connect.</em></strong></p>
+<p>Of course, there is a more modern solution to fix this issue, using a Node Number Extension with an assigned public Node Number. In this case, you would have a unique node number that can be set-up and just not registered to the ASL network (just comment out the appropriate registration line in <code>rpt_http_registrations.conf</code>). You could later change that to a public node just by un-commenting the registration line and reviewing your settings to be sure they are public friendly.</p>
+<h2 id="adv-topics-privatenodes-node-setup">Node Setup</h2>
+<p>The easiest way to create a private node is to use the <a href="#user-guide-menu">ASL3 Menu</a> and use <code>Node Settings</code> to create a new node.</p>
+<p>This will create a new <a href="#adv-topics-conftmpl">template</a> in <a href="#config-rpt_conf"><code>rpt.conf</code></a> for you to customize the settings for your new node.</p>
+<h2 id="adv-topics-privatenodes-advanced-configuration">Advanced Configuration</h2>
+<p>When a new node is created, a <a href="#adv-topics-conftmpl">template</a> for the node settings will be created in <a href="#config-rpt_conf"><code>rpt.conf</code></a>, such as:</p>
+<div class="highlight"><pre><span></span><code>;;;;;;;;;;;;;;;;;;; Your node settings here ;;;;;;;;;;;;;;;;;;;
+[1999](node-main)
+rxchannel = SimpleUSB/1999      ; SimpleUSB
+;startup_macro = *8132000
 </code></pre></div>
-<p>Here, you will be able to view the last saved (or default) settings.</p>
-<p><strong>NOTE:</strong> The "last saved" settings are those saved by the <code>sa818-menu</code> command on your system. There is no way to "read" settings from the SA818 RF module.</p>
-<p>The settings include :</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Band</td>
-<td>Specify the module type (VHF, UHF)</td>
-</tr>
-<tr>
-<td>Bandwidth</td>
-<td>Narrow (12.5KHz) or <strong>Wide (25.0KHz)</strong></td>
-</tr>
-<tr>
-<td>Receive Frequency</td>
-<td></td>
-</tr>
-<tr>
-<td>Transmit Frequency</td>
-<td></td>
-</tr>
-<tr>
-<td>Squelch Value</td>
-<td>Default = <strong>1</strong></td>
-</tr>
-<tr>
-<td>Volume</td>
-<td>Default = <strong>1</strong></td>
-</tr>
-<tr>
-<td>Sub-audible tone</td>
-<td><strong>None</strong>, CTCSS, DCS</td>
-</tr>
-<tr>
-<td>Pre-Emphasis/De-emphasis</td>
-<td>Default = <strong>Disabled</strong></td>
-</tr>
-<tr>
-<td>High pass Filter</td>
-<td>Default = <strong>Disabled</strong></td>
-</tr>
-<tr>
-<td>Low pass Filter</td>
-<td>Default = <strong>Disabled</strong></td>
-</tr>
-<tr>
-<td>Serial Port</td>
-<td>Default = <strong>/dev/serial0</strong> or <strong>/dev/ttyUSB0</strong></td>
-</tr>
-<tr>
-<td>Connection Speed</td>
-<td>Default = <strong>9600</strong></td>
-</tr>
-</tbody>
-</table>
-<p>If you change the sub-audible tone setting to CTCSS or DCS you will be presented with a list of possible tone frequencies. When using CTCSS tones, you will also have a setting for the CTCSS Reverse Burst (tail tone).</p>
-<p>The RF module will be programmed when you exit the menu.</p>
-<p><strong>NOTE:</strong> If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
-<h2 id="adv-topics-sa818modules-sa818">sa818</h2>
-<p>To program your SA818 using the command line you can execute the <code>sa818</code> command. For command usage information, use <code>sa818 --help</code>.</p></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
-<p>This section describes the steps necessary to set up a SIP phone in ASL3. The setup procedure has changed due to the deprecation of <code>chan_sip</code>. Users are now required to use <code>chan_pjsip</code>. <code>chan_pjsip</code> brings new features to the SIP stack, and is the supported SIP channel for the future.</p>
-<h2 id="adv-topics-sip-phone-update-modulesconf">Update <code>modules.conf</code></h2>
-<p><code>chan_pjsip</code> requires a number of modules to be loaded. You should start by editing <code>/etc/asterisk/modules.conf</code> and add the following to the [modules] stanza (generally near the bottom of the file just above the [global] stanza):</p>
-<div class="highlight"><pre><span></span><code>;
-; modules for pjsip
-;
-noload = app_voicemail.so
-load = bridge_builtin_features.so
-load = bridge_builtin_interval_features.so
-load = bridge_holding.so
-load = bridge_native_rtp.so
-load = bridge_simple.so
-load = bridge_softmix.so
-load = chan_bridge_media.so
-load = chan_pjsip.so
-load = func_pjsip_endpoint.so
-load = func_sorcery.so
-load = func_devstate.so
-load = res_pjproject.so
-load = res_pjsip_acl.so
-load = res_pjsip_authenticator_digest.so
-load = res_pjsip_caller_id.so
-load = res_pjsip_dialog_info_body_generator.so
-load = res_pjsip_diversion.so
-load = res_pjsip_dtmf_info.so
-load = res_pjsip_endpoint_identifier_anonymous.so
-load = res_pjsip_endpoint_identifier_ip.so
-load = res_pjsip_endpoint_identifier_user.so
-load = res_pjsip_exten_state.so
-load = res_pjsip_header_funcs.so
-load = res_pjsip_logger.so
-load = res_pjsip_messaging.so
-load = res_pjsip_mwi_body_generator.so
-load = res_pjsip_mwi.so
-load = res_pjsip_nat.so
-load = res_pjsip_notify.so
-load = res_pjsip_one_touch_record_info.so
-load = res_pjsip_outbound_authenticator_digest.so
-load = res_pjsip_outbound_publish.so
-load = res_pjsip_outbound_registration.so
-load = res_pjsip_path.so
-load = res_pjsip_pidf_body_generator.so
-load = res_pjsip_pidf_digium_body_supplement.so
-load = res_pjsip_pidf_eyebeam_body_supplement.so
-load = res_pjsip_publish_asterisk.so
-load = res_pjsip_pubsub.so
-load = res_pjsip_refer.so
-load = res_pjsip_registrar.so
-load = res_pjsip_rfc3326.so
-load = res_pjsip_sdp_rtp.so
-load = res_pjsip_send_to_voicemail.so
-load = res_pjsip_session.so
-load = res_pjsip.so
-noload = res_pjsip_t38.so
-noload = res_pjsip_transport_websocket.so
-load = res_pjsip_xpidf_body_generator.so
-load = res_rtp_asterisk.so
-load = res_sorcery_astdb.so
-load = res_sorcery_config.so
-load = res_sorcery_memory.so
-load = res_sorcery_realtime.so
-</code></pre></div>
-<h2 id="adv-topics-sip-phone-update-extensionsconf">Update <code>extensions.conf</code></h2>
-<p>The next step is to update <code>extension.conf</code>. This creates a dial plan that controls access to your node by SIP phones. Edit <code>/etc/asterisk/extensions.conf</code> and add the following to the bottom of the file. This example will set up extension <strong>1001</strong> as your local phone and the dialing plan for your node.</p>
-<div class="highlight"><pre><span></span><code>[sip-phones]
-exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
+<p>It will also create an entry in the <a href="#config-rpt_conf-nodes-stanza"><code>[nodes]</code></a> stanza to define how to connect/route calls to the node. Be sure to check that the options are correct for the <code>[nodes]</code> entry, based on what you are tying to do. If this is just another "normal" node on the same host, it will probably be okay with the defaults. If however, you were adding a <a href="#adv-topics-remotebase-remote-base-node-definition">remote base</a> node, you're probably going to need to edit the entry.</p>
+<h3 id="adv-topics-privatenodes-connecting-to-other-private-nodes">Connecting to Other Private Nodes</h3>
+<p>Remember, private nodes are just that, a node that you manage separately and independently from the ASL network. As such, the public ASL network knows very little (if anything) about the existence of your private node. As such, other public <strong>or</strong> private nodes have no idea how to connect to your private node, since they aren't registered in the public database (that stores all the IPs and ports on how to interconnect public nodes).</p>
+<p>As such, if you want to connect to another private node on your LAN, the public internet, or anywhere other than on the current device, you need to tell Asterisk how to reach that node.</p>
+<p>This is handled by making an entry in the <code>[nodes]</code> context in <a href="#config-rpt_conf-nodes-stanza"><code>rpt.conf</code></a>.</p>
+<p>If you want private nodes to be able to connect to each other, they both need to have corresponding entries in their <code>[nodes]</code> contexts, pointing at each other.</p>
+<p>Sample <code>rpt.conf</code> entries:</p>
+<div class="highlight"><pre><span></span><code>; Server 1 (at bar.domain.com)
+[nodes]
+1000 = radio@127.0.0.1/1000,NONE               ; Private node on this server 
+1001 = radio@foo.domain.com/1001,NONE          ; Private node on a server at foo.domain.com (on default port 4569)
+1002 = radio@foo.domain.com:4570/1002,NONE     ; Private node on a different server at foo.domain.com (via NAT on WAN port 4570)
+2501 = radio@127.0.0.1/2501,NONE               ; Public node on this server
 
-exten =&gt; ${NODE},1,Ringing
-exten =&gt; ${NODE},n,Answer(3000)
-exten =&gt; ${NODE},n,Set(NODENUM=${CALLERID(number)})
-exten =&gt; ${NODE},n,Playback(extension)
-exten =&gt; ${NODE},n,SayDigits(${NODENUM})
-exten =&gt; ${NODE},n,Playback(rpt/connected)
-exten =&gt; ${NODE},n,Playback(rpt/node)
-exten =&gt; ${NODE},n,SayDigits(${EXTEN})
-exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
-exten =&gt; ${NODE},n,Hangup
-</code></pre></div>
-<p>The above dial plan will allow your SIP phone to dial your node number. In this example, one should use <code>*99</code> to enable PTT and <code>#</code> to disable PTT from the SIP phone. VOX is also an option for phone connections. When using VOX, one may want to mute the mic on the phone when not transmitting and un-mute to transmit. VOX is enabled by adding a <code>v</code> to the <code>rpt</code> line like this:</p>
-<div class="highlight"><pre><span></span><code>exten =&gt; ${NODE},n,rpt(${EXTEN}|Pv)
-</code></pre></div>
-<p>This dial plan announces the extension number and the connecting node number. The lines with <code>SayDigits</code> and <code>Playback</code> can be removed if you do not want the announcement.</p>
-<p>The <code>${NODE}</code> variable is defined at the top of <code>extensions.conf</code> and should be your assigned node number. See the following:</p>
-<div class="highlight"><pre><span></span><code>[globals]
-HOMENPA = 999 ; change this to your Area Code
-NODE = 1999   ; change this to your node number
-</code></pre></div>
-<p><strong>NOTE:</strong> If you have multiple node numbers configured, you may need to adjust the <code>${NODE}</code> variable to the appropriate node number, or replace the <code>${NODE}</code> variable in your <code>extensions.conf</code> stanza with the specific node number desired.</p>
-<p>The entry <strong>1001</strong> in <code>extensions.conf</code> is the extension number for your SIP phone. If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
-<p><strong>NOTE:</strong> If you attempt to copy <code>extensions.conf</code> from a previous release of AllStarLink, it will fail. ASL3 requires comma delimiters instead of pipe symbols for standard Asterisk functions. The <code>rpt</code> function continues to use a pipe delimiter. This is subject to change in a future release.</p>
-<h2 id="adv-topics-sip-phone-update-pjsipconf">Update <code>pjsip.conf</code></h2>
-<p>You are now ready to configure <code>pjsip</code>.  Edit <code>/etc/asterisk/pjsip.conf</code>. Don’t get overwhelmed by all of the text in the sample configuration. <code>pjsip</code> supports several configurations. This document focuses on the necessary entries to get a SIP phone operational.</p>
-<p>Scroll down to the <strong>Basic UDP transport</strong> section. It should be updated to look like the following:</p>
-<div class="highlight"><pre><span></span><code>; Basic UDP transport
-;
-[transport-udp]
-type=transport
-protocol=udp    ;udp,tcp,tls,ws,wss,flow
-bind=0.0.0.0:5060
-</code></pre></div>
-<p><strong>NOTE:</strong> After the bind port address (0.0.0.0) is the incoming port number (5060). This UDP port must NOT be blocked by your network firewall. If you are using a Pi Applicance, you will likely need to add the port to the built-in <a href="#pi-cockpit-firewall">firewall</a>.</p>
-<p>Scroll down to the section titled <strong>Endpoint Configured For Use With A Sip Phone</strong>. For each extension, you will need to enter three sections. Here is an example for extension <strong>1001</strong>:</p>
-<div class="highlight"><pre><span></span><code>[1001]
-type=endpoint
-transport=transport-udp
-context=sip-phones
-disallow=all
-allow=ulaw
-allow=alaw
-allow=gsm
-auth=1001
-aors=1001
-callerid=&quot;My CallerID&quot;
-;
-; A few more transports to pick from, and some related options below them.
-;
-;transport=transport-tls
-;media_encryption=sdes
-;transport=transport-udp-ipv6
-;transport=transport-udp-nat
-;direct_media=no
-;
-; MWI related options
+; Server 2 (at foo.domain.com)
+[nodes]
+1000 = radio@bar.domain.com/1000,NONE          ; Private node on a server at bar.domain.com (on default port 4569) 
+1001 = radio@127.0.0.1/1001,NONE               ; Private node on this server
+1002 = radio@192.168.1.10:4570/1002,NONE       ; Private node on a different server on our LAN (listening on port 4570)
+2502 = radio@127.0.0.1/2501,NONE               ; Public node on this server
 
-;aggregate_mwi=yes
-;mailboxes=6001@default,7001@default
-;mwi_from_user=6001
-;
-; Extension and Device state options
-;
-;device_state_busy_at=1
-;allow_subscribe=yes
-;sub_min_expiry=30
-;
-; STIR/SHAKEN support.
-;
-;stir_shaken=no
-;stir_shaken_profile=my_profile
-
-[1001]
-type=auth
-auth_type=userpass
-password=1001
-username=1001
-
-[1001]
-type=aor
-max_contacts=4
-;contact=sip:6001@192.0.2.1:5060
+; Server 3 (at foo.domain.com on port 4570)
+1000 = radio@bar.domain.com/1000,NONE          ; Private node on a server at bar.domain.com (on default port 4569)
+1001 = radio@192.168.1.20/1001,NONE            ; Private node on a different server on our LAN (listening on port 4569)
+1002 = radio@127.0.0.1:4570/1002,NONE          ; Private node on this server (listening on port 4570)
+2503 = radio@127.0.0.1:4570/2501,NONE          ; Public node on this server
 </code></pre></div>
-<p>If you want to use a different extension number, you will need to change <code>[1001]</code> to your desired number. The item <code>callerid="My CallerID"</code> should also be updated for your preferred caller identifier.</p>
-<p>The items <code>password=1001</code> and <code>username=1001</code> should be updated to match the username and password you want for your extension number. You should use a complex password. <strong>Do not use the extension number.</strong> You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here</a> to generate a complex password.</p>
-<p>These three sections can be replicated for each extension that you want to add to the system.</p>
-<h2 id="adv-topics-sip-phone-restart-asterisk">Restart Asterisk</h2>
-<p>After completing these changes, you must restart Asterisk or reboot your system.</p>
-<div class="highlight"><pre><span></span><code>sudo systemctl restart asterisk
-</code></pre></div>
-<h2 id="adv-topics-sip-phone-example-config-with-multiple-sip-phones">Example Config with Multiple SIP Phones</h2>
-<p>As noted above you can have more SIP phones. Here is an example of a simple dial plan that has multiple extensions:</p>
-<div class="highlight"><pre><span></span><code>[sip-phones]
-; Extension 210 - Line 1
-; Extension 211 - Line 2
-; Extension 212 - Garage
-; Extension 213 - Cordless ATA
-; Extension 1000 - Voice Mail
-
-exten =&gt; 210,1,Dial(PJSIP/210,60,rT)
-exten =&gt; 211,1,Dial(PJSIP/211,60,rT)
-exten =&gt; 212,1,Dial(PJSIP/212,60,rT)
-exten =&gt; 213,1,Dial(PJSIP/213,60,rT)
-exten =&gt; 1000,1,VoiceMailMain(210)
-exten =&gt; 1000,2,Hangup
-
-; Allow SIP calls to local nodes
-exten =&gt; 1998,1,rpt(1998|P)
-exten =&gt; 1999,1,rpt(1999|P)
-</code></pre></div>
-<p>This example includes voicemail. To use voice mail, you will need to change <code>noload = app_voicemail.so</code>to <code>load = app_voicemail.so.</code></p>
-<h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
-<p>If you have trouble connecting your SIP phone, start the Asterisk CLI with <code>asterisk -rvvv</code>. Enter the command <code>pjsip set logger on</code>. This will show the communications between the SIP phone and Asterisk. It will also show the actions in your dial plan.</p>
-<h2 id="adv-topics-sip-phone-security">Security</h2>
-<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
-<p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
-<p>After you have your account and feed credentials, you a ready to setup AllStarLink.</p>
-<h2 id="adv-topics-broadcastify-setup-a-feed">Setup a Feed</h2>
-<ul>
-<li>Log into your node either using <code>Cockpit</code> or SSH and type the following commands:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install libshout-dev libtagc0-dev lame ezstream
-</code></pre></div>
-<ul>
-<li>Edit <code>/etc/ezstream.xml</code> with your favorite editor, for example <code>sudo nano -w /etc/ezstream.xml</code>. You will be creating a new file. Copy, paste, and edit the following contents
-into the file:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;ezstream&gt;</span>
-<span class="w">    </span><span class="nt">&lt;servers&gt;</span>
-<span class="w">        </span><span class="nt">&lt;server&gt;</span>
-<span class="w">            </span><span class="nt">&lt;protocol&gt;</span>HTTP<span class="nt">&lt;/protocol&gt;</span>
-<span class="w">            </span><span class="nt">&lt;hostname&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>Broadcastify<span class="w"> </span>URL<span class="nt">&lt;/hostname&gt;</span>
-<span class="w">            </span><span class="nt">&lt;port&gt;</span>80<span class="nt">&lt;/port&gt;</span>
-<span class="w">            </span><span class="nt">&lt;password&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>password<span class="nt">&lt;/password&gt;</span>
-<span class="w">            </span><span class="nt">&lt;tls&gt;</span>none<span class="nt">&lt;/tls&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/server&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/servers&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;streams&gt;</span>
-<span class="w">        </span><span class="nt">&lt;stream&gt;</span>
-<span class="w">            </span><span class="nt">&lt;mountpoint&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>mount<span class="w"> </span>point<span class="w"> </span>path<span class="nt">&lt;/mountpoint&gt;</span>
-<span class="w">            </span><span class="nt">&lt;format&gt;</span>MP3<span class="nt">&lt;/format&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_name&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>feed<span class="w"> </span>name<span class="nt">&lt;/stream_name&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_url&gt;</span>Your<span class="w"> </span>web<span class="w"> </span>page<span class="nt">&lt;/stream_url&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_genre&gt;</span>Amateur<span class="w"> </span>Radio<span class="nt">&lt;/stream_genre&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_description&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>description<span class="nt">&lt;/stream_description&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_bitrate&gt;</span>16<span class="nt">&lt;/stream_bitrate&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_channels&gt;</span>1<span class="nt">&lt;/stream_channels&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_samplerate&gt;</span>22050<span class="nt">&lt;/stream_samplerate&gt;</span>
-<span class="w">                </span><span class="nt">&lt;stream_public&gt;</span>Yes<span class="nt">&lt;/stream_public&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/stream&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/streams&gt;</span>
-
-<span class="w">    </span><span class="nt">&lt;intakes&gt;</span>
-<span class="w">        </span><span class="nt">&lt;intake&gt;</span>
-<span class="w">            </span><span class="nt">&lt;type&gt;</span>stdin<span class="nt">&lt;/type&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/intake&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/intakes&gt;</span>
-<span class="nt">&lt;/ezstream&gt;</span>
-</code></pre></div>
-<ul>
-<li>
-<p>Save the file</p>
-</li>
-<li>
-<p>Ensure the file is owned and readable only by the Asterisk user:</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>sudo chown asterisk:asterisk /etc/ezstream.xml
-sudo chmod 660 /etc/ezstream.xml
-</code></pre></div>
-<ul>
-<li>
-<p>Edit <code>/etc/asterisk/rpt.conf</code> with your favorite editor, i.e. <code>sudo nano -w /etc/asterisk/rpt.conf</code></p>
-</li>
-<li>
-<p>Locate the node stanza for the node from which to stream to Broadcastify. The stanza is <code>[NNNNN](node-main)</code>. For example, if your node is 63001 then look for <code>[63001](node-main)</code>. Within that configuration stanza, add the following line:</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre></div>
-<p>The above parameters have these meanings:</p>
-<div class="highlight"><pre><span></span><code>-- preset cbr 16` = use constant bit rate 16
--r = Assume the input file is raw pcm
--m m = Mode mono
--s 8 = sample rate 8
---bitwidth 16 = bit width is 16 (default)   
-</code></pre></div>
-<ul>
-<li>After these changes have been made, you will need to restart Asterisk:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>sudo systemctl restart asterisk
-</code></pre></div>
-<p>If you experience any problems, look at <code>/var/log/ezstream.log</code> for error messages</p>
-<h2 id="adv-topics-broadcastify-migrating-an-existing-feed">Migrating an Existing Feed</h2>
-<p>If you have an existing feed, you will need to upgrade your existing <code>xml</code> configuration file to the new format. You can use the following commands:</p>
-<div class="highlight"><pre><span></span><code>cd /etc
-ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
-cp ezstream.xml ~/
-mv ezstream.new ezstream.xml
-</code></pre></div></section><section class="print-page" id="adv-topics-remotebase"><h1 id="adv-topics-remotebase-remote-base-nodes">Remote Base Nodes</h1>
+<p>As you can see, all three servers have entries in their <code>[nodes]</code> context that identify the node number, the IP address (or domain name), and port (if not default) of the each other's private nodes. This will allow all of them to be able to connect to each other.</p>
+<p>See the section on <a href="#adv-topics-multinodesnetwork">Multiple Nodes on the Same Network</a> for other considerations and tips on testing.</p>
+<p>Remember, a private node can do practically anything you can do with a public node. So, for example, one of those private nodes in the example above could be configured as an Echolink node, but only the nodes you have control of can access it (instead of any public node). Likewise, one of those private nodes could be connected to a UHF link to some other analog system, and this would let you "link in" to that system from your ASL node, but the public can't.</p>
+<p>You basically have a "multi-port" repeater controller that is pretty much as flexible as you desire.</p></section><section class="print-page" id="adv-topics-remotebase"><h1 id="adv-topics-remotebase-remote-base-nodes">Remote Base Nodes</h1>
 <p>The primary purpose of a remote base node is to make outgoing RF connections using a frequency agile radio to allow access to frequencies which are not part of your Internet connected radio system.</p>
 <p>Remote base nodes are configured differently than a standard node. A completely different set of internal functions in <code>Asterisk/app_rpt</code> is used when operating a node as a remote base. Usually, the only reason to set up a node as a remote base is when you wish to change the operating parameters of the the attached radio remotely, or if you only want the radio to be used by a single user at a time.</p>
 <p>If you want a <em>public</em> node number for a remote base, it must specifically be requested in the <a href="https://allstarlink.org/portal">AllStarLink Portal</a>. You must be sure to answer yes to <code>Is node a remote base station?</code>, and then optionally <code>If remote base, is it frequency agile?</code> questions. Alternatively, you can configure a private node.</p>
@@ -5697,6 +5600,14 @@ mv ezstream.new ezstream.xml
 44=remote,104                           ; Low Power
 45=remote,105                           ; Medium Power
 46=remote,106                           ; High Power
+51=remote,5                             ; Long status query
+52=remote,140                           ; Short status query
+61=remote,61                            ; Set mode to FM
+62=remote,62                            ; Set mode to USB
+63=remote,63                            ; Set mode to LSB
+64=remote,64                            ; Set mode to AM
+67=remote,210                           ; Send a *
+69=remote,211                           ; Send a #
 711=remote,107                          ; Bump down ­20Hz
 714=remote,108                          ; Bump ­down 100Hz
 717=remote,109                          ; Bump ­down 500Hz
@@ -5710,10 +5621,6 @@ mv ezstream.new ezstream.xml
 726=remote,117                          ; Scan + quick
 729=remote,118                          ; Scan + fast
 79=remote,119                           ; Tune 
-51=remote,5                             ; Long status query
-52=remote,140                           ; Short status query
-67=remote,210                           ; Send a *
-69=remote,211                           ; Send a #
 91=remote,99,CALLSIGN,[LICENSETAG]      ; Remote base login.
                                         ; Define a different dtmf sequence for each user which is 
                                         ; authorized to use the remote base to control access to it.
@@ -5729,7 +5636,10 @@ mv ezstream.new ezstream.xml
 98=cop,6                                ; Remote base telephone key
 </code></pre></div>
 <p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="#config-rpt_conf-funcchar"><code>[funcchar]</code></a>, usually *).</p>
-<p><strong>NOTE:</strong> When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998, to set the remote base to high power, you would send *41998*46 (after you connected to that node with something like *31998).</p>
+<div class="admonition note">
+<p class="admonition-title">Command Mode</p>
+<p>When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998 and you are already connected to the node, you would set the remote base to high power by sending *41998*46.</p>
+</div>
 <p>See <a href="#adv-topics-remotebase-remote-base-commands">Remote Base Commands</a> for functions that are specifically available for remote base nodes.</p>
 <h3 id="adv-topics-remotebase-ioaddr">ioaddr=</h3>
 <p>The <code>ioaddr=</code> option sets a parallel port control I/O address. It is specified as a hexadecimal number with a 0x prefix. The parallel port is used when the Doug Hall RBI-1 interface is employed.</p>
@@ -5997,23 +5907,28 @@ mv ezstream.new ezstream.xml
 </tr>
 <tr>
 <td>2</td>
-<td>Set VFO frequency</td>
+<td>Set VFO Frequency</td>
 <td>MMM*kkk*o# where MMM is frequency in MHz, kkk is kHz portion of the frequency, o is offset (1=minus, 2=simplex, 3=positive)</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Set TX PL tone</td>
+<td>Set TX PL Tone</td>
 <td>XXX*X ie 067*0 to set 67.0Hz</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Set RX PL tone</td>
+<td>Set RX PL Tone</td>
 <td>XXX*X ie 067*0 to set 67.0Hz</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Long status query</td>
+<td>Link Status Query (long)</td>
 <td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Set Operating Mode</td>
+<td>m, where m is 1 (FM), 2 (USB), 3, (LSB), or 4 (AM)</td>
 </tr>
 <tr>
 <td>99</td>
@@ -6022,22 +5937,22 @@ mv ezstream.new ezstream.xml
 </tr>
 <tr>
 <td>100</td>
-<td>Rx PL off</td>
-<td></td>
+<td>RX PL Off</td>
+<td>Default</td>
 </tr>
 <tr>
 <td>101</td>
-<td>Rx PL on</td>
+<td>RX PL On</td>
 <td></td>
 </tr>
 <tr>
 <td>102</td>
-<td>Tx PL off</td>
-<td></td>
+<td>TX PL Off</td>
+<td>Default</td>
 </tr>
 <tr>
 <td>103</td>
-<td>Tx PL on</td>
+<td>TX PL On</td>
 <td></td>
 </tr>
 <tr>
@@ -6057,62 +5972,62 @@ mv ezstream.new ezstream.xml
 </tr>
 <tr>
 <td>107</td>
-<td>Bump -20</td>
+<td>Bump -20Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>108</td>
-<td>Bump -100</td>
+<td>Bump -100Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>109</td>
-<td>Bump -500</td>
+<td>Bump -500Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>110</td>
-<td>Bump +20</td>
+<td>Bump +20Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>111</td>
-<td>Bump +100</td>
+<td>Bump +100Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>112</td>
-<td>Bump +500</td>
+<td>Bump +500Hz</td>
 <td></td>
 </tr>
 <tr>
 <td>113</td>
-<td>Scan - slow</td>
+<td>Scan - Slow</td>
 <td></td>
 </tr>
 <tr>
 <td>114</td>
-<td>Scan - quick</td>
+<td>Scan - Quick</td>
 <td></td>
 </tr>
 <tr>
 <td>115</td>
-<td>Scan - fast</td>
+<td>Scan - Fast</td>
 <td></td>
 </tr>
 <tr>
 <td>116</td>
-<td>Scan + slow</td>
+<td>Scan + Slow</td>
 <td></td>
 </tr>
 <tr>
 <td>117</td>
-<td>Scan + quick</td>
+<td>Scan + Quick</td>
 <td></td>
 </tr>
 <tr>
 <td>118</td>
-<td>Scan + fast</td>
+<td>Scan + Fast</td>
 <td></td>
 </tr>
 <tr>
@@ -6122,7 +6037,7 @@ mv ezstream.new ezstream.xml
 </tr>
 <tr>
 <td>140</td>
-<td>Short status query</td>
+<td>Link Status Query (brief)</td>
 <td></td>
 </tr>
 <tr>
@@ -6293,6 +6208,405 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
 <div class="highlight"><pre><span></span><code>rxburstfreq = 1750          ; set the desired toneburst frequency, in Hz
 rxbursttime = 500           ; minimum duration required for the tone to be present, in mS
 rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a valid tone
+</code></pre></div></section><section class="print-page" id="adv-topics-sa818modules"><h1 id="adv-topics-sa818modules-sa818-rf-modules">SA818 RF Modules</h1>
+<p>SA818 RF modules are inexpensive RF transceiver modules, often used to build a personal RF "hot spot" AllStarLink node.</p>
+<p>Setting up an SA818 RF module is much easier on ASL3.</p>
+<p>Two new commands were added to ASL3 Pi Appliance systems to program the module. We believe that most will prefer using <code>sa818-menu</code>, a visual interface to the RF module settings. For those who prefer a command line interface, we have also included <code>sa818</code>.</p>
+<h2 id="adv-topics-sa818modules-sa818-menu">sa818-menu</h2>
+<p>To program your SA818 with the menu utility, use the following command from the Linux CLI:</p>
+<div class="highlight"><pre><span></span><code>sudo sa818-menu
+</code></pre></div>
+<p>Here, you will be able to view the last saved (or default) settings.</p>
+<p><strong>NOTE:</strong> The "last saved" settings are those saved by the <code>sa818-menu</code> command on your system. There is no way to "read" settings from the SA818 RF module.</p>
+<p>The settings include :</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Band</td>
+<td>Specify the module type (VHF, UHF)</td>
+</tr>
+<tr>
+<td>Bandwidth</td>
+<td>Narrow (12.5KHz) or <strong>Wide (25.0KHz)</strong></td>
+</tr>
+<tr>
+<td>Receive Frequency</td>
+<td></td>
+</tr>
+<tr>
+<td>Transmit Frequency</td>
+<td></td>
+</tr>
+<tr>
+<td>Squelch Value</td>
+<td>Default = <strong>1</strong></td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Default = <strong>1</strong></td>
+</tr>
+<tr>
+<td>Sub-audible tone</td>
+<td><strong>None</strong>, CTCSS, DCS</td>
+</tr>
+<tr>
+<td>Pre-Emphasis/De-emphasis</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>High pass Filter</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>Low pass Filter</td>
+<td>Default = <strong>Disabled</strong></td>
+</tr>
+<tr>
+<td>Serial Port</td>
+<td>Default = <strong>/dev/serial0</strong> or <strong>/dev/ttyUSB0</strong></td>
+</tr>
+<tr>
+<td>Connection Speed</td>
+<td>Default = <strong>9600</strong></td>
+</tr>
+</tbody>
+</table>
+<p>If you change the sub-audible tone setting to CTCSS or DCS you will be presented with a list of possible tone frequencies. When using CTCSS tones, you will also have a setting for the CTCSS Reverse Burst (tail tone).</p>
+<p>The RF module will be programmed when you exit the menu.</p>
+<p><strong>NOTE:</strong> If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
+<h2 id="adv-topics-sa818modules-sa818">sa818</h2>
+<p>To program your SA818 using the command line you can execute the <code>sa818</code> command. For command usage information, use <code>sa818 --help</code>.</p></section><section class="print-page" id="adv-topics-sip-phone"><h1 id="adv-topics-sip-phone-setting-up-a-sip-phone">Setting up a SIP Phone</h1>
+<p>This section describes the steps necessary to set up a SIP phone in ASL3. The setup procedure has changed due to the deprecation of <code>chan_sip</code>. Users are now required to use <code>chan_pjsip</code>. <code>chan_pjsip</code> brings new features to the SIP stack, and is the supported SIP channel for the future.</p>
+<h2 id="adv-topics-sip-phone-update-modulesconf">Update <code>modules.conf</code></h2>
+<p><code>chan_pjsip</code> requires a number of modules to be loaded. You should start by editing <code>/etc/asterisk/modules.conf</code> and add the following to the [modules] stanza (generally near the bottom of the file just above the [global] stanza):</p>
+<div class="highlight"><pre><span></span><code>;
+; modules for pjsip
+;
+noload = app_voicemail.so
+load = bridge_builtin_features.so
+load = bridge_builtin_interval_features.so
+load = bridge_holding.so
+load = bridge_native_rtp.so
+load = bridge_simple.so
+load = bridge_softmix.so
+load = chan_bridge_media.so
+load = chan_pjsip.so
+load = func_pjsip_endpoint.so
+load = func_sorcery.so
+load = func_devstate.so
+load = res_pjproject.so
+load = res_pjsip_acl.so
+load = res_pjsip_authenticator_digest.so
+load = res_pjsip_caller_id.so
+load = res_pjsip_dialog_info_body_generator.so
+load = res_pjsip_diversion.so
+load = res_pjsip_dtmf_info.so
+load = res_pjsip_endpoint_identifier_anonymous.so
+load = res_pjsip_endpoint_identifier_ip.so
+load = res_pjsip_endpoint_identifier_user.so
+load = res_pjsip_exten_state.so
+load = res_pjsip_header_funcs.so
+load = res_pjsip_logger.so
+load = res_pjsip_messaging.so
+load = res_pjsip_mwi_body_generator.so
+load = res_pjsip_mwi.so
+load = res_pjsip_nat.so
+load = res_pjsip_notify.so
+load = res_pjsip_one_touch_record_info.so
+load = res_pjsip_outbound_authenticator_digest.so
+load = res_pjsip_outbound_publish.so
+load = res_pjsip_outbound_registration.so
+load = res_pjsip_path.so
+load = res_pjsip_pidf_body_generator.so
+load = res_pjsip_pidf_digium_body_supplement.so
+load = res_pjsip_pidf_eyebeam_body_supplement.so
+load = res_pjsip_publish_asterisk.so
+load = res_pjsip_pubsub.so
+load = res_pjsip_refer.so
+load = res_pjsip_registrar.so
+load = res_pjsip_rfc3326.so
+load = res_pjsip_sdp_rtp.so
+load = res_pjsip_send_to_voicemail.so
+load = res_pjsip_session.so
+load = res_pjsip.so
+noload = res_pjsip_t38.so
+noload = res_pjsip_transport_websocket.so
+load = res_pjsip_xpidf_body_generator.so
+load = res_rtp_asterisk.so
+load = res_sorcery_astdb.so
+load = res_sorcery_config.so
+load = res_sorcery_memory.so
+load = res_sorcery_realtime.so
+</code></pre></div>
+<h2 id="adv-topics-sip-phone-update-extensionsconf">Update <code>extensions.conf</code></h2>
+<p>The next step is to update <code>extension.conf</code>. This creates a dial plan that controls access to your node by SIP phones. Edit <code>/etc/asterisk/extensions.conf</code> and add the following to the bottom of the file. This example will set up extension <strong>1001</strong> as your local phone and the dialing plan for your node.</p>
+<div class="highlight"><pre><span></span><code>[sip-phones]
+exten =&gt; 1001,1,Dial(PJSIP/${EXTEN},60,rT)
+
+exten =&gt; ${NODE},1,Ringing
+exten =&gt; ${NODE},n,Answer(3000)
+exten =&gt; ${NODE},n,Set(NODENUM=${CALLERID(number)})
+exten =&gt; ${NODE},n,Playback(extension)
+exten =&gt; ${NODE},n,SayDigits(${NODENUM})
+exten =&gt; ${NODE},n,Playback(rpt/connected)
+exten =&gt; ${NODE},n,Playback(rpt/node)
+exten =&gt; ${NODE},n,SayDigits(${EXTEN})
+exten =&gt; ${NODE},n,rpt(${EXTEN}|P)
+exten =&gt; ${NODE},n,Hangup
+</code></pre></div>
+<p>The above dial plan will allow your SIP phone to dial your node number. In this example, one should use <code>*99</code> to enable PTT and <code>#</code> to disable PTT from the SIP phone. VOX is also an option for phone connections. When using VOX, one may want to mute the mic on the phone when not transmitting and un-mute to transmit. VOX is enabled by adding a <code>v</code> to the <code>rpt</code> line like this:</p>
+<div class="highlight"><pre><span></span><code>exten =&gt; ${NODE},n,rpt(${EXTEN}|Pv)
+</code></pre></div>
+<p>This dial plan announces the extension number and the connecting node number. The lines with <code>SayDigits</code> and <code>Playback</code> can be removed if you do not want the announcement.</p>
+<p>The <code>${NODE}</code> variable is defined at the top of <code>extensions.conf</code> and should be your assigned node number. See the following:</p>
+<div class="highlight"><pre><span></span><code>[globals]
+HOMENPA = 999 ; change this to your Area Code
+NODE = 1999   ; change this to your node number
+</code></pre></div>
+<p><strong>NOTE:</strong> If you have multiple node numbers configured, you may need to adjust the <code>${NODE}</code> variable to the appropriate node number, or replace the <code>${NODE}</code> variable in your <code>extensions.conf</code> stanza with the specific node number desired.</p>
+<p>The entry <strong>1001</strong> in <code>extensions.conf</code> is the extension number for your SIP phone. If you want to use a different extension number, change <strong>1001</strong> to your desired extension number.</p>
+<p><strong>NOTE:</strong> If you attempt to copy <code>extensions.conf</code> from a previous release of AllStarLink, it will fail. ASL3 requires comma delimiters instead of pipe symbols for standard Asterisk functions. The <code>rpt</code> function continues to use a pipe delimiter. This is subject to change in a future release.</p>
+<h2 id="adv-topics-sip-phone-update-pjsipconf">Update <code>pjsip.conf</code></h2>
+<p>You are now ready to configure <code>pjsip</code>.  Edit <code>/etc/asterisk/pjsip.conf</code>. Don’t get overwhelmed by all of the text in the sample configuration. <code>pjsip</code> supports several configurations. This document focuses on the necessary entries to get a SIP phone operational.</p>
+<p>Scroll down to the <strong>Basic UDP transport</strong> section. It should be updated to look like the following:</p>
+<div class="highlight"><pre><span></span><code>; Basic UDP transport
+;
+[transport-udp]
+type=transport
+protocol=udp    ;udp,tcp,tls,ws,wss,flow
+bind=0.0.0.0:5060
+</code></pre></div>
+<p><strong>NOTE:</strong> After the bind port address (0.0.0.0) is the incoming port number (5060). This UDP port must NOT be blocked by your network firewall. If you are using a Pi Applicance, you will likely need to add the port to the built-in <a href="#pi-cockpit-firewall">firewall</a>.</p>
+<p>Scroll down to the section titled <strong>Endpoint Configured For Use With A Sip Phone</strong>. For each extension, you will need to enter three sections. Here is an example for extension <strong>1001</strong>:</p>
+<div class="highlight"><pre><span></span><code>[1001]
+type=endpoint
+transport=transport-udp
+context=sip-phones
+disallow=all
+allow=ulaw
+allow=alaw
+allow=gsm
+auth=1001
+aors=1001
+callerid=&quot;My CallerID&quot;
+;
+; A few more transports to pick from, and some related options below them.
+;
+;transport=transport-tls
+;media_encryption=sdes
+;transport=transport-udp-ipv6
+;transport=transport-udp-nat
+;direct_media=no
+;
+; MWI related options
+
+;aggregate_mwi=yes
+;mailboxes=6001@default,7001@default
+;mwi_from_user=6001
+;
+; Extension and Device state options
+;
+;device_state_busy_at=1
+;allow_subscribe=yes
+;sub_min_expiry=30
+;
+; STIR/SHAKEN support.
+;
+;stir_shaken=no
+;stir_shaken_profile=my_profile
+
+[1001]
+type=auth
+auth_type=userpass
+password=1001
+username=1001
+
+[1001]
+type=aor
+max_contacts=4
+;contact=sip:6001@192.0.2.1:5060
+</code></pre></div>
+<p>If you want to use a different extension number, you will need to change <code>[1001]</code> to your desired number. The item <code>callerid="My CallerID"</code> should also be updated for your preferred caller identifier.</p>
+<p>The items <code>password=1001</code> and <code>username=1001</code> should be updated to match the username and password you want for your extension number. You should use a complex password. <strong>Do not use the extension number.</strong> You can use the password generator located <a href="https://www.lastpass.com/features/password-generator#generatorTool">here</a> to generate a complex password.</p>
+<p>These three sections can be replicated for each extension that you want to add to the system.</p>
+<h2 id="adv-topics-sip-phone-restart-asterisk">Restart Asterisk</h2>
+<p>After completing these changes, you must restart Asterisk or reboot your system.</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl restart asterisk
+</code></pre></div>
+<h2 id="adv-topics-sip-phone-example-config-with-multiple-sip-phones">Example Config with Multiple SIP Phones</h2>
+<p>As noted above you can have more SIP phones. Here is an example of a simple dial plan that has multiple extensions:</p>
+<div class="highlight"><pre><span></span><code>[sip-phones]
+; Extension 210 - Line 1
+; Extension 211 - Line 2
+; Extension 212 - Garage
+; Extension 213 - Cordless ATA
+; Extension 1000 - Voice Mail
+
+exten =&gt; 210,1,Dial(PJSIP/210,60,rT)
+exten =&gt; 211,1,Dial(PJSIP/211,60,rT)
+exten =&gt; 212,1,Dial(PJSIP/212,60,rT)
+exten =&gt; 213,1,Dial(PJSIP/213,60,rT)
+exten =&gt; 1000,1,VoiceMailMain(210)
+exten =&gt; 1000,2,Hangup
+
+; Allow SIP calls to local nodes
+exten =&gt; 1998,1,rpt(1998|P)
+exten =&gt; 1999,1,rpt(1999|P)
+</code></pre></div>
+<p>This example includes voicemail. To use voice mail, you will need to change <code>noload = app_voicemail.so</code>to <code>load = app_voicemail.so.</code></p>
+<h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
+<p>If you have trouble connecting your SIP phone, start the Asterisk CLI with <code>asterisk -rvvv</code>. Enter the command <code>pjsip set logger on</code>. This will show the communications between the SIP phone and Asterisk. It will also show the actions in your dial plan.</p>
+<h2 id="adv-topics-sip-phone-security">Security</h2>
+<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></section><section class="print-page" id="adv-topics-sleepmode"><h1 id="adv-topics-sleepmode-sleep-mode">Sleep Mode</h1>
+<p>Sleep Mode allows the local repeater receiver to be effectively disabled after a set period of inactivity (keeping the associated transmitter quiet). The repeater receiver will be re-enabled if any of the following events occur:</p>
+<ul>
+<li>An "awaken from sleep" (<a href="#config-rpt_conf-cop-commands"><code>cop,53</code></a>) command is decoded on any command source</li>
+<li>There is traffic coming in from a remote node</li>
+<li>There is telemetry coming in from a remote node</li>
+</ul>
+<p>Additionally, the sleep inactivity timer will be reset if there are any signals on the repeater input which are received during the time the system is awake.</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Be aware that enabling Sleep Mode will change how your repeater functions, and may lead to user confusion. Once the repeater enters Sleep Mode, the only way to wake it up locally would be by a <code>cop,53</code> command (whether that is in to the local receiver via DTMF, or some other macro on the CLI). That may lead to users thinking the repeater is "broken" when they try and key it up and nothing happens, if they aren't aware that it may be in Sleep Mode. </p>
+</div>
+<h2 id="adv-topics-sleepmode-how-it-works">How it Works</h2>
+<p>The intended purpose of Sleep Mode is to (temporarily) help combat local interference issues.</p>
+<p>While the repeater is in normal use, the inactivity timer (<a href="#config-rpt_conf-sleeptime"><code>sleeptime</code></a>) will be constantly reset.</p>
+<p>When activity on the repeater ceases, the inactivity timer counts down. When it reaches zero, the repeater will "go to sleep". The local receiver is still "active" and listening for DTMF, but it won't respond to normal methods of "keying the repeater" (carrier and/or CTCSS). This effectively prevents interference sources from opening the receiver squelch and keying the transmitter (broadcasting the noise).</p>
+<p>In order to "wake" the repeater up, you would have to satisfy one of the above criteria. So, traffic or telemetry from a remotely connected node would "wake up" the local receiver and allow its normal access methods to key the repeater. Or, a user would need to send a specified DTMF command linked to <code>cop,53</code> to "wake up" the local receiver. As such, this mode is also known as "touch tone up". </p>
+<h2 id="adv-topics-sleepmode-associated-cop-methods">Associated COP Methods</h2>
+<p>The associated <a href="#config-rpt_conf-cop-commands">Control OPerator</a> commands/methods associated with Sleep Mode are:</p>
+<table>
+<thead>
+<tr>
+<th>COP</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>51</td>
+<td>Enable Sleep Mode</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Disable Sleep Mode</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Awaken from Sleep Mode</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Go back to sleep when the TX carrier drops</td>
+</tr>
+</tbody>
+</table>
+<p>In order to manually "wake" the repeater up, you would want to assign <code>cop,53</code> to a DTMF command in the <a href="#config-rpt_conf-functions-stanza"><code>[functions]</code></a> stanza of <a href="#config-rpt_conf"><code>rpt.conf</code></a>, such as:</p>
+<div class="highlight"><pre><span></span><code>953 = cop,53                        ; Wake up from sleep
+</code></pre></div>
+<p>You would also likely want to define commands to be able to enable and disable Sleep Mode too:</p>
+<div class="highlight"><pre><span></span><code>951 = cop,51                        ; Enable sleep mode
+952 = cop,52                        ; Disable sleep mode
+954 = cop,54                        ; Go to sleep
+</code></pre></div>
+<h1 id="adv-topics-sleepmode-inactivity-timer">Inactivity Timer</h1>
+<p>In addition to defining the commands to control Sleep Mode, you will likely also want to adjust the inactivity timer (<code>sleeptime</code>). This option is set in the <a href="#config-rpt_conf-node-number-stanza">node number stanza</a> in <a href="#config-rpt_conf"><code>rpt.conf</code></a>.</p>
+<p>The default value for <code>sleeptime</code> is 900 seconds (15 minutes), if it is not specified (and you were to enable Sleep Mode). Set the value appropriately for your configuration:</p>
+<div class="highlight"><pre><span></span><code>sleeptime=300                       ; Set the inactivity timer for 300 seconds (5 minutes)
+</code></pre></div></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
+<p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
+<p>After you have your account and feed credentials, you a ready to setup AllStarLink.</p>
+<h2 id="adv-topics-broadcastify-setup-a-feed">Setup a Feed</h2>
+<ul>
+<li>Log into your node either using <code>Cockpit</code> or SSH and type the following commands:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install libshout-dev libtagc0-dev lame ezstream
+</code></pre></div>
+<ul>
+<li>Edit <code>/etc/ezstream.xml</code> with your favorite editor, for example <code>sudo nano -w /etc/ezstream.xml</code>. You will be creating a new file. Copy, paste, and edit the following contents
+into the file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;ezstream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;servers&gt;</span>
+<span class="w">        </span><span class="nt">&lt;server&gt;</span>
+<span class="w">            </span><span class="nt">&lt;protocol&gt;</span>HTTP<span class="nt">&lt;/protocol&gt;</span>
+<span class="w">            </span><span class="nt">&lt;hostname&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>Broadcastify<span class="w"> </span>URL<span class="nt">&lt;/hostname&gt;</span>
+<span class="w">            </span><span class="nt">&lt;port&gt;</span>80<span class="nt">&lt;/port&gt;</span>
+<span class="w">            </span><span class="nt">&lt;password&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>password<span class="nt">&lt;/password&gt;</span>
+<span class="w">            </span><span class="nt">&lt;tls&gt;</span>none<span class="nt">&lt;/tls&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/server&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/servers&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;streams&gt;</span>
+<span class="w">        </span><span class="nt">&lt;stream&gt;</span>
+<span class="w">            </span><span class="nt">&lt;mountpoint&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>mount<span class="w"> </span>point<span class="w"> </span>path<span class="nt">&lt;/mountpoint&gt;</span>
+<span class="w">            </span><span class="nt">&lt;format&gt;</span>MP3<span class="nt">&lt;/format&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_name&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>feed<span class="w"> </span>name<span class="nt">&lt;/stream_name&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_url&gt;</span>Your<span class="w"> </span>web<span class="w"> </span>page<span class="nt">&lt;/stream_url&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_genre&gt;</span>Amateur<span class="w"> </span>Radio<span class="nt">&lt;/stream_genre&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_description&gt;</span>Replace<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>stream<span class="w"> </span>description<span class="nt">&lt;/stream_description&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_bitrate&gt;</span>16<span class="nt">&lt;/stream_bitrate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_channels&gt;</span>1<span class="nt">&lt;/stream_channels&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_samplerate&gt;</span>22050<span class="nt">&lt;/stream_samplerate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;stream_public&gt;</span>Yes<span class="nt">&lt;/stream_public&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/stream&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/streams&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;intakes&gt;</span>
+<span class="w">        </span><span class="nt">&lt;intake&gt;</span>
+<span class="w">            </span><span class="nt">&lt;type&gt;</span>stdin<span class="nt">&lt;/type&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/intake&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/intakes&gt;</span>
+<span class="nt">&lt;/ezstream&gt;</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Save the file</p>
+</li>
+<li>
+<p>Ensure the file is owned and readable only by the Asterisk user:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo chown asterisk:asterisk /etc/ezstream.xml
+sudo chmod 660 /etc/ezstream.xml
+</code></pre></div>
+<ul>
+<li>
+<p>Edit <code>/etc/asterisk/rpt.conf</code> with your favorite editor, i.e. <code>sudo nano -w /etc/asterisk/rpt.conf</code></p>
+</li>
+<li>
+<p>Locate the node stanza for the node from which to stream to Broadcastify. The stanza is <code>[NNNNN](node-main)</code>. For example, if your node is 63001 then look for <code>[63001](node-main)</code>. Within that configuration stanza, add the following line:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
+</code></pre></div>
+<p>The above parameters have these meanings:</p>
+<div class="highlight"><pre><span></span><code>-- preset cbr 16` = use constant bit rate 16
+-r = Assume the input file is raw pcm
+-m m = Mode mono
+-s 8 = sample rate 8
+--bitwidth 16 = bit width is 16 (default)   
+</code></pre></div>
+<ul>
+<li>After these changes have been made, you will need to restart Asterisk:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo systemctl restart asterisk
+</code></pre></div>
+<p>If you experience any problems, look at <code>/var/log/ezstream.log</code> for error messages</p>
+<h2 id="adv-topics-broadcastify-migrating-an-existing-feed">Migrating an Existing Feed</h2>
+<p>If you have an existing feed, you will need to upgrade your existing <code>xml</code> configuration file to the new format. You can use the following commands:</p>
+<div class="highlight"><pre><span></span><code>cd /etc
+ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
+cp ezstream.xml ~/
+mv ezstream.new ezstream.xml
 </code></pre></div></section><section class="print-page" id="adv-topics-uefi-secureboot"><h1 id="adv-topics-uefi-secureboot-uefi-and-secureboot">UEFI and SecureBoot</h1>
 <p>UEFI (Unified Extensible Firmware Interface) is a modern firmware interface that replaces the older BIOS system, providing a more flexible and powerful environment for booting and managing hardware. It supports larger hard drives, faster boot times, and a more user-friendly interface.</p>
 <p>Secure Boot is a feature of UEFI that ensures only trusted software is loaded during the boot process, protecting the system from malware and unauthorized software. It works by verifying the digital signatures of boot loaders and operating system files against a database of trusted certificates.</p>
@@ -7491,6 +7805,7 @@ node_lookup_method = both           ;method used to lookup nodes
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>beaconing=1   ;Set to 1 to beacon. Defaults to 0
 </code></pre></div>
+<p>See <a href="#adv-topics-eurorptr">European Repeater Operation</a> for more information on the application of this option.</p>
 <h3 id="config-rpt_conf-callerid">callerid=</h3>
 <p>This option allows the autopatch on the node to be identified with a specific caller ID. The default setting is as follows</p>
 <div class="highlight"><pre><span></span><code>callerid=&quot;Repeater&quot; &lt;0000000000&gt;
@@ -7754,7 +8069,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <div class="highlight"><pre><span></span><code>macro=macro   ; use stanza named macro
 
 [macro]
-1 = *32000*32001     ; connect to nodes 2000 and 2001
+1 = *32000 *32001#                  ; connect to nodes 2000 and 2001
 </code></pre></div>
 <p>The default is to have <code>macro=</code> point to a stanza called <code>macro</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#config-rpt_conf-macro-stanza">Macro Stanza</a> for more detail on defining macros.</p>
@@ -7984,6 +8299,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>sleeptime = 300   ; go to sleep after 5 mins of no activity
 </code></pre></div>
+<p>See <a href="#adv-topics-sleepmode">Sleep Mode</a> for more information on what this timer does, and how it works.</p>
 <h3 id="config-rpt_conf-startup_macro">startup_macro=</h3>
 <p>The <code>startup_macro</code> is executed once on system startup. Each node can have <strong>one</strong> startup macro defined in its node stanza.</p>
 <p>Sample:</p>
@@ -8335,7 +8651,7 @@ link_functions = my_link_functions   ; use a different stanza
 [macro]
 1 = *32000*32001     ; connect to nodes 2000 and 2001
 </code></pre></div>
-<p>See <a href="https://wiki.allstarlink.org/index.php?title=Macro_use_and_format">Full Macro Use And Format</a> for more information on macros.</p>
+<p>See the <a href="#adv-topics-macros">Macro</a> page for more information on macros.</p>
 <h2 id="config-rpt_conf-morse-stanza">Morse Stanza</h2>
 <p>The <code>[morse]</code> stanza is a named stanza pointed to by the <a href="#config-rpt_conf-morse">`morse=</a> option.</p>
 <p>Sample:</p>
