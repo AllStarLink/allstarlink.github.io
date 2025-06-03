@@ -1,0 +1,3729 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AllStarLink Manual">
+      
+      
+        <meta name="author" content="AllStarLink Team">
+      
+      
+        <link rel="canonical" href="https://allstarlink.github.io/voter/about-voter/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../voter-protocol/">
+      
+      
+      <link rel="icon" href="../../assets/allstarlink.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>What is the VOTER? - AllStarLink Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="allstarlink" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-the-voter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
+      
+  <img src="../../assets/allstar-logo-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AllStarLink Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What is the VOTER?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/" class="md-tabs__link">
+          
+  
+    
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/menu/" class="md-tabs__link">
+          
+  
+    
+  
+  Basic Operation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../adv-topics/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  VOTER/RTCM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../developers/" class="md-tabs__link">
+          
+  
+    
+  
+  Developer Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mans/" class="md-tabs__link">
+          
+  
+    
+  
+  Man Pages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../config/" class="md-tabs__link">
+          
+  
+    
+  
+  Config Files
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AllStarLink Manual" class="md-nav__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
+      
+  <img src="../../assets/allstar-logo-small.png" alt="logo">
+
+    </a>
+    AllStarLink Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../user-guide/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/gettingstarted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/whats-new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Important Considerations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/pi-detailed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian 12</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian 12</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debian 12 Install
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Post Installation</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Post Installation</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Updating ASL3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/known-issues-diffs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differences & Known Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3 Install and Config</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3 Install and Config</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Allmon3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../allmon3/usermgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic Operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL3 Menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/asl-cmds-tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL Commands and Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/passwords/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logins and Passwords
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL3 Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Troubleshooting Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/betatest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics</span>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-get-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started With Cockpit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cockpit Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-console/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Terminal / Console
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-updates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Services Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/cockpit-firewall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Managing the Firewall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../adv-topics/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    New Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/incompatibles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Incompatibilities, Changes, and Known Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/allowdenylists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allow and Deny Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/aprs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    APRS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/tts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL Text-to-Speech
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/conftmpl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Asterisk Templates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/autopatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autopatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/audio-level/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calibrating Audio Levels For The AllStarLink System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/daq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAQ Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/dns-servers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Servers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/eurorptr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    European Repeater Operation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/hotspot_hd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hot Spot Un-key Delay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/httpreg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP-Based Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/iaxreg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAX-Based Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/litz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Long Tone Zero (LiTZ)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/macros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Macros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/multinodesnetwork/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multiple Nodes on the Same Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/nnx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Number Extensions (NNX)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/noderesolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node Resolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/other-software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Software Products
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/permanentnode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permanent Node Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/privatenodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Private Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/remotebase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/sa818modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SA818 RF Modules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/sip-phone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/sleepmode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sleep Mode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/broadcastify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Streaming Node Audio to Broadcastify
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/remotebase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote Base Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/rxtoneburst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RX Toneburst
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/tlb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TheLinkBox
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/uefi-secureboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UEFI and SecureBoot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/usbinterfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    USB Audio Interfaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    VOTER/RTCM
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            VOTER/RTCM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    What is the VOTER?
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    What is the VOTER?
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-a-96mhz-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why a 9.6MHz Clock?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voter" class="md-nav__link">
+    <span class="md-ellipsis">
+      VOTER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      RTCM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware-upgrading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmware Upgrading
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provisioning-and-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provisioning and Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provisioning and Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-system-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      General System Provisioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-internet-network-planning-and-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP (Internet) Network Planning and Provisioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bandwidth-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bandwidth Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network QoS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receiver-andor-transmitter-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receiver (and/or Transmitter) Site
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receiver (and/or Transmitter) Site">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voter-hardware-configuration-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      VOTER Hardware Configuration Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voter-hardware-setup-and-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      VOTER Hardware Setup and Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overall-system-main-site-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overall System / Main Site Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voting-selection-algorithm-and-associated-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voting Selection Algorithm and Associated Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulcasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulcasting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-purposemixed-mode-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      General-Purpose/Mixed Mode Configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General-Purpose/Mixed Mode Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mixed-client-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mixed Client Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mix-clients-with-voted-client-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mix Clients with Voted Client Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-protocol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Protocol
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-chan_voter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER chan_voter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rtcm-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RTCM Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-firmware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER/RTCM Firmware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-gps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER GPS Requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-menus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER/RTCM Hardware Menu System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-audio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Audio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Buffer Tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-simulcasting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Simulcasting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-audioanalysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER Audio Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voter-quantar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VOTER and the Quantar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../developers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Developer Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/package-builds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building ASL3-Asterisk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/source-install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Source-Based Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/aptly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AllStarLink Apt Repos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../mans/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Man Pages
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Man Pages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/allmon3-passwd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-find-sound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-find-sound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-node-lookup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-node-lookup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-play-arn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-play-arn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-say/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-say
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-setup-dkms-mok/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-setup-dkms-mok
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../config/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Config Files
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Config Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/config-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/rpt_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rpt.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/tlb_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tlb.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/voter_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    voter.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="what-is-the-voter">What is the VOTER?</h1>
+<p>The VOTER (<strong>V</strong>oice <strong>O</strong>bserving <strong>T</strong>ime <strong>E</strong>xtension for <strong>R</strong>adio) system was originally created by Jim Dixon, WB6NIL (SK).</p>
+<p>In many two-way radio applications, both for repeater systems and simplex base-stations, it is often difficult to have reliable reception when there is signal impairment due to terrain or other obstacles.</p>
+<p>One common way to solve this problem is by use of a voting multi-receiver system. Such a system is comprised of a number of receivers, located at diverse locations. The location of these receivers are chosen so that the combined coverage of all the receivers more or less fill-in the entire desired coverage area, even though it may take a number of receivers to accomplish this. All such receivers are connected ("linked") to a central location (generally the transmitter site), and a device compares each receiver's signal strength and selects the one with the best signal. This is called <strong>voting</strong>.</p>
+<p>Often in such a system, there is one single high-powered transmitter located at a central site that all mobile/portable stations would be able to receive. Sometimes, one single transmitter can not be located where coverage of the entire desired area is possible. In such cases, multiple transmitters are deployed in several locations. Since all these transmitters are on the same frequency, they must be <em>very precisely</em> locked to the same frequency <strong>and</strong> be transmitting the <em>exact same audio</em> at the <strong>exact same time</strong>. Not doing so would severely degrade their reception. This is called <strong>simulcast</strong> (transmitters).</p>
+<p>Traditionally, receivers that comprise a voting system are each connected to the central site via either a UHF or microwave link. Since this requires a receiver, link transmitter and link receiver for every receive site, implementation and continued cost of such a system typically becomes quite significant and in most cases prohibitive, and requires a high complexity of implementation.</p>
+<p>There are, however, many advantages of implementation of such a system that warrant the cost and effort required.</p>
+<p>With the advent of VoIP-based interconnections for radio systems, it is now possible to implement a voting system using VoIP to link the receivers to the central site, and therefore reduce the system requirements and complexity and cost by eliminating the radio links between the receivers and the central site.</p>
+<p>There are a few commercial vendors of VoIP-based voting systems that offer a functional and reliable, yet proprietary and extremely high-cost solution.</p>
+<p>Although using VoIP-based technology significantly reduces the cost and complexity of implementation of a voting system, the cost of the commercial VoIP-based devices is still quite prohibitive for all but large commercial and/or government applications. Therefore, it seemed appropriate to offer a completely open-source, open-hardware solution that makes the cost and complexity of a VoIP-based voting system nearly trivial and gives almost anyone the ability to implement this type of a system that wishes to do so.</p>
+<h2 id="history">History</h2>
+<p>By: Jim Dixon, WB6NIL (SK)</p>
+<p>The <a href="https://github.com/AllStarLink/Voter/blob/master/docs/votersystem.pdf">Original Documentation Package</a> (NO LONGER CURRENT) for the original VOTER system is still available. For current documentation, see the rest of the sections in this part of the manual, or the documentation of the commercially-available <a href="../assets/rtcm_manual.pdf">RTCM</a> product.</p>
+<p>For a number of years, I have been asked about, and have been considering the possibility of the implementation of a multiple site remote receiver voting system that runs with VOIP on <code>Asterisk/app_rpt</code>. The more I looked into it, the more I realized that it was a <strong>FAR</strong> from a trivial task.</p>
+<p>The main problem to overcome is that when you have multiple streams of audio information from multiple receivers, you need a concise and accurate way of synchronizing all of the audio, so that if switching of streams occurs, there will be no inconsistencies in the audio. This is far more easily done on conventional, RF-linked voting systems, being that the delay between the receiver and the transmitter site is very minimal (basically the speed of light) and is painfully consistent. Not so on the Internet. The packet delays can be extremely long and varied, and it makes the task of synchronization far more difficult.</p>
+<p>The first challenge is to obtain and convey ultra-accurate time information along with the audio data, so that the transmitter site will know what time the signal was received (which may not have much to do with the time it was received at the transmitter site from the Internet). In order to accomplish this, ultra-accurate time information must be made available, and it must be processed in reasonable and consistent time for it to be meaningful.</p>
+<p>GPS is the simplest and most cost-effective solution to obtain ultra-accurate time information. For little money, a Garmin GPS LVC18 module (there are many others, too) may be purchased. It provides an accurate 1 pulse-per-second signal that can be used to synchronize a timing device.</p>
+<p>A "host" type computer running Linux (or UNIX, etc.) <strong>is not</strong> appropriate to be used as such a device, since it has absolutely <strong>no way</strong> of processing external inputs (or anything else, for that matter) in a <em>consistent</em> and <em>predictable</em> time. For applications that need to be accurate to hundreds of milliseconds, its fine, but for this purpose, where timing down to <strong><em>individual 125 microsecond</em></strong> audio samples is necessary, it just wont do.</p>
+<p>The only reasonable solution is to design hardware to accomplish this. Since hardware design is necessary, I figured that I might as well design a stand-alone board that does all the necessary functions to interface a receiver and a GPS device to an Ethernet with Internet connectivity. Certainly, a peripheral device that attaches to a "host" type computer would also be a reasonable solution, but for the same or less cost, it seems reasonable to eliminate the need for a "host" computer at receiver sites all together.</p>
+<p>The second challenge is determining signal strength (RSSI) information from an attached receiver. Thanks to wonderful technology designed by Steve Rodgers, WA6ZFT, which is a small board that implements a VERY high-quality squelch processor, I was able to take the code and front-end design, include it in my design, and not only is it very good squelch processor, but it also is able to provide information from which the signal strength of the received signal may be calculated.</p>
+<p>The third challenge is at the transmitter site end (where the <code>app_rpt</code> system is located) taking all of the streams of audio from the various receivers and synchronizing them via included time information, and making a reasonable decision on which stream to "use", based upon signal strength and quality. The synchronization is done with basically a "multi-dimensional jitter buffer" and is implemented in the Asterisk channel driver that I wrote for this application, <code>chan_voter</code>.</p>
+<p>The fourth challenge is to facilitate a method of testing the protocol and its implementation within <code>app_rpt</code>. Obviously, there is no way to have a "real" environment available, where there are multiple receivers, mobiles, etc., so a simulator has to be created.</p>
+<p>I'm <strong>VERY</strong> sorry and embarrassed to say so, but I wrote it in Java (yuck!). It seemed the most reasonable way to accomplish what was necessary. It simulates up to 10 channels of audio, and has "sliders" so that you have full control of "RSSI" and "TIME DELAY" for each channel, in addition to selecting which, if any channels are being sent to the host. You can run it, if you desire. This is the <a href="https://github.com/AllStarLink/Voter/tree/master/archive/votersim">VoterSim</a> tool.</p>
+<p>I also made a new UDP-based protocol for this technology, (called "VOTER"), which may be <a href="../voter-protocol/">viewed here</a>, if desired.</p>
+<h2 id="description">Description</h2>
+<p>In order to successfully implement a VoIP-based solution for this purpose, it is necessary to have a precise time reference in order to be able to re-assemble (time-wise) the audio streams at the central site, since VoIP has inherent inconsistencies in time delay (jitter and such). Clearly, the best and most reasonable and economic source of such precise timing data is GPS. Therefore, a GPS receiver (with a 1 pulse per second output) <strong>must</strong> be made available at each receiver location (along with the central site).</p>
+<p>Since precise timing is necessary, it precludes the use of any implementation which relies on a traditionally host-based operating system, such as Linux or UNIX, because of limitations of timing and scheduling precision and latency.</p>
+<p>Therefore, a dedicated hardware device with a simple embedded micro-controller was necessary to accomplish the necessary precise timing requirements. In addition, low cost (in comparison with a host-based solution) makes placing such a simple dedicated hardware device at each receiver location a great advantage.</p>
+<p>Such a dedicated hardware solution significantly increases reliability, has a far lower power consumption, and is physically smaller (in comparison with a host-based solution).</p>
+<p>The "central site" functionality (the device which receives all of the VoIP-based audio streams from the receivers and selects which receiver's audio to use) is implemented as a channel driver (<code>chan_voter</code>) along with <code>app_rpt</code> under Asterisk PBX. The host-based system on which this runs, along with a dedicated hardware device (which gives access to the precise GPS-derived time data) is typically located with the system's transmitter (or at least one of them).</p>
+<p>Each dedicated hardware device is also capable of simultaneously generating time-synchronized audio out to drive a transmitter (or multiple transmitters in a simulcast system). The audio out of all the dedicated hardware devices at all locations will be identical at the same time.</p>
+<p>There are facilities available for online monitoring of the voting system (audio and signal strengths), in addition to recording (logging) facilities.</p>
+<h2 id="why-a-96mhz-clock">Why a 9.6MHz Clock?</h2>
+<p>A question that often gets asked (in relation to doing simulcast) is, "why not just clock the dsPIC at 10MHz, instead of 9.6MHz". Well, there is a very good reason that Jim picked that oscillator frequency, and a very good reason why you cannot use 10MHz.</p>
+<p>It comes down to timers and interrupts. In particular, the ADC servicing subroutine. </p>
+<p>With the way the dsPIC is configured with the 9.6Mhz oscillator, this subroutine is automatically called every 62.5uSec, as it is controlled by Timer 3 (TMR3).</p>
+<p>This subroutine is responsible for encoding the RX Audio Packets, and doing all the AtoD on the other analog inputs, RX Noise (for RSSI), Squelch Pot position, and Diode Voltage (temperature compensation).</p>
+<p>Every <strong>ODD</strong> time this subroutine is run, it encodes a RX Audio packet. Since this happens every <strong>OTHER</strong> time the ISR runs, that means it runs every <strong>125uSec</strong>. Well, the reciprocal of 125uSec is 8kHz, so this is how we encode 8000 samples/sec of RX Audio! By default, encoding is ulaw, unless you <strong>SPECIFICALLY</strong> configure this client for ADPCM in <a href="../../config/voter_conf/"><code>voter.conf</code></a>.</p>
+<p>Every <strong>EVEN</strong> time this ISR runs, it alternates measuring RX Noise, Squelch Pot Position, and Diode Voltage. So, each of those is measured every <em>sixth</em> time in, or every 375uSec. </p>
+<p><strong>EVERY</strong> time this ISR runs, we bump some counters.</p>
+<p>Every time TMR3 expires, we service this routine and do an ADC conversion. We alternate between reading the RX Audio, and one of the other three channels (Squelch Noise, Squelch Pot position, and Diode (temp comp) voltage).</p>
+<p>So, as you can see, in order to encode ulaw/ADPCM audio at 8kHz, we need precise timing to take the ADC samples of the audio and encode them. Because of this precise timing, and the restrictions in the clock dividers in the dsPIC, it works out that 9.6MHz is the most suitable (common) crystal/clock to use.</p>
+<p>That said, some investigation has been done to see if there are any other suitable clocks. As it turns out, there may indeed be. Old CDMA wireless systems had GPSDO's that had a 9.8304MHz (CDMA 8x Chip) output that was locked to GPS (and there are lots of those still surplus). It would appear that there is a valid clock configuration for the dsPIC that <em>could</em> allow this clock signal to be used, and still maintain the 62.5uSec timer for the ISR. </p>
+<p>However, there is another problem presented with this approach, the bootloader. The bootloader is expecting a 9.6MHz clock to run, so it isn't going to like it if you feed it 9.8304MHz. We don't have the source code for the bootloader, so that is a more difficult change to implement. However, peeking in to the <code>.cof</code> file with a hex editor, one can find what seems to be the opcodes to set up the clock on the dsPIC when it boots. It <em>may</em> be possible to hack the bootloader to run at 9.8304Mhz. Further testing is required.</p>
+<p>Of course, this is only really of consequence if you are wanting to do simulcast, where everything needs to be precisely timed. For normal voting use, the standard 9.6MHz clock works just fine. If you are planning on doing simulcast transmitters, the crystal stability of the 9.6MHz oscillator is insufficient, you <strong>will</strong> need to provide an OCXO or GPS-derived 9.6MHz clock source to replace the crystal.</p>
+<h2 id="implementation">Implementation</h2>
+<p>A UDP-based VoIP protocol was created specifically for this technology. See the <a href="../voter-protocol/">VOTER Protocol</a> page for further details on the underlying communication protocol between client devices and the host.</p>
+<p>More information on how the <code>chan_voter</code> channel driver works is available on the <a href="../voter-chan_voter/"><code>chan_voter</code></a> page.</p>
+<p>There are currently two hardware implementations that use the VOTER protocol, and interface to AllStarLink.</p>
+<h3 id="voter">VOTER</h3>
+<p>The dedicated hardware device (the VOTER) was initially implemented as an approximately 160 by 100mm circuit board utilizing thru-hole mounted components allowing user-assemble-able blank boards to be made available quite inexpensively. </p>
+<p>It uses a dsPIC33FJ128GP802 processor and a few other integrated circuits, including some operational amplifiers (which implement filters, amps, etc). </p>
+<p>The schematics, board design, artwork, and PIC firmware are available on a completely free open-source basis, the original project information is available in the <a href="https://github.com/AllStarLink/Voter/tree/master/VOTER-pcb">AllStarLink GitHub Repository</a>.</p>
+<div class="grid">
+<p><a class="glightbox" href="../img/1599px-Voter-assy-trim.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="VOTER PCB" src="../img/1599px-Voter-assy-trim.png" /></a></p>
+<p><a class="glightbox" href="../img/Voterr-reva.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="VOTER ASSY" src="../img/Voterr-reva.jpg" /></a></p>
+</div>
+<p>In addition, the schematics of the original VOTER have been redrawn in KiCAD, and are <a href="https://github.com/AllStarLink/Voter/tree/master/VOTER-pcb/KiCAD-schematic">available here</a>. </p>
+<p>Firmware in the <a href="https://github.com/AllStarLink/Voter/tree/master/VOTER_RTCM-firmware">AllStarLink GitHub Repository</a> is produced to support both the VOTER and RTCM devices.</p>
+<p>Documentation to support the VOTER is available on the <a href="../voter-hardware/">VOTER Hardware</a> page.</p>
+<p>For specific information about the console menus and options available in the firmware, see the <a href="../voter-menus/">VOTER Menus</a> page.</p>
+<h3 id="rtcm">RTCM</h3>
+<p>The VOTER was then implemented commercially by <a href="http://micro-node.com">Micro-Node International</a> and marketed as their <a href="http://www.micro-node.com/thin-m1.shtml">Radio Thin Client Module (RTCM)</a>. The RTCM is effectively a VOTER, but built with SMT components. It runs the same (similar) firmware as the VOTER, with differences being in the dsPIC that it uses, as well as some of the peripheral mapping. </p>
+<div class="grid">
+<p><a class="glightbox" href="../img/Rtcm2-750.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RTCM 2" src="../img/Rtcm2-750.jpg" /></a></p>
+<p><a class="glightbox" href="../img/Rtcm1-750.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RTCM Front" src="../img/Rtcm1-750.jpg" /></a></p>
+<p><a class="glightbox" href="../img/Rtcm3-750.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="RTCM 3" src="../img/Rtcm3-750.jpg" /></a></p>
+</div>
+<p>Firmware in the <a href="https://github.com/AllStarLink/Voter/tree/master/VOTER_RTCM-firmware">AllStarLink GitHub Repository</a> is produced to support both the VOTER and RTCM devices.</p>
+<p>As it runs the same (similar) firmware as the VOTER, for specific information about the console menus and options available, see the <a href="../voter-menus/">VOTER Menus</a> page.</p>
+<p>Unless specifically noted, references to the VOTER hardware apply equally to the RTCM, and both terms may be used interchangeably. </p>
+<p>There is a <a href="../assets/rtcm_manual.pdf">User Manual</a> available for the RTCM, but it has not been updated in a long time. You may wish to supplement with information from our online <a href="../voter-hardware/">VOTER Hardware</a> (for the through-hole board) or the <a href="../rtcm-hardware/">RTCM Hardware</a> pages.</p>
+<h3 id="firmware-upgrading">Firmware Upgrading</h3>
+<p>See the <a href="../voter-firmware/">VOTER firmware</a> page on the procedure to upgrade the firmware.</p>
+<h2 id="provisioning-and-configuration">Provisioning and Configuration</h2>
+<h3 id="general-system-provisioning">General System Provisioning</h3>
+<p>There needs to be:</p>
+<ul>
+<li>Some number (&gt; 1) of receiver sites that contain 1 of identical model receivers (or at least ones with identical characteristics), one VOTER (embedded hardware) card, one GPS receiver and some sort of Internet connection (can be a private LAN).</li>
+<li>Some number of transmitter sites (typically one, but not necessarily) that contain a transmitter, one VOTER/RTCM (embedded hardware) card, one GPS receiver, and some sort of Internet connection (can be a private LAN). A site <em>may</em> have both a receiver and transmitter sharing the same VOTER card, GPS receiver, and Internet connection.</li>
+<li>A Linux host running Asterisk (AllStarLink) with <code>app_rpt</code> and <code>chan_voter</code>, along with a VOTER/RTCM (embedded hardware) card, a GPS receiver, and an Internet connection (may be a private LAN in some cases) with sufficient bandwidth to accommodate all the packet traffic from/to all the receiver and/or transmitter sites. This location may also have a receiver and/or transmitter connected to the VOTER/RTCM card.</li>
+<li><em>Optionally</em>, system monitoring access (both audio and signal strength at all receive sites) may be made available through the use of a JAVA applet (deprecated) and a process running on a server at a location with high availability and high bandwidth internet connection. Typically, this is not at the same location as the above system, but may be, if appropriate. </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">System Monitoring</p>
+<p>The original system monitoring was accomplished with <code>votemond</code> and <code>votermon</code>. Both those utilities have been deprecated. In their place, Allmon/Supermon can display the status of voting sites.</p>
+</div>
+<p>The system layout is envisioned as:</p>
+<p><a class="glightbox" href="../img/VOTER_System_Layout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="VOTER System Layout" src="../img/VOTER_System_Layout.png" /></a></p>
+<h3 id="ip-internet-network-planning-and-provisioning">IP (Internet) Network Planning and Provisioning</h3>
+<p>The receiver/transmitter sites may be connected to the "master" site (the one containing the Linux system running <code>chan_voter</code>, <code>app_rpt</code>, and Asterisk (AllStarLink)) via either a LAN (either physical or extended Local Area Network), a public Internet connection, or some combination thereof.</p>
+<p>See the <a href="../voter-protocol/">VOTER Protocol</a> page for further details on the underlying communication protocol between client devices and the host.</p>
+<p>Regardless of the interconnection method, the following criteria must be met: </p>
+<ul>
+<li>Sufficient bandwidth must be available at all times between each receiver/transmitter site and the "master" site. The latency of such connections must be within <em>reasonable</em> limits, and <strong><em>certainly</em></strong> must be within the limits configured in both the VOTER board devices and <a href="../../config/voter_conf/"><code>voter.conf</code></a>.</li>
+<li>The "master site" really <em>should</em> be on a static IP address. Although not 100% necessary, it could really make for an unreliable installation.</li>
+<li>Any of the devices (including the "master" site) may be behind NAT and/or a firewall. There is no specific requirement for the VOTER board to have any sort of non-NATed access, since the actual IP address and UDP port that is public really makes no difference. All authentication is based upon CHAP-type tokens, and not upon IP address in any way. The "master" site may be behind NAT and/or a firewall, as long as its listening UDP port (generally 1667) is exposed to the public (unless entire system is on an entirely private network). If the implementer wishes, TELNET access may be configured for the VOTER board, and in that case, the port selected for TELNET must be made publicly accessible (since the VOTER firmware supports dynamic DNS, it certainly may be on a dynamically-assigned public IP address when the TELNET option is used, and its actual IP address really doesn't matter if TELNET is not configured).</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Do This at Your Own Risk</p>
+<p>It is a <strong>VERY BAD</strong> idea to expose TELNET to the public Internet, you accept all responsibility if you choose not to heed this warning!</p>
+</div>
+<h3 id="bandwidth-considerations">Bandwidth Considerations</h3>
+<p>Typically, the IP bandwidth usage in each direction, when a signal is present is approximately 100kbps (including UDP/IP overhead, one direction only if just a receive or just a transmitter site, or both directions if a receive/transmit site).</p>
+<p>On a public Internet connection, its a good rule-of-thumb to use a connection capable of three to four times the required bandwidth in the slowest direction (often, such connections are asymmetrical as far as their speeds are concerned).</p>
+<p>If possible, avoid wireless connections (ie "cellular", "MiFi", etc.). DSL/Fiber/Cable is your friend. It tends to be more reliable and consistent (less latency and jitter) then other forms of broadband connections.</p>
+<p>If a wireless connection is <em>really</em> required (ie mountain-top microwave link), use a high reliability solution, such as the devices from Ubiquiti or Microtik. The VOTER hardware DOES support ToS marking of packets, but your link <em>shouldn't</em> be congested to the point where that would be required anyways!</p>
+<h3 id="port-forwarding">Port Forwarding</h3>
+<p>Since token-based authentication and identification is utilized, having the UDP port open to the public should not be a significant security risk. There <strong>must</strong> be a VOTER board on the <strong>same physical LAN (ie switch)</strong> (very low latency) as the Asterisk server implementing the “master site”, which acts as the Master Timing Source. This allows <code>chan_voter</code> to have a consistent, reliable, accurate timing source with which the timing information from all other inbound packets are compared and appropriately processed, and from which to generate accurate timing information for time-consistent transmission purposes.</p>
+<p>The AllStarLink server at the “master site” (in addition to all the ports that are canonically made public to operate a standard <code>app_rpt</code> installation) <strong>must</strong> have the port specified in the <code>port</code> parameter in the <code>[general]</code> stanza in the <a href="../../config/voter_conf/"><code>voter.conf</code></a> file made publicly available, or at least available to all possible IP addresses from which its associated VOTER clients could possibly be operating.</p>
+<h3 id="network-qos">Network QoS</h3>
+<p>Your IP Network quality is important. You may wish to add a rule in your routers to prioritize traffic on UDP port 1667 so that VOTER audio is given priority over other 
+traffic. Also see the below for notes on how to tag your packets with ToS.</p>
+<p>By default in firmware &gt;2.00, packets <strong>from</strong> the VOTER/RTCM <strong>to</strong> the host are tagged. You can use <a href="../voter-hardware/#debug-options">Debug Options</a> to disable that for testing. You still need to have the appropriate <code>utos=y</code> line in the <code>[general]</code> stanza of your <a href="../../config/voter_conf/"><code>voter.conf</code></a> to tag packets <strong>from</strong> the host <strong>to</strong> the VOTER/RTCM clients.</p>
+<p>Specifically to Ubiquity devices, see <a href="https://help.uisp.com/hc/en-us/articles/22590834519959-airMAX-Frequently-Asked-Questions-FAQs">airMAX FAQs</a>.</p>
+<p>So, if we set ToS/DSCP in the header to <code>C0</code>, then Ubiquity (and other gear watching ToS) <em>should</em> prioritize the packets. This sets the DSCP to <code>110 000</code> aka <code>48</code>. UBNT shows this as 802.1p Class 6 (Voice &lt;10mS latency). Other sources show this as a Network Control TOS.</p>
+<h2 id="receiver-andor-transmitter-site">Receiver (and/or Transmitter) Site</h2>
+<p>A receiver and/or transmitter site consists of a receiver capable of providing direct access to the output of the FM discriminator (and output of CTCSS/CDCSS tone decoder, if applicable) and/or a transmitter, a VOTER (embedded hardware) board, a GPS receiver capable of providing a precise 1 pulse per second signal (such as the Garmin LVC18) and NMEA or TSIP information packets, and an Ethernet-based Internet connection.</p>
+<p>Since there may very well be several versions of the VOTER board hardware available, this document will not cover specific details of the shown hardware device here. The full details for each hardware device, including construction (if applicable), programming, and specific configuration options are available from the vendor of the particular device. Only generic configuration concepts and options will be covered here.</p>
+<h3 id="voter-hardware-configuration-settings">VOTER Hardware Configuration Settings</h3>
+<p>There are several categories of configuration parameters that apply to all version of the VOTER hardware.</p>
+<ul>
+<li>IP SETTINGS – Standard IP setup parameters (IP Address, Netmask, Gateway, DHCP, etc.).</li>
+<li>VOTER SERVER – VOTER server address, specified as a Fully-Qualified Domain Name (FQDN), UDP port on VOTER server, and (optionally) local UDP port (generally left at default), and client and server passwords. </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">VOTER DNS Resolution</p>
+<p>The firmware in the VOTER board does a DNS resolution once per minute and resolves the IP address for the VOTER server, based upon the FQDN specified in this configuration. Therefore, the actual IP address of the VOTER server may be changed (and its associated DNS entry), and the VOTER board firmware will continue to be aware of its current IP address (thus not requiring re-configuration of the VOTER board firmware if the IP address of the VOTER server changes).</p>
+</div>
+<ul>
+<li>The “client password” is the password, as configured in the server, that identifies the VOTER hardware (client), and the “server password” is the common server password as configured in the server (which allows verification of the server's identity by the VOTER hardware firmware).</li>
+<li>TX BUFFER PARAMETER – Transmit buffer length. This allows for simultaneous time-consistent audio output at all VOTER clients in a system. Buffer length is set to allow for maximum network latency between “master (host) site” and receive/transmit sites.</li>
+<li>GPS RECEIVER PARAMETERS – Data Protocol (NMEA or TSIP), Baud Rate, Data Polarity and PPS Signal Polarity (and time offset, don't ask, just leave it at 0, hopefully) for GPS receiver.</li>
+<li>TELNET PARAMETERS – Port Number, User name, and Password for console TELNET access.</li>
+<li>DYNDNS PARAMETERS – Setup parameters necessary to make dynamic DNS work (if desired).</li>
+<li>EXTERNAL TONE DECODE – Sets mode for external tone decode (CTCSS) input (enable/polarity).</li>
+</ul>
+<p>The serial console of the VOTER gives access to a menu allowing setting of the above mentioned parameters in addition to various system-related functions, reboot, save parameters, status, etc. In addition, the console displays important system status messages as various events occur (such as changes in GPS status, changes in DNS resolution, etc.). More information on all the menus and options is available on the <a href="../voter-menus/">VOTER Menus</a> page.</p>
+<h3 id="voter-hardware-setup-and-installation">VOTER Hardware Setup and Installation</h3>
+<p>For more information on the VOTER Hardware connections, see the <a href="../voter-hardware/">VOTER Hardware</a> page. For the RTCM, see the <a href="../assets/rtcm_manual.pdf">user manual</a> and/or the <a href="../rtcm-hardware/">RTCM Hardware</a> pages.</p>
+<p>Appropriate connections need to be made between the receiver's discriminator, and optionally its tone decode output, and/or the transmitter and its external (auxilliary) audio input (or microphone input, attenuated), and PTT signals. </p>
+<div class="admonition warning">
+<p class="admonition-title">Transmit Audio Connections</p>
+<p>In most applications, transmit audio must be routed through the external (auxilliary) audio input so that it gets pre-emphasized, limited, and splatter filtered. <strong>DO NOT</strong> directly connect to a modulator input, data input, or other direct transmitter connection (UNLESS you are generating CTCSS with the VOTER, see below). </p>
+</div>
+<p><strong>Discriminator audio is required</strong> to do noise (RSSI) and squelch analysis on the incoming audio, prior to the actual voice audio (baseband) being de-emphasized and sent to the host (unless it is specifically overridden, then it is a custom application). As such, the audio sent from the host to the transmitter(s) needs to be pre-emphasized before being sent over the air. </p>
+<p>The GPS receiver needs to be connected (see notes on the <a href="../voter-gps/">VOTER GPS</a> page), and the VOTER hardware needs to be connected via Ethernet to an Internet connection, and, of course, power needs to be applied to the board.</p>
+<p>With no antenna connected to the receiver, the board needs to have its “squelch calibration” procedure performed (see the documentation for the specific hardware).</p>
+<p>The receive level needs to be set, either by putting the board in “level setting” mode, or with use of the console (see the documentation for the specific hardware). </p>
+<p>The transmit level also needs to be set at transmitter site(s). See the <a href="../voter-audio/">VOTER Audio</a> page for further instructions on configuring audio and setting levels.</p>
+<p>Once the above procedures are performed, the board is ready to have its operating parameters configured and then it will be ready for use. Configuration is done via serial console or TELNET. Serial console may be required for initial configuration, if you cannot determine the IP address given to the VOTER hardware via DHCP when first connected to your network.</p>
+<p>Set the IP Settings, TX Buffer Parameters, GPS Parameters (if necessary), TELNET Parameters, DYNDNS Parameters, and External Tone Decode appropriately for the installation.</p>
+<p>The VOTER/RTCM hardware device needs to be on an Ethernet network (typically a router or switch or wireless bridging device of some sort) that has connectivity to the “master/host” site, either via public Internet or via private LAN (extended, perhaps). </p>
+<p>It may be on a network that allocates IP addresses (LAN and/or public IP address) dynamically. The <a href="../voter-protocol/">VOTER Protocol</a> and the VOTER hardware firmware are designed specifically to allow for not needing the IP address of any VOTER board to be long-term consistent, or even important, for that matter. All authentication and identification is based upon tokens, not IP address or port.</p>
+<p>If TELNET access is desired, the VOTER hardware needs to at least have its TELNET port accessible (through a NAT/Firewall if used), otherwise it is not necessary. Even if TELNET access is used, a dynamically-assigned public IP address will work, because dynamic DNS (dyndns.org) is supported in the VOTER hardware firmware.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do This at Your Own Risk</p>
+<p>It is a <strong>VERY BAD</strong> idea to expose TELNET to the public Internet, you accept all responsibility if you choose not to heed this warning!</p>
+</div>
+<p>This document assumes sufficient familiarity with IP and general networking concepts, and therefore will not go into specific details of network provisioning.</p>
+<p>The VOTER Server Settings on the VOTER hardware will be covered in the next section.</p>
+<h3 id="overall-system-main-site-configuration">Overall System / Main Site Configuration</h3>
+<p><code>app_rpt</code> (Asterisk) uses a channel driver <code>chan_voter</code>, which implements the “master site” or "host" functionality, providing an Asterisk channel which <code>app_rpt</code> may open as a radio interface (like a <code>usbradio</code> or <code>pseudo</code> channel in a non-voting AllStarLink system). This driver receives (and/or sends) UDP packets (typically on UDP port 1667) from/to all associated VOTER clients at receive and/or transmit sites.</p>
+<p>For each VOTER channel instance, both voting (GPS-based) and non-voting “general-purpose” (non-GPS-based) clients may be used. The channel driver essentially “mixes” the resultant audio from the voting subsystem along with the audio from all of the “general-purpose” clients (if any).</p>
+<p>In addition, the channel driver (optionally) may be configured to send a stream of UDP packets to a predetermined IP address and UDP port. This stream is meant to be redistributed by the <code>votmond</code> program (deprecated) running on a high-availability, high-bandwidth Linux Server, and give users access to monitoring of the VOTER audio and signal strength information in real time.</p>
+<p><code>chan_voter</code> uses a configuration file, <a href="../../config/voter_conf/"><code>voter.conf</code></a>, which contains typically several stanzas. See the <a href="../../config/voter_conf/"><code>voter.conf</code></a> page for more information on the contents of this file, and the available options.</p>
+<h3 id="voting-selection-algorithm-and-associated-parameters">Voting Selection Algorithm and Associated Parameters</h3>
+<p>Voting selection (the choice of client from which to take the audio stream) is based upon the RSSI (relative signal strength/quality) value associated with each particular client's received signal.</p>
+<p>The parameters associated with voting selection are the <code>thresholds</code> and <code>linger</code> parameters specified for each VOTER instance.</p>
+<p>If neither of these parameters are specified, the voting selection algorithm will default to choosing the client with the highest RSSI number (<em>and the last-most one listed in the <code>voter.conf</code> file</em>, if a tie exists) each and every received audio frame (every 20 milliseconds). </p>
+<p>Although this is a functional option, this is probably <strong>NOT</strong> what you really want. Doing so will cause the received signal to have an audible “squelch-tail” at the end of a transmission if there is a receiver receiving the signal strongly in addition to a receiver receiving the signal at a low, noisy level. </p>
+<p>This, however, might be appropriate in very rare instances where receivers are placed in locations that require very agile following of the strongest signal. It is very unlikely, however, that this is the case.</p>
+<p>It is far more likely that it is appropriate to set up a set of <code>thresholds</code> and optionally a <code>linger</code> time that is different then the default (which is 6 frame periods of 20 milliseconds).</p>
+<p>The <code>linger</code> parameter allows specification of a default <code>linger</code> value (<strong>in multiples of 20 millisecond frames</strong>) of other then the system default value (6).</p>
+<p>The <code>thresholds</code> parameter is a comma-separated list of RSSI threshold values each specified as follows:</p>
+<div class="highlight"><pre><span></span><code>MIN_RSSI[=REASSESS_FRAMES[:LINGER_FRAMES]]
+</code></pre></div>
+<ul>
+<li><code>MIN_RSSI</code> is the minimum RSSI value for this threshold (1-255)</li>
+<li><code>REASSESS_FRAMES</code> is the number of 20ms frames for the client to remain selected at this threshold level before being re-assessed (may be specified as 0, meaning “re-assess at next frame”)</li>
+<li><code>LINGER_FRAMES</code> is the number of 20ms frames for the client to remain selected after no longer being at this threshold (or any other) (may be specified as 0, meaning “do not linger”)</li>
+</ul>
+<p>If <code>MIN_RSSI</code> is specified without the other values, its <code>REASSESS_FRAMES</code> is considered to be infinite (it will not get re-assessed if its RSSI value remains at this threshold), and <code>LINGER_FRAMES</code> will be its default value (6).</p>
+<p>If <code>MIN_RSSI</code> and <code>REASSESS_FRAMES</code> are specified, <code>LINGER_FRAMES</code> will be at its default value(6).</p>
+<p>A specification for <code>REASSESS_FRAMES</code> <strong>must</strong> be present if there is a specification for <code>LINGER_FRAMES</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code>thresholds = 255,110=5
+</code></pre></div>
+<p>Meaning:</p>
+<p>If the RSSI level is 255, stay selected on that client as long as it still has an RSSI of 255, else if the RSSI level is at least 110, stay selected there for no more then 5 frames. If the RSSI drops below 110, re-assess every frame (since no value below 110 was specified).</p>
+<p>Also, since there were threshold values specified and the <code>linger</code> value remained default, any client that meets any specified threshold, stays selected for 6 frames when no clients meet any thresholds any longer.</p>
+<p>If, instead the example was:</p>
+<div class="highlight"><pre><span></span><code>thresholds = 255,110=5:10
+</code></pre></div>
+<p>Then:</p>
+<p>The same would be true except that if a client meets the “110” threshold (and not the “255” threshold), and then no more clients meet any more thresholds, the client that met the “110” threshold would stay selected for 10 frames rather then the default 6.</p>
+<p>This whole methodology is rather strange, but it seems to be appropriate and effective. In the future, it may be improved or modified in some way, but for now it is more than sufficient.</p>
+<h3 id="buffer-tuning">Buffer Tuning</h3>
+<p>See the <a href="../voter-buffers/">VOTER Buffers</a> page for information on how the buffers work, and how to tune them for proper operation.</p>
+<h3 id="simulcasting">Simulcasting</h3>
+<p>The RTCM/VOTER boards do support simulcasting, however, there are a bunch of quirks that one needs to be aware of.</p>
+<p>See the <a href="../voter-simulcasting/">VOTER Simulcasting</a> page for further information.</p>
+<h3 id="general-purposemixed-mode-configurations">General-Purpose/Mixed Mode Configurations</h3>
+<p>The primary use of the VOTER/RTCM is to implement multi-site receiver voting repeater systems. That leads itself then to also adding simulcast transmitters (if you already have the sites for receivers).</p>
+<p>However, this is not the only use case.</p>
+<p>The VOTER/RTCM also works very well as a repeater interface to a stand-alone repeater. In fact, in a few key areas, it is a superior choice for interfacing a repeater to AllStarLink:</p>
+<ul>
+<li>Hardened hardware (no SD card to corrupt with power failures)</li>
+<li>No operating system crashes</li>
+<li>No USB configuration issues</li>
+<li>No USB audio level configurations to get corrupted</li>
+<li>Supports CTCSS transmit tone generation</li>
+<li>Easily transits NAT networks with minimal network configuration</li>
+</ul>
+<p>Remember, the VOTER/RTCM is basically a custom Radio over IP (RoIP) adapter. It was just designed from the ground up by a very smart amateur radio operator.</p>
+<p>When used in "General-purpose"/"Mixed Mode" (for a stand-alone repeater), you do <strong>not</strong> require a GPS for timing. Although, there is nothing stopping you from using one. Setting the PPS Polarity setting to <code>2</code> (ignore) will force the VOTER/RTCM in to "General-purpose" mode. </p>
+<p>As the name "Mixed Mode" implies, you could have a "General-purpose" client that is mixed with voting clients, and <code>chan_voter</code> will "mix" the audio from non-voting clients with the voted audio.  </p>
+<p>A simple <a href="../../config/voter_conf/"><code>voter.conf</code></a> for Mixed Mode would look like this:</p>
+<div class="highlight"><pre><span></span><code>[general]
+port = 1667
+password = BLAH
+
+[1999]
+Site1 = pswrd1,master,transmit
+Site2 = pswrd2,transmit
+</code></pre></div>
+<h4 id="mixed-client-error">Mixed Client Error</h4>
+<p>"I am getting this error in Asterisk":</p>
+<div class="highlight"><pre><span></span><code>WARNING[2368]: chan_voter.c:4511 voter_reader: Voter client master timing source mobile1 attempting to authenticate as mix client!!
+</code></pre></div>
+<p>A mixed client error means the <a href="../../config/voter_conf/"><code>voter.conf</code></a> file is expecting a VOTER/RTCM to try and connect with a GPS IP packet (ie. has <code>master</code> in it's definition in <a href="../../config/voter_conf/"><code>voter.conf</code></a>), but the VOTER/RTCM isn't sending a GPS IP packet. So it is a mismatch between <a href="../../config/voter_conf/"><code>voter.conf</code></a> and the PPS setting in the VOTER/RTCM. </p>
+<p>If you want to use a mix client (non-voted), make sure that receiver's configuration line in <a href="../../config/voter_conf/"><code>voter.conf</code></a> <strong>does not</strong> have the <code>master</code> option set.</p>
+<h4 id="mix-clients-with-voted-client-issues">Mix Clients with Voted Client Issues</h4>
+<p>Situation...
+"I have a private node with 6 voted receivers using RTCMs. I'd like to add a 7th RTCM to this node that is always mixed in rather than voted. I'm able to make this RTCM work as a 7th voted receiver with no problem. Everything I've read seems to indicate that if I change GPS PPS polarity to "none" this will achieve my desired results, however I am unable to get audio out of my transmit RTCM from this 7th site. It does change color to cyan in Allmon indicating it is non voted input but I do not get any indication or audio when that units COR goes active."</p>
+<p>"Setting <code>voter debug level 3</code> in Asterisk and I'm seeing the following message repeatedly scrolling by in a blur when the mix client detects COR (COR is active). Sequence numbers are continually incrementing by 1. I'm running software version 1.47 on all my clients:"</p>
+<div class="highlight"><pre><span></span><code>mix client (Mulaw) my_client index:0 their seq:629 our seq:629
+mix client my_client outa bounds, resetting!!
+</code></pre></div>
+<p>If you have a similar situation to the above... check your <code>buflen</code> in <a href="../../config/voter_conf/"><code>voter.conf</code></a>. Make sure it is at &gt;=160 and see if that fixes it. You may also want to review <a href="../voter-buffers/">buffer tuning</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>This technology/project is a great asset to the two-way radio community in general, particularly Amateur Radio and other pubic-service related radio services, allowing inexpensive, general, and open access to what previously would have been impossible or otherwise unattainable. </p>
+<p>Systems of this type can greatly improve ability to provide efficient and reliable communications, not to mention promoting usage of frequencies and modes that otherwise may have been underutilized or ignored.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: VOTER/RTCM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                VOTER/RTCM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../voter-protocol/" class="md-footer__link md-footer__link--next" aria-label="Next: VOTER Protocol">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                VOTER Protocol
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 AllStarLink Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.allstarlink.org/" target="_blank" rel="noopener" title="AllStarLink Home" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6 31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5 50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5l112.2-112.3c31.5-31.5 82.5-31.5 114 0 27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/AllStarLink" target="_blank" rel="noopener" title="AllStarLink on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
