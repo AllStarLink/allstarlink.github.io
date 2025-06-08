@@ -26,7 +26,7 @@
     
     
       
-        <title>Docker - AllStarLink Manual</title>
+        <title>Docker Installation - AllStarLink Manual</title>
       
     
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#docker-installation" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Docker Installation
             
           </span>
         </div>
@@ -960,17 +960,121 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker Installation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Docker
+    Docker Installation
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Composition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interacting-with-asterisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interacting with Asterisk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-asterisk-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Asterisk Logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-and-starting-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stopping and Starting the Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-rebuild-after-host-kernel-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Rebuild After Host Kernel Upgrade
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3410,8 +3514,92 @@
 
 
 
-<h1 id="docker">Docker</h1>
-<p>Docker support is being discussed.</p>
+<h1 id="docker-installation">Docker Installation</h1>
+<p>These instructions are for installing ASL3 within a Docker container. The
+utility of this is low because of the host-container kernel dependencies.
+Use of a <a href="../install/">normal installation</a> is recommended.</p>
+<div class="admonition warning">
+<p class="admonition-title">Host / Container Kernel Compatibility</p>
+<p>As app_rpt.so requires the DAHDI kernel modules, the container must be
+hosted on a Debian 12 system. The container must be able to compile the
+kernel module (using DKMS) for the exact kernel version provided to
+the container from the Host OS. Currently, the container must be
+recomposed after a reboot into a new kernel.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Advanced Concept</p>
+<p>Use of Asterisk/app_rpt within a Docker container is not a trivial
+undertaking. The Docker structure is provided due to requests from the 
+community but it is not the recommended way to install and use
+AllStarLink as it requires more configuration, not less, than
+a traditional installation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Limited Support</p>
+<p>Installation of Asterisk/app_rpt in a container is not a primary
+platform for AllStarLink v3. Updates, fixes, and support will
+occur on as "as available" basis. Users of the container are 
+requested to help the project.</p>
+</div>
+<h2 id="git-repository">Git Repository</h2>
+<p>Create the directory <code>/docker</code> (or use whatever is preferred), <code>cd</code> to it,
+and check out the Git repository containing the Docker configuration.
+All commands on the rest of this page assume they are being run from
+the directory containing the root of the Git repository. </p>
+<p>For this manual page, the path used is <code>/docker/asl3-docker</code>.</p>
+<p>If the repository has already been checked out, but simply needs the latest
+information, do <code>git pull origin</code> from the <code>/docker/asl3-docker</code> directory.</p>
+<h2 id="system-requirements">System Requirements</h2>
+<p>The AllStarLink3 container will require about 2G of space available
+to <code>/var/lib/docker</code>.</p>
+<h2 id="container-composition">Container Composition</h2>
+<p>Construct the docker container with:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build<span class="w"> </span>--force-recreate
+</code></pre></div>
+<p>The script <code>asl3-init.sh</code> is used during the composition process to build the
+system. Alterations for composing should be added here when possible
+instead of the <code>Dockerfile</code> or <code>docker-compose.yml</code>. Do not delete
+the <code>fake-systemctl</code> - that is needed to simulate systemd configurations for
+successful package installation.</p>
+<h2 id="container-configuration">Container Configuration</h2>
+<p>Configuration of Asterisk/ASL3 within the container is best done using
+the <code>asl-menu</code> program. This is invoked with:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>allstarlink3<span class="w"> </span>asl-menu
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Restarting Asterisk for Config Changes</p>
+<p>Due to the workings of containers, the "Restart Asterisk" functions
+of asl-menu do not work. Changes make to the configuration
+requires a container restart - <code>docker restart allstarlink3</code>.
+It is possible to use the Asterisk command <code>rpt restart</code> to reload
+app_rpt but that is not always reliable.</p>
+</div>
+<h2 id="interacting-with-asterisk">Interacting with Asterisk</h2>
+<p>Interacting with asterisk in the container is done using <code>asterisk-cli.sh</code>:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>allstarlink3<span class="w"> </span>/asl3/asterisk-cli.sh
+</code></pre></div>
+<h2 id="viewing-asterisk-logs">Viewing Asterisk Logs</h2>
+<p>Logs are viewed with <code>docker logs allstarlink3</code>.</p>
+<h2 id="stopping-and-starting-the-container">Stopping and Starting the Container</h2>
+<p>After the <code>docker compose</code> command, the container will be running
+with the initial configuration of Asterisk and app_rpt. The following
+commands may be used to manage the container:</p>
+<ul>
+<li><code>docker stop allstarlink3</code> - Stops the container</li>
+<li><code>docker start allstarlink3</code> - Starts the container</li>
+<li><code>docker restart allstarlink3</code> - Restart the container (effectively a stop/start)</li>
+</ul>
+<p>The container will start on boot of the Host OS unless otherwise configured.</p>
+<h2 id="container-rebuild-after-host-kernel-upgrade">Container Rebuild After Host Kernel Upgrade</h2>
+<p>As stated above, the container must be managed in lock-step with the underlying
+kernel of the host operating system. After the kernel of the host has been
+upgraded, the container must be upgraded as well. The easiest way to do this
+is simply top stop and recompose the container:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>allstarlink3
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build<span class="w"> </span>--force-recreate
+</code></pre></div>
+<p>Upon start after the recomposition, DAHDI will be installed and working
+for the upgraded kernel.</p>
 
 
 
