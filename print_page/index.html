@@ -4209,9 +4209,18 @@ requested to help the project.</p>
 and check out the Git repository containing the Docker configuration.
 All commands on the rest of this page assume they are being run from
 the directory containing the root of the Git repository. </p>
-<p>For this manual page, the path used is <code>/docker/asl3-docker</code>.</p>
+<p>For this manual page, the path used is <code>/docker/ASL3-Docker</code>.</p>
+<p>The Git repository is located at <a href="https://github.com/AllstarLink/asl3-docker">https://github.com/AllstarLink/asl3-docker</a>. The general workflow can be used:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/docker
+<span class="nb">cd</span><span class="w"> </span>/docker
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AllStarLink/ASL3-Docker.git
+</code></pre></div>
 <p>If the repository has already been checked out, but simply needs the latest
-information, do <code>git pull origin</code> from the <code>/docker/asl3-docker</code> directory.</p>
+information, do <code>git pull origin</code> from the <code>/docker/ASL3-Docker</code> directory.
+For example:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/docker/ASL3-Docker
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
 <h2 id="install-debian-docker-system-requirements">System Requirements</h2>
 <p>The AllStarLink3 container will require about 2G of space available
 to <code>/var/lib/docker</code>.</p>
