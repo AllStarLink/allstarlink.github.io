@@ -3326,6 +3326,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#archivedatefmt" class="md-nav__link">
+    <span class="md-ellipsis">
+      archivedatefmt=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archiveaudio" class="md-nav__link">
+    <span class="md-ellipsis">
+      archiveaudio=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#beaconing" class="md-nav__link">
     <span class="md-ellipsis">
       beaconing=
@@ -4673,12 +4691,24 @@ control points.</p>
 </table>
 <h2 id="general-stanza">General Stanza</h2>
 <p>ASL3 introduces a new stanza in <code>rpt.conf</code>, the <code>[general]</code> stanza.</p>
-<p>Presently, this stanza just contains a <code>key=value</code> for how node lookups are handled:</p>
+<p>Presently, this stanza just contains <code>key=value</code> pairs that specify how node lookups are handled:</p>
 <div class="highlight"><pre><span></span><code>[general]
-node_lookup_method = both           ;method used to lookup nodes
-                                    ;both = dns lookup first, followed by external file (default)
-                                    ;dns = dns lookup only
-                                    ;file = external file lookup only
+node_lookup_method = both           ; method used to lookup nodes
+                                    ; both = dns lookup first, followed by external file (default)
+                                    ; dns = dns lookup only
+                                    ; file = external file lookup only
+
+; The domain name used for DNS lookups when the node lookup method is &quot;dns&quot; or
+; &quot;both&quot;.  The default domain is &quot;nodes.allstarlink.org&quot; and does not need to
+; be defined here.  Only set &quot;dns_node_domain&quot; if a) You really know what you&#39;re
+; doing and b) you need to use an alternate DNS domain for node resolution.
+;dns_node_domain = nodes.allstarlink.org
+
+; When using DNS, &quot;app_rpt&quot; must know the length of the longest node number.
+; The current maximum is 6 digits and does not need to be defined here. The
+; &quot;max_dns_node_length&quot; variable can be used to limit queries to shorter (or
+; longer) node numbers.
+;max_dns_node_length = 6
 </code></pre></div>
 <p>See <a href="../../adv-topics/noderesolution/">Node Resolution</a> for how this new node lookup method is handled.</p>
 <h2 id="node-number-stanza">Node Number Stanza</h2>
@@ -4714,6 +4744,16 @@ node_lookup_method = both           ;method used to lookup nodes
 <p>This option specifies the format of the audio recordings in <a href="#archivedir"><code>archivedir=</code></a>. By default, the format will be "wav49" (GSM in a .WAV file). Other options you may consider include "wav" (SLIN in a .wav file) and "gsm" (GSM in straight gsm format).</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>archiveformat = wav49                    ; audio format (default = wav49)
+</code></pre></div>
+<h3 id="archivedatefmt">archivedatefmt=</h3>
+<p>This option specifies the filename format used for the audio recordings in <a href="#archivedir"><code>archivedir=</code></a>.  By default, the files will use a "%Y%m%d%H%M%S" date format that maps to YYYYMMDDHHMMSS.  If desired, you can specify any date format supported by the C function strftime(3) API.  For more precision, you can also include the '%[n]q' format to add fractions of a second, with leading zeros.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>archivedatefmt = %Y%m%d%H%M%S%2q         ; date/time (time to 1/100th secs)
+</code></pre></div>
+<h3 id="archiveaudio">archiveaudio=</h3>
+<p>This option specifies whether the both the simple activity log AND audio recordings are included in <a href="#archivedir"><code>archivedir=</code></a>.  If set to "no" then only the activity log will be created (the audio recordings will not be saved).</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>archiveaudio = yes                       ; enable/disable audio recordings (default = yes)
 </code></pre></div>
 <h3 id="beaconing">beaconing=</h3>
 <p>This option, when set to <code>1</code> will send the repeater ID at the <a href="#idtime"><code>idtime</code></a> interval, regardless of whether there was repeater activity or not. This feature appears to be required in the UK, but is probably illegal in the US.</p>
@@ -5335,11 +5375,11 @@ The default value is 180000(mS), or 3 minutes. </p>
 <p>The default is to have <code>wait-times=</code> point to a stanza called <code>wait-times</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See <a href="#wait-times-stanza">Wait Times Stanza</a> for more information on the timers that can be configured.</p>
 <h2 id="control-states-stanza">Control States Stanza</h2>
-<p>There are several predefined nmemonics (keywords) used in the <code>[controlstates]</code> stanza to enable and disable the various features of the controller. These nmemonics correspond to the control operator command (COP) to be executed and most of these are the same groups of letters announced on air when a single control operator command is executed on the controller.</p>
+<p>There are several predefined mnemonics (keywords) used in the <code>[controlstates]</code> stanza to enable and disable the various features of the controller. These mnemonics correspond to the control operator command (COP) to be executed and most of these are the same groups of letters announced on air when a single control operator command is executed on the controller.</p>
 <table>
 <thead>
 <tr>
-<th>Nmemonic</th>
+<th>Mnemonic</th>
 <th>Description</th>
 <th>COP Method</th>
 </tr>

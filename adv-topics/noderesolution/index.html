@@ -2043,7 +2043,7 @@
         <li class="md-nav__item">
   <a href="#domain-name-service-dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Domain Name Service DNS
+      Domain Name Service (DNS)
     </span>
   </a>
   
@@ -3330,10 +3330,22 @@
 <p><code>app_rpt</code> first looks to see if the node is statically configured. If it is not found, the setting for <code>node_lookup_method</code> in the <code>[general]</code> stanza of <code>rpt.conf</code> determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.</p>
 <p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
 <div class="highlight"><pre><span></span><code>[general]
-node_lookup_method = both   ;method used to lookup nodes
-                    ;both = dns lookup first, followed by external file (default)
-                    ;dns = dns lookup only
-                    ;file = external file lookup only
+node_lookup_method = both           ; method used to lookup nodes
+                                    ; both = dns lookup first, followed by external file (default)
+                                    ; dns = dns lookup only
+                                    ; file = external file lookup only
+
+; The domain name used for DNS lookups when the node lookup method is &quot;dns&quot; or
+; &quot;both&quot;.  The default domain is &quot;nodes.allstarlink.org&quot; and does not need to
+; be defined here.  Only set &quot;dns_node_domain&quot; if a) You really know what you&#39;re
+; doing and b) you need to use an alternate DNS domain for node resolution.
+;dns_node_domain = nodes.allstarlink.org
+
+; When using DNS, &quot;app_rpt&quot; must know the length of the longest node number.
+; The current maximum is 6 digits and does not need to be defined here. The
+; &quot;max_dns_node_length&quot; variable can be used to limit queries to shorter (or
+; longer) node numbers.
+;max_dns_node_length = 6
 </code></pre></div>
 <p>The node lookup routines will output debug information showing the node lookups if the <a href="../../user-guide/menu/#debug-level">debug level</a> is set to <code>4</code> or higher.</p>
 <p><strong>NOTE:</strong> The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server. See <a href="../httpreg/">HTTP Registration</a> for more information.</p>
@@ -3350,9 +3362,10 @@ node_lookup_method = both   ;method used to lookup nodes
 2000=radio@162.248.93.134:4569/2000,162.248.93.134
 2001=radio@162.248.93.134:4569/2001,162.248.93.134
 </code></pre></div>
-<h2 id="domain-name-service-dns">Domain Name Service DNS</h2>
+<h2 id="domain-name-service-dns">Domain Name Service (DNS)</h2>
 <p>AllStarLink now provides a DNS service for performing node resolution. DNS is an Internet standard and is more efficient than using a file base solution.</p>
-<p>When using DNS <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden in <code>rpt.conf</code> by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza.</p>
+<p>When using DNS, <code>app_rpt</code> will query for node information from DNS records in the <code>nodes.allstarlink.org</code> domain.  The domain name can be overridden by adding a <code>node_dns_domain=</code> key and value (the query domain) to the <code>[general] stanza of the</code>rpt.conf` configuration file.</p>
+<p>When using DNS, <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza of the <code>rpt.conf</code> configuration file.</p>
 <p>For more information on DNS see <a href="../dns-servers/">AllStarLink DNS Servers</a>.</p>
 <h2 id="statically-configured-node">Statically Configured Node</h2>
 <p>In some cases, it is desirable to statically define the node information. This is commonly used for private nodes or private networks.</p>
