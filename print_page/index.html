@@ -1083,6 +1083,8 @@
       
         
       
+        
+      
     
     
       
@@ -1259,6 +1261,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../user-guide/phoneportal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASL Telephone Portal Access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../user-guide/betatest/" class="md-nav__link">
         
   
@@ -1312,7 +1335,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
         
           
           
@@ -1328,14 +1351,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_9">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
             <span class="md-nav__icon md-icon"></span>
             <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
           </label>
@@ -4926,7 +4949,44 @@ live). Press Ctrl+c to exit</p>
 would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code> searches are case-sensitive, use the <code>-i</code> flag for case-insensitive searches, i.e. <code>grep -i FOO FILE</code> will find all instances of "foo", "FOO", "FoO", etc. </p>
 </li>
 </ul>
-<p>When possible, please copy/paste log and search text instead of attaching screenshots into systems for troubleshooting. Text is far easier to deal with (can be quoted in replies), and will make your trouble show up in search engines to help "the next person".</p></section><section class="print-page" id="user-guide-betatest"><h1 id="user-guide-betatest-beta-testing">Beta Testing</h1>
+<p>When possible, please copy/paste log and search text instead of attaching screenshots into systems for troubleshooting. Text is far easier to deal with (can be quoted in replies), and will make your trouble show up in search engines to help "the next person".</p></section><section class="print-page" id="user-guide-phoneportal"><h1 id="user-guide-phoneportal-asl-telephone-portal-access">ASL Telephone Portal Access</h1>
+<p>It is possible to "dial in" to a node via telephone (from the PSTN). Node operators can configure whether this feature is available/enabled (see below).</p>
+<p>When you call from a regular telephone, you will need some method of indicating you want to transmit on the connected note. Two methods are provided, voice-operated (VOX) and function operated (<code>*99/#</code>).</p>
+<p>Telephone portal access requires that you have a registered and validated account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, as you will need your assigned PIN to be able to connect.</p>
+<p>The access number for the AllStarLink Telephone Portal is (763)230-0000. </p>
+<div class="admonition warning">
+<p class="admonition-title">Toll Charges</p>
+<p>Note that long distance charges may apply when calling the AllStarLink Telephone Portal.</p>
+</div>
+<h2 id="user-guide-phoneportal-find-your-pin">Find Your PIN</h2>
+<p>Log in to your <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a> account. Click on your callsign, then select <strong>Account Settings</strong>.</p>
+<p><a class="glightbox" href="../user-guide/img/1_account_settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 1 Account Settings" src="../user-guide/img/1_account_settings.png" width="400" /></a></p>
+<p>In your Account Settings, you will find your pre-assigned PIN. You need this to connect via the telephone portal.</p>
+<p><a class="glightbox" href="../user-guide/img/2_portal_pin.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 2 Portal PIN" src="../user-guide/img/2_portal_pin.png" width="400" /></a></p>
+<h2 id="user-guide-phoneportal-configure-your-node-for-telephone-access">Configure Your Node for Telephone Access</h2>
+<p>In order to for YOUR node to be accessible via telephone, there are two settings in your node parameters that need to be enabled.</p>
+<p><a class="glightbox" href="../user-guide/img/3_node_parameters.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 3 Node Parameters" src="../user-guide/img/3_node_parameters.png" width="400" /></a></p>
+<h3 id="user-guide-phoneportal-allow-telephone-portal-access">Allow Telephone Portal Access?</h3>
+<p>This option sets whether the Node Access method of connecting to your node is available.</p>
+<p>Users dialing the Telephone Portal can choose <code>Option 1</code> to connect via Node Access. They then choose whether they want to use voice-operated access (VOX) or function operated access (<code>*99/#</code>) for PTT. </p>
+<p>Callers require a valid PIN (from their AllStar account) to access via Reverse Autopatch.</p>
+<div class="admonition note">
+<p class="admonition-title">Advanced Information</p>
+<p>Calls from the Telephone Portal drop into the <code>[allstar-sys]</code> context in <code>extensions.conf</code> using extension <code>3</code> for call processing.</p>
+</div>
+<h3 id="user-guide-phoneportal-allow-reverse-autopatch-access">Allow Reverse Autopatch Access?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Currently Broken</p>
+<p>This option is currently broken, see <a href="https://github.com/AllStarLink/app_rpt/issues/697">Issue 697</a>. Call parking code was changed in newer versions of Asterisk, and the associated code in ASL3 still needs updating.</p>
+</div>
+<p>This option sets whether the Reverse Autopatch method of connecting to your node is available.</p>
+<p>Users dialing the the Telephone Portal can choose <code>Option 2</code> to connect via Reverse Autopatch. This will place the caller on hold (call is "parked") until someone "picks up" the call on the radio side.</p>
+<p>Callers require a valid PIN (from their AllStar account) to access via Reverse Autopatch.</p>
+<p>A user on the radio side would need to dial a DTMF code to "pick up" the call and connect the calling party to the radio.</p>
+<div class="admonition note">
+<p class="admonition-title">Advanced Information</p>
+<p>Calls from the Telephone Portal drop into the <code>[allstar-sys]</code> context in <code>extensions.conf</code> using extension <code>1</code> for call processing.</p>
+</div></section><section class="print-page" id="user-guide-betatest"><h1 id="user-guide-betatest-beta-testing">Beta Testing</h1>
 <p>Beta testing is the final phase of software testing before releasing a product to the general public. During this stage, a group of users representing the target audience
 validates the product. They explore its features, uncover bugs, and provide feedback.</p>
 <p>AllStarLink releases software packages to a beta channel on a periodic basis to address bug fixes and feature enhancements. The beta channel of packages is available to all users. However, please only select to run packages from the beta channel if you meet the following criteria:</p>
