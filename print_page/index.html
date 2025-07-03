@@ -1085,6 +1085,8 @@
       
         
       
+        
+      
     
     
       
@@ -1282,6 +1284,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../user-guide/externalapps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    External Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../user-guide/betatest/" class="md-nav__link">
         
   
@@ -1335,7 +1358,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
         
           
           
@@ -1351,14 +1374,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_11" id="__nav_4_11_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_10">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_11">
             <span class="md-nav__icon md-icon"></span>
             <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
           </label>
@@ -3112,6 +3135,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -3167,6 +3194,48 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/extensions_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    extensions.conf
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/iax_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iax.conf
   </span>
   
 
@@ -3412,8 +3481,9 @@
 <h3 id="basics-portal-server-selection">Server Selection</h3>
 <p>From the drop down menu, you can select which of your pre-configured servers this node should be assigned to.</p>
 <h3 id="basics-portal-web-transceiver-wt-access">Web Transceiver (WT) Access</h3>
-<p>Selecting <code>yes</code> here will allow applications such as <a href="https://apps.apple.com/us/app/repeaterphone/id1637247024">RepeaterPhone for iOS</a>, Transceive for Mac OS, and <a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_US&amp;gl=US">DVSwitch Mobile for Android</a> (in "Node Mode") to connect to this node.</p>
+<p>Selecting <code>yes</code> here will allow applications such as <a href="https://apps.apple.com/us/app/repeaterphone/id1637247024">RepeaterPhone</a> for iOS, <a href="https://transceive.app/">Transceive</a> for macOS, <a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_US&amp;gl=US">DVSwitch Mobile</a> for Android (in "WT Mode"), and the <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> (using "AllStarLink" mode) to connect to this node.</p>
 <p>There was originally a "Web Transceiver" Java application that this was used with, but that has since been deprecated.</p>
+<p>See the <a href="#user-guide-externalapps">External Applications</a> page for further details on how this operates.</p>
 <h3 id="basics-portal-show-function-list">Show Function List</h3>
 <p>The default setting of <code>no</code> here is fine. There was originally a "Web Transceiver" Java application that this was used with, but that has since been deprecated.</p>
 <h3 id="basics-portal-allow-reverse-autopatch-access">Allow Reverse Autopatch Access?</h3>
@@ -4951,7 +5021,7 @@ would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code
 </ul>
 <p>When possible, please copy/paste log and search text instead of attaching screenshots into systems for troubleshooting. Text is far easier to deal with (can be quoted in replies), and will make your trouble show up in search engines to help "the next person".</p></section><section class="print-page" id="user-guide-phoneportal"><h1 id="user-guide-phoneportal-asl-telephone-portal-access">ASL Telephone Portal Access</h1>
 <p>It is possible to "dial in" to a node via telephone (from the PSTN). Node operators can configure whether this feature is available/enabled (see below).</p>
-<p>When you call from a regular telephone, you will need some method of indicating you want to transmit on the connected note. Two methods are provided, voice-operated (VOX) and function operated (<code>*99/#</code>).</p>
+<p>When you call from a regular telephone, you will need some method of indicating you want to transmit on the connected node. Two methods are provided, voice-operated (VOX) and function operated (<code>*99/#</code>).</p>
 <p>Telephone portal access requires that you have a registered and validated account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, as you will need your assigned PIN to be able to connect.</p>
 <p>The access number for the AllStarLink Telephone Portal is (763)230-0000. </p>
 <div class="admonition warning">
@@ -4986,7 +5056,558 @@ would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code
 <div class="admonition note">
 <p class="admonition-title">Advanced Information</p>
 <p>Calls from the Telephone Portal drop into the <code>[allstar-sys]</code> context in <code>extensions.conf</code> using extension <code>1</code> for call processing.</p>
-</div></section><section class="print-page" id="user-guide-betatest"><h1 id="user-guide-betatest-beta-testing">Beta Testing</h1>
+</div></section><section class="print-page" id="user-guide-externalapps"><h1 id="user-guide-externalapps-external-applications">External Applications</h1>
+<p>There are a number of different applications that can be used to interact/connect to the AllStarLink Network. As ASL3 runs Asterisk at its core, there are a number of different ways to leverage IAX and SIP connections to connect to your node.</p>
+<p>This section will explain some of the common utilities available, and how to do basic configuration to get them to connect to your node.</p>
+<h2 id="user-guide-externalapps-authenticating-connections-to-allstarlink">Authenticating Connections to AllStarLink</h2>
+<p>There are generally three ways to authenticate when connecting to an AllStarLink node:</p>
+<ol>
+<li>
+<p>Registration based authentication. When nodes come online, they attempt to register themselves with the ASL Registration system. The registration request uses either HTTP or IAX, and the registration server validates the node credentials and saves the current IP address of the node. Other nodes query the registration database using DNS queries or look at the node information from a downloaded copy of the nodes database to find the IP address and port to connect to the desired target node. When a connection is initiated to a target node, the target node uses the <code>[radio-secure]</code> context in <code>extensions.conf</code> to process the incoming connection.</p>
+</li>
+<li>
+<p>IAX local authentication. In this scheme, an IAX client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files (<code>iax.conf</code> or <code>custom/iax.conf</code>). If the credentials match, the client is authenticated and may connect. This often uses <code>[iaxrpt]</code> and/or <code>[iax-client]</code> in <code>extensions.conf</code> to process the connection. See the <a href="#user-guide-externalapps-node-configuration">Node Configuration</a> section below for how to configure a node.</p>
+</li>
+<li>
+<p>IAX “allstar-public” authentication. Also called “Web Transceiver”, this is a variation on the username and password above. However, instead of the individual user credentials being stored locally in the ASL config files, the IAX client logs in to the allstarlink.org website and obtains a token. Then, when the client connects to a node, it presents the user’s callsign and token. The node will query allstarlink.org to see if the credentials are valid. If the query is successful, the client is authenticated and may connect. This requires Web Transceiver connections to be allowed in Node Settings on the Web Portal, and uses the <code>[allstar-public]</code> context in <code>extensions.conf</code> to process the connection.</p>
+</li>
+</ol>
+<p>Many of the utilities below can be configured to use methods 2 or 3 to authenticate (method 1 is strictly for node-to-node connections, except DVSM in "Node Mode").</p>
+<h2 id="user-guide-externalapps-web-transceiver">Web Transceiver</h2>
+<p>Before getting into the details of each application, we should discuss some of the workings "under the hood". Specifically, looking at, "how do phone apps like “RepeaterPhone” actually work?".</p>
+<p>Here is a post from the <a href="https://community.allstarlink.org">AllStarLink Community</a> that sums up a lot of the common questions about Web Transceiver access:</p>
+<pre><code>I have some friends with iPhones that are connecting in with an app called “RepeaterPhone”. 
+They just plug in their allstarlink.org main admin account credentials and it “just works”. 
+I do not have an iPhone myself to test or understand this.
+
+How does it actually gain access to nodes like it does?
+
+Also, it shows up in the AllStar Network as “CALLSIGN” and not a node number.
+
+It does not appear to be using IAX2 directly like any other node. 
+I can only assume this is using some kind of cloud broker provided by the app provider, 
+or something, and connecting on it’s behalf?
+
+Or, is there another path into the AllStar Network I’m not familiar with?
+
+How is it that they are presenting as a callsign instead of a node number?
+
+I would expect any app like this would normally need to register as a “normal node” 
+and follow those rules, but this appears to be something different, and users are not 
+setting these up as a normal node… They are simply plugging in their main allstarlink.org credentials.
+</code></pre>
+<p>The following information should (hopefully) answer many of the questions above.</p>
+<p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS, <a href="https://transceive.app/">Transceive</a> for macOS, <a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android (using "WT Mode"), and the <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> (using "AllStarLink" mode) use the "Web Transceiver" functionality of the AllStarLink Network. This is still IAX2, but a different context.</p>
+<p>The original Web Transceiver (WT) was a Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been deprecated, but the background technology still exists, and is leveraged for other applications.</p>
+<p>Using this method, you are issued a token by <a href="https://www.allstarlink.org/portal">allstarlink.org</a> when you login to the Web Portal with your credentials (ie. through one of the applications above). An unauthenticated call is placed to a node in the <code>[allstar-public]</code> context in <code>extensions.conf</code>, which has as part of its dialplan, a mechanism for verifying that the token for the incoming CallerID (the callsign) is valid. If it is, it lets the call through and connects the application to the node. If it can’t validate, then it hangs up.</p>
+<p><strong><em>This doesn’t require a node number</em></strong>, as the call isn’t being directed to <code>[radio-secure]</code>, it just requires an account on <a href="https://www.allstarlink.org/portal">allstarlink.org</a>. <strong>READ THAT AGAIN.</strong> If you are strictly using these applications to connect to other nodes, you <strong>DO NOT</strong> need to register for a node number, but you <strong>DO</strong> need to create an account in the Web Portal.</p>
+<div class="admonition note">
+<p class="admonition-title">Connecting to Real Nodes</p>
+<p>As noted above, while you don't need a node number assigned to use these applications in Web Transceiver mode, you can only connect to real nodes (node numbers) that are actively registered with the AllStarLink Network. When the application makes its query to the AllStarLink severs, the node number needs to resolve to an active and reachable node in order for the connection to be successful.</p>
+</div>
+<p>There are downsides to this, as not all node owners, particularly some larger networks, have <code>[allstar-public]</code> enabled on their nodes. This is often disabled by commenting out or deleting the entire <code>[allstar-public]</code> context in <code>extensions.conf</code>, or it can be handled more gracefully in one of a few different ways (including disabling Web Transceiver Access in the <code>Node Settings</code> in the Web Portal).</p>
+<div class="admonition note">
+<p class="admonition-title">DVSwitch Mobile</p>
+<p>DVSwitch Mobile does have a method called <em>Node Mode</em>, which registers as its own node number.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">SharkRF M1KE</p>
+<p>SharkRF refers to connecting via this method as "AllStarLink Mode" in some of their documentation. It is, in fact, actually using "Web Transceiver" mode.</p>
+</div>
+<h3 id="user-guide-externalapps-web-transceiver-node-settings">Web Transceiver Node Settings</h3>
+<p>If you are a node owner, and you wish to allow these applications to connect to your node via the Web Transceiver method, you need to ensure that it is enabled in your <code>Node Settings</code> in the Web Portal.</p>
+<p>See <a href="#basics-portal-editing-node-parameters">Editing Node Parameters</a> for more information on how to find this setting.</p>
+<p>You should also confirm that you have an <code>[allsta-public]</code> context in <code>extensions.conf</code>, and that it isn't commented out (it should be there and active, unless you've previously made changes).</p>
+<h2 id="user-guide-externalapps-repeaterphone">RepeaterPhone</h2>
+<p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS can be used to connect to AllStarLink nodes.</p>
+<p>Be sure to read their <a href="https://repeaterphone.com/pages/faq.html">FAQs</a>.</p>
+<p>Detailed steps to configure RepeaterPhone:</p>
+<ol>
+<li>
+<p>Purchase and Install: Obtain the RepeaterPhone app from the Apple App Store. </p>
+</li>
+<li>
+<p>Access Settings: Open the app and tap the Settings gear wheel. </p>
+</li>
+<li>
+<p>Add AllStarLink Account:</p>
+<ul>
+<li>Tap "New Account" and then select the AllStarLink emblem. </li>
+<li>Enter your AllStarLink callsign and password (used for logging into the AllStarLink portal). </li>
+<li>Tap "Add Account". </li>
+</ul>
+</li>
+<li>
+<p>Add Nodes to Favorites:</p>
+<ul>
+<li>Go to the Favorites section (star icon). </li>
+<li>Tap the "+" symbol to add a new node. </li>
+<li>Choose your AllStarLink username. </li>
+<li>Enter the node number of the desired AllStarLink node. </li>
+<li>Give the node a name (e.g., its callsign). </li>
+<li>For Authentication, select "Account" to use your AllStarLink account (configured in Step 3). </li>
+</ul>
+</li>
+<li>
+<p>Connect and Use: </p>
+<ul>
+<li>Once you've added nodes to your favorites, you can connect to them by selecting them and tapping "Connect". You'll transmit by holding down the green circle, and you can adjust microphone gain and speaker/non-speaker mode using the provided icons. </li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Node Authentication</p>
+<p>RepeaterPhone supports different authentication methods. You can choose between "Account" (using your AllStarLink web portal credentials) or "Node" authentication (using an IAX username and password provided to you by the node owner). </p>
+</div>
+<h2 id="user-guide-externalapps-transceive">Transceive</h2>
+<p><a href="https://transceive.app/">Transceive</a> for macOS can be used to connect to AllStarLink nodes.</p>
+<p>Be sure to read their <a href="https://transceive.app/help/">Help</a> section.</p>
+<p>For detailed steps to configure Transceive, see their page on <a href="https://transceive.app/help/setup">Setup</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Node Authentication</p>
+<p>Transceive supports different authentication methods. You can choose between "Authenticate with an AllStar Account" (using your AllStarLink web portal credentials) or "Use Node Specific Credentials" authentication (using an IAX username and password provided to you by the node owner). </p>
+</div>
+<h2 id="user-guide-externalapps-dvswitch-mobile">DVSwitch Mobile</h2>
+<p><a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android can be used to connect to AllStarLink nodes.</p>
+<p>For support, see their <a href="https://dvswitch.groups.io/g/Mobile">Support Forum</a>, they also have a <a href="https://dvswitch.groups.io/g/Mobile/wiki">Support Wiki</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Node Authentication</p>
+<p>DVSwitch Mobile (DVSM) supports different authentication methods. You can choose between "Web Transceiver" mode (using your AllStarLink web portal credentials), "IAXRpt" mode (using an IAX username and password provided to you by the node owner), or "Node" mode (where DVSwitch Mobile configures itself as a real node). </p>
+</div>
+<h3 id="user-guide-externalapps-web-transceiver-mode">Web Transceiver Mode</h3>
+<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, but you do NOT need to apply for a node number.</p>
+<p>Why use this mode?</p>
+<ul>
+<li>
+<p>Quickest way to connect to the AllStarLink Network</p>
+</li>
+<li>
+<p>Only requires a valid account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a></p>
+</li>
+</ul>
+<p>Disadvantages to this mode?</p>
+<ul>
+<li>
+<p>Requires setting up and authenticating an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a></p>
+</li>
+<li>
+<p>Not all nodes allow the Web Transceiver authentication method (many systems specifically block it on purpose)</p>
+</li>
+</ul>
+<p>To use Web Transceiver Mode:</p>
+<ul>
+<li>
+<p>From the main Dialer screen in DVSM, press and hold the "D" button</p>
+</li>
+<li>
+<p>If this your first time using WT mode, press "WT Setup"</p>
+<ul>
+<li>Put your AllStarLink Portal username and password in the appropriate boxes</li>
+<li>Press "Update Token"</li>
+<li>If successful, the dot to the left of the Update Token button should turn green</li>
+<li>Press "Save"</li>
+</ul>
+</li>
+<li>
+<p>Otherwise, press "Enter WT Mode"</p>
+</li>
+</ul>
+<p>You will return to the dialer screen, and you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-WT".</p>
+<p>You can now dial any node that supports Web Transceiver.</p>
+<p>To see if the node you want to connect to supports Web Transceiver, press and hold the "D" button. In the menu that pops up, press "Extended ASL Lookup". Put in the node number in the "Node Number" box, and press the magnifying glass to query the system. Check and see if the result indicates, "WT Enabled: True".</p>
+<p>To exit Web Transceiver Mode:</p>
+<ul>
+<li>
+<p>From the main Dialer screen in DVSM, press and hold the "D" button</p>
+</li>
+<li>
+<p>Press "Exit WT Mode"</p>
+</li>
+</ul>
+<p>You will return to the dialer screen, and you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-RADIO".</p>
+<h3 id="user-guide-externalapps-iaxrpt-mode">IAXRpt Mode</h3>
+<p>When used in this mode, DVSM requires the user to have received a username and password (aka secret) from the node owner who's node you wish to connect to (and that node owner needs to configure <code>iax.conf</code> with the same credentials to allow authentication, see <a href="#user-guide-externalapps-node-configuration">Node Configuration</a> below).</p>
+<p>Why use this mode?</p>
+<ul>
+<li>
+<p>Node owners can specifically allow users (ie. club members) to connect to their nodes, while still blocking general Web Transceiver access</p>
+</li>
+<li>
+<p>Bypasses allow/deny lists that may be in use for controlling node access (since the user is authenticated with a pre-configured username and password)</p>
+</li>
+</ul>
+<p>Disadvantages to this mode?</p>
+<ul>
+<li>
+<p>More complicated to setup as it requires node owners to configure/assign user credentials on their node(s)</p>
+</li>
+<li>
+<p>User credentials only apply to a particular node (or possibly nodes under the control of the same administrator)</p>
+</li>
+</ul>
+<p>To use IAXRpt Mode:</p>
+<ul>
+<li>
+<p>Obtain the following from the node operator of the system you wish to connect to:</p>
+<ul>
+<li>Hostname of their AllStarLink server</li>
+<li>IAX Port of their AllStarLink server (often 4569)</li>
+<li>Your assigned username</li>
+<li>Your assigned password (aka secret)</li>
+</ul>
+</li>
+<li>
+<p>Press "Accounts" at the top of the screen</p>
+</li>
+<li>
+<p>Press any empty account slot</p>
+</li>
+<li>
+<p>Fill in the following:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol:</td>
+<td><code>IAX2</code></td>
+</tr>
+<tr>
+<td>Hostname:</td>
+<td>Hostname of the remote AllStarLink server</td>
+</tr>
+<tr>
+<td>Port:</td>
+<td>IAX port of the remote AllStarLink server (often 4569)</td>
+</tr>
+<tr>
+<td>Username:</td>
+<td>Username (supplied by the node owner)</td>
+</tr>
+<tr>
+<td>Password:</td>
+<td>Password (supplied by the node owner)</td>
+</tr>
+<tr>
+<td>CallerID:</td>
+<td>Your callsign</td>
+</tr>
+<tr>
+<td>Caller Number:</td>
+<td>Must be <code>0</code></td>
+</tr>
+<tr>
+<td>Node:</td>
+<td>Node number of the node you are connecting to</td>
+</tr>
+<tr>
+<td>Phone Mode:</td>
+<td><code>checked</code></td>
+</tr>
+<tr>
+<td>Public Authentication:</td>
+<td><code>not checked</code></td>
+</tr>
+<tr>
+<td>Auto Connect:</td>
+<td><code>not checked</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Save your settings, and this account will be selected, and should try and register</p>
+</li>
+<li>
+<p>When you return to the dialer screen, you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-PHONE".</p>
+</li>
+<li>
+<p>Press the "Connect" button, and you should be connected to the target node, and see the status change in the lower part of the screen to show the target node.</p>
+</li>
+</ul>
+<h3 id="user-guide-externalapps-node-mode">Node Mode</h3>
+<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, AND have a node number assigned to them associated with that account. In this mode, DVSM is configured such that it registers with the AllStarLink registration servers as that assigned node.</p>
+<p>Why use this mode?</p>
+<ul>
+<li>Makes your application appear as a node on the AllStarLink Network, using existing node authentication methods</li>
+<li>Does not require node owners to assign specific credentials to users</li>
+<li>Does not rely on the Web Transceiver method being enabled on nodes</li>
+</ul>
+<p>Disadvantages to this mode?</p>
+<ul>
+<li>More complicated to setup, as you need to register for a node number in addition to creating an <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a> account</li>
+<li>Connections to nodes are subject to allow/deny lists on the remote system, which could prevent connections</li>
+</ul>
+<p>To use Node Mode:</p>
+<ul>
+<li>
+<p>Login to the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, go to <code>Node Settings</code> and get the following:</p>
+<ul>
+<li>Your node number</li>
+<li>Your node password (hover your mouse over the password field to see it)</li>
+</ul>
+</li>
+<li>
+<p>Press "Accounts" at the top of the screen in DVSM</p>
+</li>
+<li>
+<p>Press any empty account slot</p>
+</li>
+<li>
+<p>Fill in the following:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol:</td>
+<td><code>IAX2</code></td>
+</tr>
+<tr>
+<td>Hostname:</td>
+<td><code>register.allstarlink.org</code></td>
+</tr>
+<tr>
+<td>Port:</td>
+<td><code>4569</code></td>
+</tr>
+<tr>
+<td>Username:</td>
+<td>Node Number (from Node Settings)</td>
+</tr>
+<tr>
+<td>Password:</td>
+<td>Node Password (from Node Settings)</td>
+</tr>
+<tr>
+<td>CallerID:</td>
+<td>Your callsign</td>
+</tr>
+<tr>
+<td>Caller Number:</td>
+<td>Leave blank</td>
+</tr>
+<tr>
+<td>Node:</td>
+<td>Leave blank</td>
+</tr>
+<tr>
+<td>Phone Mode:</td>
+<td><code>not checked</code></td>
+</tr>
+<tr>
+<td>Public Authentication:</td>
+<td><code>not checked</code></td>
+</tr>
+<tr>
+<td>Auto Connect:</td>
+<td><code>not checked</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Save your settings, and this account will be selected, and should try and register</p>
+</li>
+<li>
+<p>When you return to the dialer screen, you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-NODE".</p>
+</li>
+<li>
+<p>You can now dial and connect to any other node, as if you were any other node on the system.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Registration Updates</p>
+<p>Because you entered <code>register.allstarlink.org</code> into the account settings, DVSM will maintain a registration session with the main registration server. This server keeps a list of all the registered nodes and their IP addresses. When a node connects to another node, this list is used to lookup the IP address of the node trying to connect and if the IP address matches the list, a connection is established. The connection to the registration server is refreshed once per minute.</p>
+<p>On older systems running ASL2, the node list is downloaded by nodes from the registration server on a schedule, typically once every 5 minutes. As a node, you have
+to be registered for at least this amount of time for a remote node to get the updated list and your IP address. You may need to wait for the node list to propagate out to the network before you can connect to your desired node. ASL3 uses DNS lookups by default, so you should be able to connect to ASL3 nodes almost immediately. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Outbound Calls Only</p>
+<p>While you are registered with the AllStarLink Network as a node in this mode, you are still only able to make outbound connections only. DVSM currently does not support other nodes connecting to you.</p>
+</div>
+<h2 id="user-guide-externalapps-sharkrf-m1ke">SharkRF M1KE</h2>
+<p>The <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> can be used to connect to AllStarLink nodes.</p>
+<p>See their <a href="https://manuals.sharkrf.com/m1ke/">Support Page</a> for documentation on how to configure and use the M1KE.</p>
+<p>In order to connect to an AllStarLink node, you will need to configure an <a href="https://manuals.sharkrf.com/m1ke/web/connectors/iax2.html">IAX2/AllStarLink Connector</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Node Authentication</p>
+<p>M1KE supports different authentication methods. You can choose between "AllStarLink" (using your AllStarLink web portal credentials) or "IAX2" authentication (using an IAX username and password provided to you by the node owner). </p>
+</div>
+<h2 id="user-guide-externalapps-iaxrpt-pc-client">IAXRpt PC Client</h2>
+<p>IAXRpt is a specialized Windows "soft phone" program which allows users to connect from their PC's to an AllStarLink node. </p>
+<p>IAXRpt was originally written and distributed by a company called Xeletec, but it has since been orphaned, and their download servers have been offline since 2019. As such, you will need to download the setup file from <a href="https://wiki.allstarlink.org/images/5/56/Setup_iaxrpt_xipar_010146.exe">our local server copy</a>.</p>
+<p>In order to use the IAXRpt PC Client, you need to be supplied with a username and password (aka secret) from the node operator who's node you want to connect to, as well as the hostname and port of the node server. <strong>That also means that the node operator needs to configure their node to allow external connections from IAXRpt, and authenticate users.</strong> More information for node operators on how to configure their node is provided below.</p>
+<p>The IAXRpt client is getting pretty old and it may not play nice with newer version of Windows, your experience may be less than stellar. Things may not work as expected, but until someone writes a new software package, this is what we have to work with.</p>
+<div class="admonition note">
+<p class="admonition-title">Minimize to Tray</p>
+<p>Beware that if you "minimize" the IAXRpt client window, it will appear to disappear (doesn't minimize to the Taskbar). When you minimize the window, it will minimize to the Tray instead. Go find the icon in the Tray to maximize/restore the client window.</p>
+</div>
+<h3 id="user-guide-externalapps-node-configuration">Node Configuration</h3>
+<p>This section is for node operators, and covers how to configure your node to allow for connections from clients such as IAXRpt and DVSwitch Moblie (using <a href="#user-guide-externalapps-iaxrpt-mode">IAXRpt mode</a>).</p>
+<h4 id="user-guide-externalapps-authentication-flow">Authentication Flow</h4>
+<p>Before we get into configuration, you need to understand how an incoming call is processed by Asterisk.</p>
+<ul>
+<li>
+<p>When a client attempts to connect to a node using one of the aforementioned clients, the incoming call is processed through <code>iax.conf</code> </p>
+</li>
+<li>
+<p>The context in <code>iax.conf</code> that is used is determined by the <code>username</code> that the client sends </p>
+</li>
+<li>
+<p>If a context name is found that matches the <code>username</code>, the <code>secret</code> in that context is then compared with the <code>password</code> the client sent to authenticate the client (otherwise the call is rejected) </p>
+</li>
+<li>
+<p>If the authentication succeeds, the call is passed to <code>extensions.conf</code> for further processing, using the context defined by the <code>context =</code> directive</p>
+</li>
+</ul>
+<p>Therefore, for each user that you want to allow to connect to your system via this method, you either need to use one default username (context) and password (secret) in <code>iax.conf</code> for all users, or you need to add a specific context to <code>iax.conf</code> for each user (and provide them with a unique password (secret)). If you choose the latter, ALL the contexts can still point to the same context in <code>extensions.conf</code> for common processing.</p>
+<h4 id="user-guide-externalapps-configuring-iaxconf">Configuring <code>iax.conf</code></h4>
+<p>The default <code>iax.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
+<div class="highlight"><pre><span></span><code>[iaxrpt]                            ; Connect from iaxrpt Username field (PC AllStar Client)
+type = user                         ; Notice type is user here &lt;---------------
+context = iaxrpt                    ; Context to jump to in extensions.conf
+auth = md5
+secret = CHANGEME                   ; Change this to something else, this is the &quot;password&quot; for this context
+host = dynamic
+disallow = all                    
+allow = ulaw
+allow = adpcm
+allow = gsm                       
+transfer = no
+</code></pre></div>
+<p>At the bare minimum, you need to change the secret (password), <code>CHANGEME</code> to something else. On new ASL3 installations, this will be a randomly generated password. As shown above, clients can connect to this node if they use the username <code>iaxrpt</code> and the password <code>CHANGEME</code>. If you share this username/password with users, they will all be able to connect using the same credentials. You can prevent any connections using this context by commenting it out (put a <code>;</code> at the beginning of each line).</p>
+<div class="admonition warn">
+<p class="admonition-title">Call Tokens</p>
+<p>With ASL3 moving to Asterisk 20+, IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.</p>
+</div>
+<p>If you would like to provide a unique username and password to each user, just duplicate the <code>[iaxrpt]</code> context, and give it a new name and secret, such as:</p>
+<div class="highlight"><pre><span></span><code>[wb6nil]                            ; Connect from wb6nil Username field (PC AllStar Client)
+type = user                         ; Notice type is user here &lt;---------------
+context = iaxrpt                    ; Context to jump to in extensions.conf
+auth = md5
+secret = il0veallstar               ; This is the &quot;password&quot; for this context
+host = dynamic
+disallow = all                    
+allow = ulaw
+allow = adpcm
+allow = gsm                       
+transfer = no
+</code></pre></div>
+<p>The username and password to supply to the user for the above context would then be, <code>wb6nil</code>/<code>il0veallstar</code>. </p>
+<div class="admonition note">
+<p class="admonition-title">Codec Selection</p>
+<p>Pay attention to the allowed codecs (defined by the <code>allow =</code> directives). Clients (IAXRpt in particular) may need to be configured to use a codec you support. If, for example, you delete <code>gsm</code> from your allowed codecs list (because it sounds like garbage), client connections may fail if they are trying to negotiate to use that codec.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Restart Asterisk</p>
+<p>Don't forget to restart Asterisk after you make any changes to <code>iax.conf</code>.</p>
+</div>
+<h4 id="user-guide-externalapps-configuring-extensionsconf">Configuring <code>extensions.conf</code></h4>
+<p>The default <code>extensions.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
+<div class="highlight"><pre><span></span><code>[iaxrpt]
+; Entered from iaxrpt in iax.conf
+; Info: The X option passed to the Rpt application
+; disables the normal security checks.
+; Because incoming connections are validated in iax.conf,
+; and we don&#39;t know where the user will be coming from in advance,
+; the X option is required.
+exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
+</code></pre></div>
+<p>The <code>context = iaxrpt</code> directive found in the <code>[iaxrpt]</code> context in <code>iax.conf</code> directs here for call processing, once a user is authenticated.</p>
+<p>Normally, you shouldn't need to make any changes here. However, you could customize this context to do additional things such as playback ringing tone the client, announce the node number, etc. That is beyond the scope of this document, but you could take hints from <code>[iax-clinet]</code> context that is also likely present in the default file. </p>
+<div class="admonition note">
+<p class="admonition-title">Restart Asterisk</p>
+<p>Don't forget to restart Asterisk after you make any changes to <code>extensions.conf</code>.</p>
+</div>
+<h3 id="user-guide-externalapps-iaxrpt-client-configuration">IAXRpt Client Configuration</h3>
+<p>This section is for users installing the IAXRpt client, and configuring it to connect to a dedicated node.</p>
+<p>You will need to obtain the following from the node operator who's node you wish to connect to:</p>
+<ul>
+<li>
+<p>username</p>
+</li>
+<li>
+<p>password (aka secret)</p>
+</li>
+<li>
+<p>node hostname</p>
+</li>
+<li>
+<p>node IAX port</p>
+</li>
+</ul>
+<p>Install and open the software, then go to Options --&gt; Account --&gt; Add. </p>
+<p><a class="glightbox" href="../user-guide/img/1_iaxrpt_account.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 1 Add Account" src="../user-guide/img/1_iaxrpt_account.png" width="400" /></a></p>
+<p>Fill in the boxes as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account Name</td>
+<td>Node Number</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Friendly name/description of the node/system you're connecting to</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Hostname of the node (supplied by the node operator), defaults to port 4569</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Username (supplied by the node operator, may be <code>iaxrpt</code> or something custom)</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Password/secret (supplied by the node operator)</td>
+</tr>
+<tr>
+<td>Confirm</td>
+<td>Type your password again</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Duplex</td>
+</tr>
+<tr>
+<td>Remaining Settings</td>
+<td>Leave default</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">IAX Port</p>
+<p>By default, if the node you are connecting to uses the default IAX port of <code>4569</code>, you just need to put the hostname in the Host box. If, however, the node you are connecting to uses a different port, you need to specify it at the end of the hostname, such as <code>wb6nil.somewhere.com:45691</code>.</p>
+</div>
+<p>Click Save and then Done.</p>
+<p>Now, go to Options --&gt; Preferences --&gt; CallerID (tab).</p>
+<p><a class="glightbox" href="../user-guide/img/2_iaxrpt_callerid.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 2 CallerID" src="../user-guide/img/2_iaxrpt_callerid.png" width="400" /></a></p>
+<p>Put <strong>YOUR</strong> callsign in the Name box. This will be what is displayed in Allmon3 when you connect to the node. Be sure the Number box is set to <code>0</code>.</p>
+<p>While in this same window, go to the Codecs tab.</p>
+<p><a class="glightbox" href="../user-guide/img/3_iaxrpt_codecs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Step 3 Codecs" src="../user-guide/img/3_iaxrpt_codecs.png" width="400" /></a></p>
+<p>Many node operators may have removed GSM as an allowed codec (because the audio quality is poor). Change your Preferred Codec to <code>u-law</code>, which is the standard codec that AllStarLink uses. You can set the Allowed Codecs as shown to prevent IAXRpt from trying to negotiate a poorer audio quality codec.</p>
+<p>Click Done when you are finished making changes.</p>
+<p>You MAY need to adjust Options --&gt; Devices for your speaker and microphone setup on your computer.</p>
+<p>You should now be able to select the node (Account) from the drop down box beside Call: on the main screen, then click Connect to connect to the node.</p>
+<h2 id="user-guide-externalapps-other-iaxsip-devices">Other IAX/SIP Devices</h2>
+<p>ASL3 runs on Asterisk. As such, it is possible to connect other IAX/SIP phones, soft phones, and soft clients to it.</p>
+<p>Unfortunately, due to the vast number of devices available and their individual quirks, how to do that is beyond the scope of this document.</p>
+<p>If you do have a working device, and want to share the configuration for others to use, and have it included here, please open an <a href="https://github.com/AllStarLink/ASL3-Manual/issues">Issue</a> on GitHub, or open a <a href="https://github.com/AllStarLink/ASL3-Manual/pulls">Pull Request</a> to update the manual.</p></section><section class="print-page" id="user-guide-betatest"><h1 id="user-guide-betatest-beta-testing">Beta Testing</h1>
 <p>Beta testing is the final phase of software testing before releasing a product to the general public. During this stage, a group of users representing the target audience
 validates the product. They explore its features, uncover bugs, and provide feedback.</p>
 <p>AllStarLink releases software packages to a beta channel on a periodic basis to address bug fixes and feature enhancements. The beta channel of packages is available to all users. However, please only select to run packages from the beta channel if you meet the following criteria:</p>
@@ -11985,7 +12606,442 @@ functions=functionsUHF
 <li>tonemacro=</li>
 <li>wait_times=</li>
 </ul>
-<p><strong>Note:</strong> A stanza is also called a context in Asterisk PBX terminology, particularly related to the dialplan.</p></section><section class="print-page" id="config-rpt_conf"><h1 id="config-rpt_conf-rptconf">rpt.conf</h1>
+<p><strong>Note:</strong> A stanza is also called a context in Asterisk PBX terminology, particularly related to the dialplan.</p></section><section class="print-page" id="config-extensions_conf"><h1 id="config-extensions_conf-extensionsconf">extensions.conf</h1>
+<p><code>extensions.conf</code> (<code>/etc/asterisk/extensions.conf</code>) contains the “dialplan” of Asterisk. It is your master plan of control or execution flow for all of its operations. It controls how incoming connections get routed to <code>app_rpt</code> and is used for outgoing autopatch connections via various channels and VoIP termination providers.</p>
+<p>Since ASL3 is built on top of the Asterisk PBX software, if you want to make changes to this file, you should familiarize yourself with how Asterisk dialplans work, their syntax, and their function. There is plenty of documentation available on the Internet about Asterisk dialplans, a good place to start is the <a href="https://docs.asterisk.org">Asterisk Project Documentation</a>.</p>
+<p>We will cover the basics here in how the information in the default ASL3 <code>extensions.conf</code> relates to node operations.</p>
+<h2 id="config-extensions_conf-general-stanza"><code>[general]</code> Stanza</h2>
+<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions. </p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>static = yes                        ; These two lines prevent the command-line interface
+writeprotect = yes                  ; from overwriting the config file. Leave them here.
+</code></pre></div>
+<p>These two directives mean that extensions cannot be altered or deleted via the Asterisk Management Interface (AMI) or the Command Line Interface (CLI). The only way to change them is by editing the relevant stanzas in <code>extensions.conf</code>.</p>
+<h2 id="config-extensions_conf-globals-stanza"><code>[globals]</code> Stanza</h2>
+<p>The <code>[globals]</code> stanza sets global variables that can be used by multiple extensions within the file to dynamically set values or parameters in dialplan logic.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[globals]
+HOMENPA = 999                       ; change this to your Area Code
+NODE = 1999                         ; change this to your node number
+</code></pre></div>
+<h2 id="config-extensions_conf-default-stanza"><code>[default]</code> Stanza</h2>
+<p>The <code>[default]</code> stanza is a special Asterisk dialplan extension. It acts as a fallback or catch-all when a specific stanza is not defined or is not reachable. It's the stanza Asterisk uses when a more specific stanza is not available or if a dialplan error occurs.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[default]
+exten =&gt; i,1,Hangup
+</code></pre></div>
+<p>In ASL3, the default behavior is to hang up (terminate) the call/connection.</p>
+<h2 id="config-extensions_conf-radio-secure-stanza"><code>[radio-secure]</code> Stanza</h2>
+<p>The <code>[radio-secure]</code> stanza is called from the <code>[radio]</code> stanza in <code>iax.conf</code>. It is used to handle IAX2 connections between nodes, and determines if and how to route the connection to the <code>app_rpt</code> application that does all the "repeater" functions.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[radio-secure]
+;exten =&gt; ${NODE},1,rpt(${EXTEN})
+exten =&gt; _XXXX!,1,Set(NODENUM=${CALLERID(num)})
+    same =&gt; n,NoOp(Connect from node: ${NODENUM})
+    same =&gt; n,NoOp(Connect to: ${EXTEN})
+    same =&gt; n,NoOp(Channel type: ${CHANNEL(channeltype)})
+    same =&gt; n,GotoIf($[&quot;${CHANNEL(channeltype)}&quot; = &quot;IAX2&quot;]?:allowlist)              ; if not IAX2, skip IP check
+
+    ; if peer IP is localhost, connect
+    same =&gt; n,NoOp(Channel Peer IP: ${CHANNEL(peerip)})
+    same =&gt; n,GotoIf($[&quot;${CHANNEL(peerip)}&quot; = &quot;127.0.0.1&quot;]?connect)                 ; if localhost; connect
+
+    ; if allowlist/extension doesn&#39;t exist, check the denylist
+    same =&gt; n(allowlist),GotoIf($[${DB_KEYCOUNT(allowlist/${EXTEN})} = 0]?denylist) ; no allowlist, check denylist
+    ; if allowlist/extension/callerID exists, connect
+    same =&gt; n,GotoIf(${DB_EXISTS(allowlist/${EXTEN}/${NODENUM})}?connect)           ; in allowlist, connect
+    same =&gt; n,NoOp(${EXTEN} not in allowlist, Hangup)
+    same =&gt; n,Hangup
+
+    ; if denylist/extension/callerID doesn&#39;t exist, connect
+    same =&gt; n(denylist),GotoIf(${DB_EXISTS(denylist/${EXTEN}/${NODENUM})}?:connect) ; not in denylist, connect
+    same =&gt; n,NoOp(${EXTEN} is in denylist, Hangup)
+    same =&gt; n,Hangup
+
+    ; connect!
+    same =&gt; n(connect),rpt(${EXTEN})
+    same =&gt; n,Hangup
+</code></pre></div>
+<p>The <code>[radio-secure]</code> stanza above checks to see if the incoming connection is an IAX2 connection, whether it is a node defined on this server (localhost, which is allowed to connect), and then whether the calling node number is on the <a href="#adv-topics-allowdenylists">Allow and Deny Lists</a>. Successful connections are then passed to <code>app_rpt</code>.</p>
+<h2 id="config-extensions_conf-iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
+<p>The <code>[iaxrpt]</code> stanza is called from the <code>[iaxrpt]</code> stanza in <code>iax.conf</code>. It is typically used to process connections from the <a href="#user-guide-externalapps-iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="#user-guide-externalapps">External Apps</a>).</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<p><div class="highlight"><pre><span></span><code>[iaxrpt]
+; Entered from iaxrpt in iax.conf
+; Info: The X option passed to the Rpt application
+; disables the normal security checks.
+; Because incoming connections are validated in iax.conf,
+; and we don&#39;t know where the user will be coming from in advance,
+; the X option is required.
+exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
+</code></pre></div>
+As shown, this stanza doesn't do a whole lot, other than connect the client to our node via <code>app_rpt</code>. Note that since authentication was handled in <code>iax.conf</code>, <code>app_rpt</code> is called with the <code>X</code> option which translates to a normal endpoint but bypassing further authentication checks.</p>
+<h2 id="config-extensions_conf-iax-client-stanza"><code>[iax-client]</code> Stanza</h2>
+<p>The <code>[iax-client]</code> stanza is called from the <code>[iaxclient]</code> stanza in <code>iax.conf</code>. It was/is typically used for connections from the <a href="https://www.zoiper.com/">Zoiper</a> softphone client.</p>
+<p>Zoiper is more cumbersome to configure and use than the other <a href="#user-guide-externalapps">External Apps</a> that are now available that specifically support AllStarLink.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iax-client]                            ; for IAX VoIP clients.
+exten =&gt; ${NODE},1,Ringing()
+    same =&gt; n,Wait(10)
+    same =&gt; n,Answer()
+    same =&gt; n,Set(CALLSIGN=${CALLERID(name)})
+    same =&gt; n,NoOp(Caller ID name is ${CALLSIGN})
+    same =&gt; n,NoOp(Caller ID number is ${CALLERID(number)})
+    same =&gt; n,GotoIf(${ISNULL(${CALLSIGN})}?hangit)
+    same =&gt; n,Playback(rpt/connected-to&amp;rpt/node)
+    same =&gt; n,SayDigits(${NODE})
+    same =&gt; n,rpt(${NODE},P,${CALLSIGN}-P)
+    same =&gt; n(hangit),NoOp(No Caller ID Name)
+    same =&gt; n,Playback(connection-failed)
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
+</code></pre></div>
+<p>This stanza is a little more involved than the <a href="#config-extensions_conf-iaxrpt-stanza"><code>[iaxrpt]</code></a> stanza. It starts off sending some ringing tone to the client, checks to see if the client is sending a CallerID name (Callsign), and hangs up the call if there is no Callsign sent. Otherwise, it plays "Connected to Node", followed by the node number before passing the call to <code>app_rpt</code>. <code>app_rpt</code> is called with the <code>P</code> option, which means "Phone Control Mode". This allows a regular phone user to have full control and audio access to the radio system. For the user to have DTMF control, the <a href="#config-rpt_conf-phone-functions-stanza"><code>phone_functions</code></a> parameter must be specified for the node in <code>rpt.conf</code>. An additional function (<a href="#config-rpt_conf-cop-commands"><code>cop,6</code></a>) must be listed so that PTT control is available.</p>
+<h2 id="config-extensions_conf-autopatch-stanzas">Autopatch Stanzas</h2>
+<p>There are a bunch of stanzas that relate to operation of the autopatch (if configured). This is for <strong>outbound</strong> calls, typically to the Public Switched Telephone Network (PSTN).</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; Comment-out the following clause if you want Allstar Autopatch service
+[pstn-out]
+exten =&gt; _NXXNXXXXXX,1,playback(ss-noservice)
+    same =&gt; n,Congestion
+
+; Un-comment out the following clause if you want Allstar Autopatch service
+;[pstn-out]
+;exten =&gt; _NXXNXXXXXX,1,Dial(IAX2/allstar-autopatch/\${EXTEN})
+; same =&gt; n,Busy
+
+[invalidnum]
+exten =&gt; s,1,Wait(3)
+    same =&gt; n,Playback(ss-noservice)
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
+
+[radio]
+exten =&gt; _X11,1,Goto(check_route,${EXTEN},1);
+exten =&gt; _NXXXXXX,1,Goto(check_route,1${HOMENPA}${EXTEN},1)
+exten =&gt; _1XXXXXXXXXX,1,Goto(check_route,${EXTEN},1)
+exten =&gt; _07XX,1,Goto(parkedcalls,${EXTEN:1},1)
+exten =&gt; 00,1,Goto(my-ip,s,1)
+
+[check_route]
+exten =&gt; _X.,1,NoOp(${EXTEN})
+; no 800
+exten =&gt; _1800NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1888NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1877NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1866NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1855NXXXXXX,2,Goto(invalidnum,s,1)
+; no X00 NPA
+exten =&gt; _1X00XXXXXXX,2,Goto(invalidnum,s,1)
+; no X11 NPA
+exten =&gt; _1X11XXXXXXX,2,Goto(invalidnum,s,1)
+; no X11
+exten =&gt; _X11,2,Goto(invalidnum,s,1)
+; no 555 Prefix in any NPA
+exten =&gt; _1NXX555XXXX,2,Goto(invalidnum,s,1)
+; no 976 Prefix in any NPA
+exten =&gt; _1NXX976XXXX,2,Goto(invalidnum,s,1)
+; no NPA=809
+exten =&gt; _1809XXXXXXX,2,Goto(invalidnum,s,1)
+; no NPA=900
+exten =&gt; _1900XXXXXXX,2,Goto(invalidnum,s,1)
+
+; okay, route it
+exten =&gt; _1NXXXXXXXXX,2,Goto(pstn-out,${EXTEN:1},1)
+exten =&gt; _X.,2,Goto(invalidnum,s,1)
+
+[my-ip]
+exten =&gt; s,1,Wait(1)
+    same =&gt; n,SayAlpha(${CURL(http://myip.vg)})
+    same =&gt; n,Hangup
+</code></pre></div>
+<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="#config-rpt_conf-context"><code>rpt.conf</code></a> using the <a href="#config-rpt_conf-context"><code>context</code></a> directive. Note that the <a href="#adv-topics-autopatch-autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option. </p>
+<p>The <code>[radio]</code> stanza does a few different things:</p>
+<ul>
+<li>
+<p>If a three digit number, matching the pattern X11 is dialed, send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If a seven digit number is dialed, prepend it with the <code>HOMENPA</code> global variable, then send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If an eleven digit number is dialed, send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If a special number matching the pattern 07XX is dialed, pick up the parked call in slot XX</p>
+</li>
+<li>
+<p>If a special number of 00 is dialed, say the node's IP address over the radio (using the <code>[my-ip]</code> stanza)</p>
+</li>
+</ul>
+<p>The <code>[check_route]</code> stanza is the core of the autopatch dialplan. It is used to filter out numbers you do not want to allow to be dialed. This includes things like toll-free numbers, X11 numbers, 976/809/900 (toll) numbers, and the invalid 555 prefix. All of the filtered numbers get sent to the <code>[invalidnum]</code> stanza, which plays a mesage and hangs up.</p>
+<p>If the call passes <code>[check_route]</code>, it gets sent to the <code>[pstn-out]</code> stanza. You will note that there are two options for <code>[pstn-out]</code>. The default is to play a message and hang up. By swapping which one is active (moving the comments around), you can send the call to the <code>[allstar-autopatch]</code> stanza in <code>iax.conf</code>. You can also configure your own VoIP provider, and send the call there (preferred).</p>
+<h2 id="config-extensions_conf-allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
+<p>The <code>[allstar-sys]</code> stanza is called from the <code>[allstar-sys]</code> stanza in <code>iax.conf</code>. The <code>[allstar-sys]</code> stanza is used by connections from the <a href="#user-guide-phoneportal">AllStarLink Telephone Portal</a>.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-sys]
+exten =&gt; _1.,1,Rpt(${EXTEN:1},Rrpt/node:NODE:rpt/in-call:digits/0:PARKED,120)
+exten =&gt; _1.,n,Hangup
+
+exten =&gt; _2.,1,Ringing
+exten =&gt; _2.,n,Wait(3)
+exten =&gt; _2.,n,Answer
+exten =&gt; _2.,n,Playback(rpt/node)
+exten =&gt; _2.,n,Saydigits(${EXTEN:1})
+exten =&gt; _2.,n,Rpt(${EXTEN:1},P,${CALLERID(name)}-P)
+exten =&gt; _2.,n,Hangup
+
+exten =&gt; _3.,1,Ringing
+exten =&gt; _3.,n,Wait(3)
+exten =&gt; _3.,n,Answer
+exten =&gt; _3.,n,Playback(rpt/node)
+exten =&gt; _3.,n,Saydigits(${EXTEN:1})
+exten =&gt; _3.,n,Rpt(${EXTEN:1},Pv,${CALLERID(name)}-P)
+exten =&gt; _3.,n,Hangup
+
+exten =&gt; _4.,1,Ringing
+exten =&gt; _4.,n,Wait(3)
+exten =&gt; _4.,n,Answer
+exten =&gt; _4.,n,Playback(rpt/node)
+exten =&gt; _4.,n,Saydigits(${EXTEN:1})
+exten =&gt; _4.,n,Rpt(${EXTEN:1},D,${CALLERID(name)}-P)
+exten =&gt; _4.,n,Hangup
+
+exten =&gt; _5.,1,Ringing
+exten =&gt; _5.,n,Wait(3)
+exten =&gt; _5.,n,Answer
+exten =&gt; _5.,n,Playback(rpt/node)
+exten =&gt; _5.,n,Saydigits(${EXTEN:1})
+exten =&gt; _5.,n,Rpt(${EXTEN:1},Dv,${CALLERID(name)}-P)
+exten =&gt; _5.,n,Hangup
+</code></pre></div>
+<p>The option used when calling the Telephone Portal (Node Access or Reverse Autopatch) determines which extension gets used for processing in <code>[allstar-sys]</code>. Reverse Autopatch processes calls through extension 1 (which parks the call until someone on the radio side picks up the parked call). The Node Access method processes calls through extension 2 (function codes for keying PTT) or 3 (VOX for PTT).</p>
+<h2 id="config-extensions_conf-allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
+<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#user-guide-externalapps-web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-public]
+exten =&gt; s,1,Ringing
+    same =&gt; n,Set(RESP=${CURL(https://register.allstarlink.org/cgi-bin/authwebphone.pl?${CALLERID(name)})})
+    same =&gt; n,GotoIf($[&quot;${RESP:0:1}&quot; = &quot;?&quot;]?hangit)
+    same =&gt; n,GotoIf($[&quot;${RESP:0:1}&quot; = &quot;&quot;]?hangit)
+    same =&gt; n,GotoIf($[&quot;${RESP:0:5}&quot; != &quot;OHYES&quot;]?hangit)
+    same =&gt; n,Set(CALLSIGN=${RESP:5})
+    same =&gt; n,Set(NODENUM=${CALLERID(num)})
+
+    ; if allowlist/extension doesn&#39;t exist, check the denylist
+    same =&gt; n,GotoIf($[${DB_KEYCOUNT(allowlist/${NODENUM})} = 0]?denylist)              ; no allowlist, check denylist
+    ; if allowlist/extension/callsign exists, connect
+    same =&gt; n,GotoIf(${DB_EXISTS(allowlist/${NODENUM}/${CALLSIGN})}?connect)            ; in allowlist, connect
+    same =&gt; n,NoOp(${CALLSIGN} not in allowlist, Hangup)
+    same =&gt; n,Hangup
+
+    ; if denylist/extension/callsign doesn&#39;t exist, connect
+    same =&gt; n(denylist),GotoIf(${DB_EXISTS(denylist/${NODENUM}/${CALLSIGN})}?:connect) ; not in denylist, connect
+    same =&gt; n,NoOp(${CALLSIGN} is in denylist, Hangup)
+    same =&gt; n,Hangup
+
+    ; connect!
+    same =&gt; n(connect),Set(CALLERID(name)=${CALLSIGN})
+    same =&gt; n,Set(CALLERID(num)=0)
+    same =&gt; n,Wait(3)
+    same =&gt; n,Playback(rpt/connected-to&amp;rpt/node,noanswer)
+    same =&gt; n,SayDigits(${NODENUM})
+    same =&gt; n,Rpt(${NODENUM},X)
+    same =&gt; n,Hangup
+
+    ; hangup!
+    same =&gt; n(hangit),Answer
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
+</code></pre></div>
+<p>When a client connects to the node using the Web Transceiver method, it sends its token from the AllStarLink system (if the client user has a valid <a href="https://allstarlink.org/portal">AllStarLink Portal</a> account) as the CallerID Name. The first step is to authenticate if that is a valid token, which is done by a query to the API. If the token is valid, the associated <strong>callsign</strong> to that token checked against the <a href="#adv-topics-allowdenylists">Allow and Deny Lists</a> (you can add callsigns to the database, in addition to node numbers). If that passes validation, it is sent to the connect part of the dialplan. The connect section of the dialplan plays the message, "Connected to node" followed by the node number, and passes the connection to <code>app_rpt</code> with the <code>X</code> option which translates to a normal endpoint but bypassing further authentication checks.</p></section><section class="print-page" id="config-iax_conf"><h1 id="config-iax_conf-iaxconf">iax.conf</h1>
+<p>iax.conf (<code>/etc/asterisk/iax.conf</code>) is where the primary authentication of connections to a node (Asterisk) takes place.</p>
+<p>When IAX2 protocol connection requests are made, Asterisk figures out what context applies based on the incoming request. Asterisk then forwards the processing to the relative context in <code>extensions.conf</code> if the call/connection is allowed to proceed for further processing.</p>
+<p>See also <a href="#adv-topics-conftmpl-asterisk-templates">config file templating</a>.</p>
+<h2 id="config-iax_conf-general-stanza"><code>[general]</code> Stanza</h2>
+<p>The <code>[general]</code> stanza in <code>iax.conf</code> controls the main/global features of how IAX2 connections are handled.</p>
+<h3 id="config-iax_conf-iax-registration">IAX Registration</h3>
+<p>Prior to ASL3, nodes registered with the AllStarLink Network using a <code>register</code> directive. This is no longer required, and has been replaced by HTTP registrations that leverage the power of DNS.</p>
+<p>As such, you will currently see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; !!! IAX registration will be discontinued at some point !!!
+; Setup rpt_http_registartions.conf instead.
+; remove the leading &quot;;&quot;
+;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password 
+;register =&gt; 1998:12345@register.allstarlink.org
+</code></pre></div>
+<p>While node registration will still work (for now) using this method, please don't use it. It is not required. Your registration should be processed by an entry in <code>rpt_http_registrations.conf</code>, which in most cases the <a href="#user-guide"><code>asl-menu</code></a> utility will take care of configuring for you.</p>
+<h3 id="config-iax_conf-bindport-and-bindaddr"><code>bindport=</code> and <code>bindaddr=</code></h3>
+<p>The <code>bindport</code> and <code>bindaddr</code> directives determine where Asterisk is listening for incoming IAX2 connections.</p>
+<p>By default, UDP port <code>4569</code> is used. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>bindport = 4569                 ; bindport and bindaddr may be specified
+
+; NOTE: bindport must be specified BEFORE
+; bindaddr or may be specified on a specific
+; bindaddr if followed by colon and port
+;  (e.g. bindaddr=192.168.0.1:4569)
+
+; bindaddr = 192.168.0.1        ; more than once to bind to multiple
+                                ; addresses, but the first will be the 
+                                ; default
+</code></pre></div>
+<p>In most cases, the default <code>bindport = 4569</code> will work fine. However, if you are running multiple node servers behind a NAT firewall, you MAY need to change this so that they are all unique from each other. In that case, you also need to change the <a href="#basics-portal-iax-port">IAX Port</a> in the <a href="https://www.allstarlink.org/portal">Web Portal</a> to match. See the <a href="#adv-topics-multinodesnetwork">Multiple Nodes on the Same Network</a> page for further details.</p>
+<div class="admonition warning">
+<p class="admonition-title">Firewall Rules</p>
+<p>If you are using a firewall on your internet connection (I sure hope so!), don't forget to allow port <code>4569/UDP</code>, and/or any other IAX2 port(s) you have configured through your firewall (and point it to the correct internal IP address, if using NAT).</p>
+<p>If you are using the <a href="#install-pi-appliance">ASL3 Appliance</a> and you are using a non-standard port, don't forget to update the firewall rules in the <a href="#pi-cockpit-firewall">Cockpit Firewall</a>.</p>
+</div>
+<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases. </p>
+<h3 id="config-iax_conf-outbound-codecs">Outbound Codecs</h3>
+<p>Also in the <code>[general]</code> stanza is the configuration of <strong>OUTBOUND</strong> codecs to be used when making outbound connections to other nodes.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections 
+;allow = ulaw                       ; Audio Quality     Bandwidth
+;allow = adpcm                      ; best              87 kbps
+;allow = gsm                        ; good              55 kbps
+allow = ulaw                        ; mediocre          36 kbps
+allow = adpcm
+;allow = g722
+;allow = g726aal2
+allow = gsm
+;allow = ilbc
+</code></pre></div>
+<p>The above starts by clearing the codec list (<code>disallow = all</code>), followed by <code>allow</code> statements for the codecs you prefer to use, in preferential order.</p>
+<p>In the above example, we prefer our outbound connections to use u-law (G.711), ADPCM, and GSM, in that order. You can enable other codecs, if you desire, and change the priority too. However, you should be sure to keep u-law enabled, as that is the common standard that AllStarLink nodes expect to use.</p>
+<div class="admonition note">
+<p class="admonition-title">High Quality Codecs</p>
+<p>ASL3 also supports the use of the slin and slin16 codecs. These are the internal codecs that Asterisk uses for high quality internal connections between channels. The slin codec is signed linear, 8kHz, 16-bit PCM; slin16 is signed linear, 16kHz, 16-bit PCM. They offer improved dynamic range over u-law, and may be good options to deploy on a hub node that would be connecting to other hub nodes (to maintain audio fidelity). A good discussion on codecs can be found <a href="https://community.allstarlink.org/t/regarding-asl-hamvoip-and-default-codec-priority/22648">here</a>.</p>
+</div>
+<h3 id="config-iax_conf-remaining-general-options">Remaining <code>[general]</code> Options</h3>
+<p>There are some other directives included in the <code>[general]</code> stanza of the default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>jitterbuffer = yes
+forcejitterbuffer = yes                                                           
+dropcount = 2                                                                     
+maxjitterbuffer = 4000                                                            
+maxjitterinterps = 10                                                             
+resyncthreshold = 1000                                                            
+maxexcessbuffer = 80                                                              
+minexcessbuffer = 10                                                              
+jittershrinkrate = 1                                                              
+tos = 0x1E                                                                  
+autokill = yes                                                                    
+delayreject = yes                                                                 
+; iaxthreadcount = 30                                                              
+; iaxmaxthreadcount = 150  
+</code></pre></div>
+<p>Unless you have a specific reason to change them (and you know why you are changing them), just leave them alone. You can break your node.</p>
+<h2 id="config-iax_conf-radio-stanza"><code>[radio]</code> Stanza</h2>
+<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[radio]
+type = user
+disallow = all
+allow = ulaw
+allow = adpcm
+;allow = g722
+;allow = g726aal2
+allow = gsm
+;allow = ilbc
+codecpriority = host
+context = radio-secure
+transfer = no
+</code></pre></div>
+<p>There are a couple of important notes here about the directives in this stanza.</p>
+<p>Most of the directives here deal with which audio codecs you allow, and in what priority for incoming connections. You <strong><em>could</em></strong> also include the high quality (and high bandwidth) slin16 and slin codecs, if desired (and bandwidth isn't a concern).</p>
+<p>Incoming calls with the username of <code>radio</code> will reach this stanza, and then after the call is setup (codecs are negotiated) they are forwarded to <code>extensions.conf</code> for further processing. Per the <code>context = radio-secure</code> directive, the incoming connection will be processed by the <code>[radio-secure]</code> stanza that is found in <code>extensions.conf</code>, where it gets authenticated by <code>app_rpt</code> to see if it is a valid node that is allowed to connect.</p>
+<p>The <code>type = user</code> directive tells this installation of Asterisk that the incoming connection (the "peer") is to be treated as a client connecting to us (the host). So, with <code>codecpriority = host</code>, <em>we</em> get to choose the supported codecs and their priority we prefer to connect with.</p>
+<h2 id="config-iax_conf-iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
+<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="#user-guide-externalapps-iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="#user-guide-externalapps">External Apps</a>). </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iaxrpt]                         ; Connect from iaxrpt Username field (PC AllStar Client)
+type = user                      ; Notice type is user here &lt;---------------
+context = iaxrpt                 ; Context to jump to in extensions.conf
+auth = md5
+secret = Your_Secret_Pasword_Here
+host = dynamic
+disallow = all                    
+allow = ulaw
+allow = adpcm
+allow = gsm                       
+transfer = no
+</code></pre></div>
+<p>The username this node is expecting to see from the client is the context name (<code>iaxrpt</code>), and it is going to forward the call to the the <code>[iaxrpt]</code> stanza in <code>extensions.conf</code>, as denoted by the <code>context = iaxrpt</code> directive.</p>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that this stanza requires a password from the client, denoted by the <code>secret =</code> directive. Your new ASL3 installation should have a randomly generated secret.</p>
+<p>See <a href="#user-guide-externalapps-node-configuration">Node Configuration</a> for more information on how to customize this stanza for multiple users.</p>
+<div class="admonition warning">
+<p class="admonition-title">Call Tokens</p>
+<p>With ASL3 moving to Asterisk 20+, IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.</p>
+</div>
+<h2 id="config-iax_conf-iaxclient-stanza"><code>[iaxclient]</code> Stanza</h2>
+<p>The <code>[iaxclient]</code> stanza is similar to the <a href="#config-iax_conf-iaxrpt-stanza"><code>[iaxrpt]</code></a> above. It was/is typically used for connections from the <a href="https://www.zoiper.com/">Zoiper Softphone Client</a>.</p>
+<p>Zoiper is more cumbersome to configure and use than the other <a href="#user-guide-externalapps">External Apps</a> that are now available that specifically support AllStarLink.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iaxclient]                      ; Connect from iax client (Zoiper...)
+type = friend                    ; Notice type here is friend &lt;--------------
+context = iax-client             ; Context to jump to in extensions.conf
+auth = md5
+secret = Your_Secret_Password_Here
+host = dynamic
+disallow = all
+allow = ulaw
+allow = adpcm
+allow = gsm
+transfer = no
+</code></pre></div>
+<p>The big difference between the <code>[iaxrt]</code> and <code>[iaxclient]</code> stanzas is the <code>type</code> directive. The <code>type = friend</code> tells this installation of Asterisk that the Zoiper client (peer) is both a client and a server, capable of both originating and receiving calls.</p>
+<p>Also note that connections processed by this stanza are forwarded to the <code>[iax-client]</code> stanza in <code>extensions.conf</code>, per the <code>context = iax-client</code> directive.</p>
+<h2 id="config-iax_conf-allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
+<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="#user-guide-phoneportal">AllStarLink Telephone Portal</a>. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-sys]
+type = user
+context = allstar-sys
+auth = rsa
+inkeys = allstar
+disallow = all
+allow = ulaw
+allow = adpcm
+allow = gsm
+</code></pre></div>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that these connections are validated by a public/private key arrangement, as denoted by the <code>auth = rsa</code> and <code>inkeys = allstar</code> directives.</p>
+<p>Connections processed by this stanza are forwarded to the <code>[allstar-sys]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-sys</code> directive.</p>
+<h2 id="config-iax_conf-allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
+<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#user-guide-externalapps-web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-public]
+type = user
+context = allstar-public
+auth = md5
+secret = allstar
+disallow = all
+;calltokenoptional=0.0.0.0/0.0.0.0
+requirecalltoken=no
+allow = ulaw
+allow = adpcm
+allow = gsm
+</code></pre></div>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that while there is a <code>secret = allstar</code> directive that would imply that we use that for authentication, in fact, further authentication of the connection is done later down the chain using a token validation system to ensure that the client has a valid account on the <a href="https://www.allstarlink.org/portal">AllStarLink Web Portal</a>.</p>
+<p>Connections processed by this stanza are forwarded to the <code>[allstar-public]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-public</code> directive.</p>
+<h2 id="config-iax_conf-allstar-autopatch-stanza"><code>[allstar-autopatch]</code> Stanza</h2>
+<p>The <code>[allstar-autopatch]</code> stanza is used for <strong>outbound</strong> IAX2 autopatch calls to the AllStarLink Autopatch Service. This <em>should</em> would, but you are probably better off using your own VoIP provider, such as <a href="https://voip.ms">voip.ms</a> to have better control over your PSTN endpoint. The <code>[allstar-autopatch]</code> stanza is called from the <code>[pstn-out]</code> stanza in <code>extensions.conf</code> when a successful autopatch call is set to be routed to the PSTN.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; The following should be un-commented to support Allstar Autopatch service
+; [allstar-autopatch]
+; type = peer
+; host = register.allstarlink.org
+; username = &lt;One of the Node numbers on this server&gt;
+; secret = &lt;The node password for the above node&gt;
+; auth = md5
+; disallow = all
+; allow = ulaw
+; transfer = no
+</code></pre></div>
+<p>As noted in the comments above, you will need to put your node number in the <code>username</code> field, and your node password in the <code>secret</code> field (this is from the Node Settings page in the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>).</p>
+<p>You would need to un-comment this stanza and restart Asterisk for it to be loaded.</p>
+<p>The <code>type = peer</code> designates the client (peer) as a server that accepts incoming calls from our server. It cannot initiate calls itself.</p></section><section class="print-page" id="config-rpt_conf"><h1 id="config-rpt_conf-rptconf">rpt.conf</h1>
 <p>Rpt.conf (<code>/etc/asterisk/rpt.conf</code>) is where the majority of user-facing features, such as the node's CW and voice ID, DTMF commands and timers are set. There is a lot of capability here which can be difficult to grasp. Fortunately the default <code>rpt.conf</code> is well commented and will work fine for most node admins.</p>
 <p>See also <a href="#adv-topics-conftmpl-asterisk-templates">config file templating</a>.</p>
 <h2 id="config-rpt_conf-dtmf-commands">DTMF Commands</h2>

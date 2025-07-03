@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/config/tlb_conf/">
+        <link rel="canonical" href="https://allstarlink.github.io/config/extensions_conf/">
       
       
-        <link rel="prev" href="../rpt_conf/">
+        <link rel="prev" href="../config-structure/">
       
       
-        <link rel="next" href="../voter_conf/">
+        <link rel="next" href="../iax_conf/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>tlb.conf - AllStarLink Manual</title>
+        <title>extensions.conf - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tlbconf" class="md-skip">
+        <a href="#extensionsconf" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              tlb.conf
+              extensions.conf
             
           </span>
         </div>
@@ -3221,10 +3221,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../extensions_conf/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    extensions.conf
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3233,6 +3253,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [general] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#globals-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [globals] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [default] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radio-secure-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [radio-secure] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iaxrpt-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [iaxrpt] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iax-client-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [iax-client] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autopatch-stanzas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Autopatch Stanzas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstar-sys-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [allstar-sys] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstar-public-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [allstar-public] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3284,30 +3405,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    tlb.conf
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tlb_conf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3316,104 +3417,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#channel-definition-stanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      Channel Definition Stanza
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Channel Definition Stanza">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#call" class="md-nav__link">
-    <span class="md-ellipsis">
-      call=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    <span class="md-ellipsis">
-      port=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ipaddr" class="md-nav__link">
-    <span class="md-ellipsis">
-      ipaddr=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#astnode" class="md-nav__link">
-    <span class="md-ellipsis">
-      astnode=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    <span class="md-ellipsis">
-      context=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codec" class="md-nav__link">
-    <span class="md-ellipsis">
-      codec=
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tlb-nodes-stanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      TLB Nodes Stanza
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3462,111 +3465,255 @@
                   
 
 
-<h1 id="tlbconf">tlb.conf</h1>
-<p><code>tlb.conf</code> (<code>/etc/asterisk/tlb.conf</code>) is used to configure TheLinkBox channel driver, <code>chan_tlb</code>, for use with interfacing to <a href="https://github.com/skiphansen/thelinkbox">TheLinkBox</a> stations.</p>
-<p>The format of the file is:</p>
-<div class="highlight"><pre><span></span><code>[tlb0]
-call = WB6NIL-R                     ; Callsign of the app_rpt station
-port = 44966                        ; Start of UDP port range (this port, port + 1)
-ipaddr = 44.128.252.1               ; Optional IP address to bind to
-astnode = 63001                     ; app_rpt node associated with this instance (for incoming connections)
-context = radio-secure              ; Asterisk context for incoming connections
-codec = ULAW                        ; Default CODEC to be used
+<h1 id="extensionsconf">extensions.conf</h1>
+<p><code>extensions.conf</code> (<code>/etc/asterisk/extensions.conf</code>) contains the “dialplan” of Asterisk. It is your master plan of control or execution flow for all of its operations. It controls how incoming connections get routed to <code>app_rpt</code> and is used for outgoing autopatch connections via various channels and VoIP termination providers.</p>
+<p>Since ASL3 is built on top of the Asterisk PBX software, if you want to make changes to this file, you should familiarize yourself with how Asterisk dialplans work, their syntax, and their function. There is plenty of documentation available on the Internet about Asterisk dialplans, a good place to start is the <a href="https://docs.asterisk.org">Asterisk Project Documentation</a>.</p>
+<p>We will cover the basics here in how the information in the default ASL3 <code>extensions.conf</code> relates to node operations.</p>
+<h2 id="general-stanza"><code>[general]</code> Stanza</h2>
+<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions. </p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>static = yes                        ; These two lines prevent the command-line interface
+writeprotect = yes                  ; from overwriting the config file. Leave them here.
+</code></pre></div>
+<p>These two directives mean that extensions cannot be altered or deleted via the Asterisk Management Interface (AMI) or the Command Line Interface (CLI). The only way to change them is by editing the relevant stanzas in <code>extensions.conf</code>.</p>
+<h2 id="globals-stanza"><code>[globals]</code> Stanza</h2>
+<p>The <code>[globals]</code> stanza sets global variables that can be used by multiple extensions within the file to dynamically set values or parameters in dialplan logic.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[globals]
+HOMENPA = 999                       ; change this to your Area Code
+NODE = 1999                         ; change this to your node number
+</code></pre></div>
+<h2 id="default-stanza"><code>[default]</code> Stanza</h2>
+<p>The <code>[default]</code> stanza is a special Asterisk dialplan extension. It acts as a fallback or catch-all when a specific stanza is not defined or is not reachable. It's the stanza Asterisk uses when a more specific stanza is not available or if a dialplan error occurs.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[default]
+exten =&gt; i,1,Hangup
+</code></pre></div>
+<p>In ASL3, the default behavior is to hang up (terminate) the call/connection.</p>
+<h2 id="radio-secure-stanza"><code>[radio-secure]</code> Stanza</h2>
+<p>The <code>[radio-secure]</code> stanza is called from the <code>[radio]</code> stanza in <code>iax.conf</code>. It is used to handle IAX2 connections between nodes, and determines if and how to route the connection to the <code>app_rpt</code> application that does all the "repeater" functions.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[radio-secure]
+;exten =&gt; ${NODE},1,rpt(${EXTEN})
+exten =&gt; _XXXX!,1,Set(NODENUM=${CALLERID(num)})
+    same =&gt; n,NoOp(Connect from node: ${NODENUM})
+    same =&gt; n,NoOp(Connect to: ${EXTEN})
+    same =&gt; n,NoOp(Channel type: ${CHANNEL(channeltype)})
+    same =&gt; n,GotoIf($[&quot;${CHANNEL(channeltype)}&quot; = &quot;IAX2&quot;]?:allowlist)              ; if not IAX2, skip IP check
 
+    ; if peer IP is localhost, connect
+    same =&gt; n,NoOp(Channel Peer IP: ${CHANNEL(peerip)})
+    same =&gt; n,GotoIf($[&quot;${CHANNEL(peerip)}&quot; = &quot;127.0.0.1&quot;]?connect)                 ; if localhost; connect
 
-[nodes]
-1001 = W6ABC,44.128.252.3,44966     ; This one is for W6ABC at ip 44.128.252.3:44966 default CODEC
-1002 = W1XYZ,44.128.252.4,1234,G726 ; This one is for W1XYZ at ip 44.128.252.4:1234 with G726 CODEC
-</code></pre></div>
-<h2 id="channel-definition-stanza">Channel Definition Stanza</h2>
-<p>Define at least one channel stanza with the format <code>[tlbx]</code>, where <code>x</code> is a numeric digit.</p>
-<p>You can have multiple instances defined (such as <code>[tlb1]</code>, etc.), as long as they are on different UDP port pairs.</p>
-<p>The name of this context must match the reference for <code>rxchannel</code> in <a href="../rpt_conf/"><code>rpt.conf</code></a>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>In rpt.conf:
+    ; if allowlist/extension doesn&#39;t exist, check the denylist
+    same =&gt; n(allowlist),GotoIf($[${DB_KEYCOUNT(allowlist/${EXTEN})} = 0]?denylist) ; no allowlist, check denylist
+    ; if allowlist/extension/callerID exists, connect
+    same =&gt; n,GotoIf(${DB_EXISTS(allowlist/${EXTEN}/${NODENUM})}?connect)           ; in allowlist, connect
+    same =&gt; n,NoOp(${EXTEN} not in allowlist, Hangup)
+    same =&gt; n,Hangup
 
-rxchannel = tlb/tlb0
+    ; if denylist/extension/callerID doesn&#39;t exist, connect
+    same =&gt; n(denylist),GotoIf(${DB_EXISTS(denylist/${EXTEN}/${NODENUM})}?:connect) ; not in denylist, connect
+    same =&gt; n,NoOp(${EXTEN} is in denylist, Hangup)
+    same =&gt; n,Hangup
 
-In tlb.conf:
-[tlb0]
-...
+    ; connect!
+    same =&gt; n(connect),rpt(${EXTEN})
+    same =&gt; n,Hangup
 </code></pre></div>
-<h3 id="call">call=</h3>
-<p>This is the callsign of the local AllStarLink node.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>call = WB6NIL-R                     ; Our callsign
+<p>The <code>[radio-secure]</code> stanza above checks to see if the incoming connection is an IAX2 connection, whether it is a node defined on this server (localhost, which is allowed to connect), and then whether the calling node number is on the <a href="../../adv-topics/allowdenylists/">Allow and Deny Lists</a>. Successful connections are then passed to <code>app_rpt</code>.</p>
+<h2 id="iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
+<p>The <code>[iaxrpt]</code> stanza is called from the <code>[iaxrpt]</code> stanza in <code>iax.conf</code>. It is typically used to process connections from the <a href="../../user-guide/externalapps/#iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="../../user-guide/externalapps/">External Apps</a>).</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<p><div class="highlight"><pre><span></span><code>[iaxrpt]
+; Entered from iaxrpt in iax.conf
+; Info: The X option passed to the Rpt application
+; disables the normal security checks.
+; Because incoming connections are validated in iax.conf,
+; and we don&#39;t know where the user will be coming from in advance,
+; the X option is required.
+exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
 </code></pre></div>
-<h3 id="port">port=</h3>
-<p>This defines the <strong>starting</strong> port of the UDP port pair used for communication with TheLinkBox station. If not specified, the default ports used will be <code>44966/UDP</code> and <code>44967/UDP</code>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>port = 44966                        ; Start of UDP port range (this port, port + 1)
+As shown, this stanza doesn't do a whole lot, other than connect the client to our node via <code>app_rpt</code>. Note that since authentication was handled in <code>iax.conf</code>, <code>app_rpt</code> is called with the <code>X</code> option which translates to a normal endpoint but bypassing further authentication checks.</p>
+<h2 id="iax-client-stanza"><code>[iax-client]</code> Stanza</h2>
+<p>The <code>[iax-client]</code> stanza is called from the <code>[iaxclient]</code> stanza in <code>iax.conf</code>. It was/is typically used for connections from the <a href="https://www.zoiper.com/">Zoiper</a> softphone client.</p>
+<p>Zoiper is more cumbersome to configure and use than the other <a href="../../user-guide/externalapps/">External Apps</a> that are now available that specifically support AllStarLink.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iax-client]                            ; for IAX VoIP clients.
+exten =&gt; ${NODE},1,Ringing()
+    same =&gt; n,Wait(10)
+    same =&gt; n,Answer()
+    same =&gt; n,Set(CALLSIGN=${CALLERID(name)})
+    same =&gt; n,NoOp(Caller ID name is ${CALLSIGN})
+    same =&gt; n,NoOp(Caller ID number is ${CALLERID(number)})
+    same =&gt; n,GotoIf(${ISNULL(${CALLSIGN})}?hangit)
+    same =&gt; n,Playback(rpt/connected-to&amp;rpt/node)
+    same =&gt; n,SayDigits(${NODE})
+    same =&gt; n,rpt(${NODE},P,${CALLSIGN}-P)
+    same =&gt; n(hangit),NoOp(No Caller ID Name)
+    same =&gt; n,Playback(connection-failed)
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">UDP Port Numbering</p>
-<p>The UDP port pair must start with an <strong>even</strong> port number. The even port is for the RTP (audio) and the odd port is for the RTCP (control/supervisory).</p>
-</div>
-<h3 id="ipaddr">ipaddr=</h3>
-<p>This optionally sets the local IP address to bind to. If not specified, it defaults to <code>0.0.0.0</code>, which will bind to any interface.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ipaddr = 44.128.252.1               ; Bind to the interface with the IP Address 44.128.252.1
+<p>This stanza is a little more involved than the <a href="#iaxrpt-stanza"><code>[iaxrpt]</code></a> stanza. It starts off sending some ringing tone to the client, checks to see if the client is sending a CallerID name (Callsign), and hangs up the call if there is no Callsign sent. Otherwise, it plays "Connected to Node", followed by the node number before passing the call to <code>app_rpt</code>. <code>app_rpt</code> is called with the <code>P</code> option, which means "Phone Control Mode". This allows a regular phone user to have full control and audio access to the radio system. For the user to have DTMF control, the <a href="../rpt_conf/#phone-functions-stanza"><code>phone_functions</code></a> parameter must be specified for the node in <code>rpt.conf</code>. An additional function (<a href="../rpt_conf/#cop-commands"><code>cop,6</code></a>) must be listed so that PTT control is available.</p>
+<h2 id="autopatch-stanzas">Autopatch Stanzas</h2>
+<p>There are a bunch of stanzas that relate to operation of the autopatch (if configured). This is for <strong>outbound</strong> calls, typically to the Public Switched Telephone Network (PSTN).</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; Comment-out the following clause if you want Allstar Autopatch service
+[pstn-out]
+exten =&gt; _NXXNXXXXXX,1,playback(ss-noservice)
+    same =&gt; n,Congestion
+
+; Un-comment out the following clause if you want Allstar Autopatch service
+;[pstn-out]
+;exten =&gt; _NXXNXXXXXX,1,Dial(IAX2/allstar-autopatch/\${EXTEN})
+; same =&gt; n,Busy
+
+[invalidnum]
+exten =&gt; s,1,Wait(3)
+    same =&gt; n,Playback(ss-noservice)
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
+
+[radio]
+exten =&gt; _X11,1,Goto(check_route,${EXTEN},1);
+exten =&gt; _NXXXXXX,1,Goto(check_route,1${HOMENPA}${EXTEN},1)
+exten =&gt; _1XXXXXXXXXX,1,Goto(check_route,${EXTEN},1)
+exten =&gt; _07XX,1,Goto(parkedcalls,${EXTEN:1},1)
+exten =&gt; 00,1,Goto(my-ip,s,1)
+
+[check_route]
+exten =&gt; _X.,1,NoOp(${EXTEN})
+; no 800
+exten =&gt; _1800NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1888NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1877NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1866NXXXXXX,2,Goto(invalidnum,s,1)
+exten =&gt; _1855NXXXXXX,2,Goto(invalidnum,s,1)
+; no X00 NPA
+exten =&gt; _1X00XXXXXXX,2,Goto(invalidnum,s,1)
+; no X11 NPA
+exten =&gt; _1X11XXXXXXX,2,Goto(invalidnum,s,1)
+; no X11
+exten =&gt; _X11,2,Goto(invalidnum,s,1)
+; no 555 Prefix in any NPA
+exten =&gt; _1NXX555XXXX,2,Goto(invalidnum,s,1)
+; no 976 Prefix in any NPA
+exten =&gt; _1NXX976XXXX,2,Goto(invalidnum,s,1)
+; no NPA=809
+exten =&gt; _1809XXXXXXX,2,Goto(invalidnum,s,1)
+; no NPA=900
+exten =&gt; _1900XXXXXXX,2,Goto(invalidnum,s,1)
+
+; okay, route it
+exten =&gt; _1NXXXXXXXXX,2,Goto(pstn-out,${EXTEN:1},1)
+exten =&gt; _X.,2,Goto(invalidnum,s,1)
+
+[my-ip]
+exten =&gt; s,1,Wait(1)
+    same =&gt; n,SayAlpha(${CURL(http://myip.vg)})
+    same =&gt; n,Hangup
 </code></pre></div>
-<h3 id="astnode">astnode=</h3>
-<p>This is the node number of the local AllStarLink node to associate to. It could be a public or private node, as setup in <a href="../rpt_conf/"><code>rpt.conf</code></a>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>astnode = 2008                      ; app_rpt node associated with this instance (for incoming connections)
+<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="../rpt_conf/#context"><code>rpt.conf</code></a> using the <a href="../rpt_conf/#context"><code>context</code></a> directive. Note that the <a href="../../adv-topics/autopatch/#autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option. </p>
+<p>The <code>[radio]</code> stanza does a few different things:</p>
+<ul>
+<li>
+<p>If a three digit number, matching the pattern X11 is dialed, send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If a seven digit number is dialed, prepend it with the <code>HOMENPA</code> global variable, then send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If an eleven digit number is dialed, send it to <code>[check_route]</code></p>
+</li>
+<li>
+<p>If a special number matching the pattern 07XX is dialed, pick up the parked call in slot XX</p>
+</li>
+<li>
+<p>If a special number of 00 is dialed, say the node's IP address over the radio (using the <code>[my-ip]</code> stanza)</p>
+</li>
+</ul>
+<p>The <code>[check_route]</code> stanza is the core of the autopatch dialplan. It is used to filter out numbers you do not want to allow to be dialed. This includes things like toll-free numbers, X11 numbers, 976/809/900 (toll) numbers, and the invalid 555 prefix. All of the filtered numbers get sent to the <code>[invalidnum]</code> stanza, which plays a mesage and hangs up.</p>
+<p>If the call passes <code>[check_route]</code>, it gets sent to the <code>[pstn-out]</code> stanza. You will note that there are two options for <code>[pstn-out]</code>. The default is to play a message and hang up. By swapping which one is active (moving the comments around), you can send the call to the <code>[allstar-autopatch]</code> stanza in <code>iax.conf</code>. You can also configure your own VoIP provider, and send the call there (preferred).</p>
+<h2 id="allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
+<p>The <code>[allstar-sys]</code> stanza is called from the <code>[allstar-sys]</code> stanza in <code>iax.conf</code>. The <code>[allstar-sys]</code> stanza is used by connections from the <a href="../../user-guide/phoneportal/">AllStarLink Telephone Portal</a>.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-sys]
+exten =&gt; _1.,1,Rpt(${EXTEN:1},Rrpt/node:NODE:rpt/in-call:digits/0:PARKED,120)
+exten =&gt; _1.,n,Hangup
+
+exten =&gt; _2.,1,Ringing
+exten =&gt; _2.,n,Wait(3)
+exten =&gt; _2.,n,Answer
+exten =&gt; _2.,n,Playback(rpt/node)
+exten =&gt; _2.,n,Saydigits(${EXTEN:1})
+exten =&gt; _2.,n,Rpt(${EXTEN:1},P,${CALLERID(name)}-P)
+exten =&gt; _2.,n,Hangup
+
+exten =&gt; _3.,1,Ringing
+exten =&gt; _3.,n,Wait(3)
+exten =&gt; _3.,n,Answer
+exten =&gt; _3.,n,Playback(rpt/node)
+exten =&gt; _3.,n,Saydigits(${EXTEN:1})
+exten =&gt; _3.,n,Rpt(${EXTEN:1},Pv,${CALLERID(name)}-P)
+exten =&gt; _3.,n,Hangup
+
+exten =&gt; _4.,1,Ringing
+exten =&gt; _4.,n,Wait(3)
+exten =&gt; _4.,n,Answer
+exten =&gt; _4.,n,Playback(rpt/node)
+exten =&gt; _4.,n,Saydigits(${EXTEN:1})
+exten =&gt; _4.,n,Rpt(${EXTEN:1},D,${CALLERID(name)}-P)
+exten =&gt; _4.,n,Hangup
+
+exten =&gt; _5.,1,Ringing
+exten =&gt; _5.,n,Wait(3)
+exten =&gt; _5.,n,Answer
+exten =&gt; _5.,n,Playback(rpt/node)
+exten =&gt; _5.,n,Saydigits(${EXTEN:1})
+exten =&gt; _5.,n,Rpt(${EXTEN:1},Dv,${CALLERID(name)}-P)
+exten =&gt; _5.,n,Hangup
 </code></pre></div>
-<h3 id="context">context=</h3>
-<p>This is the context in <code>etc/asterisk/extensions.conf</code> to associate incoming connections to. Typically, this would be the <code>[radio-secure]</code> context.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>context = radio-secure              ; Asterisk context for incoming connections
+<p>The option used when calling the Telephone Portal (Node Access or Reverse Autopatch) determines which extension gets used for processing in <code>[allstar-sys]</code>. Reverse Autopatch processes calls through extension 1 (which parks the call until someone on the radio side picks up the parked call). The Node Access method processes calls through extension 2 (function codes for keying PTT) or 3 (VOX for PTT).</p>
+<h2 id="allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
+<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../user-guide/externalapps/#web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-public]
+exten =&gt; s,1,Ringing
+    same =&gt; n,Set(RESP=${CURL(https://register.allstarlink.org/cgi-bin/authwebphone.pl?${CALLERID(name)})})
+    same =&gt; n,GotoIf($[&quot;${RESP:0:1}&quot; = &quot;?&quot;]?hangit)
+    same =&gt; n,GotoIf($[&quot;${RESP:0:1}&quot; = &quot;&quot;]?hangit)
+    same =&gt; n,GotoIf($[&quot;${RESP:0:5}&quot; != &quot;OHYES&quot;]?hangit)
+    same =&gt; n,Set(CALLSIGN=${RESP:5})
+    same =&gt; n,Set(NODENUM=${CALLERID(num)})
+
+    ; if allowlist/extension doesn&#39;t exist, check the denylist
+    same =&gt; n,GotoIf($[${DB_KEYCOUNT(allowlist/${NODENUM})} = 0]?denylist)              ; no allowlist, check denylist
+    ; if allowlist/extension/callsign exists, connect
+    same =&gt; n,GotoIf(${DB_EXISTS(allowlist/${NODENUM}/${CALLSIGN})}?connect)            ; in allowlist, connect
+    same =&gt; n,NoOp(${CALLSIGN} not in allowlist, Hangup)
+    same =&gt; n,Hangup
+
+    ; if denylist/extension/callsign doesn&#39;t exist, connect
+    same =&gt; n(denylist),GotoIf(${DB_EXISTS(denylist/${NODENUM}/${CALLSIGN})}?:connect) ; not in denylist, connect
+    same =&gt; n,NoOp(${CALLSIGN} is in denylist, Hangup)
+    same =&gt; n,Hangup
+
+    ; connect!
+    same =&gt; n(connect),Set(CALLERID(name)=${CALLSIGN})
+    same =&gt; n,Set(CALLERID(num)=0)
+    same =&gt; n,Wait(3)
+    same =&gt; n,Playback(rpt/connected-to&amp;rpt/node,noanswer)
+    same =&gt; n,SayDigits(${NODENUM})
+    same =&gt; n,Rpt(${NODENUM},X)
+    same =&gt; n,Hangup
+
+    ; hangup!
+    same =&gt; n(hangit),Answer
+    same =&gt; n,Wait(1)
+    same =&gt; n,Hangup
 </code></pre></div>
-<h3 id="codec">codec=</h3>
-<p>This defines the default codec to use when connecting to TheLinkBox stations.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>codec = ULAW                        ; Default CODEC to be used
-</code></pre></div>
-<p>Valid codecs are: <code>ULAW</code>, <code>G726</code> and <code>GSM</code>.</p>
-<h2 id="tlb-nodes-stanza">TLB Nodes Stanza</h2>
-<p>The <code>[nodes]</code> stanza defines a local private node number to associate with a specific TheLinkBox station.</p>
-<p>The format is:</p>
-<div class="highlight"><pre><span></span><code>&lt;privatenode&gt; = &lt;TLB CALL&gt;,&lt;IP ADDRESS&gt;,&lt;UDP PORT&gt;,[CODEC]
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lt;privatenode&gt;</td>
-<td>The private (local) node number to associate with the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;TLB CALL&gt;</td>
-<td>The callsign of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;IP ADDRESS&gt;</td>
-<td>The static IP address of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;UDP PORT&gt;</td>
-<td>The <strong>starting</strong> UDP port of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>[CODEC]</td>
-<td>Optionally, use a specific codec, other than the default to connect to the remote TheLinkBox station</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>[nodes]
-1001 = W6ABC,44.128.252.3,44966     ; This one is for W6ABC at ip 44.128.252.3:44966 default CODEC
-1002 = W1XYZ,44.128.252.4,1234,G726 ; This one is for W1XYZ at ip 44.128.252.4:1234 with G726 CODEC
-</code></pre></div>
-<p>In the above example, private node <code>1001</code> is defined to connect to TheLinkBox station with the callsign W6ABC, which is at IP 44.128.252.3:44966, using the default codec. Node <code>1002</code> would connect to W1XYZ, at 44.128.252.4 on UDP port 1234, and use the G726 codec.</p>
+<p>When a client connects to the node using the Web Transceiver method, it sends its token from the AllStarLink system (if the client user has a valid <a href="https://allstarlink.org/portal">AllStarLink Portal</a> account) as the CallerID Name. The first step is to authenticate if that is a valid token, which is done by a query to the API. If the token is valid, the associated <strong>callsign</strong> to that token checked against the <a href="../../adv-topics/allowdenylists/">Allow and Deny Lists</a> (you can add callsigns to the database, in addition to node numbers). If that passes validation, it is sent to the connect part of the dialplan. The connect section of the dialplan plays the message, "Connected to node" followed by the node number, and passes the connection to <code>app_rpt</code> with the <code>X</code> option which translates to a normal endpoint but bypassing further authentication checks.</p>
 
 
 
@@ -3602,7 +3749,7 @@ In tlb.conf:
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../rpt_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: rpt.conf">
+          <a href="../config-structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Structure of Config Files">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3612,20 +3759,20 @@ In tlb.conf:
                 Previous
               </span>
               <div class="md-ellipsis">
-                rpt.conf
+                Structure of Config Files
               </div>
             </div>
           </a>
         
         
           
-          <a href="../voter_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: voter.conf">
+          <a href="../iax_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: iax.conf">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                voter.conf
+                iax.conf
               </div>
             </div>
             <div class="md-footer__button md-icon">

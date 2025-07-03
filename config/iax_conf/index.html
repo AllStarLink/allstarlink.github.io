@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/config/tlb_conf/">
+        <link rel="canonical" href="https://allstarlink.github.io/config/iax_conf/">
       
       
-        <link rel="prev" href="../rpt_conf/">
+        <link rel="prev" href="../extensions_conf/">
       
       
-        <link rel="next" href="../voter_conf/">
+        <link rel="next" href="../rpt_conf/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>tlb.conf - AllStarLink Manual</title>
+        <title>iax.conf - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tlbconf" class="md-skip">
+        <a href="#iaxconf" class="md-skip">
           Skip to content
         </a>
       
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              tlb.conf
+              iax.conf
             
           </span>
         </div>
@@ -3242,10 +3242,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../iax_conf/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    iax.conf
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3254,6 +3274,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [general] Stanza
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[general] Stanza">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iax-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAX Registration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindport-and-bindaddr" class="md-nav__link">
+    <span class="md-ellipsis">
+      bindport= and bindaddr=
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outbound-codecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outbound Codecs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remaining-general-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remaining [general] Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radio-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [radio] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iaxrpt-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [iaxrpt] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iaxclient-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [iaxclient] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstar-sys-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [allstar-sys] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstar-public-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [allstar-public] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstar-autopatch-stanza" class="md-nav__link">
+    <span class="md-ellipsis">
+      [allstar-autopatch] Stanza
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3284,30 +3429,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    tlb.conf
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tlb_conf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3316,104 +3441,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#channel-definition-stanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      Channel Definition Stanza
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Channel Definition Stanza">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#call" class="md-nav__link">
-    <span class="md-ellipsis">
-      call=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#port" class="md-nav__link">
-    <span class="md-ellipsis">
-      port=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ipaddr" class="md-nav__link">
-    <span class="md-ellipsis">
-      ipaddr=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#astnode" class="md-nav__link">
-    <span class="md-ellipsis">
-      astnode=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#context" class="md-nav__link">
-    <span class="md-ellipsis">
-      context=
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codec" class="md-nav__link">
-    <span class="md-ellipsis">
-      codec=
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tlb-nodes-stanza" class="md-nav__link">
-    <span class="md-ellipsis">
-      TLB Nodes Stanza
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3462,111 +3489,194 @@
                   
 
 
-<h1 id="tlbconf">tlb.conf</h1>
-<p><code>tlb.conf</code> (<code>/etc/asterisk/tlb.conf</code>) is used to configure TheLinkBox channel driver, <code>chan_tlb</code>, for use with interfacing to <a href="https://github.com/skiphansen/thelinkbox">TheLinkBox</a> stations.</p>
-<p>The format of the file is:</p>
-<div class="highlight"><pre><span></span><code>[tlb0]
-call = WB6NIL-R                     ; Callsign of the app_rpt station
-port = 44966                        ; Start of UDP port range (this port, port + 1)
-ipaddr = 44.128.252.1               ; Optional IP address to bind to
-astnode = 63001                     ; app_rpt node associated with this instance (for incoming connections)
-context = radio-secure              ; Asterisk context for incoming connections
-codec = ULAW                        ; Default CODEC to be used
-
-
-[nodes]
-1001 = W6ABC,44.128.252.3,44966     ; This one is for W6ABC at ip 44.128.252.3:44966 default CODEC
-1002 = W1XYZ,44.128.252.4,1234,G726 ; This one is for W1XYZ at ip 44.128.252.4:1234 with G726 CODEC
+<h1 id="iaxconf">iax.conf</h1>
+<p>iax.conf (<code>/etc/asterisk/iax.conf</code>) is where the primary authentication of connections to a node (Asterisk) takes place.</p>
+<p>When IAX2 protocol connection requests are made, Asterisk figures out what context applies based on the incoming request. Asterisk then forwards the processing to the relative context in <code>extensions.conf</code> if the call/connection is allowed to proceed for further processing.</p>
+<p>See also <a href="../../adv-topics/conftmpl/#asterisk-templates">config file templating</a>.</p>
+<h2 id="general-stanza"><code>[general]</code> Stanza</h2>
+<p>The <code>[general]</code> stanza in <code>iax.conf</code> controls the main/global features of how IAX2 connections are handled.</p>
+<h3 id="iax-registration">IAX Registration</h3>
+<p>Prior to ASL3, nodes registered with the AllStarLink Network using a <code>register</code> directive. This is no longer required, and has been replaced by HTTP registrations that leverage the power of DNS.</p>
+<p>As such, you will currently see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; !!! IAX registration will be discontinued at some point !!!
+; Setup rpt_http_registartions.conf instead.
+; remove the leading &quot;;&quot;
+;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password 
+;register =&gt; 1998:12345@register.allstarlink.org
 </code></pre></div>
-<h2 id="channel-definition-stanza">Channel Definition Stanza</h2>
-<p>Define at least one channel stanza with the format <code>[tlbx]</code>, where <code>x</code> is a numeric digit.</p>
-<p>You can have multiple instances defined (such as <code>[tlb1]</code>, etc.), as long as they are on different UDP port pairs.</p>
-<p>The name of this context must match the reference for <code>rxchannel</code> in <a href="../rpt_conf/"><code>rpt.conf</code></a>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>In rpt.conf:
+<p>While node registration will still work (for now) using this method, please don't use it. It is not required. Your registration should be processed by an entry in <code>rpt_http_registrations.conf</code>, which in most cases the <a href="../../user-guide/"><code>asl-menu</code></a> utility will take care of configuring for you.</p>
+<h3 id="bindport-and-bindaddr"><code>bindport=</code> and <code>bindaddr=</code></h3>
+<p>The <code>bindport</code> and <code>bindaddr</code> directives determine where Asterisk is listening for incoming IAX2 connections.</p>
+<p>By default, UDP port <code>4569</code> is used. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>bindport = 4569                 ; bindport and bindaddr may be specified
 
-rxchannel = tlb/tlb0
+; NOTE: bindport must be specified BEFORE
+; bindaddr or may be specified on a specific
+; bindaddr if followed by colon and port
+;  (e.g. bindaddr=192.168.0.1:4569)
 
-In tlb.conf:
-[tlb0]
-...
+; bindaddr = 192.168.0.1        ; more than once to bind to multiple
+                                ; addresses, but the first will be the 
+                                ; default
 </code></pre></div>
-<h3 id="call">call=</h3>
-<p>This is the callsign of the local AllStarLink node.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>call = WB6NIL-R                     ; Our callsign
-</code></pre></div>
-<h3 id="port">port=</h3>
-<p>This defines the <strong>starting</strong> port of the UDP port pair used for communication with TheLinkBox station. If not specified, the default ports used will be <code>44966/UDP</code> and <code>44967/UDP</code>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>port = 44966                        ; Start of UDP port range (this port, port + 1)
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">UDP Port Numbering</p>
-<p>The UDP port pair must start with an <strong>even</strong> port number. The even port is for the RTP (audio) and the odd port is for the RTCP (control/supervisory).</p>
+<p>In most cases, the default <code>bindport = 4569</code> will work fine. However, if you are running multiple node servers behind a NAT firewall, you MAY need to change this so that they are all unique from each other. In that case, you also need to change the <a href="../../basics/portal/#iax-port">IAX Port</a> in the <a href="https://www.allstarlink.org/portal">Web Portal</a> to match. See the <a href="../../adv-topics/multinodesnetwork/">Multiple Nodes on the Same Network</a> page for further details.</p>
+<div class="admonition warning">
+<p class="admonition-title">Firewall Rules</p>
+<p>If you are using a firewall on your internet connection (I sure hope so!), don't forget to allow port <code>4569/UDP</code>, and/or any other IAX2 port(s) you have configured through your firewall (and point it to the correct internal IP address, if using NAT).</p>
+<p>If you are using the <a href="../../install/pi-appliance/">ASL3 Appliance</a> and you are using a non-standard port, don't forget to update the firewall rules in the <a href="../../pi/cockpit-firewall/">Cockpit Firewall</a>.</p>
 </div>
-<h3 id="ipaddr">ipaddr=</h3>
-<p>This optionally sets the local IP address to bind to. If not specified, it defaults to <code>0.0.0.0</code>, which will bind to any interface.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>ipaddr = 44.128.252.1               ; Bind to the interface with the IP Address 44.128.252.1
+<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases. </p>
+<h3 id="outbound-codecs">Outbound Codecs</h3>
+<p>Also in the <code>[general]</code> stanza is the configuration of <strong>OUTBOUND</strong> codecs to be used when making outbound connections to other nodes.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections 
+;allow = ulaw                       ; Audio Quality     Bandwidth
+;allow = adpcm                      ; best              87 kbps
+;allow = gsm                        ; good              55 kbps
+allow = ulaw                        ; mediocre          36 kbps
+allow = adpcm
+;allow = g722
+;allow = g726aal2
+allow = gsm
+;allow = ilbc
 </code></pre></div>
-<h3 id="astnode">astnode=</h3>
-<p>This is the node number of the local AllStarLink node to associate to. It could be a public or private node, as setup in <a href="../rpt_conf/"><code>rpt.conf</code></a>.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>astnode = 2008                      ; app_rpt node associated with this instance (for incoming connections)
+<p>The above starts by clearing the codec list (<code>disallow = all</code>), followed by <code>allow</code> statements for the codecs you prefer to use, in preferential order.</p>
+<p>In the above example, we prefer our outbound connections to use u-law (G.711), ADPCM, and GSM, in that order. You can enable other codecs, if you desire, and change the priority too. However, you should be sure to keep u-law enabled, as that is the common standard that AllStarLink nodes expect to use.</p>
+<div class="admonition note">
+<p class="admonition-title">High Quality Codecs</p>
+<p>ASL3 also supports the use of the slin and slin16 codecs. These are the internal codecs that Asterisk uses for high quality internal connections between channels. The slin codec is signed linear, 8kHz, 16-bit PCM; slin16 is signed linear, 16kHz, 16-bit PCM. They offer improved dynamic range over u-law, and may be good options to deploy on a hub node that would be connecting to other hub nodes (to maintain audio fidelity). A good discussion on codecs can be found <a href="https://community.allstarlink.org/t/regarding-asl-hamvoip-and-default-codec-priority/22648">here</a>.</p>
+</div>
+<h3 id="remaining-general-options">Remaining <code>[general]</code> Options</h3>
+<p>There are some other directives included in the <code>[general]</code> stanza of the default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>jitterbuffer = yes
+forcejitterbuffer = yes                                                           
+dropcount = 2                                                                     
+maxjitterbuffer = 4000                                                            
+maxjitterinterps = 10                                                             
+resyncthreshold = 1000                                                            
+maxexcessbuffer = 80                                                              
+minexcessbuffer = 10                                                              
+jittershrinkrate = 1                                                              
+tos = 0x1E                                                                  
+autokill = yes                                                                    
+delayreject = yes                                                                 
+; iaxthreadcount = 30                                                              
+; iaxmaxthreadcount = 150  
 </code></pre></div>
-<h3 id="context">context=</h3>
-<p>This is the context in <code>etc/asterisk/extensions.conf</code> to associate incoming connections to. Typically, this would be the <code>[radio-secure]</code> context.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>context = radio-secure              ; Asterisk context for incoming connections
+<p>Unless you have a specific reason to change them (and you know why you are changing them), just leave them alone. You can break your node.</p>
+<h2 id="radio-stanza"><code>[radio]</code> Stanza</h2>
+<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[radio]
+type = user
+disallow = all
+allow = ulaw
+allow = adpcm
+;allow = g722
+;allow = g726aal2
+allow = gsm
+;allow = ilbc
+codecpriority = host
+context = radio-secure
+transfer = no
 </code></pre></div>
-<h3 id="codec">codec=</h3>
-<p>This defines the default codec to use when connecting to TheLinkBox stations.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>codec = ULAW                        ; Default CODEC to be used
+<p>There are a couple of important notes here about the directives in this stanza.</p>
+<p>Most of the directives here deal with which audio codecs you allow, and in what priority for incoming connections. You <strong><em>could</em></strong> also include the high quality (and high bandwidth) slin16 and slin codecs, if desired (and bandwidth isn't a concern).</p>
+<p>Incoming calls with the username of <code>radio</code> will reach this stanza, and then after the call is setup (codecs are negotiated) they are forwarded to <code>extensions.conf</code> for further processing. Per the <code>context = radio-secure</code> directive, the incoming connection will be processed by the <code>[radio-secure]</code> stanza that is found in <code>extensions.conf</code>, where it gets authenticated by <code>app_rpt</code> to see if it is a valid node that is allowed to connect.</p>
+<p>The <code>type = user</code> directive tells this installation of Asterisk that the incoming connection (the "peer") is to be treated as a client connecting to us (the host). So, with <code>codecpriority = host</code>, <em>we</em> get to choose the supported codecs and their priority we prefer to connect with.</p>
+<h2 id="iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
+<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="../../user-guide/externalapps/#iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="../../user-guide/externalapps/">External Apps</a>). </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iaxrpt]                         ; Connect from iaxrpt Username field (PC AllStar Client)
+type = user                      ; Notice type is user here &lt;---------------
+context = iaxrpt                 ; Context to jump to in extensions.conf
+auth = md5
+secret = Your_Secret_Pasword_Here
+host = dynamic
+disallow = all                    
+allow = ulaw
+allow = adpcm
+allow = gsm                       
+transfer = no
 </code></pre></div>
-<p>Valid codecs are: <code>ULAW</code>, <code>G726</code> and <code>GSM</code>.</p>
-<h2 id="tlb-nodes-stanza">TLB Nodes Stanza</h2>
-<p>The <code>[nodes]</code> stanza defines a local private node number to associate with a specific TheLinkBox station.</p>
-<p>The format is:</p>
-<div class="highlight"><pre><span></span><code>&lt;privatenode&gt; = &lt;TLB CALL&gt;,&lt;IP ADDRESS&gt;,&lt;UDP PORT&gt;,[CODEC]
+<p>The username this node is expecting to see from the client is the context name (<code>iaxrpt</code>), and it is going to forward the call to the the <code>[iaxrpt]</code> stanza in <code>extensions.conf</code>, as denoted by the <code>context = iaxrpt</code> directive.</p>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that this stanza requires a password from the client, denoted by the <code>secret =</code> directive. Your new ASL3 installation should have a randomly generated secret.</p>
+<p>See <a href="../../user-guide/externalapps/#node-configuration">Node Configuration</a> for more information on how to customize this stanza for multiple users.</p>
+<div class="admonition warning">
+<p class="admonition-title">Call Tokens</p>
+<p>With ASL3 moving to Asterisk 20+, IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.</p>
+</div>
+<h2 id="iaxclient-stanza"><code>[iaxclient]</code> Stanza</h2>
+<p>The <code>[iaxclient]</code> stanza is similar to the <a href="#iaxrpt-stanza"><code>[iaxrpt]</code></a> above. It was/is typically used for connections from the <a href="https://www.zoiper.com/">Zoiper Softphone Client</a>.</p>
+<p>Zoiper is more cumbersome to configure and use than the other <a href="../../user-guide/externalapps/">External Apps</a> that are now available that specifically support AllStarLink.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[iaxclient]                      ; Connect from iax client (Zoiper...)
+type = friend                    ; Notice type here is friend &lt;--------------
+context = iax-client             ; Context to jump to in extensions.conf
+auth = md5
+secret = Your_Secret_Password_Here
+host = dynamic
+disallow = all
+allow = ulaw
+allow = adpcm
+allow = gsm
+transfer = no
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lt;privatenode&gt;</td>
-<td>The private (local) node number to associate with the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;TLB CALL&gt;</td>
-<td>The callsign of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;IP ADDRESS&gt;</td>
-<td>The static IP address of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>&lt;UDP PORT&gt;</td>
-<td>The <strong>starting</strong> UDP port of the remote TheLinkBox station</td>
-</tr>
-<tr>
-<td>[CODEC]</td>
-<td>Optionally, use a specific codec, other than the default to connect to the remote TheLinkBox station</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>[nodes]
-1001 = W6ABC,44.128.252.3,44966     ; This one is for W6ABC at ip 44.128.252.3:44966 default CODEC
-1002 = W1XYZ,44.128.252.4,1234,G726 ; This one is for W1XYZ at ip 44.128.252.4:1234 with G726 CODEC
+<p>The big difference between the <code>[iaxrt]</code> and <code>[iaxclient]</code> stanzas is the <code>type</code> directive. The <code>type = friend</code> tells this installation of Asterisk that the Zoiper client (peer) is both a client and a server, capable of both originating and receiving calls.</p>
+<p>Also note that connections processed by this stanza are forwarded to the <code>[iax-client]</code> stanza in <code>extensions.conf</code>, per the <code>context = iax-client</code> directive.</p>
+<h2 id="allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
+<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="../../user-guide/phoneportal/">AllStarLink Telephone Portal</a>. </p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-sys]
+type = user
+context = allstar-sys
+auth = rsa
+inkeys = allstar
+disallow = all
+allow = ulaw
+allow = adpcm
+allow = gsm
 </code></pre></div>
-<p>In the above example, private node <code>1001</code> is defined to connect to TheLinkBox station with the callsign W6ABC, which is at IP 44.128.252.3:44966, using the default codec. Node <code>1002</code> would connect to W1XYZ, at 44.128.252.4 on UDP port 1234, and use the G726 codec.</p>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that these connections are validated by a public/private key arrangement, as denoted by the <code>auth = rsa</code> and <code>inkeys = allstar</code> directives.</p>
+<p>Connections processed by this stanza are forwarded to the <code>[allstar-sys]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-sys</code> directive.</p>
+<h2 id="allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
+<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../user-guide/externalapps/#web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[allstar-public]
+type = user
+context = allstar-public
+auth = md5
+secret = allstar
+disallow = all
+;calltokenoptional=0.0.0.0/0.0.0.0
+requirecalltoken=no
+allow = ulaw
+allow = adpcm
+allow = gsm
+</code></pre></div>
+<p>Observe how we define the codecs that are allowed for incoming connections of this type, and their preferred priority.</p>
+<p>Also note that while there is a <code>secret = allstar</code> directive that would imply that we use that for authentication, in fact, further authentication of the connection is done later down the chain using a token validation system to ensure that the client has a valid account on the <a href="https://www.allstarlink.org/portal">AllStarLink Web Portal</a>.</p>
+<p>Connections processed by this stanza are forwarded to the <code>[allstar-public]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-public</code> directive.</p>
+<h2 id="allstar-autopatch-stanza"><code>[allstar-autopatch]</code> Stanza</h2>
+<p>The <code>[allstar-autopatch]</code> stanza is used for <strong>outbound</strong> IAX2 autopatch calls to the AllStarLink Autopatch Service. This <em>should</em> would, but you are probably better off using your own VoIP provider, such as <a href="https://voip.ms">voip.ms</a> to have better control over your PSTN endpoint. The <code>[allstar-autopatch]</code> stanza is called from the <code>[pstn-out]</code> stanza in <code>extensions.conf</code> when a successful autopatch call is set to be routed to the PSTN.</p>
+<p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>; The following should be un-commented to support Allstar Autopatch service
+; [allstar-autopatch]
+; type = peer
+; host = register.allstarlink.org
+; username = &lt;One of the Node numbers on this server&gt;
+; secret = &lt;The node password for the above node&gt;
+; auth = md5
+; disallow = all
+; allow = ulaw
+; transfer = no
+</code></pre></div>
+<p>As noted in the comments above, you will need to put your node number in the <code>username</code> field, and your node password in the <code>secret</code> field (this is from the Node Settings page in the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>).</p>
+<p>You would need to un-comment this stanza and restart Asterisk for it to be loaded.</p>
+<p>The <code>type = peer</code> designates the client (peer) as a server that accepts incoming calls from our server. It cannot initiate calls itself.</p>
 
 
 
@@ -3602,7 +3712,7 @@ In tlb.conf:
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../rpt_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: rpt.conf">
+          <a href="../extensions_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: extensions.conf">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3612,20 +3722,20 @@ In tlb.conf:
                 Previous
               </span>
               <div class="md-ellipsis">
-                rpt.conf
+                extensions.conf
               </div>
             </div>
           </a>
         
         
           
-          <a href="../voter_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: voter.conf">
+          <a href="../rpt_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: rpt.conf">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                voter.conf
+                rpt.conf
               </div>
             </div>
             <div class="md-footer__button md-icon">
