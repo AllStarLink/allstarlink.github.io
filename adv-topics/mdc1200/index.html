@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/adv-topics/mdc1200/">
       
       
-        <link rel="prev" href="../macros/">
+        <link rel="prev" href="../gpio/">
       
       
         <link rel="next" href="../multinodesnetwork/">
@@ -115,7 +115,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
@@ -195,14 +197,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -389,7 +385,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -1663,6 +1665,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -2010,6 +2016,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../eventmgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Event Management Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hotspot_hd/" class="md-nav__link">
         
   
@@ -2133,6 +2160,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulating GPIO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2182,6 +2230,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mdc-1200-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDC-1200 Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#mdc-1200-decoding-display" class="md-nav__link">
     <span class="md-ellipsis">
       MDC-1200 Decoding Display
@@ -2203,6 +2260,15 @@
   <a href="#mdc-1200-encoding" class="md-nav__link">
     <span class="md-ellipsis">
       MDC-1200 Encoding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mdc-1200-node-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDC-1200 Node Access
     </span>
   </a>
   
@@ -2539,6 +2605,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../simplevoter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Voter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../broadcastify/" class="md-nav__link">
         
   
@@ -2560,32 +2647,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../remotebase/" class="md-nav__link">
+      <a href="../telemetry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Remote Base Nodes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rxtoneburst/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RX Toneburst
+    Telemetry Messages
   </span>
   
 
@@ -3666,6 +3732,12 @@
 
 <h1 id="mdc-1200-signalling">MDC-1200 Signalling</h1>
 <p><a href="https://en.wikipedia.org/wiki/MDC-1200">MDC-1200</a> signalling support is available in ASL3. MDC-1200 signalling could be used to have the node perform certain functions when a MDC-1200 code is received, and/or it can be used to signal user radios that have been configured for MDC-1200 signalling support.</p>
+<h2 id="mdc-1200-logging">MDC-1200 Logging</h2>
+<p>A simple log for all local MDC-1200 Signalling received by the node is available by setting the <a href="../../config/rpt_conf/#mdclog"><code>mdclog=</code></a> option in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>. When set, each incoming MDC-1200 burst that is decoded will be logged into the log file with a timestamp.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>mdclog = /tmp/mdclog                ; log MDC-1200 received data to /tmp/mdclog
+</code></pre></div>
+<p>The directory you use needs to be writable by Asterisk. See the <a href="../permissions/">Permissions</a> page for more information.</p>
 <h2 id="mdc-1200-decoding-display">MDC-1200 Decoding Display</h2>
 <p>On the <a href="../../user-guide/menu/#asterisk-cli">Asterisk CLI</a> when MDC-1200 is received, the following will be displayed:</p>
 <p>For a radio ID:</p>
@@ -3792,6 +3864,22 @@ I1701=*81#
 <p>From the CLI sending a unit call to a CDM1550 unit 1701 from unit 1600:</p>
 <div class="highlight"><pre><span></span><code>rpt cmd 41618 cop 60 C,1600,1701,8205
 </code></pre></div>
+<h2 id="mdc-1200-node-access">MDC-1200 Node Access</h2>
+<p>AllStarLink supports requiring MDC-1200 to access ("key-up") a node. This is done by leveraging the <a href="../../config/rpt_conf/#dtmfkey"><code>dtmfkey=</code></a> option, <a href="../../config/rpt_conf/#dtmfkeys-stanza"><code>[dtmfkeys]</code></a> stanza, and <a href="../../config/rpt_conf/#mdcmacro"><code>[mdcmacros]</code></a> stanza in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>.</p>
+<p>User radios need to be configured for MDC-1200 PTTID (sending <code>Ixxxx</code>) on each transmission.</p>
+<p>Configure the following in <code>rpt.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>dtmfkey=1                           ; require DTMF access for keying the node
+
+[dtmfkeys]
+1234=WB6NIL                         ; define DTMF=callsign for each user
+2341=W1AW
+
+[mdcmacro]
+I1234=K1234                         ; define PTTID=dtmfkey for each user
+I2341=K2341
+</code></pre></div>
+<p>Each user that is granted access to key the node needs to have an entry in <code>[mdcmacro]</code> with their assigned MDC-1200 PTTID (ie. <code>I1234</code>), and the corresponding <code>dtmfkeys</code> (ie. <code>K1234</code>) that is associated with it. The <code>K</code> is a special operator that tells <code>app_rpt</code> to look for the associated key in <code>[dtmfkeys]</code>.</p>
+<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p>
 
 
 
@@ -3827,7 +3915,7 @@ I1701=*81#
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../macros/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Macros">
+          <a href="../gpio/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manipulating GPIO">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3837,7 +3925,7 @@ I1701=*81#
                 Previous
               </span>
               <div class="md-ellipsis">
-                Macros
+                Manipulating GPIO
               </div>
             </div>
           </a>
@@ -3948,7 +4036,7 @@ I1701=*81#
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>

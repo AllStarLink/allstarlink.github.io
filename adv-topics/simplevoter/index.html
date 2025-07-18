@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/noderesolution/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/simplevoter/">
       
       
-        <link rel="prev" href="../nnx/">
+        <link rel="prev" href="../soundfiles/">
       
       
-        <link rel="next" href="../other-software/">
+        <link rel="next" href="../broadcastify/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Node Resolution - AllStarLink Manual</title>
+        <title>Simple Voter - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#node-resolution" class="md-skip">
+        <a href="#simple-voter" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node Resolution
+              Simple Voter
             
           </span>
         </div>
@@ -2244,30 +2244,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Node Resolution
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../noderesolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2276,53 +2256,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#external-node-directory-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Node Directory File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domain-name-service-dns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domain Name Service (DNS)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#statically-configured-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Statically Configured Node
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2584,10 +2517,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../simplevoter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2596,6 +2538,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -3712,62 +3655,49 @@
                   
 
 
-<h1 id="node-resolution">Node Resolution</h1>
-<p><code>app_rpt</code> has three ways to resolve a node number to an IP address:</p>
-<ul>
-<li>Statically entered in <code>rpt.conf</code></li>
-<li>Domain Name Service (DNS)</li>
-<li>An external node directory file</li>
-</ul>
-<p>The above mechanisms are used to translate a node number into its respective public IP address. Connections are made directly between nodes using their public IP addresses.</p>
-<p><code>app_rpt</code> first looks to see if the node is statically configured. If it is not found, the setting for <code>node_lookup_method</code> in the <code>[general]</code> stanza of <code>rpt.conf</code> determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.</p>
-<p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
-<div class="highlight"><pre><span></span><code>[general]
-node_lookup_method = both           ; method used to lookup nodes
-                                    ; both = dns lookup first, followed by external file (default)
-                                    ; dns = dns lookup only
-                                    ; file = external file lookup only
-
-; The domain name used for DNS lookups when the node lookup method is &quot;dns&quot; or
-; &quot;both&quot;.  The default domain is &quot;nodes.allstarlink.org&quot; and does not need to
-; be defined here.  Only set &quot;dns_node_domain&quot; if a) You really know what you&#39;re
-; doing and b) you need to use an alternate DNS domain for node resolution.
-;dns_node_domain = nodes.allstarlink.org
-
-; When using DNS, &quot;app_rpt&quot; must know the length of the longest node number.
-; The current maximum is 6 digits and does not need to be defined here. The
-; &quot;max_dns_node_length&quot; variable can be used to limit queries to shorter (or
-; longer) node numbers.
-;max_dns_node_length = 6
+<h1 id="simple-voter">Simple Voter</h1>
+<p>This feature requires that the USB radio devices on the remote voting receivers are connected directly to each voting receiver's discriminator/quadrature detector output. </p>
+<p>You need a complete node for each site you wish to implement in this scheme. Voting receiver nodes <em>should</em> be receive-only, <em>should</em> be implemented with private node numbers, and configured to <strong>not</strong> attempt to register or report to the AllStarLink network.</p>
+<p>The receiver at the main/transmitter site <strong>can</strong> be one of the voting receivers, and <strong>can</strong> be a regular node that connects to the AllStarLink network. </p>
+<p>GPS receivers and additional hardware are <strong>not</strong> required for this scheme. As a result, you may notice audio artifacts as the system switches between receiver sites, as not everything will be totally synchronized.</p>
+<div class="admonition note">
+<p class="admonition-title">Not VOTER</p>
+<p>This has nothing to do with the <a href="../../voter/">VOTER</a> feature of ASL3 that uses the VOTER/RTCM radio interfaces for receiver voting and/or simulcast. This feature is a crude implementation of RSSI-based receiver voting, using node hardware.</p>
+</div>
+<p>You <strong>must</strong> use the <a href="../usbinterfaces/">USBRadio</a> channel driver. Signal strength reporting <strong>must</strong> be turned on for all voting devices in <code>/etc/asterisk/usbradio.conf</code> as follows:</p>
+<div class="highlight"><pre><span></span><code>sendvoter=1                         ; 0=default, no voter SSI, 1=enable voter
 </code></pre></div>
-<p>The node lookup routines will output debug information showing the node lookups if the <a href="../../user-guide/menu/#debug-level">debug level</a> is set to <code>4</code> or higher.</p>
-<p><strong>NOTE:</strong> The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server. See <a href="../httpreg/">HTTP Registration</a> for more information.</p>
-<h2 id="external-node-directory-file">External Node Directory File</h2>
-<p><code>app_rpt</code> can use an external node directory file to perform node resolution. The <a href="https://github.com/AllStarLink/asl3-update-nodelist">asl3-update-nodeList</a> service is used to periodically download the current list of authenticated nodes.</p>
-<p>You may need to install the necessary software package for this function to be available, that can be installed via <code>apt</code> using:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install asl3-update-nodelist
-</code></pre></div>
-<p>The name of this file is configured in <code>rpt.conf</code> using the <code>extnodefile=</code> key and value. By default the name of this file is <code>/var/lib/asterisk/rpt_extnodes</code>. Multiple files can be specified based on your requirements. The file names are separated with a comma.</p>
-<p>When a file based lookup is performed, <code>app_rpt</code> reloads the external file before searching for a match. This allows external scripts the opportunity to keep the file updated.</p>
-<p>Here is an example of the external file format:</p>
-<div class="highlight"><pre><span></span><code>[extnodes]
-
-2000=radio@162.248.93.134:4569/2000,162.248.93.134
-2001=radio@162.248.93.134:4569/2001,162.248.93.134
-</code></pre></div>
-<h2 id="domain-name-service-dns">Domain Name Service (DNS)</h2>
-<p>AllStarLink now provides a DNS service for performing node resolution. DNS is an Internet standard and is more efficient than using a file base solution.</p>
-<p>When using DNS, <code>app_rpt</code> will query for node information from DNS records in the <code>nodes.allstarlink.org</code> domain.  The domain name can be overridden by adding a <code>node_dns_domain=</code> key and value (the query domain) to the <code>[general] stanza of the</code>rpt.conf` configuration file.</p>
-<p>When using DNS, <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza of the <code>rpt.conf</code> configuration file.</p>
-<p>For more information on DNS see <a href="../dns-servers/">AllStarLink DNS Servers</a>.</p>
-<h2 id="statically-configured-node">Statically Configured Node</h2>
-<p>In some cases, it is desirable to statically define the node information. This is commonly used for private nodes or private networks.</p>
-<p>To configure a static node, enter the information for the node in <code>rpt.conf</code> under the <code>[nodes]</code> stanza. Here is an example configuration:</p>
+<p>In the <a href="../../config/rpt_conf/#nodes-stanza"><code>rpt.conf</code> <code>[nodes]</code></a> stanza, voting receiver nodes must be identified by IP address or FQDN <strong>and</strong> have the keyword <code>,VOTE</code> at the end after <code>NONE</code>. For example,</p>
 <div class="highlight"><pre><span></span><code>[nodes]
-1001 = radio@192.168.0.1/1001,NONE
-1998 = radio@127.0.0.1:4568/1998,NONE
-1999 = radio@192.168.0.2:4569/1999,NONE
+...
+63001 = radio@mycall.dyndns.org:4569/63001,NONE,VOTE
+...
 </code></pre></div>
+<p>In the <a href="../../config/rpt_conf/#node-number-stanza"><code>rpt.conf</code> Node Number</a> stanza, you need to add the voter options.</p>
+<p>For your main/transmitter site:</p>
+<div class="highlight"><pre><span></span><code>[63001]
+...
+votertype=1                         ; 0=default, no voting, 1=voter repeater, 2=voter receiver
+votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=voter continuous
+votermargin=10                      ; 10=default sets signal margin to vote a new winner
+startup_macro=*21999                ; connect to remote voter receiver in monitor only mode
+...
+</code></pre></div>
+<p>For your remote receiver site:</p>
+<div class="highlight"><pre><span></span><code>[1999]
+...
+votertype=2                         ; 0=default, no voting, 1=voter repeater, 2=voter receiver
+votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=voter continuous
+...
+</code></pre></div>
+<p>Observe in the above, remote receiver sites are <code>votertype=2</code>.</p>
+<p>Ensure your remote receiver sites have the <code>statspost_url</code> in <a href="../../config/rpt_conf/#statpost_url"><code>rpt.conf</code></a> commented out to prevent status posting to the AllStarLink network, and ensure the <code>register=</code> line is commented out in <a href="../httpreg/"><code>rpt_http_registrations.conf</code></a>. The remote receiver sites are receive-only, so there is no point in anyone having the ability to connect to them.</p>
+<p>After testing, change the <code>startup_macro</code> on your main/transmitter node to make a <a href="../permanentnode/">permanent monitor</a> connection to your remote receiver(s).</p>
+<p>With this feature, in addition to the usual repeater with voting receivers configuration, you can construct things like a repeater with voted sectored/directional receive antennas and receivers, or a centrally located transmit site with no duplexer/receiver and one or more voted remote receivers.</p>
+<div class="admonition note">
+<p class="admonition-title">RSSI Voting</p>
+<p>This feature simply selects the receiver with the best signal strength. There will be a noticeable transition between receivers. So, it's not perfect, but for most applications, it's good enough considering the cost and complexity.</p>
+</div>
 
 
 
@@ -3803,7 +3733,7 @@ node_lookup_method = both           ; method used to lookup nodes
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../nnx/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node Number Extensions (NNX)">
+          <a href="../soundfiles/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sound Files">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3813,20 +3743,20 @@ node_lookup_method = both           ; method used to lookup nodes
                 Previous
               </span>
               <div class="md-ellipsis">
-                Node Number Extensions (NNX)
+                Sound Files
               </div>
             </div>
           </a>
         
         
           
-          <a href="../other-software/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Software Products">
+          <a href="../broadcastify/" class="md-footer__link md-footer__link--next" aria-label="Next: Streaming Node Audio to Broadcastify">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Other Software Products
+                Streaming Node Audio to Broadcastify
               </div>
             </div>
             <div class="md-footer__button md-icon">

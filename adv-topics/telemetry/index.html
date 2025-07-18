@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/noderesolution/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/telemetry/">
       
       
-        <link rel="prev" href="../nnx/">
+        <link rel="prev" href="../broadcastify/">
       
       
-        <link rel="next" href="../other-software/">
+        <link rel="next" href="../tlb/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Node Resolution - AllStarLink Manual</title>
+        <title>Telemetry Messages - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#node-resolution" class="md-skip">
+        <a href="#telemetry-messages" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node Resolution
+              Telemetry Messages
             
           </span>
         </div>
@@ -2244,30 +2244,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Node Resolution
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../noderesolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2276,53 +2256,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#external-node-directory-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Node Directory File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domain-name-service-dns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domain Name Service (DNS)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#statically-configured-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Statically Configured Node
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2626,10 +2559,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../telemetry/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Telemetry Messages
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2638,6 +2591,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#telemetry-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associated-cop-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Associated COP Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Associated COP Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-telemetry-cop-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Telemetry COP Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign-telemetry-cop-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreign Telemetry COP Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#echolink-announcement-cop-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      EchoLink Announcement COP Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3712,62 +3736,62 @@
                   
 
 
-<h1 id="node-resolution">Node Resolution</h1>
-<p><code>app_rpt</code> has three ways to resolve a node number to an IP address:</p>
+<h1 id="telemetry-messages">Telemetry Messages</h1>
+<p>Telemetry is a data message that is sent between nodes when connecting to or disconnecting from another node. Telemetry is <em>silently</em> sent to all other connected nodes through digital (out-of-band, non-audio) data over the VoIP connection. It is purely up to each local system to decide what to do with this information. It can announce it, ignore it or even change the message. The node owner/admin determines what is appropriate for their individual node. </p>
+<p>There are configuration and mode options allowing all telemetry (both local and obtained from other nodes) to be:</p>
 <ul>
-<li>Statically entered in <code>rpt.conf</code></li>
-<li>Domain Name Service (DNS)</li>
-<li>An external node directory file</li>
+<li>Always announced</li>
+<li>Never announced</li>
+<li>Announced only when a function is locally executed and for short time thereafter</li>
 </ul>
-<p>The above mechanisms are used to translate a node number into its respective public IP address. Connections are made directly between nodes using their public IP addresses.</p>
-<p><code>app_rpt</code> first looks to see if the node is statically configured. If it is not found, the setting for <code>node_lookup_method</code> in the <code>[general]</code> stanza of <code>rpt.conf</code> determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.</p>
-<p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
-<div class="highlight"><pre><span></span><code>[general]
-node_lookup_method = both           ; method used to lookup nodes
-                                    ; both = dns lookup first, followed by external file (default)
-                                    ; dns = dns lookup only
-                                    ; file = external file lookup only
-
-; The domain name used for DNS lookups when the node lookup method is &quot;dns&quot; or
-; &quot;both&quot;.  The default domain is &quot;nodes.allstarlink.org&quot; and does not need to
-; be defined here.  Only set &quot;dns_node_domain&quot; if a) You really know what you&#39;re
-; doing and b) you need to use an alternate DNS domain for node resolution.
-;dns_node_domain = nodes.allstarlink.org
-
-; When using DNS, &quot;app_rpt&quot; must know the length of the longest node number.
-; The current maximum is 6 digits and does not need to be defined here. The
-; &quot;max_dns_node_length&quot; variable can be used to limit queries to shorter (or
-; longer) node numbers.
-;max_dns_node_length = 6
-</code></pre></div>
-<p>The node lookup routines will output debug information showing the node lookups if the <a href="../../user-guide/menu/#debug-level">debug level</a> is set to <code>4</code> or higher.</p>
-<p><strong>NOTE:</strong> The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server. See <a href="../httpreg/">HTTP Registration</a> for more information.</p>
-<h2 id="external-node-directory-file">External Node Directory File</h2>
-<p><code>app_rpt</code> can use an external node directory file to perform node resolution. The <a href="https://github.com/AllStarLink/asl3-update-nodelist">asl3-update-nodeList</a> service is used to periodically download the current list of authenticated nodes.</p>
-<p>You may need to install the necessary software package for this function to be available, that can be installed via <code>apt</code> using:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install asl3-update-nodelist
-</code></pre></div>
-<p>The name of this file is configured in <code>rpt.conf</code> using the <code>extnodefile=</code> key and value. By default the name of this file is <code>/var/lib/asterisk/rpt_extnodes</code>. Multiple files can be specified based on your requirements. The file names are separated with a comma.</p>
-<p>When a file based lookup is performed, <code>app_rpt</code> reloads the external file before searching for a match. This allows external scripts the opportunity to keep the file updated.</p>
-<p>Here is an example of the external file format:</p>
-<div class="highlight"><pre><span></span><code>[extnodes]
-
-2000=radio@162.248.93.134:4569/2000,162.248.93.134
-2001=radio@162.248.93.134:4569/2001,162.248.93.134
-</code></pre></div>
-<h2 id="domain-name-service-dns">Domain Name Service (DNS)</h2>
-<p>AllStarLink now provides a DNS service for performing node resolution. DNS is an Internet standard and is more efficient than using a file base solution.</p>
-<p>When using DNS, <code>app_rpt</code> will query for node information from DNS records in the <code>nodes.allstarlink.org</code> domain.  The domain name can be overridden by adding a <code>node_dns_domain=</code> key and value (the query domain) to the <code>[general] stanza of the</code>rpt.conf` configuration file.</p>
-<p>When using DNS, <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza of the <code>rpt.conf</code> configuration file.</p>
-<p>For more information on DNS see <a href="../dns-servers/">AllStarLink DNS Servers</a>.</p>
-<h2 id="statically-configured-node">Statically Configured Node</h2>
-<p>In some cases, it is desirable to statically define the node information. This is commonly used for private nodes or private networks.</p>
-<p>To configure a static node, enter the information for the node in <code>rpt.conf</code> under the <code>[nodes]</code> stanza. Here is an example configuration:</p>
-<div class="highlight"><pre><span></span><code>[nodes]
-1001 = radio@192.168.0.1/1001,NONE
-1998 = radio@127.0.0.1:4568/1998,NONE
-1999 = radio@192.168.0.2:4569/1999,NONE
-</code></pre></div>
+<p>There are five telemetry channels which can be managed:</p>
+<ul>
+<li>Local Node - This node</li>
+<li>Foreign Node - A connected node </li>
+<li>Phone - <a href="../autopatch/">Autopatch</a>, <a href="../../user-guide/phoneportal/">Phone Portal</a></li>
+<li>Echolink - Echolink connections</li>
+<li>GUI - IAXRpt, SIP phone display, VoIP clients</li>
+</ul>
+<h2 id="telemetry-options">Telemetry Options</h2>
+<p>The telemetry options are set in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>.</p>
+<p>The relevant options are:</p>
+<ul>
+<li><a href="../../config/rpt_conf/#telemdefault"><code>telemdefault=</code></a>     </li>
+<li><a href="../../config/rpt_conf/#telemdynamic"><code>telemdynamic=</code></a></li>
+<li><a href="../../config/rpt_conf/#eannmode"><code>eannmode=</code></a></li>
+<li><a href="../../config/rpt_conf/#echolinkdefault"><code>echolinkdefault=</code></a></li>
+<li><a href="../../config/rpt_conf/#echolinkdynamic"><code>echolinkdynamic=</code></a></li>
+<li><a href="../../config/rpt_conf/#phonelinkdefault"><code>phonelinkdefault=</code></a></li>
+<li><a href="../../config/rpt_conf/#phonelinkdynamic"><code>phonelinkdynamic=</code></a></li>
+<li><a href="../../config/rpt_conf/#guilinkdefault"><code>guilinkdefault=</code></a></li>
+<li><a href="../../config/rpt_conf/#guilinkdynamic"><code>guilinkdynamic=</code></a></li>
+</ul>
+<h2 id="associated-cop-commands">Associated COP Commands</h2>
+<h3 id="local-telemetry-cop-commands">Local Telemetry COP Commands</h3>
+<p>The <a href="../../config/rpt_conf/#cop-commands"><code>cop</code></a> that affect local telemetry are:</p>
+<ul>
+<li><code>cop,33</code>  Local Telemetry Output Enable</li>
+<li><code>cop,34</code>  Local Telemetry Output Disable</li>
+<li><code>cop,35</code>  Local Telemetry Output Timed</li>
+</ul>
+<p>The <code>cop</code> commands override any of the <code>telemdefault</code>, <code>echolinkdefault</code>, <code>phonelinkdefault</code>, and <code>guilinkdefault</code> settings (all together), if any of their associated "dynamic" options are set to <code>1</code>.</p>
+<p>For example, if you have <code>telemdynamic=0</code>, then issuing one of the <code>cop</code> commands will <strong>not</strong> change the setting of <code>telemdefault</code> from what it is currently set to.</p>
+<h3 id="foreign-telemetry-cop-commands">Foreign Telemetry COP Commands</h3>
+<p>Foreign telemetry is what is announced on the <em>local</em> node when a <em>remote</em> node connects. The <a href="../../config/rpt_conf/#cop-commands"><code>cop</code></a> that affect foreign telemetry are:</p>
+<ul>
+<li><code>cop,36</code>  Foreign Link Local Output Path Enable</li>
+<li><code>cop,37</code>  Foreign Link Local Output Path Disable</li>
+<li><code>cop,38</code>  Foreign Link Local Output Path Follows Local Telemetry Selection</li>
+<li><code>cop,39</code>  Foreign Link Local Output Path Timed</li>
+</ul>
+<p>There are no <code>rpt.conf</code> settings that control foreign telemetry, it has to be controlled via <code>cop</code> command.</p>
+<h3 id="echolink-announcement-cop-commands">EchoLink Announcement COP Commands</h3>
+<p>The following <a href="../../config/rpt_conf/#cop-commands"><code>cop</code></a> commands allow you to override the <a href="../../config/rpt_conf/#eannmode"><code>eannmode</code></a> option:</p>
+<ul>
+<li><code>cop,42</code>  Announce node number only (<code>eannmode=1</code>)</li>
+<li><code>cop,43</code>  Announce callsign only (<code>eannmode=2</code>)</li>
+<li><code>cop,44</code>  Announce node number and callsign (<code>eannmode=3</code>)</li>
+</ul>
 
 
 
@@ -3803,7 +3827,7 @@ node_lookup_method = both           ; method used to lookup nodes
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../nnx/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node Number Extensions (NNX)">
+          <a href="../broadcastify/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Streaming Node Audio to Broadcastify">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3813,20 +3837,20 @@ node_lookup_method = both           ; method used to lookup nodes
                 Previous
               </span>
               <div class="md-ellipsis">
-                Node Number Extensions (NNX)
+                Streaming Node Audio to Broadcastify
               </div>
             </div>
           </a>
         
         
           
-          <a href="../other-software/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Software Products">
+          <a href="../tlb/" class="md-footer__link md-footer__link--next" aria-label="Next: TheLinkBox">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Other Software Products
+                TheLinkBox
               </div>
             </div>
             <div class="md-footer__button md-icon">

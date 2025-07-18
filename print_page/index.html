@@ -108,7 +108,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
@@ -188,14 +190,8 @@
     
   </nav>
   
-</header>
     
-    <div class="md-container" data-md-component="container">
       
-      
-        
-          
-            
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
@@ -380,7 +376,13 @@
     </ul>
   </div>
 </nav>
-          
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
         
       
       <main class="md-main" data-md-component="main">
@@ -1652,6 +1654,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -1996,6 +2002,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/eventmgmt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Event Management Subsystem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/hotspot_hd/" class="md-nav__link">
         
   
@@ -2106,6 +2133,27 @@
   
   <span class="md-ellipsis">
     Macros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/gpio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulating GPIO
   </span>
   
 
@@ -2458,6 +2506,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/simplevoter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Voter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/broadcastify/" class="md-nav__link">
         
   
@@ -2479,32 +2548,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../adv-topics/remotebase/" class="md-nav__link">
+      <a href="../adv-topics/telemetry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Remote Base Nodes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../adv-topics/rxtoneburst/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RX Toneburst
+    Telemetry Messages
   </span>
   
 
@@ -7549,7 +7597,153 @@ Press The Any Key (Enter) To Continue
 </code></pre></div>
 <p>This option, when set to <code>1</code> will send the repeater ID at the <a href="#config-rpt_conf-idtime"><code>idtime</code></a> interval, regardless of whether there was repeater activity or not. By default (if not defined) this option is disabled.</p>
 <h2 id="adv-topics-eurorptr-rx-toneburst">RX Toneburst</h2>
-<p>Also, many countries still require access to the repeater be with a tone burst (generally 1750 Hz). See the <a href="#adv-topics-rxtoneburst">RX Toneburst</a> page for how to enable that feature.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
+<p>Also, many countries still require access to the repeater be with a tone burst (generally 1750 Hz). See the <a href="#adv-topics-rxtoneburst">RX Toneburst</a> page for how to enable that feature.</p></section><section class="print-page" id="adv-topics-eventmgmt"><h1 id="adv-topics-eventmgmt-event-management-subsystem">Event Management Subsystem</h1>
+<p>The Event Management Subsystem is a method by which a user can specify actions to be taken when certain events occur, such as transitions in receive and transmit keying, presence and modes of links, and external inputs, such as GPIO pins on the URI (or similar USB devices) or the parallel port.</p>
+<p>This also includes the ability to <strong>set</strong> the condition of external devices, such as output pins on a URI (or similar USB devices), or a parallel port. See the <a href="#adv-topics-gpio">Manipulating GPIO</a> page for more information on how to configure GPIO.</p>
+<p>The actions to be taken and the methods and steps required for doing so are specified in the <a href="#config-rpt_conf"><code>rpt.conf</code></a> file under the <code>[events]</code> stanza (or other named sections, defined with the <a href="#config-rpt_conf-events"><code>events=</code></a> option).</p>
+<h2 id="adv-topics-eventmgmt-event-variables">Event Variables</h2>
+<p>This subsystem utilizes Asterisk channel variables (or global variables if you dare) to indicate the state of various signals and modes and are named as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Decription</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RPT_RXKEYED</td>
+<td>Set to <code>1</code> when the node's main (RF) receiver is receiving a valid signal</td>
+</tr>
+<tr>
+<td>RPT_TXKEYED</td>
+<td>Set to <code>1</code> when the node's main (RF) transmitter is transmitting</td>
+</tr>
+<tr>
+<td>RPT_NUMLINKS</td>
+<td>Count of links currently connected to the node</td>
+</tr>
+<tr>
+<td>RPT_LINKS</td>
+<td>List of Node numbers currently linked to this node and their mode and receive keying status, as follows: <code>&lt;NUMLINKS&gt;,&lt;MODE&gt;&lt;NODEMUM&gt;[,&lt;MODE&gt;&lt;NODEMUM&gt;...]</code>. For example: <code>2,T2000,R2001</code> would indicate that there are two nodes linked currently, the first one is node <code>2000</code> in <strong>T</strong>ransceive mode, and the second one is node <code>2001</code> in <strong>R</strong>eceive-only (monitor) mode.</td>
+</tr>
+<tr>
+<td>RPT_NUMALINKS</td>
+<td>Count of <strong><em>adjacent</em></strong> links currently connected to the node</td>
+</tr>
+<tr>
+<td>RPT_ALINKS</td>
+<td>List of node numbers currently linked <strong><em>adjacent</em></strong> to this node, their mode, and receive keying status as follows: <code>&lt;NUMALINKS&gt;,&lt;NODEMUM&gt;&lt;MODE&gt;&lt;RXKEYED&gt;[,&lt;NODEMUM&gt;&lt;MODE&gt;&lt;RXKEYED&gt;...]</code>. For example: <code>2,2000TU,2001RK</code> would indicate that there are two <em>adjacent</em> nodes linked currently, the first one is node <code>2000</code> in <strong>T</strong>ransceive mode, and is not presently sending a keying signal (<strong>U</strong>) towards this node; the second one is node <code>2001</code> in <strong>R</strong>eceive-Only (monitor) mode, and is presently sending a keying signal (<strong>K</strong>) towards this node.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Adjacent Nodes</p>
+<p>Adjacent nodes are ones that are <strong><em>directly connected</em></strong> to this node. This differs from the <code>RPT_LINKS</code> in that the <code>RPT_LINKS</code> is a list of <strong>all</strong> nodes, whether connected directly, or connected through a node that is connected directly. The keying information is not given with the <code>RPT_LINKS</code> because in that context, it is meaningless.</p>
+</div>
+<p>There may also be other variables included from external devices/sources, such as the URI (or similar USB devices), or a parallel port that will appear if so configured (within the configuration for that particular device), such as:</p>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Decription</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RPT_URI_GPIO1</td>
+<td>This would be the GPIO 1 pin, if configured as an input.</td>
+</tr>
+<tr>
+<td>RPT_URI_GPIO4</td>
+<td>This would be the GPIO 4 pin, if configured as an input.</td>
+</tr>
+<tr>
+<td>RPT_PP12</td>
+<td>This would be the parallel port, pin 12 (input)</td>
+</tr>
+</tbody>
+</table>
+<p>These are set to <code>0</code> or <code>1</code> (the state of the input pin). </p>
+<h2 id="adv-topics-eventmgmt-events-stanza"><code>[events]</code> Stanza</h2>
+<p>Each line of the <code>[events]</code> stanza is specified as follows:</p>
+<div class="highlight"><pre><span></span><code>&lt;action-spec&gt; = &lt;action&gt;|&lt;type&gt;|&lt;var-spec&gt;
+</code></pre></div>
+<p><code>actions</code>:</p>
+<ul>
+<li>
+<p>If the <code>action</code> is <code>v</code> (for "setting variable"), then the <code>action-spec</code> is the variable being set.</p>
+</li>
+<li>
+<p>If the <code>action</code> is <code>g</code> (for "setting global variable"), then the <code>action-spec</code> is the global variable being set.</p>
+</li>
+<li>
+<p>If the <code>action</code> is <code>f</code> (for "function"), then the <code>action-spec</code> is a DTMF function to be executed (if the result is <code>1</code>).</p>
+</li>
+<li>
+<p>If the <code>action</code> is <code>c</code> (for "rpt command"), then the <code>action-spec</code> is a raw <code>rpt command</code> to be executed (if the result is <code>1</code>).</p>
+</li>
+<li>
+<p>If the <code>action</code> is <code>s</code> (for "shell command"), then the <code>action-spec</code> is a shell command to be executed (if the result is <code>1</code>).</p>
+</li>
+</ul>
+<p><code>types</code>:</p>
+<ul>
+<li>
+<p>If <code>type</code> is <code>e</code> (for "evaluate statement" (or perhaps "equals")), the <code>var-spec</code> is a full statement containing expressions, variables and operators per the expression evaluation built into Asterisk.</p>
+</li>
+<li>
+<p>If <code>type</code> is <code>t</code> (for "going True"), the <code>var-spec</code> is a single (already-defined) variable name, and the result will be <code>1</code> if the variable has just gone from <code>0</code> to <code>1</code>.</p>
+</li>
+<li>
+<p>If <code>type</code> is <code>f</code> (for "going False"), the <code>var-spec</code> is a single (already-defined) variable name, and the result will be <code>1</code> if the varible has just gone from <code>1</code> to <code>0</code>.</p>
+</li>
+<li>
+<p>If <code>type</code> is <code>n</code> (for "no change"), the <code>var-spec</code> is a single (already-defined) variable name, and the result will be <code>1</code> if the variable has not changed.</p>
+</li>
+</ul>
+<p>Examples:</p>
+<p>Set the channel variable <code>MYVAR</code> <strong>true</strong> if main receiver has valid signal and transmitter is not transmitting. Presumably, this variable will be used in a later statement for something.</p>
+<div class="highlight"><pre><span></span><code>MYVAR = v|e|${RPT_RXKEYED} &amp; !${RPT_TXKEYED}
+</code></pre></div>
+<p>Have the system give the time of day after all links are disconnected. This performs the specified <code>rpt command</code> when the <code>RPT_NUMLINKS</code> variable goes from <code>true</code> to <code>false</code>, and therefore happens when all links are disconnected (if and only if some were connected previously).</p>
+<div class="highlight"><pre><span></span><code>status,2 = c|f|RPT_NUMLINKS
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Boolean Evaluation</p>
+<p>Although <code>RPT_NUMLINKS</code> <strong>is</strong> an integer count of links, it can also be treated as a boolean, since non-zero values evaluate to the same as <code>1</code>. </p>
+</div>
+<p>Execute the DTMF command <code>*1234</code> (whatever the heck that is) when node <code>2000</code> connects to this node.</p>
+<div class="highlight"><pre><span></span><code>TEMPVAR = v|e|${RPT_LINKS} =~ &quot;\&quot;,2000.\&quot;&quot;
+*1234 = f|t|TEMPVAR
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are interested in executing the function ONLY when the node connects. Therefore, you must define a variable the meets the condition you are looking for in general (in this case, node 2000 being connected), <strong>then</strong> you have to execute the desired function when that variable goes from <code>1</code> to <code>0</code> (changes to <code>false</code>).</p>
+</div>
+<p>Any time you are using regex to look for a node number int the <code>RPT_LINKS</code> variable, you must put a comma in front of the qualifying string to make sure that it does not match some other node number that has the desired information (in this case, the digits <code>2000</code>) within a longer node number.</p>
+<p>Get a detailed directory listing of the <code>/tmp</code> directory, and put its output into the file <code>/tmp/example.txt</code> every time node <code>2001</code> is connected to, and stops indicating keying towards our node (not that anyone would ever really want to do that... it's just an example).</p>
+<div class="highlight"><pre><span></span><code>TEMPVAR = v|e|${RPT_ALINKS} =~ &quot;\&quot;,2001[TRC]K\&quot;&quot; 
+ls -l /tmp &gt; /tmp/example.txt = s|f|TEMPVAR
+</code></pre></div>
+<h2 id="adv-topics-eventmgmt-cli-commands">CLI Commands</h2>
+<p>If you wish to set channel variable(s) for a node from the Asterisk CLI, use the following command:</p>
+<div class="highlight"><pre><span></span><code>*CLI&gt; rpt set variable &lt;nodenum&gt; &lt;name=value&gt; [&lt;name=value&gt;...]
+</code></pre></div>
+<p>For example, this would set the <code>MYVAR</code> variable to <code>1</code> for node <code>2000</code>:</p>
+<div class="highlight"><pre><span></span><code>*CLI&gt; rpt setvar 2000 MYVAR=1
+</code></pre></div>
+<p>If you wish to display all the variables for a node, use the following command:</p>
+<div class="highlight"><pre><span></span><code>*CLI&gt; rpt show variables &lt;nodenum&gt;
+</code></pre></div>
+<p>Also, a channel variable for a node may be set from the Asterisk dialplan as follows:</p>
+<div class="highlight"><pre><span></span><code>rpt(&lt;nodenum&gt;,V,&lt;name=value&gt;)
+</code></pre></div>
+<p>For example, for extension <code>1234</code> priority <code>5</code>, set variable <code>MYVAR</code> to <code>0</code> for node <code>2000</code>:</p>
+<div class="highlight"><pre><span></span><code>exten =&gt; 1234,5,rpt(2000,V,MYVAR=0)
+</code></pre></div>
+<p>Granted, there may very well be some things (such as interesting information that can be expressed within this subsystem) that has been overlooked, and any suggestions and/or comments regarding this whole thing would be much appreciated.</p>
+<p>This also opens a completely new avenue of customization and individual creativity for each system implementer. There are many innovative things that can be done with this. Also, there are many just plain silly ones, such as connecting your doorbell to one the input pins on the URI, and having the system connect to your favorite Echolink node or something when someone rings the doorbell.</p></section><section class="print-page" id="adv-topics-hotspot_hd"><h1 id="adv-topics-hotspot_hd-hot-spot-un-key-delay">Hot Spot Un-key Delay</h1>
 <p>When setting up a hot spot, select the <code>Duplex 1</code> option in <a href="#user-guide"><code>asl-menu</code></a> to allow the hot spot to function. However, the un-key delay of the radio transmitter will likely be too long.</p>
 <p>These steps will shorten the un-key delay and will greatly improve hot spot responsiveness:</p>
 <p>From the Linux CLI, launch the <code>asl-menu</code> with <code>sudo asl-menu</code>. Select the following options:</p>
@@ -7744,8 +7938,141 @@ telemetry=telemetry
 </code></pre></div>
 <h1 id="adv-topics-macros-scheduler-execution">Scheduler Execution</h1>
 <p>With the example configuration shown, macros are called with a <code>*5</code> prefix and followed with the number assigned in the [macro] stanza.</p>
-<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></section><section class="print-page" id="adv-topics-mdc1200"><h1 id="adv-topics-mdc1200-mdc-1200-signalling">MDC-1200 Signalling</h1>
+<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></section><section class="print-page" id="adv-topics-gpio"><h1 id="adv-topics-gpio-manipulating-gpio">Manipulating GPIO</h1>
+<p>There are 2 types of GPIO as they currently exist in the software. I/O's from a URI/sound fob or equivalent, and I/O's from a hardware driven Parallel Port.</p>
+<div class="admonition warning">
+<p class="admonition-title">USB Parallel Ports Not Supported</p>
+<pre><code>USB converted parallel ports can not be bit-banged for control, and are therefore not supported.
+</code></pre>
+</div>
+<h2 id="adv-topics-gpio-urisusb-sound-fobs-cm108-cm119">URIs/USB Sound Fobs (CM108, CM119)</h2>
+<p>The GPIO (general-purpose I/O) pins on a URI (or similar USB device using a C-Media chip) may be individually used as either input or output pins. Not all pins are available for control, some may be reserved for existing functions. Check the datasheet for your particular chip and/or the manufacturer's documentation for the radio interface, to see what pins may be available for GPIO.</p>
+<p><code>chan_usbradio</code> and <code>chan_simpleusb</code> support configuration of the GPIO pins in the following manner (from within the section of <code>usbradio.conf</code> or <code>simpleusb.conf</code> that is for the desired device):</p>
+<div class="highlight"><pre><span></span><code>gpio1 = in                          ; in, out0 or out1
+gpio4 = out0                        ; in, out0 or out1
+</code></pre></div>
+<p>When you configure a GPIO pin, you can either designate it as <code>in</code> (input), <code>out0</code> (output with a default state of <code>off</code>), or <code>out1</code> (output with a default state of <code>on</code>).</p>
+<h2 id="adv-topics-gpio-parallel-port">Parallel Port</h2>
+<p>Parallel port pins 2-9 can be used for outputs, and pins 10-13 and 15 can be used for inputs. Pins 18-25 are ground, and all other pins are to be treated as no connection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Check Your Hardware</p>
+<p>There are many different types of parallel ports, check your pins with a DVM and proceed carefully so that you don't damage your hardware. Outputs may switch between Vcc and GND, inputs may have internal pull-up resistors. It is quite likely that your input pins will have a pull-up to Vcc, will be active-low (ground to activate), and therefore require <code>ppinvert</code> to function correctly.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Beware of Pin 4</p>
+<p>Pin 4 (output) MAY go high when your computer boots, until Asterisk starts. Consider this if you are using this pin as an output, as it could lead to unanticipated results with your attached hardware.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Doug Hall RBI-1</p>
+<p>If you imagine you might use a Doug Hall RBI-1 interface, then use Parallel Port pins starting <strong>after</strong> <code>pp4</code> as the first three (<code>pp2</code>, <code>pp3</code>, and <code>pp4</code>) would be used for that device, and is unchangeable.</p>
+</div>
+<h3 id="adv-topics-gpio-set-iobase-in-rptconf">Set <code>iobase=</code> in <code>rpt.conf</code></h3>
+<p>To find the I/O address of your parallel port, use <code>dmesg</code> to look at the boot log:</p>
+<div class="highlight"><pre><span></span><code>wb6nil@asl3:~$ sudo dmesg | grep par
+
+[   12.914994] parport0: PC-style at 0x378 (0x778), irq 7 [PCSPP,TRISTATE,EPP]
+</code></pre></div>
+<p>For the above <code>paraport0</code>, the I/O address is <code>0x378</code>.</p>
+<p>The <code>iobase=</code> must be set in the node definition in <code>rpt.conf</code> to the I/O address of the port. Standard ports are <code>0x378</code>, <code>0x278</code> and <code>0x3bc</code> for LPT1, LPT2, and LPT3 respectively.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>[1999](node-main)
+idrecording = |iWB6NIL
+duplex = 2
+rxchannel = SimpleUSB/1999
+iobase=0x378                        ; set I/O address to 0x378 for LPT1
+</code></pre></div>
+<h3 id="adv-topics-gpio-enable-pins">Enable Pins</h3>
+<p>The pins you want to use (input or output) need to be defined in <code>simpleusb.conf</code> or <code>usbradio.conf</code>, depending on which channel driver you are using.</p>
+<div class="admonition warning">
+<p class="admonition-title">Enable at Least One Pin</p>
+<p>In order for the parallel port to be active, at least one pin must be defined in either <code>simpleusb.conf</code> or <code>usbradio.conf</code>, <strong>even if you are not going to use them for PTT or COR.</strong></p>
+</div>
+<p>To define a pin as an input (pp10 to pp13, or pp15), it needs to use the <code>in</code> keyword:</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp10 = in                           ; use pin 20 as an input
+</code></pre></div>
+<p>To define a pin as an output (pp2 to pp9), it needs to use either of the keywords: <code>out0</code>, or <code>out1</code>. The <code>out0</code> keyword initializes the pin in the <code>off</code> state, whereas <code>out1</code> will initialized the pin in the <code>on</code> state.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp2 = out1                          ; use pin 2 as an output, and turn it on by default
+pp9 = out0                          ; use pin 9 as an output, and turn it off by default
+</code></pre></div>
+<h3 id="adv-topics-gpio-parallel-port-pins-for-corctcssptt">Parallel Port Pins for COR/CTCSS/PTT</h3>
+<p>When you configure an input pin (10,11,12,13 or 15), you can either designate it as <code>cor</code> (RX input signal) or <code>ctcss</code> (use as the "CTCSS tone valid" signal). </p>
+<p>If you choose <code>cor</code> or <code>ctcss</code>, you also need to set the associated <code>carrierfrom</code> or <code>ctcssfrom</code> to either <code>pp</code> (to use the associated input pin non-inverted) or <code>ppinvert</code> (use the associated input pin inverted).</p>
+<p>Configuring an output pin (2-9) as <code>ptt</code> makes the pin the PTT signal, either non-inverted or inverted, depending on the <code>invertptt=</code> setting.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp6 = ptt
+pp10 = ctcss
+pp11 = cor
+invertptt = 0
+carrierfrom = ppinvert                ; could also be ctcss, ctcssinvert, pp
+</code></pre></div>
+<h2 id="adv-topics-gpio-usage">Usage</h2>
+<p>The GPIO and Parallel Port pins can be controlled directly using <a href="#config-rpt_conf-cop-commands"><code>cop</code></a> commands <code>cop 61</code> and <code>cop 62</code>. The difference between the two is that <code>cop 62</code> manipulates the pin "quietly" (suppresses telemetry output).</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 1999 cop 61,PP2=0           ; turn physical pin 2 off
+rpt cmd 1999 cop 61,PP2=1           ; turn physical pin 2 on
+rpt cmd 1999 cop 61,GPIO1=0         ; turn GPIO1 off
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Syntax Note</p>
+<p><code>PP</code> and <code>GPIO</code> must be in <strong>CAPS</strong>.</p>
+</div>
+<p>Use <code>core set debug 4</code> to show commands being sent to the channel driver.</p>
+<p>Multiple pins can be controlled at the same time with a single command:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 1999 cop 61,PP2=1,PP3=1,PP4=1   ; turn physical pins 2, 3, and 4 ON
+rpt cmd 1999 cop 61,PP2=0,PP3=0,PP4=0   ; turn physical pins 2, 3, and 4 OFF
+</code></pre></div>
+<p>Use <code>0</code> or <code>1</code> to set the specified output to <code>off</code> or <code>on</code>, or use a number greater than <code>1</code> (<code>N+1</code>) to specify how many milliseconds to invert its current state. For example, to pulse the pin for 500ms you would use the value <code>501</code> (currently, specified time only significant in increments of 50ms). Specifying a value of <code>N+1</code> to indicate <code>N</code> milliseconds was done so that in the future, support for granularity down to the millisecond level could be specified.</p>
+<h2 id="adv-topics-gpio-status-and-channel-variables">Status and Channel Variables</h2>
+<p>The status of the input pins configured are made available via channel variables (e.g. <code>RPT_URI_GPIO1</code>, <code>RPT_URI_GPIO4</code>, <code>RPT_PP12</code>, etc.) which can be used by the <a href="#adv-topics-eventmgmt">Event Management Subsystem</a>.</p>
+<p>To see the current state of the channel variables, use the <code>rpt show variables &lt;node&gt;</code> command:</p>
+<div class="highlight"><pre><span></span><code>asl3*CLI&gt; rpt show variables 1999
+Variable listing for node 1999:
+   RPT_TXKEYED=0
+   RPT_ETXKEYED=0
+   RPT_RXKEYED=0
+   RPT_PP15=1
+   RPT_PP13=1
+   RPT_PP12=1
+   RPT_PP11=1
+   RPT_ALINKS=0
+   RPT_LINKS=0
+   RPT_NUMALINKS=0
+   RPT_NUMLINKS=0
+   RPT_AUTOPATCHUP=0
+    -- 12 variables
+</code></pre></div>
+<h2 id="adv-topics-gpio-dtmf-control">DTMF Control</h2>
+<p>If you want to have a DTMF function that turns GPIO 1 on, you would specify the following in the <code>[functions]</code> section of <code>rpt.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>1234 = cop,61,GPIO1=1               ; turn on GPIO 1
+</code></pre></div>
+<p>A simple example command structure for using all 8 parallel port pins for output switches:</p>
+<div class="highlight"><pre><span></span><code>98920=cop,61,PP2=0                  ; pport pin 2 off
+98921=cop,61,PP2=1                  ; pport pin 2 on 
+98930=cop,61,PP3=0                  ; pport pin 3 off
+98931=cop,61,PP3=1                  ; pport pin 3 on 
+98940=cop,61,PP4=0                  ; pport pin 4 off
+98941=cop,61,PP4=1                  ; pport pin 4 on
+98950=cop,61,PP5=0                  ; pport pin 5 off
+98951=cop,61,PP5=1                  ; pport pin 5 on
+98960=cop,61,PP6=0                  ; pport pin 6 off
+98961=cop,61,PP6=1                  ; pport pin 6 on
+98970=cop,61,PP7=0                  ; pport pin 7 off
+98971=cop,61,PP7=1                  ; pport pin 7 on
+98980=cop,61,PP8=0                  ; pport pin 8 off
+98981=cop,61,PP8=1                  ; pport pin 8 on
+98990=cop,61,PP9=0                  ; pport pin 9 off
+98991=cop,61,PP9=1                  ; pport pin 9 on
+</code></pre></div>
+<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p></section><section class="print-page" id="adv-topics-mdc1200"><h1 id="adv-topics-mdc1200-mdc-1200-signalling">MDC-1200 Signalling</h1>
 <p><a href="https://en.wikipedia.org/wiki/MDC-1200">MDC-1200</a> signalling support is available in ASL3. MDC-1200 signalling could be used to have the node perform certain functions when a MDC-1200 code is received, and/or it can be used to signal user radios that have been configured for MDC-1200 signalling support.</p>
+<h2 id="adv-topics-mdc1200-mdc-1200-logging">MDC-1200 Logging</h2>
+<p>A simple log for all local MDC-1200 Signalling received by the node is available by setting the <a href="#config-rpt_conf-mdclog"><code>mdclog=</code></a> option in <a href="#config-rpt_conf"><code>rpt.conf</code></a>. When set, each incoming MDC-1200 burst that is decoded will be logged into the log file with a timestamp.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>mdclog = /tmp/mdclog                ; log MDC-1200 received data to /tmp/mdclog
+</code></pre></div>
+<p>The directory you use needs to be writable by Asterisk. See the <a href="#adv-topics-permissions">Permissions</a> page for more information.</p>
 <h2 id="adv-topics-mdc1200-mdc-1200-decoding-display">MDC-1200 Decoding Display</h2>
 <p>On the <a href="#user-guide-menu-asterisk-cli">Asterisk CLI</a> when MDC-1200 is received, the following will be displayed:</p>
 <p>For a radio ID:</p>
@@ -7871,7 +8198,23 @@ I1701=*81#
 </code></pre></div>
 <p>From the CLI sending a unit call to a CDM1550 unit 1701 from unit 1600:</p>
 <div class="highlight"><pre><span></span><code>rpt cmd 41618 cop 60 C,1600,1701,8205
-</code></pre></div></section><section class="print-page" id="adv-topics-multinodesnetwork"><h1 id="adv-topics-multinodesnetwork-multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
+</code></pre></div>
+<h2 id="adv-topics-mdc1200-mdc-1200-node-access">MDC-1200 Node Access</h2>
+<p>AllStarLink supports requiring MDC-1200 to access ("key-up") a node. This is done by leveraging the <a href="#config-rpt_conf-dtmfkey"><code>dtmfkey=</code></a> option, <a href="#config-rpt_conf-dtmfkeys-stanza"><code>[dtmfkeys]</code></a> stanza, and <a href="#config-rpt_conf-mdcmacro"><code>[mdcmacros]</code></a> stanza in <a href="#config-rpt_conf"><code>rpt.conf</code></a>.</p>
+<p>User radios need to be configured for MDC-1200 PTTID (sending <code>Ixxxx</code>) on each transmission.</p>
+<p>Configure the following in <code>rpt.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>dtmfkey=1                           ; require DTMF access for keying the node
+
+[dtmfkeys]
+1234=WB6NIL                         ; define DTMF=callsign for each user
+2341=W1AW
+
+[mdcmacro]
+I1234=K1234                         ; define PTTID=dtmfkey for each user
+I2341=K2341
+</code></pre></div>
+<p>Each user that is granted access to key the node needs to have an entry in <code>[mdcmacro]</code> with their assigned MDC-1200 PTTID (ie. <code>I1234</code>), and the corresponding <code>dtmfkeys</code> (ie. <code>K1234</code>) that is associated with it. The <code>K</code> is a special operator that tells <code>app_rpt</code> to look for the associated key in <code>[dtmfkeys]</code>.</p>
+<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p></section><section class="print-page" id="adv-topics-multinodesnetwork"><h1 id="adv-topics-multinodesnetwork-multiple-nodes-on-the-same-network">Multiple Nodes on the Same Network</h1>
 <p>Multiple AllStarLink nodes on the same IP subnet (i.e. your "local network" or "LAN") when those nodes are behind a NAT device can be a challenge. The reason is that AllStarLink works exclusively with public IP addresses. </p>
 <p>When two (or more) nodes are on the same network behind the same NAT/router, they independently need to use a public IP address with the AllStarLink system, and they also need to know about each other's local IPs (rather than their shared public IP). Additionally, both nodes cannot use the same UDP port as they will fight over it with the NAT/router.</p>
 <p>For this example, let's consider two nodes on the same subnet (LAN). The nodes are:</p>
@@ -9578,7 +9921,49 @@ lrwxrwxrwx  1 root root    31 Nov 13  2024 recordings -&gt; /var/lib/asterisk/so
 <p>There are many utility programs to allow you to convert or manipulate your sound files.</p>
 <p>SoX and MPEG123 are two of those. <a href="https://audacityteam.org">Audacity</a> is another popular choice for editing sound files, but there are others out there that do just as well and are a bit skinnier.</p>
 <p>Here is an (older) <a href="../adv-topics/assets/RecordingSoundFiles.pdf">how-to</a> on using Audacity to record sound files for your node.</p>
-<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
+<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></section><section class="print-page" id="adv-topics-simplevoter"><h1 id="adv-topics-simplevoter-simple-voter">Simple Voter</h1>
+<p>This feature requires that the USB radio devices on the remote voting receivers are connected directly to each voting receiver's discriminator/quadrature detector output. </p>
+<p>You need a complete node for each site you wish to implement in this scheme. Voting receiver nodes <em>should</em> be receive-only, <em>should</em> be implemented with private node numbers, and configured to <strong>not</strong> attempt to register or report to the AllStarLink network.</p>
+<p>The receiver at the main/transmitter site <strong>can</strong> be one of the voting receivers, and <strong>can</strong> be a regular node that connects to the AllStarLink network. </p>
+<p>GPS receivers and additional hardware are <strong>not</strong> required for this scheme. As a result, you may notice audio artifacts as the system switches between receiver sites, as not everything will be totally synchronized.</p>
+<div class="admonition note">
+<p class="admonition-title">Not VOTER</p>
+<p>This has nothing to do with the <a href="#voter">VOTER</a> feature of ASL3 that uses the VOTER/RTCM radio interfaces for receiver voting and/or simulcast. This feature is a crude implementation of RSSI-based receiver voting, using node hardware.</p>
+</div>
+<p>You <strong>must</strong> use the <a href="#adv-topics-usbinterfaces">USBRadio</a> channel driver. Signal strength reporting <strong>must</strong> be turned on for all voting devices in <code>/etc/asterisk/usbradio.conf</code> as follows:</p>
+<div class="highlight"><pre><span></span><code>sendvoter=1                         ; 0=default, no voter SSI, 1=enable voter
+</code></pre></div>
+<p>In the <a href="#config-rpt_conf-nodes-stanza"><code>rpt.conf</code> <code>[nodes]</code></a> stanza, voting receiver nodes must be identified by IP address or FQDN <strong>and</strong> have the keyword <code>,VOTE</code> at the end after <code>NONE</code>. For example,</p>
+<div class="highlight"><pre><span></span><code>[nodes]
+...
+63001 = radio@mycall.dyndns.org:4569/63001,NONE,VOTE
+...
+</code></pre></div>
+<p>In the <a href="#config-rpt_conf-node-number-stanza"><code>rpt.conf</code> Node Number</a> stanza, you need to add the voter options.</p>
+<p>For your main/transmitter site:</p>
+<div class="highlight"><pre><span></span><code>[63001]
+...
+votertype=1                         ; 0=default, no voting, 1=voter repeater, 2=voter receiver
+votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=voter continuous
+votermargin=10                      ; 10=default sets signal margin to vote a new winner
+startup_macro=*21999                ; connect to remote voter receiver in monitor only mode
+...
+</code></pre></div>
+<p>For your remote receiver site:</p>
+<div class="highlight"><pre><span></span><code>[1999]
+...
+votertype=2                         ; 0=default, no voting, 1=voter repeater, 2=voter receiver
+votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=voter continuous
+...
+</code></pre></div>
+<p>Observe in the above, remote receiver sites are <code>votertype=2</code>.</p>
+<p>Ensure your remote receiver sites have the <code>statspost_url</code> in <a href="#config-rpt_conf-statpost_url"><code>rpt.conf</code></a> commented out to prevent status posting to the AllStarLink network, and ensure the <code>register=</code> line is commented out in <a href="#adv-topics-httpreg"><code>rpt_http_registrations.conf</code></a>. The remote receiver sites are receive-only, so there is no point in anyone having the ability to connect to them.</p>
+<p>After testing, change the <code>startup_macro</code> on your main/transmitter node to make a <a href="#adv-topics-permanentnode">permanent monitor</a> connection to your remote receiver(s).</p>
+<p>With this feature, in addition to the usual repeater with voting receivers configuration, you can construct things like a repeater with voted sectored/directional receive antennas and receivers, or a centrally located transmit site with no duplexer/receiver and one or more voted remote receivers.</p>
+<div class="admonition note">
+<p class="admonition-title">RSSI Voting</p>
+<p>This feature simply selects the receiver with the best signal strength. There will be a noticeable transition between receivers. So, it's not perfect, but for most applications, it's good enough considering the cost and complexity.</p>
+</div></section><section class="print-page" id="adv-topics-broadcastify"><h1 id="adv-topics-broadcastify-streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
 <p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
 <p>After you have your account and feed credentials, you a ready to setup AllStarLink.</p>
 <h2 id="adv-topics-broadcastify-setup-a-feed">Setup a Feed</h2>
@@ -9665,732 +10050,62 @@ sudo chmod 660 /etc/ezstream.xml
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre></div></section><section class="print-page" id="adv-topics-remotebase"><h1 id="adv-topics-remotebase-remote-base-nodes">Remote Base Nodes</h1>
-<p>The primary purpose of a remote base node is to make outgoing RF connections using a frequency agile radio to allow access to frequencies which are not part of your Internet connected radio system.</p>
-<p>Remote base nodes are configured differently than a standard node. A completely different set of internal functions in <code>Asterisk/app_rpt</code> is used when operating a node as a remote base. Usually, the only reason to set up a node as a remote base is when you wish to change the operating parameters of the the attached radio remotely, or if you only want the radio to be used by a single user at a time.</p>
-<p>If you want a <em>public</em> node number for a remote base, it must specifically be requested in the <a href="https://allstarlink.org/portal">AllStarLink Portal</a>. You must be sure to answer yes to <code>Is node a remote base station?</code>, and then optionally <code>If remote base, is it frequency agile?</code> questions. Alternatively, you can configure a private node.</p>
-<h2 id="adv-topics-remotebase-security-issues">Security Issues</h2>
-<p>Unfettered access to remote bases can be a <strong>security issue</strong>. If the remote base has no login protection it could be used by unscrupulous individuals to violate amateur radio rules and regulations. We <strong>strongly</strong> advise that all remote bases be protected by requiring a login code (see <a href="#adv-topics-remotebase-remote-base-authentication">Remote Base Authentication</a> below). </p>
-<h2 id="adv-topics-remotebase-behavior-of-standard-nodes-versus-remote-base-nodes">Behavior of Standard Nodes Versus Remote Base Nodes</h2>
-<table>
-<thead>
-<tr>
-<th>Behavior</th>
-<th>Standard Node</th>
-<th>Remote Base Node</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Command Decoding</td>
-<td>Remote or Local. DTMF can be optionally decoded on the receive audio input</td>
-<td>Remote only. No DTMF will be decoded on the receive audio input</td>
-</tr>
-<tr>
-<td>Duplexing</td>
-<td>Configurable: duplex or half-duplex</td>
-<td>Half-duplex only</td>
-</tr>
-<tr>
-<td></td>
-<td>Frequency and Mode Agility</td>
-<td>Fixed frequency operation, and channelized operation only using arguments passed in to app_rpt from extensions.conf</td>
-</tr>
-<tr>
-<td>Multiple connections</td>
-<td>Multiple nodes can connect. Operates as a conference bridge</td>
-<td>Only one node can connect at a time</td>
-</tr>
-<tr>
-<td>Login Protection</td>
-<td>No</td>
-<td>Optional</td>
-</tr>
-</tbody>
-</table>
-<h2 id="adv-topics-remotebase-whats-required">What's Required</h2>
-<p>In order to configure a remote base you will need the following:</p>
-<h3 id="adv-topics-remotebase-node-number">Node Number</h3>
-<p>Either request a public node number or choose a private node number.</p>
-<h3 id="adv-topics-remotebase-radio-interface-audio">Radio Interface (Audio)</h3>
-<p>A free port on a radio interface such a URI adapter must be made available for use by the remote base. This is needed for the audio transport and keying.</p>
-<h3 id="adv-topics-remotebase-radio-interface-cable-control">Radio Interface Cable (Control)</h3>
-<p>A radio interface cable must be constructed or purchased to interface the radio to the node for control. Depending on the radio, this could be a USB to serial cable for CAT commands, or similar. </p>
-<h3 id="adv-topics-remotebase-supported-radios">Supported Radios</h3>
-<p>See the <a href="#adv-topics-remotebase-remote"><code>remote=</code></a> setting below for a list of supported or partially supported radios.</p>
-<h2 id="adv-topics-remotebase-remote-base-operation">Remote Base Operation</h2>
-<p>The following is an example of how you would use a remote base:</p>
+</code></pre></div></section><section class="print-page" id="adv-topics-telemetry"><h1 id="adv-topics-telemetry-telemetry-messages">Telemetry Messages</h1>
+<p>Telemetry is a data message that is sent between nodes when connecting to or disconnecting from another node. Telemetry is <em>silently</em> sent to all other connected nodes through digital (out-of-band, non-audio) data over the VoIP connection. It is purely up to each local system to decide what to do with this information. It can announce it, ignore it or even change the message. The node owner/admin determines what is appropriate for their individual node. </p>
+<p>There are configuration and mode options allowing all telemetry (both local and obtained from other nodes) to be:</p>
 <ul>
-<li>Send node *3&lt;node&gt; to connect to the remote base node</li>
-<li>Use <a href="#adv-topics-remotebase-functions"><code>[functions_remote]</code></a> commands to operate the remote base</li>
-<li>
+<li>Always announced</li>
+<li>Never announced</li>
+<li>Announced only when a function is locally executed and for short time thereafter</li>
+</ul>
+<p>There are five telemetry channels which can be managed:</p>
 <ul>
-<li>Send *4&lt;node&gt;*000# to set the remote base to memory channel 00</li>
+<li>Local Node - This node</li>
+<li>Foreign Node - A connected node </li>
+<li>Phone - <a href="#adv-topics-autopatch">Autopatch</a>, <a href="#user-guide-phoneportal">Phone Portal</a></li>
+<li>Echolink - Echolink connections</li>
+<li>GUI - IAXRpt, SIP phone display, VoIP clients</li>
 </ul>
-</li>
-<li>
+<h2 id="adv-topics-telemetry-telemetry-options">Telemetry Options</h2>
+<p>The telemetry options are set in <a href="#config-rpt_conf"><code>rpt.conf</code></a>.</p>
+<p>The relevant options are:</p>
 <ul>
-<li>Send *4&lt;node&gt;*1146*940*1# to set the VFO to 146.940-</li>
+<li><a href="#config-rpt_conf-telemdefault"><code>telemdefault=</code></a>     </li>
+<li><a href="#config-rpt_conf-telemdynamic"><code>telemdynamic=</code></a></li>
+<li><a href="#config-rpt_conf-eannmode"><code>eannmode=</code></a></li>
+<li><a href="#config-rpt_conf-echolinkdefault"><code>echolinkdefault=</code></a></li>
+<li><a href="#config-rpt_conf-echolinkdynamic"><code>echolinkdynamic=</code></a></li>
+<li><a href="#config-rpt_conf-phonelinkdefault"><code>phonelinkdefault=</code></a></li>
+<li><a href="#config-rpt_conf-phonelinkdynamic"><code>phonelinkdynamic=</code></a></li>
+<li><a href="#config-rpt_conf-guilinkdefault"><code>guilinkdefault=</code></a></li>
+<li><a href="#config-rpt_conf-guilinkdynamic"><code>guilinkdynamic=</code></a></li>
 </ul>
-</li>
-<li>Send *1&lt;node&gt; to disconnect from the remote base node</li>
-</ul>
-<h2 id="adv-topics-remotebase-remote-base-node-definition">Remote Base Node Definition</h2>
-<p>A remote base needs to be defined as such in the <code>[nodes]</code> context. Specifically, the node definition would need to have the last option changed from "NONE" to "Y".</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>1998 = radio@127.0.0.1/1998,Y                  ; Remote base node on this server
-</code></pre></div>
-<h2 id="adv-topics-remotebase-remote-base-node-number-stanza">Remote Base Node Number Stanza</h2>
-<p>The node number stanza is a critical stanza in <code>rpt.conf</code>. It is the same concept as for a "normal node". </p>
-<div class="highlight"><pre><span></span><code>[1998]    ; Replace with your assigned or private node number
-</code></pre></div>
-<p>The node number stanza is set to the <strong>assigned node number</strong> <em>or</em> a <strong>private node number</strong> (if a private node is being configured). The <a href="#user-guide">asl-menu</a> utility, via the <strong>Node Setup</strong> menu, should normally be used to create node stanzas for both public and private nodes.</p>
-<p>The node number stanza contains all the configurable options for that specific node using a <code>key=value</code> pair syntax. The following configurable options are available to use:</p>
-<h3 id="adv-topics-remotebase-authlevel">authlevel=</h3>
-<p>The <code>authlevel=</code> option is used to enable or disable login requirements for a remote base.</p>
+<h2 id="adv-topics-telemetry-associated-cop-commands">Associated COP Commands</h2>
+<h3 id="adv-topics-telemetry-local-telemetry-cop-commands">Local Telemetry COP Commands</h3>
+<p>The <a href="#config-rpt_conf-cop-commands"><code>cop</code></a> that affect local telemetry are:</p>
 <ul>
-<li>authlevel = 0 Disables all access control (not recommended, unsecured)</li>
-<li>authlevel = 1 Enables access control, and waits for key up before prompting for the access code</li>
-<li>authlevel = 2 Enables access control, and prompts for the access code at the time of connection</li>
+<li><code>cop,33</code>  Local Telemetry Output Enable</li>
+<li><code>cop,34</code>  Local Telemetry Output Disable</li>
+<li><code>cop,35</code>  Local Telemetry Output Timed</li>
 </ul>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>authlevel = 0   ; allow everyone 
-</code></pre></div>
-<p>See <a href="#adv-topics-remotebase-remote-base-authentication">Remote Base Authentication</a> and <a href="#adv-topics-remotebase-remote-base-txlimits-stanza">Remote Base TX Limits</a> for additional details.</p>
-<h3 id="adv-topics-remotebase-civaddr">civaddr=</h3>
-<p>ICOM radios use the ICOM Communications Interface V (CI-V) for remote control. The <code>civaddr=</code> is used to set the CI-V address. The value is a 2 digit hexadecimal number. If this option is not specified, then the CI-V address will be set to the default of 88.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>civaddr = 88  ; set CIV to 88
-</code></pre></div>
-<h3 id="adv-topics-remotebase-dusbabek">dusbabek=</h3>
-<p>This option is a "Jim Special", and documentation around it is sparse. It accepts parameters of <code>yes</code> or <code>no</code>, and MAY be required for the radio you are interfacing to. Try it, you may or may not need it.</p>
-<p>Specifically, it may be required for the Syntor-X (using <code>remote=xcat</code>).</p>
-<h3 id="adv-topics-remotebase-functions">functions=</h3>
-<p>The <code>functions=</code> option is a pointer to a remote base function stanza. It operates the same as the normal <a href="#config-rpt_conf-functions"><code>functions=</code></a> option. You will likely want to define a functions stanza that is unique for your remote base, so that you can tailor what functions are available to use. </p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>functions = functions-remote   ; name the functions stanza &#39;functions-remote&#39;
-
-[functions-remote]
-0=remote,1                              ; Retrieve Memory
-1=remote,2                              ; Set freq.
-2=remote,3                              ; Set tx PL tone
-3=remote,4                              ; Set rx PL tone
-40=remote,100                           ; Rx PL off
-41=remote,101                           ; Rx PL on
-42=remote,102                           ; Tx PL off
-43=remote,103                           ; Tx PL on
-44=remote,104                           ; Low Power
-45=remote,105                           ; Medium Power
-46=remote,106                           ; High Power
-51=remote,5                             ; Long status query
-52=remote,140                           ; Short status query
-61=remote,61                            ; Set mode to FM
-62=remote,62                            ; Set mode to USB
-63=remote,63                            ; Set mode to LSB
-64=remote,64                            ; Set mode to AM
-67=remote,210                           ; Send a *
-69=remote,211                           ; Send a #
-711=remote,107                          ; Bump down ­20Hz
-714=remote,108                          ; Bump ­down 100Hz
-717=remote,109                          ; Bump ­down 500Hz
-713=remote,110                          ; Bump up 20Hz
-716=remote,111                          ; Bump up 100Hz
-719=remote,112                          ; Bump up 500Hz
-721=remote,113                          ; Scan -­ slow
-724=remote,114                          ; Scan ­- quick
-727=remote,115                          ; Scan ­- fast
-723=remote,116                          ; Scan + slow
-726=remote,117                          ; Scan + quick
-729=remote,118                          ; Scan + fast
-79=remote,119                           ; Tune 
-91=remote,99,CALLSIGN,[LICENSETAG]      ; Remote base login.
-                                        ; Define a different dtmf sequence for each user which is 
-                                        ; authorized to use the remote base to control access to it.
-                                        ; For example: 
-9139583=remote,99,WB6NIL,G              ; would grant access 
-                                        ; to the remote base and announce WB6NIL as being logged in.
-                                        ; For example:
-9148351=remote,99,WA6ZFT,E              ; would grant access 
-                                        ; to the remote base and announce WA6ZFT as being logged in.
-                                        ; When the remote base is disconnected from the originating 
-                                        ; node, the user will be logged out. The LICENSETAG parameter 
-                                        ; can be optionally specified to enforce TX band limits.
-98=cop,6                                ; Remote base telephone key
-</code></pre></div>
-<p>In the above example the digits to the left of the = are the DTMF code to dial (don't forget to prefix with <a href="#config-rpt_conf-funcchar"><code>[funcchar]</code></a>, usually *).</p>
-<div class="admonition note">
-<p class="admonition-title">Command Mode</p>
-<p>When sending DTMF commands to a remote base, you need to send them in "command mode", usually *4 (ilink,4). So, if your remote base was defined as node 1998 and you are already connected to the node, you would set the remote base to high power by sending *41998*46.</p>
-</div>
-<p>See <a href="#adv-topics-remotebase-remote-base-commands">Remote Base Commands</a> for functions that are specifically available for remote base nodes.</p>
-<h3 id="adv-topics-remotebase-ioaddr">ioaddr=</h3>
-<p>The <code>ioaddr=</code> option sets a parallel port control I/O address. It is specified as a hexadecimal number with a 0x prefix. The parallel port is used when the Doug Hall RBI-1 interface is employed.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>ioaddr = 0x378   ; set RBI-1 /Parallel Port I/O address on LPT1
-</code></pre></div>
-<h3 id="adv-topics-remotebase-ioport">ioport=</h3>
-<p>The <code>ioport=</code> option sets the serial port for the control interface to the remote base radio. On Linux Systems, these are typically path names to special files in the <code>/dev</code> directory.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>ioport = /dev/ttyS1   ; Linux com1
-</code></pre></div>
-<p>or</p>
-<div class="highlight"><pre><span></span><code>ioport = /dev/ttyUSB0 ; USB to serial adapter
-</code></pre></div>
-<h3 id="adv-topics-remotebase-iospeed">iospeed=</h3>
-<p>The <code>iospeed=</code> option sets the serial port baud rate for the control interface to the remote base radio.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>iospeed = 4800         ; Use 4800 baud
-</code></pre></div>
-<p>Valid <code>iospeed</code> values are:</p>
+<p>The <code>cop</code> commands override any of the <code>telemdefault</code>, <code>echolinkdefault</code>, <code>phonelinkdefault</code>, and <code>guilinkdefault</code> settings (all together), if any of their associated "dynamic" options are set to <code>1</code>.</p>
+<p>For example, if you have <code>telemdynamic=0</code>, then issuing one of the <code>cop</code> commands will <strong>not</strong> change the setting of <code>telemdefault</code> from what it is currently set to.</p>
+<h3 id="adv-topics-telemetry-foreign-telemetry-cop-commands">Foreign Telemetry COP Commands</h3>
+<p>Foreign telemetry is what is announced on the <em>local</em> node when a <em>remote</em> node connects. The <a href="#config-rpt_conf-cop-commands"><code>cop</code></a> that affect foreign telemetry are:</p>
 <ul>
-<li>2400</li>
-<li>4800</li>
-<li>9600 (default if <code>iospeed</code> is not specified)</li>
-<li>19200</li>
-<li>38400</li>
-<li>57600</li>
+<li><code>cop,36</code>  Foreign Link Local Output Path Enable</li>
+<li><code>cop,37</code>  Foreign Link Local Output Path Disable</li>
+<li><code>cop,38</code>  Foreign Link Local Output Path Follows Local Telemetry Selection</li>
+<li><code>cop,39</code>  Foreign Link Local Output Path Timed</li>
 </ul>
-<h3 id="adv-topics-remotebase-mars">mars=</h3>
-<p>The <code>mars=</code> option is only used with the IC-706MKIIG remote. When set to <code>1</code>, it enables access to additional bands via remote, as shown below.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>mars = 0        ; set to 1 to enable MARS bands
-</code></pre></div>
-<p>MARS bands available:</p>
-<table>
-<thead>
-<tr>
-<th>Band</th>
-<th>Frequency Range</th>
-<th>Allowed Mode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LMR UHF</td>
-<td>450-470MHz</td>
-<td>FM</td>
-</tr>
-<tr>
-<td>LMR VHF</td>
-<td>148-174MHz</td>
-<td>FM</td>
-</tr>
-<tr>
-<td>VHF-AM</td>
-<td>108-144MHz</td>
-<td>AM</td>
-</tr>
-<tr>
-<td>AM BCB</td>
-<td>550-1750kHz</td>
-<td>AM</td>
-</tr>
-<tr>
-<td>HF SWL</td>
-<td>1750kHz-30MHz</td>
-<td>AM</td>
-</tr>
-</tbody>
-</table>
-<h3 id="adv-topics-remotebase-phone_functions">phone_functions=</h3>
-<p>The <code>phone_functions=</code> is a pointer to a remote base phone function stanza. It operates the same as the normal <a href="#config-rpt_conf-phone_functions"><code>phone_functions=</code></a> option. You will likely want to define a phone functions stanza that is unique for your remote base, so that you can tailor what functions are available to use. </p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>phone_functions = functions-remote
-
-[functions-remote]
-...
-</code></pre></div>
-<h3 id="adv-topics-remotebase-remote">remote=</h3>
-<p>The <code>remote=</code> option sets the type of radio. It <strong>must</strong> be defined, as it ensures that the node will be defined as a remote base node and not a standard node, and determines the protocol for communicating with the radio over the <code>ioport</code>.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>remote = xcat   ; set xcat interface
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Vendor</th>
-<th>Model</th>
-<th>remote= Value</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>N/A</td>
-<td>Dumb</td>
-<td>y</td>
-<td>Use for any single channel remote base radios, with no remote tuning capability</td>
-</tr>
-<tr>
-<td>N/A</td>
-<td>Parallel Port</td>
-<td>pp16</td>
-<td>Parallel port programmable 16 channels? Perhaps parallel port BCD bit-banging, such for Motorola radios that can be driven from their accessory port? Interface information not available</td>
-</tr>
-<tr>
-<td>Doug Hall</td>
-<td>Remote Base Interface</td>
-<td>rbi</td>
-<td>Requires Parallel Port Address https://wiki.allstarlink.org/wiki/Remote_Base:_Doug_Hall_RBI-1</td>
-</tr>
-<tr>
-<td>ICOM</td>
-<td>IC-706MKIIG</td>
-<td>ic706</td>
-<td><strong>IC-706MKIIG only</strong>. Must specify serial port using <code>ioport=</code>. Must specify CIV address using <code>civaddr=</code>. Also note <code>mars=</code> option. Earlier versions return data format is different and will lock up the software</td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>Various</td>
-<td>kenwood</td>
-<td>Should work for many/most Kenwood radios, unless otherwise specified</td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TM-D700</td>
-<td>tmd700</td>
-<td></td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TS-440</td>
-<td>kenwood</td>
-<td>Some functions may not work</td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TS-450</td>
-<td>kenwood</td>
-<td>Some functions may not work</td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TS-950</td>
-<td>kenwood</td>
-<td>Some functions may not work</td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TM-271</td>
-<td>tm271</td>
-<td>Must specify serial port using <code>ioport=</code></td>
-</tr>
-<tr>
-<td>Kenwood</td>
-<td>TMG-707</td>
-<td>kenwood</td>
-<td>Must specify serial port using <code>ioport=</code></td>
-</tr>
-<tr>
-<td>Motorola</td>
-<td>Syntor Xcat</td>
-<td>xcat</td>
-<td>Must specify serial port using <code>ioport=</code>. Must specify CIV address using <code>civaddr=</code></td>
-</tr>
-<tr>
-<td>Ritron Patriot</td>
-<td>RTX-150</td>
-<td>rtx150</td>
-<td>Interface information not available</td>
-</tr>
-<tr>
-<td>Ritron Partiot</td>
-<td>RTX-450</td>
-<td>rtx450</td>
-<td></td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-100</td>
-<td>ft100</td>
-<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-897GXII</td>
-<td>ft100</td>
-<td>See FT-100. Some commands may not work.</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-857</td>
-<td>ft897</td>
-<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-897</td>
-<td>ft897</td>
-<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 4800</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-890</td>
-<td>ft100</td>
-<td>See FT-100. Some commands may not work</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-900</td>
-<td>ft100</td>
-<td>See FT-100. Some commands may not work</td>
-</tr>
-<tr>
-<td>Yaesu</td>
-<td>FT-950</td>
-<td>ft950</td>
-<td>Must specify serial port using <code>ioport=</code>. Default <code>iospeed=</code> is set to 38400</td>
-</tr>
-</tbody>
-</table>
-<p>Many Yaesu models should work for the most part with one of the above, back to 747/757 vintage for frequency and mode anyway. The FT-817 has completely different commands, so it won't work.</p>
-<h3 id="adv-topics-remotebase-remote_inact_timeout">remote_inact_timeout=</h3>
-<p>This option specifies the amount of time without keying from the link, before the link is determined to be inactive. Set to <code>0</code> to disable timeout.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>remote_inact_timeout = 0   ; do not time out
-</code></pre></div>
-<h3 id="adv-topics-remotebase-remote_timeout">remote_timeout=</h3>
-<p>This option specifies the session time out for the remote base. Set to <code>0</code> to disable. This option does not appear to be implemented in code.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>remote_timeout = 0   ; do not timeout
-</code></pre></div>
-<p>Default is 3600 (seconds?).</p>
-<h3 id="adv-topics-remotebase-remote_timeout_warning">remote_timeout_warning=</h3>
-<p>This option does not appear to be implemented in code.</p>
-<p>Default is 180 (seconds?).</p>
-<h3 id="adv-topics-remotebase-remote_timeout_warning_freq">remote_timeout_warning_freq=</h3>
-<p>This option does not appear to be implemented in code.</p>
-<p>Default is 30 (seconds?).</p>
-<h3 id="adv-topics-remotebase-rxchannel">rxchannel=</h3>
-<p>This option contains the type of channel driver which is being used for the audio and control (COR/PTT) interface to the remote base.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>rxchannel = SimpleUSB/1998
-</code></pre></div>
-<p>See the <a href="#config-rpt_conf-rxchannel"><code>rxchannel=</code></a> option for available channel drivers.</p>
-<h3 id="adv-topics-remotebase-split2m">split2m=</h3>
-<p>This option defines the offset in kHz to use for 2m <a href="#adv-topics-remotebase-remote-base-memory-stanza">memory chanels</a>. The default if not defined is 600 (kHz).</p>
-<h3 id="adv-topics-remotebase-split70cm">split70cm=</h3>
-<p>This option defines the offset in kHz to use to 70cm <a href="#adv-topics-remotebase-remote-base-memory-stanza">memory channels</a>. The default if not defined is 5000 (kHz), aka 5MHz.</p>
-<h2 id="adv-topics-remotebase-remote-base-commands">Remote Base Commands</h2>
-<p>Remote base commands (<code>functionclass</code> of <code>remote</code>) provide DTMF functions for remote base control. The <code>remote</code> commands are only applicable to remote base node configurations.</p>
-<table>
-<thead>
-<tr>
-<th>remote</th>
-<th>Description</th>
-<th>Parameter(s) Accepted</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Retrieve Memory</td>
-<td>00 to 99</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Set VFO Frequency</td>
-<td>MMM*kkk*o# where MMM is frequency in MHz, kkk is kHz portion of the frequency, o is offset (1=minus, 2=simplex, 3=positive)</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Set TX PL Tone</td>
-<td>XXX*X ie 067*0 to set 67.0Hz</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Set RX PL Tone</td>
-<td>XXX*X ie 067*0 to set 67.0Hz</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Link Status Query (long)</td>
-<td></td>
-</tr>
-<tr>
-<td>6</td>
-<td>Set Operating Mode</td>
-<td>m, where m is 1 (FM), 2 (USB), 3, (LSB), or 4 (AM)</td>
-</tr>
-<tr>
-<td>99</td>
-<td>Remote Base login</td>
-<td>CALLSIGN,LICENSETAG</td>
-</tr>
-<tr>
-<td>100</td>
-<td>RX PL Off</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>101</td>
-<td>RX PL On</td>
-<td></td>
-</tr>
-<tr>
-<td>102</td>
-<td>TX PL Off</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>103</td>
-<td>TX PL On</td>
-<td></td>
-</tr>
-<tr>
-<td>104</td>
-<td>Low Power</td>
-<td></td>
-</tr>
-<tr>
-<td>105</td>
-<td>Medium Power</td>
-<td></td>
-</tr>
-<tr>
-<td>106</td>
-<td>High Power</td>
-<td></td>
-</tr>
-<tr>
-<td>107</td>
-<td>Bump -20Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>108</td>
-<td>Bump -100Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>109</td>
-<td>Bump -500Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>110</td>
-<td>Bump +20Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>111</td>
-<td>Bump +100Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>112</td>
-<td>Bump +500Hz</td>
-<td></td>
-</tr>
-<tr>
-<td>113</td>
-<td>Scan - Slow</td>
-<td></td>
-</tr>
-<tr>
-<td>114</td>
-<td>Scan - Quick</td>
-<td></td>
-</tr>
-<tr>
-<td>115</td>
-<td>Scan - Fast</td>
-<td></td>
-</tr>
-<tr>
-<td>116</td>
-<td>Scan + Slow</td>
-<td></td>
-</tr>
-<tr>
-<td>117</td>
-<td>Scan + Quick</td>
-<td></td>
-</tr>
-<tr>
-<td>118</td>
-<td>Scan + Fast</td>
-<td></td>
-</tr>
-<tr>
-<td>119</td>
-<td>Tune (brief AM transmission for automatic tuners)</td>
-<td></td>
-</tr>
-<tr>
-<td>140</td>
-<td>Link Status Query (brief)</td>
-<td></td>
-</tr>
-<tr>
-<td>210</td>
-<td>Send a *</td>
-<td></td>
-</tr>
-<tr>
-<td>211</td>
-<td>Send a #</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Not all commands above are supported by all radios. For example, radios which don't support SSB, would not be able to be placed in LSB or USB mode.</p>
-<p>See the <a href="#adv-topics-remotebase-functions">Remote Base Functions</a> on how to define the DTMF commands for remote base functions.</p>
-<h2 id="adv-topics-remotebase-remote-base-authentication">Remote Base Authentication</h2>
-<p>When <a href="#adv-topics-remotebase-authlevel"><code>authlevel=</code></a> is greater than zero, the <a href="#adv-topics-remotebase-remote-base-commands"><code>remote,99</code></a> command is used to define a different DTMF sequence (password) for each user authorized to use the remote base. The remote base will announce the callsign as access is granted.</p>
-<p>If using an <code>authlevel</code> greater than zero, be sure to define users in your <code>[functions]</code> stanza to authenticate against.</p>
-<p>The format of the function is: <code>DTMF_Password = remote,99,CALLSIGN,LICENSETAG</code>.</p>
-<p>The <code>LICENSETAG</code> is the corresponding entry in the <a href="#adv-topics-remotebase-remote-base-txlimits-stanza"><code>[txlmiits]</code></a> stanza. The <code>LICENSETAG</code> is used for enforce TX frequency limits.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>[1998]           ; node number for the remote base
-; authlevel = 0  ; Anyone can use it
-; authlevel = 1  ; Requires log in, Waits for Tx key to ask for it
-authlevel = 2  ; Requires log in, asks for it automously
-
-[remote-functions]
-8xx=remote,99,OK,E ; where xx is the password
-</code></pre></div>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>9139583 = remote,99,WB6NIL,G   ; grant access to Jim (general)
-9148351 = remote,99,WA6ZFT,E   ; grant access to Steve (extra)
-</code></pre></div>
-<p>In the above example, DTMF "*9139583" would log in to the remote base as WB6NIL, with the TX Limits of the "G" class as defined in the <a href="#adv-topics-remotebase-remote-base-txlimits-stanza"><code>[txlimits]</code></a> staza.</p>
-<p>When the remote base is disconnected from the originating node, the
-user will be logged out. </p>
-<h2 id="adv-topics-remotebase-remote-base-memory-stanza">Remote Base Memory Stanza</h2>
-<p>Up to 100 (00 to 99) preset memory channels can be defined, to be recalled by the <code>remote,1</code> function command.</p>
-<p>If the <code>init</code> memory channel is optionally specified, the remote base will attempt to tune to this channel when a user connects.</p>
-<p>Remote base memories are in the format of:</p>
-<p>Remote base memory syntax: <code>CC=RRR.RRR,PPP.P,AAAAA</code> or <code>CC=RRR.RRR,PPP.P,OFFSET,AAAAA</code></p>
+<p>There are no <code>rpt.conf</code> settings that control foreign telemetry, it has to be controlled via <code>cop</code> command.</p>
+<h3 id="adv-topics-telemetry-echolink-announcement-cop-commands">EchoLink Announcement COP Commands</h3>
+<p>The following <a href="#config-rpt_conf-cop-commands"><code>cop</code></a> commands allow you to override the <a href="#config-rpt_conf-eannmode"><code>eannmode</code></a> option:</p>
 <ul>
-<li>C = Memory (Channel) number</li>
-<li>R = RX Frequency (must be defined down to kHz)</li>
-<li>P = PL Frequency</li>
-<li>A = One or more Attributes</li>
-</ul>
-<p>Attributes are specified as a <em>non-delimited</em> string. The available Attributes are: </p>
-<ul>
-<li>a = AM, b = LSB, f = FM, u = USB</li>
-<li>l = Low Power, m = Medium Power, h = High Power</li>
-<li>
-<ul>
-<li>= Minus TX Offset, s = Simplex, + = Plus TX Offset</li>
-</ul>
-</li>
-<li>t = TX PL on, r = RX PL on</li>
-</ul>
-<p>To use a non-standard offset on the memory channel, it can be defined (in kHz), be sure to also specify either <code>-</code> or <code>+</code>, as necessary.</p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>[memory]
-init = 146.520,000.0,fm ; set to this channel on start
-00 = 146.580,100.0,m
-01 = 147.030,103.5,m+t
-02 = 147.240,103.5,m+t
-03 = 147.765,79.7,m-t
-04 = 146.460,100.0,m
-05 = 146.550,100.0,m
-06 = 147.540,000.0,fs
-07 = 147.540,123.0,shrt
-08 = 147.435,103.5,1035,h-t ; This would be for W6NUT in Los Angeles with input of 146.400, and a PL of 103.5Hz.
-</code></pre></div>
-<p><strong>NOTE:</strong> Not all attributes may be supported by all radios.</p>
-<h2 id="adv-topics-remotebase-remote-base-txlimits-stanza">Remote Base Txlimits Stanza</h2>
-<p>The <code>[txlimits]</code> stanza defines TX privileges to be assigned to a particular license class (<code>LICENSETAG</code>).</p>
-<p>The <code>LICENSETAG</code> is used when configuring the <a href="#adv-topics-remotebase-remote-base-authentication"><code>authentication</code></a> parameters for remote base users.</p>
-<div class="highlight"><pre><span></span><code>[txlimits]
-; In the example below, voice privileges are assigned for US ham
-; licensees for 40 meters through 10 meters.
-; Each line contains a LICENSETAG defined in a user login command,
-; then a set of band limit ranges. Up to 40 ranges per entry may be defined.
-;
-T = 28.300-28.500
-G = 7.175-7.300,14.225-14.300,18.110-18.168,21.275-21.450,24.930-24.990,28.300-29.700
-A = 7.125-7.300,14.175-14.300,18.110-18.168,21.225-21.450,24.930-24.990,28.300-29.700
-E = 7.125-7.300,14.150-14.300,18.110-18.168,21.200-21.450,24.930-24.990,28.300-29.700
-</code></pre></div>
-<h2 id="adv-topics-remotebase-sample-remote-configuration">Sample Remote Configuration</h2>
-<div class="highlight"><pre><span></span><code>[1998]
-; Rx audio/signaling channel                                                                                   
-rxchannel = Radio/usb
-
-; Serial port for control
-ioport = /dev/ttyS1
-
-; Radio Type                
-remote = ft897 
-
-; Function list from link                                          
-functions = functions-remote  
-
-; Function list from phone         
-phone_functions = functions-remote
-
-; Authorization level                                         
-authlevel = 0      
-</code></pre></div>
-<h2 id="adv-topics-remotebase-doug-hall-rbi-1-remote-base">Doug Hall (RBI-1) Remote Base</h2>
-<p><strong>The Doug Hall RBI-1 is long obsolete, but is documented here for reference.</strong></p>
-<p>The Doug Hall Electronics Model RBI-1 is frequency agile, multi port, remote base. It is possible to interface the RBI-1 to AllStar, but only on a PC.</p>
-<h3 id="adv-topics-remotebase-rbi-1-connections">RBI-1 Connections</h3>
-<p>The RBI-1 uses the first three pins of the parallel port and can not be changed. There is no other interface method built into the <code>app_rpt</code> software. If you have been using the pins for anything else, you will need to migrate them to higher pins than the first three. See Parallel Port GPIO.</p>
-<p>Parallel port pinout is as follows:
-<div class="highlight"><pre><span></span><code>PP1 = data
-PP2 = clock
-PP3 = reset
-</code></pre></div></p>
-<p>No buffering is required. Attach directly to the RBI-1's DB9 interface on the correct parallel port pins.</p>
-<h3 id="adv-topics-remotebase-rbi-1-rptconf-settings">RBI-1 rpt.conf Settings</h3>
-<p>In <code>rpt.conf</code> you will need to set lines in the node's stanza:</p>
-<div class="highlight"><pre><span></span><code>[1998]                              ; your node number 
-iobase=0x378                        ; (for lpt1)
-remote=rbi                          ; Doug Hall RBI-1
-functions=funtions-remote1998       ; Function list from link (a list of agile working commands) - use your node number
-memory=memory1998                   ; &#39;system stored&#39; radio presets, not required - use your node number
-
-[funtions-remote1998]               ;for RBI-1   use your node number
-
-0=remote,1                          ; Retrieve Radio Stored Memory Channel
-1=remote,2                          ; Set freq. VFO MMMMM*KKK*O   (Mhz digits, Khz digits, Offset)
-2=remote,3                          ; Set tx PL tone PL Tone HHH*D*
-3=remote,4                          ; Set rx PL tone         HHH*D*
-
-40=remote,100                       ; Rx PL off
-41=remote,101                       ; Rx PL on
-42=remote,102                       ; Tx PL off
-43=remote,103                       ; Tx PL on
-44=remote,104                       ; Low Power
-45=remote,105                       ; Medium Power
-46=remote,106                       ; High Power
-
-51=remote,5                         ; Long status query
-52=remote,140                       ; Short status query
-67=remote,210                       ; Send a *
-69=remote,211                       ; Send a #
-
-
-; Not Required but noted:
-
-[memory1998]                        ;Stored presets for radio, 
-                                    ;Format: (recall# xx) = (Freq 6 digits and decimal) (TX PL Tone )  ( CTCSS Tone )  (ofset + - S ) ( power l m h )
-init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose something safe in case of error. Not required. Can be remarked out.
-00=224.560,100.0,-l
-01=224.460,114.8,-l
-02=224.580,131.8,-l
-03=223.980,100.0,-l
-04=146.940,114.8,-lt
-10=442.175,162.2,+l
-11=444.475,114.8,+l
-12=444.150,100.0,+l
-;13=446.500,100.0,sl
-</code></pre></div></section><section class="print-page" id="adv-topics-rxtoneburst"><h1 id="adv-topics-rxtoneburst-rx-toneburst">RX Toneburst</h1>
-<p>RX toneburst is a repeater access method (similar to CTCSS/PL or DCS) where the repeater will not become active until it receives the proper access tone.</p>
-<p>It is/was a common access method used almost exclusively in Europe. The typical tone used was 1750Hz. A user would send an initial burst of 1750Hz, usually less than 500mS, which would "wake up" the repeater. Once the repeater was "active", it would usually revert to carrier access for the duration of the conversation. After a period of quiet time, the repeater would revert to being "inactive", until it received another wake-up toneburst.</p>
-<h2 id="adv-topics-rxtoneburst-configuring-receive-toneburst-access">Configuring Receive Toneburst Access</h2>
-<p>If you wish to set up a node to require receive toneburst, you must at least specify the toneburst frequency. The following parameters would need to be added to <a href="#config-rpt_conf"><code>/etc/asterisk/rpt.conf</code></a> in the node configuration section of the desired node.</p>
-<div class="highlight"><pre><span></span><code>rxburstfreq = 1750          ; set the desired toneburst frequency, in Hz
-rxbursttime = 500           ; minimum duration required for the tone to be present, in mS
-rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a valid tone
-</code></pre></div></section><section class="print-page" id="adv-topics-tlb"><h1 id="adv-topics-tlb-thelinkbox">TheLinkBox</h1>
+<li><code>cop,42</code>  Announce node number only (<code>eannmode=1</code>)</li>
+<li><code>cop,43</code>  Announce callsign only (<code>eannmode=2</code>)</li>
+<li><code>cop,44</code>  Announce node number and callsign (<code>eannmode=3</code>)</li>
+</ul></section><section class="print-page" id="adv-topics-tlb"><h1 id="adv-topics-tlb-thelinkbox">TheLinkBox</h1>
 <p>It is possible to interface an <code>Asterisk/app_rpt</code> installation with <a href="https://github.com/skiphansen/thelinkbox">TheLinkBox</a> program (by Skip, WB6YMH), using the <code>chan_tlb</code> channel driver.</p>
 <p>The connection(s) are accessed and referred to by a locally-assigned (private) node number, starting with "1" (generally 1000-1999, private node numbering space). </p>
 <p>Since the interface is unique to the <code>app_rpt</code> installation, other AllStarLink nodes must first connect to the node(s) configured to connect with the desired TheLinkBox station(s).</p>
@@ -14336,43 +14051,43 @@ control points.</p>
 </tr>
 <tr>
 <td>33</td>
-<td>Local Telemetry Output Enable</td>
+<td>Local Telemetry Output Enable (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>34</td>
-<td>Local Telemetry Output Disable</td>
+<td>Local Telemetry Output Disable (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>35</td>
-<td>Local Telemetry Output on Demand</td>
+<td>Local Telemetry Output on Demand (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>36</td>
-<td>Foreign Link Local Output Path Enable</td>
+<td>Foreign Link Local Output Path Enable (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>37</td>
-<td>Foreign Link Local Output Path Disable</td>
+<td>Foreign Link Local Output Path Disable (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>38</td>
-<td>Foreign Link Local Output Path Follows Local Telemetry</td>
+<td>Foreign Link Local Output Path Follows Local Telemetry (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>39</td>
-<td>Foreign Link Local Output Path on Demand</td>
+<td>Foreign Link Local Output Path on Demand (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>42</td>
-<td>Echolink announce node # only</td>
+<td>Echolink announce node number only (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>43</td>
-<td>Echolink announce node Callsign only</td>
+<td>Echolink announce node callsign only (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>44</td>
-<td>Echolink announce node # and Callsign</td>
+<td>Echolink announce node number and callsign (See <a href="#adv-topics-telemetry">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>45</td>
@@ -14569,6 +14284,22 @@ discpgm = /etc/asterisk/custom/dislog.sh
 </code></pre></div>
 <p>The default is to have <code>controlstates=</code> point to a stanza called <code>controlstates</code>. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>The <a href="#config-rpt_conf-control-states-stanza">Control States Stanza</a> describes these mnemonics in detail.</p>
+<h3 id="config-rpt_conf-dtmfkey">dtmfkey=</h3>
+<p>This setting allows you to change the access control for the local node to require a DTMF key sequence to "key-up" the node on every transmission. Similar to requiring CTCSS, users needs to send a DTMF sequence for the receiver to validate the transmission.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>dtmfkey = 0                         ; set to 1 to require DTMF access. Default is 0 (normal access)
+</code></pre></div>
+<p>If set to <code>1</code>, there needs to be an associated <a href="#config-rpt_conf-dtmfkeys"><code>[dtmfkeys]</code></a> stanza to set the valid DTMF sequence(s).</p>
+<p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
+<h3 id="config-rpt_conf-dtmfkeys">dtmfkeys=</h3>
+<p>The <code>dtmfkeys</code> option allows you to override the stanza name used for the <code>dtmfkeys</code> stanza in <code>rpt.conf</code>. This stanza is used to define the DTMF sequence that is required on every transmission to "key-up" the node. Each key/value pair consists of the DTMF sequence and the associated user callsign. The callsign is used for logging purposes.To use dtmfkeys, define an entry in your node stanza to point to a dedicated dtmfkeys stanza like this:</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>dtmfkeys = dtmfkeys                 ; pointer to dtmfkeys stanza
+</code></pre></div>
+<p>The default is to have <code>dtmfkeys=</code> point to a stanza called <code>dtmfkeys</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
+<p>See the <a href="#config-rpt_conf-dtmfkeys-stanza">DTMFKeys Stanza</a> for more detail on defining dtmfkeys.</p>
+<p>To use this option, <a href="#config-rpt_conf-dtmfkey"><code>dtmfkey=1</code></a> needs to be set. </p>
+<p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="config-rpt_conf-duplex">duplex=</h3>
 <p>This setting sets the duplex mode for desired radio operation. Duplex mode 2 is the default if nonthing specified.</p>
 <table>
@@ -14607,24 +14338,28 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <h3 id="config-rpt_conf-eannmode">eannmode=</h3>
 <p>This option sets the Echolink node announcement type, when a node connects:</p>
 <ul>
+<li>0 = Do not announce EchoLink nodes at all</li>
 <li>1 = Say only node number (default)</li>
 <li>2 = Say phonetic call sign only on Echolink connects</li>
 <li>3 = Say phonetic call sign and node number on Echolink connects</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-echolinkdefault">echolinkdefault=</h3>
 <p>This option sets the Echolink telemetry option:</p>
 <ul>
 <li>0 = telemetry output off</li>
 <li>1 = telemetry output on</li>
-<li>2 = timed telemetry output on command execution and for a short time thereafter</li>
-<li>3 = follow local telemetry mode</li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter)</li>
+<li>3 = follow local telemetry mode (default)</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-echolinkdynamic">echolinkdynamic=</h3>
-<p>This option enables/disables the Echolink telemetry COP command.</p>
+<p>This option sets whether EchoLink telemetry can be enabled/disabled by users using a <a href="#config-rpt_conf-cop-commands">COP</a> command.</p>
 <ul>
 <li>0 = disallow users to change current Echolink telemetry setting with a COP command</li>
 <li>1 = allow users to change the setting with a COP command</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-elke">elke=</h3>
 <p>This option, if set, defines this node as an <a href="#adv-topics-elkelink">"Elke Link"</a>, and sets the time before the node goes to "sleep".</p>
 <p>Sample:</p>
@@ -14656,7 +14391,7 @@ discpgm = /etc/asterisk/custom/dislog.sh
 status,2 = c|f|RPT_NUMLINKS      ; Say time of day when all links disconnect.
 </code></pre></div>
 <p>The default is to have <code>events=</code> point to a stanza called <code>events</code>. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
-<p>See <a href="https://wiki.allstarlink.org/wiki/Event_Management">Event Management</a> for a more detailed look on how to configure events.</p>
+<p>See <a href="#adv-topics-eventmgmt">Event Management Subsystem</a>) for a more detailed look on how to configure events.</p>
 <h3 id="config-rpt_conf-extnodefile">extnodefile=</h3>
 <p>This option allows you to set the name of the external node lookup file. The default value is <code>/var/lib/asterisk/rpt_extnodes</code>. This file is used to look up node information when linking to other nodes.  It is also used to validate nodes that are connecting to your node.</p>
 <p>Sample:</p>
@@ -14687,6 +14422,30 @@ status,2 = c|f|RPT_NUMLINKS      ; Say time of day when all links disconnect.
 </code></pre></div>
 The default is to have <code>functions=</code> point to a stanza called <code>functions</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#config-rpt_conf-functions-stanza">Functions Stanza</a> for more detail on defining functions.</p>
+<h3 id="config-rpt_conf-guilinkdefault">guilinkdefault=</h3>
+<p>This option sets how telemetry is handled for IAXRpt, SIP phone display, and VoIP clients.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>guilinkdefault = 1 
+</code></pre></div>
+<p>The available options are:</p>
+<ul>
+<li>0 = telemetry output off</li>
+<li>1 = telemetry output on (default)</li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter) </li>
+<li>3 = follow local telemetry mode</li>
+</ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
+<h3 id="config-rpt_conf-guilinkdynamic">guilinkdynamic=</h3>
+<p>This option sets whether telemetry for IAXRpt, SIP phone display, and VoIP clients can be enabled/disabled by users using a <a href="#config-rpt_conf-cop-commands">COP</a> command.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>guilinkdynamic = 1
+</code></pre></div>
+<p>The available options are:</p>
+<ul>
+<li>0 = disallow users to change gui telemetry setting with a COP command</li>
+<li>1 = Allow users to change the setting with a COP command</li>
+</ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-hangtime">hangtime=</h3>
 <p>This option controls the length of the repeater (squelch tail) hang time. It is specified in milliseconds. </p>
 <p>Sample:</p>
@@ -14820,6 +14579,25 @@ Sample:</p>
 </code></pre></div>
 <p>The default is to have <code>macro=</code> point to a stanza called <code>macro</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#config-rpt_conf-macro-stanza">Macro Stanza</a> for more detail on defining macros.</p>
+<h3 id="config-rpt_conf-mdclog">mdclog=</h3>
+<p>This option is used to enable a simple log for all local MDC-1200 Signalling received by the node. When set, each incoming MDC-1200 burst that is decoded will be logged into the log file with a timestamp.</p>
+<div class="highlight"><pre><span></span><code>mdclog = /tmp/mdclog                ; log MDC-1200 received data to /tmp/mdclog
+</code></pre></div>
+<p>The directory you use needs to be writable by Asterisk. See the <a href="#adv-topics-permissions">Permissions</a> page for more information.</p>
+<p>See the <a href="#adv-topics-mdc1200">MDC-1200 Signalling</a> page for more information on MDC-1200 support.</p>
+<p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
+<h3 id="config-rpt_conf-mdcmacro">mdcmacro=</h3>
+<p>This option allows you to override the stanza name used for the <code>[mdcmacro]</code> stanza in <code>rpt.conf</code>. The mdcmacro stanza directs the node to use a particular stanza for mdcmacros when <a href="#adv-topics-mdc1200">MDC-1200 signalling</a> is received by the node. </p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>mdcmacro=mdcmacro                   ; use stanza named mdcmacro
+
+[mdcmacro]
+I1701=*81#                          ; announce the time with unit 1701 IDs
+</code></pre></div>
+<p>The default is to have <code>mdcmacro=</code> point to a stanza called <code>mdcmacro</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
+<p>See the <a href="#config-rpt_conf-mdc-macro-stanza">MDC Macro Stanza</a> for more detail on defining mdcmacros.</p>
+<p>See the <a href="#adv-topics-mdc1200">MDC-1200 Signalling</a> page for more information on MDC-1200 support.</p>
+<p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="config-rpt_conf-morse">morse=</h3>
 <p>This option allows you to override the stanza name used for the <code>morse</code> stanza in <code>rpt.conf</code>. The morse stanza directs the node to use a particular stanza for morse code parameters for the node. Morse code parameters can be defined on a per-node basis.  </p>
 <p>Sample:</p>
@@ -14912,20 +14690,20 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>The default is to have <code>phone_functions=</code> point to a stanza called <code>functions</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See <a href="#config-rpt_conf-phone-functions-stanza">Phone Functions Stanza</a> for more information on the functions that can be configured.</p>
 <h3 id="config-rpt_conf-phonelinkdefault">phonelinkdefault=</h3>
-<p>This option sets whether telemetry is sent down phone links.</p>
+<p>This option sets how telemetry is handled for the <a href="#adv-topics-autopatch">autopatch</a> and <a href="#user-guide-phoneportal">Phone Portal</a> connections.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>phonelinkdefault = 1 
 </code></pre></div>
 <p>The available options are:</p>
 <ul>
 <li>0 = telemetry output off</li>
-<li>1 = telemetry output on </li>
-<li>2 = timed telemetry output on command execution and for a short time thereafter </li>
+<li>1 = telemetry output on (default)</li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter) </li>
 <li>3 = follow local telemetry mode</li>
-<li>Default is 1</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-phonelinkdynamic">phonelinkdynamic=</h3>
-<p>This option sets whether telemetry down phone links can be enabled/disabled by users using a <a href="#config-rpt_conf-cop-commands">COP</a> command.</p>
+<p>This option sets whether telemetry for <a href="#adv-topics-autopatch">autopatch</a> and <a href="#user-guide-phoneportal">Phone Portal</a> connections can be enabled/disabled by users using a <a href="#config-rpt_conf-cop-commands">COP</a> command.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>phonelinkdynamic = 1
 </code></pre></div>
@@ -14933,8 +14711,12 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <ul>
 <li>0 = disallow users to change phone telemetry setting with a COP command</li>
 <li>1 = Allow users to change the setting with a COP command</li>
-<li>Default is 1</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Uses <code>guilinkdynamic</code></p>
+<p>See <a href="https://github.com/AllStarLink/app_rpt/issues/717"><code>app_rpt</code> Issue #717</a>.</p>
+</div>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-politeid">politeid=</h3>
 <p>This option specifies the number of milliseconds prior to the end of the ID cycle where the controller will attempt to play the ID in the tail when a user unkeys. If the controller does not get a chance to send the ID in the tail, the ID will be played over the top of the next user transmission. Optional, default is 30000mS.</p>
 <p>Sample:</p>
@@ -15130,9 +14912,9 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <ul>
 <li>0 = telemetry output off</li>
 <li>1 = telemetry output on (default)</li>
-<li>2 = timed telemetry output on command execution and for a short time thereafter</li>
-<li>Default is 1</li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter)</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-telemduckdb">telemduckdb=</h3>
 <p>This option allows adjustment of the telemetry level in dB when a local or voice transmission is in progress. Specify the level to lower the telemetry level in negative dB.</p>
 <p>Sample:</p>
@@ -15146,14 +14928,30 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>The available options are:</p>
 <ul>
 <li>0 = disallow users to change the local telemetry setting with a COP command</li>
-<li>1 = Allow users to change the setting with a COP command</li>
-<li>Default is 1</li>
+<li>1 = Allow users to change the setting with a COP command (default)</li>
 </ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-telemnomdb">telemnomdb=</h3>
 <p>This option is used to fine tune the telemetry level, relative to standard node audio. The level is in dB. </p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>telemnomdb = -3                     ; decrease nominal telemetry by -3dB
 </code></pre></div>
+<h3 id="config-rpt_conf-tlbdefault">tlbdefault=</h3>
+<p>This option sets the TheLinkBox telemetry option:</p>
+<ul>
+<li>0 = telemetry output off</li>
+<li>1 = telemetry output on</li>
+<li>2 = timed telemetry output on command execution and for a short time thereafter</li>
+<li>3 = follow local telemetry mode (default)</li>
+</ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
+<h3 id="config-rpt_conf-tlbdynamic">tlbdynamic=</h3>
+<p>This option sets whether TheLinkBox telemetry can be enabled/disabled by users using a <a href="#config-rpt_conf-cop-commands">COP</a> command.</p>
+<ul>
+<li>0 = disallow users to change current Echolink telemetry setting with a COP command</li>
+<li>1 = allow users to change the setting with a COP command</li>
+</ul>
+<p>See the <a href="#adv-topics-telemetry">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="config-rpt_conf-tonemacro">tonemacro=</h3>
 <p>This option allows you to override the stanza name used for the <code>tonemacro</code> stanza in <code>rpt.conf</code>. The tone macro stanza directs the node to use a particular stanza for CTCSS tone tiggered macros from users accessing the node. Macros are DTMF shortcuts, and are a special type of function. </p>
 <p>Sample:</p>
@@ -15183,6 +14981,22 @@ The default value is 180000(mS), or 3 minutes. </p>
 <div class="highlight"><pre><span></span><code>unlinkedct = ct2                    ; use courtesy tone 2
 </code></pre></div>
 <p>See the <a href="#adv-topics-courtesytones">Courtesy Tones</a> page for more information on defining telemetry tones.</p>
+<h3 id="config-rpt_conf-votermargin">votermargin=</h3>
+<p>This option is used with the <a href="#adv-topics-simplevoter">Simple Voter</a> feature to set the RSSI difference threshold to switch to another remote receiver.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>votermargin = 10                      ; 10=default sets signal margin to vote a new winner
+</code></pre></div>
+<h3 id="config-rpt_conf-votermode">votermode=</h3>
+<p>This option is used with the <a href="#adv-topics-simplevoter">Simple Voter</a> feature to set what type of voting to do.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>votermode = 2                         ; 0 = no voting (default), 1 = voter one-shot, 2 = voter continuous
+</code></pre></div>
+<h3 id="config-rpt_conf-votertype">votertype=</h3>
+<p>This option is used with the <a href="#adv-topics-simplevoter">Simple Voter</a> feature to set what type of site this node is.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>votertype = 1                         ; 0 = no voting (default), 1 = voter repeater, 2 = voter receiver
+</code></pre></div>
+<p>The main/transmitter site would typically be a normal node, and have this option set to <code>1</code>. Remote receiver sites would have this option set to <code>2</code>.</p>
 <h3 id="config-rpt_conf-wait-times">wait-times=</h3>
 <p>This option allows you to override the stanza name used for the <code>wait-times</code> stanza in <code>rpt.conf</code>. Wait times are a specific group of timers for the node.</p>
 <p>Sample:</p>
@@ -15293,6 +15107,14 @@ The default value is 180000(mS), or 3 minutes. </p>
 </tr>
 </tbody>
 </table>
+<h2 id="config-rpt_conf-dtmfkeys-stanza">DTMFKeys Stanza</h2>
+<p>The <code>[dtmfkeys]</code> stanza is a named stanza pointed to by the <a href="#config-rpt_conf-dtmfkeys"><code>dtmfkeys=</code></a> option. The key/value pairs in this stanza define the DTMF sequence(s) and associated callsign(s) that are required to "key-up" the node. This stanza is typically named <code>[dtmfkeys]</code>. The name can be overridden, on a per-node basis, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>1234=WB6NIL
+4567=W1AW
+</code></pre></div>
+<p>In order to use the data in this stanza, <a href="#config-rpt_conf-dtmfkey"><code>dtmfkey=1</code></a> must also be set.</p>
+<p>The above example will require either of the DTMF sequences <code>1234</code> or <code>4567</code> to be sent for <strong>every</strong> transmission, in order to "key-up" the node. Depending on which sequence is sent, the associated callsign will be logged by Asterisk.</p>
 <h2 id="config-rpt_conf-functions-stanza">Functions Stanza</h2>
 <p>The <code>[functions]</code> stanza is a named stanza pointed to by the <a href="#config-rpt_conf-functions"><code>functions=</code></a> option. Functions within this stanza are used to decode DTMF commands when accessing the node from its <strong>receiver</strong>. This stanza is typically named <code>[functions]</code>. The name can be overridden, on a per-node basis, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.  </p>
 <p>Sample:</p>
@@ -15427,6 +15249,15 @@ link_functions = my_link_functions  ; use a different stanza
 1 = *32000*32001                    ; connect to nodes 2000 and 2001
 </code></pre></div>
 <p>See the <a href="#adv-topics-macros">Macro</a> page for more information on macros.</p>
+<h2 id="config-rpt_conf-mdc-macro-stanza">MDC Macro Stanza</h2>
+<p>The <code>[mdcmacro]</code> stanza is a named stanza pointed to by the <a href="#config-rpt_conf-mdcmacro"><code>mdcmacro=</code></a> option. Mdcmacros are actions to carry out when <a href="#adv-topics-mdc1200">MDC-1200 signalling</a> is received. </p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>mdcmacro=mdcmacro                   ; use stanza named mdcmacro
+
+[mdcmacro]
+I1701=*81#                          ; announce the time with unit 1701 IDs
+</code></pre></div>
+<p>See the <a href="#adv-topics-mdc1200">MDC-1200 Signalling</a> page for more information.</p>
 <h2 id="config-rpt_conf-morse-stanza">Morse Stanza</h2>
 <p>The <code>[morse]</code> stanza is a named stanza pointed to by the <a href="#config-rpt_conf-morse">`morse=</a> option.</p>
 <p>Sample:</p>
@@ -16019,7 +15850,7 @@ thresholds = 255,110=5      ;
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>

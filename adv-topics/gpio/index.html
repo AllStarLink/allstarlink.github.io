@@ -12,13 +12,13 @@
         <meta name="author" content="AllStarLink Team">
       
       
-        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/noderesolution/">
+        <link rel="canonical" href="https://allstarlink.github.io/adv-topics/gpio/">
       
       
-        <link rel="prev" href="../nnx/">
+        <link rel="prev" href="../macros/">
       
       
-        <link rel="next" href="../other-software/">
+        <link rel="next" href="../mdc1200/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Node Resolution - AllStarLink Manual</title>
+        <title>Manipulating GPIO - AllStarLink Manual</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#node-resolution" class="md-skip">
+        <a href="#manipulating-gpio" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Node Resolution
+              Manipulating GPIO
             
           </span>
         </div>
@@ -2160,10 +2160,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gpio/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Manipulating GPIO
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2172,6 +2192,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#urisusb-sound-fobs-cm108-cm119" class="md-nav__link">
+    <span class="md-ellipsis">
+      URIs/USB Sound Fobs (CM108, CM119)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Port
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parallel Port">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-iobase-in-rptconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set iobase= in rpt.conf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Pins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-port-pins-for-corctcssptt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel Port Pins for COR/CTCSS/PTT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-and-channel-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status and Channel Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtmf-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      DTMF Control
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2244,30 +2362,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Node Resolution
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../noderesolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2276,53 +2374,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#external-node-directory-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      External Node Directory File
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domain-name-service-dns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domain Name Service (DNS)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#statically-configured-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      Statically Configured Node
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3712,62 +3763,134 @@
                   
 
 
-<h1 id="node-resolution">Node Resolution</h1>
-<p><code>app_rpt</code> has three ways to resolve a node number to an IP address:</p>
-<ul>
-<li>Statically entered in <code>rpt.conf</code></li>
-<li>Domain Name Service (DNS)</li>
-<li>An external node directory file</li>
-</ul>
-<p>The above mechanisms are used to translate a node number into its respective public IP address. Connections are made directly between nodes using their public IP addresses.</p>
-<p><code>app_rpt</code> first looks to see if the node is statically configured. If it is not found, the setting for <code>node_lookup_method</code> in the <code>[general]</code> stanza of <code>rpt.conf</code> determines the next step. The default setting is to perform a DNS lookup and if not found, attempt a lookup using the external file.</p>
-<p>The operation of this ASL3 feature is controlled by the following information in <code>/etc/asterisk/rpt.conf</code>.</p>
-<div class="highlight"><pre><span></span><code>[general]
-node_lookup_method = both           ; method used to lookup nodes
-                                    ; both = dns lookup first, followed by external file (default)
-                                    ; dns = dns lookup only
-                                    ; file = external file lookup only
+<h1 id="manipulating-gpio">Manipulating GPIO</h1>
+<p>There are 2 types of GPIO as they currently exist in the software. I/O's from a URI/sound fob or equivalent, and I/O's from a hardware driven Parallel Port.</p>
+<div class="admonition warning">
+<p class="admonition-title">USB Parallel Ports Not Supported</p>
+<pre><code>USB converted parallel ports can not be bit-banged for control, and are therefore not supported.
+</code></pre>
+</div>
+<h2 id="urisusb-sound-fobs-cm108-cm119">URIs/USB Sound Fobs (CM108, CM119)</h2>
+<p>The GPIO (general-purpose I/O) pins on a URI (or similar USB device using a C-Media chip) may be individually used as either input or output pins. Not all pins are available for control, some may be reserved for existing functions. Check the datasheet for your particular chip and/or the manufacturer's documentation for the radio interface, to see what pins may be available for GPIO.</p>
+<p><code>chan_usbradio</code> and <code>chan_simpleusb</code> support configuration of the GPIO pins in the following manner (from within the section of <code>usbradio.conf</code> or <code>simpleusb.conf</code> that is for the desired device):</p>
+<div class="highlight"><pre><span></span><code>gpio1 = in                          ; in, out0 or out1
+gpio4 = out0                        ; in, out0 or out1
+</code></pre></div>
+<p>When you configure a GPIO pin, you can either designate it as <code>in</code> (input), <code>out0</code> (output with a default state of <code>off</code>), or <code>out1</code> (output with a default state of <code>on</code>).</p>
+<h2 id="parallel-port">Parallel Port</h2>
+<p>Parallel port pins 2-9 can be used for outputs, and pins 10-13 and 15 can be used for inputs. Pins 18-25 are ground, and all other pins are to be treated as no connection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Check Your Hardware</p>
+<p>There are many different types of parallel ports, check your pins with a DVM and proceed carefully so that you don't damage your hardware. Outputs may switch between Vcc and GND, inputs may have internal pull-up resistors. It is quite likely that your input pins will have a pull-up to Vcc, will be active-low (ground to activate), and therefore require <code>ppinvert</code> to function correctly.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Beware of Pin 4</p>
+<p>Pin 4 (output) MAY go high when your computer boots, until Asterisk starts. Consider this if you are using this pin as an output, as it could lead to unanticipated results with your attached hardware.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Doug Hall RBI-1</p>
+<p>If you imagine you might use a Doug Hall RBI-1 interface, then use Parallel Port pins starting <strong>after</strong> <code>pp4</code> as the first three (<code>pp2</code>, <code>pp3</code>, and <code>pp4</code>) would be used for that device, and is unchangeable.</p>
+</div>
+<h3 id="set-iobase-in-rptconf">Set <code>iobase=</code> in <code>rpt.conf</code></h3>
+<p>To find the I/O address of your parallel port, use <code>dmesg</code> to look at the boot log:</p>
+<div class="highlight"><pre><span></span><code>wb6nil@asl3:~$ sudo dmesg | grep par
 
-; The domain name used for DNS lookups when the node lookup method is &quot;dns&quot; or
-; &quot;both&quot;.  The default domain is &quot;nodes.allstarlink.org&quot; and does not need to
-; be defined here.  Only set &quot;dns_node_domain&quot; if a) You really know what you&#39;re
-; doing and b) you need to use an alternate DNS domain for node resolution.
-;dns_node_domain = nodes.allstarlink.org
-
-; When using DNS, &quot;app_rpt&quot; must know the length of the longest node number.
-; The current maximum is 6 digits and does not need to be defined here. The
-; &quot;max_dns_node_length&quot; variable can be used to limit queries to shorter (or
-; longer) node numbers.
-;max_dns_node_length = 6
+[   12.914994] parport0: PC-style at 0x378 (0x778), irq 7 [PCSPP,TRISTATE,EPP]
 </code></pre></div>
-<p>The node lookup routines will output debug information showing the node lookups if the <a href="../../user-guide/menu/#debug-level">debug level</a> is set to <code>4</code> or higher.</p>
-<p><strong>NOTE:</strong> The AllStarLink network maintains security by requiring node owners to register with AllStarLink. Before a node is published to our directory it must successfully authenticate and register with our server. See <a href="../httpreg/">HTTP Registration</a> for more information.</p>
-<h2 id="external-node-directory-file">External Node Directory File</h2>
-<p><code>app_rpt</code> can use an external node directory file to perform node resolution. The <a href="https://github.com/AllStarLink/asl3-update-nodelist">asl3-update-nodeList</a> service is used to periodically download the current list of authenticated nodes.</p>
-<p>You may need to install the necessary software package for this function to be available, that can be installed via <code>apt</code> using:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install asl3-update-nodelist
+<p>For the above <code>paraport0</code>, the I/O address is <code>0x378</code>.</p>
+<p>The <code>iobase=</code> must be set in the node definition in <code>rpt.conf</code> to the I/O address of the port. Standard ports are <code>0x378</code>, <code>0x278</code> and <code>0x3bc</code> for LPT1, LPT2, and LPT3 respectively.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>[1999](node-main)
+idrecording = |iWB6NIL
+duplex = 2
+rxchannel = SimpleUSB/1999
+iobase=0x378                        ; set I/O address to 0x378 for LPT1
 </code></pre></div>
-<p>The name of this file is configured in <code>rpt.conf</code> using the <code>extnodefile=</code> key and value. By default the name of this file is <code>/var/lib/asterisk/rpt_extnodes</code>. Multiple files can be specified based on your requirements. The file names are separated with a comma.</p>
-<p>When a file based lookup is performed, <code>app_rpt</code> reloads the external file before searching for a match. This allows external scripts the opportunity to keep the file updated.</p>
-<p>Here is an example of the external file format:</p>
-<div class="highlight"><pre><span></span><code>[extnodes]
-
-2000=radio@162.248.93.134:4569/2000,162.248.93.134
-2001=radio@162.248.93.134:4569/2001,162.248.93.134
+<h3 id="enable-pins">Enable Pins</h3>
+<p>The pins you want to use (input or output) need to be defined in <code>simpleusb.conf</code> or <code>usbradio.conf</code>, depending on which channel driver you are using.</p>
+<div class="admonition warning">
+<p class="admonition-title">Enable at Least One Pin</p>
+<p>In order for the parallel port to be active, at least one pin must be defined in either <code>simpleusb.conf</code> or <code>usbradio.conf</code>, <strong>even if you are not going to use them for PTT or COR.</strong></p>
+</div>
+<p>To define a pin as an input (pp10 to pp13, or pp15), it needs to use the <code>in</code> keyword:</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp10 = in                           ; use pin 20 as an input
 </code></pre></div>
-<h2 id="domain-name-service-dns">Domain Name Service (DNS)</h2>
-<p>AllStarLink now provides a DNS service for performing node resolution. DNS is an Internet standard and is more efficient than using a file base solution.</p>
-<p>When using DNS, <code>app_rpt</code> will query for node information from DNS records in the <code>nodes.allstarlink.org</code> domain.  The domain name can be overridden by adding a <code>node_dns_domain=</code> key and value (the query domain) to the <code>[general] stanza of the</code>rpt.conf` configuration file.</p>
-<p>When using DNS, <code>app_rpt</code> must know the length of the longest node number. The current maximum is 6 digits. This number can be overridden by adding the <code>max_dns_node_length=</code> key and value to the <code>[general]</code> stanza of the <code>rpt.conf</code> configuration file.</p>
-<p>For more information on DNS see <a href="../dns-servers/">AllStarLink DNS Servers</a>.</p>
-<h2 id="statically-configured-node">Statically Configured Node</h2>
-<p>In some cases, it is desirable to statically define the node information. This is commonly used for private nodes or private networks.</p>
-<p>To configure a static node, enter the information for the node in <code>rpt.conf</code> under the <code>[nodes]</code> stanza. Here is an example configuration:</p>
-<div class="highlight"><pre><span></span><code>[nodes]
-1001 = radio@192.168.0.1/1001,NONE
-1998 = radio@127.0.0.1:4568/1998,NONE
-1999 = radio@192.168.0.2:4569/1999,NONE
+<p>To define a pin as an output (pp2 to pp9), it needs to use either of the keywords: <code>out0</code>, or <code>out1</code>. The <code>out0</code> keyword initializes the pin in the <code>off</code> state, whereas <code>out1</code> will initialized the pin in the <code>on</code> state.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp2 = out1                          ; use pin 2 as an output, and turn it on by default
+pp9 = out0                          ; use pin 9 as an output, and turn it off by default
 </code></pre></div>
+<h3 id="parallel-port-pins-for-corctcssptt">Parallel Port Pins for COR/CTCSS/PTT</h3>
+<p>When you configure an input pin (10,11,12,13 or 15), you can either designate it as <code>cor</code> (RX input signal) or <code>ctcss</code> (use as the "CTCSS tone valid" signal). </p>
+<p>If you choose <code>cor</code> or <code>ctcss</code>, you also need to set the associated <code>carrierfrom</code> or <code>ctcssfrom</code> to either <code>pp</code> (to use the associated input pin non-inverted) or <code>ppinvert</code> (use the associated input pin inverted).</p>
+<p>Configuring an output pin (2-9) as <code>ptt</code> makes the pin the PTT signal, either non-inverted or inverted, depending on the <code>invertptt=</code> setting.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>pp6 = ptt
+pp10 = ctcss
+pp11 = cor
+invertptt = 0
+carrierfrom = ppinvert                ; could also be ctcss, ctcssinvert, pp
+</code></pre></div>
+<h2 id="usage">Usage</h2>
+<p>The GPIO and Parallel Port pins can be controlled directly using <a href="../../config/rpt_conf/#cop-commands"><code>cop</code></a> commands <code>cop 61</code> and <code>cop 62</code>. The difference between the two is that <code>cop 62</code> manipulates the pin "quietly" (suppresses telemetry output).</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 1999 cop 61,PP2=0           ; turn physical pin 2 off
+rpt cmd 1999 cop 61,PP2=1           ; turn physical pin 2 on
+rpt cmd 1999 cop 61,GPIO1=0         ; turn GPIO1 off
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Syntax Note</p>
+<p><code>PP</code> and <code>GPIO</code> must be in <strong>CAPS</strong>.</p>
+</div>
+<p>Use <code>core set debug 4</code> to show commands being sent to the channel driver.</p>
+<p>Multiple pins can be controlled at the same time with a single command:</p>
+<div class="highlight"><pre><span></span><code>rpt cmd 1999 cop 61,PP2=1,PP3=1,PP4=1   ; turn physical pins 2, 3, and 4 ON
+rpt cmd 1999 cop 61,PP2=0,PP3=0,PP4=0   ; turn physical pins 2, 3, and 4 OFF
+</code></pre></div>
+<p>Use <code>0</code> or <code>1</code> to set the specified output to <code>off</code> or <code>on</code>, or use a number greater than <code>1</code> (<code>N+1</code>) to specify how many milliseconds to invert its current state. For example, to pulse the pin for 500ms you would use the value <code>501</code> (currently, specified time only significant in increments of 50ms). Specifying a value of <code>N+1</code> to indicate <code>N</code> milliseconds was done so that in the future, support for granularity down to the millisecond level could be specified.</p>
+<h2 id="status-and-channel-variables">Status and Channel Variables</h2>
+<p>The status of the input pins configured are made available via channel variables (e.g. <code>RPT_URI_GPIO1</code>, <code>RPT_URI_GPIO4</code>, <code>RPT_PP12</code>, etc.) which can be used by the <a href="../eventmgmt/">Event Management Subsystem</a>.</p>
+<p>To see the current state of the channel variables, use the <code>rpt show variables &lt;node&gt;</code> command:</p>
+<div class="highlight"><pre><span></span><code>asl3*CLI&gt; rpt show variables 1999
+Variable listing for node 1999:
+   RPT_TXKEYED=0
+   RPT_ETXKEYED=0
+   RPT_RXKEYED=0
+   RPT_PP15=1
+   RPT_PP13=1
+   RPT_PP12=1
+   RPT_PP11=1
+   RPT_ALINKS=0
+   RPT_LINKS=0
+   RPT_NUMALINKS=0
+   RPT_NUMLINKS=0
+   RPT_AUTOPATCHUP=0
+    -- 12 variables
+</code></pre></div>
+<h2 id="dtmf-control">DTMF Control</h2>
+<p>If you want to have a DTMF function that turns GPIO 1 on, you would specify the following in the <code>[functions]</code> section of <code>rpt.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>1234 = cop,61,GPIO1=1               ; turn on GPIO 1
+</code></pre></div>
+<p>A simple example command structure for using all 8 parallel port pins for output switches:</p>
+<div class="highlight"><pre><span></span><code>98920=cop,61,PP2=0                  ; pport pin 2 off
+98921=cop,61,PP2=1                  ; pport pin 2 on 
+98930=cop,61,PP3=0                  ; pport pin 3 off
+98931=cop,61,PP3=1                  ; pport pin 3 on 
+98940=cop,61,PP4=0                  ; pport pin 4 off
+98941=cop,61,PP4=1                  ; pport pin 4 on
+98950=cop,61,PP5=0                  ; pport pin 5 off
+98951=cop,61,PP5=1                  ; pport pin 5 on
+98960=cop,61,PP6=0                  ; pport pin 6 off
+98961=cop,61,PP6=1                  ; pport pin 6 on
+98970=cop,61,PP7=0                  ; pport pin 7 off
+98971=cop,61,PP7=1                  ; pport pin 7 on
+98980=cop,61,PP8=0                  ; pport pin 8 off
+98981=cop,61,PP8=1                  ; pport pin 8 on
+98990=cop,61,PP9=0                  ; pport pin 9 off
+98991=cop,61,PP9=1                  ; pport pin 9 on
+</code></pre></div>
+<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p>
 
 
 
@@ -3803,7 +3926,7 @@ node_lookup_method = both           ; method used to lookup nodes
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../nnx/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Node Number Extensions (NNX)">
+          <a href="../macros/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Macros">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3813,20 +3936,20 @@ node_lookup_method = both           ; method used to lookup nodes
                 Previous
               </span>
               <div class="md-ellipsis">
-                Node Number Extensions (NNX)
+                Macros
               </div>
             </div>
           </a>
         
         
           
-          <a href="../other-software/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Software Products">
+          <a href="../mdc1200/" class="md-footer__link md-footer__link--next" aria-label="Next: MDC-1200 Signalling">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Other Software Products
+                MDC-1200 Signalling
               </div>
             </div>
             <div class="md-footer__button md-icon">
