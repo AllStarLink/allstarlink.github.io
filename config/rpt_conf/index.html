@@ -5055,11 +5055,11 @@ control points.</p>
 </tr>
 <tr>
 <td>27</td>
-<td>Reset DAQ minimum on a pin</td>
+<td>Reset DAQ minimum on a pin (See <a href="../../adv-topics/daq/">DAQ Subsystem</a>)</td>
 </tr>
 <tr>
 <td>28</td>
-<td>Reset DAQ maximum on a pin</td>
+<td>Reset DAQ maximum on a pin (See <a href="../../adv-topics/daq/">DAQ Subsystem</a>)</td>
 </tr>
 <tr>
 <td>30</td>
@@ -5115,19 +5115,19 @@ control points.</p>
 </tr>
 <tr>
 <td>45</td>
-<td>Link Activity timer enable</td>
+<td>Link Activity timer enable (See <a href="../../adv-topics/linkacttimer/">Link Activity Timer</a>)</td>
 </tr>
 <tr>
 <td>46</td>
-<td>Link Activity timer disable</td>
+<td>Link Activity timer disable (See <a href="../../adv-topics/linkacttimer/">Link Activity Timer</a>)</td>
 </tr>
 <tr>
 <td>47</td>
-<td>Reset "Link Config Changed" Flag</td>
+<td>Reset "Link Config Changed" Flag (See <a href="../../adv-topics/linkacttimer/">Link Activity Timer</a>)</td>
 </tr>
 <tr>
 <td>48</td>
-<td>Send Page Tone (Tone specs separated by parenthesis)</td>
+<td>Send Tone Sequence (See <a href="../../adv-topics/tonesignalling/">Tone Signalling</a>)</td>
 </tr>
 <tr>
 <td>49</td>
@@ -5175,15 +5175,15 @@ control points.</p>
 </tr>
 <tr>
 <td>60</td>
-<td>Send MDC-1200 Burst See the <a href="../../adv-topics/mdc1200/">MDC-1200</a> page for more details.</td>
+<td>Send MDC-1200 Burst (See <a href="../../adv-topics/mdc1200/">MDC-1200</a>)</td>
 </tr>
 <tr>
 <td>61</td>
-<td>Send Message to USB to control GPIO pins (cop,61,GPIO1=0[,GPIO4=1]...)</td>
+<td>Control GPIO/PP pins (See <a href="../../adv-topics/gpio/">Manipulating GPIO</a>)</td>
 </tr>
 <tr>
 <td>62</td>
-<td>Send Message to USB to control GPIO pins, quietly (cop,62,GPIO1=0[,GPIO4=1]...)</td>
+<td>Control GPIO/PP pins, quietly (See <a href="../../adv-topics/gpio/">Manipulating GPIO</a>)</td>
 </tr>
 <tr>
 <td>63</td>
@@ -5666,9 +5666,6 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>This option is used to configure the utilities to run on the system to support streaming the node's audio to a streaming server.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>outstreamcmd = /bin/sh,-c,/usr/bin/lame --preset cbr 16 -r -m m -s 8 --bitwidth 16 - - | /usr/bin/ezstream -qvc /etc/ezstream.xml
-</code></pre></div>
-<p>or</p>
-<div class="highlight"><pre><span></span><code>outstreamcmd = /usr/local/bin/nptee,broadcastify,otherstreamserver     ; Use the available nptee utility to stream to multiple servers at once
 </code></pre></div>
 <p>See <a href="../../adv-topics/broadcastify/">Streaming a Node to Broadcastify</a> for further information and details on how to configure audio streaming of the node.</p>
 <h3 id="outxlat">outxlat=</h3>
