@@ -1692,6 +1692,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1850,6 +1858,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autopatch/" class="md-nav__link">
         
   
@@ -1981,6 +2010,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2333,6 +2383,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permanentnode/" class="md-nav__link">
         
   
@@ -2485,6 +2556,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -2754,7 +2846,12 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-audio-levels" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Audio Levels
@@ -2762,18 +2859,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#eeprom-operation" class="md-nav__link">
     <span class="md-ellipsis">
       EEPROM Operation
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3358,6 +3450,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3413,6 +3511,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3527,6 +3646,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3545,6 +3706,8 @@
       
         
           
+        
+      
         
       
         
@@ -3614,6 +3777,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3760,6 +3944,14 @@
 <li>We now support the ability to specify vendor and product identifiers (VID and PID) for non-natively supported audio interface chips</li>
 </ul>
 <p>The <a href="../../user-guide/"><code>asl-menu</code></a> and Asterisk CLI USB config commands handle these changes.</p>
+<div class="admonition warning">
+<p class="admonition-title"><code>devstr=</code> Auto-assignment</p>
+<p>Upon initial installation, the <code>devstr=</code> option to assign a USB audio device in <code>simpleusb.conf</code> and <code>usbradio.conf</code> will be blank. The channel driver, when finding no specific device assignment, will automatically assign an available audio device. When a user runs <code>simpleusb-tune-menu</code> or <code>radio-tune-menu</code>, the "Write (Save) Current Parameter Values" option includes the currently assigned device in the settings saved to the <code>.conf</code> file. If this is not desired, you will need to update the configuration files manually to change the <code>devstr=</code> to the desired audio device. If you remove an assigned interface from <code>devstr=</code> the behavior will, again, be to assign an available audio device.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Moving USB Ports</p>
+<p>If you move a USB audio interface between USB ports on your server, the device string (<code>devstr=</code>) <strong>will</strong> probably change, and this may very likely <em>break</em> your configuration (Asterisk will no longer be able to find the device). You can use <code>asl-find-sound</code> to find the new device string, and update your relevant <code>.conf</code> file manually, or open the <code>.conf</code> file, delete the existing value and leave <code>devstr=</code> blank to have it re-discovered.</p>
+</div>
 <h2 id="usb-interface-ic-support">USB Interface IC Support</h2>
 <p>Nearly all USB Interface products that are used with ASL nodes use C-Media CM108 and CM119 USB interface ICs (or their variants). These ICs provide the following features:</p>
 <ul>
@@ -3771,7 +3963,7 @@
 </ul>
 <p>The CM119 provides an additional 4 GPIO lines (GPIOs 5-8) versus the CM108. The original CM108 and CM119 ICs were replaced in the early 2010's with the CM108AH and CM119A. These ICs are still used in many USB Radio Interfaces (URIs). Newer versions of the CM1xx ICs, the CM108B and CM119B, are now available and have some minor differences in gain settings and other specifications, but are fully compatible with the earlier IC versions and with ASL.</p>
 <h3 id="supported-c-media-chips">Supported C-Media Chips</h3>
-<p>ASL3 natively supports C-Media chips with the vendor identifer <strong>(VID)</strong> <code>0x0d8c</code> with the following list of product identifiers <strong>(PID)</strong> .</p>
+<p>ASL3 natively supports C-Media chips with the vendor identifier <strong>(VID)</strong> <code>0x0d8c</code> with the following list of product identifiers <strong>(PID)</strong> .</p>
 <table>
 <thead>
 <tr>
@@ -3815,7 +4007,10 @@
 <div class="highlight"><pre><span></span><code>Bus 001 Device 003: ID 0d8c:013b C-Media Electronics, Inc. USB PnP Sound Device
 </code></pre></div>
 <p>The vendor identifier <strong>(VID)</strong> is <code>0d8c</code> with a product identifier <strong>(PID)</strong> of <code>013b</code>.  This chip does not appear in the list of natively supported chips. You can enter this non-natively supported chip in <code>res_usbradio.conf</code>.  </p>
-<p><strong>NOTE:</strong> You can enter multiple VID:PID pairs by separating the pairs with a comma.</p>
+<div class="admonition note">
+<p class="admonition-title">Multiple VID:PID Entries</p>
+<p>You can enter multiple VID:PID pairs by separating the pairs with a comma.</p>
+</div>
 <p>Edit <code>/etc/asterisk/res_usbradio.conf</code> with your favorite editor. You will see the following:</p>
 <div class="highlight"><pre><span></span><code>;usb_devices = 1209:7388    ;comma delimited list of usb
                             ;descriptors to allow.
@@ -3824,15 +4019,24 @@
                             ;
                             ;1209:7388 = AIOC (all in one cable)
 </code></pre></div>
-<p><strong>NOTE:</strong> The All-In-One-Cable (AIOC) emulates the C-Media CM-108 chip. The sample above shows the VID:PID for the AIOC. If you will be using the AIOC, just remove the <code>;</code> before <code>usb_devices</code>.</p>
-<p>Replace <code>;usb_devices = 1209:7388</code> with <code>usb_devices = vvvv:dddd</code> for your specific C-Media chip. Save your changes and restart Asterisk. The added VID:PID will now be available to the <code>SimpleUSB</code> and <code>USBRadio</code> channel drivers.</p>
-<p><strong>NOTE:</strong> The <a href="../../mans/asl-find-sound/"><code>asl-find-sound</code></a> utility will include the VID:PID pairs entered in <code>res_usbradio.conf</code>.</p>
-<h3 id="setting-audio-levels">Setting Audio Levels</h3>
+<div class="admonition note">
+<p class="admonition-title">AIOC Emulation</p>
+<p>The All-In-One-Cable (AIOC) uses a default VID:PID of 1209:7388. You can re-program the AIOC with a VID:PID that emulates the C-Media CM-108 chip, or you can just enable the actual VID:PID by un-commenting the above line in <code>res_usbradio.conf</code> (and restarting Asterisk).</p>
+</div>
+<p>If your audio interface has a non-supported (but C-Media compatible) chipset then replace <code>;usb_devices = 1209:7388</code> line with <code>usb_devices = vvvv:dddd</code> (<code>vvvv:dddd</code> are the vendor and product IDs). Save your changes and restart Asterisk. The added VID:PID will now be available to the <code>chan_simpleusb</code> and <code>chan_usbradio</code> channel drivers.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>asl-find-sound</code> and Custom VID:PID</p>
+<p>The <a href="../../mans/asl-find-sound/"><code>asl-find-sound</code></a> utility will include the custom VID:PID pairs entered in <code>res_usbradio.conf</code>.</p>
+</div>
+<h2 id="setting-audio-levels">Setting Audio Levels</h2>
 <p>When setting up a new node, or if any changes have been made such as use of a different radio, microphone, other audio hardware, or gain settings, checking and setting audio levels is <strong>very important</strong>. </p>
-<p>If you have a radio attached to your node, you are <strong>stongly encouraged</strong> to tune your audio settings (and this your transmit deviation) using a communications service monitor. Failure to do so can easily result in you modulating distorted audio, as well as potentially causing adjacent channel interference due to excessive deviation or splatter. </p>
+<p>If you have a radio attached to your node, you are <strong>strongly encouraged</strong> to tune your audio settings (and this your transmit deviation) using a communications service monitor. Failure to do so can easily result in you modulating distorted audio, as well as potentially causing adjacent channel interference due to excessive deviation or splatter. </p>
 <p>Radio equipment such as HTs or mobile radios, and many electronics products such as VOIP phones often restrict end-user audio adjustment capabilities to ensure consistent audio levels. AllStarLink nodes and USB interfaces however, generally allow greater flexibility and thus extra attention is required to be sure your audio interface gains are properly matched to the external audio input and output levels. Failure to calibrate your audio levels could mean your node is much quieter or louder than it should be when linked to other nodes, which could be disruptive to other users and systems. It can also mean that the signal from your RF transmitter may cause interference with other radio systems, which carries serious consequences from spectrum regulators.</p>
-<p>Most nodes use the <code>SimpleUSB</code> channel driver (<code>chan_simpleusb</code>). Nodes that require more advanced features such as DSP squelch detection, CTCSS tone encode/decode, or additional audio filtering options may use the <code>USBRadio</code> channel driver (<code>chan_usbradio</code>). These channel drivers both have tune utilities for setting audio levels and other functions. Once a node has been configured in the <a href="../../user-guide/"><code>asl-menu</code></a> <strong>Node Settings</strong>, you will end up in the appropriate tune application. The following options should then be used to check and optimize audio level settings:</p>
-<p><strong>NOTE:</strong> Be sure you are not connected to any other nodes when doing any of the following tests and adjustments.</p>
+<p>Many nodes use the <code>SimpleUSB</code> channel driver (<code>chan_simpleusb</code>). Nodes that require more advanced features such as DSP squelch detection, CTCSS tone encode/decode, or additional audio filtering options may use the <code>USBRadio</code> channel driver (<code>chan_usbradio</code>). These channel drivers both have tune utilities for setting audio levels and other functions. Once a node has been configured in the <a href="../../user-guide/"><code>asl-menu</code></a> <strong>Node Settings</strong>, you will end up in the appropriate tune application. The following options should then be used to check and optimize audio level settings:</p>
+<div class="admonition warning">
+<p class="admonition-title">Disconnect from Other Nodes</p>
+<p>Be sure you are not connected to any other nodes when doing any of the following tests and adjustments.</p>
+</div>
 <ul>
 <li><code>Set Rx Voice Level (using display)</code> provides a level meter. Talk at a normal and steady volume into the microphone and be sure that the average level does not go past the "3KHz" point, and that peak levels do not go significantly past the "5KHz" point. Note that for proper mic technique you should talk no closer than 2 to 3 inches (5 - 10 cm) from the microphone, and it should be held at an angle to minimize pops/plosives. Once you see where the audio levels are, hit the Enter key and you'll then be prompted to change the setting. If for example the current setting is 500 and your levels were too high, try entering 400 for a new value and then repeat the test. Continue to iteratively adjust the settings until the average audio levels stay around the "3KHz" mark. For a more precise calibration with radio nodes a 1KHz test tone can be input into another radio at a level that results in 3KHz FM deviation, then calibrate the node to the 3KHz mark, however this can be more complicated to set up and may not account for other differences such as different mics or mic gain settings.</li>
 <li><code>Set Transmit A Level</code>, <code>Set Transmit B Level</code> (or <code>Set Transmit Voice Level</code> for USBRadio) allow the node audio output levels to be set. For nodes connected to a radio transceiver the level should be set such that the transmitted FM deviation is no higher than 3KHz, and the audio does not sound distorted or overly loud. When listening on another radio it can also be helpful to confirm the audio levels from your node sound about the same as levels on FM repeaters in your area.</li>
@@ -3843,7 +4047,7 @@
 <li><code>Write (Save) Current Parameter Values</code> saves any changed settings to disk. Be sure to execute this option before exiting the menu if you have changed any settings and want those to be the new defaults.</li>
 </ul>
 <p>The tune utilities can also be run from the command line without needing to use <a href="../../user-guide/"><code>asl-menu</code></a>. For SimpleUSB run <code>sudo /usr/sbin/simpleusb-tune-menu</code> or for USBRadio run <code>sudo /usr/sbin/radio-tune-menu</code>.</p>
-<h3 id="eeprom-operation">EEPROM Operation</h3>
+<h2 id="eeprom-operation">EEPROM Operation</h2>
 <p>The SimpleUSB and USBRadio channel drivers allow users to store configuration information in an EEPROM IC attached to the C-Media CM1xx USB Interface IC. The CM119A can have manufacturer information in the same area that stores the user configuration. The CM119B does not have manufacturer data in the area that stores user configuration. The manufacturer data cannot be overwritten. The user configuration data has been moved higher in memory to prevent overwriting the manufacturer data. If you use the EEPROM to store configuration data, you'll need to save it to the EEPROM after upgrading. Use <code>susb tune save</code> or <code>radio tune save</code> in the Asterisk CLI.</p>
 
 

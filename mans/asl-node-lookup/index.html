@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3273,6 +3365,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3331,6 +3429,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3530,6 +3649,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3548,6 +3709,8 @@
       
         
           
+        
+      
         
       
         
@@ -3617,6 +3780,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3757,14 +3941,19 @@
 <h2 id="name">NAME</h2>
 <p><code>asl-node-lookup</code> - Display AllStarLink node information</p>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>usage: <code>asl-node-lookup [--help] [--verbose] [--ns &lt;name-server&gt;] &lt;node#&gt;</code></p>
+<p>Usage: </p>
+<div class="highlight"><pre><span></span><code>/usr/bin/asl-node-lookup [--help] [--verbose] [--ns &lt;name-server&gt;] &lt;node#&gt;
+</code></pre></div>
 <p>Required arguments:</p>
-<p><strong>&lt;node#&gt;</strong>: ASL node number to query</p>
+<p><code>&lt;node#&gt;</code>: ASL node number to query</p>
 <p>Optional arguments:</p>
-<p><strong>--help</strong>: show help</p>
-<p><strong>--verbose</strong>: report additional information including the DNS "SOA" and "NS" records</p>
-<p><strong>--ns</strong>: issue DNS queries to the specified name server</p>
-<p><strong>NOTE:</strong> This command will also report <code>Asterisk/rpt</code> node lookup results if executed as <code>root</code> (or <code>asterisk</code>).</p>
+<p><code>--help</code>: show help</p>
+<p><code>--verbose</code>: report additional information including the DNS "SOA" and "NS" records</p>
+<p><code>--ns &lt;name-server&gt;</code>: issue DNS queries to the specified name server</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command will also report <code>Asterisk/rpt</code> node lookup results if executed as <code>root</code> (or <code>asterisk</code>).</p>
+</div>
 <h2 id="description">DESCRIPTION</h2>
 <p>asl-node-lookup - Display AllStarLink node information</p>
 <h2 id="bugs">BUGS</h2>

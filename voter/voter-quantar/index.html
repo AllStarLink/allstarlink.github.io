@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3460,6 +3552,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3515,6 +3613,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3629,6 +3748,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3647,6 +3808,8 @@
       
         
           
+        
+      
         
       
         
@@ -3716,6 +3879,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3896,7 +4080,7 @@ Codeplug Version        14
 </div>
 <p>The firmware in the Exciter is not automatically upgraded. You will need to do that by burning a 27C512 EPROM, popping the cover off the exciter, and swapping the chip out. You <strong>DO</strong> want to do this, as there are a number of fixes in later firmware (apparently), especially if you plan on running P25 mixed mode at some point later.</p>
 <h3 id="voterrtcm-firmware">VOTER/RTCM Firmware</h3>
-<p>The Quantar is special in that the "discriminator" audio isn't really conventional analog discriminator audio as you would normally find in any other radio. The true discriminator audio is filtered through a 6kHz LPF filter, digitized, and then moved around the backplane buss to different cards.</p>
+<p>The Quantar is special in that the "discriminator" audio isn't really conventional analog discriminator audio as you would normally find in any other radio. The true discriminator audio is filtered through a 6kHz LPF filter, digitized, and then moved around the backplane bus to different cards.</p>
 <p>The VOTER/RTCM traditionally uses high frequency (above the passband) discriminator audio to do it's RSSI calculations. Since the audio response is limited to &lt;6kHz on the Quantar, this presents a challenge. To combat this, additional code was added to the VOTER/RTCM firmware called the "DSP/BEW" option. Read about it more on the <a href="../voter-audio/#dspbew-firmware-version">VOTER Audio</a> page.</p>
 <p>Regardless, you will need to upgrade the firmware in your VOTER/RTCM (it likely comes with vanilla V1.50 firmware), to use one of the versions with DSP/BEW. Note that due to space constraints, the DSP/BEW firmware is mutually exclusive with the Diagnostics Mode in the VOTER/RTCM (there's not enough room for both).</p>
 <p>You will also likely want to install a newer version with the <a href="../voter-audio/#chuck-squelch">"Chuck" squelch</a> fix... this is really a buffer overflow fix that makes the squelch reporting behave a bit better.</p>

@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3271,6 +3363,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3326,6 +3424,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3440,6 +3559,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3460,6 +3621,8 @@
       
         
           
+        
+      
         
       
         
@@ -3532,6 +3695,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -4795,7 +4979,7 @@
 <p>DTMF commands are placed in any one of <strong>three</strong> <em>named stanzas</em>. These stanzas control access to DTMF commands that a user can issue from various 
 control points.</p>
 <ul>
-<li>The <a href="#functions-stanza">Fuctions</a> Stanza - to decode DTMF from the node's local receiver.</li>
+<li>The <a href="#functions-stanza">Functions</a> Stanza - to decode DTMF from the node's local receiver.</li>
 <li>The <a href="#link-functions-stanza">Link Functions</a> Stanza - to decode DTMF from linked nodes.</li>
 <li>The <a href="#phone-functions-stanza">Phone Functions</a> Stanza - to decode DTMF from telephone connects.</li>
 </ul>
@@ -5126,15 +5310,15 @@ control points.</p>
 </tr>
 <tr>
 <td>42</td>
-<td>Echolink announce node number only (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
+<td>EchoLink announce node number only (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>43</td>
-<td>Echolink announce node callsign only (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
+<td>EchoLink announce node callsign only (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>44</td>
-<td>Echolink announce node number and callsign (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
+<td>EchoLink announce node number and callsign (See <a href="../../adv-topics/telemetry/">Telemetry Messages</a>)</td>
 </tr>
 <tr>
 <td>45</td>
@@ -5323,14 +5507,9 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <h3 id="controlstates">controlstates=</h3>
 <p>This setting allows you to override the stanza name used for the <a href="#control-states-stanza"><code>[Control States]</code></a> in <code>rpt.conf</code>. Control states are an optional feature which allows groups of control operator commands to be executed all at once. To use control states, define an entry in your node stanzas to point to a dedicated control states stanza like this:</p>
 <div class="highlight"><pre><span></span><code>controlstates = controlstates       ; points to control state stanza
-
-[controlstates]
-0 = rptena,lnkena,apena,totena,ufena,noicd  ; Normal operation                                  
-1 = rptena,lnkena,apdis,totdis,ufena,noice  ; Net and news operation                                             
-2 = rptena,lnkdis,apdis,totena,ufdis,noice  ; Repeater only operation
 </code></pre></div>
 <p>The default is to have <code>controlstates=</code> point to a stanza called <code>controlstates</code>. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
-<p>The <a href="#control-states-stanza">Control States Stanza</a> describes these mnemonics in detail.</p>
+<p>The <a href="#control-states-stanza">Control States Stanza</a> describes all the associated mnemonics and usage in detail.</p>
 <h3 id="dtmfkey">dtmfkey=</h3>
 <p>This setting allows you to change the access control for the local node to require a DTMF key sequence to "key-up" the node on every transmission. Similar to requiring CTCSS, users needs to send a DTMF sequence for the receiver to validate the transmission.</p>
 <p>Sample:</p>
@@ -5383,16 +5562,16 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <div class="highlight"><pre><span></span><code>duplex = 0                          ; 0 = Half duplex with no telemetry tones or hang time.
 </code></pre></div>
 <h3 id="eannmode">eannmode=</h3>
-<p>This option sets the Echolink node announcement type, when a node connects:</p>
+<p>This option sets the EchoLink node announcement type, when a node connects:</p>
 <ul>
 <li>0 = Do not announce EchoLink nodes at all</li>
 <li>1 = Say only node number (default)</li>
-<li>2 = Say phonetic call sign only on Echolink connects</li>
-<li>3 = Say phonetic call sign and node number on Echolink connects</li>
+<li>2 = Say phonetic call sign only on EchoLink connects</li>
+<li>3 = Say phonetic call sign and node number on EchoLink connects</li>
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="echolinkdefault">echolinkdefault=</h3>
-<p>This option sets the Echolink telemetry option:</p>
+<p>This option sets the EchoLink telemetry option:</p>
 <ul>
 <li>0 = telemetry output off</li>
 <li>1 = telemetry output on</li>
@@ -5403,7 +5582,7 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <h3 id="echolinkdynamic">echolinkdynamic=</h3>
 <p>This option sets whether EchoLink telemetry can be enabled/disabled by users using a <a href="#cop-commands">COP</a> command.</p>
 <ul>
-<li>0 = disallow users to change current Echolink telemetry setting with a COP command</li>
+<li>0 = disallow users to change current EchoLink telemetry setting with a COP command</li>
 <li>1 = allow users to change the setting with a COP command</li>
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
@@ -5417,17 +5596,15 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <h3 id="endchar">endchar=</h3>
 <p>This setting allows the end character used by some control functions to be changed. By default this is a <code>#</code>. The <code>endchar</code> value must not be the same as the <a href="#funcchar"><code>funcchar</code></a> default (<code>*</code>) or its overridden value.</p>
 <h3 id="erxgain">erxgain=</h3>
-<p>This option adjusts the Echolink receive gain in +/- dbV. It is used to balance Echolink recieve audio levels on an <code>app_rpt</code> node. </p>
+<p>This option adjusts the EchoLink receive gain in +/- dbV. It is used to balance EchoLink receive audio levels on an <code>app_rpt</code> node. </p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>erxgain = -3
 </code></pre></div>
-<p>See the Echolink How-to for more information.</p>
 <h3 id="etxgain">etxgain=</h3>
-<p>This option adjusts the Echolink transmit gain in +/- dbV. It is used to balance Echolink transmit audio on an <code>app_rpt</code> node. </p>
+<p>This option adjusts the EchoLink transmit gain in +/- dbV. It is used to balance EchoLink transmit audio on an <code>app_rpt</code> node. </p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>etxgain = 3
 </code></pre></div>
-<p>See the Echolink How-to for more information.</p>
 <h3 id="events">events=</h3>
 <p>This option allows you to override the name used for the <code>[events]</code> stanza in <code>rpt.conf</code>. You can create events to specify that actions be taken when certain events occur such as transitions in receive and transmit keying, the presence and modes of links, and external inputs such as GPIO pins on the URI (or similar USB devices).</p>
 <p>To use events, define an entry in your node stanzas to point to a dedicated events stanza like this:</p>
@@ -5810,7 +5987,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 </code></pre></div>
 <strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="rxburstthreshold">rxburstthreshold=</h3>
-<p>Fot RX Toneburst mode, this option specifies the minimum signal to noise ratio in dB that qualifies a valid tone.</p>
+<p>For RX Toneburst mode, this option specifies the minimum signal to noise ratio in dB that qualifies a valid tone.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>rxburstthreshold= 16
 </code></pre></div>
@@ -5992,7 +6169,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="tlbdynamic">tlbdynamic=</h3>
 <p>This option sets whether TheLinkBox telemetry can be enabled/disabled by users using a <a href="#cop-commands">COP</a> command.</p>
 <ul>
-<li>0 = disallow users to change current Echolink telemetry setting with a COP command</li>
+<li>0 = disallow users to change current EchoLink telemetry setting with a COP command</li>
 <li>1 = allow users to change the setting with a COP command</li>
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
@@ -6151,6 +6328,33 @@ The default value is 180000(mS), or 3 minutes. </p>
 </tr>
 </tbody>
 </table>
+<p>The above mneonics can be grouped together in the <code>[controlstates]</code> stanza, to define different modes of operation for the node.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>[controlstates]
+0 = rptena,lnkena,apena,totena,ufena,noicd  ; Normal operation                                  
+1 = rptena,lnkena,apdis,totdis,ufena,noice  ; Net and news operation                                             
+2 = rptena,lnkdis,apdis,totena,ufdis,noice  ; Repeater only operation
+</code></pre></div>
+<p>Therefore, instead of issuing all the individual COP commands to change the repeater state, you can use <code>cop,14</code> to set the control state:</p>
+<p>From the Asterisk CLI (changing to control state 1):</p>
+<div class="highlight"><pre><span></span><code>asl*CLI&gt; rpt cmd &lt;nodenumber&gt; cop 14 1
+</code></pre></div>
+<p>In a script:</p>
+<div class="highlight"><pre><span></span><code>asterisk -rx &quot;rpt cmd &lt;nodenumber&gt; cop 14 1&quot;
+</code></pre></div>
+<p>Or in a macro:</p>
+<div class="highlight"><pre><span></span><code>[macro]
+2 = cop,13                          ; macro 2 to query current control state
+3 = cop,14,1                        ; macro 3 to change to control state 1
+</code></pre></div>
+<p>You can also use <code>cop,13</code> to query the current control state that is selected:</p>
+<p>From the Asterisk CLI:</p>
+<div class="highlight"><pre><span></span><code>asl*CLI&gt; rpt cmd &lt;nodenumber&gt; cop 13
+</code></pre></div>
+<p>In a script:</p>
+<div class="highlight"><pre><span></span><code>asterisk -rx &quot;rpt cmd &lt;nodenumber&gt; cop 13&quot;
+</code></pre></div>
+<p>When you execute any of the above commands, Asterisk will play "SS" (for "System State") and then the control state number over the air.</p>
 <h2 id="dtmfkeys-stanza">DTMFKeys Stanza</h2>
 <p>The <code>[dtmfkeys]</code> stanza is a named stanza pointed to by the <a href="#dtmfkeys"><code>dtmfkeys=</code></a> option. The key/value pairs in this stanza define the DTMF sequence(s) and associated callsign(s) that are required to "key-up" the node. This stanza is typically named <code>[dtmfkeys]</code>. The name can be overridden, on a per-node basis, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>Sample:</p>
@@ -6357,7 +6561,7 @@ phone_functions = my_phone_functions ; use a different stanza
 ;dtmf_function =  m h dom mon dow  ; ala cron, star is implied                                                  
 2 = 00 00 * * *   ; at midnight every day, execute macro 2.
 </code></pre></div>
-<p>See <a href="https://wiki.allstarlink.org/wiki/Scheduler_(ASL_System)">https://wiki.allstarlink.org/wiki/Scheduler_(ASL_System)</a> for more details.</p>
+<p>See the <a href="../../adv-topics/scheduler/">Scheduled Events</a> page for more details.</p>
 <h2 id="telemetry-stanza">Telemetry Stanza</h2>
 <p>This stanza is named by the [<code>telemetry=</code>] option. Telemetry entries can be shared across all nodes on the <code>Asterisk/app_rpt</code> server, or defined for each node. They can be a tone sequence, morse string, or a file as follows:</p>
 <ul>

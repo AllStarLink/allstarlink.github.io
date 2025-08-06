@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3273,6 +3365,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3331,6 +3429,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3539,6 +3658,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3557,6 +3718,8 @@
       
         
           
+        
+      
         
       
         
@@ -3626,6 +3789,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3766,16 +3950,18 @@
 <h2 id="name">NAME</h2>
 <p><code>asl-say</code> - Cause Asterisk to speak</p>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>usage: <code>asl-say -n NODE -w ( time | time24 | ip4 | ip6 )</code></p>
+<p>Usage: </p>
+<div class="highlight"><pre><span></span><code>/usr/bin/asl-say -n &lt;node&gt; -w ( time | time24 | ip4 | ip6 )
+</code></pre></div>
+<p>Required arguments:</p>
+<p><code>-n &lt;node&gt;</code>: node number</p>
+<p><code>-w</code>: speak what from the list of options</p>
+<p><code>time</code>: the current time</p>
+<p><code>time24</code>: the current time in 24-hour format</p>
+<p><code>ip4</code>: the first IPv4 address of the system</p>
+<p><code>ip6</code>: the first global-scope IPv6 of the system</p>
 <h2 id="description">DESCRIPTION</h2>
 <p><code>asl-say</code> will speak the one of the following things on the node specified with <code>-n</code> as directed by <code>-w</code></p>
-<p>Required arguments:</p>
-<p><strong>-n NODE</strong>: node number</p>
-<p><strong>-w</strong>: speak what from the list of options</p>
-<p><strong>time</strong>: the current time</p>
-<p><strong>time24</strong>: the current time in 24-hour format</p>
-<p><strong>ip4</strong>: the first IPv4 address of the system</p>
-<p><strong>ip6</strong>: the first global-scope IPv6 of the system</p>
 <h2 id="example">EXAMPLE</h2>
 <p><code>asl-say -n 1999 -w time</code> will speak the current time on node 1999.</p>
 <h2 id="bugs">BUGS</h2>

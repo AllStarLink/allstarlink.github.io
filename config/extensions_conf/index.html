@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/config/extensions_conf/">
       
       
-        <link rel="prev" href="../config-structure/">
+        <link rel="prev" href="../echolink_conf/">
       
       
         <link rel="next" href="../iax_conf/">
@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3271,6 +3363,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3326,6 +3424,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3440,6 +3559,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3460,6 +3621,8 @@
       
         
           
+        
+      
         
       
         
@@ -3532,6 +3695,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3957,7 +4141,7 @@ exten =&gt; s,1,Wait(1)
 <p>If a special number of 00 is dialed, say the node's IP address over the radio (using the <code>[my-ip]</code> stanza)</p>
 </li>
 </ul>
-<p>The <code>[check_route]</code> stanza is the core of the autopatch dialplan. It is used to filter out numbers you do not want to allow to be dialed. This includes things like toll-free numbers, X11 numbers, 976/809/900 (toll) numbers, and the invalid 555 prefix. All of the filtered numbers get sent to the <code>[invalidnum]</code> stanza, which plays a mesage and hangs up.</p>
+<p>The <code>[check_route]</code> stanza is the core of the autopatch dialplan. It is used to filter out numbers you do not want to allow to be dialed. This includes things like toll-free numbers, X11 numbers, 976/809/900 (toll) numbers, and the invalid 555 prefix. All of the filtered numbers get sent to the <code>[invalidnum]</code> stanza, which plays a message and hangs up.</p>
 <p>If the call passes <code>[check_route]</code>, it gets sent to the <code>[pstn-out]</code> stanza. You will note that there are two options for <code>[pstn-out]</code>. The default is to play a message and hang up. By swapping which one is active (moving the comments around), you can send the call to the <code>[allstar-autopatch]</code> stanza in <code>iax.conf</code>. You can also configure your own VoIP provider, and send the call there (preferred).</p>
 <h2 id="allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
 <p>The <code>[allstar-sys]</code> stanza is called from the <code>[allstar-sys]</code> stanza in <code>iax.conf</code>. The <code>[allstar-sys]</code> stanza is used by connections from the <a href="../../user-guide/phoneportal/">AllStarLink Telephone Portal</a>.</p>
@@ -4073,7 +4257,7 @@ exten =&gt; s,1,Ringing
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../config-structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Structure of Config Files">
+          <a href="../echolink_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: echolink.conf">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4083,7 +4267,7 @@ exten =&gt; s,1,Ringing
                 Previous
               </span>
               <div class="md-ellipsis">
-                Structure of Config Files
+                echolink.conf
               </div>
             </div>
           </a>

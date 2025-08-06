@@ -1688,6 +1688,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1843,6 +1851,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1974,6 +2003,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2326,6 +2376,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2478,6 +2549,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3269,6 +3361,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3324,6 +3422,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3438,6 +3557,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3458,6 +3619,8 @@
       
         
           
+        
+      
         
       
         
@@ -3530,6 +3693,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -4148,10 +4332,10 @@ Remote = secret2                ; satellite receiver site only
 </code></pre></div>
 <p>The example above defines an instance named <code>1999</code>, and has two clients defined, which are named <code>Main</code> and <code>Remote</code>.</p>
 <h2 id="client-definition">Client Definition</h2>
-<p>A <code>client</code> is a particular VOTER/RTCM hardware device that is located somewhere, connected to Etherent and a radio, and is feeding receive audio to (and optionally receiving transmit audio from) the Asterisk host and the configured channel in <code>rpt.conf</code> through <code>app_rpt</code>. Each <code>client</code> in an instance is defined using the format:</p>
+<p>A <code>client</code> is a particular VOTER/RTCM hardware device that is located somewhere, connected to Ethernet and a radio, and is feeding receive audio to (and optionally receiving transmit audio from) the Asterisk host and the configured channel in <code>rpt.conf</code> through <code>app_rpt</code>. Each <code>client</code> in an instance is defined using the format:</p>
 <div class="highlight"><pre><span></span><code>DISPLAY_NAME = secret[,options]
 </code></pre></div>
-<p>The <code>DISPLAY_NAME</code> can be any alpha-numeric, non-breaking string, up to 50 characters in length. You probably want to keep it short, since you may need to type it on the Asterisk Console for debugging. You can use "_" in the name. This is the name that will be displayed on the Allmon/Supermon screens when looking at voting clients, and the <strong>client name</strong> in the Asterisk console.</p>
+<p>The <code>DISPLAY_NAME</code> can be any alphanumeric, non-breaking string, up to 50 characters in length. You probably want to keep it short, since you may need to type it on the Asterisk Console for debugging. You can use "_" in the name. This is the name that will be displayed on the Allmon/Supermon screens when looking at voting clients, and the <strong>client name</strong> in the Asterisk console.</p>
 <p>The <code>secret</code> is a <strong>unique</strong> value for <em>each client</em> that <strong>must</strong> match the <code>Client Password</code> that is programmed into a particular VOTER/RTCM hardware device. This is how <code>chan_voter</code> determines which hardware client to associate with which client definition in the <code>voter.conf</code> file. The password may be up to 50 characters in length.</p>
 <p>The <code>options</code> are any one or more of the following shown below, separated by a comma on each client definition line.</p>
 <h2 id="client-options">Client Options</h2>

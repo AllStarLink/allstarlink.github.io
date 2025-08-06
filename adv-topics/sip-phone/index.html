@@ -18,7 +18,7 @@
         <link rel="prev" href="../sa818modules/">
       
       
-        <link rel="next" href="../sleepmode/">
+        <link rel="next" href="../scheduler/">
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
@@ -1692,6 +1692,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1850,6 +1858,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autopatch/" class="md-nav__link">
         
   
@@ -1981,6 +2010,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2333,6 +2383,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permanentnode/" class="md-nav__link">
         
   
@@ -2592,6 +2663,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3379,6 +3471,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3434,6 +3532,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3548,6 +3667,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3566,6 +3727,8 @@
       
         
           
+        
+      
         
       
         
@@ -3635,6 +3798,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3872,7 +4056,7 @@ type=transport
 protocol=udp    ;udp,tcp,tls,ws,wss,flow
 bind=0.0.0.0:5060
 </code></pre></div>
-<p><strong>NOTE:</strong> After the bind port address (0.0.0.0) is the incoming port number (5060). This UDP port must NOT be blocked by your network firewall. If you are using a Pi Applicance, you will likely need to add the port to the built-in <a href="../../pi/cockpit-firewall/">firewall</a>.</p>
+<p><strong>NOTE:</strong> After the bind port address (0.0.0.0) is the incoming port number (5060). This UDP port must NOT be blocked by your network firewall. If you are using a Pi Appliance, you will likely need to add the port to the built-in <a href="../../pi/cockpit-firewall/">firewall</a>.</p>
 <p>Scroll down to the section titled <strong>Endpoint Configured For Use With A Sip Phone</strong>. For each extension, you will need to enter three sections. Here is an example for extension <strong>1001</strong>:</p>
 <div class="highlight"><pre><span></span><code>[1001]
 type=endpoint
@@ -4006,13 +4190,13 @@ exten =&gt; 1999,1,rpt(1999|P)
         
         
           
-          <a href="../sleepmode/" class="md-footer__link md-footer__link--next" aria-label="Next: Sleep Mode">
+          <a href="../scheduler/" class="md-footer__link md-footer__link--next" aria-label="Next: Scheduled Events">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Sleep Mode
+                Scheduled Events
               </div>
             </div>
             <div class="md-footer__button md-icon">

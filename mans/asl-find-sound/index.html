@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/mans/asl-find-sound/">
       
       
-        <link rel="prev" href="../allmon3-passwd/">
+        <link rel="prev" href="../asl-backup-menu/">
       
       
         <link rel="next" href="../asl-node-lookup/">
@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3273,6 +3365,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3331,6 +3429,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3530,6 +3649,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3548,6 +3709,8 @@
       
         
           
+        
+      
         
       
         
@@ -3617,6 +3780,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3757,9 +3941,17 @@
 <h2 id="name">NAME</h2>
 <p><code>asl-find-sound</code> - Display <code>app_rpt</code>-compatible sound devices</p>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>usage: <code>asl-find-sound</code></p>
+<p>Usage:</p>
+<div class="highlight"><pre><span></span><code>/usr/bin/asl-find-sound
+</code></pre></div>
 <h2 id="description">DESCRIPTION</h2>
 <p>asl-find-sound - Display <code>app_rpt</code>-compatible sound devices</p>
+<p>The <code>asl-find-sound</code> utility will find compatible sound devices, and display their relevant device identification, that can be used in the <code>devstr=</code> in <code>simpleusb.conf</code> or <code>usbradio.conf</code>.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>asl@asl:~ $ sudo asl-find-sound
+1-1.5:1.0       --&gt;     0d8c:000c C-Media USB Headphone Set
+</code></pre></div>
+<p>The resulting device string to use would then be: <code>devstr = 1-1.5:1.0</code></p>
 <h2 id="bugs">BUGS</h2>
 <p>Report bugs to https://github.com/AllStarLink/ASL3/issues</p>
 <h2 id="copyright">COPYRIGHT</h2>
@@ -3799,7 +3991,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../allmon3-passwd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: allmon3-passwd">
+          <a href="../asl-backup-menu/" class="md-footer__link md-footer__link--prev" aria-label="Previous: asl-backup-menu">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3809,7 +4001,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                allmon3-passwd
+                asl-backup-menu
               </div>
             </div>
           </a>

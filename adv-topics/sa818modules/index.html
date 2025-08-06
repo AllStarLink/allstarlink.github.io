@@ -1692,6 +1692,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1850,6 +1858,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autopatch/" class="md-nav__link">
         
   
@@ -1981,6 +2010,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2333,6 +2383,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permanentnode/" class="md-nav__link">
         
   
@@ -2543,6 +2614,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3334,6 +3426,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3389,6 +3487,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3503,6 +3622,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3521,6 +3682,8 @@
       
         
           
+        
+      
         
       
         
@@ -3590,6 +3753,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3729,13 +3913,16 @@
 <h1 id="sa818-rf-modules">SA818 RF Modules</h1>
 <p>SA818 RF modules are inexpensive RF transceiver modules, often used to build a personal RF "hot spot" AllStarLink node.</p>
 <p>Setting up an SA818 RF module is much easier on ASL3.</p>
-<p>Two new commands were added to ASL3 Pi Appliance systems to program the module. We believe that most will prefer using <code>sa818-menu</code>, a visual interface to the RF module settings. For those who prefer a command line interface, we have also included <code>sa818</code>.</p>
+<p>Two new commands were added to ASL3 Pi Appliance systems to program the module. We believe that most will prefer using <a href="../../mans/sa818-menu/"><code>sa818-menu</code></a>, a visual interface to the RF module settings. For those who prefer a command line interface, we have also included <a href="../../mans/sa818/"><code>sa818</code></a>.</p>
 <h2 id="sa818-menu">sa818-menu</h2>
 <p>To program your SA818 with the menu utility, use the following command from the Linux CLI:</p>
 <div class="highlight"><pre><span></span><code>sudo sa818-menu
 </code></pre></div>
 <p>Here, you will be able to view the last saved (or default) settings.</p>
-<p><strong>NOTE:</strong> The "last saved" settings are those saved by the <code>sa818-menu</code> command on your system. There is no way to "read" settings from the SA818 RF module.</p>
+<div class="admonition note">
+<p class="admonition-title">Saved Settings</p>
+<p>The "last saved" settings are those saved by the <a href="../../mans/sa818-menu/"><code>sa818-menu</code></a> command on your system. There is no way to "read" settings from the SA818 RF module.</p>
+</div>
 <p>The settings include :</p>
 <table>
 <thead>
@@ -3797,9 +3984,12 @@
 </table>
 <p>If you change the sub-audible tone setting to CTCSS or DCS you will be presented with a list of possible tone frequencies. When using CTCSS tones, you will also have a setting for the CTCSS Reverse Burst (tail tone).</p>
 <p>The RF module will be programmed when you exit the menu.</p>
-<p><strong>NOTE:</strong> If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
+<div class="admonition note">
+<p class="admonition-title">Cancel Changes</p>
+<p>If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
+</div>
 <h2 id="sa818">sa818</h2>
-<p>To program your SA818 using the command line you can execute the <code>sa818</code> command. For command usage information, use <code>sa818 --help</code>.</p>
+<p>To program your SA818 using the command line you can execute the <a href="../../mans/sa818/"><code>sa818</code></a> command. For command usage information, see the <a href="../../mans/sa818/"><code>sa818</code></a> manual page.</p>
 
 
 

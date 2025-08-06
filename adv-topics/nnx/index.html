@@ -1692,6 +1692,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1850,6 +1858,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../autopatch/" class="md-nav__link">
         
   
@@ -1981,6 +2010,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2451,6 +2501,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permanentnode/" class="md-nav__link">
         
   
@@ -2603,6 +2674,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3394,6 +3486,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3449,6 +3547,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3563,6 +3682,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3581,6 +3742,8 @@
       
         
           
+        
+      
         
       
         
@@ -3650,6 +3813,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3802,12 +3986,12 @@ NNX Node Pool:                      630010 to 630019
 </div>
 <h2 id="requirements">Requirements</h2>
 <p>Use of NNX node numbers is totally optional, but strongly recommended. The prior node request process still exists. Existing and new users may continue to request new node numbers per current policy.</p>
-<p>Users who opt to expand an existing node number will need to make configuration changes to their existing node (if configured). That is (using the example numbers above) all references to node 63001 will need to change to 630010. Fortunately, the <a href="../../user-guide/"><code>asl-menu</code></a> "Node Settings" menu allows you to change a node number, updating rpt.conf, rpt_http_registrations.conf, simpleusb.conf, usbradio.conf, voter.conf, extensions.conf, and allmon3.ini (if using <a href="../../allmon3/config/">Allmon3</a>). Reconfiguring all occurrences of the existing node number is critical. Such an oversight may confuse users and put an extra support load on system admins, at least initially.</p>
+<p>Users who opt to expand an existing node number will need to make configuration changes to their existing node (if configured). That is (using the example numbers above) all references to node 63001 will need to change to 630010. Fortunately, the <a href="../../user-guide/"><code>asl-menu</code></a> "Node Settings" menu allows you to change a node number, updating rpt.conf, rpt_http_registrations.conf, simpleusb.conf, usbradio.conf, voter.conf, extensions.conf, and allmon3.ini (if using <a href="../../allmon3/config/">Allmon3</a>). Reconfiguring all occurrences of the existing node number is critical. Any oversights may confuse users and put an extra support load on system admins, at least initially.</p>
 <div class="admonition note">
 <p class="admonition-title">New Node Setup</p>
 <p>If you are registering for a node number for the first time, it would be wise to extend your node number before you configure your new node for the first time. That way, you can have your xxxxx0 number ready to deploy, without having to reconfigure it after the fact. It also sets you up to easily deploy additional nodes, as your extended node numbers will already be available.</p>
 </div>
-<p>Adding NNX nodes xxxxx1 thru xxxxx9 is the same process as adding any additional node.  </p>
+<p>Adding NNX nodes xxxxx1 thru xxxxx9 is the same process as adding any additional node.</p>
 <h2 id="nnx-on-the-allstarlink-portal">NNX on the AllStarLink Portal</h2>
 <p>Node Number Extension implementation on the AllStarLink Portal is shown below.</p>
 <h3 id="request-initial-node-number">Request Initial Node Number</h3>

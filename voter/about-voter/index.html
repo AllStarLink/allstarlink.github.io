@@ -1690,6 +1690,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1845,6 +1853,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/audiofilters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Audio Filters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/autopatch/" class="md-nav__link">
         
   
@@ -1976,6 +2005,27 @@
   
   <span class="md-ellipsis">
     DTMF Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/echolink/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EchoLink Configuration
   </span>
   
 
@@ -2328,6 +2378,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/dtmftoscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Passing DTMF to Shell Scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permanentnode/" class="md-nav__link">
         
   
@@ -2480,6 +2551,27 @@
   
   <span class="md-ellipsis">
     Setting up a SIP Phone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/scheduler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scheduled Events
   </span>
   
 
@@ -3556,6 +3648,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -3611,6 +3709,27 @@
   
   <span class="md-ellipsis">
     allmon3-passwd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/asl-backup-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    asl-backup-menu
   </span>
   
 
@@ -3725,6 +3844,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mans/sa818-menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sa818-menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3743,6 +3904,8 @@
       
         
           
+        
+      
         
       
         
@@ -3812,6 +3975,27 @@
   
   <span class="md-ellipsis">
     Structure of Config Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/echolink_conf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    echolink.conf
   </span>
   
 
@@ -3965,7 +4149,7 @@
 <p>The main problem to overcome is that when you have multiple streams of audio information from multiple receivers, you need a concise and accurate way of synchronizing all of the audio, so that if switching of streams occurs, there will be no inconsistencies in the audio. This is far more easily done on conventional, RF-linked voting systems, being that the delay between the receiver and the transmitter site is very minimal (basically the speed of light) and is painfully consistent. Not so on the Internet. The packet delays can be extremely long and varied, and it makes the task of synchronization far more difficult.</p>
 <p>The first challenge is to obtain and convey ultra-accurate time information along with the audio data, so that the transmitter site will know what time the signal was received (which may not have much to do with the time it was received at the transmitter site from the Internet). In order to accomplish this, ultra-accurate time information must be made available, and it must be processed in reasonable and consistent time for it to be meaningful.</p>
 <p>GPS is the simplest and most cost-effective solution to obtain ultra-accurate time information. For little money, a Garmin GPS LVC18 module (there are many others, too) may be purchased. It provides an accurate 1 pulse-per-second signal that can be used to synchronize a timing device.</p>
-<p>A "host" type computer running Linux (or UNIX, etc.) <strong>is not</strong> appropriate to be used as such a device, since it has absolutely <strong>no way</strong> of processing external inputs (or anything else, for that matter) in a <em>consistent</em> and <em>predictable</em> time. For applications that need to be accurate to hundreds of milliseconds, its fine, but for this purpose, where timing down to <strong><em>individual 125 microsecond</em></strong> audio samples is necessary, it just wont do.</p>
+<p>A "host" type computer running Linux (or UNIX, etc.) <strong>is not</strong> appropriate to be used as such a device, since it has absolutely <strong>no way</strong> of processing external inputs (or anything else, for that matter) in a <em>consistent</em> and <em>predictable</em> time. For applications that need to be accurate to hundreds of milliseconds, its fine, but for this purpose, where timing down to <strong><em>individual 125 microsecond</em></strong> audio samples is necessary, it just won't do.</p>
 <p>The only reasonable solution is to design hardware to accomplish this. Since hardware design is necessary, I figured that I might as well design a stand-alone board that does all the necessary functions to interface a receiver and a GPS device to an Ethernet with Internet connectivity. Certainly, a peripheral device that attaches to a "host" type computer would also be a reasonable solution, but for the same or less cost, it seems reasonable to eliminate the need for a "host" computer at receiver sites all together.</p>
 <p>The second challenge is determining signal strength (RSSI) information from an attached receiver. Thanks to wonderful technology designed by Steve Rodgers, WA6ZFT, which is a small board that implements a VERY high-quality squelch processor, I was able to take the code and front-end design, include it in my design, and not only is it very good squelch processor, but it also is able to provide information from which the signal strength of the received signal may be calculated.</p>
 <p>The third challenge is at the transmitter site end (where the <code>app_rpt</code> system is located) taking all of the streams of audio from the various receivers and synchronizing them via included time information, and making a reasonable decision on which stream to "use", based upon signal strength and quality. The synchronization is done with basically a "multi-dimensional jitter buffer" and is implemented in the Asterisk channel driver that I wrote for this application, <code>chan_voter</code>.</p>
@@ -4088,10 +4272,10 @@ traffic. Also see the below for notes on how to tag your packets with ToS.</p>
 <p>The serial console of the VOTER gives access to a menu allowing setting of the above mentioned parameters in addition to various system-related functions, reboot, save parameters, status, etc. In addition, the console displays important system status messages as various events occur (such as changes in GPS status, changes in DNS resolution, etc.). More information on all the menus and options is available on the <a href="../voter-menus/">VOTER Menus</a> page.</p>
 <h3 id="voter-hardware-setup-and-installation">VOTER Hardware Setup and Installation</h3>
 <p>For more information on the VOTER Hardware connections, see the <a href="../voter-hardware/">VOTER Hardware</a> page. For the RTCM, see the <a href="../assets/rtcm_manual.pdf">user manual</a> and/or the <a href="../rtcm-hardware/">RTCM Hardware</a> pages.</p>
-<p>Appropriate connections need to be made between the receiver's discriminator, and optionally its tone decode output, and/or the transmitter and its external (auxilliary) audio input (or microphone input, attenuated), and PTT signals. </p>
+<p>Appropriate connections need to be made between the receiver's discriminator, and optionally its tone decode output, and/or the transmitter and its external (auxiliary) audio input (or microphone input, attenuated), and PTT signals. </p>
 <div class="admonition warning">
 <p class="admonition-title">Transmit Audio Connections</p>
-<p>In most applications, transmit audio must be routed through the external (auxilliary) audio input so that it gets pre-emphasized, limited, and splatter filtered. <strong>DO NOT</strong> directly connect to a modulator input, data input, or other direct transmitter connection (UNLESS you are generating CTCSS with the VOTER, see below). </p>
+<p>In most applications, transmit audio must be routed through the external (auxiliary) audio input so that it gets pre-emphasized, limited, and splatter filtered. <strong>DO NOT</strong> directly connect to a modulator input, data input, or other direct transmitter connection (UNLESS you are generating CTCSS with the VOTER, see below). </p>
 </div>
 <p><strong>Discriminator audio is required</strong> to do noise (RSSI) and squelch analysis on the incoming audio, prior to the actual voice audio (baseband) being de-emphasized and sent to the host (unless it is specifically overridden, then it is a custom application). As such, the audio sent from the host to the transmitter(s) needs to be pre-emphasized before being sent over the air. </p>
 <p>The GPS receiver needs to be connected (see notes on the <a href="../voter-gps/">VOTER GPS</a> page), and the VOTER hardware needs to be connected via Ethernet to an Internet connection, and, of course, power needs to be applied to the board.</p>
