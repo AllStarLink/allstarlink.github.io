@@ -5031,7 +5031,7 @@
 <p>rpt.conf (<code>/etc/asterisk/rpt.conf</code>) is where the majority of user-facing features, such as the node's CW and voice ID, DTMF commands and timers are set. There is a lot of capability here which can be difficult to grasp. Fortunately the default <code>rpt.conf</code> is well commented and will work fine for most node admins.</p>
 <p>See also <a href="../../adv-topics/conftmpl/#asterisk-templates">config file templating</a>.</p>
 <h2 id="dtmf-commands">DTMF Commands</h2>
-<p>DTMF commands are placed in any one of <strong>three</strong> <em>named stanzas</em>. These stanzas control access to DTMF commands that a user can issue from various 
+<p>DTMF commands are placed in any one of <strong>three</strong> <em>named stanzas</em>. These stanzas control access to DTMF commands that a user can issue from various
 control points.</p>
 <ul>
 <li>The <a href="#functions-stanza">Functions</a> Stanza - to decode DTMF from the node's local receiver.</li>
@@ -5091,7 +5091,7 @@ control points.</p>
 </tbody>
 </table>
 <h3 id="link-commands">Link Commands</h3>
-<p>Commands using the <code>link</code> function class affect connecting to, disconnecting from, monitoring (RX only) other nodes, and providing linking status. </p>
+<p>Commands using the <code>link</code> function class affect connecting to, disconnecting from, monitoring (RX only) other nodes, and providing linking status.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>3 = ilink,3   ; Connect specified link -- transceive
 </code></pre></div>
@@ -5153,7 +5153,7 @@ control points.</p>
 </tr>
 <tr>
 <td>10</td>
-<td>Disconnect all RANGER links (except permalinks)</td>
+<td>unused</td>
 <td>No</td>
 </tr>
 <tr>
@@ -5195,13 +5195,13 @@ control points.</p>
 </table>
 <p>The commands to permanently connect a link will have <code>app_rpt</code> try to maintain those connections across network disruptions.</p>
 <h3 id="cop-commands">COP Commands</h3>
-<p>Commands using the <code>cop</code> (Control OPerator) function class are privileged commands. Node admins may provide some of these to their user community based on personal preference. </p>
+<p>Commands using the <code>cop</code> (Control OPerator) function class are privileged commands. Node admins may provide some of these to their user community based on personal preference.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>99 = cop,7   ; enable timeout timer
 </code></pre></div>
 <p>Some COP commands can take multiple parameters. For example this COP 48 would send <code>#3#607</code> on command:</p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>900 = cop,48,#,3,#,6,0,7 
+<div class="highlight"><pre><span></span><code>900 = cop,48,#,3,#,6,0,7
 </code></pre></div>
 <table>
 <thead>
@@ -5484,7 +5484,7 @@ node_lookup_method = both           ; method used to lookup nodes
 </code></pre></div>
 <p>See <a href="../../adv-topics/noderesolution/">Node Resolution</a> for how this new node lookup method is handled.</p>
 <h2 id="node-number-stanza">Node Number Stanza</h2>
-<p>The node number stanza is a critical stanza in <code>rpt.conf</code>. </p>
+<p>The node number stanza is a critical stanza in <code>rpt.conf</code>.</p>
 <div class="highlight"><pre><span></span><code>[1999]                              ; Replace with your assigned or private node number
 </code></pre></div>
 <p>The node number stanza is set to the <strong>assigned node number</strong> <em>or</em> a <strong>private node number</strong> (if a private node is being configured). It will normally be configured by <a href="../../user-guide/"><code>asl-menu</code></a>.</p>
@@ -5495,7 +5495,7 @@ node_lookup_method = both           ; method used to lookup nodes
 <div class="highlight"><pre><span></span><code>accountcode=RADIO                   ; set the accountcode variable to RADIO
 </code></pre></div>
 <h3 id="althangtime">althangtime=</h3>
-<p>This setting controls the length of the repeater hang time when the alternate hang timer is selected with a control operator function. It is specified in milliseconds. </p>
+<p>This setting controls the length of the repeater hang time when the alternate hang timer is selected with a control operator function. It is specified in milliseconds.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>althangtime=4000                    ; 4 seconds
 </code></pre></div>
@@ -5579,7 +5579,7 @@ discpgm = /etc/asterisk/custom/dislog.sh
 </code></pre></div>
 <p>The default is to have <code>dtmfkeys=</code> point to a stanza called <code>dtmfkeys</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#dtmfkeys-stanza">DTMFKeys Stanza</a> for more detail on defining dtmfkeys.</p>
-<p>To use this option, <a href="#dtmfkey"><code>dtmfkey=1</code></a> needs to be set. </p>
+<p>To use this option, <a href="#dtmfkey"><code>dtmfkey=1</code></a> needs to be set.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="duplex">duplex=</h3>
 <p>This setting sets the duplex mode for desired radio operation. Duplex mode 2 is the default if nonthing specified.</p>
@@ -5651,12 +5651,12 @@ discpgm = /etc/asterisk/custom/dislog.sh
 <h3 id="endchar">endchar=</h3>
 <p>This setting allows the end character used by some control functions to be changed. By default this is a <code>#</code>. The <code>endchar</code> value must not be the same as the <a href="#funcchar"><code>funcchar</code></a> default (<code>*</code>) or its overridden value.</p>
 <h3 id="erxgain">erxgain=</h3>
-<p>This option adjusts the EchoLink receive gain in +/- dbV. It is used to balance EchoLink receive audio levels on an <code>app_rpt</code> node. </p>
+<p>This option adjusts the EchoLink receive gain in +/- dbV. It is used to balance EchoLink receive audio levels on an <code>app_rpt</code> node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>erxgain = -3
 </code></pre></div>
 <h3 id="etxgain">etxgain=</h3>
-<p>This option adjusts the EchoLink transmit gain in +/- dbV. It is used to balance EchoLink transmit audio on an <code>app_rpt</code> node. </p>
+<p>This option adjusts the EchoLink transmit gain in +/- dbV. It is used to balance EchoLink transmit audio on an <code>app_rpt</code> node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>etxgain = 3
 </code></pre></div>
@@ -5682,10 +5682,10 @@ status,2 = c|f|RPT_NUMLINKS      ; Say time of day when all links disconnect.
 <div class="highlight"><pre><span></span><code>extnodefile=/var/lib/asterisk/rpt_extnodes,/var/lib/asterisk/myrpt_extnodes
 </code></pre></div>
 <p>If a custom <code>extnodefile=</code> is used, it must have the section header <code>[extnodes]</code> or a custom header as described in <a href="#extnodes">extnodes</a>.</p>
-<p>Also see <a href="../../adv-topics/noderesolution/">Node Resolutuion</a> for information on how to configure node lookups. </p>
+<p>Also see <a href="../../adv-topics/noderesolution/">Node Resolutuion</a> for information on how to configure node lookups.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="extnodes">extnodes=</h3>
-<p>This option allows you to set the section name used for <code>[extnodes]</code> in the <code>rpt_extnodes</code> file.  The default value is <code>extnodes</code>. This translates to <code>[extnodes]</code> section header. </p>
+<p>This option allows you to set the section name used for <code>[extnodes]</code> in the <code>rpt_extnodes</code> file.  The default value is <code>extnodes</code>. This translates to <code>[extnodes]</code> section header.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>extnodes=myextnodes
 </code></pre></div>
@@ -5704,13 +5704,13 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <h3 id="guilinkdefault">guilinkdefault=</h3>
 <p>This option sets how telemetry is handled for IAXRpt, SIP phone display, and VoIP clients.</p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>guilinkdefault = 1 
+<div class="highlight"><pre><span></span><code>guilinkdefault = 1
 </code></pre></div>
 <p>The available options are:</p>
 <ul>
 <li>0 = telemetry output off</li>
 <li>1 = telemetry output on (default)</li>
-<li>2 = timed telemetry output (after command execution and for two minutes thereafter) </li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter)</li>
 <li>3 = follow local telemetry mode</li>
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
@@ -5726,7 +5726,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="hangtime">hangtime=</h3>
-<p>This option controls the length of the repeater (squelch tail) hang time. It is specified in milliseconds. </p>
+<p>This option controls the length of the repeater (squelch tail) hang time. It is specified in milliseconds.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>hangtime = 1000                     ; set hang time for 1 second
 </code></pre></div>
@@ -5746,7 +5746,7 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">File Extensions</p>
-<p>ID recording files must have extension gsm, ulaw, pcm, or wav. The extension is <strong>left off</strong> when it is defined as the example shows above. File extensions are used by Asterisk to determine how to decode the file. All ID recording files should be sampled at 8KHz mono. </p>
+<p>ID recording files must have extension gsm, ulaw, pcm, or wav. The extension is <strong>left off</strong> when it is defined as the example shows above. File extensions are used by Asterisk to determine how to decode the file. All ID recording files should be sampled at 8KHz mono.</p>
 </div>
 <p>See <a href="../../adv-topics/soundfiles/">Sound Files</a> for more information.</p>
 <h3 id="idtalkover">idtalkover=</h3>
@@ -5795,14 +5795,14 @@ The default is to have <code>functions=</code> point to a stanza called <code>fu
 <div class="highlight"><pre><span></span><code>iobase=0x378                        ; set I/O address to 0x378 for LPT1
 </code></pre></div>
 <h3 id="link_functions">link_functions=</h3>
-<p>This option allows you to override the stanza name used for the <code>link_functions</code> stanza in <code>rpt.conf</code>. The <code>link_functions=</code> setting directs the node to use a particular function stanza for functions dialed by users accessing the node <strong>via a link from another node</strong>. </p>
+<p>This option allows you to override the stanza name used for the <code>link_functions</code> stanza in <code>rpt.conf</code>. The <code>link_functions=</code> setting directs the node to use a particular function stanza for functions dialed by users accessing the node <strong>via a link from another node</strong>.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>link_functions = functions          ; pointer to the function stanza
 </code></pre></div>
 <p>The default is to have <code>link_functions=</code> point to a stanza called <code>functions</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#functions-stanza">Functions Stanza</a> for more detail on defining functions.</p>
 <h3 id="lnkactenable">lnkactenable=</h3>
-<p>Set this option to enable the link activity timer. </p>
+<p>Set this option to enable the link activity timer.</p>
 <p>Sample:
 <div class="highlight"><pre><span></span><code>lnkactenable = 0                    ; set to 1 to enable the link activity timer.
 </code></pre></div></p>
@@ -5833,7 +5833,7 @@ Sample:</p>
 <div class="highlight"><pre><span></span><code>linkmongain = -20                   ; reduce link volume 20dB
 </code></pre></div>
 <h3 id="linktolink">linktolink=</h3>
-<p>When operating in <a href="#duplex">duplex mode 0</a>, this forces the radio interface to operate in full duplex mode, but keeps all the other "duplex mode 0" semantics. </p>
+<p>When operating in <a href="#duplex">duplex mode 0</a>, this forces the radio interface to operate in full duplex mode, but keeps all the other "duplex mode 0" semantics.</p>
 <p>This is used when a radio interface is connected to a multiport analog repeater controller. The <code>linktolink=</code> option can take two values: <code>yes</code>/<code>1</code> or <code>no</code>/<code>0</code>.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>linktolink = no                     ; set to yes to enable. Default is no.
@@ -5860,7 +5860,7 @@ Sample:</p>
 <div class="highlight"><pre><span></span><code>litztime = 3000                     ; default 3000mS (3 seconds)
 </code></pre></div>
 <h3 id="macro">macro=</h3>
-<p>This option allows you to override the stanza name used for the <code>[macro]</code> stanza in <code>rpt.conf</code>. The macro stanza directs the node to use a particular stanza for macros dialed by users accessing the node. Macros are DTMF shortcuts, and are a special type of function. </p>
+<p>This option allows you to override the stanza name used for the <code>[macro]</code> stanza in <code>rpt.conf</code>. The macro stanza directs the node to use a particular stanza for macros dialed by users accessing the node. Macros are DTMF shortcuts, and are a special type of function.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>macro=macro                         ; use stanza named macro
 
@@ -5877,7 +5877,7 @@ Sample:</p>
 <p>See the <a href="../../adv-topics/mdc1200/">MDC-1200 Signalling</a> page for more information on MDC-1200 support.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="mdcmacro">mdcmacro=</h3>
-<p>This option allows you to override the stanza name used for the <code>[mdcmacro]</code> stanza in <code>rpt.conf</code>. The mdcmacro stanza directs the node to use a particular stanza for mdcmacros when <a href="../../adv-topics/mdc1200/">MDC-1200 signalling</a> is received by the node. </p>
+<p>This option allows you to override the stanza name used for the <code>[mdcmacro]</code> stanza in <code>rpt.conf</code>. The mdcmacro stanza directs the node to use a particular stanza for mdcmacros when <a href="../../adv-topics/mdc1200/">MDC-1200 signalling</a> is received by the node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>mdcmacro=mdcmacro                   ; use stanza named mdcmacro
 
@@ -5889,7 +5889,7 @@ I1701=*81#                          ; announce the time with unit 1701 IDs
 <p>See the <a href="../../adv-topics/mdc1200/">MDC-1200 Signalling</a> page for more information on MDC-1200 support.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="morse">morse=</h3>
-<p>This option allows you to override the stanza name used for the <code>morse</code> stanza in <code>rpt.conf</code>. The morse stanza directs the node to use a particular stanza for morse code parameters for the node. Morse code parameters can be defined on a per-node basis.  </p>
+<p>This option allows you to override the stanza name used for the <code>morse</code> stanza in <code>rpt.conf</code>. The morse stanza directs the node to use a particular stanza for morse code parameters for the node. Morse code parameters can be defined on a per-node basis.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>morse=morse                         ; use stanza named morse
 
@@ -5904,7 +5904,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>See the <a href="#morse-stanza">Morse Stanza</a> for more detail on defining morse parameters.</p>
 <h3 id="nodenames">nodenames=</h3>
 <p>This option lets you override the default location to look for custom nodename files to play back when a node connects/disconnects.</p>
-<p>The default location is a relative path of <code>rpt/nodenames</code>. The absolute path will typically then be <code>/usr/share/asterisk/sounds/en/rpt/nodenames</code>. </p>
+<p>The default location is a relative path of <code>rpt/nodenames</code>. The absolute path will typically then be <code>/usr/share/asterisk/sounds/en/rpt/nodenames</code>.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>nodenames = /var/lib/asterisk/sounds/custom/nodenames  ; point to alternate nodename sound directory
 </code></pre></div>
@@ -5921,7 +5921,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="nolocallinkct">nolocallinkct=</h3>
 <p>Set this option to send <code>unlinkedct</code> instead, if another local node is connected to this node (hosted on the same PC).</p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>nolocallinkct = 0                   ; default is 0, set to 1 to enable 
+<div class="highlight"><pre><span></span><code>nolocallinkct = 0                   ; default is 0, set to 1 to enable
 </code></pre></div>
 <h3 id="nounkeyct">nounkeyct=</h3>
 <p>This option completely disables the courtesy tone. This is useful for eliminating TX tail time in applications using simplex uplinks to repeaters on the repeater pair itself.  This practice is <strong>strongly</strong> discouraged. The <code>nounkeyct=</code> option can take two values: <code>yes</code>/<code>1</code> or <code>no</code>/<code>0</code>.</p>
@@ -5979,13 +5979,13 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="phonelinkdefault">phonelinkdefault=</h3>
 <p>This option sets how telemetry is handled for the <a href="../../adv-topics/autopatch/">autopatch</a> and <a href="../../user-guide/phoneportal/">Phone Portal</a> connections.</p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>phonelinkdefault = 1 
+<div class="highlight"><pre><span></span><code>phonelinkdefault = 1
 </code></pre></div>
 <p>The available options are:</p>
 <ul>
 <li>0 = telemetry output off</li>
 <li>1 = telemetry output on (default)</li>
-<li>2 = timed telemetry output (after command execution and for two minutes thereafter) </li>
+<li>2 = timed telemetry output (after command execution and for two minutes thereafter)</li>
 <li>3 = follow local telemetry mode</li>
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
@@ -6066,7 +6066,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 </code></pre></div>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="rxchannel">rxchannel=</h3>
-<p>This setting selects the type of radio interface used by the node. There must be <strong>one</strong> (and only one) <code>rxchannel</code> per node definition stanza. The selections for <code>rxchannel</code> are: </p>
+<p>This setting selects the type of radio interface used by the node. There must be <strong>one</strong> (and only one) <code>rxchannel</code> per node definition stanza. The selections for <code>rxchannel</code> are:</p>
 <table>
 <thead>
 <tr>
@@ -6132,7 +6132,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>The default is to have <code>scheduler=</code> point to a stanza called <code>schedule</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="#schedule-stanza">Schedule Stanza</a> for more information on the scheduler.</p>
 <h3 id="sleeptime">sleeptime=</h3>
-<p>This option sets the inactivity period in <em>seconds</em> of no signal on the node's receiver before the system goes to sleep. </p>
+<p>This option sets the inactivity period in <em>seconds</em> of no signal on the node's receiver before the system goes to sleep.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>sleeptime = 300   ; go to sleep after 5 mins of no activity
 </code></pre></div>
@@ -6142,7 +6142,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>startup_macro = *31000 *31001 *31002 ; connect to nodes 1000, 1001 and 1002 at startup
 </code></pre></div>
-<p>One string of one or multiple commands, executed in order. </p>
+<p>One string of one or multiple commands, executed in order.</p>
 <div class="admonition note">
 <p class="admonition-title">No Termination Character</p>
 <p>This string of commands does NOT terminate with a <code>#</code> like a normal macro. You can call any number of regular macros with it.</p>
@@ -6193,7 +6193,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <h3 id="telemdefault">telemdefault=</h3>
 <p>This option sets whether telemetry is turned on or off by default.</p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>telemdefault = 1 
+<div class="highlight"><pre><span></span><code>telemdefault = 1
 </code></pre></div>
 <p>The available options are:</p>
 <ul>
@@ -6219,7 +6219,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="telemnomdb">telemnomdb=</h3>
-<p>This option is used to fine tune the telemetry level, relative to standard node audio. The level is in dB. </p>
+<p>This option is used to fine tune the telemetry level, relative to standard node audio. The level is in dB.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>telemnomdb = -3                     ; decrease nominal telemetry by -3dB
 </code></pre></div>
@@ -6240,7 +6240,7 @@ idamplitude = 1024                  ; Morse ID Amplitude
 </ul>
 <p>See the <a href="../../adv-topics/telemetry/">Telemetry Messages</a> page for more information on telemetry.</p>
 <h3 id="tonemacro">tonemacro=</h3>
-<p>This option allows you to override the stanza name used for the <code>tonemacro</code> stanza in <code>rpt.conf</code>. The tone macro stanza directs the node to use a particular stanza for CTCSS tone tiggered macros from users accessing the node. Macros are DTMF shortcuts, and are a special type of function. </p>
+<p>This option allows you to override the stanza name used for the <code>tonemacro</code> stanza in <code>rpt.conf</code>. The tone macro stanza directs the node to use a particular stanza for CTCSS tone tiggered macros from users accessing the node. Macros are DTMF shortcuts, and are a special type of function.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tonemacro = tonemacro               ; use stanza named tonemacro
 
@@ -6252,11 +6252,11 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p>See the <a href="../../adv-topics/tonemacros/">Tone Macros</a> page on how to utilize tone macros.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
 <h3 id="totime">totime=</h3>
-<p>This option defines the time out timer interval for the node. The value is in milliseconds. If the node transmitter remains keyed beyond the <code>totime</code> timer length, the transmitter will be unkeyed until the receiver activity resets. </p>
+<p>This option defines the time out timer interval for the node. The value is in milliseconds. If the node transmitter remains keyed beyond the <code>totime</code> timer length, the transmitter will be unkeyed until the receiver activity resets.</p>
 <p>Sample:</p>
-<p><div class="highlight"><pre><span></span><code>totime = 180000                     ; repeater timeout 3 minutes 
+<p><div class="highlight"><pre><span></span><code>totime = 180000                     ; repeater timeout 3 minutes
 </code></pre></div>
-The default value is 180000(mS), or 3 minutes. </p>
+The default value is 180000(mS), or 3 minutes.</p>
 <div class="admonition warning">
 <p class="admonition-title">Active Hub Advisory</p>
 <p>This setting can cause issues when linked to active hub nodes that may have long transmissions. If the local node transmitter appears to "drop out" when connected to nodes/hubs with long winded operators or broadcasts, review this setting, and increase as necessary.</p>
@@ -6397,8 +6397,8 @@ The default value is 180000(mS), or 3 minutes. </p>
 <p>The above mneonics can be grouped together in the <code>[controlstates]</code> stanza, to define different modes of operation for the node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>[controlstates]
-0 = rptena,lnkena,apena,totena,ufena,noicd  ; Normal operation                                  
-1 = rptena,lnkena,apdis,totdis,ufena,noice  ; Net and news operation                                             
+0 = rptena,lnkena,apena,totena,ufena,noicd  ; Normal operation
+1 = rptena,lnkena,apdis,totdis,ufena,noice  ; Net and news operation
 2 = rptena,lnkdis,apdis,totena,ufdis,noice  ; Repeater only operation
 </code></pre></div>
 <p>Therefore, instead of issuing all the individual COP commands to change the repeater state, you can use <code>cop,14</code> to set the control state:</p>
@@ -6430,7 +6430,7 @@ The default value is 180000(mS), or 3 minutes. </p>
 <p>In order to use the data in this stanza, <a href="#dtmfkey"><code>dtmfkey=1</code></a> must also be set.</p>
 <p>The above example will require either of the DTMF sequences <code>1234</code> or <code>4567</code> to be sent for <strong>every</strong> transmission, in order to "key-up" the node. Depending on which sequence is sent, the associated callsign will be logged by Asterisk.</p>
 <h2 id="functions-stanza">Functions Stanza</h2>
-<p>The <code>[functions]</code> stanza is a named stanza pointed to by the <a href="#functions"><code>functions=</code></a> option. Functions within this stanza are used to decode DTMF commands when accessing the node from its <strong>receiver</strong>. This stanza is typically named <code>[functions]</code>. The name can be overridden, on a per-node basis, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.  </p>
+<p>The <code>[functions]</code> stanza is a named stanza pointed to by the <a href="#functions"><code>functions=</code></a> option. Functions within this stanza are used to decode DTMF commands when accessing the node from its <strong>receiver</strong>. This stanza is typically named <code>[functions]</code>. The name can be overridden, on a per-node basis, see <a href="../config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>functions = functions               ; name the functions stanza functions
 
@@ -6534,11 +6534,11 @@ The default value is 180000(mS), or 3 minutes. </p>
 <li><code>*6</code> followed by a phone number brings up the autopatch with the <code>function options</code> specified. Note that there is no <code>function method</code> defined, but there are <code>function options</code> present.</li>
 </ul>
 <h2 id="link-functions-stanza">Link Functions Stanza</h2>
-<p>The <code>[my_link_functions]</code> stanza, if defined (see below), is a named stanza pointed to by the <a href="#link_functions"><code>link_functions</code></a> option. Functions within this stanza are used decode DTMF commands when accessing the node <strong>via a link from another node</strong>. </p>
+<p>The <code>[my_link_functions]</code> stanza, if defined (see below), is a named stanza pointed to by the <a href="#link_functions"><code>link_functions</code></a> option. Functions within this stanza are used decode DTMF commands when accessing the node <strong>via a link from another node</strong>.</p>
 <p>The traditional usage is to point the <code>link_functions=</code> option to the same stanza as named by <a href="#functions"><code>functions=</code></a>, thereby having functions from a linked node and from the local node be the same.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>functions = functions               ; name the functions stanza functions
-link_functions = functions          ; use the same stanza 
+link_functions = functions          ; use the same stanza
 
 [functions]
 ...
@@ -6555,7 +6555,7 @@ link_functions = my_link_functions  ; use a different stanza
 </code></pre></div>
 <p>See <a href="#dtmf-commands">DTMF Commands</a> for the list of functions available.</p>
 <h2 id="macro-stanza">Macro Stanza</h2>
-<p>The <code>[macro]</code> stanza is a named stanza pointed to by the <a href="#macro"><code>macro=</code></a> option. Macros are DTMF shortcuts. </p>
+<p>The <code>[macro]</code> stanza is a named stanza pointed to by the <a href="#macro"><code>macro=</code></a> option. Macros are DTMF shortcuts.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>macro=macro                         ; use stanza named macros
 
@@ -6564,7 +6564,7 @@ link_functions = my_link_functions  ; use a different stanza
 </code></pre></div>
 <p>See the <a href="../../adv-topics/macros/">Macro</a> page for more information on macros.</p>
 <h2 id="mdc-macro-stanza">MDC Macro Stanza</h2>
-<p>The <code>[mdcmacro]</code> stanza is a named stanza pointed to by the <a href="#mdcmacro"><code>mdcmacro=</code></a> option. Mdcmacros are actions to carry out when <a href="../../adv-topics/mdc1200/">MDC-1200 signalling</a> is received. </p>
+<p>The <code>[mdcmacro]</code> stanza is a named stanza pointed to by the <a href="#mdcmacro"><code>mdcmacro=</code></a> option. Mdcmacros are actions to carry out when <a href="../../adv-topics/mdc1200/">MDC-1200 signalling</a> is received.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>mdcmacro=mdcmacro                   ; use stanza named mdcmacro
 
@@ -6584,11 +6584,11 @@ idamplitude = 768                   ; morse ID Amplitude (relative level)
 </code></pre></div>
 Note that <code>frequency</code> and <code>amplitude</code> would set the parameters for telemetry messages, whereas <code>idfrequency</code> and <code>idamplitude</code> would set the parameters specifically for identification (and they do not need to be the same).</p>
 <h2 id="nodes-stanza">Nodes Stanza</h2>
-<p>The <code>[nodes]</code> stanza is a list of nodes, their IP addresses, port and <code>NONE</code> or <code>NO</code> for non-remote base (normal) nodes. The nodes stanza is used to identify which node is mapped to which Internet call and to determine the destination to send the call to. </p>
+<p>The <code>[nodes]</code> stanza is a list of nodes, their IP addresses, port and <code>NONE</code> or <code>NO</code> for non-remote base (normal) nodes. The nodes stanza is used to identify which node is mapped to which Internet call and to determine the destination to send the call to.</p>
 <p>If you are using automatic update for AllStarLink (public) nodes, no AllStarLink nodes should be defined here. Only place a definition for your local nodes (on your local LAN behind the same NAT router), private (off of AllStarLink) nodes, and remote base nodes here.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>[nodes]
-1000 = radio@127.0.0.1/1000,NONE               ; private hub on this server 
+1000 = radio@127.0.0.1/1000,NONE               ; private hub on this server
 1001 = radio@host.domain.com/1001,NONE         ; private node on another server
 2501 = radio@127.0.0.1/2501,NONE               ; public node on this server
 2502 = radio@127.0.0.1/2502,NONE               ; another public node on this server
@@ -6598,11 +6598,11 @@ Note that <code>frequency</code> and <code>amplitude</code> would set the parame
 <p>For remote base nodes, replace the <code>NONE</code> with <code>Y</code> or <code>YES</code>. Once designated as a remote base, that node will only allow <strong>one connection</strong> (link) for use, command, and control.</p>
 <p>The <code>[nodes]</code> stanza performs a function similar to an OS hosts file. When looking up node information, <code>app_rpt</code> looks in the <code>[nodes]</code> stanza first then searches (what could be called the Allstar DNS) the <code>/var/lib/asterisk/rpt_extnodes</code> file.</p>
 <h2 id="phone-functions-stanza">Phone Functions Stanza</h2>
-<p>The <code>[my_phone_functions]</code> stanza is a named stanza pointed to by the <a href="#phone-functions-stanza"><code>phone_functions=</code></a> option. Functions within this stanza are used decode DTMF commands when <strong>accessing the node from a telephone</strong>. </p>
-<p>The traditional usage is to point <code>phone_functions=</code> to the same stanza as named by <a href="#functions"><code>functions=</code></a>, thereby having functions from a phone and from the local node be the same. </p>
+<p>The <code>[my_phone_functions]</code> stanza is a named stanza pointed to by the <a href="#phone-functions-stanza"><code>phone_functions=</code></a> option. Functions within this stanza are used decode DTMF commands when <strong>accessing the node from a telephone</strong>.</p>
+<p>The traditional usage is to point <code>phone_functions=</code> to the same stanza as named by <a href="#functions"><code>functions=</code></a>, thereby having functions from a phone and from the local node be the same.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>functions = functions               ; name the functions stanza functions
-phone_functions = functions         ; use the same stanza 
+phone_functions = functions         ; use the same stanza
 
 [functions]
 ...
@@ -6623,8 +6623,8 @@ phone_functions = my_phone_functions ; use a different stanza
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>scheduler=schedule   ; name the stanza &#39;schedule&#39;
 
-[schedule]                                                                      
-;dtmf_function =  m h dom mon dow  ; ala cron, star is implied                                                  
+[schedule]
+;dtmf_function =  m h dom mon dow  ; ala cron, star is implied
 2 = 00 00 * * *   ; at midnight every day, execute macro 2.
 </code></pre></div>
 <p>See the <a href="../../adv-topics/scheduler/">Scheduled Events</a> page for more details.</p>
@@ -6651,8 +6651,8 @@ phone_functions = my_phone_functions ; use a different stanza
 <p>Sample:</p>
 <p><div class="highlight"><pre><span></span><code>[telemetry]
 ct1=|t(350,0,100,2048)(500,0,100,2048)(660,0,100,2048)
-ct2=|t(660,880,150,2048)  
-ct3=|t(440,0,150,4096) 
+ct2=|t(660,880,150,2048)
+ct3=|t(440,0,150,4096)
 ct4=|t(550,0,150,2048)
 ct4=|t(2475,0,250,768)
 ct5=|t(660,0,150,2048)
@@ -6662,8 +6662,8 @@ ct8=|t(700,1100,150,2048)
 ct9=filename-without-extension
 
 ;remotetx=|t(1633,0,50,3000)(0,0,80,0)(1209,0,50,3000)
-remotetx=|t(880,0,150,2048) 
-remotemon=|t(1209,0,50,2048) 
+remotetx=|t(880,0,150,2048)
+remotemon=|t(1209,0,50,2048)
 cmdmode=|t(900,903,200,2048)
 functcomplete=|t(1000,0,100,2048)(0,0,100,0)(1000,0,100,2048)
 patchup=rpt/callproceeding
@@ -6694,7 +6694,7 @@ See the <a href="../../adv-topics/courtesytones/">Courtesy Tones</a> page for mo
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>wait-times = wait-times             ; name the stanza wait-times
 
-[wait-times]                                                                                                 
+[wait-times]
 telemwait = 600                     ; time to wait before sending most
 idwait = 600                        ; time to wait before starting ID
 unkeywait = 800                     ; time to wait after unkey before sending CT&#39;s and link telemetry

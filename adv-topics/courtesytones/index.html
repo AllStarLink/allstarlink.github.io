@@ -3972,7 +3972,7 @@
 
 
 <h1 id="courtesy-tones">Courtesy Tones</h1>
-<p>This is how to use and define courtesy tones for ASL3. The telemetry tones to <strong>use</strong> are defined for each node in the <a href="../../config/rpt_conf/#node-number-stanza"><code>[node]</code></a> stanza. The telemetry <strong>definitions</strong> common to all nodes are in the <a href="../../config/rpt_conf/#telemetry-stanza"><code>[telemetry]</code></a> stanza. </p>
+<p>This is how to use and define courtesy tones for ASL3. The telemetry tones to <strong>use</strong> are defined for each node in the <a href="../../config/rpt_conf/#node-number-stanza"><code>[node]</code></a> stanza. The telemetry <strong>definitions</strong> common to all nodes are in the <a href="../../config/rpt_conf/#telemetry-stanza"><code>[telemetry]</code></a> stanza.</p>
 <p>Also see <a href="../conftmpl/">config file templating</a> for more information on where to put node-specific options.</p>
 <h2 id="node-stanza-settings"><code>[node]</code> Stanza Settings</h2>
 <p>The <code>[node]</code> stanza keys below define what un-key events you want to send courtesy tones for, and exceptions for un-key events on locally connected nodes (hosted on the same server).</p>
@@ -4008,8 +4008,8 @@
 </tbody>
 </table>
 <p>Example <code>[node]</code> stanza:</p>
-<div class="highlight"><pre><span></span><code>[1234]                              ; Your node number 
-telemetry = telemetry               ; Points to the telemetry stanza 
+<div class="highlight"><pre><span></span><code>[1234]                              ; Your node number
+telemetry = telemetry               ; Points to the telemetry stanza
 unlinkedct = ct2                    ; Send a this courtesy tone when the user un-keys if the node is not connected to any other nodes. (optional, default is none)
 remotect = ct3                      ; remote linked courtesy tone (indicates a remote is in the list of links)
 linkunkeyct = ct8                   ; sent when a transmission received over the link un-keys
@@ -4066,7 +4066,7 @@ linkunkeyct = ct8                   ; sent when a transmission received over the
 <p><code>frequency1</code> and <code>frequency2</code> must be a number between <code>0</code> and <code>3000</code>. These specify the tone frequency in Hz</p>
 </li>
 <li>
-<p><code>duration</code> is the tone on time in Milliseconds </p>
+<p><code>duration</code> is the tone on time in Milliseconds</p>
 </li>
 <li>
 <p><code>amplitude</code> is the relative volume level of the tone or tones. This can be from <code>0</code> to <code>8192</code></p>
@@ -4082,13 +4082,12 @@ linkunkeyct = ct8                   ; sent when a transmission received over the
 <div class="highlight"><pre><span></span><code> [telemetry]
  ct1=|t(350,0,100,2048)(500,0,100,2048)(660,0,100,2048)
  ct2=|t(660,880,150,2048)
- ct3=|t(440,0,150,4096)       
- ct4=|t(550,0,150,2048)       
+ ct3=|t(440,0,150,4096)
+ ct4=|t(550,0,150,2048)
  ct5=|t(660,0,150,2048)
  ct6=|t(880,0,150,2048)
  ct7=|t(660,440,150,2048)
  ct8=|t(700,1100,150,2048)
- ranger=|t(1800,0,60,3072)(0,0,50,0)(1800,0,60,3072)(0,0,50,0)(1800,0,60,3072)(0,0,50,0)(1800,0,60,3072)(0,0,50,0)(1800,0,60,3072)(0,0,50,0)(1800,0,60,3072)(0,0,150,0)    
  remotetx=|t(1633,0,50,3000)(0,0,80,0)(1209,0,50,3000)
  remotemon=|t(1209,0,50,2048)
  cmdmode=|t(900,903,200,2048)
