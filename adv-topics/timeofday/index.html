@@ -3978,8 +3978,8 @@
 
 
 <h1 id="time-of-day">Time of Day</h1>
-<p>When the time of day message (<code>status 12</code> or <code>status 2</code>) is activated the node will report the local time.  This message can be customized by adding the extension <code>TIME</code> to <a href="../../config/extensions_conf/">extensions.conf</a> under the context <code>[telemetry]</code> or the context defined in <a href="#telemetry">telemetry</a> parameter found in <code>rpt.conf</code>.
-The standard time message extension follows:
+<p>When the time of day message (<code>status 12</code> or <code>status 2</code>) is activated the node will report the local time.  This message can be customized by adding the extension <code>TIME</code> to <a href="../../config/extensions_conf/">extensions.conf</a> under the context <code>[telemetry]</code> or the context named by the <a href="../../config/rpt_conf/#telemetry"> <code>telemetry=</code> </a> parameter found in <code>rpt.conf</code>.</p>
+<p>The standard time message extension follows:</p>
 <div class="highlight"><pre><span></span><code>[telemetry]
 
 ; Say the time of day
@@ -3989,7 +3989,7 @@ exten =&gt; TIME,1, ExecIfTime(0:00-11:59,*,*,*?Playback(rpt/goodmorning))
  same =&gt; n,Playback(rpt/thetimeis)
  same =&gt; n,SayUnixTime(${RPT_TELEM_TIME()},,IMp)
  same =&gt; n,Hangup()
-</code></pre></div></p>
+</code></pre></div>
 <p>A version that eliminates the "o'clock" wording:</p>
 <div class="highlight"><pre><span></span><code>[telemetry]
 
