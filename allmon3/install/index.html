@@ -1266,32 +1266,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#debian-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debian 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#debian-12" class="md-nav__link">
     <span class="md-ellipsis">
       
         Debian 12
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian-11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debian 11
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debian-10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debian 10
       
     </span>
   </a>
@@ -5125,11 +5114,26 @@
 <h2 id="supported-platforms">Supported Platforms</h2>
 <p>Allmon3 is only supported on:</p>
 <ul>
+<li>Debian 13 Bookworm (including Raspberry Pi OS 13)</li>
 <li>Debian 12 Bookworm (including Raspberry Pi OS 12)</li>
-<li>Debian 11 Bullseye (including Raspberry Pi OS 11)</li>
 </ul>
 <p>Allmon3 is installed by default on the Raspberry Pi Image, no installation actions are required, you can proceed directly to <a href="../config/">configuration</a>.</p>
 <h2 id="asl3-packages-install">ASL3 Packages Install</h2>
+<h3 id="debian-13">Debian 13</h3>
+<ul>
+<li>Install the AllStarLink repository file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo -s
+cd /tmp
+wget https://repo.allstarlink.org/public/asl-apt-repos.deb13_all.deb
+sudo dpkg -i asl-apt-repos.deb13_all.deb
+sudo apt update
+</code></pre></div>
+<ul>
+<li>Install Allmon3:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt install allmon3
+</code></pre></div>
 <h3 id="debian-12">Debian 12</h3>
 <ul>
 <li>Install the AllStarLink repository file:</li>
@@ -5144,71 +5148,6 @@ sudo apt update
 <li>Install Allmon3:</li>
 </ul>
 <div class="highlight"><pre><span></span><code>sudo apt install allmon3
-</code></pre></div>
-<h3 id="debian-11">Debian 11</h3>
-<ul>
-<li>Enable the Debian 11 <code>bullseye-backports</code> package repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
-gpg --export 0E98404D386FA1D9 | sudo apt-key add -
-gpg --export 6ED0E7B82643E131 | sudo apt-key add -
-echo "deb https://deb.debian.org/debian bullseye-backports main" &gt; /etc/apt/sources.list.d/bullseye-backports.list
-apt update
-</code></pre></div>
-<ul>
-<li>Install the dependencies:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
-apt install -y -t bullseye-backports python3-websockets python3-aiohttp python3-aiohttp-session
-</code></pre></div>
-<ul>
-<li>Install Allmon3:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.bullseye_all.deb
-dpkg -i allmon3_1.2.0-1.bullseye_all.deb
-</code></pre></div>
-<h3 id="debian-10">Debian 10</h3>
-<p><strong>NOTE:</strong> Allmon v1.2.1 will be the last version for Debian 10. Please upgrade your AllStarLink system to ASL3 on Debian 12.</p>
-<ul>
-<li>Enable the Debian 10 <code>buster-backports</code> package repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
-gpg --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
-gpg --export 04EE7237B7D453EC | sudo apt-key add -
-gpg --export 648ACFD622F3D138 | sudo apt-key add -
-gpg --export 0E98404D386FA1D9 | sudo apt-key add -
-gpg --export 6ED0E7B82643E131 | sudo apt-key add -
-echo "deb https://deb.debian.org/debian buster-backports main" &gt; /etc/apt/sources.list.d/buster-backports.list
-apt update
-</code></pre></div>
-<ul>
-<li>Install the dependencies:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
-apt install -y -t buster-backports python3-async-timeout python3-attr python3-multidict python3-yarl python3-pip
-</code></pre></div>
-<ul>
-<li>Install Python modules using <code>pip3</code>:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt remove python3-aiohttp python3-websockets
-pip3 install aiohttp
-pip3 install aiohttp_session
-pip3 install websockets
-</code></pre></div>
-<ul>
-<li>Update the CA Certificate chain since Debian 10 is out of support:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install ca-certificates
-update-ca-certificates --fresh
-</code></pre></div>
-<ul>
-<li>Install Allmon3 (Debian 10 version):</li>
-</ul>
-<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.buster_all.deb
-dpkg -i allmon3_1.2.0-1.buster_all.debntu.com --recv-keys 6ED0E7B82643E131
 </code></pre></div>
 <h2 id="using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code> package, install <code>nginx</code> using the above directions. After configuring Nginx, edit <code>/etc/nginx/sites-available/default</code> (or your preferred site configuration) and add an <code>include</code> directive within the appropriate <code>server { }</code> configuration block. For example:</p>

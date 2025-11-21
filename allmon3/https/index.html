@@ -5084,12 +5084,12 @@
 
 <h1 id="securing-allmon3-with-https">Securing Allmon3 with HTTPS</h1>
 <p>By default, Allmon3 is installed without HTTPS support. Hence, when you browse to your Allmon3 dashboard, you get a warning about the webpage being "insecure".</p>
-<p>Adding HTTPS support is relatively painless, using a certificate from <a href="https://letsencrypt.org/">LetsEncrypt</a>. </p>
+<p>Adding HTTPS support is relatively painless, using a certificate from <a href="https://letsencrypt.org/">LetsEncrypt</a>.</p>
 <h2 id="pre-requisites">Pre-requisites</h2>
 <p>There are pre-requisites to deploying a LetsEncrypt certificate successfully. The following process assumes the following:</p>
 <ul>
 <li>
-<p>you have Allmon3 running on a stock Debian 12 installation, with Apache as the webserver</p>
+<p>you have Allmon3 running on a supported Debian installation, with Apache as the webserver</p>
 </li>
 <li>
 <p>there are no other "virtual hosts" running on the webserver (there shouldn't be with a stock ASL3 installation)</p>
@@ -5117,7 +5117,7 @@ sudo apt install certbot python3-certbot-apache
 </code></pre></div>
 <p>This will ensure that your system is up to date, then install <code>certbot</code> and the helper plugin for interacting with the Apache webserver.</p>
 <h2 id="request-certificate">Request Certificate</h2>
-<p>Now, we will request and install a certificate for the webserver from LetsEncrypt. With the stock ASL3/Allmon3 installation, <code>certbot</code> and its associated plugin will automatically request a certificate, then modify your Apache webserver configuration files accordingly to support encryption. </p>
+<p>Now, we will request and install a certificate for the webserver from LetsEncrypt. With the stock ASL3/Allmon3 installation, <code>certbot</code> and its associated plugin will automatically request a certificate, then modify your Apache webserver configuration files accordingly to support encryption.</p>
 <p>Run the following command to secure your webserver:</p>
 <div class="highlight"><pre><span></span><code>sudo certbot --apache --agree-tos --redirect --hsts --staple-ocsp --email you@example.com -d yourdomain.com
 </code></pre></div>

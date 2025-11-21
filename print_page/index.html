@@ -5461,18 +5461,15 @@ core set debug 3 chan_simpleusb
 <h3 id="basics-incompatibles-voterrtcm-default-port">VOTER/RTCM Default Port</h3>
 <p>Modern installations of Asterisk runs as the unprivileged <code>asterisk</code> user rather than as <code>root</code>. Linux typically prohibits non-root users from listening on a TCP
 port below <code>1024</code>. The default port for VOTERs/RTCMs was previously port <code>667</code>. This has been changed to port <code>1667</code> to allow Asterisk to access the port, and connect to VOTERs/RTCMs.</p>
-<p>If the VOTER/RTCM port cannot be easily changed, then the following configuration change can be made to the underlying operating system:</p>
-<div class="highlight"><pre><span></span><code>echo net.ipv4.ip_unprivileged_port_start=667 &gt; /etc/sysctl.d/aslport667.conf
-sysctl -p
-systemctl restart asterisk
-</code></pre></div>
+<p>If the VOTER/RTCM port cannot be easily changed, make sure you are using the Debian packaging
+provided by AllStarLink which uses systemd to start asterisk with permissions to listen on <code>667</code>.</p>
 <p>If running the AllStarLink Pi Appliance (or another system with a firewall), inbound to port <code>667/UDP</code> must be permitted. For directions on how to do this with the Pi Appliance see <a href="#pi-cockpit-firewall">Managing the Firewall</a>. <strong>Don't forget to also allow this port through any firewall that may part of your internet connection.</strong></p>
-<p><strong>NOTE:</strong> While this workaround is available, its use is strongly discouraged, as it defeats a security measure in Linux. If at all possible, please try and update any of your VOTERs/RTCMs to use port <code>1667</code>. </p>
+<p><strong>NOTE:</strong> While this workaround is available, its use is strongly discouraged, as it defeats a security measure in Linux. If at all possible, please try and update any of your VOTERs/RTCMs to use port <code>1667</code>.</p>
 <h3 id="basics-incompatibles-pi-serial-ports-available-by-default">Pi Serial Port(s) Available by Default</h3>
 <p>On the ASL3 Pi Appliance, the system comes pre-configured for <code>/dev/serial0</code> (formerly <code>/dev/ttyAMA0</code>) accessibility.</p>
 <p>That means that Bluetooth and the default serial console are disabled. Any directions requiring editing of <code>config.txt</code> or <code>cmdline.txt</code> are unnecessary with the ASL3 appliance.</p>
 <h3 id="basics-incompatibles-pi-dev-entry-changes">Pi <code>/dev</code> Entry Changes</h3>
-<p>As ASL3 is based on Debian 12, users with Raspberry Pi devices must note that the serial port on the Pi expansion header is now <code>/dev/serial0</code> rather than the historical <code>/dev/ttyAMA0</code>. If you are following directions for Pi serial port operations, such as programming an SA818/DRA818-based radio hat or a SHARI node, use <code>/dev/serial0</code> in place of the <code>/dev/ttyAMA0</code> reference.</p>
+<p>As ASL3 is based on Debian 12 and 13, users with Raspberry Pi devices must note that the serial port on the Pi expansion header is now <code>/dev/serial0</code> rather than the historical <code>/dev/ttyAMA0</code>. If you are following directions for Pi serial port operations, such as programming an SA818/DRA818-based radio hat or a SHARI node, use <code>/dev/serial0</code> in place of the <code>/dev/ttyAMA0</code> reference.</p>
 <h3 id="basics-incompatibles-usb-udev">USB <code>udev</code></h3>
 <p>A <code>udev</code> rule is needed to allow Asterisk running as non-root access to the USB system. ASL3 systems installed from <code>.debs</code> using <code>apt install</code>, or Raspberry Pi images will already have this rule in place, so no additional action is required. This is documented for advanced users and developers.</p>
 <div class="highlight"><pre><span></span><code>/etc/udev/rules.d/90-asl3.rules
@@ -5523,7 +5520,7 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="0d8c", GROUP="plugdev", TAG+="uaccess"
 <p>What happened?  Simply put, the older pre-NNX DNS records blocked the full 6-digit query and connection attempt from succeeding.  If the old records had been removed then the remote node would have kept listening for the last important digit, queried and matched the NNX node, and would have been able to successfully connect with your node.</p>
 <p>At this time, we have a once daily process that cleans out the older records.  But, you have to wait for the cleanup to happen.  We are working on changes to more quickly update the DNS records.</p>
 <h3 id="basics-incompatibles-resize2fs_once-error">resize2fs_once "Error"</h3>
-<p>There are intermittent cases of errors on the screen or in  the system logs about a failure of a service named <code>resize2fs_once.service</code> after the final first boot upon installation. The error may report that it "Failed to start" or "timed out". If the <code>/</code> partition has been properly resized, which has been the case in every known 
+<p>There are intermittent cases of errors on the screen or in  the system logs about a failure of a service named <code>resize2fs_once.service</code> after the final first boot upon installation. The error may report that it "Failed to start" or "timed out". If the <code>/</code> partition has been properly resized, which has been the case in every known
 occurrence of the error, then there is no action to take and the issue will not appear on subsequent reboots.</p>
 <p>A properly resized <code>/</code> should be a bit smaller than the full size of the SD card or USB drive used with the device.</p>
 <p>In Cockpit, look at the Storage tab:</p>
@@ -5539,10 +5536,10 @@ occurrence of the error, then there is no action to take and the issue will not 
         })
         </script>
         </head><body><h1 id="asl3-installation">ASL3 Installation</h1>
-<p>Welcome to the Installation section of the manual! We know you are excited to get on with trying out the new ASL3. </p>
-<p>In this section of the manual, you will find instructions on how to create an ASL3 Appliance, using the Raspberry Pi Image, or install ASL3 on Debian 12. </p>
+<p>Welcome to the Installation section of the manual! We know you are excited to get on with trying out the new ASL3.</p>
+<p>In this section of the manual, you will find instructions on how to create an ASL3 Appliance, using the Raspberry Pi Image, or install ASL3 on Debian.</p>
 <p>Before you get started with installing the ASL3 software, do you have a node number assigned? See the <a href="#basics">Getting Started</a> section to find out how to request a node number to connect to the AllStarLink network.</p>
-<p>Use the Table of Contents on the left to jump to the type of installation you are wishing to perform, but be sure to check out the rest of the topics in this section for other important information. </p>
+<p>Use the Table of Contents on the left to jump to the type of installation you are wishing to perform, but be sure to check out the rest of the topics in this section for other important information.</p>
 <p>Once you've got your new ASL3 installed, be sure to check out the <a href="#user-guide">Basic Operation</a> section (see the link at the top of the page).</p></body></html></section><section class="print-page" id="install-whats-new" heading-number="3.2"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
@@ -5598,8 +5595,8 @@ occurrence of the error, then there is no action to take and the issue will not 
 <p>The Pi would be the <a href="#basics-gettingstarted-what-is-a-server">Server</a> on which you would deploy your <a href="#basics-gettingstarted-what-is-a-node">Node(s)</a>.</p>
 <p>The ASL3 Appliance (Raspberry Pi) image includes the following to make a complete AllStarLink system:</p>
 <ul>
-<li>Debian 12 operating system</li>
-<li>Asterisk 20 LTS + <code>app_rpt</code></li>
+<li>Debian 12 or 13 operating system</li>
+<li>Asterisk 22 LTS + <code>app_rpt</code></li>
 <li><code>asl-*</code> commands</li>
 <li>ASL3 Menu (<a href="#user-guide"><code>asl-menu</code></a>)</li>
 <li>Allmon3</li>
@@ -5998,7 +5995,7 @@ Use of a <a href="#install-debian-install">normal installation</a> is recommende
 <div class="admonition warning">
 <p class="admonition-title">Host / Container Kernel Compatibility</p>
 <p>As app_rpt.so requires the DAHDI kernel modules, the container must be
-hosted on a Debian 12 system. The container must be able to compile the
+hosted on a Debian 12 or Debian 13 system. The container must be able to compile the
 kernel module (using DKMS) for the exact kernel version provided to
 the container from the Host OS. Currently, the container must be
 recomposed after a reboot into a new kernel.</p>
@@ -6006,7 +6003,7 @@ recomposed after a reboot into a new kernel.</p>
 <div class="admonition note">
 <p class="admonition-title">Advanced Concept</p>
 <p>Use of Asterisk/app_rpt within a Docker container is not a trivial
-undertaking. The Docker structure is provided due to requests from the 
+undertaking. The Docker structure is provided due to requests from the
 community but it is not the recommended way to install and use
 AllStarLink as it requires more configuration, not less, than
 a traditional installation.</p>
@@ -6015,14 +6012,14 @@ a traditional installation.</p>
 <p class="admonition-title">Limited Support</p>
 <p>Installation of Asterisk/app_rpt in a container is not a primary
 platform for AllStarLink v3. Updates, fixes, and support will
-occur on as "as available" basis. Users of the container are 
+occur on as "as available" basis. Users of the container are
 requested to help the project.</p>
 </div>
 <h2 id="install-debian-docker-git-repository">Git Repository</h2>
 <p>Create the directory <code>/docker</code> (or use whatever is preferred), <code>cd</code> to it,
 and check out the Git repository containing the Docker configuration.
 All commands on the rest of this page assume they are being run from
-the directory containing the root of the Git repository. </p>
+the directory containing the root of the Git repository.</p>
 <p>For this manual page, the path used is <code>/docker/ASL3-Docker</code>.</p>
 <p>The Git repository is located at <a href="https://github.com/AllstarLink/asl3-docker">https://github.com/AllstarLink/asl3-docker</a>. The following general steps can be used:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/docker
@@ -6213,11 +6210,26 @@ applications.</p>
 <h2 id="allmon3-install-supported-platforms">Supported Platforms</h2>
 <p>Allmon3 is only supported on:</p>
 <ul>
+<li>Debian 13 Bookworm (including Raspberry Pi OS 13)</li>
 <li>Debian 12 Bookworm (including Raspberry Pi OS 12)</li>
-<li>Debian 11 Bullseye (including Raspberry Pi OS 11)</li>
 </ul>
 <p>Allmon3 is installed by default on the Raspberry Pi Image, no installation actions are required, you can proceed directly to <a href="#allmon3-config">configuration</a>.</p>
 <h2 id="allmon3-install-asl3-packages-install">ASL3 Packages Install</h2>
+<h3 id="allmon3-install-debian-13">Debian 13</h3>
+<ul>
+<li>Install the AllStarLink repository file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo -s
+cd /tmp
+wget https://repo.allstarlink.org/public/asl-apt-repos.deb13_all.deb
+sudo dpkg -i asl-apt-repos.deb13_all.deb
+sudo apt update
+</code></pre></div>
+<ul>
+<li>Install Allmon3:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt install allmon3
+</code></pre></div>
 <h3 id="allmon3-install-debian-12">Debian 12</h3>
 <ul>
 <li>Install the AllStarLink repository file:</li>
@@ -6232,71 +6244,6 @@ sudo apt update
 <li>Install Allmon3:</li>
 </ul>
 <div class="highlight"><pre><span></span><code>sudo apt install allmon3
-</code></pre></div>
-<h3 id="allmon3-install-debian-11">Debian 11</h3>
-<ul>
-<li>Enable the Debian 11 <code>bullseye-backports</code> package repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
-gpg --export 0E98404D386FA1D9 | sudo apt-key add -
-gpg --export 6ED0E7B82643E131 | sudo apt-key add -
-echo "deb https://deb.debian.org/debian bullseye-backports main" &gt; /etc/apt/sources.list.d/bullseye-backports.list
-apt update
-</code></pre></div>
-<ul>
-<li>Install the dependencies:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
-apt install -y -t bullseye-backports python3-websockets python3-aiohttp python3-aiohttp-session
-</code></pre></div>
-<ul>
-<li>Install Allmon3:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.bullseye_all.deb
-dpkg -i allmon3_1.2.0-1.bullseye_all.deb
-</code></pre></div>
-<h3 id="allmon3-install-debian-10">Debian 10</h3>
-<p><strong>NOTE:</strong> Allmon v1.2.1 will be the last version for Debian 10. Please upgrade your AllStarLink system to ASL3 on Debian 12.</p>
-<ul>
-<li>Enable the Debian 10 <code>buster-backports</code> package repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
-gpg --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
-gpg --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
-gpg --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
-gpg --export 04EE7237B7D453EC | sudo apt-key add -
-gpg --export 648ACFD622F3D138 | sudo apt-key add -
-gpg --export 0E98404D386FA1D9 | sudo apt-key add -
-gpg --export 6ED0E7B82643E131 | sudo apt-key add -
-echo "deb https://deb.debian.org/debian buster-backports main" &gt; /etc/apt/sources.list.d/buster-backports.list
-apt update
-</code></pre></div>
-<ul>
-<li>Install the dependencies:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install -y apache2 python3-argon2 
-apt install -y -t buster-backports python3-async-timeout python3-attr python3-multidict python3-yarl python3-pip
-</code></pre></div>
-<ul>
-<li>Install Python modules using <code>pip3</code>:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt remove python3-aiohttp python3-websockets
-pip3 install aiohttp
-pip3 install aiohttp_session
-pip3 install websockets
-</code></pre></div>
-<ul>
-<li>Update the CA Certificate chain since Debian 10 is out of support:</li>
-</ul>
-<div class="highlight"><pre><span></span><code>apt install ca-certificates
-update-ca-certificates --fresh
-</code></pre></div>
-<ul>
-<li>Install Allmon3 (Debian 10 version):</li>
-</ul>
-<div class="highlight"><pre><span></span><code>wget https://github.com/AllStarLink/Allmon3/releases/download/t_rel_1_2_0/allmon3_1.2.0-1.buster_all.deb
-dpkg -i allmon3_1.2.0-1.buster_all.debntu.com --recv-keys 6ED0E7B82643E131
 </code></pre></div>
 <h2 id="allmon3-install-using-nginx-instead-of-apache">Using Nginx instead of Apache</h2>
 <p>Nginx can be used instead of Apache. Instead of using the <code>apache2</code> package, install <code>nginx</code> using the above directions. After configuring Nginx, edit <code>/etc/nginx/sites-available/default</code> (or your preferred site configuration) and add an <code>include</code> directive within the appropriate <code>server { }</code> configuration block. For example:</p>
@@ -6586,12 +6533,12 @@ user2 | NODE
         </script>
         </head><body><h1 id="securing-allmon3-with-https">Securing Allmon3 with HTTPS</h1>
 <p>By default, Allmon3 is installed without HTTPS support. Hence, when you browse to your Allmon3 dashboard, you get a warning about the webpage being "insecure".</p>
-<p>Adding HTTPS support is relatively painless, using a certificate from <a href="https://letsencrypt.org/">LetsEncrypt</a>. </p>
+<p>Adding HTTPS support is relatively painless, using a certificate from <a href="https://letsencrypt.org/">LetsEncrypt</a>.</p>
 <h2 id="allmon3-https-pre-requisites">Pre-requisites</h2>
 <p>There are pre-requisites to deploying a LetsEncrypt certificate successfully. The following process assumes the following:</p>
 <ul>
 <li>
-<p>you have Allmon3 running on a stock Debian 12 installation, with Apache as the webserver</p>
+<p>you have Allmon3 running on a supported Debian installation, with Apache as the webserver</p>
 </li>
 <li>
 <p>there are no other "virtual hosts" running on the webserver (there shouldn't be with a stock ASL3 installation)</p>
@@ -6619,7 +6566,7 @@ sudo apt install certbot python3-certbot-apache
 </code></pre></div>
 <p>This will ensure that your system is up to date, then install <code>certbot</code> and the helper plugin for interacting with the Apache webserver.</p>
 <h2 id="allmon3-https-request-certificate">Request Certificate</h2>
-<p>Now, we will request and install a certificate for the webserver from LetsEncrypt. With the stock ASL3/Allmon3 installation, <code>certbot</code> and its associated plugin will automatically request a certificate, then modify your Apache webserver configuration files accordingly to support encryption. </p>
+<p>Now, we will request and install a certificate for the webserver from LetsEncrypt. With the stock ASL3/Allmon3 installation, <code>certbot</code> and its associated plugin will automatically request a certificate, then modify your Apache webserver configuration files accordingly to support encryption.</p>
 <p>Run the following command to secure your webserver:</p>
 <div class="highlight"><pre><span></span><code>sudo certbot --apache --agree-tos --redirect --hsts --staple-ocsp --email you@example.com -d yourdomain.com
 </code></pre></div>
@@ -6909,7 +6856,7 @@ Pass --all to see loaded but inactive timers, too.
 <h3 id="user-guide-passwords-how-do-i-setup-a-linux-login">How do I setup a Linux login?</h3>
 <ul>
 <li>For those using the Raspberry Pi Imager, you will use the "OS Customization" to setup a new login account. Here, you will specify your login <code>user</code> and <code>password</code> (or provide an SSH public key for password-less access)</li>
-<li>For those installing generic Debian OS, you should be prompted to setup an initial account during the OS installation. This is where you will specify your login <code>user</code> and <code>password</code>. Note, we recommend NOT configuring a <code>root</code> account during Debian 12 installation (skip it), so that the first user account you create will be able to issue root commands using <code>sudo</code></li>
+<li>For those installing generic Debian OS, you should be prompted to setup an initial account during the OS installation. This is where you will specify your login <code>user</code> and <code>password</code>. Note, we recommend NOT configuring a <code>root</code> account during Debian installation (skip it), so that the first user account you create will be able to issue root commands using <code>sudo</code></li>
 <li>Some Virtual Machines (VM's) will have you use a pre-configured image with a default <code>user</code> and <code>password</code>.  Check the documentation associated with the image, or your VM host/provider for details</li>
 </ul>
 <p><strong>NOTE:</strong> There is NO DEFAULT USER included in the ASL3 Raspberry Pi Appliance image.</p>
@@ -6933,7 +6880,7 @@ secret = my-AMI-password
         </head><body><h1 id="updating-asl3">Updating ASL3</h1>
 <p>All of the software components that make up ASL3 are provided by software packages (Debian <code>.deb</code> files) from an centralized Apt repository. This makes upgrades quick and painless for users.</p>
 <h2 id="user-guide-updates-standard-debian-upgrades">Standard Debian Upgrades</h2>
-<p>Whether ASL3 is installed on a standard Debian 12 installation or you are using the Pi Appliance image, updates follow the standard Debian format:</p>
+<p>Whether ASL3 is installed on a standard Debian installation or you are using the Pi Appliance image, updates follow the standard Debian format:</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
 sudo apt upgrade -y
 </code></pre></div>
@@ -7912,9 +7859,9 @@ sudo asl-repo-switch -l main
 sudo apt update
 sudo apt install -y --reinstall asl3 asl3-asterisk asl3-asterisk-config \
   asl3-asterisk-modules asl3-menu asl3-update-nodelist \
-  asl3-pi-appliance allmon3
+  asl3-appliance-pi allmon3
 </code></pre></div>
-<p>For Debian 12 general installations:</p>
+<p>For Debian 12 or 13 general installations:</p>
 <div class="highlight"><pre><span></span><code>sudo asl-repo-switch -r
 sudo apt update
 sudo apt install -y --reinstall asl3 asl3-asterisk asl3-asterisk-config \
