@@ -1022,6 +1022,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debian Appliance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1038,6 +1056,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#appliance-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliance Options :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appliance-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appliance Installation :
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5002,25 +5061,102 @@
 
 
 <h1 id="debian-appliance">Debian Appliance</h1>
+<p>AllStarLink distributes a set of packages that turn a Debian OS installation
+into an "appliance" for almost-turnkey operation of an ASL node. The following
+features are available with the appliance packages.</p>
 <div class="admonition info">
 <p class="admonition-title">Debian 13 Only</p>
 <p>An ASL Appliance can only be added to Debian 13 installations.</p>
 </div>
-<p>If you install the following packages, you’ll have everything you need to use the “appliance” configuration.</p>
-<p>Any Debian 13 installation can turned into an appliance. The following
-will work for any platform, including virtual machines and VPS installs.
-</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3-appliance
-</code></pre></div><p></p>
-<p>Systems that are hardware based (that <em>are not</em> Raspberry Pi platforms) where certain additional features
-may be desired, notably mDNS and low-write disk environments can
+<h2 id="appliance-options">Appliance Options :</h2>
+<p>The following appliance options are available :</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>ASL3-Appliance</th>
+<th>ASL3-Appliance-Pi</th>
+<th>ASL3-Appliance-PC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASL Appliance Web Page</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Web Server Management</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Allmon3 Auto-Configuration</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Cockpit</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Firewall Configuration</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>mDNS Broadcasts (<code>.local</code> DNS names)</td>
+<td></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Swapfile Management</td>
+<td></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+</tr>
+<tr>
+<td>Pi <code>/dev/serial0</code> Management</td>
+<td></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Wi-Fi Configuration Preloaded</td>
+<td></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td></td>
+</tr>
+<tr>
+<td>Logs and temp files are ephemeral to reduce writes to<br>media when used on an ASL3 Appliance Pi image</td>
+<td></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m9 20.42-6.21-6.21 2.83-2.83L9 14.77l9.88-9.89 2.83 2.83z"></path></svg></span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="appliance-installation">Appliance Installation :</h2>
+<p>Any Debian 13 installation can be turned into an appliance. The following
+will work for any platform, including virtual machines and VPS installs.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3-appliance
+</code></pre></div>
+<p>Systems that are hardware based (that <em>are not</em> Raspberry Pi platforms) where certain
+additional features may be desired, notably mDNS and swap management can
 use the "PC" flavor of the appliance:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3-appliance-pc
 </code></pre></div>
 <p>Systems that are based on the Raspberry Pi platform are strongly encouraged to start with
 the ASL3 Appliance (Raspberry Pi) image that includes the asl3-appliance-pi package.
-Those who need to create their own Pi images (something ASL does not support), can use:
-</p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3-appliance-pi
-</code></pre></div><p></p>
+Those who need to create their own Pi images (something ASL does not support), can use:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>asl3-appliance-pi
+</code></pre></div>
 <p>Use one of the above in the <a href="../install/">Debian Appliance</a> directions
 in place of the <em>ASL3 Package Install</em> step.</p>
 
