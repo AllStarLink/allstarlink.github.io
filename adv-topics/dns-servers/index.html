@@ -4115,18 +4115,15 @@ dig &lt;nodenumber&gt;.remotebase.nodes.allstarlink.org
 <div class="highlight"><pre><span></span><code>dig TXT &lt;nodenumber&gt;.nodes.allstarlink.org
 </code></pre></div>
 <p>will return:</p>
-<div class="highlight"><pre><span></span><code>&quot;NN=50000&quot; &quot;RT=2019-02-28 18:41:29&quot; &quot;RB=0&quot; &quot;IP=44.98.248.144&quot; &quot;PIP=&quot; &quot;PT=4569&quot; &quot;RH=register-west&quot;
+<div class="highlight"><pre><span></span><code>&quot;NN=50000&quot; &quot;IP=44.98.248.144&quot; &quot;PT=4569&quot;
 </code></pre></div>
 <p>Where:</p>
 <ul>
-<li>NN is the node number</li>
-<li>RT is the last update registration time</li>
-<li>RB is 1 for node is not a remote base, RB is 0 if it is a remote base</li>
-<li>IP is the IP address of the node</li>
-<li>PIP is the proxy IP of the node if set</li>
-<li>PT is the IAX port</li>
-<li>RH is the registration server the node last registered to.</li>
+<li><code>NN</code> is the node number</li>
+<li><code>IP</code> is the IP address of the node</li>
+<li><code>PT</code> is the IAX port</li>
 </ul>
+<p>Note: earlier (pre Dec 2025) versions of the TXT record also included values for <code>RT</code> (last update registration time), <code>RB</code> (remote base), <code>PIP</code> (proxy IP), and <code>RH</code> (registration server).</p>
 <h2 id="asl-node-lookup"><code>asl-node-lookup</code></h2>
 <p>On ASL3 systems, the <a href="../../mans/asl-node-lookup/"><code>asl-node-lookup</code></a> command can also be used to query the DNS servers for information about a node.</p>
 
