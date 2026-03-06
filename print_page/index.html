@@ -8511,7 +8511,43 @@ Host                  Username    Perceived              Refresh  State
 <li>
 <p>Your node should now operate on the 44Net Connect service.</p>
 </li>
-</ol></body></html></section><section class="print-page" id="adv-topics-allowdenylists" heading-number="5.3"><html><head>
+</ol>
+<h2 id="adv-topics-44net-connect-protecting-a-44net-connection">Protecting a 44Net Connection</h2>
+<div class="admonition danger">
+<p class="admonition-title">VPN Security Warning</p>
+<p>Do not skip these steps. If you do, there will be no
+firewall or network protection for your node from
+the whole Internet.</p>
+</div>
+<h3 id="adv-topics-44net-connect-linking-only-profile">Linking Only Profile</h3>
+<p>If you only need to support linking over VPN and are
+using another access method or a local LAN to manage the
+system, enter the following commands:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--new-zone<span class="o">=</span>44NetConnect
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>iax2
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>echolink
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-interface<span class="o">=</span>wg0
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<p>This will only permit IAX2 (normal AllStarLink connections)
+and Echolink connections to the node.</p>
+<h3 id="adv-topics-44net-connect-full-node-profile">Full Node Profile</h3>
+<div class="admonition danger">
+<p class="admonition-title">VPN Security Warning</p>
+<p>This will expose SSH (port 22), webservers (ports 80, 443),
+Cockpot (port 9090), and the Asterisk AMI (port 5038)
+to the Internet. Ensure that all passwords and secrets
+(including AMI bind passwords)
+used in this configuration are strong - at least 16 characters
+long and a mix of letters and numbers.</p>
+</div>
+<p>If you need to manage your node through the VPN IP address
+using SSH or Cockpit, the enter the following commands:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>allstarlink<span class="w"> </span>--add-interface<span class="o">=</span>wg0<span class="w"> </span>--permanent
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<p>Other restrictions such as AMI's
+<code>bindaddr</code> in <code>manager.conf</code> will always be applied. However</p></body></html></section><section class="print-page" id="adv-topics-allowdenylists" heading-number="5.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -8617,24 +8653,24 @@ module load app_gps
 <p>Running the <code>piper-tts</code> system takes a few seconds to compile the voice into the sound file. Larger text blocks may take tens of seconds to compile. <code>asl-tts</code> is not appropriate for time-sensitive communications such as speaking the current time.</p>
 </div>
 <p>The command format is as follows:</p>
-<div class="highlight"><pre><span></span><code>asl-tts -n NODE -t 'TEXT' [ -v VOICE ] [ -f FILE ]
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n &lt;node&gt; -t 'TEXT' [ -v &lt;voice&gt; ] [ -f &lt;file&gt; ]
 </code></pre></div>
 <p>The general use case is to speak to a node immediately. This this case speaking the text "Good morning" to node 63001 would look like this:</p>
-<div class="highlight"><pre><span></span><code>sudo asl-tts -n 63001 -t 'Good morning'
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -t 'Good morning'
 </code></pre></div>
 <p>The TTS engine will start, create the audio, and execute the playback on the node. The playback follows normal <code>app_rpt</code> rules and will be played back as soon as its turn arrives. The command will not preempt or "talk over" other traffic on the node.</p>
 <p>Keep in mind the differences between quoting in a shell command. In general, the <code>"</code> and <code>'</code> work the same but the double-quote will allow variable substitution while the single quote will not. This can be useful if you want to create text based on a system condition. For example:</p>
 <div class="highlight"><pre><span></span><code>TODAY=$(date +"%A, %B %d, %Y")
-sudo asl-tts -n 63001 -t "Today is ${TODAY}"
+sudo -u asterisk asl-tts -n 63001 -t "Today is ${TODAY}"
 </code></pre></div>
 <p>Obviously the above example is a bit contrived as the <code>date</code> command doesn't generate nice words such as "first", "seventeenth", etc. However, it demonstrates the flexibility of the tool. A script could be used to populate <code>$TODAY</code> with natural words. For a hypothetical example:</p>
 <div class="highlight"><pre><span></span><code>TODAY=$(/path/to/today-script)
-sudo asl-tts -n 63001 -t "Today is ${TODAY}"
+sudo -u asterisk asl-tts -n 63001 -t "Today is ${TODAY}"
 </code></pre></div>
 <p>More complex message can be created with additional shell coding. As an example here's how the current public IP address of the system could be obtained and spoken:</p>
 <div class="highlight"><pre><span></span><code>IPADDR=$(wget -q -O - checkip.dyndns.com | grep -Po "[\d\.]+" | sed 's/\./ dot /g')
 MSG="The node public IP is ${IPADDR}"
-sudo asl-tts -n 63001 -t ${MSG}
+sudo -u asterisk asl-tts -n 63001 -t ${MSG}
 </code></pre></div>
 <p>A <code>bash</code> shell variable can generally hold up to a 2 Mb-sized string so any reasonably-formatted text can be stored in a variable and then played with the <code>-t</code> command. Keep in mind that the text or the variable contents must not contain the same quote type used in the command without escaping it with a backslash. For example <code>"Nested \" mark"</code>.</p>
 <div class="admonition warning">
@@ -8645,7 +8681,7 @@ sudo asl-tts -n 63001 -t ${MSG}
 <p>To create the text for other usage, such as cron jobs, use the <code>-f FILE</code> option to specify where the file should be created. Do not use an extension, the file will be automatically appended with the <code>.ul</code> suffix.</p>
 <p>For example:</p>
 <div class="highlight"><pre><span></span><code>AUD_TEXT="The club net will begin in five minutes!"
-asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
+sudo -u asterisk asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
 </code></pre></div>
 <p>This will create a sound file <code>/tmp/netstartsin5.ul</code> that can be used later with an asterisk playback such as:</p>
 <div class="highlight"><pre><span></span><code>asterisk -rx 'rpt playback 63001 /tmp/netstartsin5
@@ -8662,7 +8698,7 @@ asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
 <p>Specify <code>-v en_GB-alan-low.onnx</code> on the command line to <code>asl-tts</code>. As an example:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>asl-tts -n 63001 -v en_GB-alan-low.onnx -t "Good morning"
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -v en_GB-alan-low.onnx -t "Good morning"
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">File Quality</p>
