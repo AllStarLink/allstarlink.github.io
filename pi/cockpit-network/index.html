@@ -1890,15 +1890,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-wifi-settings" class="md-nav__link">
+  <a href="#changing-wifi-settings-via-cockpit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Changing WiFi Settings
+        Changing WiFi Settings via Cockpit
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Changing WiFi Settings">
+    <nav class="md-nav" aria-label="Changing WiFi Settings via Cockpit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#existing-configured-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existing Configured Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-for-available-wifi-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning for Available WiFi Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-a-wifi-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure a WiFi Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-wifi-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete a WiFi NEtwork
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-wifi-settings-via-the-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing WiFi Settings via the Terminal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing WiFi Settings via the Terminal">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2047,6 +2108,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -2806,6 +2871,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/iax-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/iaxreg/" class="md-nav__link">
         
   
@@ -3234,6 +3327,34 @@
     
   
     Private Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/radio-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radio Connections
   
 
     
@@ -4279,6 +4400,8 @@
       
         
       
+        
+      
     
     
     
@@ -4488,6 +4611,34 @@
     
   
     APIs and Datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/iaxtext/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    app_rpt IAX Text Protocol
   
 
     
@@ -5227,8 +5378,24 @@
 <p>Changes take place immediately. Be cautious when changing IP addressing because you may accidentally remove your ability to access to the console.</p>
 </li>
 </ol>
-<h2 id="changing-wifi-settings">Changing WiFi Settings</h2>
-<p>Unfortunately, <code>Cockpit</code> does not have an interface for managing WiFi networks with in it. Currently WiFi network changes must be made from the web console Terminal screen.</p>
+<h2 id="changing-wifi-settings-via-cockpit">Changing WiFi Settings via Cockpit</h2>
+<p>Use <em>Tools -&gt; WiFi Manager</em> to manage WiFi networks.
+All of these commands require <a href="/pi/cockpit-basics/#administrative-access">Administrative Access</a>.</p>
+<h3 id="existing-configured-networks">Existing Configured Networks</h3>
+<p>The section <strong>Configured WiFi Networks</strong> shows the currently-configured WiFi
+networks that can be used when in range. The WiFi network configured during the
+Pi imaging process will always be called <code>preconfigured</code>.</p>
+<h3 id="scanning-for-available-wifi-networks">Scanning for Available WiFi Networks</h3>
+<p>To see what's "in the air" around the node, click the <strong>Scan for WiFi Networks</strong>
+button. After a few moments, visible WiFi networks will be displayed.</p>
+<h3 id="configure-a-wifi-network">Configure a WiFi Network</h3>
+<p>To add a new WiFi network, under the <strong>Configure a WiFi Network</strong> section
+simply enter the new <em>Network Name</em> and <em>Network Password</em> then
+click <strong>Save Network</strong>.</p>
+<h3 id="delete-a-wifi-network">Delete a WiFi NEtwork</h3>
+<p>To delete a WiFi network, copy the <em>Connection ID</em> from <strong>Configured Wifi Networks</strong>
+at the top of the page into the <em>Connection ID</em> box. Then click <strong>Delete Network</strong>.</p>
+<h2 id="changing-wifi-settings-via-the-terminal">Changing WiFi Settings via the Terminal</h2>
 <h3 id="listing-existing-wifi-networks">Listing Existing WiFi Networks</h3>
 <p>List the existing WiFi network(s) with <code>nmcli device wifi list</code>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/cockpit_wifi1.png" data-desc-position="bottom"><img alt="Display Wifi" src="../img/cockpit_wifi1.png"></a></p>
@@ -5259,7 +5426,7 @@ nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD
 <p><strong>NOTE:</strong> DO NOT use the <code>raspi-config</code> tool to attempt to set the Wifi network and
 password. This will break the appliance's networking.</p>
 <hr>
-<p><strong>NOTE:</strong> Some content copied from 
+<p><strong>NOTE:</strong> Some content copied from
 <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/managing_systems_using_the_rhel_9_web_console/index"><strong>Managing systems using the RHEL9 web console</strong></a> which is released under the Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA")</p>
 
 

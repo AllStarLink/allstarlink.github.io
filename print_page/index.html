@@ -2032,6 +2032,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2681,6 +2685,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../adv-topics/iax-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../adv-topics/iaxreg/" class="md-nav__link">
         
   
@@ -3109,6 +3141,34 @@
     
   
     Private Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/radio-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Radio Connections
   
 
     
@@ -4154,6 +4214,8 @@
       
         
       
+        
+      
     
     
     
@@ -4363,6 +4425,34 @@
     
   
     APIs and Datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developers/iaxtext/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    app_rpt IAX Text Protocol
   
 
     
@@ -8225,8 +8315,24 @@ You may be prompted to to enter the password again. Do so and then click <strong
 <p>Changes take place immediately. Be cautious when changing IP addressing because you may accidentally remove your ability to access to the console.</p>
 </li>
 </ol>
-<h2 id="pi-cockpit-network-changing-wifi-settings">Changing WiFi Settings</h2>
-<p>Unfortunately, <code>Cockpit</code> does not have an interface for managing WiFi networks with in it. Currently WiFi network changes must be made from the web console Terminal screen.</p>
+<h2 id="pi-cockpit-network-changing-wifi-settings-via-cockpit">Changing WiFi Settings via Cockpit</h2>
+<p>Use <em>Tools -&gt; WiFi Manager</em> to manage WiFi networks.
+All of these commands require <a href="#pi-cockpit-basics-administrative-access">Administrative Access</a>.</p>
+<h3 id="pi-cockpit-network-existing-configured-networks">Existing Configured Networks</h3>
+<p>The section <strong>Configured WiFi Networks</strong> shows the currently-configured WiFi
+networks that can be used when in range. The WiFi network configured during the
+Pi imaging process will always be called <code>preconfigured</code>.</p>
+<h3 id="pi-cockpit-network-scanning-for-available-wifi-networks">Scanning for Available WiFi Networks</h3>
+<p>To see what's "in the air" around the node, click the <strong>Scan for WiFi Networks</strong>
+button. After a few moments, visible WiFi networks will be displayed.</p>
+<h3 id="pi-cockpit-network-configure-a-wifi-network">Configure a WiFi Network</h3>
+<p>To add a new WiFi network, under the <strong>Configure a WiFi Network</strong> section
+simply enter the new <em>Network Name</em> and <em>Network Password</em> then
+click <strong>Save Network</strong>.</p>
+<h3 id="pi-cockpit-network-delete-a-wifi-network">Delete a WiFi NEtwork</h3>
+<p>To delete a WiFi network, copy the <em>Connection ID</em> from <strong>Configured Wifi Networks</strong>
+at the top of the page into the <em>Connection ID</em> box. Then click <strong>Delete Network</strong>.</p>
+<h2 id="pi-cockpit-network-changing-wifi-settings-via-the-terminal">Changing WiFi Settings via the Terminal</h2>
 <h3 id="pi-cockpit-network-listing-existing-wifi-networks">Listing Existing WiFi Networks</h3>
 <p>List the existing WiFi network(s) with <code>nmcli device wifi list</code>:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../pi/img/cockpit_wifi1.png" data-desc-position="bottom"><img alt="Display Wifi" src="../pi/img/cockpit_wifi1.png"></a></p>
@@ -8257,7 +8363,7 @@ nmcli conn modify MYNETWORK wifi-sec.key-mgmt wpa-psk wifi-sec.psk MYPASSWORD
 <p><strong>NOTE:</strong> DO NOT use the <code>raspi-config</code> tool to attempt to set the Wifi network and
 password. This will break the appliance's networking.</p>
 <hr>
-<p><strong>NOTE:</strong> Some content copied from 
+<p><strong>NOTE:</strong> Some content copied from
 <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/managing_systems_using_the_rhel_9_web_console/index"><strong>Managing systems using the RHEL9 web console</strong></a> which is released under the Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA")</p></body></html></section><section class="print-page" id="pi-cockpit-updates" heading-number="4.11.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
@@ -10263,7 +10369,139 @@ register =&gt; 1999:password@register.allstarlink.org    ; This must be changed 
 </code></pre></div>
 <p>While <a href="#adv-topics-iaxreg">IAX registration</a> still works, please <em>do not</em> register with both HTTP and IAX. That would result in unnecessary server load for no gain. </p>
 <p>The long term plan is to do away with IAX registration. HTTP registration allows load balancing and other advantages not available with IAX. The ASL2 IAX module has been replaced with the Asterisk LTS IAX2 module for upstream compatibility.</p>
-<p>If you feel you absolutely need to use IAX registration, see the <a href="#adv-topics-iaxreg">IAX-Based Registration</a> page in this section for more information.</p></body></html></section><section class="print-page" id="adv-topics-iaxreg" heading-number="5.23"><html><head>
+<p>If you feel you absolutely need to use IAX registration, see the <a href="#adv-topics-iaxreg">IAX-Based Registration</a> page in this section for more information.</p></body></html></section><section class="print-page" id="adv-topics-iax-proxy" heading-number="5.23"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="iax-proxy">IAX Proxy</h1>
+<div class="admonition danger">
+<p class="admonition-title">Wiki Copied Page</p>
+<p>This page was copied verbatim from the obsolete wiki.allstarlink.org.
+It is incomplete and possibly incorrect.</p>
+</div>
+<p>Occasionally there is a need to have an AllStarLink Server in an 'itinerant' location (one that is non-permanent and possibly even moving). In such a situation it is certainly quite likely that the device's IP address may change quite often (perhaps even several times per hour or more). Also, the form of IP connectivity available to the device may not necessarily be suitable for normal Server operation (such as being behind NAT translation, firewalls, etc. that the Server owner has no control of). Normal operation requires fairly stable IP addressing and full public access to at least UDP port 4569 (for IAX2 connectivity) to the Server. Typical examples of 'itinerant' environments include setting up a tiny portable node in a hotel room, utilizing the Internet connectivity provided by the hotel, or having a mobile node on a mobile data network that provides connectivity via some sort of NAT arrangement.</p>
+<p>In a situation like this, it is possible to set up a Proxy relationship between such a Server and a Server located in a permanent position with a permanent IP address and good connectivity. For the purposes of explanation, the Server in the 'itinerant' location/situation will be referred to as the Server Proxy Client, and the Server that is in the Permanent/Stable location/situation will be referred to as the Server Proxy Server.</p>
+<p>When such a relationship exists, all inbound traffic destined for Nodes on the Server Proxy Client is directed to the Server Proxy Server, which accepts and authenticates the traffic, then forwards it off to the Server Proxy Client via a direct (non-public) peering arrangement. Any traffic outbound from Nodes on the Server Proxy Client is directed to the Server Proxy Server, which forwards it to the appropriate location, thus requiring the Server Proxy Client only to be 'reachable' by the Server Proxy Server, and not all nodes on the entire Internet.</p>
+<h2 id="adv-topics-iax-proxy-portal-based-configuration-for-server-proxy-clients">Portal-Based Configuration for Server Proxy Clients</h2>
+<p>We don't support configuration of clients in the portal.  The best way is to set it up manually, and then add the IP of the proxy server in the portal for the client.</p>
+<p>If you don't want to do this (or if your proxy server is quasi-static), and you have control of the proxy server, have the proxy server use your node number and password and register it to <code>register.allstarlink.org</code>.</p>
+<p>In <code>/etc/asterisk/iax.conf</code> on the proxy server:</p>
+<div class="highlight"><pre><span></span><code>register=NODE#:PASSWORD@register.allstarlink.org:4569
+</code></pre></div>
+<p>Where node # is the number/pass of the proxied node.</p>
+<h2 id="adv-topics-iax-proxy-manual-configuration-for-server-proxy-clients">Manual Configuration for Server Proxy Clients</h2>
+<p>First, you must configure a peering arrangement with the Proxy Server.</p>
+<p>This is done by adding the following into the <code>/etc/asterisk/iax.conf</code> file:</p>
+<div class="highlight"><pre><span></span><code>[radio-proxy]
+type=user
+deny=0.0.0.0/0.0.0.0
+permit=&lt;Server Proxy Server IP Address&gt;/255.255.255.255
+context=radio-secure-proxy
+disallow=all
+allow=g726aal2
+transfer=no
+
+[radio-proxy-out]
+type=peer
+host=&lt;Server Proxy Server IP Address&gt;
+username=&lt;First (or only) node number on this Server to be proxied&gt;
+secret=&lt;Agreed-Upon Password for specified node (for Proxy peering)&gt;
+auth=md5
+disallow=all
+allow=g726aal2
+transfer=no
+</code></pre></div>
+<p>You must put in an appropriate register statement for all nodes on the
+Server Proxy Client allowing registration with the Server Proxy Server
+using Agreed-Upon Passwords.</p>
+<p>If the Server Proxy Server is the AllStarLink Network Registration Server, then
+the IP Address will be 67.215.233.178, the Username and Password will be node number
+and node password of one of the nodes on the system that is registered with it, and
+no additional registration line is necessary, since there already is one for that
+node.</p>
+<p>The following needs to be added to the <code>/etc/asterisk/rpt.conf</code> file:
+</p><div class="highlight"><pre><span></span><code>[nodes]
+&lt;Stuff that was already there, etc....&gt;
+_20XX = radio-proxy-out/0%s
+_20XXX = radio-proxy-out/0%s
+_21XX = radio-proxy-out/0%s
+_21XXX = radio-proxy-out/0%s
+_22XX = radio-proxy-out/0%s
+_22XXX = radio-proxy-out/0%s
+_23XX = radio-proxy-out/0%s
+_23XXX = radio-proxy-out/0%s
+_24XX = radio-proxy-out/0%s
+_24XXX = radio-proxy-out/0%s
+_25XX = radio-proxy-out/0%s
+_25XXX = radio-proxy-out/0%s
+_26XX = radio-proxy-out/0%s
+_26XXX = radio-proxy-out/0%s
+_27XXX = radio-proxy-out/0%s
+_27XXXX = radio-proxy-out/0%s
+_28XXX = radio-proxy-out/0%s
+_28XXXX = radio-proxy-out/0%s
+_29XXX = radio-proxy-out/0%s
+_29XXXX = radio-proxy-out/0%s
+_4XXXX = radio-proxy-out/0%s
+_4XXXXX = radio-proxy-out/0%s
+_5XXXX = radio-proxy-out/0%s
+_5XXXXX = radio-proxy-out/0%s
+; note the . wildcard doesn't work here in rpt.conf
+;_2. = radio-proxy-out/0%s  don't work like extensions
+</code></pre></div><p></p>
+<p>The following needs to be added to the <code>/etc/asterisk/extensions.conf</code> file:</p>
+<div class="highlight"><pre><span></span><code>[radio-secure-proxy]
+exten =&gt; _0X.,1,Goto(allstar-sys|${EXTEN:1}|1)
+</code></pre></div>
+<p>Plus, for each node on the system (also to be put in the radio-secure-proxy section):</p>
+<div class="highlight"><pre><span></span><code>exten =&gt; &lt;Node Number&gt;,1,rpt,&lt;Node Number&gt;|X
+</code></pre></div>
+<h2 id="adv-topics-iax-proxy-configuration-for-server-proxy-servers">Configuration for Server Proxy Servers</h2>
+<p>First, you must configure a peering arrangement with the Server Proxy Client.
+This is done by adding the following into the <code>/etc/asterisk/iax.conf</code> file for each node in the peering arrangement:</p>
+<div class="highlight"><pre><span></span><code>[&lt;Node Number&gt;]
+type=friend
+host=dynamic
+username=radio-proxy
+secret=&lt;Agreed-Upon Password for the Proxy peering&gt;
+auth=md5
+context=radio-in
+disallow=all
+allow=g726aal2
+transfer=no
+</code></pre></div>
+<p>The following needs to be done to the <code>/etc/asterisk/extensions.conf</code> file:</p>
+<p>The following section needs to be added:
+</p><div class="highlight"><pre><span></span><code>[radio-in]
+exten =&gt; _0N.,1,Rpt(${EXTEN:1}|F)
+exten =&gt; _0N.,n,Hangup
+</code></pre></div><p></p>
+<p>The following section needs to replace the existing <code>[radio-secure]</code> section:
+</p><div class="highlight"><pre><span></span><code>[radio-secure]
+exten=_20XX,1,Rpt,${EXTEN}
+exten=_21XX,1,Rpt,${EXTEN}
+exten=_22XX,1,Rpt,${EXTEN}
+exten=_23XX,1,Rpt,${EXTEN}
+exten=_24XX,1,Rpt,${EXTEN}
+exten=_25XX,1,Rpt,${EXTEN}
+exten=_26XX,1,Rpt,${EXTEN}
+exten=_27XXX,1,Rpt,${EXTEN}
+exten=_28XXX,1,Rpt,${EXTEN}
+exten=_29XXX,1,Rpt,${EXTEN}
+exten=_4XXXX,1,Rpt,${EXTEN}
+exten=_5XXXX,1,Rpt,${EXTEN}
+</code></pre></div><p></p>
+<p>The following needs to be added to the <code>[allstar-sys]</code> section:</p>
+<div class="highlight"><pre><span></span><code>exten =&gt; _9.,1,Rpt(${EXTEN:2}|X|${EXTEN:1:1})
+exten =&gt; _9.,n,Hangup
+</code></pre></div>
+<p>The following needs to be added to the /etc/asterisk/rpt.conf file:</p>
+<div class="highlight"><pre><span></span><code>[proxy]
+ipaddr=&lt;Public IP address of this Server Proxy Server&gt;
+</code></pre></div>
+<p>The Server Proxy Server will be able to determine the nodes for which it needs to provide Proxy service.</p></body></html></section><section class="print-page" id="adv-topics-iaxreg" heading-number="5.24"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10310,7 +10548,7 @@ Host                  dnsmgr  Username  Perceived                 Refresh  State
 </code></pre></div>
 <p>If it lists "State" as "Registered" you're all set.</p>
 </li>
-</ol></body></html></section><section class="print-page" id="adv-topics-linkacttimer" heading-number="5.24"><html><head>
+</ol></body></html></section><section class="print-page" id="adv-topics-linkacttimer" heading-number="5.25"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10378,7 +10616,7 @@ Host                  dnsmgr  Username  Perceived                 Refresh  State
  lnkacttime=900                     ; 15 minute link activity timer    
  lnkactmacro=*52                    ; Use macro 2 in the [macros] stanza for link activity timer
  lnkacttimerwarn=rpt/timeout-warning; Sound file for 30 second warning message located in /usr/share/asterisk/sounds/en
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-litz" heading-number="5.25"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-litz" heading-number="5.26"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10393,7 +10631,7 @@ litzcmd = *6911  ; Command sequence to execute upon LiTZ activation -- Call 911 
 litztime = 3000  ; Time required to hold down DTMF (default is 3000mS)
 </code></pre></div>
 <p>The above options would be placed in the node's configuration stanza in <code>rpt.conf</code>.</p>
-<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></body></html></section><section class="print-page" id="adv-topics-macros" heading-number="5.26"><html><head>
+<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></body></html></section><section class="print-page" id="adv-topics-macros" heading-number="5.27"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10447,7 +10685,7 @@ telemetry=telemetry
 </code></pre></div>
 <h1 id="adv-topics-macros-scheduler-execution">Scheduler Execution</h1>
 <p>With the example configuration shown, macros are called with a <code>*5</code> prefix and followed with the number assigned in the [macro] stanza.</p>
-<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></body></html></section><section class="print-page" id="adv-topics-gpio" heading-number="5.27"><html><head>
+<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></body></html></section><section class="print-page" id="adv-topics-gpio" heading-number="5.28"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10571,7 +10809,7 @@ Variable listing for node 1999:
 98990=cop,61,pp9=0                  ; pport pin 9 off
 98991=cop,61,pp9=1                  ; pport pin 9 on
 </code></pre></div>
-<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p></body></html></section><section class="print-page" id="adv-topics-mdc1200" heading-number="5.28"><html><head>
+<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p></body></html></section><section class="print-page" id="adv-topics-mdc1200" heading-number="5.29"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10726,7 +10964,7 @@ I1234=K1234                         ; define PTTID=dtmfkey for each user
 I2341=K2341
 </code></pre></div>
 <p>Each user that is granted access to key the node needs to have an entry in <code>[mdcmacro]</code> with their assigned MDC-1200 PTTID (ie. <code>I1234</code>), and the corresponding <code>dtmfkeys</code> (ie. <code>K1234</code>) that is associated with it. The <code>K</code> is a special operator that tells <code>app_rpt</code> to look for the associated key in <code>[dtmfkeys]</code>.</p>
-<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p></body></html></section><section class="print-page" id="adv-topics-multinodesnetwork" heading-number="5.29"><html><head>
+<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p></body></html></section><section class="print-page" id="adv-topics-multinodesnetwork" heading-number="5.30"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10867,7 +11105,7 @@ T630011
 <p>Disconnect the links with:</p>
 <div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 1 630011
 </code></pre></div>
-<p>After that, everything should work. The most common issue with this configuration is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-nnx" heading-number="5.30"><html><head>
+<p>After that, everything should work. The most common issue with this configuration is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-nnx" heading-number="5.31"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10954,7 +11192,7 @@ NNX Node Pool:                      630010 to 630019
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adv-topics/img/15_NNX_Delete_Primary.png" data-desc-position="bottom"><img alt="Step 2 Remove Node Continue" src="../adv-topics/img/15_NNX_Delete_Primary.png" width="400"></a></p>
 <p>Next, you will need to confirm that this is indeed what you want to do.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adv-topics/img/17_Delete_Primary.png" data-desc-position="bottom"><img alt="Step 3 Confirm Delete" src="../adv-topics/img/17_Delete_Primary.png" width="400"></a></p>
-<p>At this point, you need to ensure that you wipe the configuration from any server that had this node number configured, as it will continue trying to register with AllStarLink, providing unnecessary strain on our resources.</p></body></html></section><section class="print-page" id="adv-topics-noderesolution" heading-number="5.31"><html><head>
+<p>At this point, you need to ensure that you wipe the configuration from any server that had this node number configured, as it will continue trying to register with AllStarLink, providing unnecessary strain on our resources.</p></body></html></section><section class="print-page" id="adv-topics-noderesolution" heading-number="5.32"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11015,7 +11253,7 @@ node_lookup_method = both           ; method used to lookup nodes
 1001 = radio@192.168.0.1/1001,NONE
 1998 = radio@127.0.0.1:4568/1998,NONE
 1999 = radio@192.168.0.2:4569/1999,NONE
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-other-software" heading-number="5.32"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-other-software" heading-number="5.33"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11030,7 +11268,7 @@ node_lookup_method = both           ; method used to lookup nodes
 <div class="highlight"><pre><span></span><code>sudo systemctl enable asl3-update-astdb.service
 sudo systemctl enable asl3-update-astdb.timer
 sudo systemctl start asl3-update-astdb.timer
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.33"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.34"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11112,7 +11350,7 @@ sudo systemctl start asl3-update-astdb.timer
 922 = cop,22                        ; Disable Parrot Mode
 923 = cop,23                        ; Birdbath (Current Parrot Cleanup/Flush)
 955 = cop,55                        ; Parrot Once if parrot mode is disabled
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-dtmftoscript" heading-number="5.34"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-dtmftoscript" heading-number="5.35"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11158,7 +11396,7 @@ exten = _X.,n,Hangup
 <div class="highlight"><pre><span></span><code>62=autopatchup,context=pass2script,noct=1,farenddisconnect=1,dialtime=10000,quiet=1 
 63=autopatchup,context=sitecontrol,noct=1,farenddisconnect=1,dialtime=10000,quiet=1 
 </code></pre></div>
-<p>Practical uses can be site or home control via USB or network relays, radio control/digital mode control functions, web execution scripts etc., all dependent on your script/dialplan.</p></body></html></section><section class="print-page" id="adv-topics-permanentnode" heading-number="5.35"><html><head>
+<p>Practical uses can be site or home control via USB or network relays, radio control/digital mode control functions, web execution scripts etc., all dependent on your script/dialplan.</p></body></html></section><section class="print-page" id="adv-topics-permanentnode" heading-number="5.36"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11188,7 +11426,7 @@ exten = _X.,n,Hangup
 <p>For example, under your <a href="#config-rpt_conf-node-number-stanza">Node Number Stanza</a> add:</p>
 <div class="highlight"><pre><span></span><code>startup_macro = *8131999            ; Permanently connect (transceive) to node 1999 when Asterisk starts            
 </code></pre></div>
-<p>Reload/restart your system and it will auto connect to the node you specified above.</p></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.36"><html><head>
+<p>Reload/restart your system and it will auto connect to the node you specified above.</p></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.37"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11270,7 +11508,7 @@ exten = _X.,n,Hangup
 922 = cop,22                        ; Disable Parrot Mode
 923 = cop,23                        ; Birdbath (Current Parrot Cleanup/Flush)
 955 = cop,55                        ; Parrot Once if parrot mode is disabled
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-permissions" heading-number="5.37"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-permissions" heading-number="5.38"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11374,7 +11612,7 @@ polkit rules. The provided wrappers are:</p>
 9005 = cmd,/usr/sbin/shutdown
 9006 = cmd,/usr/sbin/reboot
 </code></pre></div>
-<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></body></html></section><section class="print-page" id="adv-topics-privatenodes" heading-number="5.38"><html><head>
+<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></body></html></section><section class="print-page" id="adv-topics-privatenodes" heading-number="5.39"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11428,7 +11666,137 @@ rxchannel = SimpleUSB/1999      ; SimpleUSB
 <p>As you can see, all three servers have entries in their <code>[nodes]</code> context that identify the node number, the IP address (or domain name), and port (if not default) of the each other's private nodes. This will allow all of them to be able to connect to each other.</p>
 <p>See the section on <a href="#adv-topics-multinodesnetwork">Multiple Nodes on the Same Network</a> for other considerations and tips on testing.</p>
 <p>Remember, a private node can do practically anything you can do with a public node. So, for example, one of those private nodes in the example above could be configured as an Echolink node, but only the nodes you have control of can access it (instead of any public node). Likewise, one of those private nodes could be connected to a UHF link to some other analog system, and this would let you "link in" to that system from your ASL node, but the public can't.</p>
-<p>You basically have a "multi-port" repeater controller that is pretty much as flexible as you desire.</p></body></html></section><section class="print-page" id="adv-topics-remotebase" heading-number="5.39"><html><head>
+<p>You basically have a "multi-port" repeater controller that is pretty much as flexible as you desire.</p></body></html></section><section class="print-page" id="adv-topics-radio-connections" heading-number="5.40"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="radio-connections">Radio Connections</h1>
+<p>Instructions for connecting radios, repeaters and AllStarLink interfaces including USB Radio Interfaces, RTCM, GPS, URI/URI X and like devices.</p>
+<p>If you have information to share regarding a connection, please
+provide that information via a GitHub request at
+<a href="https://github.com/AllStarLink/ASL3-Manual/issues">https://github.com/AllStarLink/ASL3-Manual/issues</a>.</p>
+<h2 id="adv-topics-radio-connections-pc-or-raspberry-pi-interfaces">PC or Raspberry PI Interfaces</h2>
+<p>The most common solution for connecting an ASL node to a radio is through use of USB Audio Interfaces/Radio Adapters that make use of the CMXXX series USB audio chips. The difficulty can range from advanced to beginner, usually depending on the completeness and cost of the solution.</p>
+<h3 id="adv-topics-radio-connections-masters-communications-ra-series-radio-adapters">Masters Communications RA-Series Radio Adapters</h3>
+<p>Based on the CM119A series sound chips. These are inexpensive but feature rich USB Radio Adapters for AllStarLink Link. These can be used in either PCs or Raspberry Pis</p>
+<p>Link to all adapters -
+<a href="https://masterscommunications.com/products/radio-adapter/ra-index.html">https://masterscommunications.com/products/radio-adapter/ra-index.html</a></p>
+<h3 id="adv-topics-radio-connections-masters-communications-dra-series-radio-adapters">Masters Communications DRA-Series Radio Adapters</h3>
+<p>These can also be used for analog. '''If your radio has a 6-pin interface (Yaesu, Kenwood), these are plug &amp; play, with no soldering required.'''</p>
+<p>Link to all adapters -
+<a href="https://masterscommunications.com/products/radio-adapter/dra/dra-index.html">https://masterscommunications.com/products/radio-adapter/dra/dra-index.html</a></p>
+<h3 id="adv-topics-radio-connections-hotspotradios">HotSpotRadios</h3>
+<p>The Allstarlink Node HotSpotRadio arrives ready to plug in and use. The HotSpotRadio comes with your Allstarlink node number, frequency and CTCSS pre-confuigured and ready to go! No need to set audio levels or configure your node, its already done for you and arrives plug n play!</p>
+<p><a href="http://hotspotradios.com/">http://hotspotradios.com/</a></p>
+<h3 id="adv-topics-radio-connections-shari-kits4hhams">SHARI / Kits4HHams</h3>
+<p>The Kits4Hams SHARI is a popular interface for the Pi that comes in both USB and Pi Hat versions.</p>
+<p><a href="https://kits4hams.com/">https://kits4hams.com/</a></p>
+<h3 id="adv-topics-radio-connections-clearnode">ClearNode</h3>
+<p>ClearNode is a Raspberry Pi based AllStar, Echolink and DMR node with an integrated low power UHF or VHF radio transceiver. It is an all-in-one "hotspot" solution for those looking to use the AllStarLink network locally. This is a plug-and-play solution that requires almost no technical knowledge of AllStar.</p>
+<p><a href="https://www.node-ventures.com/">https://www.node-ventures.com/</a></p>
+<h3 id="adv-topics-radio-connections-techno-by-george">Techno By George</h3>
+<p><a href="https://technobygeorge.com/">https://technobygeorge.com/</a></p>
+<h3 id="adv-topics-radio-connections-dmk-uri">DMK URI</h3>
+<p>The URI is manufactured and sold by DMK Engineering.</p>
+<p><a href="https://dmkeng.myshopify.com/collections/frontpage">https://dmkeng.myshopify.com/collections/frontpage</a></p>
+<h2 id="adv-topics-radio-connections-diy-modified-cm108cm119-usb-fobs">DIY Modified CM108/CM119 USB Fobs</h2>
+<p>You can purchase an unmodified CMXXX USB sound card and solder GPIO directly for COS, PTT, and CTCSS. However, it's not for the faint of heart. Doing this requires a steady hand and magnification equipment to solder to the tiny leads on the circuit board.</p>
+<ul>
+<li><a href="https://allstarsetup.com/modify-a-cm108-sound-fob/"> How to Modify A CM108 Sound Fob For Allstar</a></li>
+</ul>
+<h2 id="adv-topics-radio-connections-interface-cables">Interface Cables</h2>
+<ul>
+<li><a href="https://www.plugnplaycables.com/">Plug and Play Cables</a></li>
+</ul>
+<h2 id="adv-topics-radio-connections-rtcmvoter">RTCM/VOTER</h2>
+<p>See the [/voter] page for the primary entry point to the detailed information about the RTCM/VOTER interfaces. They are primarily used to build a voting repeater system (optionally with simulcast). Also note there is model specific radio information below on this page that also discusses connecting to the RTCM/VOTER.</p>
+<h2 id="adv-topics-radio-connections-comments-on-specific-radios">Comments on Specific Radios</h2>
+<h3 id="adv-topics-radio-connections-motorola">Motorola</h3>
+<h4 id="adv-topics-radio-connections-cdm">CDM</h4>
+<p>CDMs make great nodes. This eBay reseller has very nice cables. Use to connect to URI or RTCM.</p>
+<p><a href="/assets/pdfs/CDM_Cable.pdf">CDM Cable from Kurt Meltzer KC4NX</a> - Cable 83 has only one output to use for either COS or CTCSS. Use another cable if you need both COS and CTCSS.</p>
+<h4 id="adv-topics-radio-connections-maxtrac-radius-gm300">Maxtrac / Radius / GM300</h4>
+<p>The venerable Maxtrac is a radio that was very well built, apparently has very stable reference LO, and can take a beating. When aligned properly, and sufficient <em>vectored</em> cooling is made, this radio will last for a very long, time even under several hours with of transmitting per day.</p>
+<p>These older radios are fairly common and easily to come by due to the narrow banding. Probably the hardest part is finding a computer and the RSS to program them. The Maxtrac family has many different configurations, from low band VHF, to 800 Mhz. But the easiest variant of the are the ones with the 16 pin connector.
+See the <a href="http://www.repeater-builder.com/motorola/maxtrac/maxtrac-index.html">Repeater Builder Maxtrac Page</a>.
+Connections are fairly simple but can be hard to determine which is the correct one to use. This
+<a href="http://www.repeater-builder.com/motorola/maxtrac/maxtrac-option-plug.html">http://www.repeater-builder.com/motorola/maxtrac/maxtrac-option-plug.html</a> is a good place to start.</p>
+<p>The radio will need to be aligned, and programmed to the frequenc(y/ies) you want to use. You will also need to program the Accessory Option for PL/DPL &amp; CSQ Output.</p>
+<ul>
+<li>
+<p>Most URIs can accept active high or active low for valid RX signal detection, ie, open squelch. It is HIGHLY recommend in any situation COS is set to USB or active high. This will prevent issues. Too many to mention.</p>
+</li>
+<li>
+<p>It is a good idea to program pin 8 on the Maxtrac/GM300 for PL/DPL &amp; CSQ output, active high. This will cause the radio to emit a 5Vdc signal when the squelch is open, and go low when squelch is closed.</p>
+</li>
+</ul>
+<p>With the radio facing you in normal operating positing, volume knob on top left, and mic connection right below it, turn the radio over from the right side. The accessory connector is located on the rear, right top of the radio at this point. Starting from left to right, the pins on the top are / and the pins on the bottom are /. If you want to hear audio from the radios speaker, just a header jumper on the far right pins 15 and 16.</p>
+<h4 id="adv-topics-radio-connections-mtr-2000">MTR-2000</h4>
+<h4 id="adv-topics-radio-connections-quantar">Quantar</h4>
+<p>The Quantar can be tricky to interface as it's extremely programmable and you will need a wireline card for I/O connections.  By default the I/O will not work unless the "wildcard" table is programed.  This wildcard table is Boolean logic of interrupt states in the radio, is extremely flexible and frustrating to debug.  It's a base station in it's own class.</p>
+<ul>
+<li><a href="/assets/pdfs/QUANTAR-RTCM INTERFACE CABLE.pdf">Quantar/RTCM Interface Cable</a> - Note you will want to use DSP/BEW Firmware on the RTCM if using the RTCM do squelch.</li>
+<li><a href="/assets/pdfs/RTCM_2_Quantar.pdf">Another Quantar/RTCM Interface Cable</a></li>
+<li><a href="/assets/pdfs/RTCM_to_Astro-TAC_Cable.pdf">Astro-TAC/RTCM Interface Cable</a></li>
+<li>
+<p><a href="http://wiki.w9cr.net/index.php/Allstar_and_P25_on_Quantar">Interfacing to a Quantar with P25NX</a> - Interfacing the Quantar using simple USB into AllStarLink and P25NX linking at the same time.  This is driven by programming on the Quantar Wildcard tables.</p>
+</li>
+<li>
+<p><a href="/assets/pdfs/Quantar_URI_Interface.jpg">Quantar/URI Cable</a></p>
+</li>
+<li><a href="/assets/pdfs/QuantarMRTI2URI.jpg">Quantar MRTI/URI Cable</a></li>
+</ul>
+<p>Also see the dedicated <a href="#voter-voter-quantar">Quantar Voter</a> page for detailed information.</p>
+<h4 id="adv-topics-radio-connections-syntor-x">Syntor X</h4>
+<p>The Motorola Syntor X with an Xcat installed makes a great frequency agile remote base. For more information see
+<a href="http://wd6awp.net/xcat/">WD6AWP Syntor Xcat</a>.</p>
+<h3 id="adv-topics-radio-connections-kenwood">Kenwood</h3>
+<h4 id="adv-topics-radio-connections-tkr-750850">TKR 750/850</h4>
+<p>Connections to: PTT, COS, RX audio out and MIC audio in</p>
+<p>TX/RX board, MIC audio input, pins 4 &amp; 5: floating ground, must not tie to any other ground! Some installations may require a 10dB, resistor L-network consisting of a 4.7k and 470 ohm resistors. The 470 ohm resistor connection across pins four and five, the 4.7k resistor is soldered to pin 5 to which your TX audio from the URI will connect to.</p>
+<p>The MIC audio gain, deviation, and balance adjustments are <em>very</em> sensitive!</p>
+<p>RA-35 without TX adj. trimmer pots: Using a service monitor with deviation metering, start low and work your way up to 3KHz deviation with 1KHz tone, generated by simpleusb-tune-menu. If enabled, *904 turns this tone on and off by command, ie, no tone time-out as in simpleusb-tune-menu.</p>
+<h4 id="adv-topics-radio-connections-tkr750850">TKR750/850</h4>
+<p>See <a href="http://www.masterscommunications.com/products/radio-adapter/txt/tkr.txt">http://www.masterscommunications.com/products/radio-adapter/txt/tkr.txt</a> for using the Masters Communications RA-35 or RA-40 radio adapters with the TKR750/850.</p>
+<h3 id="adv-topics-radio-connections-yaesu">Yaesu</h3>
+<h4 id="adv-topics-radio-connections-ft-79008900">FT 7900/8900</h4>
+<p>Both models sport a mini-DIN 6 pin connector on the rear panel. These can easily be hooked into a URI of your choice, such as a <a href="http://www.masterscommunications.com/products/radio-adapter/dra/dra50.html">DRA-50</a> and an
+<a href="http://www.masterscommunications.com/products/cables/drac-12.html">appropriate cable</a>. This is a nearly plug &amp; play solution for this radio.</p>
+<p><a href="/assets/pdfs/Yaesu79008900DataPort.jpg">Yaesu 7900/8900 Data Port Diagram</a></p>
+<h3 id="adv-topics-radio-connections-baofeng">Baofeng</h3>
+<h4 id="adv-topics-radio-connections-baofeng-888">Baofeng 888</h4>
+<ul>
+<li><a href="https://allstarsetup.com/modify-the-baofeng-888s-for-allstar/">Modifying the Baofeng 888 for AllStar</a></li>
+</ul>
+<h4 id="adv-topics-radio-connections-baofeng-uv82">Baofeng UV82</h4>
+<ul>
+<li><a href="http://www.bay-net.org/uploads/1/2/2/7/122774721/w6mnl-allstar-baycon2018.pdf">Building a Portable Raspberry Pi2 Asterisk AllStarLink Node</a></li>
+</ul>
+<h2 id="adv-topics-radio-connections-repeater-controller">Repeater Controller</h2>
+<h3 id="adv-topics-radio-connections-rtcms">RTCMs</h3>
+<p><a href="/assets/pdfs/RTCMwithController.pdf">An example of using RTCMs to replace 420 links</a></p>
+<h3 id="adv-topics-radio-connections-spectra-engineering">Spectra Engineering</h3>
+<ul>
+<li><a href="http://wiki.w9cr.net/index.php/MX800#W9CR_alignment_procedure_and_setup_with_AllStarLink">MX800 Base station</a> - Complete setup guide for the MX800 Base station which includes fallback to the built in controller and an audio delay module.</li>
+</ul>
+<h3 id="adv-topics-radio-connections-vertex">Vertex</h3>
+<ul>
+<li><a href="/assets/pdfs/RTCM_2_VRX-5000.pdf">VRX-5000 / RTCM Interface Cable</a></li>
+</ul>
+<h2 id="adv-topics-radio-connections-gps">GPS</h2>
+<ul>
+<li><a href="/assets/pdfs/RTCM_2_Trimble.pdf">Trimble RTCM Interface Cable</a></li>
+<li><a href="/assets/pdfs/RTCM_321_Cable.graffle.pdf">Trimble to Two RTCMs and Lady Heather Cable</a></li>
+<li><a href="/assets/pdfs/RTCM_to_BG7TBL_Cable.pdf">BG7TBL GPS / RTCM Cable</a></li>
+</ul>
+<h2 id="adv-topics-radio-connections-quad-radio-pci-card">Quad Radio PCI card</h2>
+<ul>
+<li><a href="/assets/pdfs/Ft897_quadpci_schematic.pdf">Yaesu FT-897 HF Radio(pdf)</a></li>
+<li><a href="/assets/pdfs/Ic706_quadpci_schematic.pdf">Icom IC-706 HF Radio(pdf)</a></li>
+<li><a href="/assets/pdfs/Tmg707_quadpci_schematic.pdf">Kenwood TMG-707 Dual Band FM mobile Radio(pdf)</a></li>
+</ul></body></html></section><section class="print-page" id="adv-topics-remotebase" heading-number="5.41"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12151,7 +12519,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
 11=444.475,114.8,+l
 12=444.150,100.0,+l
 ;13=446.500,100.0,sl
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-rxtoneburst" heading-number="5.40"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-rxtoneburst" heading-number="5.42"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12165,7 +12533,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
 <div class="highlight"><pre><span></span><code>rxburstfreq = 1750          ; set the desired toneburst frequency, in Hz
 rxbursttime = 500           ; minimum duration required for the tone to be present, in mS
 rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a valid tone
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-sa818modules" heading-number="5.41"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-sa818modules" heading-number="5.43"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12250,7 +12618,7 @@ rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a 
 <p>If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
 </div>
 <h2 id="adv-topics-sa818modules-sa818">sa818</h2>
-<p>To program your SA818 using the command line you can execute the <a href="#mans-sa818"><code>sa818</code></a> command. For command usage information, see the <a href="#mans-sa818"><code>sa818</code></a> manual page.</p></body></html></section><section class="print-page" id="adv-topics-sip-phone" heading-number="5.42"><html><head>
+<p>To program your SA818 using the command line you can execute the <a href="#mans-sa818"><code>sa818</code></a> command. For command usage information, see the <a href="#mans-sa818"><code>sa818</code></a> manual page.</p></body></html></section><section class="print-page" id="adv-topics-sip-phone" heading-number="5.44"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12438,7 +12806,7 @@ exten =&gt; 1999,1,rpt(1999|P)
 <h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
 <p>If you have trouble connecting your SIP phone, start the Asterisk CLI with <code>asterisk -rvvv</code>. Enter the command <code>pjsip set logger on</code>. This will show the communications between the SIP phone and Asterisk. It will also show the actions in your dial plan.</p>
 <h2 id="adv-topics-sip-phone-security">Security</h2>
-<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></body></html></section><section class="print-page" id="adv-topics-scheduler" heading-number="5.43"><html><head>
+<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></body></html></section><section class="print-page" id="adv-topics-scheduler" heading-number="5.45"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12548,7 +12916,7 @@ xxx = cop,16                        ; scheduler disable
 <p>Be sure if you are using the system <code>cron</code>, that your scripts can be executed by the user that <code>cron</code> is running the entry as. Quite often, failure to execute scripts is traced back to the calling user not having the permission to execute. See the <a href="#adv-topics-permissions">Permissions</a> page for more information.</p>
 </div>
 <p>Any of the above options for using the system <code>cron</code> are acceptable. You should decide what works best for you, and stick with that method. It can be difficult to troubleshoot if you end up putting cron entries in different places.</p>
-<p>Cron formatting and options are beyond the scope of this document, but there are lots of examples available on the internet, or review the system manual pages (<code>man cron</code>, <code>man crontab</code>, <code>man 5 crontab</code>).</p></body></html></section><section class="print-page" id="adv-topics-sleepmode" heading-number="5.44"><html><head>
+<p>Cron formatting and options are beyond the scope of this document, but there are lots of examples available on the internet, or review the system manual pages (<code>man cron</code>, <code>man crontab</code>, <code>man 5 crontab</code>).</p></body></html></section><section class="print-page" id="adv-topics-sleepmode" heading-number="5.46"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12611,7 +12979,7 @@ xxx = cop,16                        ; scheduler disable
 <p>In addition to defining the commands to control Sleep Mode, you will likely also want to adjust the inactivity timer (<code>sleeptime</code>). This option is set in the <a href="#config-rpt_conf-node-number-stanza">node number stanza</a> in <a href="#config-rpt_conf"><code>rpt.conf</code></a>.</p>
 <p>The default value for <code>sleeptime</code> is 900 seconds (15 minutes), if it is not specified (and you were to enable Sleep Mode). Set the value appropriately for your configuration:</p>
 <div class="highlight"><pre><span></span><code>sleeptime=300                       ; Set the inactivity timer for 300 seconds (5 minutes)
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-soundfiles" heading-number="5.45"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-soundfiles" heading-number="5.47"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12685,7 +13053,7 @@ lrwxrwxrwx  1 root root    31 Nov 13  2024 recordings -&gt; /var/lib/asterisk/so
 <p>There are many utility programs to allow you to convert or manipulate your sound files.</p>
 <p>SoX and MPEG123 are two of those. <a href="https://audacityteam.org">Audacity</a> is another popular choice for editing sound files, but there are others out there that do just as well and are a bit skinnier.</p>
 <p>Here is an (older) <a href="../adv-topics/assets/RecordingSoundFiles.pdf">how-to</a> on using Audacity to record sound files for your node.</p>
-<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></body></html></section><section class="print-page" id="adv-topics-simplevoter" heading-number="5.46"><html><head>
+<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></body></html></section><section class="print-page" id="adv-topics-simplevoter" heading-number="5.48"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12733,7 +13101,7 @@ votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=
 <div class="admonition note">
 <p class="admonition-title">RSSI Voting</p>
 <p>This feature simply selects the receiver with the best signal strength. There will be a noticeable transition between receivers. So, it's not perfect, but for most applications, it's good enough considering the cost and complexity.</p>
-</div></body></html></section><section class="print-page" id="adv-topics-broadcastify" heading-number="5.47"><html><head>
+</div></body></html></section><section class="print-page" id="adv-topics-broadcastify" heading-number="5.49"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12826,7 +13194,7 @@ sudo chmod 660 /etc/ezstream.xml
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-telemetry" heading-number="5.48"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-telemetry" heading-number="5.50"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12887,7 +13255,7 @@ mv ezstream.new ezstream.xml
 <li><code>cop,42</code>  Announce node number only (<code>eannmode=1</code>)</li>
 <li><code>cop,43</code>  Announce callsign only (<code>eannmode=2</code>)</li>
 <li><code>cop,44</code>  Announce node number and callsign (<code>eannmode=3</code>)</li>
-</ul></body></html></section><section class="print-page" id="adv-topics-tailmessage" heading-number="5.49"><html><head>
+</ul></body></html></section><section class="print-page" id="adv-topics-tailmessage" heading-number="5.51"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12978,7 +13346,7 @@ ID recording files must have extension .gsm, .ulaw, .pcm, or .wav. The extension
 ...
 </code></pre></div>
 <p>The default is to have <code>telemetry=</code> point to a stanza called <code>telemetry</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
-<p>See the <a href="#config-rpt_conf-telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p></body></html></section><section class="print-page" id="adv-topics-timeofday" heading-number="5.50"><html><head>
+<p>See the <a href="#config-rpt_conf-telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p></body></html></section><section class="print-page" id="adv-topics-timeofday" heading-number="5.52"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13007,7 +13375,7 @@ exten =&gt; TIME,1,ExecIfTime(0:00-11:59,*,*,*?Playback(rpt/goodmorning))
  same =&gt; n,Playback(rpt/thetimeis)
  same =&gt; n,SayUnixTime(${RPT_TELEM_TIME()},,${IF($[${STRFTIME(${UNIXTIME},,%-M) = "0"}]?IMp:Ip)})
  same =&gt; n,Hangup()
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-tlb" heading-number="5.51"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-tlb" heading-number="5.53"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13044,7 +13412,7 @@ In tlb.conf:
 <p>And you must have an entry if your TheLinkBox ACL file (generally <code>tlb.acl</code>) for each <code>app_rpt</code> node as follows:</p>
 <div class="highlight"><pre><span></span><code>allow   WB6NIL   99.88.77.66     -       -R
 </code></pre></div>
-<p>This example would allow station WB6NIL-R access from ip 99.88.77.66. Note that WB6NIL-R is the <code>call</code> defined in the <code>app_rpt</code> node's <code>tlb.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-tonemacros" heading-number="5.52"><html><head>
+<p>This example would allow station WB6NIL-R access from ip 99.88.77.66. Note that WB6NIL-R is the <code>call</code> defined in the <code>app_rpt</code> node's <code>tlb.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-tonemacros" heading-number="5.54"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13064,7 +13432,7 @@ In tlb.conf:
 203.5=*712
 94.8=R*123 *4556 ;This macro will execute on each keyup
 </code></pre></div>
-<p>Use your imagination as this can be used very powerfully. But, be careful in thinking out the full implications of what you are doing.</p></body></html></section><section class="print-page" id="adv-topics-tonesignalling" heading-number="5.53"><html><head>
+<p>Use your imagination as this can be used very powerfully. But, be careful in thinking out the full implications of what you are doing.</p></body></html></section><section class="print-page" id="adv-topics-tonesignalling" heading-number="5.55"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13082,7 +13450,7 @@ In tlb.conf:
 <div class="highlight"><pre><span></span><code>881=cop,48,1,2,3,4,#                ; Send DTMF 1,2,3,4, and #
 882=cop,48,!399/1000,!339/2000      ; Send two tone paging sequence: Motorola codes 144, 141
 883=cop,48,!1100+1700/100,!0/60,!700+900/60,!0/60,!700+1100/60,!0/60,!700+900/60,!0/60,!1500+1700/60 ; Send MF tone sequence KP121ST
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-uefi-secureboot" heading-number="5.54"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-uefi-secureboot" heading-number="5.56"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13187,7 +13555,7 @@ dahdi_transcode        16384  0
 dahdi                 258048  2 dahdi_dummy,dahdi_transcode
 </code></pre></div>
 </li>
-</ol></body></html></section><section class="print-page" id="adv-topics-usbinterfaces" heading-number="5.55"><html><head>
+</ol></body></html></section><section class="print-page" id="adv-topics-usbinterfaces" heading-number="5.57"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -16409,7 +16777,151 @@ on <a href="https://community.allstarlink.org">The ASL Community</a>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>All other HTTP methods or malformed JSON will be ignored.</p>
-</div></body></html></section></section>
+</div></body></html></section><section class="print-page" id="developers-iaxtext" heading-number="7.8"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="app_rpt-iax-text-protocol">app_rpt IAX Text Protocol</h1>
+<p>app_rpt application relies on IAX text frame to extend its protocol capabilities and exchange information with other nodes or clients.  There does not seem to be any existing documentation for this. This page details the various type of commands in existence as observed "in the wild". This is based a compilation of reading the source code of app_rpt, and reverse engineering of known clients such as IAXRpt and WebTransceiver. As such it's likely to contain errors or misunderstandings. If you have knowledge in some of these areas, please contribute your edits.</p>
+<div class="admonition danger">
+<p class="admonition-title">Wiki Copied Page</p>
+<p>This page was copied verbatim from the obsolete wiki.allstarlink.org.
+It is incomplete and possibly incorrect. Please see
+<a href="https://github.com/AllStarLink/ASL3-Manual/issues/223">https://github.com/AllStarLink/ASL3-Manual/issues/223</a></p>
+</div>
+<h2 id="developers-iaxtext-t-telemetry">T: Telemetry</h2>
+<h3 id="developers-iaxtext-general-format">General Format</h3>
+<div class="highlight"><pre><span></span><code> T &lt;NODE_NB&gt; &lt;CMD&gt;,&lt;PARAMS&gt;
+</code></pre></div>
+<ul>
+<li><code>NODE_NB</code> Node sending message</li>
+<li><code>CMD'</code> Telemetry command ALLCAPS</li>
+<li><code>PARAMS</code> Optional comma separated list of command specific parameters</li>
+</ul>
+<h3 id="developers-iaxtext-complete">Complete</h3>
+<p>Action is complete
+</p><div class="highlight"><pre><span></span><code> T 51696 COMPLETE
+</code></pre></div><p></p>
+<h3 id="developers-iaxtext-status">Status</h3>
+<p>Report connection status for the node. Sent in response to *70 status DTMF command.
+</p><div class="highlight"><pre><span></span><code> T &lt;NODE_NB&gt; STATUS,&lt;NODE_1&gt;,0,&lt;NODE_LIST&gt;
+</code></pre></div><p></p>
+<ul>
+<li><code>NODE_NB</code> Node sending message</li>
+<li><code>NODE_1</code> Node reporting status</li>
+<li><code>0</code> Unknown</li>
+<li><code>NODE_LIST</code> List of nodes connected to NODE_1. Each node number is prefixed by a connection mode as follow:<ul>
+<li><code>T</code> Transceive mode, send and receive audio</li>
+<li><code>R</code> Receive audio only</li>
+<li><code>C</code> Connection is pending</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code> T 51696 STATUS,51696,0,TWH6GJL-P,R29277
+</code></pre></div>
+<h3 id="developers-iaxtext-connected">Connected</h3>
+<p>Node connection succeeded</p>
+<div class="highlight"><pre><span></span><code> T &lt;NODE_NB&gt; CONNECTED,&lt;NODE_1&gt;,&lt;NODE_2&gt;
+</code></pre></div>
+<ul>
+<li><code>NODE_NB</code> Node sending message</li>
+<li><code>NODE_1</code> Node initiating connection</li>
+<li><code>NODE_2</code> Other node connected to</li>
+</ul>
+<div class="highlight"><pre><span></span><code> T 51696 CONNECTED,51696,29277
+</code></pre></div>
+<h3 id="developers-iaxtext-disconnected">Disconnected</h3>
+<p>Remote node disconnected</p>
+<div class="highlight"><pre><span></span><code> T 51696 REMDISC,29277
+</code></pre></div>
+<h3 id="developers-iaxtext-remote-already-connected">Remote Already Connected</h3>
+<p>Remote node is already part of the network. Note that it could be a direct
+connection or it could be the node is connected via other nodes.
+</p><div class="highlight"><pre><span></span><code> T 51696 REMALREADY
+</code></pre></div><p></p>
+<h3 id="developers-iaxtext-connection-failed">Connection Failed</h3>
+<p>Remote node can't be connected to.</p>
+<div class="highlight"><pre><span></span><code> T 522540 CONNFAIL,51696
+</code></pre></div>
+<h3 id="developers-iaxtext-stats-version">Stats Version</h3>
+<p>app_rpt module version.
+</p><div class="highlight"><pre><span></span><code> T 51696 STATS_VERSION,161.327
+</code></pre></div><p></p>
+<h3 id="developers-iaxtext-unknown">Unknown</h3>
+<div class="highlight"><pre><span></span><code> T 522540 ARB_ALPHA,123#
+</code></pre></div>
+<h2 id="developers-iaxtext-l-linked">L: Linked</h2>
+<p>Sent periodically by a node to broadcast all node linked to it.
+</p><div class="highlight"><pre><span></span><code> L &lt;MODE&gt;&lt;NODE_NB&gt;,&lt;MODE&gt;&lt;NODE_NB&gt;,...
+</code></pre></div><p></p>
+<ul>
+<li><code>MODE</code> Each node number is prefixed by a connection mode as follow:<ul>
+<li><code>T</code> Transceive mode, send and receive audio</li>
+<li><code>R</code> Receive audio only</li>
+<li><code>C</code> Connection is pending</li>
+<li><code>NODE_NB</code> Linked node</li>
+</ul>
+</li>
+</ul>
+<p>If no other nodes are connected, the list is empty and only L is sent.</p>
+<h2 id="developers-iaxtext-k-key">K: Key</h2>
+<p>Sent by a node to update its keyed status
+</p><div class="highlight"><pre><span></span><code> K &lt;TO&gt; &lt;NODE_NB&gt; &lt;KEYED&gt; &lt;LAST_KEYED_X_SEC_AGO&gt;
+</code></pre></div>
+* <code>TO</code> Destination to broadcast this message to. Usually * seems to indicate all connected nodes.
+* <code>NODE_NB</code> Node reporting its keyed status
+* <code>KEYED</code> 1 = node is keyed, 0 = node is not keyed
+* <code>LAST_KEYED_X_SEC_AGO</code> Number of second since node was last keyed<p></p>
+<div class="highlight"><pre><span></span><code> K * 51696 1 2
+</code></pre></div>
+<h2 id="developers-iaxtext-k-key-query">K?: Key Query</h2>
+<p>Message to request other nodes to report their keyed state. Initiating this command results in
+all connected nodes replying with their keyed status.
+</p><div class="highlight"><pre><span></span><code> K? &lt;TO&gt; &lt;NODE_NB&gt; 0 0
+</code></pre></div><p></p>
+<ul>
+<li><code>TO</code> Destination to broadcast this message to. Usually * seems to indicate all connected nodes.</li>
+<li><code>NODE_NB</code> Node requesting status? Could be * here as well</li>
+</ul>
+<div class="highlight"><pre><span></span><code> K? * 51696 0 0
+</code></pre></div>
+<h2 id="developers-iaxtext-m-message">M: Message</h2>
+<p>Text message. Can be sent as node to node or broadcast to all nodes.
+</p><div class="highlight"><pre><span></span><code> M &lt;TO&gt; &lt;FROM&gt; &lt;BODY&gt;
+</code></pre></div><p></p>
+<ul>
+<li><code>TO</code> Destination node number. 0 indicates all connected nodes</li>
+<li><code>FROM</code> Source node number</li>
+<li><code>BODY</code> Message content</li>
+</ul>
+<div class="highlight"><pre><span></span><code> M 0 51696 Reminder net starts at 10:00 pm PST tonight.
+</code></pre></div>
+<h2 id="developers-iaxtext-j-webtransciever-frequency">J: WebTransciever Frequency</h2>
+<p>Status message reporting repeater frequencies. Seems to be only used in the context of the WebTransceiver client.
+</p><div class="highlight"><pre><span></span><code> J Remote Frequency \n&lt;FREQ&gt; FM\n&lt;OFFSET&gt; Offset\n&lt;POWER&gt; Power\nTX PL &lt;TXPL&gt;\nRX PL &lt;RXPL&gt;\n
+</code></pre></div><p></p>
+<h2 id="developers-iaxtext-miscellaneous-signaling">Miscellaneous signaling</h2>
+<p>There are several messages being exchanged that alter the behavior of the app_rpt application. It's unclear as to their purpose.</p>
+<h3 id="developers-iaxtext-new-key">New Key</h3>
+<p>Seems that this is meant to be some sort of handshake. When a party receives this command it should send it back.</p>
+<div class="highlight"><pre><span></span><code> !NEWKEY!
+</code></pre></div>
+<h3 id="developers-iaxtext-new-key1">New Key1</h3>
+<p>Seems that this is meant to be some sort of handshake. When a party receives this command it should send it back.</p>
+<div class="highlight"><pre><span></span><code> !NEWKEY1!
+</code></pre></div>
+<h3 id="developers-iaxtext-iaxkey">IaxKey</h3>
+<p>Seems that this is meant to be some sort of handshake. When a party receives this command
+</p><div class="highlight"><pre><span></span><code> !IAXKEY!
+</code></pre></div><p></p>
+<p>it should reply with</p>
+<div class="highlight"><pre><span></span><code> !IAXKEY! 1 1 0 0
+</code></pre></div>
+<h3 id="developers-iaxtext-disconnect">Disconnect</h3>
+<div class="highlight"><pre><span></span><code> !!DISCONNECT!!
+</code></pre></div></body></html></section></section>
                     <section class='print-page md-section' id='section-8' heading-number='8'>
                         <h1>Man Pages<a class='headerlink' href='#section-8' title='Permanent link'></a>
                         </h1>
@@ -20079,169 +20591,179 @@ thresholds = 255,110=5      ;
                 .print-site-enumerate-headings #adv-topics-httpreg h2:before { content: '5.22.' counter(counter-adv-topics-httpreg-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-httpreg h2 {  counter-increment: counter-adv-topics-httpreg-2 }
             
-.print-site-enumerate-headings #adv-topics-iaxreg > h1:before { content: '5.23 ' }
+.print-site-enumerate-headings #adv-topics-iax-proxy > h1:before { content: '5.23 ' }
 
-                .print-site-enumerate-headings #adv-topics-iaxreg h2:before { content: '5.23.' counter(counter-adv-topics-iaxreg-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-iax-proxy h2:before { content: '5.23.' counter(counter-adv-topics-iax-proxy-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-iax-proxy h2 {  counter-increment: counter-adv-topics-iax-proxy-2 }
+            
+.print-site-enumerate-headings #adv-topics-iaxreg > h1:before { content: '5.24 ' }
+
+                .print-site-enumerate-headings #adv-topics-iaxreg h2:before { content: '5.24.' counter(counter-adv-topics-iaxreg-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-iaxreg h2 {  counter-increment: counter-adv-topics-iaxreg-2 }
             
-.print-site-enumerate-headings #adv-topics-linkacttimer > h1:before { content: '5.24 ' }
+.print-site-enumerate-headings #adv-topics-linkacttimer > h1:before { content: '5.25 ' }
 
-                .print-site-enumerate-headings #adv-topics-linkacttimer h2:before { content: '5.24.' counter(counter-adv-topics-linkacttimer-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-linkacttimer h2:before { content: '5.25.' counter(counter-adv-topics-linkacttimer-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-linkacttimer h2 {  counter-increment: counter-adv-topics-linkacttimer-2 }
             
-.print-site-enumerate-headings #adv-topics-litz > h1:before { content: '5.25 ' }
+.print-site-enumerate-headings #adv-topics-litz > h1:before { content: '5.26 ' }
 
-                .print-site-enumerate-headings #adv-topics-litz h2:before { content: '5.25.' counter(counter-adv-topics-litz-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-litz h2:before { content: '5.26.' counter(counter-adv-topics-litz-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-litz h2 {  counter-increment: counter-adv-topics-litz-2 }
             
-.print-site-enumerate-headings #adv-topics-macros > h1:before { content: '5.26 ' }
+.print-site-enumerate-headings #adv-topics-macros > h1:before { content: '5.27 ' }
 
-                .print-site-enumerate-headings #adv-topics-macros h2:before { content: '5.26.' counter(counter-adv-topics-macros-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-macros h2:before { content: '5.27.' counter(counter-adv-topics-macros-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-macros h2 {  counter-increment: counter-adv-topics-macros-2 }
             
-.print-site-enumerate-headings #adv-topics-gpio > h1:before { content: '5.27 ' }
+.print-site-enumerate-headings #adv-topics-gpio > h1:before { content: '5.28 ' }
 
-                .print-site-enumerate-headings #adv-topics-gpio h2:before { content: '5.27.' counter(counter-adv-topics-gpio-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-gpio h2:before { content: '5.28.' counter(counter-adv-topics-gpio-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-gpio h2 {  counter-increment: counter-adv-topics-gpio-2 }
             
-.print-site-enumerate-headings #adv-topics-mdc1200 > h1:before { content: '5.28 ' }
+.print-site-enumerate-headings #adv-topics-mdc1200 > h1:before { content: '5.29 ' }
 
-                .print-site-enumerate-headings #adv-topics-mdc1200 h2:before { content: '5.28.' counter(counter-adv-topics-mdc1200-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-mdc1200 h2:before { content: '5.29.' counter(counter-adv-topics-mdc1200-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-mdc1200 h2 {  counter-increment: counter-adv-topics-mdc1200-2 }
             
-.print-site-enumerate-headings #adv-topics-multinodesnetwork > h1:before { content: '5.29 ' }
+.print-site-enumerate-headings #adv-topics-multinodesnetwork > h1:before { content: '5.30 ' }
 
-                .print-site-enumerate-headings #adv-topics-multinodesnetwork h2:before { content: '5.29.' counter(counter-adv-topics-multinodesnetwork-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-multinodesnetwork h2:before { content: '5.30.' counter(counter-adv-topics-multinodesnetwork-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-multinodesnetwork h2 {  counter-increment: counter-adv-topics-multinodesnetwork-2 }
             
-.print-site-enumerate-headings #adv-topics-nnx > h1:before { content: '5.30 ' }
+.print-site-enumerate-headings #adv-topics-nnx > h1:before { content: '5.31 ' }
 
-                .print-site-enumerate-headings #adv-topics-nnx h2:before { content: '5.30.' counter(counter-adv-topics-nnx-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-nnx h2:before { content: '5.31.' counter(counter-adv-topics-nnx-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-nnx h2 {  counter-increment: counter-adv-topics-nnx-2 }
             
-.print-site-enumerate-headings #adv-topics-noderesolution > h1:before { content: '5.31 ' }
+.print-site-enumerate-headings #adv-topics-noderesolution > h1:before { content: '5.32 ' }
 
-                .print-site-enumerate-headings #adv-topics-noderesolution h2:before { content: '5.31.' counter(counter-adv-topics-noderesolution-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-noderesolution h2:before { content: '5.32.' counter(counter-adv-topics-noderesolution-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-noderesolution h2 {  counter-increment: counter-adv-topics-noderesolution-2 }
             
-.print-site-enumerate-headings #adv-topics-other-software > h1:before { content: '5.32 ' }
+.print-site-enumerate-headings #adv-topics-other-software > h1:before { content: '5.33 ' }
 
-                .print-site-enumerate-headings #adv-topics-other-software h2:before { content: '5.32.' counter(counter-adv-topics-other-software-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-other-software h2:before { content: '5.33.' counter(counter-adv-topics-other-software-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-other-software h2 {  counter-increment: counter-adv-topics-other-software-2 }
             
-.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.33 ' }
+.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.34 ' }
 
-                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.33.' counter(counter-adv-topics-parrotmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.34.' counter(counter-adv-topics-parrotmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-parrotmode h2 {  counter-increment: counter-adv-topics-parrotmode-2 }
             
-.print-site-enumerate-headings #adv-topics-dtmftoscript > h1:before { content: '5.34 ' }
+.print-site-enumerate-headings #adv-topics-dtmftoscript > h1:before { content: '5.35 ' }
 
-                .print-site-enumerate-headings #adv-topics-dtmftoscript h2:before { content: '5.34.' counter(counter-adv-topics-dtmftoscript-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-dtmftoscript h2:before { content: '5.35.' counter(counter-adv-topics-dtmftoscript-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-dtmftoscript h2 {  counter-increment: counter-adv-topics-dtmftoscript-2 }
             
-.print-site-enumerate-headings #adv-topics-permanentnode > h1:before { content: '5.35 ' }
+.print-site-enumerate-headings #adv-topics-permanentnode > h1:before { content: '5.36 ' }
 
-                .print-site-enumerate-headings #adv-topics-permanentnode h2:before { content: '5.35.' counter(counter-adv-topics-permanentnode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-permanentnode h2:before { content: '5.36.' counter(counter-adv-topics-permanentnode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-permanentnode h2 {  counter-increment: counter-adv-topics-permanentnode-2 }
             
-.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.36 ' }
+.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.37 ' }
 
-                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.36.' counter(counter-adv-topics-parrotmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.37.' counter(counter-adv-topics-parrotmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-parrotmode h2 {  counter-increment: counter-adv-topics-parrotmode-2 }
             
-.print-site-enumerate-headings #adv-topics-permissions > h1:before { content: '5.37 ' }
+.print-site-enumerate-headings #adv-topics-permissions > h1:before { content: '5.38 ' }
 
-                .print-site-enumerate-headings #adv-topics-permissions h2:before { content: '5.37.' counter(counter-adv-topics-permissions-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-permissions h2:before { content: '5.38.' counter(counter-adv-topics-permissions-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-permissions h2 {  counter-increment: counter-adv-topics-permissions-2 }
             
-.print-site-enumerate-headings #adv-topics-privatenodes > h1:before { content: '5.38 ' }
+.print-site-enumerate-headings #adv-topics-privatenodes > h1:before { content: '5.39 ' }
 
-                .print-site-enumerate-headings #adv-topics-privatenodes h2:before { content: '5.38.' counter(counter-adv-topics-privatenodes-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-privatenodes h2:before { content: '5.39.' counter(counter-adv-topics-privatenodes-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-privatenodes h2 {  counter-increment: counter-adv-topics-privatenodes-2 }
             
-.print-site-enumerate-headings #adv-topics-remotebase > h1:before { content: '5.39 ' }
+.print-site-enumerate-headings #adv-topics-radio-connections > h1:before { content: '5.40 ' }
 
-                .print-site-enumerate-headings #adv-topics-remotebase h2:before { content: '5.39.' counter(counter-adv-topics-remotebase-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-radio-connections h2:before { content: '5.40.' counter(counter-adv-topics-radio-connections-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-radio-connections h2 {  counter-increment: counter-adv-topics-radio-connections-2 }
+            
+.print-site-enumerate-headings #adv-topics-remotebase > h1:before { content: '5.41 ' }
+
+                .print-site-enumerate-headings #adv-topics-remotebase h2:before { content: '5.41.' counter(counter-adv-topics-remotebase-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-remotebase h2 {  counter-increment: counter-adv-topics-remotebase-2 }
             
-.print-site-enumerate-headings #adv-topics-rxtoneburst > h1:before { content: '5.40 ' }
+.print-site-enumerate-headings #adv-topics-rxtoneburst > h1:before { content: '5.42 ' }
 
-                .print-site-enumerate-headings #adv-topics-rxtoneburst h2:before { content: '5.40.' counter(counter-adv-topics-rxtoneburst-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-rxtoneburst h2:before { content: '5.42.' counter(counter-adv-topics-rxtoneburst-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-rxtoneburst h2 {  counter-increment: counter-adv-topics-rxtoneburst-2 }
             
-.print-site-enumerate-headings #adv-topics-sa818modules > h1:before { content: '5.41 ' }
+.print-site-enumerate-headings #adv-topics-sa818modules > h1:before { content: '5.43 ' }
 
-                .print-site-enumerate-headings #adv-topics-sa818modules h2:before { content: '5.41.' counter(counter-adv-topics-sa818modules-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sa818modules h2:before { content: '5.43.' counter(counter-adv-topics-sa818modules-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sa818modules h2 {  counter-increment: counter-adv-topics-sa818modules-2 }
             
-.print-site-enumerate-headings #adv-topics-sip-phone > h1:before { content: '5.42 ' }
+.print-site-enumerate-headings #adv-topics-sip-phone > h1:before { content: '5.44 ' }
 
-                .print-site-enumerate-headings #adv-topics-sip-phone h2:before { content: '5.42.' counter(counter-adv-topics-sip-phone-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sip-phone h2:before { content: '5.44.' counter(counter-adv-topics-sip-phone-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sip-phone h2 {  counter-increment: counter-adv-topics-sip-phone-2 }
             
-.print-site-enumerate-headings #adv-topics-scheduler > h1:before { content: '5.43 ' }
+.print-site-enumerate-headings #adv-topics-scheduler > h1:before { content: '5.45 ' }
 
-                .print-site-enumerate-headings #adv-topics-scheduler h2:before { content: '5.43.' counter(counter-adv-topics-scheduler-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-scheduler h2:before { content: '5.45.' counter(counter-adv-topics-scheduler-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-scheduler h2 {  counter-increment: counter-adv-topics-scheduler-2 }
             
-.print-site-enumerate-headings #adv-topics-sleepmode > h1:before { content: '5.44 ' }
+.print-site-enumerate-headings #adv-topics-sleepmode > h1:before { content: '5.46 ' }
 
-                .print-site-enumerate-headings #adv-topics-sleepmode h2:before { content: '5.44.' counter(counter-adv-topics-sleepmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sleepmode h2:before { content: '5.46.' counter(counter-adv-topics-sleepmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sleepmode h2 {  counter-increment: counter-adv-topics-sleepmode-2 }
             
-.print-site-enumerate-headings #adv-topics-soundfiles > h1:before { content: '5.45 ' }
+.print-site-enumerate-headings #adv-topics-soundfiles > h1:before { content: '5.47 ' }
 
-                .print-site-enumerate-headings #adv-topics-soundfiles h2:before { content: '5.45.' counter(counter-adv-topics-soundfiles-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-soundfiles h2:before { content: '5.47.' counter(counter-adv-topics-soundfiles-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-soundfiles h2 {  counter-increment: counter-adv-topics-soundfiles-2 }
             
-.print-site-enumerate-headings #adv-topics-simplevoter > h1:before { content: '5.46 ' }
+.print-site-enumerate-headings #adv-topics-simplevoter > h1:before { content: '5.48 ' }
 
-                .print-site-enumerate-headings #adv-topics-simplevoter h2:before { content: '5.46.' counter(counter-adv-topics-simplevoter-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-simplevoter h2:before { content: '5.48.' counter(counter-adv-topics-simplevoter-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-simplevoter h2 {  counter-increment: counter-adv-topics-simplevoter-2 }
             
-.print-site-enumerate-headings #adv-topics-broadcastify > h1:before { content: '5.47 ' }
+.print-site-enumerate-headings #adv-topics-broadcastify > h1:before { content: '5.49 ' }
 
-                .print-site-enumerate-headings #adv-topics-broadcastify h2:before { content: '5.47.' counter(counter-adv-topics-broadcastify-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-broadcastify h2:before { content: '5.49.' counter(counter-adv-topics-broadcastify-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-broadcastify h2 {  counter-increment: counter-adv-topics-broadcastify-2 }
             
-.print-site-enumerate-headings #adv-topics-telemetry > h1:before { content: '5.48 ' }
+.print-site-enumerate-headings #adv-topics-telemetry > h1:before { content: '5.50 ' }
 
-                .print-site-enumerate-headings #adv-topics-telemetry h2:before { content: '5.48.' counter(counter-adv-topics-telemetry-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-telemetry h2:before { content: '5.50.' counter(counter-adv-topics-telemetry-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-telemetry h2 {  counter-increment: counter-adv-topics-telemetry-2 }
             
-.print-site-enumerate-headings #adv-topics-tailmessage > h1:before { content: '5.49 ' }
+.print-site-enumerate-headings #adv-topics-tailmessage > h1:before { content: '5.51 ' }
 
-                .print-site-enumerate-headings #adv-topics-tailmessage h2:before { content: '5.49.' counter(counter-adv-topics-tailmessage-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tailmessage h2:before { content: '5.51.' counter(counter-adv-topics-tailmessage-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tailmessage h2 {  counter-increment: counter-adv-topics-tailmessage-2 }
             
-.print-site-enumerate-headings #adv-topics-timeofday > h1:before { content: '5.50 ' }
+.print-site-enumerate-headings #adv-topics-timeofday > h1:before { content: '5.52 ' }
 
-                .print-site-enumerate-headings #adv-topics-timeofday h2:before { content: '5.50.' counter(counter-adv-topics-timeofday-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-timeofday h2:before { content: '5.52.' counter(counter-adv-topics-timeofday-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-timeofday h2 {  counter-increment: counter-adv-topics-timeofday-2 }
             
-.print-site-enumerate-headings #adv-topics-tlb > h1:before { content: '5.51 ' }
+.print-site-enumerate-headings #adv-topics-tlb > h1:before { content: '5.53 ' }
 
-                .print-site-enumerate-headings #adv-topics-tlb h2:before { content: '5.51.' counter(counter-adv-topics-tlb-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tlb h2:before { content: '5.53.' counter(counter-adv-topics-tlb-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tlb h2 {  counter-increment: counter-adv-topics-tlb-2 }
             
-.print-site-enumerate-headings #adv-topics-tonemacros > h1:before { content: '5.52 ' }
+.print-site-enumerate-headings #adv-topics-tonemacros > h1:before { content: '5.54 ' }
 
-                .print-site-enumerate-headings #adv-topics-tonemacros h2:before { content: '5.52.' counter(counter-adv-topics-tonemacros-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tonemacros h2:before { content: '5.54.' counter(counter-adv-topics-tonemacros-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tonemacros h2 {  counter-increment: counter-adv-topics-tonemacros-2 }
             
-.print-site-enumerate-headings #adv-topics-tonesignalling > h1:before { content: '5.53 ' }
+.print-site-enumerate-headings #adv-topics-tonesignalling > h1:before { content: '5.55 ' }
 
-                .print-site-enumerate-headings #adv-topics-tonesignalling h2:before { content: '5.53.' counter(counter-adv-topics-tonesignalling-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tonesignalling h2:before { content: '5.55.' counter(counter-adv-topics-tonesignalling-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tonesignalling h2 {  counter-increment: counter-adv-topics-tonesignalling-2 }
             
-.print-site-enumerate-headings #adv-topics-uefi-secureboot > h1:before { content: '5.54 ' }
+.print-site-enumerate-headings #adv-topics-uefi-secureboot > h1:before { content: '5.56 ' }
 
-                .print-site-enumerate-headings #adv-topics-uefi-secureboot h2:before { content: '5.54.' counter(counter-adv-topics-uefi-secureboot-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-uefi-secureboot h2:before { content: '5.56.' counter(counter-adv-topics-uefi-secureboot-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-uefi-secureboot h2 {  counter-increment: counter-adv-topics-uefi-secureboot-2 }
             
-.print-site-enumerate-headings #adv-topics-usbinterfaces > h1:before { content: '5.55 ' }
+.print-site-enumerate-headings #adv-topics-usbinterfaces > h1:before { content: '5.57 ' }
 
-                .print-site-enumerate-headings #adv-topics-usbinterfaces h2:before { content: '5.55.' counter(counter-adv-topics-usbinterfaces-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-usbinterfaces h2:before { content: '5.57.' counter(counter-adv-topics-usbinterfaces-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-usbinterfaces h2 {  counter-increment: counter-adv-topics-usbinterfaces-2 }
             
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
@@ -20360,6 +20882,11 @@ thresholds = 255,110=5      ;
 
                 .print-site-enumerate-headings #developers-api h2:before { content: '7.7.' counter(counter-developers-api-2) ' ' }
                 .print-site-enumerate-headings #developers-api h2 {  counter-increment: counter-developers-api-2 }
+            
+.print-site-enumerate-headings #developers-iaxtext > h1:before { content: '7.8 ' }
+
+                .print-site-enumerate-headings #developers-iaxtext h2:before { content: '7.8.' counter(counter-developers-iaxtext-2) ' ' }
+                .print-site-enumerate-headings #developers-iaxtext h2 {  counter-increment: counter-developers-iaxtext-2 }
             
 .print-site-enumerate-headings #section-8 > h1:before { content: '8 ' }
 .print-site-enumerate-headings #mans > h1:before { content: '8.1 ' }
