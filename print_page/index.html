@@ -2036,6 +2036,8 @@
       
         
       
+        
+      
     
     
     
@@ -2665,6 +2667,34 @@
     
   
     HTTP-Based Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adv-topics/iax-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Direct Authentication
   
 
     
@@ -7462,52 +7492,86 @@ would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code
 <p>There are a number of different applications that can be used to interact/connect to the AllStarLink Network. As ASL3 runs Asterisk at its core, there are a number of different ways to leverage IAX and SIP connections to connect to your node.</p>
 <p>This section will explain some of the common utilities available, and how to do basic configuration to get them to connect to your node.</p>
 <h2 id="user-guide-externalapps-authenticating-connections-to-allstarlink">Authenticating Connections to AllStarLink</h2>
-<p>There are generally three ways to authenticate when connecting to an AllStarLink node:</p>
-<ol>
-<li>
-<p>Registration based authentication. When nodes come online, they attempt to register themselves with the ASL Registration system. The registration request uses either HTTP or IAX, and the registration server validates the node credentials and saves the current IP address of the node. Other nodes query the registration database using DNS queries or look at the node information from a downloaded copy of the nodes database to find the IP address and port to connect to the desired target node. When a connection is initiated to a target node, the target node uses the <code>[radio-secure]</code> context in <code>extensions.conf</code> to process the incoming connection.</p>
-</li>
-<li>
-<p>IAX local authentication. In this scheme, an IAX client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files (<code>iax.conf</code> or <code>custom/iax.conf</code>). If the credentials match, the client is authenticated and may connect. This often uses <code>[iaxrpt]</code> and/or <code>[iax-client]</code> in <code>extensions.conf</code> to process the connection. See the <a href="#user-guide-externalapps-node-configuration">Node Configuration</a> section below for how to configure a node.</p>
-</li>
-<li>
-<p>IAX “allstar-public” authentication. Also called “Web Transceiver”, this is a variation on the username and password above. However, instead of the individual user credentials being stored locally in the ASL config files, the IAX client logs in to the allstarlink.org website and obtains a token. Then, when the client connects to a node, it presents the user’s callsign and token. The node will query allstarlink.org to see if the credentials are valid. If the query is successful, the client is authenticated and may connect. This requires Web Transceiver connections to be allowed in Node Settings on the Web Portal, and uses the <code>[allstar-public]</code> context in <code>extensions.conf</code> to process the connection.</p>
-</li>
-</ol>
-<p>Many of the utilities below can be configured to use methods 2 or 3 to authenticate (method 1 is strictly for node-to-node connections, except DVSM in "Node Mode").</p>
-<h2 id="user-guide-externalapps-web-transceiver">Web Transceiver</h2>
-<p>Before getting into the details of each application, we should discuss some of the workings "under the hood". Specifically, looking at, "how do phone apps like “RepeaterPhone” actually work?".</p>
-<p>Here is a post from the <a href="https://community.allstarlink.org">AllStarLink Community</a> that sums up a lot of the common questions about Web Transceiver access:</p>
-<pre><code>I have some friends with iPhones that are connecting in with an app called “RepeaterPhone”. 
-They just plug in their allstarlink.org main admin account credentials and it “just works”. 
-I do not have an iPhone myself to test or understand this.
-
-How does it actually gain access to nodes like it does?
-
-Also, it shows up in the AllStar Network as “CALLSIGN” and not a node number.
-
-It does not appear to be using IAX2 directly like any other node. 
-I can only assume this is using some kind of cloud broker provided by the app provider, 
-or something, and connecting on it’s behalf?
-
-Or, is there another path into the AllStar Network I’m not familiar with?
-
-How is it that they are presenting as a callsign instead of a node number?
-
-I would expect any app like this would normally need to register as a “normal node” 
-and follow those rules, but this appears to be something different, and users are not 
-setting these up as a normal node… They are simply plugging in their main allstarlink.org credentials.
-</code></pre>
-<p>The following information should (hopefully) answer many of the questions above.</p>
-<p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS, <a href="https://transceive.app/">Transceive</a> for macOS, <a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android (using "WT Mode"), and the <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> (using "AllStarLink" mode) use the "Web Transceiver" functionality of the AllStarLink Network. This is still IAX2, but a different context.</p>
-<p>The original Web Transceiver (WT) was a Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been deprecated, but the background technology still exists, and is leveraged for other applications.</p>
-<p>Using this method, you are issued a token by <a href="https://www.allstarlink.org/portal">allstarlink.org</a> when you login to the Web Portal with your credentials (ie. through one of the applications above). An unauthenticated call is placed to a node in the <code>[allstar-public]</code> context in <code>extensions.conf</code>, which has as part of its dialplan, a mechanism for verifying that the token for the incoming CallerID (the callsign) is valid. If it is, it lets the call through and connects the application to the node. If it can’t validate, then it hangs up.</p>
-<p><strong><em>This doesn’t require a node number</em></strong>, as the call isn’t being directed to <code>[radio-secure]</code>, it just requires an account on <a href="https://www.allstarlink.org/portal">allstarlink.org</a>. <strong>READ THAT AGAIN.</strong> If you are strictly using these applications to connect to other nodes, you <strong>DO NOT</strong> need to register for a node number, but you <strong>DO</strong> need to create an account in the Web Portal.</p>
+<p>External applications used a few different ways to authenticate and connect to an ASL Node.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>AllStarLink Network Registration</em></td>
+<td>When nodes come online, they attempt to register themselves with the ASL Registration system. The registration request uses either HTTP or IAX, and the registration server validates the node credentials and saves the current IP address of the node. Other nodes query the registration database using DNS queries or look at the node information from a downloaded copy of the nodes database to find the IP address and port to connect to the desired target node. When a connection is initiated to a target node, the target node uses the <code>[radio-secure]</code> context in <code>extensions.conf</code> to process the incoming connection.</td>
+</tr>
+<tr>
+<td><em>IAX Direct Authentication</em></td>
+<td>An IAX-based client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files. If the credentials match, the client is authenticated and may connect. DVSwitch Mobile and certain softphone applications can use this method. See <a href="#adv-topics-iax-auth">IAX Authentication</a> for more information on configuring nodes for IAX direct authentication.</td>
+</tr>
+<tr>
+<td><em>SIP Direct Authentication</em></td>
+<td>An SIP-based client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files. If the credentials match, the client is authenticated and may connect. Many softphone and VoIP handsets use this method. See <a href="#adv-topics-sip-phone">Setting up a SIP Phone</a> for configuration information. This is the preferred method for all stock applications such as softphone applications.</td>
+</tr>
+<tr>
+<td><em>ASL Portal / "Web Transceiver"</em></td>
+<td>The original Web Transceiver (WT) was an in-browser Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been removed as browser no longer support the old Java Applet concept for important security reasons. However, the authentication technology still exists, and is leveraged for other applications.</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
-<p class="admonition-title">Connecting to Real Nodes</p>
-<p>As noted above, while you don't need a node number assigned to use these applications in Web Transceiver mode, you can only connect to real nodes (node numbers) that are actively registered with the AllStarLink Network. When the application makes its query to the AllStarLink severs, the node number needs to resolve to an active and reachable node in order for the connection to be successful.</p>
+<p class="admonition-title">Note</p>
+<p>Not all nodes permit Web Transevier mode. Some nodes, particularly some larger networks, have WebTranseiver disabled. This is gracefully by unselecting WT support in the node configuration on the portal or more aggressively by removing the configuration. If you cannot connect to a node with a WebTransceiver-based app most likely it does not support connections with WT mode.</p>
 </div>
-<p>There are downsides to this, as not all node owners, particularly some larger networks, have <code>[allstar-public]</code> enabled on their nodes. This is often disabled by commenting out or deleting the entire <code>[allstar-public]</code> context in <code>extensions.conf</code>, or it can be handled more gracefully in one of a few different ways (including disabling Web Transceiver Access in the <code>Node Settings</code> in the Web Portal).</p>
+<h2 id="user-guide-externalapps-application-configuration-examples">Application Configuration Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>IAX Direct</th>
+<th>SIP Direct</th>
+<th>ASL Portal / WT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://repeaterphone.com/">RepeaterPhone</a></strong></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://transceive.app/">Transceive</a></strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a></strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a></strong><br>(using "AllStarLink" mode)</td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong>IAXRPT</strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+</tr>
+<tr>
+<td><strong>Linphone</strong></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">DVSwitch Mobile</p>
 <p>DVSwitch Mobile does have a method called <em>Node Mode</em>, which registers as its own node number.</p>
@@ -7516,68 +7580,65 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p class="admonition-title">SharkRF M1KE</p>
 <p>SharkRF refers to connecting via this method as "AllStarLink Mode" in some of their documentation. It is, in fact, actually using "Web Transceiver" mode.</p>
 </div>
-<h3 id="user-guide-externalapps-web-transceiver-node-settings">Web Transceiver Node Settings</h3>
-<p>If you are a node owner, and you wish to allow these applications to connect to your node via the Web Transceiver method, you need to ensure that it is enabled in your <code>Node Settings</code> in the Web Portal.</p>
-<p>See <a href="#basics-portal-editing-node-parameters">Editing Node Parameters</a> for more information on how to find this setting.</p>
-<p>You should also confirm that you have an <code>[allsta-public]</code> context in <code>extensions.conf</code>, and that it isn't commented out (it should be there and active, unless you've previously made changes).</p>
-<h2 id="user-guide-externalapps-repeaterphone">RepeaterPhone</h2>
+<h3 id="user-guide-externalapps-repeaterphone">RepeaterPhone</h3>
 <p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS can be used to connect to AllStarLink nodes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>RepeaterPhone solely uses ASL Portal / WebTransceiver authentication. A client node is not required and users do not need to create servers or node simply to use RepeaterPhone.</p>
+</div>
 <p>Be sure to read their <a href="https://repeaterphone.com/pages/faq.html">FAQs</a>.</p>
 <p>Detailed steps to configure RepeaterPhone:</p>
 <ol>
 <li>
-<p>Purchase and Install: Obtain the RepeaterPhone app from the Apple App Store. </p>
+<p>Purchase and Install: Obtain the RepeaterPhone app from the Apple App Store.</p>
 </li>
 <li>
-<p>Access Settings: Open the app and tap the Settings gear wheel. </p>
+<p>Access Settings: Open the app and tap the Settings gear wheel.</p>
 </li>
 <li>
 <p>Add AllStarLink Account:</p>
 <ul>
-<li>Tap "New Account" and then select the AllStarLink emblem. </li>
-<li>Enter your AllStarLink callsign and password (used for logging into the AllStarLink portal). </li>
-<li>Tap "Add Account". </li>
+<li>Tap "New Account" and then select the AllStarLink emblem.</li>
+<li>Enter your AllStarLink callsign and password (used for logging into the AllStarLink portal).</li>
+<li>Tap "Add Account".</li>
 </ul>
 </li>
 <li>
 <p>Add Nodes to Favorites:</p>
 <ul>
-<li>Go to the Favorites section (star icon). </li>
-<li>Tap the "+" symbol to add a new node. </li>
-<li>Choose your AllStarLink username. </li>
-<li>Enter the node number of the desired AllStarLink node. </li>
-<li>Give the node a name (e.g., its callsign). </li>
-<li>For Authentication, select "Account" to use your AllStarLink account (configured in Step 3). </li>
+<li>Go to the Favorites section (star icon).</li>
+<li>Tap the "+" symbol to add a new node.</li>
+<li>Choose your AllStarLink username.</li>
+<li>Enter the node number of the desired AllStarLink node.</li>
+<li>Give the node a name (e.g., its callsign).</li>
+<li>For Authentication, select "Account" to use your AllStarLink account (configured in Step 3).</li>
 </ul>
 </li>
 <li>
-<p>Connect and Use: </p>
+<p>Connect and Use:</p>
 <ul>
-<li>Once you've added nodes to your favorites, you can connect to them by selecting them and tapping "Connect". You'll transmit by holding down the green circle, and you can adjust microphone gain and speaker/non-speaker mode using the provided icons. </li>
+<li>Once you've added nodes to your favorites, you can connect to them by selecting them and tapping "Connect". You'll transmit by holding down the green circle, and you can adjust microphone gain and speaker/non-speaker mode using the provided icons.</li>
 </ul>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Node Authentication</p>
-<p>RepeaterPhone supports different authentication methods. You can choose between "Account" (using your AllStarLink web portal credentials) or "Node" authentication (using an IAX username and password provided to you by the node owner). </p>
+<p>RepeaterPhone supports different authentication methods. You can choose between "Account" (using your AllStarLink web portal credentials) or "Node" authentication (using an IAX username and password provided to you by the node owner).</p>
 </div>
-<h2 id="user-guide-externalapps-transceive">Transceive</h2>
+<h3 id="user-guide-externalapps-transceive">Transceive</h3>
 <p><a href="https://transceive.app/">Transceive</a> for macOS can be used to connect to AllStarLink nodes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Transceive solely uses ASL Portal / WebTransceiver authentication and IAX Direct authentication. A client node is not required and users do not need to create servers or node simply to use RepeaterPhone.</p>
+</div>
 <p>Be sure to read their <a href="https://transceive.app/help/">Help</a> section.</p>
 <p>For detailed steps to configure Transceive, see their page on <a href="https://transceive.app/help/setup">Setup</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Node Authentication</p>
-<p>Transceive supports different authentication methods. You can choose between "Authenticate with an AllStar Account" (using your AllStarLink web portal credentials) or "Use Node Specific Credentials" authentication (using an IAX username and password provided to you by the node owner). </p>
-</div>
-<h2 id="user-guide-externalapps-dvswitch-mobile">DVSwitch Mobile</h2>
+<h3 id="user-guide-externalapps-dvswitch-mobile">DVSwitch Mobile</h3>
 <p><a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android can be used to connect to AllStarLink nodes.</p>
+<p>DVSwitch Mobile (DVSM) supports different authentication methods. You can choose between "Web Transceiver" mode (using your AllStarLink web portal credentials), "IAXRpt" mode (using an IAX username and password provided to you by the node owner), or "Node" mode (where DVSwitch Mobile configures itself as a real node).</p>
 <p>For support, see their <a href="https://dvswitch.groups.io/g/Mobile">Support Forum</a>, they also have a <a href="https://dvswitch.groups.io/g/Mobile/wiki">Support Wiki</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Node Authentication</p>
-<p>DVSwitch Mobile (DVSM) supports different authentication methods. You can choose between "Web Transceiver" mode (using your AllStarLink web portal credentials), "IAXRpt" mode (using an IAX username and password provided to you by the node owner), or "Node" mode (where DVSwitch Mobile configures itself as a real node). </p>
-</div>
-<h3 id="user-guide-externalapps-web-transceiver-mode">Web Transceiver Mode</h3>
-<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, but you do NOT need to apply for a node number.</p>
+<h4 id="user-guide-externalapps-web-transceiver-mode">Web Transceiver Mode</h4>
+<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, but you do NOT need to apply for a node number. Note that WT mode in DVSM requires the paid version.</p>
 <p>Why use this mode?</p>
 <ul>
 <li>
@@ -7627,7 +7688,7 @@ setting these up as a normal node… They are simply plugging in their main alls
 </li>
 </ul>
 <p>You will return to the dialer screen, and you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-RADIO".</p>
-<h3 id="user-guide-externalapps-iaxrpt-mode">IAXRpt Mode</h3>
+<h4 id="user-guide-externalapps-iaxrpt-mode">IAXRpt Mode</h4>
 <p>When used in this mode, DVSM requires the user to have received a username and password (aka secret) from the node owner who's node you wish to connect to (and that node owner needs to configure <code>iax.conf</code> with the same credentials to allow authentication, see <a href="#user-guide-externalapps-node-configuration">Node Configuration</a> below).</p>
 <p>Why use this mode?</p>
 <ul>
@@ -7731,7 +7792,7 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p>Press the "Connect" button, and you should be connected to the target node, and see the status change in the lower part of the screen to show the target node.</p>
 </li>
 </ul>
-<h3 id="user-guide-externalapps-node-mode">Node Mode</h3>
+<h4 id="user-guide-externalapps-node-mode">Node Mode</h4>
 <p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, AND have a node number assigned to them associated with that account. In this mode, DVSM is configured such that it registers with the AllStarLink registration servers as that assigned node.</p>
 <p>Why use this mode?</p>
 <ul>
@@ -7830,106 +7891,51 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p class="admonition-title">Registration Updates</p>
 <p>Because you entered <code>register.allstarlink.org</code> into the account settings, DVSM will maintain a registration session with the main registration server. This server keeps a list of all the registered nodes and their IP addresses. When a node connects to another node, this list is used to lookup the IP address of the node trying to connect and if the IP address matches the list, a connection is established. The connection to the registration server is refreshed once per minute.</p>
 <p>On older systems running ASL2, the node list is downloaded by nodes from the registration server on a schedule, typically once every 5 minutes. As a node, you have
-to be registered for at least this amount of time for a remote node to get the updated list and your IP address. You may need to wait for the node list to propagate out to the network before you can connect to your desired node. ASL3 uses DNS lookups by default, so you should be able to connect to ASL3 nodes almost immediately. </p>
+to be registered for at least this amount of time for a remote node to get the updated list and your IP address. You may need to wait for the node list to propagate out to the network before you can connect to your desired node. ASL3 uses DNS lookups by default, so you should be able to connect to ASL3 nodes almost immediately.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Outbound Calls Only</p>
 <p>While you are registered with the AllStarLink Network as a node in this mode, you are still only able to make outbound connections only. DVSM currently does not support other nodes connecting to you.</p>
 </div>
-<h2 id="user-guide-externalapps-sharkrf-m1ke">SharkRF M1KE</h2>
+<h3 id="user-guide-externalapps-sharkrf-m1ke">SharkRF M1KE</h3>
 <p>The <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> can be used to connect to AllStarLink nodes.</p>
 <p>See their <a href="https://manuals.sharkrf.com/m1ke/">Support Page</a> for documentation on how to configure and use the M1KE.</p>
 <p>In order to connect to an AllStarLink node, you will need to configure an <a href="https://manuals.sharkrf.com/m1ke/web/connectors/iax2.html">IAX2/AllStarLink Connector</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Node Authentication</p>
-<p>M1KE supports different authentication methods. You can choose between "AllStarLink" (using your AllStarLink web portal credentials) or "IAX2" authentication (using an IAX username and password provided to you by the node owner). </p>
+<p>M1KE supports different authentication methods. You can choose between "AllStarLink" (using your AllStarLink web portal credentials) or "IAX2" authentication (using an IAX username and password provided to you by the node owner).</p>
 </div>
-<h2 id="user-guide-externalapps-iaxrpt-pc-client">IAXRpt PC Client</h2>
-<p>IAXRpt is a specialized Windows "soft phone" program which allows users to connect from their PC's to an AllStarLink node. </p>
-<p>IAXRpt was originally written and distributed by a company called Xeletec, but it has since been orphaned, and their download servers have been offline since 2019. As such, you will need to download the setup file from <a href="https://wiki.allstarlink.org/images/5/56/Setup_iaxrpt_xipar_010146.exe">our local server copy</a>.</p>
+<h3 id="user-guide-externalapps-iaxrpt-pc-client">IAXRpt PC Client</h3>
+<div class="admonition danger">
+<p class="admonition-title">Don't Use IXARpt</p>
+<p>IAXRpt was originally written and distributed by a company called Xeletec, but it has since been orphaned, and their download servers have been offline since 2019. As such, you will need to download the setup file from elsewhere. AllStarLink strongly discourages continued use of this application as future improvements to the system may render IAXRpt unusable. Also, ensure that you do not install a malware-hijacked version of IAXRpt.</p>
+</div>
+<p>IAXRpt is a specialized Windows "soft phone" program which allows users to connect from their PC's to an AllStarLink node.</p>
 <p>In order to use the IAXRpt PC Client, you need to be supplied with a username and password (aka secret) from the node operator who's node you want to connect to, as well as the hostname and port of the node server. <strong>That also means that the node operator needs to configure their node to allow external connections from IAXRpt, and authenticate users.</strong> More information for node operators on how to configure their node is provided below.</p>
 <p>The IAXRpt client is getting pretty old and it may not play nice with newer version of Windows, your experience may be less than stellar. Things may not work as expected, but until someone writes a new software package, this is what we have to work with.</p>
 <div class="admonition note">
 <p class="admonition-title">Minimize to Tray</p>
 <p>Beware that if you "minimize" the IAXRpt client window, it will appear to disappear (doesn't minimize to the Taskbar). When you minimize the window, it will minimize to the Tray instead. Go find the icon in the Tray to maximize/restore the client window.</p>
 </div>
-<h3 id="user-guide-externalapps-node-configuration">Node Configuration</h3>
+<h4 id="user-guide-externalapps-node-configuration">Node Configuration</h4>
 <p>This section is for node operators, and covers how to configure your node to allow for connections from clients such as IAXRpt and DVSwitch Moblie (using <a href="#user-guide-externalapps-iaxrpt-mode">IAXRpt mode</a>).</p>
 <h4 id="user-guide-externalapps-authentication-flow">Authentication Flow</h4>
 <p>Before we get into configuration, you need to understand how an incoming call is processed by Asterisk.</p>
 <ul>
 <li>
-<p>When a client attempts to connect to a node using one of the aforementioned clients, the incoming call is processed through <code>iax.conf</code> </p>
+<p>When a client attempts to connect to a node using one of the aforementioned clients, the incoming call is processed through <code>iax.conf</code></p>
 </li>
 <li>
-<p>The context in <code>iax.conf</code> that is used is determined by the <code>username</code> that the client sends </p>
+<p>The context in <code>iax.conf</code> that is used is determined by the <code>username</code> that the client sends</p>
 </li>
 <li>
-<p>If a context name is found that matches the <code>username</code>, the <code>secret</code> in that context is then compared with the <code>password</code> the client sent to authenticate the client (otherwise the call is rejected) </p>
+<p>If a context name is found that matches the <code>username</code>, the <code>secret</code> in that context is then compared with the <code>password</code> the client sent to authenticate the client (otherwise the call is rejected)</p>
 </li>
 <li>
 <p>If the authentication succeeds, the call is passed to <code>extensions.conf</code> for further processing, using the context defined by the <code>context =</code> directive</p>
 </li>
 </ul>
 <p>Therefore, for each user that you want to allow to connect to your system via this method, you either need to use one default username (context) and password (secret) in <code>iax.conf</code> for all users, or you need to add a specific context to <code>iax.conf</code> for each user (and provide them with a unique password (secret)). If you choose the latter, ALL the contexts can still point to the same context in <code>extensions.conf</code> for common processing.</p>
-<h4 id="user-guide-externalapps-configuring-iaxconf">Configuring <code>iax.conf</code></h4>
-<p>The default <code>iax.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
-<div class="highlight"><pre><span></span><code>[iaxrpt]                            ; Connect from iaxrpt Username field (PC AllStar Client)
-type = user                         ; Notice type is user here &lt;---------------
-context = iaxrpt                    ; Context to jump to in extensions.conf
-auth = md5
-secret = CHANGEME                   ; Change this to something else, this is the "password" for this context
-host = dynamic
-disallow = all                    
-allow = ulaw
-allow = adpcm
-allow = gsm                       
-transfer = no
-</code></pre></div>
-<p>At the bare minimum, you need to change the secret (password), <code>CHANGEME</code> to something else. On new ASL3 installations, this will be a randomly generated password. As shown above, clients can connect to this node if they use the username <code>iaxrpt</code> and the password <code>CHANGEME</code>. If you share this username/password with users, they will all be able to connect using the same credentials. You can prevent any connections using this context by commenting it out (put a <code>;</code> at the beginning of each line).</p>
-<div class="admonition warn">
-<p class="admonition-title">Call Tokens</p>
-<p>With ASL3 moving to Asterisk 20+, IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.</p>
-</div>
-<p>If you would like to provide a unique username and password to each user, just duplicate the <code>[iaxrpt]</code> context, and give it a new name and secret, such as:</p>
-<div class="highlight"><pre><span></span><code>[wb6nil]                            ; Connect from wb6nil Username field (PC AllStar Client)
-type = user                         ; Notice type is user here &lt;---------------
-context = iaxrpt                    ; Context to jump to in extensions.conf
-auth = md5
-secret = il0veallstar               ; This is the "password" for this context
-host = dynamic
-disallow = all                    
-allow = ulaw
-allow = adpcm
-allow = gsm                       
-transfer = no
-</code></pre></div>
-<p>The username and password to supply to the user for the above context would then be, <code>wb6nil</code>/<code>il0veallstar</code>. </p>
-<div class="admonition note">
-<p class="admonition-title">Codec Selection</p>
-<p>Pay attention to the allowed codecs (defined by the <code>allow =</code> directives). Clients (IAXRpt in particular) may need to be configured to use a codec you support. If, for example, you delete <code>gsm</code> from your allowed codecs list (because it sounds like garbage), client connections may fail if they are trying to negotiate to use that codec.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Restart Asterisk</p>
-<p>Don't forget to restart Asterisk after you make any changes to <code>iax.conf</code>.</p>
-</div>
-<h4 id="user-guide-externalapps-configuring-extensionsconf">Configuring <code>extensions.conf</code></h4>
-<p>The default <code>extensions.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
-<div class="highlight"><pre><span></span><code>[iaxrpt]
-; Entered from iaxrpt in iax.conf
-; Info: The X option passed to the Rpt application
-; disables the normal security checks.
-; Because incoming connections are validated in iax.conf,
-; and we don't know where the user will be coming from in advance,
-; the X option is required.
-exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
-</code></pre></div>
-<p>The <code>context = iaxrpt</code> directive found in the <code>[iaxrpt]</code> context in <code>iax.conf</code> directs here for call processing, once a user is authenticated.</p>
-<p>Normally, you shouldn't need to make any changes here. However, you could customize this context to do additional things such as playback ringing tone the client, announce the node number, etc. That is beyond the scope of this document, but you could take hints from <code>[iax-clinet]</code> context that is also likely present in the default file. </p>
-<div class="admonition note">
-<p class="admonition-title">Restart Asterisk</p>
-<p>Don't forget to restart Asterisk after you make any changes to <code>extensions.conf</code>.</p>
-</div>
 <h3 id="user-guide-externalapps-iaxrpt-client-configuration">IAXRpt Client Configuration</h3>
 <p>This section is for users installing the IAXRpt client, and configuring it to connect to a dedicated node.</p>
 <p>You will need to obtain the following from the node operator who's node you wish to connect to:</p>
@@ -7947,7 +7953,7 @@ exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
 <p>node IAX port</p>
 </li>
 </ul>
-<p>Install and open the software, then go to Options --&gt; Account --&gt; Add. </p>
+<p>Install and open the software, then go to Options --&gt; Account --&gt; Add.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../user-guide/img/1_iaxrpt_account.png" data-desc-position="bottom"><img alt="Step 1 Add Account" src="../user-guide/img/1_iaxrpt_account.png" width="400"></a></p>
 <p>Fill in the boxes as follows:</p>
 <table>
@@ -10369,7 +10375,82 @@ register =&gt; 1999:password@register.allstarlink.org    ; This must be changed 
 </code></pre></div>
 <p>While <a href="#adv-topics-iaxreg">IAX registration</a> still works, please <em>do not</em> register with both HTTP and IAX. That would result in unnecessary server load for no gain. </p>
 <p>The long term plan is to do away with IAX registration. HTTP registration allows load balancing and other advantages not available with IAX. The ASL2 IAX module has been replaced with the Asterisk LTS IAX2 module for upstream compatibility.</p>
-<p>If you feel you absolutely need to use IAX registration, see the <a href="#adv-topics-iaxreg">IAX-Based Registration</a> page in this section for more information.</p></body></html></section><section class="print-page" id="adv-topics-iax-proxy" heading-number="5.23"><html><head>
+<p>If you feel you absolutely need to use IAX registration, see the <a href="#adv-topics-iaxreg">IAX-Based Registration</a> page in this section for more information.</p></body></html></section><section class="print-page" id="adv-topics-iax-auth" heading-number="5.23"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="iax-direct-authentication">IAX Direct Authentication</h1>
+<p>IAX Direct Authentication is the most flexible and reliable way to connect to an ASL node without using the full ASL Registration infrastructure. This describes how to configure IAX direct authentication for node operators who wish to allow direct IAX connections.</p>
+<h2 id="adv-topics-iax-auth-configuring-iax">Configuring IAX</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are upgrading from an ASL1, ASL2, HamVOIP, or DIAL legacy configuration you cannot simply copy/paste the old configuration into ASL3.</p>
+</div>
+<p>The default <code>/etc/asterisk/iax.conf</code> installed with your ASL3 installation should contain the following context <em>template</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">; The (!) for the [iaxrpt](!) section indicates this is a template. As such, we can store the</span>
+<span class="c1">; actual users to authenticate in a separate file, to keep from cluttering up iax.conf.</span>
+<span class="c1">; The actual file used to store the users is included with the #tryinclude directive below.</span>
+<span class="na">[iaxrpt](!)                      ; Connect from iaxrpt Username field (PC AllStar Client (iaxRpt))</span>
+<span class="na">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">user</span><span class="w">                      </span><span class="c1">; Notice type is user here &lt;---------------</span>
+<span class="na">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">iaxrpt</span><span class="w">                 </span><span class="c1">; Context to jump to in extensions.conf</span>
+<span class="na">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">md5</span>
+<span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">dynamic</span>
+<span class="na">disallow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">all</span>
+<span class="c1">;allow = slin16                   ; un-comment to allow high-fidelity codec (make sure to load module)</span>
+<span class="c1">;allow = slin                     ; un-comment to allow high-fidelity codec (make sure to load module)</span>
+<span class="na">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ulaw</span>
+<span class="na">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">adpcm</span>
+<span class="na">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">gsm</span>
+<span class="na">transfer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span>
+<span class="na">requirecalltoken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">no</span><span class="w">            </span><span class="c1">; Required for iaxRpt to connect, because it is SO old</span>
+<span class="c1">; Source the users to authenticate from here:</span>
+<span class="c1">#tryinclude custom/iax/iaxrpt-users.conf      ; PC clients to authenticate</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Call Tokens</p>
+<p>IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.
+Unfortunately, most of the commonly used applications that work with ASL do not support call tokens.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Codec Selection</p>
+<p>Pay attention to the allowed codecs (defined by the <code>allow =</code> directives). Clients (IAXRpt in particular) may need to be configured to use a codec you support. If, for example, you delete <code>gsm</code> from your allowed codecs list (because it sounds like garbage), client connections may fail if they are trying to negotiate to use that codec.</p>
+</div>
+<p>Then, in <code>/etc/asterisk/custom/iax/iaxrpt-users.conf</code>, each user can be configured according to the following pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="na">[N0CALL]](iaxrpt)                   ; pull in the config from the [iaxrpt] section in</span>
+<span class="na">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">N0CALL</span><span class="w">                      </span><span class="c1">; iax.conf and then add this user's specific information</span>
+<span class="na">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Some_Secret_Password_Here</span><span class="w"> </span><span class="c1">; (user, secret, and callerid). n0call is the USERNAME in</span>
+<span class="na">callerid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"N0CALL"</span><span class="w"> </span><span class="na">&lt;0&gt;            ; the iaxRPT client account configuration.</span>
+</code></pre></div>
+<p>Obviously, replace N0CALL with the appropriate callign and "Some_Secret_Password_Here" with a reasonably strong password.</p>
+<div class="admonition tip">
+<p class="admonition-title">Reload IAX for New Users</p>
+<p>After adding a new user, execute <code>iax2 reload</code> from the Asterisk console to reload the configuration information.</p>
+</div>
+<h2 id="adv-topics-iax-auth-configuring-extensions">Configuring Extensions</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If upgrading from an ASL1, ASL2, HamVOIP, or DIAL legacy configuration you cannot simply copy/paste the old configuration into ASL3.</p>
+</div>
+<p>The default <code>/etc/asterisk/extensions.conf</code> installed with your ASL3 installation should contain the following context:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[iaxrpt]</span>
+<span class="c1">; Entered from iaxrpt in iax.conf</span>
+<span class="c1">; Info: The X option passed to the Rpt application</span>
+<span class="c1">; disables the normal security checks.</span>
+<span class="c1">; Because incoming connections are validated in iax.conf,</span>
+<span class="c1">; and we don't know where the user will be coming from in advance,</span>
+<span class="c1">; the X option is required.</span>
+<span class="na">exten</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; _XXXX!,1,Set(NODENUM=${CALLERID(num)})</span>
+<span class="w">    </span><span class="na">same</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; n,NoOp(Connect from node ${NODENUM} to node ${EXTEN} using ${CHANNEL(channeltype)})</span>
+<span class="w">    </span><span class="na">same</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; n,ExecIf($[!${RPT_NODE(${EXTEN},exists)}]?Hangup)</span><span class="w"> </span><span class="c1">; disconnect if requested node is not on this server</span>
+<span class="w">    </span><span class="na">same</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; n,Rpt(${EXTEN},X)</span>
+<span class="w">    </span><span class="na">same</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; n,Hangup</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Restart Asterisk</p>
+<p>If you have to edit <code>extensions.conf</code> make sure you restart asterisk.</p>
+</div></body></html></section><section class="print-page" id="adv-topics-iax-proxy" heading-number="5.24"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10501,7 +10582,7 @@ exten =&gt; _9.,n,Hangup
 <div class="highlight"><pre><span></span><code>[proxy]
 ipaddr=&lt;Public IP address of this Server Proxy Server&gt;
 </code></pre></div>
-<p>The Server Proxy Server will be able to determine the nodes for which it needs to provide Proxy service.</p></body></html></section><section class="print-page" id="adv-topics-iaxreg" heading-number="5.24"><html><head>
+<p>The Server Proxy Server will be able to determine the nodes for which it needs to provide Proxy service.</p></body></html></section><section class="print-page" id="adv-topics-iaxreg" heading-number="5.25"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10548,7 +10629,7 @@ Host                  dnsmgr  Username  Perceived                 Refresh  State
 </code></pre></div>
 <p>If it lists "State" as "Registered" you're all set.</p>
 </li>
-</ol></body></html></section><section class="print-page" id="adv-topics-linkacttimer" heading-number="5.25"><html><head>
+</ol></body></html></section><section class="print-page" id="adv-topics-linkacttimer" heading-number="5.26"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10616,7 +10697,7 @@ Host                  dnsmgr  Username  Perceived                 Refresh  State
  lnkacttime=900                     ; 15 minute link activity timer    
  lnkactmacro=*52                    ; Use macro 2 in the [macros] stanza for link activity timer
  lnkacttimerwarn=rpt/timeout-warning; Sound file for 30 second warning message located in /usr/share/asterisk/sounds/en
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-litz" heading-number="5.26"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-litz" heading-number="5.27"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10631,7 +10712,7 @@ litzcmd = *6911  ; Command sequence to execute upon LiTZ activation -- Call 911 
 litztime = 3000  ; Time required to hold down DTMF (default is 3000mS)
 </code></pre></div>
 <p>The above options would be placed in the node's configuration stanza in <code>rpt.conf</code>.</p>
-<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></body></html></section><section class="print-page" id="adv-topics-macros" heading-number="5.27"><html><head>
+<p>By default, <code>litzcmd</code> is not set (blank), which disables the feature (as even if a user sends <code>litzchar</code> for <code>litztime</code>, there is nothing to execute).</p></body></html></section><section class="print-page" id="adv-topics-macros" heading-number="5.28"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10685,7 +10766,7 @@ telemetry=telemetry
 </code></pre></div>
 <h1 id="adv-topics-macros-scheduler-execution">Scheduler Execution</h1>
 <p>With the example configuration shown, macros are called with a <code>*5</code> prefix and followed with the number assigned in the [macro] stanza.</p>
-<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></body></html></section><section class="print-page" id="adv-topics-gpio" heading-number="5.28"><html><head>
+<p>You can also call them from the system schedular by number. Calling a macro number is the only method the scheduler supports. So if you wish to schedule with the system scheduler, you need a macro to execute it.</p></body></html></section><section class="print-page" id="adv-topics-gpio" heading-number="5.29"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10809,7 +10890,7 @@ Variable listing for node 1999:
 98990=cop,61,pp9=0                  ; pport pin 9 off
 98991=cop,61,pp9=1                  ; pport pin 9 on
 </code></pre></div>
-<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p></body></html></section><section class="print-page" id="adv-topics-mdc1200" heading-number="5.29"><html><head>
+<p>Using an easier to remember structure as you think of it as - 989 (for pp switch cmd) + 2-9 (pp pin#) + 1/0 (on/off).</p></body></html></section><section class="print-page" id="adv-topics-mdc1200" heading-number="5.30"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10964,7 +11045,7 @@ I1234=K1234                         ; define PTTID=dtmfkey for each user
 I2341=K2341
 </code></pre></div>
 <p>Each user that is granted access to key the node needs to have an entry in <code>[mdcmacro]</code> with their assigned MDC-1200 PTTID (ie. <code>I1234</code>), and the corresponding <code>dtmfkeys</code> (ie. <code>K1234</code>) that is associated with it. The <code>K</code> is a special operator that tells <code>app_rpt</code> to look for the associated key in <code>[dtmfkeys]</code>.</p>
-<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p></body></html></section><section class="print-page" id="adv-topics-multinodesnetwork" heading-number="5.30"><html><head>
+<p>When a valid DTMF key is presented (which in this case will be an MDC-1200 PTTID), the node will key and the associated callsign will get logged by Asterisk to track access.</p></body></html></section><section class="print-page" id="adv-topics-multinodesnetwork" heading-number="5.31"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11105,7 +11186,7 @@ T630011
 <p>Disconnect the links with:</p>
 <div class="highlight"><pre><span></span><code>rpt cmd 630010 ilink 1 630011
 </code></pre></div>
-<p>After that, everything should work. The most common issue with this configuration is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-nnx" heading-number="5.31"><html><head>
+<p>After that, everything should work. The most common issue with this configuration is incorrect router/NAT port forwarding or a typo in <code>rpt.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-nnx" heading-number="5.32"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11192,7 +11273,7 @@ NNX Node Pool:                      630010 to 630019
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adv-topics/img/15_NNX_Delete_Primary.png" data-desc-position="bottom"><img alt="Step 2 Remove Node Continue" src="../adv-topics/img/15_NNX_Delete_Primary.png" width="400"></a></p>
 <p>Next, you will need to confirm that this is indeed what you want to do.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../adv-topics/img/17_Delete_Primary.png" data-desc-position="bottom"><img alt="Step 3 Confirm Delete" src="../adv-topics/img/17_Delete_Primary.png" width="400"></a></p>
-<p>At this point, you need to ensure that you wipe the configuration from any server that had this node number configured, as it will continue trying to register with AllStarLink, providing unnecessary strain on our resources.</p></body></html></section><section class="print-page" id="adv-topics-noderesolution" heading-number="5.32"><html><head>
+<p>At this point, you need to ensure that you wipe the configuration from any server that had this node number configured, as it will continue trying to register with AllStarLink, providing unnecessary strain on our resources.</p></body></html></section><section class="print-page" id="adv-topics-noderesolution" heading-number="5.33"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11253,7 +11334,7 @@ node_lookup_method = both           ; method used to lookup nodes
 1001 = radio@192.168.0.1/1001,NONE
 1998 = radio@127.0.0.1:4568/1998,NONE
 1999 = radio@192.168.0.2:4569/1999,NONE
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-other-software" heading-number="5.33"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-other-software" heading-number="5.34"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11268,7 +11349,7 @@ node_lookup_method = both           ; method used to lookup nodes
 <div class="highlight"><pre><span></span><code>sudo systemctl enable asl3-update-astdb.service
 sudo systemctl enable asl3-update-astdb.timer
 sudo systemctl start asl3-update-astdb.timer
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.34"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.35"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11350,7 +11431,7 @@ sudo systemctl start asl3-update-astdb.timer
 922 = cop,22                        ; Disable Parrot Mode
 923 = cop,23                        ; Birdbath (Current Parrot Cleanup/Flush)
 955 = cop,55                        ; Parrot Once if parrot mode is disabled
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-dtmftoscript" heading-number="5.35"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-dtmftoscript" heading-number="5.36"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11396,7 +11477,7 @@ exten = _X.,n,Hangup
 <div class="highlight"><pre><span></span><code>62=autopatchup,context=pass2script,noct=1,farenddisconnect=1,dialtime=10000,quiet=1 
 63=autopatchup,context=sitecontrol,noct=1,farenddisconnect=1,dialtime=10000,quiet=1 
 </code></pre></div>
-<p>Practical uses can be site or home control via USB or network relays, radio control/digital mode control functions, web execution scripts etc., all dependent on your script/dialplan.</p></body></html></section><section class="print-page" id="adv-topics-permanentnode" heading-number="5.36"><html><head>
+<p>Practical uses can be site or home control via USB or network relays, radio control/digital mode control functions, web execution scripts etc., all dependent on your script/dialplan.</p></body></html></section><section class="print-page" id="adv-topics-permanentnode" heading-number="5.37"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11426,7 +11507,7 @@ exten = _X.,n,Hangup
 <p>For example, under your <a href="#config-rpt_conf-node-number-stanza">Node Number Stanza</a> add:</p>
 <div class="highlight"><pre><span></span><code>startup_macro = *8131999            ; Permanently connect (transceive) to node 1999 when Asterisk starts            
 </code></pre></div>
-<p>Reload/restart your system and it will auto connect to the node you specified above.</p></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.37"><html><head>
+<p>Reload/restart your system and it will auto connect to the node you specified above.</p></body></html></section><section class="print-page" id="adv-topics-parrotmode" heading-number="5.38"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11508,7 +11589,7 @@ exten = _X.,n,Hangup
 922 = cop,22                        ; Disable Parrot Mode
 923 = cop,23                        ; Birdbath (Current Parrot Cleanup/Flush)
 955 = cop,55                        ; Parrot Once if parrot mode is disabled
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-permissions" heading-number="5.38"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-permissions" heading-number="5.39"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11612,7 +11693,7 @@ polkit rules. The provided wrappers are:</p>
 9005 = cmd,/usr/sbin/shutdown
 9006 = cmd,/usr/sbin/reboot
 </code></pre></div>
-<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></body></html></section><section class="print-page" id="adv-topics-privatenodes" heading-number="5.39"><html><head>
+<p>The command <code>*9001</code> would restart asterisk, <code>*9006</code> would reboot the system, etc.</p></body></html></section><section class="print-page" id="adv-topics-privatenodes" heading-number="5.40"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11666,7 +11747,7 @@ rxchannel = SimpleUSB/1999      ; SimpleUSB
 <p>As you can see, all three servers have entries in their <code>[nodes]</code> context that identify the node number, the IP address (or domain name), and port (if not default) of the each other's private nodes. This will allow all of them to be able to connect to each other.</p>
 <p>See the section on <a href="#adv-topics-multinodesnetwork">Multiple Nodes on the Same Network</a> for other considerations and tips on testing.</p>
 <p>Remember, a private node can do practically anything you can do with a public node. So, for example, one of those private nodes in the example above could be configured as an Echolink node, but only the nodes you have control of can access it (instead of any public node). Likewise, one of those private nodes could be connected to a UHF link to some other analog system, and this would let you "link in" to that system from your ASL node, but the public can't.</p>
-<p>You basically have a "multi-port" repeater controller that is pretty much as flexible as you desire.</p></body></html></section><section class="print-page" id="adv-topics-radio-connections" heading-number="5.40"><html><head>
+<p>You basically have a "multi-port" repeater controller that is pretty much as flexible as you desire.</p></body></html></section><section class="print-page" id="adv-topics-radio-connections" heading-number="5.41"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11716,7 +11797,7 @@ provide that information via a GitHub request at
 <h3 id="adv-topics-radio-connections-motorola">Motorola</h3>
 <h4 id="adv-topics-radio-connections-cdm">CDM</h4>
 <p>CDMs make great nodes. This eBay reseller has very nice cables. Use to connect to URI or RTCM.</p>
-<p><a href="/assets/pdfs/CDM_Cable.pdf">CDM Cable from Kurt Meltzer KC4NX</a> - Cable 83 has only one output to use for either COS or CTCSS. Use another cable if you need both COS and CTCSS.</p>
+<p><a href="../assets/pdfs/CDM_Cable.pdf">CDM Cable from Kurt Meltzer KC4NX</a> - Cable 83 has only one output to use for either COS or CTCSS. Use another cable if you need both COS and CTCSS.</p>
 <h4 id="adv-topics-radio-connections-maxtrac-radius-gm300">Maxtrac / Radius / GM300</h4>
 <p>The venerable Maxtrac is a radio that was very well built, apparently has very stable reference LO, and can take a beating. When aligned properly, and sufficient <em>vectored</em> cooling is made, this radio will last for a very long, time even under several hours with of transmitting per day.</p>
 <p>These older radios are fairly common and easily to come by due to the narrow banding. Probably the hardest part is finding a computer and the RSS to program them. The Maxtrac family has many different configurations, from low band VHF, to 800 Mhz. But the easiest variant of the are the ones with the 16 pin connector.
@@ -11735,18 +11816,18 @@ Connections are fairly simple but can be hard to determine which is the correct 
 <p>With the radio facing you in normal operating positing, volume knob on top left, and mic connection right below it, turn the radio over from the right side. The accessory connector is located on the rear, right top of the radio at this point. Starting from left to right, the pins on the top are / and the pins on the bottom are /. If you want to hear audio from the radios speaker, just a header jumper on the far right pins 15 and 16.</p>
 <h4 id="adv-topics-radio-connections-mtr-2000">MTR-2000</h4>
 <h4 id="adv-topics-radio-connections-quantar">Quantar</h4>
-<p>The Quantar can be tricky to interface as it's extremely programmable and you will need a wireline card for I/O connections.  By default the I/O will not work unless the "wildcard" table is programed.  This wildcard table is Boolean logic of interrupt states in the radio, is extremely flexible and frustrating to debug.  It's a base station in it's own class.</p>
+<p>The Quantar can be tricky to interface as it's extremely programmable and you will need a wireline card for I/O connections.  By default the I/O will not work unless the "wildcard" table is programmed.  This wildcard table is Boolean logic of interrupt states in the radio, is extremely flexible and frustrating to debug.  It's a base station in it's own class.</p>
 <ul>
-<li><a href="/assets/pdfs/QUANTAR-RTCM INTERFACE CABLE.pdf">Quantar/RTCM Interface Cable</a> - Note you will want to use DSP/BEW Firmware on the RTCM if using the RTCM do squelch.</li>
-<li><a href="/assets/pdfs/RTCM_2_Quantar.pdf">Another Quantar/RTCM Interface Cable</a></li>
-<li><a href="/assets/pdfs/RTCM_to_Astro-TAC_Cable.pdf">Astro-TAC/RTCM Interface Cable</a></li>
+<li><a href="../assets/pdfs/QUANTAR-RTCM_INTERFACE_CABLE.pdf">Quantar/RTCM Interface Cable</a> - Note you will want to use DSP/BEW Firmware on the RTCM if using the RTCM do squelch.</li>
+<li><a href="../assets/pdfs/RTCM_2_Quantar.pdf">Another Quantar/RTCM Interface Cable</a></li>
+<li><a href="../assets/pdfs/RTCM_to_Astro-TAC_Cable.pdf">Astro-TAC/RTCM Interface Cable</a></li>
 <li>
 <p><a href="http://wiki.w9cr.net/index.php/Allstar_and_P25_on_Quantar">Interfacing to a Quantar with P25NX</a> - Interfacing the Quantar using simple USB into AllStarLink and P25NX linking at the same time.  This is driven by programming on the Quantar Wildcard tables.</p>
 </li>
 <li>
-<p><a href="/assets/pdfs/Quantar_URI_Interface.jpg">Quantar/URI Cable</a></p>
+<p><a href="../assets/pdfs/Quantar_URI_Interface.jpg">Quantar/URI Cable</a></p>
 </li>
-<li><a href="/assets/pdfs/QuantarMRTI2URI.jpg">Quantar MRTI/URI Cable</a></li>
+<li><a href="../assets/pdfs/QuantarMRTI2URI.jpg">Quantar MRTI/URI Cable</a></li>
 </ul>
 <p>Also see the dedicated <a href="#voter-voter-quantar">Quantar Voter</a> page for detailed information.</p>
 <h4 id="adv-topics-radio-connections-syntor-x">Syntor X</h4>
@@ -11764,7 +11845,7 @@ Connections are fairly simple but can be hard to determine which is the correct 
 <h4 id="adv-topics-radio-connections-ft-79008900">FT 7900/8900</h4>
 <p>Both models sport a mini-DIN 6 pin connector on the rear panel. These can easily be hooked into a URI of your choice, such as a <a href="http://www.masterscommunications.com/products/radio-adapter/dra/dra50.html">DRA-50</a> and an
 <a href="http://www.masterscommunications.com/products/cables/drac-12.html">appropriate cable</a>. This is a nearly plug &amp; play solution for this radio.</p>
-<p><a href="/assets/pdfs/Yaesu79008900DataPort.jpg">Yaesu 7900/8900 Data Port Diagram</a></p>
+<p><a href="../assets/pdfs/Yaesu79008900DataPort.jpg">Yaesu 7900/8900 Data Port Diagram</a></p>
 <h3 id="adv-topics-radio-connections-baofeng">Baofeng</h3>
 <h4 id="adv-topics-radio-connections-baofeng-888">Baofeng 888</h4>
 <ul>
@@ -11776,27 +11857,27 @@ Connections are fairly simple but can be hard to determine which is the correct 
 </ul>
 <h2 id="adv-topics-radio-connections-repeater-controller">Repeater Controller</h2>
 <h3 id="adv-topics-radio-connections-rtcms">RTCMs</h3>
-<p><a href="/assets/pdfs/RTCMwithController.pdf">An example of using RTCMs to replace 420 links</a></p>
+<p><a href="../assets/pdfs/RTCMwithController.pdf">An example of using RTCMs to replace 420 links</a></p>
 <h3 id="adv-topics-radio-connections-spectra-engineering">Spectra Engineering</h3>
 <ul>
 <li><a href="http://wiki.w9cr.net/index.php/MX800#W9CR_alignment_procedure_and_setup_with_AllStarLink">MX800 Base station</a> - Complete setup guide for the MX800 Base station which includes fallback to the built in controller and an audio delay module.</li>
 </ul>
 <h3 id="adv-topics-radio-connections-vertex">Vertex</h3>
 <ul>
-<li><a href="/assets/pdfs/RTCM_2_VRX-5000.pdf">VRX-5000 / RTCM Interface Cable</a></li>
+<li><a href="../assets/pdfs/RTCM_2_VRX-5000.pdf">VRX-5000 / RTCM Interface Cable</a></li>
 </ul>
 <h2 id="adv-topics-radio-connections-gps">GPS</h2>
 <ul>
-<li><a href="/assets/pdfs/RTCM_2_Trimble.pdf">Trimble RTCM Interface Cable</a></li>
-<li><a href="/assets/pdfs/RTCM_321_Cable.graffle.pdf">Trimble to Two RTCMs and Lady Heather Cable</a></li>
-<li><a href="/assets/pdfs/RTCM_to_BG7TBL_Cable.pdf">BG7TBL GPS / RTCM Cable</a></li>
+<li><a href="../assets/pdfs/RTCM_2_Trimble.pdf">Trimble RTCM Interface Cable</a></li>
+<li><a href="../assets/pdfs/RTCM_321_Cable.graffle.pdf">Trimble to Two RTCMs and Lady Heather Cable</a></li>
+<li><a href="../assets/pdfs/RTCM_to_BG7TBL_Cable.pdf">BG7TBL GPS / RTCM Cable</a></li>
 </ul>
 <h2 id="adv-topics-radio-connections-quad-radio-pci-card">Quad Radio PCI card</h2>
 <ul>
-<li><a href="/assets/pdfs/Ft897_quadpci_schematic.pdf">Yaesu FT-897 HF Radio(pdf)</a></li>
-<li><a href="/assets/pdfs/Ic706_quadpci_schematic.pdf">Icom IC-706 HF Radio(pdf)</a></li>
-<li><a href="/assets/pdfs/Tmg707_quadpci_schematic.pdf">Kenwood TMG-707 Dual Band FM mobile Radio(pdf)</a></li>
-</ul></body></html></section><section class="print-page" id="adv-topics-remotebase" heading-number="5.41"><html><head>
+<li><a href="../assets/pdfs/Ft897_quadpci_schematic.pdf">Yaesu FT-897 HF Radio(pdf)</a></li>
+<li><a href="../assets/pdfs/Ic706_quadpci_schematic.pdf">Icom IC-706 HF Radio(pdf)</a></li>
+<li><a href="../assets/pdfs/Tmg707_quadpci_schematic.pdf">Kenwood TMG-707 Dual Band FM mobile Radio(pdf)</a></li>
+</ul></body></html></section><section class="print-page" id="adv-topics-remotebase" heading-number="5.42"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12519,7 +12600,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
 11=444.475,114.8,+l
 12=444.150,100.0,+l
 ;13=446.500,100.0,sl
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-rxtoneburst" heading-number="5.42"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-rxtoneburst" heading-number="5.43"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12533,7 +12614,7 @@ init=224.660,100.0,-l               ;initial freq/mode on start-up/boot - choose
 <div class="highlight"><pre><span></span><code>rxburstfreq = 1750          ; set the desired toneburst frequency, in Hz
 rxbursttime = 500           ; minimum duration required for the tone to be present, in mS
 rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a valid tone
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-sa818modules" heading-number="5.43"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-sa818modules" heading-number="5.44"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12618,7 +12699,7 @@ rxburstthreshold=10         ; minimum signal to noise radio, in dB, to detect a 
 <p>If you make changes that you do not wish to have stored, then use the ESC key to exit the menu.</p>
 </div>
 <h2 id="adv-topics-sa818modules-sa818">sa818</h2>
-<p>To program your SA818 using the command line you can execute the <a href="#mans-sa818"><code>sa818</code></a> command. For command usage information, see the <a href="#mans-sa818"><code>sa818</code></a> manual page.</p></body></html></section><section class="print-page" id="adv-topics-sip-phone" heading-number="5.44"><html><head>
+<p>To program your SA818 using the command line you can execute the <a href="#mans-sa818"><code>sa818</code></a> command. For command usage information, see the <a href="#mans-sa818"><code>sa818</code></a> manual page.</p></body></html></section><section class="print-page" id="adv-topics-sip-phone" heading-number="5.45"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12806,7 +12887,7 @@ exten =&gt; 1999,1,rpt(1999|P)
 <h2 id="adv-topics-sip-phone-troubleshooting">Troubleshooting</h2>
 <p>If you have trouble connecting your SIP phone, start the Asterisk CLI with <code>asterisk -rvvv</code>. Enter the command <code>pjsip set logger on</code>. This will show the communications between the SIP phone and Asterisk. It will also show the actions in your dial plan.</p>
 <h2 id="adv-topics-sip-phone-security">Security</h2>
-<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></body></html></section><section class="print-page" id="adv-topics-scheduler" heading-number="5.45"><html><head>
+<p>If you will be exposing your system to the outside world, you should consider using <code>fail2ban</code> to add additional protection for the system.</p></body></html></section><section class="print-page" id="adv-topics-scheduler" heading-number="5.46"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12916,7 +12997,7 @@ xxx = cop,16                        ; scheduler disable
 <p>Be sure if you are using the system <code>cron</code>, that your scripts can be executed by the user that <code>cron</code> is running the entry as. Quite often, failure to execute scripts is traced back to the calling user not having the permission to execute. See the <a href="#adv-topics-permissions">Permissions</a> page for more information.</p>
 </div>
 <p>Any of the above options for using the system <code>cron</code> are acceptable. You should decide what works best for you, and stick with that method. It can be difficult to troubleshoot if you end up putting cron entries in different places.</p>
-<p>Cron formatting and options are beyond the scope of this document, but there are lots of examples available on the internet, or review the system manual pages (<code>man cron</code>, <code>man crontab</code>, <code>man 5 crontab</code>).</p></body></html></section><section class="print-page" id="adv-topics-sleepmode" heading-number="5.46"><html><head>
+<p>Cron formatting and options are beyond the scope of this document, but there are lots of examples available on the internet, or review the system manual pages (<code>man cron</code>, <code>man crontab</code>, <code>man 5 crontab</code>).</p></body></html></section><section class="print-page" id="adv-topics-sleepmode" heading-number="5.47"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12979,7 +13060,7 @@ xxx = cop,16                        ; scheduler disable
 <p>In addition to defining the commands to control Sleep Mode, you will likely also want to adjust the inactivity timer (<code>sleeptime</code>). This option is set in the <a href="#config-rpt_conf-node-number-stanza">node number stanza</a> in <a href="#config-rpt_conf"><code>rpt.conf</code></a>.</p>
 <p>The default value for <code>sleeptime</code> is 900 seconds (15 minutes), if it is not specified (and you were to enable Sleep Mode). Set the value appropriately for your configuration:</p>
 <div class="highlight"><pre><span></span><code>sleeptime=300                       ; Set the inactivity timer for 300 seconds (5 minutes)
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-soundfiles" heading-number="5.47"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-soundfiles" heading-number="5.48"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13053,7 +13134,7 @@ lrwxrwxrwx  1 root root    31 Nov 13  2024 recordings -&gt; /var/lib/asterisk/so
 <p>There are many utility programs to allow you to convert or manipulate your sound files.</p>
 <p>SoX and MPEG123 are two of those. <a href="https://audacityteam.org">Audacity</a> is another popular choice for editing sound files, but there are others out there that do just as well and are a bit skinnier.</p>
 <p>Here is an (older) <a href="../adv-topics/assets/RecordingSoundFiles.pdf">how-to</a> on using Audacity to record sound files for your node.</p>
-<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></body></html></section><section class="print-page" id="adv-topics-simplevoter" heading-number="5.48"><html><head>
+<p>Regardless of the method you use to record sound files, be sure to record in a quiet environment (no fans, animals, children crying). For even better results, invest in a decent USB podcasting microphone (most built-in computer microphones are not great, and pick up lots of external noise (like laptop fans)).</p></body></html></section><section class="print-page" id="adv-topics-simplevoter" heading-number="5.49"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13101,7 +13182,7 @@ votermode=2                         ; 0=default, no voting, 1=voter one-shot, 2=
 <div class="admonition note">
 <p class="admonition-title">RSSI Voting</p>
 <p>This feature simply selects the receiver with the best signal strength. There will be a noticeable transition between receivers. So, it's not perfect, but for most applications, it's good enough considering the cost and complexity.</p>
-</div></body></html></section><section class="print-page" id="adv-topics-broadcastify" heading-number="5.49"><html><head>
+</div></body></html></section><section class="print-page" id="adv-topics-broadcastify" heading-number="5.50"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13194,7 +13275,7 @@ sudo chmod 660 /etc/ezstream.xml
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
 cp ezstream.xml ~/
 mv ezstream.new ezstream.xml
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-telemetry" heading-number="5.50"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-telemetry" heading-number="5.51"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13255,7 +13336,7 @@ mv ezstream.new ezstream.xml
 <li><code>cop,42</code>  Announce node number only (<code>eannmode=1</code>)</li>
 <li><code>cop,43</code>  Announce callsign only (<code>eannmode=2</code>)</li>
 <li><code>cop,44</code>  Announce node number and callsign (<code>eannmode=3</code>)</li>
-</ul></body></html></section><section class="print-page" id="adv-topics-tailmessage" heading-number="5.51"><html><head>
+</ul></body></html></section><section class="print-page" id="adv-topics-tailmessage" heading-number="5.52"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13346,7 +13427,7 @@ ID recording files must have extension .gsm, .ulaw, .pcm, or .wav. The extension
 ...
 </code></pre></div>
 <p>The default is to have <code>telemetry=</code> point to a stanza called <code>telemetry</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href="#config-config-structure-settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
-<p>See the <a href="#config-rpt_conf-telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p></body></html></section><section class="print-page" id="adv-topics-timeofday" heading-number="5.52"><html><head>
+<p>See the <a href="#config-rpt_conf-telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p></body></html></section><section class="print-page" id="adv-topics-timeofday" heading-number="5.53"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13375,7 +13456,7 @@ exten =&gt; TIME,1,ExecIfTime(0:00-11:59,*,*,*?Playback(rpt/goodmorning))
  same =&gt; n,Playback(rpt/thetimeis)
  same =&gt; n,SayUnixTime(${RPT_TELEM_TIME()},,${IF($[${STRFTIME(${UNIXTIME},,%-M) = "0"}]?IMp:Ip)})
  same =&gt; n,Hangup()
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-tlb" heading-number="5.53"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-tlb" heading-number="5.54"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13412,7 +13493,7 @@ In tlb.conf:
 <p>And you must have an entry if your TheLinkBox ACL file (generally <code>tlb.acl</code>) for each <code>app_rpt</code> node as follows:</p>
 <div class="highlight"><pre><span></span><code>allow   WB6NIL   99.88.77.66     -       -R
 </code></pre></div>
-<p>This example would allow station WB6NIL-R access from ip 99.88.77.66. Note that WB6NIL-R is the <code>call</code> defined in the <code>app_rpt</code> node's <code>tlb.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-tonemacros" heading-number="5.54"><html><head>
+<p>This example would allow station WB6NIL-R access from ip 99.88.77.66. Note that WB6NIL-R is the <code>call</code> defined in the <code>app_rpt</code> node's <code>tlb.conf</code>.</p></body></html></section><section class="print-page" id="adv-topics-tonemacros" heading-number="5.55"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13432,7 +13513,7 @@ In tlb.conf:
 203.5=*712
 94.8=R*123 *4556 ;This macro will execute on each keyup
 </code></pre></div>
-<p>Use your imagination as this can be used very powerfully. But, be careful in thinking out the full implications of what you are doing.</p></body></html></section><section class="print-page" id="adv-topics-tonesignalling" heading-number="5.55"><html><head>
+<p>Use your imagination as this can be used very powerfully. But, be careful in thinking out the full implications of what you are doing.</p></body></html></section><section class="print-page" id="adv-topics-tonesignalling" heading-number="5.56"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13450,7 +13531,7 @@ In tlb.conf:
 <div class="highlight"><pre><span></span><code>881=cop,48,1,2,3,4,#                ; Send DTMF 1,2,3,4, and #
 882=cop,48,!399/1000,!339/2000      ; Send two tone paging sequence: Motorola codes 144, 141
 883=cop,48,!1100+1700/100,!0/60,!700+900/60,!0/60,!700+1100/60,!0/60,!700+900/60,!0/60,!1500+1700/60 ; Send MF tone sequence KP121ST
-</code></pre></div></body></html></section><section class="print-page" id="adv-topics-uefi-secureboot" heading-number="5.56"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="adv-topics-uefi-secureboot" heading-number="5.57"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13555,7 +13636,7 @@ dahdi_transcode        16384  0
 dahdi                 258048  2 dahdi_dummy,dahdi_transcode
 </code></pre></div>
 </li>
-</ol></body></html></section><section class="print-page" id="adv-topics-usbinterfaces" heading-number="5.57"><html><head>
+</ol></body></html></section><section class="print-page" id="adv-topics-usbinterfaces" heading-number="5.58"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -16749,7 +16830,10 @@ their links:</p>
 <h2 id="developers-api-authentication-apis">Authentication APIs</h2>
 <p>There are node registration APIs available for applications.</p>
 <h3 id="developers-api-webtransceiver">WebTransceiver</h3>
-<p>Coming soon</p>
+<p>The original Web Transceiver (WT) was a browser-based Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been long gone since browsers no longer support Java Applets. However, the background technology still exists and has been leveraged for other applications.</p>
+<p>Using this method, clients are issued a token by <a href="https://www.allstarlink.org/">allstarlink.org</a> either "faking" a login on using the <code>/api/v2/auth-wt-legacy</code> API endpoint. Clients provide the ASL portal username and password and receive back a token. The client then places an unauthenticated IAX call to a node which is handled by the <code>[allstar-public]</code> context. Within that context is a mechanism for verifying that the token for the incoming CallerID (the callsign) is valid. If it is, it lets the call through and connects the application to the node. If it can’t validate, then it hangs up.</p>
+<p>If you are a node owner, and you wish to allow these applications to connect to your node via the Web Transceiver method, you need to ensure that WT is enabled in your <code>Node Settings</code> in the Web Portal. See <a href="#basics-portal-editing-node-parameters">Editing Node Parameters</a> for more information on how to find this setting.
+You should also confirm that you have an <code>[allstar-public]</code> context in <code>extensions.conf</code>, and that it isn't commented out (it should be there and active, unless you've previously made changes).</p>
 <h3 id="developers-api-simple-node-auth">Simple Node Auth</h3>
 <p>This API is for authenticating infrastructure clients such as node audio
 test sites using the Node number and node password. This API is not "open"
@@ -17526,7 +17610,7 @@ server4 = backup.echolink.org
 <p>Since ASL3 is built on top of the Asterisk PBX software, if you want to make changes to this file, you should familiarize yourself with how Asterisk dialplans work, their syntax, and their function. There is plenty of documentation available on the Internet about Asterisk dialplans, a good place to start is the <a href="https://docs.asterisk.org">Asterisk Project Documentation</a>.</p>
 <p>We will cover the basics here in how the information in the default ASL3 <code>extensions.conf</code> relates to node operations.</p>
 <h2 id="config-extensions_conf-general-stanza"><code>[general]</code> Stanza</h2>
-<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions. </p>
+<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions.</p>
 <p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>static = yes                        ; These two lines prevent the command-line interface
 writeprotect = yes                  ; from overwriting the config file. Leave them here.
@@ -17670,7 +17754,7 @@ exten =&gt; s,1,Wait(1)
     same =&gt; n,SayAlpha(${CURL(http://myip.vg)})
     same =&gt; n,Hangup
 </code></pre></div>
-<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="#config-rpt_conf-context"><code>rpt.conf</code></a> using the <a href="#config-rpt_conf-context"><code>context</code></a> directive. Note that the <a href="#adv-topics-autopatch-autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option. </p>
+<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="#config-rpt_conf-context"><code>rpt.conf</code></a> using the <a href="#config-rpt_conf-context"><code>context</code></a> directive. Note that the <a href="#adv-topics-autopatch-autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option.</p>
 <p>The <code>[radio]</code> stanza does a few different things:</p>
 <ul>
 <li>
@@ -17732,7 +17816,7 @@ exten =&gt; _5.,n,Hangup
 </code></pre></div>
 <p>The option used when calling the Telephone Portal (Node Access or Reverse Autopatch) determines which extension gets used for processing in <code>[allstar-sys]</code>. Reverse Autopatch processes calls through extension 1 (which parks the call until someone on the radio side picks up the parked call). The Node Access method processes calls through extension 2 (function codes for keying PTT) or 3 (VOX for PTT).</p>
 <h2 id="config-extensions_conf-allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
-<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#user-guide-externalapps-web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#developers-api-webtransceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
 <p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-public]
 exten =&gt; s,1,Ringing
@@ -17787,13 +17871,13 @@ exten =&gt; s,1,Ringing
 <div class="highlight"><pre><span></span><code>; !!! IAX registration will be discontinued at some point !!!
 ; Setup rpt_http_registartions.conf instead.
 ; remove the leading ";"
-;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password 
+;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password
 ;register =&gt; 1998:12345@register.allstarlink.org
 </code></pre></div>
 <p>While node registration will still work (for now) using this method, please don't use it. It is not required. Your registration should be processed by an entry in <code>rpt_http_registrations.conf</code>, which in most cases the <a href="#user-guide"><code>asl-menu</code></a> utility will take care of configuring for you.</p>
 <h3 id="config-iax_conf-bindport-and-bindaddr"><code>bindport=</code> and <code>bindaddr=</code></h3>
 <p>The <code>bindport</code> and <code>bindaddr</code> directives determine where Asterisk is listening for incoming IAX2 connections.</p>
-<p>By default, UDP port <code>4569</code> is used. </p>
+<p>By default, UDP port <code>4569</code> is used.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>bindport = 4569                 ; bindport and bindaddr may be specified
 
@@ -17803,7 +17887,7 @@ exten =&gt; s,1,Ringing
 ;  (e.g. bindaddr=192.168.0.1:4569)
 
 ; bindaddr = 192.168.0.1        ; more than once to bind to multiple
-                                ; addresses, but the first will be the 
+                                ; addresses, but the first will be the
                                 ; default
 </code></pre></div>
 <p>In most cases, the default <code>bindport = 4569</code> will work fine. However, if you are running multiple node servers behind a NAT firewall, you MAY need to change this so that they are all unique from each other. In that case, you also need to change the <a href="#basics-portal-iax-port">IAX Port</a> in the <a href="https://www.allstarlink.org/portal">Web Portal</a> to match. See the <a href="#adv-topics-multinodesnetwork">Multiple Nodes on the Same Network</a> page for further details.</p>
@@ -17812,11 +17896,11 @@ exten =&gt; s,1,Ringing
 <p>If you are using a firewall on your internet connection (I sure hope so!), don't forget to allow port <code>4569/UDP</code>, and/or any other IAX2 port(s) you have configured through your firewall (and point it to the correct internal IP address, if using NAT).</p>
 <p>If you are using the <a href="#install-pi-appliance">ASL3 Appliance</a> and you are using a non-standard port, don't forget to update the firewall rules in the <a href="#pi-cockpit-firewall">Cockpit Firewall</a>.</p>
 </div>
-<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases. </p>
+<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases.</p>
 <h3 id="config-iax_conf-outbound-codecs">Outbound Codecs</h3>
 <p>Also in the <code>[general]</code> stanza is the configuration of <strong>OUTBOUND</strong> codecs to be used when making outbound connections to other nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
-<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections 
+<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections
 ;allow = ulaw                       ; Audio Quality     Bandwidth
 ;allow = adpcm                      ; best              87 kbps
 ;allow = gsm                        ; good              55 kbps
@@ -17836,23 +17920,23 @@ allow = gsm
 <h3 id="config-iax_conf-remaining-general-options">Remaining <code>[general]</code> Options</h3>
 <p>There are some other directives included in the <code>[general]</code> stanza of the default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>jitterbuffer = yes
-forcejitterbuffer = yes                                                           
-dropcount = 2                                                                     
-maxjitterbuffer = 4000                                                            
-maxjitterinterps = 10                                                             
-resyncthreshold = 1000                                                            
-maxexcessbuffer = 80                                                              
-minexcessbuffer = 10                                                              
-jittershrinkrate = 1                                                              
-tos = 0x1E                                                                  
-autokill = yes                                                                    
-delayreject = yes                                                                 
-; iaxthreadcount = 30                                                              
-; iaxmaxthreadcount = 150  
+forcejitterbuffer = yes
+dropcount = 2
+maxjitterbuffer = 4000
+maxjitterinterps = 10
+resyncthreshold = 1000
+maxexcessbuffer = 80
+minexcessbuffer = 10
+jittershrinkrate = 1
+tos = 0x1E
+autokill = yes
+delayreject = yes
+; iaxthreadcount = 30
+; iaxmaxthreadcount = 150
 </code></pre></div>
 <p>Unless you have a specific reason to change them (and you know why you are changing them), just leave them alone. You can break your node.</p>
 <h2 id="config-iax_conf-radio-stanza"><code>[radio]</code> Stanza</h2>
-<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes. </p>
+<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[radio]
 type = user
@@ -17872,7 +17956,7 @@ transfer = no
 <p>Incoming calls with the username of <code>radio</code> will reach this stanza, and then after the call is setup (codecs are negotiated) they are forwarded to <code>extensions.conf</code> for further processing. Per the <code>context = radio-secure</code> directive, the incoming connection will be processed by the <code>[radio-secure]</code> stanza that is found in <code>extensions.conf</code>, where it gets authenticated by <code>app_rpt</code> to see if it is a valid node that is allowed to connect.</p>
 <p>The <code>type = user</code> directive tells this installation of Asterisk that the incoming connection (the "peer") is to be treated as a client connecting to us (the host). So, with <code>codecpriority = host</code>, <em>we</em> get to choose the supported codecs and their priority we prefer to connect with.</p>
 <h2 id="config-iax_conf-iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
-<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="#user-guide-externalapps-iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="#user-guide-externalapps">External Apps</a>). </p>
+<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="#user-guide-externalapps-iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="#user-guide-externalapps">External Apps</a>).</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[iaxrpt]                         ; Connect from iaxrpt Username field (PC AllStar Client)
 type = user                      ; Notice type is user here &lt;---------------
@@ -17880,10 +17964,10 @@ context = iaxrpt                 ; Context to jump to in extensions.conf
 auth = md5
 secret = Your_Secret_Pasword_Here
 host = dynamic
-disallow = all                    
+disallow = all
 allow = ulaw
 allow = adpcm
-allow = gsm                       
+allow = gsm
 transfer = no
 </code></pre></div>
 <p>The username this node is expecting to see from the client is the context name (<code>iaxrpt</code>), and it is going to forward the call to the the <code>[iaxrpt]</code> stanza in <code>extensions.conf</code>, as denoted by the <code>context = iaxrpt</code> directive.</p>
@@ -17913,7 +17997,7 @@ transfer = no
 <p>The big difference between the <code>[iaxrt]</code> and <code>[iaxclient]</code> stanzas is the <code>type</code> directive. The <code>type = friend</code> tells this installation of Asterisk that the Zoiper client (peer) is both a client and a server, capable of both originating and receiving calls.</p>
 <p>Also note that connections processed by this stanza are forwarded to the <code>[iax-client]</code> stanza in <code>extensions.conf</code>, per the <code>context = iax-client</code> directive.</p>
 <h2 id="config-iax_conf-allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
-<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="#user-guide-phoneportal">AllStarLink Telephone Portal</a>. </p>
+<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="#user-guide-phoneportal">AllStarLink Telephone Portal</a>.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-sys]
 type = user
@@ -17929,7 +18013,7 @@ allow = gsm
 <p>Also note that these connections are validated by a public/private key arrangement, as denoted by the <code>auth = rsa</code> and <code>inkeys = allstar</code> directives.</p>
 <p>Connections processed by this stanza are forwarded to the <code>[allstar-sys]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-sys</code> directive.</p>
 <h2 id="config-iax_conf-allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
-<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#user-guide-externalapps-web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="#developers-api-webtransceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="#user-guide-externalapps">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-public]
 type = user
@@ -20591,179 +20675,184 @@ thresholds = 255,110=5      ;
                 .print-site-enumerate-headings #adv-topics-httpreg h2:before { content: '5.22.' counter(counter-adv-topics-httpreg-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-httpreg h2 {  counter-increment: counter-adv-topics-httpreg-2 }
             
-.print-site-enumerate-headings #adv-topics-iax-proxy > h1:before { content: '5.23 ' }
+.print-site-enumerate-headings #adv-topics-iax-auth > h1:before { content: '5.23 ' }
 
-                .print-site-enumerate-headings #adv-topics-iax-proxy h2:before { content: '5.23.' counter(counter-adv-topics-iax-proxy-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-iax-auth h2:before { content: '5.23.' counter(counter-adv-topics-iax-auth-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-iax-auth h2 {  counter-increment: counter-adv-topics-iax-auth-2 }
+            
+.print-site-enumerate-headings #adv-topics-iax-proxy > h1:before { content: '5.24 ' }
+
+                .print-site-enumerate-headings #adv-topics-iax-proxy h2:before { content: '5.24.' counter(counter-adv-topics-iax-proxy-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-iax-proxy h2 {  counter-increment: counter-adv-topics-iax-proxy-2 }
             
-.print-site-enumerate-headings #adv-topics-iaxreg > h1:before { content: '5.24 ' }
+.print-site-enumerate-headings #adv-topics-iaxreg > h1:before { content: '5.25 ' }
 
-                .print-site-enumerate-headings #adv-topics-iaxreg h2:before { content: '5.24.' counter(counter-adv-topics-iaxreg-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-iaxreg h2:before { content: '5.25.' counter(counter-adv-topics-iaxreg-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-iaxreg h2 {  counter-increment: counter-adv-topics-iaxreg-2 }
             
-.print-site-enumerate-headings #adv-topics-linkacttimer > h1:before { content: '5.25 ' }
+.print-site-enumerate-headings #adv-topics-linkacttimer > h1:before { content: '5.26 ' }
 
-                .print-site-enumerate-headings #adv-topics-linkacttimer h2:before { content: '5.25.' counter(counter-adv-topics-linkacttimer-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-linkacttimer h2:before { content: '5.26.' counter(counter-adv-topics-linkacttimer-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-linkacttimer h2 {  counter-increment: counter-adv-topics-linkacttimer-2 }
             
-.print-site-enumerate-headings #adv-topics-litz > h1:before { content: '5.26 ' }
+.print-site-enumerate-headings #adv-topics-litz > h1:before { content: '5.27 ' }
 
-                .print-site-enumerate-headings #adv-topics-litz h2:before { content: '5.26.' counter(counter-adv-topics-litz-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-litz h2:before { content: '5.27.' counter(counter-adv-topics-litz-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-litz h2 {  counter-increment: counter-adv-topics-litz-2 }
             
-.print-site-enumerate-headings #adv-topics-macros > h1:before { content: '5.27 ' }
+.print-site-enumerate-headings #adv-topics-macros > h1:before { content: '5.28 ' }
 
-                .print-site-enumerate-headings #adv-topics-macros h2:before { content: '5.27.' counter(counter-adv-topics-macros-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-macros h2:before { content: '5.28.' counter(counter-adv-topics-macros-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-macros h2 {  counter-increment: counter-adv-topics-macros-2 }
             
-.print-site-enumerate-headings #adv-topics-gpio > h1:before { content: '5.28 ' }
+.print-site-enumerate-headings #adv-topics-gpio > h1:before { content: '5.29 ' }
 
-                .print-site-enumerate-headings #adv-topics-gpio h2:before { content: '5.28.' counter(counter-adv-topics-gpio-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-gpio h2:before { content: '5.29.' counter(counter-adv-topics-gpio-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-gpio h2 {  counter-increment: counter-adv-topics-gpio-2 }
             
-.print-site-enumerate-headings #adv-topics-mdc1200 > h1:before { content: '5.29 ' }
+.print-site-enumerate-headings #adv-topics-mdc1200 > h1:before { content: '5.30 ' }
 
-                .print-site-enumerate-headings #adv-topics-mdc1200 h2:before { content: '5.29.' counter(counter-adv-topics-mdc1200-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-mdc1200 h2:before { content: '5.30.' counter(counter-adv-topics-mdc1200-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-mdc1200 h2 {  counter-increment: counter-adv-topics-mdc1200-2 }
             
-.print-site-enumerate-headings #adv-topics-multinodesnetwork > h1:before { content: '5.30 ' }
+.print-site-enumerate-headings #adv-topics-multinodesnetwork > h1:before { content: '5.31 ' }
 
-                .print-site-enumerate-headings #adv-topics-multinodesnetwork h2:before { content: '5.30.' counter(counter-adv-topics-multinodesnetwork-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-multinodesnetwork h2:before { content: '5.31.' counter(counter-adv-topics-multinodesnetwork-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-multinodesnetwork h2 {  counter-increment: counter-adv-topics-multinodesnetwork-2 }
             
-.print-site-enumerate-headings #adv-topics-nnx > h1:before { content: '5.31 ' }
+.print-site-enumerate-headings #adv-topics-nnx > h1:before { content: '5.32 ' }
 
-                .print-site-enumerate-headings #adv-topics-nnx h2:before { content: '5.31.' counter(counter-adv-topics-nnx-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-nnx h2:before { content: '5.32.' counter(counter-adv-topics-nnx-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-nnx h2 {  counter-increment: counter-adv-topics-nnx-2 }
             
-.print-site-enumerate-headings #adv-topics-noderesolution > h1:before { content: '5.32 ' }
+.print-site-enumerate-headings #adv-topics-noderesolution > h1:before { content: '5.33 ' }
 
-                .print-site-enumerate-headings #adv-topics-noderesolution h2:before { content: '5.32.' counter(counter-adv-topics-noderesolution-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-noderesolution h2:before { content: '5.33.' counter(counter-adv-topics-noderesolution-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-noderesolution h2 {  counter-increment: counter-adv-topics-noderesolution-2 }
             
-.print-site-enumerate-headings #adv-topics-other-software > h1:before { content: '5.33 ' }
+.print-site-enumerate-headings #adv-topics-other-software > h1:before { content: '5.34 ' }
 
-                .print-site-enumerate-headings #adv-topics-other-software h2:before { content: '5.33.' counter(counter-adv-topics-other-software-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-other-software h2:before { content: '5.34.' counter(counter-adv-topics-other-software-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-other-software h2 {  counter-increment: counter-adv-topics-other-software-2 }
             
-.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.34 ' }
+.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.35 ' }
 
-                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.34.' counter(counter-adv-topics-parrotmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.35.' counter(counter-adv-topics-parrotmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-parrotmode h2 {  counter-increment: counter-adv-topics-parrotmode-2 }
             
-.print-site-enumerate-headings #adv-topics-dtmftoscript > h1:before { content: '5.35 ' }
+.print-site-enumerate-headings #adv-topics-dtmftoscript > h1:before { content: '5.36 ' }
 
-                .print-site-enumerate-headings #adv-topics-dtmftoscript h2:before { content: '5.35.' counter(counter-adv-topics-dtmftoscript-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-dtmftoscript h2:before { content: '5.36.' counter(counter-adv-topics-dtmftoscript-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-dtmftoscript h2 {  counter-increment: counter-adv-topics-dtmftoscript-2 }
             
-.print-site-enumerate-headings #adv-topics-permanentnode > h1:before { content: '5.36 ' }
+.print-site-enumerate-headings #adv-topics-permanentnode > h1:before { content: '5.37 ' }
 
-                .print-site-enumerate-headings #adv-topics-permanentnode h2:before { content: '5.36.' counter(counter-adv-topics-permanentnode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-permanentnode h2:before { content: '5.37.' counter(counter-adv-topics-permanentnode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-permanentnode h2 {  counter-increment: counter-adv-topics-permanentnode-2 }
             
-.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.37 ' }
+.print-site-enumerate-headings #adv-topics-parrotmode > h1:before { content: '5.38 ' }
 
-                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.37.' counter(counter-adv-topics-parrotmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-parrotmode h2:before { content: '5.38.' counter(counter-adv-topics-parrotmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-parrotmode h2 {  counter-increment: counter-adv-topics-parrotmode-2 }
             
-.print-site-enumerate-headings #adv-topics-permissions > h1:before { content: '5.38 ' }
+.print-site-enumerate-headings #adv-topics-permissions > h1:before { content: '5.39 ' }
 
-                .print-site-enumerate-headings #adv-topics-permissions h2:before { content: '5.38.' counter(counter-adv-topics-permissions-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-permissions h2:before { content: '5.39.' counter(counter-adv-topics-permissions-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-permissions h2 {  counter-increment: counter-adv-topics-permissions-2 }
             
-.print-site-enumerate-headings #adv-topics-privatenodes > h1:before { content: '5.39 ' }
+.print-site-enumerate-headings #adv-topics-privatenodes > h1:before { content: '5.40 ' }
 
-                .print-site-enumerate-headings #adv-topics-privatenodes h2:before { content: '5.39.' counter(counter-adv-topics-privatenodes-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-privatenodes h2:before { content: '5.40.' counter(counter-adv-topics-privatenodes-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-privatenodes h2 {  counter-increment: counter-adv-topics-privatenodes-2 }
             
-.print-site-enumerate-headings #adv-topics-radio-connections > h1:before { content: '5.40 ' }
+.print-site-enumerate-headings #adv-topics-radio-connections > h1:before { content: '5.41 ' }
 
-                .print-site-enumerate-headings #adv-topics-radio-connections h2:before { content: '5.40.' counter(counter-adv-topics-radio-connections-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-radio-connections h2:before { content: '5.41.' counter(counter-adv-topics-radio-connections-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-radio-connections h2 {  counter-increment: counter-adv-topics-radio-connections-2 }
             
-.print-site-enumerate-headings #adv-topics-remotebase > h1:before { content: '5.41 ' }
+.print-site-enumerate-headings #adv-topics-remotebase > h1:before { content: '5.42 ' }
 
-                .print-site-enumerate-headings #adv-topics-remotebase h2:before { content: '5.41.' counter(counter-adv-topics-remotebase-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-remotebase h2:before { content: '5.42.' counter(counter-adv-topics-remotebase-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-remotebase h2 {  counter-increment: counter-adv-topics-remotebase-2 }
             
-.print-site-enumerate-headings #adv-topics-rxtoneburst > h1:before { content: '5.42 ' }
+.print-site-enumerate-headings #adv-topics-rxtoneburst > h1:before { content: '5.43 ' }
 
-                .print-site-enumerate-headings #adv-topics-rxtoneburst h2:before { content: '5.42.' counter(counter-adv-topics-rxtoneburst-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-rxtoneburst h2:before { content: '5.43.' counter(counter-adv-topics-rxtoneburst-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-rxtoneburst h2 {  counter-increment: counter-adv-topics-rxtoneburst-2 }
             
-.print-site-enumerate-headings #adv-topics-sa818modules > h1:before { content: '5.43 ' }
+.print-site-enumerate-headings #adv-topics-sa818modules > h1:before { content: '5.44 ' }
 
-                .print-site-enumerate-headings #adv-topics-sa818modules h2:before { content: '5.43.' counter(counter-adv-topics-sa818modules-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sa818modules h2:before { content: '5.44.' counter(counter-adv-topics-sa818modules-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sa818modules h2 {  counter-increment: counter-adv-topics-sa818modules-2 }
             
-.print-site-enumerate-headings #adv-topics-sip-phone > h1:before { content: '5.44 ' }
+.print-site-enumerate-headings #adv-topics-sip-phone > h1:before { content: '5.45 ' }
 
-                .print-site-enumerate-headings #adv-topics-sip-phone h2:before { content: '5.44.' counter(counter-adv-topics-sip-phone-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sip-phone h2:before { content: '5.45.' counter(counter-adv-topics-sip-phone-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sip-phone h2 {  counter-increment: counter-adv-topics-sip-phone-2 }
             
-.print-site-enumerate-headings #adv-topics-scheduler > h1:before { content: '5.45 ' }
+.print-site-enumerate-headings #adv-topics-scheduler > h1:before { content: '5.46 ' }
 
-                .print-site-enumerate-headings #adv-topics-scheduler h2:before { content: '5.45.' counter(counter-adv-topics-scheduler-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-scheduler h2:before { content: '5.46.' counter(counter-adv-topics-scheduler-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-scheduler h2 {  counter-increment: counter-adv-topics-scheduler-2 }
             
-.print-site-enumerate-headings #adv-topics-sleepmode > h1:before { content: '5.46 ' }
+.print-site-enumerate-headings #adv-topics-sleepmode > h1:before { content: '5.47 ' }
 
-                .print-site-enumerate-headings #adv-topics-sleepmode h2:before { content: '5.46.' counter(counter-adv-topics-sleepmode-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-sleepmode h2:before { content: '5.47.' counter(counter-adv-topics-sleepmode-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-sleepmode h2 {  counter-increment: counter-adv-topics-sleepmode-2 }
             
-.print-site-enumerate-headings #adv-topics-soundfiles > h1:before { content: '5.47 ' }
+.print-site-enumerate-headings #adv-topics-soundfiles > h1:before { content: '5.48 ' }
 
-                .print-site-enumerate-headings #adv-topics-soundfiles h2:before { content: '5.47.' counter(counter-adv-topics-soundfiles-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-soundfiles h2:before { content: '5.48.' counter(counter-adv-topics-soundfiles-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-soundfiles h2 {  counter-increment: counter-adv-topics-soundfiles-2 }
             
-.print-site-enumerate-headings #adv-topics-simplevoter > h1:before { content: '5.48 ' }
+.print-site-enumerate-headings #adv-topics-simplevoter > h1:before { content: '5.49 ' }
 
-                .print-site-enumerate-headings #adv-topics-simplevoter h2:before { content: '5.48.' counter(counter-adv-topics-simplevoter-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-simplevoter h2:before { content: '5.49.' counter(counter-adv-topics-simplevoter-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-simplevoter h2 {  counter-increment: counter-adv-topics-simplevoter-2 }
             
-.print-site-enumerate-headings #adv-topics-broadcastify > h1:before { content: '5.49 ' }
+.print-site-enumerate-headings #adv-topics-broadcastify > h1:before { content: '5.50 ' }
 
-                .print-site-enumerate-headings #adv-topics-broadcastify h2:before { content: '5.49.' counter(counter-adv-topics-broadcastify-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-broadcastify h2:before { content: '5.50.' counter(counter-adv-topics-broadcastify-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-broadcastify h2 {  counter-increment: counter-adv-topics-broadcastify-2 }
             
-.print-site-enumerate-headings #adv-topics-telemetry > h1:before { content: '5.50 ' }
+.print-site-enumerate-headings #adv-topics-telemetry > h1:before { content: '5.51 ' }
 
-                .print-site-enumerate-headings #adv-topics-telemetry h2:before { content: '5.50.' counter(counter-adv-topics-telemetry-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-telemetry h2:before { content: '5.51.' counter(counter-adv-topics-telemetry-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-telemetry h2 {  counter-increment: counter-adv-topics-telemetry-2 }
             
-.print-site-enumerate-headings #adv-topics-tailmessage > h1:before { content: '5.51 ' }
+.print-site-enumerate-headings #adv-topics-tailmessage > h1:before { content: '5.52 ' }
 
-                .print-site-enumerate-headings #adv-topics-tailmessage h2:before { content: '5.51.' counter(counter-adv-topics-tailmessage-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tailmessage h2:before { content: '5.52.' counter(counter-adv-topics-tailmessage-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tailmessage h2 {  counter-increment: counter-adv-topics-tailmessage-2 }
             
-.print-site-enumerate-headings #adv-topics-timeofday > h1:before { content: '5.52 ' }
+.print-site-enumerate-headings #adv-topics-timeofday > h1:before { content: '5.53 ' }
 
-                .print-site-enumerate-headings #adv-topics-timeofday h2:before { content: '5.52.' counter(counter-adv-topics-timeofday-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-timeofday h2:before { content: '5.53.' counter(counter-adv-topics-timeofday-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-timeofday h2 {  counter-increment: counter-adv-topics-timeofday-2 }
             
-.print-site-enumerate-headings #adv-topics-tlb > h1:before { content: '5.53 ' }
+.print-site-enumerate-headings #adv-topics-tlb > h1:before { content: '5.54 ' }
 
-                .print-site-enumerate-headings #adv-topics-tlb h2:before { content: '5.53.' counter(counter-adv-topics-tlb-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tlb h2:before { content: '5.54.' counter(counter-adv-topics-tlb-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tlb h2 {  counter-increment: counter-adv-topics-tlb-2 }
             
-.print-site-enumerate-headings #adv-topics-tonemacros > h1:before { content: '5.54 ' }
+.print-site-enumerate-headings #adv-topics-tonemacros > h1:before { content: '5.55 ' }
 
-                .print-site-enumerate-headings #adv-topics-tonemacros h2:before { content: '5.54.' counter(counter-adv-topics-tonemacros-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tonemacros h2:before { content: '5.55.' counter(counter-adv-topics-tonemacros-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tonemacros h2 {  counter-increment: counter-adv-topics-tonemacros-2 }
             
-.print-site-enumerate-headings #adv-topics-tonesignalling > h1:before { content: '5.55 ' }
+.print-site-enumerate-headings #adv-topics-tonesignalling > h1:before { content: '5.56 ' }
 
-                .print-site-enumerate-headings #adv-topics-tonesignalling h2:before { content: '5.55.' counter(counter-adv-topics-tonesignalling-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-tonesignalling h2:before { content: '5.56.' counter(counter-adv-topics-tonesignalling-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-tonesignalling h2 {  counter-increment: counter-adv-topics-tonesignalling-2 }
             
-.print-site-enumerate-headings #adv-topics-uefi-secureboot > h1:before { content: '5.56 ' }
+.print-site-enumerate-headings #adv-topics-uefi-secureboot > h1:before { content: '5.57 ' }
 
-                .print-site-enumerate-headings #adv-topics-uefi-secureboot h2:before { content: '5.56.' counter(counter-adv-topics-uefi-secureboot-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-uefi-secureboot h2:before { content: '5.57.' counter(counter-adv-topics-uefi-secureboot-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-uefi-secureboot h2 {  counter-increment: counter-adv-topics-uefi-secureboot-2 }
             
-.print-site-enumerate-headings #adv-topics-usbinterfaces > h1:before { content: '5.57 ' }
+.print-site-enumerate-headings #adv-topics-usbinterfaces > h1:before { content: '5.58 ' }
 
-                .print-site-enumerate-headings #adv-topics-usbinterfaces h2:before { content: '5.57.' counter(counter-adv-topics-usbinterfaces-2) ' ' }
+                .print-site-enumerate-headings #adv-topics-usbinterfaces h2:before { content: '5.58.' counter(counter-adv-topics-usbinterfaces-2) ' ' }
                 .print-site-enumerate-headings #adv-topics-usbinterfaces h2 {  counter-increment: counter-adv-topics-usbinterfaces-2 }
             
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }

@@ -1653,34 +1653,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#web-transceiver" class="md-nav__link">
+  <a href="#application-configuration-examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Web Transceiver
+        Application Configuration Examples
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Web Transceiver">
+    <nav class="md-nav" aria-label="Application Configuration Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#web-transceiver-node-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Web Transceiver Node Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#repeaterphone" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1690,8 +1674,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#transceive" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1701,8 +1685,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#dvswitch-mobile" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1751,8 +1735,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#sharkrf-m1ke" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1762,8 +1746,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#iaxrpt-pc-client" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1784,36 +1768,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Node Configuration">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#authentication-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
         Authentication Flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-iaxconf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring iax.conf
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-extensionsconf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuring extensions.conf
       
     </span>
   </a>
@@ -2195,6 +2156,8 @@
       
         
           
+        
+      
         
       
         
@@ -2938,6 +2901,34 @@
     
   
     HTTP-Based Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/iax-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Direct Authentication
   
 
     
@@ -5425,52 +5416,86 @@
 <p>There are a number of different applications that can be used to interact/connect to the AllStarLink Network. As ASL3 runs Asterisk at its core, there are a number of different ways to leverage IAX and SIP connections to connect to your node.</p>
 <p>This section will explain some of the common utilities available, and how to do basic configuration to get them to connect to your node.</p>
 <h2 id="authenticating-connections-to-allstarlink">Authenticating Connections to AllStarLink</h2>
-<p>There are generally three ways to authenticate when connecting to an AllStarLink node:</p>
-<ol>
-<li>
-<p>Registration based authentication. When nodes come online, they attempt to register themselves with the ASL Registration system. The registration request uses either HTTP or IAX, and the registration server validates the node credentials and saves the current IP address of the node. Other nodes query the registration database using DNS queries or look at the node information from a downloaded copy of the nodes database to find the IP address and port to connect to the desired target node. When a connection is initiated to a target node, the target node uses the <code>[radio-secure]</code> context in <code>extensions.conf</code> to process the incoming connection.</p>
-</li>
-<li>
-<p>IAX local authentication. In this scheme, an IAX client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files (<code>iax.conf</code> or <code>custom/iax.conf</code>). If the credentials match, the client is authenticated and may connect. This often uses <code>[iaxrpt]</code> and/or <code>[iax-client]</code> in <code>extensions.conf</code> to process the connection. See the <a href="#node-configuration">Node Configuration</a> section below for how to configure a node.</p>
-</li>
-<li>
-<p>IAX “allstar-public” authentication. Also called “Web Transceiver”, this is a variation on the username and password above. However, instead of the individual user credentials being stored locally in the ASL config files, the IAX client logs in to the allstarlink.org website and obtains a token. Then, when the client connects to a node, it presents the user’s callsign and token. The node will query allstarlink.org to see if the credentials are valid. If the query is successful, the client is authenticated and may connect. This requires Web Transceiver connections to be allowed in Node Settings on the Web Portal, and uses the <code>[allstar-public]</code> context in <code>extensions.conf</code> to process the connection.</p>
-</li>
-</ol>
-<p>Many of the utilities below can be configured to use methods 2 or 3 to authenticate (method 1 is strictly for node-to-node connections, except DVSM in "Node Mode").</p>
-<h2 id="web-transceiver">Web Transceiver</h2>
-<p>Before getting into the details of each application, we should discuss some of the workings "under the hood". Specifically, looking at, "how do phone apps like “RepeaterPhone” actually work?".</p>
-<p>Here is a post from the <a href="https://community.allstarlink.org">AllStarLink Community</a> that sums up a lot of the common questions about Web Transceiver access:</p>
-<pre><code>I have some friends with iPhones that are connecting in with an app called “RepeaterPhone”. 
-They just plug in their allstarlink.org main admin account credentials and it “just works”. 
-I do not have an iPhone myself to test or understand this.
-
-How does it actually gain access to nodes like it does?
-
-Also, it shows up in the AllStar Network as “CALLSIGN” and not a node number.
-
-It does not appear to be using IAX2 directly like any other node. 
-I can only assume this is using some kind of cloud broker provided by the app provider, 
-or something, and connecting on it’s behalf?
-
-Or, is there another path into the AllStar Network I’m not familiar with?
-
-How is it that they are presenting as a callsign instead of a node number?
-
-I would expect any app like this would normally need to register as a “normal node” 
-and follow those rules, but this appears to be something different, and users are not 
-setting these up as a normal node… They are simply plugging in their main allstarlink.org credentials.
-</code></pre>
-<p>The following information should (hopefully) answer many of the questions above.</p>
-<p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS, <a href="https://transceive.app/">Transceive</a> for macOS, <a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android (using "WT Mode"), and the <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> (using "AllStarLink" mode) use the "Web Transceiver" functionality of the AllStarLink Network. This is still IAX2, but a different context.</p>
-<p>The original Web Transceiver (WT) was a Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been deprecated, but the background technology still exists, and is leveraged for other applications.</p>
-<p>Using this method, you are issued a token by <a href="https://www.allstarlink.org/portal">allstarlink.org</a> when you login to the Web Portal with your credentials (ie. through one of the applications above). An unauthenticated call is placed to a node in the <code>[allstar-public]</code> context in <code>extensions.conf</code>, which has as part of its dialplan, a mechanism for verifying that the token for the incoming CallerID (the callsign) is valid. If it is, it lets the call through and connects the application to the node. If it can’t validate, then it hangs up.</p>
-<p><strong><em>This doesn’t require a node number</em></strong>, as the call isn’t being directed to <code>[radio-secure]</code>, it just requires an account on <a href="https://www.allstarlink.org/portal">allstarlink.org</a>. <strong>READ THAT AGAIN.</strong> If you are strictly using these applications to connect to other nodes, you <strong>DO NOT</strong> need to register for a node number, but you <strong>DO</strong> need to create an account in the Web Portal.</p>
+<p>External applications used a few different ways to authenticate and connect to an ASL Node.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>AllStarLink Network Registration</em></td>
+<td>When nodes come online, they attempt to register themselves with the ASL Registration system. The registration request uses either HTTP or IAX, and the registration server validates the node credentials and saves the current IP address of the node. Other nodes query the registration database using DNS queries or look at the node information from a downloaded copy of the nodes database to find the IP address and port to connect to the desired target node. When a connection is initiated to a target node, the target node uses the <code>[radio-secure]</code> context in <code>extensions.conf</code> to process the incoming connection.</td>
+</tr>
+<tr>
+<td><em>IAX Direct Authentication</em></td>
+<td>An IAX-based client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files. If the credentials match, the client is authenticated and may connect. DVSwitch Mobile and certain softphone applications can use this method. See <a href="../../adv-topics/iax-auth/">IAX Authentication</a> for more information on configuring nodes for IAX direct authentication.</td>
+</tr>
+<tr>
+<td><em>SIP Direct Authentication</em></td>
+<td>An SIP-based client presents a username and password that must match credentials that are configured <em>on the remote node</em> in the ASL config files. If the credentials match, the client is authenticated and may connect. Many softphone and VoIP handsets use this method. See <a href="../../adv-topics/sip-phone/">Setting up a SIP Phone</a> for configuration information. This is the preferred method for all stock applications such as softphone applications.</td>
+</tr>
+<tr>
+<td><em>ASL Portal / "Web Transceiver"</em></td>
+<td>The original Web Transceiver (WT) was an in-browser Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been removed as browser no longer support the old Java Applet concept for important security reasons. However, the authentication technology still exists, and is leveraged for other applications.</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
-<p class="admonition-title">Connecting to Real Nodes</p>
-<p>As noted above, while you don't need a node number assigned to use these applications in Web Transceiver mode, you can only connect to real nodes (node numbers) that are actively registered with the AllStarLink Network. When the application makes its query to the AllStarLink severs, the node number needs to resolve to an active and reachable node in order for the connection to be successful.</p>
+<p class="admonition-title">Note</p>
+<p>Not all nodes permit Web Transevier mode. Some nodes, particularly some larger networks, have WebTranseiver disabled. This is gracefully by unselecting WT support in the node configuration on the portal or more aggressively by removing the configuration. If you cannot connect to a node with a WebTransceiver-based app most likely it does not support connections with WT mode.</p>
 </div>
-<p>There are downsides to this, as not all node owners, particularly some larger networks, have <code>[allstar-public]</code> enabled on their nodes. This is often disabled by commenting out or deleting the entire <code>[allstar-public]</code> context in <code>extensions.conf</code>, or it can be handled more gracefully in one of a few different ways (including disabling Web Transceiver Access in the <code>Node Settings</code> in the Web Portal).</p>
+<h2 id="application-configuration-examples">Application Configuration Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>IAX Direct</th>
+<th>SIP Direct</th>
+<th>ASL Portal / WT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://repeaterphone.com/">RepeaterPhone</a></strong></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://transceive.app/">Transceive</a></strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a></strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong><a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a></strong><br>(using "AllStarLink" mode)</td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+</tr>
+<tr>
+<td><strong>IAXRPT</strong></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+</tr>
+<tr>
+<td><strong>Linphone</strong></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" title=":white_check_mark:"></td>
+<td><img alt="🚫" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" title=":no_entry_sign:"></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">DVSwitch Mobile</p>
 <p>DVSwitch Mobile does have a method called <em>Node Mode</em>, which registers as its own node number.</p>
@@ -5479,68 +5504,65 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p class="admonition-title">SharkRF M1KE</p>
 <p>SharkRF refers to connecting via this method as "AllStarLink Mode" in some of their documentation. It is, in fact, actually using "Web Transceiver" mode.</p>
 </div>
-<h3 id="web-transceiver-node-settings">Web Transceiver Node Settings</h3>
-<p>If you are a node owner, and you wish to allow these applications to connect to your node via the Web Transceiver method, you need to ensure that it is enabled in your <code>Node Settings</code> in the Web Portal.</p>
-<p>See <a href="../../basics/portal/#editing-node-parameters">Editing Node Parameters</a> for more information on how to find this setting.</p>
-<p>You should also confirm that you have an <code>[allsta-public]</code> context in <code>extensions.conf</code>, and that it isn't commented out (it should be there and active, unless you've previously made changes).</p>
-<h2 id="repeaterphone">RepeaterPhone</h2>
+<h3 id="repeaterphone">RepeaterPhone</h3>
 <p><a href="https://repeaterphone.com/">RepeaterPhone</a> for iOS can be used to connect to AllStarLink nodes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>RepeaterPhone solely uses ASL Portal / WebTransceiver authentication. A client node is not required and users do not need to create servers or node simply to use RepeaterPhone.</p>
+</div>
 <p>Be sure to read their <a href="https://repeaterphone.com/pages/faq.html">FAQs</a>.</p>
 <p>Detailed steps to configure RepeaterPhone:</p>
 <ol>
 <li>
-<p>Purchase and Install: Obtain the RepeaterPhone app from the Apple App Store. </p>
+<p>Purchase and Install: Obtain the RepeaterPhone app from the Apple App Store.</p>
 </li>
 <li>
-<p>Access Settings: Open the app and tap the Settings gear wheel. </p>
+<p>Access Settings: Open the app and tap the Settings gear wheel.</p>
 </li>
 <li>
 <p>Add AllStarLink Account:</p>
 <ul>
-<li>Tap "New Account" and then select the AllStarLink emblem. </li>
-<li>Enter your AllStarLink callsign and password (used for logging into the AllStarLink portal). </li>
-<li>Tap "Add Account". </li>
+<li>Tap "New Account" and then select the AllStarLink emblem.</li>
+<li>Enter your AllStarLink callsign and password (used for logging into the AllStarLink portal).</li>
+<li>Tap "Add Account".</li>
 </ul>
 </li>
 <li>
 <p>Add Nodes to Favorites:</p>
 <ul>
-<li>Go to the Favorites section (star icon). </li>
-<li>Tap the "+" symbol to add a new node. </li>
-<li>Choose your AllStarLink username. </li>
-<li>Enter the node number of the desired AllStarLink node. </li>
-<li>Give the node a name (e.g., its callsign). </li>
-<li>For Authentication, select "Account" to use your AllStarLink account (configured in Step 3). </li>
+<li>Go to the Favorites section (star icon).</li>
+<li>Tap the "+" symbol to add a new node.</li>
+<li>Choose your AllStarLink username.</li>
+<li>Enter the node number of the desired AllStarLink node.</li>
+<li>Give the node a name (e.g., its callsign).</li>
+<li>For Authentication, select "Account" to use your AllStarLink account (configured in Step 3).</li>
 </ul>
 </li>
 <li>
-<p>Connect and Use: </p>
+<p>Connect and Use:</p>
 <ul>
-<li>Once you've added nodes to your favorites, you can connect to them by selecting them and tapping "Connect". You'll transmit by holding down the green circle, and you can adjust microphone gain and speaker/non-speaker mode using the provided icons. </li>
+<li>Once you've added nodes to your favorites, you can connect to them by selecting them and tapping "Connect". You'll transmit by holding down the green circle, and you can adjust microphone gain and speaker/non-speaker mode using the provided icons.</li>
 </ul>
 </li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Node Authentication</p>
-<p>RepeaterPhone supports different authentication methods. You can choose between "Account" (using your AllStarLink web portal credentials) or "Node" authentication (using an IAX username and password provided to you by the node owner). </p>
+<p>RepeaterPhone supports different authentication methods. You can choose between "Account" (using your AllStarLink web portal credentials) or "Node" authentication (using an IAX username and password provided to you by the node owner).</p>
 </div>
-<h2 id="transceive">Transceive</h2>
+<h3 id="transceive">Transceive</h3>
 <p><a href="https://transceive.app/">Transceive</a> for macOS can be used to connect to AllStarLink nodes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Transceive solely uses ASL Portal / WebTransceiver authentication and IAX Direct authentication. A client node is not required and users do not need to create servers or node simply to use RepeaterPhone.</p>
+</div>
 <p>Be sure to read their <a href="https://transceive.app/help/">Help</a> section.</p>
 <p>For detailed steps to configure Transceive, see their page on <a href="https://transceive.app/help/setup">Setup</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Node Authentication</p>
-<p>Transceive supports different authentication methods. You can choose between "Authenticate with an AllStar Account" (using your AllStarLink web portal credentials) or "Use Node Specific Credentials" authentication (using an IAX username and password provided to you by the node owner). </p>
-</div>
-<h2 id="dvswitch-mobile">DVSwitch Mobile</h2>
+<h3 id="dvswitch-mobile">DVSwitch Mobile</h3>
 <p><a href="https://play.google.com/store/apps/details?id=org.dvswitch&amp;hl=en_CA&amp;pli=1">DVSwitch Mobile</a> for Android can be used to connect to AllStarLink nodes.</p>
+<p>DVSwitch Mobile (DVSM) supports different authentication methods. You can choose between "Web Transceiver" mode (using your AllStarLink web portal credentials), "IAXRpt" mode (using an IAX username and password provided to you by the node owner), or "Node" mode (where DVSwitch Mobile configures itself as a real node).</p>
 <p>For support, see their <a href="https://dvswitch.groups.io/g/Mobile">Support Forum</a>, they also have a <a href="https://dvswitch.groups.io/g/Mobile/wiki">Support Wiki</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Node Authentication</p>
-<p>DVSwitch Mobile (DVSM) supports different authentication methods. You can choose between "Web Transceiver" mode (using your AllStarLink web portal credentials), "IAXRpt" mode (using an IAX username and password provided to you by the node owner), or "Node" mode (where DVSwitch Mobile configures itself as a real node). </p>
-</div>
-<h3 id="web-transceiver-mode">Web Transceiver Mode</h3>
-<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, but you do NOT need to apply for a node number.</p>
+<h4 id="web-transceiver-mode">Web Transceiver Mode</h4>
+<p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, but you do NOT need to apply for a node number. Note that WT mode in DVSM requires the paid version.</p>
 <p>Why use this mode?</p>
 <ul>
 <li>
@@ -5590,7 +5612,7 @@ setting these up as a normal node… They are simply plugging in their main alls
 </li>
 </ul>
 <p>You will return to the dialer screen, and you should see the mode in the lower part of the screen (under the "More" button) change to "ASL-RADIO".</p>
-<h3 id="iaxrpt-mode">IAXRpt Mode</h3>
+<h4 id="iaxrpt-mode">IAXRpt Mode</h4>
 <p>When used in this mode, DVSM requires the user to have received a username and password (aka secret) from the node owner who's node you wish to connect to (and that node owner needs to configure <code>iax.conf</code> with the same credentials to allow authentication, see <a href="#node-configuration">Node Configuration</a> below).</p>
 <p>Why use this mode?</p>
 <ul>
@@ -5694,7 +5716,7 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p>Press the "Connect" button, and you should be connected to the target node, and see the status change in the lower part of the screen to show the target node.</p>
 </li>
 </ul>
-<h3 id="node-mode">Node Mode</h3>
+<h4 id="node-mode">Node Mode</h4>
 <p>When used in this mode, DVSM requires the user to have an account on the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, AND have a node number assigned to them associated with that account. In this mode, DVSM is configured such that it registers with the AllStarLink registration servers as that assigned node.</p>
 <p>Why use this mode?</p>
 <ul>
@@ -5793,106 +5815,51 @@ setting these up as a normal node… They are simply plugging in their main alls
 <p class="admonition-title">Registration Updates</p>
 <p>Because you entered <code>register.allstarlink.org</code> into the account settings, DVSM will maintain a registration session with the main registration server. This server keeps a list of all the registered nodes and their IP addresses. When a node connects to another node, this list is used to lookup the IP address of the node trying to connect and if the IP address matches the list, a connection is established. The connection to the registration server is refreshed once per minute.</p>
 <p>On older systems running ASL2, the node list is downloaded by nodes from the registration server on a schedule, typically once every 5 minutes. As a node, you have
-to be registered for at least this amount of time for a remote node to get the updated list and your IP address. You may need to wait for the node list to propagate out to the network before you can connect to your desired node. ASL3 uses DNS lookups by default, so you should be able to connect to ASL3 nodes almost immediately. </p>
+to be registered for at least this amount of time for a remote node to get the updated list and your IP address. You may need to wait for the node list to propagate out to the network before you can connect to your desired node. ASL3 uses DNS lookups by default, so you should be able to connect to ASL3 nodes almost immediately.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Outbound Calls Only</p>
 <p>While you are registered with the AllStarLink Network as a node in this mode, you are still only able to make outbound connections only. DVSM currently does not support other nodes connecting to you.</p>
 </div>
-<h2 id="sharkrf-m1ke">SharkRF M1KE</h2>
+<h3 id="sharkrf-m1ke">SharkRF M1KE</h3>
 <p>The <a href="https://www.sharkrf.com/products/m1ke/">SharkRF M1KE</a> can be used to connect to AllStarLink nodes.</p>
 <p>See their <a href="https://manuals.sharkrf.com/m1ke/">Support Page</a> for documentation on how to configure and use the M1KE.</p>
 <p>In order to connect to an AllStarLink node, you will need to configure an <a href="https://manuals.sharkrf.com/m1ke/web/connectors/iax2.html">IAX2/AllStarLink Connector</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Node Authentication</p>
-<p>M1KE supports different authentication methods. You can choose between "AllStarLink" (using your AllStarLink web portal credentials) or "IAX2" authentication (using an IAX username and password provided to you by the node owner). </p>
+<p>M1KE supports different authentication methods. You can choose between "AllStarLink" (using your AllStarLink web portal credentials) or "IAX2" authentication (using an IAX username and password provided to you by the node owner).</p>
 </div>
-<h2 id="iaxrpt-pc-client">IAXRpt PC Client</h2>
-<p>IAXRpt is a specialized Windows "soft phone" program which allows users to connect from their PC's to an AllStarLink node. </p>
-<p>IAXRpt was originally written and distributed by a company called Xeletec, but it has since been orphaned, and their download servers have been offline since 2019. As such, you will need to download the setup file from <a href="https://wiki.allstarlink.org/images/5/56/Setup_iaxrpt_xipar_010146.exe">our local server copy</a>.</p>
+<h3 id="iaxrpt-pc-client">IAXRpt PC Client</h3>
+<div class="admonition danger">
+<p class="admonition-title">Don't Use IXARpt</p>
+<p>IAXRpt was originally written and distributed by a company called Xeletec, but it has since been orphaned, and their download servers have been offline since 2019. As such, you will need to download the setup file from elsewhere. AllStarLink strongly discourages continued use of this application as future improvements to the system may render IAXRpt unusable. Also, ensure that you do not install a malware-hijacked version of IAXRpt.</p>
+</div>
+<p>IAXRpt is a specialized Windows "soft phone" program which allows users to connect from their PC's to an AllStarLink node.</p>
 <p>In order to use the IAXRpt PC Client, you need to be supplied with a username and password (aka secret) from the node operator who's node you want to connect to, as well as the hostname and port of the node server. <strong>That also means that the node operator needs to configure their node to allow external connections from IAXRpt, and authenticate users.</strong> More information for node operators on how to configure their node is provided below.</p>
 <p>The IAXRpt client is getting pretty old and it may not play nice with newer version of Windows, your experience may be less than stellar. Things may not work as expected, but until someone writes a new software package, this is what we have to work with.</p>
 <div class="admonition note">
 <p class="admonition-title">Minimize to Tray</p>
 <p>Beware that if you "minimize" the IAXRpt client window, it will appear to disappear (doesn't minimize to the Taskbar). When you minimize the window, it will minimize to the Tray instead. Go find the icon in the Tray to maximize/restore the client window.</p>
 </div>
-<h3 id="node-configuration">Node Configuration</h3>
+<h4 id="node-configuration">Node Configuration</h4>
 <p>This section is for node operators, and covers how to configure your node to allow for connections from clients such as IAXRpt and DVSwitch Moblie (using <a href="#iaxrpt-mode">IAXRpt mode</a>).</p>
 <h4 id="authentication-flow">Authentication Flow</h4>
 <p>Before we get into configuration, you need to understand how an incoming call is processed by Asterisk.</p>
 <ul>
 <li>
-<p>When a client attempts to connect to a node using one of the aforementioned clients, the incoming call is processed through <code>iax.conf</code> </p>
+<p>When a client attempts to connect to a node using one of the aforementioned clients, the incoming call is processed through <code>iax.conf</code></p>
 </li>
 <li>
-<p>The context in <code>iax.conf</code> that is used is determined by the <code>username</code> that the client sends </p>
+<p>The context in <code>iax.conf</code> that is used is determined by the <code>username</code> that the client sends</p>
 </li>
 <li>
-<p>If a context name is found that matches the <code>username</code>, the <code>secret</code> in that context is then compared with the <code>password</code> the client sent to authenticate the client (otherwise the call is rejected) </p>
+<p>If a context name is found that matches the <code>username</code>, the <code>secret</code> in that context is then compared with the <code>password</code> the client sent to authenticate the client (otherwise the call is rejected)</p>
 </li>
 <li>
 <p>If the authentication succeeds, the call is passed to <code>extensions.conf</code> for further processing, using the context defined by the <code>context =</code> directive</p>
 </li>
 </ul>
 <p>Therefore, for each user that you want to allow to connect to your system via this method, you either need to use one default username (context) and password (secret) in <code>iax.conf</code> for all users, or you need to add a specific context to <code>iax.conf</code> for each user (and provide them with a unique password (secret)). If you choose the latter, ALL the contexts can still point to the same context in <code>extensions.conf</code> for common processing.</p>
-<h4 id="configuring-iaxconf">Configuring <code>iax.conf</code></h4>
-<p>The default <code>iax.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
-<div class="highlight"><pre><span></span><code>[iaxrpt]                            ; Connect from iaxrpt Username field (PC AllStar Client)
-type = user                         ; Notice type is user here &lt;---------------
-context = iaxrpt                    ; Context to jump to in extensions.conf
-auth = md5
-secret = CHANGEME                   ; Change this to something else, this is the "password" for this context
-host = dynamic
-disallow = all                    
-allow = ulaw
-allow = adpcm
-allow = gsm                       
-transfer = no
-</code></pre></div>
-<p>At the bare minimum, you need to change the secret (password), <code>CHANGEME</code> to something else. On new ASL3 installations, this will be a randomly generated password. As shown above, clients can connect to this node if they use the username <code>iaxrpt</code> and the password <code>CHANGEME</code>. If you share this username/password with users, they will all be able to connect using the same credentials. You can prevent any connections using this context by commenting it out (put a <code>;</code> at the beginning of each line).</p>
-<div class="admonition warn">
-<p class="admonition-title">Call Tokens</p>
-<p>With ASL3 moving to Asterisk 20+, IAX2 now requires <a href="https://docs.asterisk.org/Configuration/Channel-Drivers/Inter-Asterisk-eXchange-protocol-version-2-IAX2/IAX2-Security/">IAX2 Call Tokens</a>, which some client software may not support, causing their calls to be rejected. You may need to add <code>requirecalltoken = no</code> to the affected context in <code>iax.conf</code> to resolve this.</p>
-</div>
-<p>If you would like to provide a unique username and password to each user, just duplicate the <code>[iaxrpt]</code> context, and give it a new name and secret, such as:</p>
-<div class="highlight"><pre><span></span><code>[wb6nil]                            ; Connect from wb6nil Username field (PC AllStar Client)
-type = user                         ; Notice type is user here &lt;---------------
-context = iaxrpt                    ; Context to jump to in extensions.conf
-auth = md5
-secret = il0veallstar               ; This is the "password" for this context
-host = dynamic
-disallow = all                    
-allow = ulaw
-allow = adpcm
-allow = gsm                       
-transfer = no
-</code></pre></div>
-<p>The username and password to supply to the user for the above context would then be, <code>wb6nil</code>/<code>il0veallstar</code>. </p>
-<div class="admonition note">
-<p class="admonition-title">Codec Selection</p>
-<p>Pay attention to the allowed codecs (defined by the <code>allow =</code> directives). Clients (IAXRpt in particular) may need to be configured to use a codec you support. If, for example, you delete <code>gsm</code> from your allowed codecs list (because it sounds like garbage), client connections may fail if they are trying to negotiate to use that codec.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Restart Asterisk</p>
-<p>Don't forget to restart Asterisk after you make any changes to <code>iax.conf</code>.</p>
-</div>
-<h4 id="configuring-extensionsconf">Configuring <code>extensions.conf</code></h4>
-<p>The default <code>extensions.conf</code> installed with your ASL3 installation should contain context similar to the following (if not, add it):</p>
-<div class="highlight"><pre><span></span><code>[iaxrpt]
-; Entered from iaxrpt in iax.conf
-; Info: The X option passed to the Rpt application
-; disables the normal security checks.
-; Because incoming connections are validated in iax.conf,
-; and we don't know where the user will be coming from in advance,
-; the X option is required.
-exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
-</code></pre></div>
-<p>The <code>context = iaxrpt</code> directive found in the <code>[iaxrpt]</code> context in <code>iax.conf</code> directs here for call processing, once a user is authenticated.</p>
-<p>Normally, you shouldn't need to make any changes here. However, you could customize this context to do additional things such as playback ringing tone the client, announce the node number, etc. That is beyond the scope of this document, but you could take hints from <code>[iax-clinet]</code> context that is also likely present in the default file. </p>
-<div class="admonition note">
-<p class="admonition-title">Restart Asterisk</p>
-<p>Don't forget to restart Asterisk after you make any changes to <code>extensions.conf</code>.</p>
-</div>
 <h3 id="iaxrpt-client-configuration">IAXRpt Client Configuration</h3>
 <p>This section is for users installing the IAXRpt client, and configuring it to connect to a dedicated node.</p>
 <p>You will need to obtain the following from the node operator who's node you wish to connect to:</p>
@@ -5910,7 +5877,7 @@ exten =&gt; ${NODE},1,rpt(${EXTEN},X)       ; NODE is the Name field in iaxrpt
 <p>node IAX port</p>
 </li>
 </ul>
-<p>Install and open the software, then go to Options --&gt; Account --&gt; Add. </p>
+<p>Install and open the software, then go to Options --&gt; Account --&gt; Add.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/1_iaxrpt_account.png" data-desc-position="bottom"><img alt="Step 1 Add Account" src="../img/1_iaxrpt_account.png" width="400"></a></p>
 <p>Fill in the boxes as follows:</p>
 <table>

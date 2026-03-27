@@ -2043,6 +2043,8 @@
       
         
       
+        
+      
     
     
     
@@ -2672,6 +2674,34 @@
     
   
     HTTP-Based Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/iax-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Direct Authentication
   
 
     
@@ -5346,13 +5376,13 @@
 <div class="highlight"><pre><span></span><code>; !!! IAX registration will be discontinued at some point !!!
 ; Setup rpt_http_registartions.conf instead.
 ; remove the leading ";"
-;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password 
+;register =&gt; 1999:12345@register.allstarlink.org    ; This must be changed to your node number, password
 ;register =&gt; 1998:12345@register.allstarlink.org
 </code></pre></div>
 <p>While node registration will still work (for now) using this method, please don't use it. It is not required. Your registration should be processed by an entry in <code>rpt_http_registrations.conf</code>, which in most cases the <a href="../../user-guide/"><code>asl-menu</code></a> utility will take care of configuring for you.</p>
 <h3 id="bindport-and-bindaddr"><code>bindport=</code> and <code>bindaddr=</code></h3>
 <p>The <code>bindport</code> and <code>bindaddr</code> directives determine where Asterisk is listening for incoming IAX2 connections.</p>
-<p>By default, UDP port <code>4569</code> is used. </p>
+<p>By default, UDP port <code>4569</code> is used.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>bindport = 4569                 ; bindport and bindaddr may be specified
 
@@ -5362,7 +5392,7 @@
 ;  (e.g. bindaddr=192.168.0.1:4569)
 
 ; bindaddr = 192.168.0.1        ; more than once to bind to multiple
-                                ; addresses, but the first will be the 
+                                ; addresses, but the first will be the
                                 ; default
 </code></pre></div>
 <p>In most cases, the default <code>bindport = 4569</code> will work fine. However, if you are running multiple node servers behind a NAT firewall, you MAY need to change this so that they are all unique from each other. In that case, you also need to change the <a href="../../basics/portal/#iax-port">IAX Port</a> in the <a href="https://www.allstarlink.org/portal">Web Portal</a> to match. See the <a href="../../adv-topics/multinodesnetwork/">Multiple Nodes on the Same Network</a> page for further details.</p>
@@ -5371,11 +5401,11 @@
 <p>If you are using a firewall on your internet connection (I sure hope so!), don't forget to allow port <code>4569/UDP</code>, and/or any other IAX2 port(s) you have configured through your firewall (and point it to the correct internal IP address, if using NAT).</p>
 <p>If you are using the <a href="../../install/pi-appliance/">ASL3 Appliance</a> and you are using a non-standard port, don't forget to update the firewall rules in the <a href="../../pi/cockpit-firewall/">Cockpit Firewall</a>.</p>
 </div>
-<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases. </p>
+<p>Unless you have a specific reason to do so, leave <code>bindaddr</code> commented out. It is not required in the majority of use cases.</p>
 <h3 id="outbound-codecs">Outbound Codecs</h3>
 <p>Also in the <code>[general]</code> stanza is the configuration of <strong>OUTBOUND</strong> codecs to be used when making outbound connections to other nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
-<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections 
+<div class="highlight"><pre><span></span><code>disallow = all                      ; The permitted codecs for outgoing connections
 ;allow = ulaw                       ; Audio Quality     Bandwidth
 ;allow = adpcm                      ; best              87 kbps
 ;allow = gsm                        ; good              55 kbps
@@ -5395,23 +5425,23 @@ allow = gsm
 <h3 id="remaining-general-options">Remaining <code>[general]</code> Options</h3>
 <p>There are some other directives included in the <code>[general]</code> stanza of the default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>jitterbuffer = yes
-forcejitterbuffer = yes                                                           
-dropcount = 2                                                                     
-maxjitterbuffer = 4000                                                            
-maxjitterinterps = 10                                                             
-resyncthreshold = 1000                                                            
-maxexcessbuffer = 80                                                              
-minexcessbuffer = 10                                                              
-jittershrinkrate = 1                                                              
-tos = 0x1E                                                                  
-autokill = yes                                                                    
-delayreject = yes                                                                 
-; iaxthreadcount = 30                                                              
-; iaxmaxthreadcount = 150  
+forcejitterbuffer = yes
+dropcount = 2
+maxjitterbuffer = 4000
+maxjitterinterps = 10
+resyncthreshold = 1000
+maxexcessbuffer = 80
+minexcessbuffer = 10
+jittershrinkrate = 1
+tos = 0x1E
+autokill = yes
+delayreject = yes
+; iaxthreadcount = 30
+; iaxmaxthreadcount = 150
 </code></pre></div>
 <p>Unless you have a specific reason to change them (and you know why you are changing them), just leave them alone. You can break your node.</p>
 <h2 id="radio-stanza"><code>[radio]</code> Stanza</h2>
-<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes. </p>
+<p>The <code>[radio]</code> stanza is where the majority of all incoming IAX2 connections to the node will terminate, in particular, connections from other nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[radio]
 type = user
@@ -5431,7 +5461,7 @@ transfer = no
 <p>Incoming calls with the username of <code>radio</code> will reach this stanza, and then after the call is setup (codecs are negotiated) they are forwarded to <code>extensions.conf</code> for further processing. Per the <code>context = radio-secure</code> directive, the incoming connection will be processed by the <code>[radio-secure]</code> stanza that is found in <code>extensions.conf</code>, where it gets authenticated by <code>app_rpt</code> to see if it is a valid node that is allowed to connect.</p>
 <p>The <code>type = user</code> directive tells this installation of Asterisk that the incoming connection (the "peer") is to be treated as a client connecting to us (the host). So, with <code>codecpriority = host</code>, <em>we</em> get to choose the supported codecs and their priority we prefer to connect with.</p>
 <h2 id="iaxrpt-stanza"><code>[iaxrpt]</code> Stanza</h2>
-<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="../../user-guide/externalapps/#iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="../../user-guide/externalapps/">External Apps</a>). </p>
+<p>The <code>[iaxrpt]</code> stanza is often used to handle connections from the <a href="../../user-guide/externalapps/#iaxrpt-pc-client">IAXRpt</a> software client (or other <a href="../../user-guide/externalapps/">External Apps</a>).</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[iaxrpt]                         ; Connect from iaxrpt Username field (PC AllStar Client)
 type = user                      ; Notice type is user here &lt;---------------
@@ -5439,10 +5469,10 @@ context = iaxrpt                 ; Context to jump to in extensions.conf
 auth = md5
 secret = Your_Secret_Pasword_Here
 host = dynamic
-disallow = all                    
+disallow = all
 allow = ulaw
 allow = adpcm
-allow = gsm                       
+allow = gsm
 transfer = no
 </code></pre></div>
 <p>The username this node is expecting to see from the client is the context name (<code>iaxrpt</code>), and it is going to forward the call to the the <code>[iaxrpt]</code> stanza in <code>extensions.conf</code>, as denoted by the <code>context = iaxrpt</code> directive.</p>
@@ -5472,7 +5502,7 @@ transfer = no
 <p>The big difference between the <code>[iaxrt]</code> and <code>[iaxclient]</code> stanzas is the <code>type</code> directive. The <code>type = friend</code> tells this installation of Asterisk that the Zoiper client (peer) is both a client and a server, capable of both originating and receiving calls.</p>
 <p>Also note that connections processed by this stanza are forwarded to the <code>[iax-client]</code> stanza in <code>extensions.conf</code>, per the <code>context = iax-client</code> directive.</p>
 <h2 id="allstar-sys-stanza"><code>[allstar-sys]</code> Stanza</h2>
-<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="../../user-guide/phoneportal/">AllStarLink Telephone Portal</a>. </p>
+<p>The <code>[allstar-sys]</code> stanza is used by connections from the <a href="../../user-guide/phoneportal/">AllStarLink Telephone Portal</a>.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-sys]
 type = user
@@ -5488,7 +5518,7 @@ allow = gsm
 <p>Also note that these connections are validated by a public/private key arrangement, as denoted by the <code>auth = rsa</code> and <code>inkeys = allstar</code> directives.</p>
 <p>Connections processed by this stanza are forwarded to the <code>[allstar-sys]</code> stanza in <code>extensions.conf</code>, per the <code>context = allstar-sys</code> directive.</p>
 <h2 id="allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
-<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../user-guide/externalapps/#web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../developers/api/#webtransceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
 <p>You should see the following in your ASL3 default <code>iax.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-public]
 type = user

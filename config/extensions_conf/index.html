@@ -2043,6 +2043,8 @@
       
         
       
+        
+      
     
     
     
@@ -2672,6 +2674,34 @@
     
   
     HTTP-Based Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/iax-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Direct Authentication
   
 
     
@@ -5311,7 +5341,7 @@
 <p>Since ASL3 is built on top of the Asterisk PBX software, if you want to make changes to this file, you should familiarize yourself with how Asterisk dialplans work, their syntax, and their function. There is plenty of documentation available on the Internet about Asterisk dialplans, a good place to start is the <a href="https://docs.asterisk.org">Asterisk Project Documentation</a>.</p>
 <p>We will cover the basics here in how the information in the default ASL3 <code>extensions.conf</code> relates to node operations.</p>
 <h2 id="general-stanza"><code>[general]</code> Stanza</h2>
-<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions. </p>
+<p>The <code>[general]</code> stanza is used to set global options that apply to all extensions in the file. The options specified in the <code>[general]</code> section can be overridden by individual extension sections, but if not overridden, will be used as the default for all extensions.</p>
 <p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>static = yes                        ; These two lines prevent the command-line interface
 writeprotect = yes                  ; from overwriting the config file. Leave them here.
@@ -5455,7 +5485,7 @@ exten =&gt; s,1,Wait(1)
     same =&gt; n,SayAlpha(${CURL(http://myip.vg)})
     same =&gt; n,Hangup
 </code></pre></div>
-<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="../rpt_conf/#context"><code>rpt.conf</code></a> using the <a href="../rpt_conf/#context"><code>context</code></a> directive. Note that the <a href="../../adv-topics/autopatch/#autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option. </p>
+<p>All of these stanzas work together. First and foremost, the main stanza for the autopatch is <code>[radio]</code>. This is defined in <a href="../rpt_conf/#context"><code>rpt.conf</code></a> using the <a href="../rpt_conf/#context"><code>context</code></a> directive. Note that the <a href="../../adv-topics/autopatch/#autopatch-options"><code>autopatchup</code></a> function allows this context to be overwritten using an option.</p>
 <p>The <code>[radio]</code> stanza does a few different things:</p>
 <ul>
 <li>
@@ -5517,7 +5547,7 @@ exten =&gt; _5.,n,Hangup
 </code></pre></div>
 <p>The option used when calling the Telephone Portal (Node Access or Reverse Autopatch) determines which extension gets used for processing in <code>[allstar-sys]</code>. Reverse Autopatch processes calls through extension 1 (which parks the call until someone on the radio side picks up the parked call). The Node Access method processes calls through extension 2 (function codes for keying PTT) or 3 (VOX for PTT).</p>
 <h2 id="allstar-public-stanza"><code>[allstar-public]</code> Stanza</h2>
-<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../user-guide/externalapps/#web-transceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
+<p>The <code>[allstar-public]</code> stanza is called from the <code>[allstar-public]</code> stanza in <code>iax.conf</code>. The <code>[allstar-public]</code> stanza is used by connections that use the AllStarLink <a href="../../developers/api/#webtransceiver">"Web Transceiver"</a> method of connection. The original Web Transceiver application has been deprecated, however, there are other <a href="../../user-guide/externalapps/">External Apps</a> that still utilize this method to connect to AllStarLink Nodes.</p>
 <p>You should see the following in your ASL3 default <code>extensions.conf</code>:</p>
 <div class="highlight"><pre><span></span><code>[allstar-public]
 exten =&gt; s,1,Ringing

@@ -2043,6 +2043,8 @@
       
         
       
+        
+      
     
     
     
@@ -2672,6 +2674,34 @@
     
   
     HTTP-Based Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/iax-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAX Direct Authentication
   
 
     
@@ -5396,7 +5426,10 @@ their links:</p>
 <h2 id="authentication-apis">Authentication APIs</h2>
 <p>There are node registration APIs available for applications.</p>
 <h3 id="webtransceiver">WebTransceiver</h3>
-<p>Coming soon</p>
+<p>The original Web Transceiver (WT) was a browser-based Java applet that one could use from the AllStarLink website to call nodes directly. That feature itself has been long gone since browsers no longer support Java Applets. However, the background technology still exists and has been leveraged for other applications.</p>
+<p>Using this method, clients are issued a token by <a href="https://www.allstarlink.org/">allstarlink.org</a> either "faking" a login on using the <code>/api/v2/auth-wt-legacy</code> API endpoint. Clients provide the ASL portal username and password and receive back a token. The client then places an unauthenticated IAX call to a node which is handled by the <code>[allstar-public]</code> context. Within that context is a mechanism for verifying that the token for the incoming CallerID (the callsign) is valid. If it is, it lets the call through and connects the application to the node. If it can’t validate, then it hangs up.</p>
+<p>If you are a node owner, and you wish to allow these applications to connect to your node via the Web Transceiver method, you need to ensure that WT is enabled in your <code>Node Settings</code> in the Web Portal. See <a href="../../basics/portal/#editing-node-parameters">Editing Node Parameters</a> for more information on how to find this setting.
+You should also confirm that you have an <code>[allstar-public]</code> context in <code>extensions.conf</code>, and that it isn't commented out (it should be there and active, unless you've previously made changes).</p>
 <h3 id="simple-node-auth">Simple Node Auth</h3>
 <p>This API is for authenticating infrastructure clients such as node audio
 test sites using the Node number and node password. This API is not "open"
