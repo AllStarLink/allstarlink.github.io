@@ -17065,6 +17065,13 @@ Sample:</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>linkmongain = -20                   ; reduce link volume 20dB
 </code></pre></div>
+<h3 id="config-rpt_conf-linkpost_time">linkpost_time=</h3>
+<p>This option sets the time between link list (type L) frame transmissions. These frames are sent periodically to connected nodes. They contain a list of all nodes the ASL3 instance is aware of, and are used for connection statistics. Normally, this setting is left at the default value.</p>
+<p>Default Value: 30 seconds</p>
+<p>Range: 10-40 seconds</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>linkpost_time = 40
+</code></pre></div></p>
 <h3 id="config-rpt_conf-linktolink">linktolink=</h3>
 <p>When operating in <a href="#config-rpt_conf-duplex">duplex mode 0</a>, this forces the radio interface to operate in full duplex mode, but keeps all the other "duplex mode 0" semantics.</p>
 <p>This is used when a radio interface is connected to a multiport analog repeater controller. The <code>linktolink=</code> option can take two values: <code>yes</code>/<code>1</code> or <code>no</code>/<code>0</code>.</p>
@@ -17380,15 +17387,17 @@ idamplitude = 1024                  ; Morse ID Amplitude
 <p class="admonition-title">No Termination Character</p>
 <p>This string of commands does NOT terminate with a <code>#</code> like a normal macro. You can call any number of regular macros with it.</p>
 </div>
-<h3 id="config-rpt_conf-statpost_program">statpost_program=</h3>
-<p>This option sets the commands to run on the server to process usage statistics of the node. <strong>This option is generally no longer required, but is included for documentation purposes.</strong></p>
-<p>Sample:</p>
-<div class="highlight"><pre><span></span><code>;statpost_program=/usr/bin/wget,-q,--timeout=15,--tries=1,--output-document=/dev/null
-</code></pre></div>
+<h3 id="config-rpt_conf-statpost_time">statpost_time=</h3>
+<p>This option sets the time between status updates to <a href="https://stats.allstarlink.org">https://stats.allstarlink.org</a></p>
+<p>Default Value: 60 seconds</p>
+<p>Range: 30-600 seconds</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>statpost_time = 120
+</code></pre></div></p>
 <h3 id="config-rpt_conf-statpost_url">statpost_url=</h3>
 <p>Uncomment this option to enable status and statistics reporting of your node to <a href="https://stats.allstarlink.org">https://stats.allstarlink.org</a></p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>;statpost_url = http://stats.allstarlink.org/uhandler ; status updates
+<div class="highlight"><pre><span></span><code>statpost_url = http://stats.allstarlink.org/uhandler ; status updates
 </code></pre></div>
 <p>The <code>statpost_url=</code> option can be implemented in the <code>[node-main](!)</code> stanza to apply to all nodes on the server, or in the per-node stanza for limiting statistics posting to an individual nodes. See <a href="#adv-topics-conftmpl-asterisk-templates">config file templating</a> for more information.</p>
 <h3 id="config-rpt_conf-tailmessagelist">tailmessagelist=</h3>
