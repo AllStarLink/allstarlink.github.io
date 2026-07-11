@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en" class="no-js"><head>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="zensical-0.0.47">
     
     
       
@@ -30,10 +33,15 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.5e19f6ca.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -47,37 +55,25 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../css/print-site.css">
-    
-      <link rel="stylesheet" href="../../css/print-site-material.css">
-    
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+  </head>
   
   
     
+    
+      
     
     
     
@@ -87,7 +83,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -109,12 +105,12 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -134,58 +130,38 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="allstarlink" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
     
@@ -203,9 +179,6 @@
       <a href="../.." class="md-tabs__link">
         
   
-  
-    
-  
   Home
 
       </a>
@@ -219,13 +192,29 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../basics/" class="md-tabs__link">
           
-  
-  
-    
   
   Getting Started
 
@@ -241,13 +230,27 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../install/" class="md-tabs__link">
           
-  
-  
-    
   
   Installation
 
@@ -263,13 +266,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../user-guide/" class="md-tabs__link">
           
-  
-  
-    
   
   Basic Operation
 
@@ -285,13 +314,133 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../adv-topics/" class="md-tabs__link">
           
-  
-  
-    
   
   Advanced Topics
 
@@ -309,13 +458,49 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
-  
-  
-    
   
   VOTER/RTCM
 
@@ -331,13 +516,33 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../developers/" class="md-tabs__link">
           
-  
-  
-    
   
   Developer Guide
 
@@ -353,13 +558,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../mans/" class="md-tabs__link">
           
-  
-  
-    
   
   Man Pages
 
@@ -375,13 +606,35 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../config/" class="md-tabs__link">
           
-  
-  
-    
   
   Config Files
 
@@ -408,7 +661,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -423,7 +676,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="AllStarLink Manual" class="md-nav__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
     AllStarLink Manual
@@ -445,8 +698,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -494,7 +746,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -505,8 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
-  
+  Getting Started
 
     
   </span>
@@ -527,8 +778,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
-  
+  Getting Started
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -549,8 +799,7 @@
   <span class="md-ellipsis">
     
   
-    Basics
-  
+  Basics
 
     
   </span>
@@ -577,8 +826,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Portal
-  
+  AllStarLink Portal
 
     
   </span>
@@ -605,8 +853,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Standard Commands
-  
+  AllStarLink Standard Commands
 
     
   </span>
@@ -633,8 +880,7 @@
   <span class="md-ellipsis">
     
   
-    New Commands
-  
+  New Commands
 
     
   </span>
@@ -661,8 +907,7 @@
   <span class="md-ellipsis">
     
   
-    Known Issues &amp; Compatibility Problems
-  
+  Known Issues &amp; Compatibility Problems
 
     
   </span>
@@ -716,7 +961,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -727,8 +972,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -749,8 +993,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Installation
-  
+  Installation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -771,8 +1014,7 @@
   <span class="md-ellipsis">
     
   
-    Important Considerations
-  
+  Important Considerations
 
     
   </span>
@@ -813,7 +1055,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -824,8 +1066,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
     
   </span>
@@ -846,8 +1087,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -868,8 +1108,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Appliance Installation
-  
+  ASL3 Appliance Installation
 
     
   </span>
@@ -924,7 +1163,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -935,8 +1174,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
     
   </span>
@@ -957,8 +1195,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -979,8 +1216,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Install
-  
+  Debian Install
 
     
   </span>
@@ -1007,8 +1243,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Appliance
-  
+  Debian Appliance
 
     
   </span>
@@ -1035,8 +1270,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Installation
-  
+  Docker Installation
 
     
   </span>
@@ -1063,8 +1297,7 @@
   <span class="md-ellipsis">
     
   
-    Debian OS Upgrades
-  
+  Debian OS Upgrades
 
     
   </span>
@@ -1119,7 +1352,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1130,8 +1363,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
     
   </span>
@@ -1152,8 +1384,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1174,8 +1405,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -1202,8 +1432,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
-  
+  Configuration
 
     
   </span>
@@ -1230,8 +1459,7 @@
   <span class="md-ellipsis">
     
   
-    User Management
-  
+  User Management
 
     
   </span>
@@ -1258,8 +1486,7 @@
   <span class="md-ellipsis">
     
   
-    Securing Allmon3 with HTTPS
-  
+  Securing Allmon3 with HTTPS
 
     
   </span>
@@ -1333,7 +1560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1344,8 +1571,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Operation
-  
+  Basic Operation
 
     
   </span>
@@ -1366,8 +1592,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Basic Operation
-  
+  Basic Operation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1388,8 +1613,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ASL3 Menu
-  
+  Accessing ASL3 Menu
 
     
   </span>
@@ -1416,8 +1640,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Commands and Tools
-  
+  ASL3 Commands and Tools
 
     
   </span>
@@ -1444,8 +1667,7 @@
   <span class="md-ellipsis">
     
   
-    Logins and Passwords
-  
+  Logins and Passwords
 
     
   </span>
@@ -1472,8 +1694,7 @@
   <span class="md-ellipsis">
     
   
-    Updating ASL3
-  
+  Updating ASL3
 
     
   </span>
@@ -1500,8 +1721,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Support
-  
+  ASL3 Support
 
     
   </span>
@@ -1528,8 +1748,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Troubleshooting Tips
-  
+  Basic Troubleshooting Tips
 
     
   </span>
@@ -1556,8 +1775,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Telephone Portal Access
-  
+  ASL Telephone Portal Access
 
     
   </span>
@@ -1584,8 +1802,7 @@
   <span class="md-ellipsis">
     
   
-    External Applications
-  
+  External Applications
 
     
   </span>
@@ -1612,8 +1829,7 @@
   <span class="md-ellipsis">
     
   
-    Beta Testing
-  
+  Beta Testing
 
     
   </span>
@@ -1666,7 +1882,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,8 +1893,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
     
   </span>
@@ -1699,8 +1914,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1721,8 +1935,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Web Admin Interface
-  
+  Cockpit Web Admin Interface
 
     
   </span>
@@ -1749,8 +1962,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Basics
-  
+  Cockpit Basics
 
     
   </span>
@@ -1777,8 +1989,7 @@
   <span class="md-ellipsis">
     
   
-    Terminal / Console
-  
+  Terminal / Console
 
     
   </span>
@@ -1805,8 +2016,7 @@
   <span class="md-ellipsis">
     
   
-    Network Configuration
-  
+  Network Configuration
 
     
   </span>
@@ -1833,8 +2043,7 @@
   <span class="md-ellipsis">
     
   
-    Software Updates
-  
+  Software Updates
 
     
   </span>
@@ -1861,8 +2070,7 @@
   <span class="md-ellipsis">
     
   
-    Services Management
-  
+  Services Management
 
     
   </span>
@@ -1889,8 +2097,7 @@
   <span class="md-ellipsis">
     
   
-    Managing the Firewall
-  
+  Managing the Firewall
 
     
   </span>
@@ -2058,7 +2265,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2069,8 +2276,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Topics
-  
+  Advanced Topics
 
     
   </span>
@@ -2091,8 +2297,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Advanced Topics
-  
+  Advanced Topics
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2113,8 +2318,7 @@
   <span class="md-ellipsis">
     
   
-    44Net Connect for ASL
-  
+  44Net Connect
 
     
   </span>
@@ -2141,8 +2345,7 @@
   <span class="md-ellipsis">
     
   
-    Allow and Deny Lists
-  
+  Allow and Deny Lists
 
     
   </span>
@@ -2169,8 +2372,7 @@
   <span class="md-ellipsis">
     
   
-    APRS
-  
+  APRS
 
     
   </span>
@@ -2197,8 +2399,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Text-to-Speech
-  
+  ASL Text-to-Speech
 
     
   </span>
@@ -2225,8 +2426,7 @@
   <span class="md-ellipsis">
     
   
-    Asterisk Templates
-  
+  Asterisk Templates
 
     
   </span>
@@ -2253,8 +2453,7 @@
   <span class="md-ellipsis">
     
   
-    Audio and Activity Logging
-  
+  Audio and Activity Logging
 
     
   </span>
@@ -2281,8 +2480,7 @@
   <span class="md-ellipsis">
     
   
-    Audio Filters
-  
+  Audio Filters
 
     
   </span>
@@ -2309,8 +2507,7 @@
   <span class="md-ellipsis">
     
   
-    Autopatch
-  
+  Autopatch
 
     
   </span>
@@ -2337,8 +2534,7 @@
   <span class="md-ellipsis">
     
   
-    Calibrating Audio Levels For The AllStarLink System
-  
+  Calibrating Audio Levels For The AllStarLink System
 
     
   </span>
@@ -2365,8 +2561,7 @@
   <span class="md-ellipsis">
     
   
-    Calling app_rpt in a Dialplan
-  
+  Calling app_rpt in a Dialplan
 
     
   </span>
@@ -2393,8 +2588,7 @@
   <span class="md-ellipsis">
     
   
-    Courtesy Tones
-  
+  Courtesy Tones
 
     
   </span>
@@ -2421,8 +2615,7 @@
   <span class="md-ellipsis">
     
   
-    Connect and Disconnect Scripts
-  
+  Connect and Disconnect Scripts
 
     
   </span>
@@ -2449,8 +2642,7 @@
   <span class="md-ellipsis">
     
   
-    DAQ Subsystem
-  
+  DAQ Subsystem
 
     
   </span>
@@ -2477,8 +2669,7 @@
   <span class="md-ellipsis">
     
   
-    DNS Servers
-  
+  DNS Servers
 
     
   </span>
@@ -2505,8 +2696,7 @@
   <span class="md-ellipsis">
     
   
-    DTMF Functions
-  
+  DTMF Functions
 
     
   </span>
@@ -2533,8 +2723,7 @@
   <span class="md-ellipsis">
     
   
-    EchoLink Configuration
-  
+  EchoLink Configuration
 
     
   </span>
@@ -2561,8 +2750,7 @@
   <span class="md-ellipsis">
     
   
-    Elke Link Mode
-  
+  Elke Link Mode
 
     
   </span>
@@ -2589,8 +2777,7 @@
   <span class="md-ellipsis">
     
   
-    European Repeater Operation
-  
+  European Repeater Operation
 
     
   </span>
@@ -2617,8 +2804,7 @@
   <span class="md-ellipsis">
     
   
-    Event Management Subsystem
-  
+  Event Management Subsystem
 
     
   </span>
@@ -2645,8 +2831,7 @@
   <span class="md-ellipsis">
     
   
-    Hot Spot Un-key Delay
-  
+  Hot Spot Un-key Delay
 
     
   </span>
@@ -2673,8 +2858,7 @@
   <span class="md-ellipsis">
     
   
-    HTTP-Based Registration
-  
+  HTTP-Based Registration
 
     
   </span>
@@ -2701,8 +2885,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Direct Authentication
-  
+  IAX Direct Authentication
 
     
   </span>
@@ -2729,8 +2912,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Proxy
-  
+  IAX Proxy
 
     
   </span>
@@ -2757,8 +2939,7 @@
   <span class="md-ellipsis">
     
   
-    IAX-Based Registration
-  
+  IAX-Based Registration
 
     
   </span>
@@ -2785,8 +2966,7 @@
   <span class="md-ellipsis">
     
   
-    Link Activity Timer
-  
+  Link Activity Timer
 
     
   </span>
@@ -2813,8 +2993,7 @@
   <span class="md-ellipsis">
     
   
-    Long Tone Zero (LiTZ)
-  
+  Long Tone Zero (LiTZ)
 
     
   </span>
@@ -2841,8 +3020,7 @@
   <span class="md-ellipsis">
     
   
-    Macros
-  
+  Macros
 
     
   </span>
@@ -2869,8 +3047,7 @@
   <span class="md-ellipsis">
     
   
-    Manipulating GPIO
-  
+  Manipulating GPIO
 
     
   </span>
@@ -2897,8 +3074,7 @@
   <span class="md-ellipsis">
     
   
-    MDC-1200 Signalling
-  
+  MDC-1200 Signalling
 
     
   </span>
@@ -2925,8 +3101,7 @@
   <span class="md-ellipsis">
     
   
-    Multiple Nodes on the Same Network
-  
+  Multiple Nodes on the Same Network
 
     
   </span>
@@ -2953,8 +3128,7 @@
   <span class="md-ellipsis">
     
   
-    Node Number Extensions (NNX)
-  
+  Node Number Extensions (NNX)
 
     
   </span>
@@ -2981,8 +3155,7 @@
   <span class="md-ellipsis">
     
   
-    Node Resolution
-  
+  Node Resolution
 
     
   </span>
@@ -3009,8 +3182,7 @@
   <span class="md-ellipsis">
     
   
-    Other Software Products
-  
+  Other Software Products
 
     
   </span>
@@ -3037,8 +3209,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3065,8 +3236,7 @@
   <span class="md-ellipsis">
     
   
-    Passing DTMF to Shell Scripts
-  
+  Passing DTMF to Shell Scripts
 
     
   </span>
@@ -3093,8 +3263,7 @@
   <span class="md-ellipsis">
     
   
-    Permanent Node Connection
-  
+  Permanent Node Connection
 
     
   </span>
@@ -3121,8 +3290,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3149,8 +3317,7 @@
   <span class="md-ellipsis">
     
   
-    Permissions
-  
+  Permissions
 
     
   </span>
@@ -3177,8 +3344,7 @@
   <span class="md-ellipsis">
     
   
-    Private Nodes
-  
+  Private Nodes
 
     
   </span>
@@ -3205,8 +3371,7 @@
   <span class="md-ellipsis">
     
   
-    Radio Connections
-  
+  Radio Connections
 
     
   </span>
@@ -3233,8 +3398,7 @@
   <span class="md-ellipsis">
     
   
-    Remote Base Nodes
-  
+  Remote Base Nodes
 
     
   </span>
@@ -3261,8 +3425,7 @@
   <span class="md-ellipsis">
     
   
-    RX Toneburst
-  
+  RX Toneburst
 
     
   </span>
@@ -3289,8 +3452,7 @@
   <span class="md-ellipsis">
     
   
-    SA818 RF Modules
-  
+  SA818 RF Modules
 
     
   </span>
@@ -3317,8 +3479,7 @@
   <span class="md-ellipsis">
     
   
-    Setting up a SIP Phone
-  
+  Setting up a SIP Phone
 
     
   </span>
@@ -3345,8 +3506,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduled Events
-  
+  Scheduled Events
 
     
   </span>
@@ -3373,8 +3533,7 @@
   <span class="md-ellipsis">
     
   
-    Sleep Mode
-  
+  Sleep Mode
 
     
   </span>
@@ -3401,8 +3560,7 @@
   <span class="md-ellipsis">
     
   
-    Sound Files
-  
+  Sound Files
 
     
   </span>
@@ -3429,8 +3587,7 @@
   <span class="md-ellipsis">
     
   
-    Simple Voter
-  
+  Simple Voter
 
     
   </span>
@@ -3457,8 +3614,7 @@
   <span class="md-ellipsis">
     
   
-    Streaming Node Audio to Broadcastify
-  
+  Streaming Node Audio to Broadcastify
 
     
   </span>
@@ -3485,8 +3641,7 @@
   <span class="md-ellipsis">
     
   
-    Telemetry Messages
-  
+  Telemetry Messages
 
     
   </span>
@@ -3513,8 +3668,7 @@
   <span class="md-ellipsis">
     
   
-    Tail Messages
-  
+  Tail Messages
 
     
   </span>
@@ -3541,8 +3695,7 @@
   <span class="md-ellipsis">
     
   
-    Time of Day
-  
+  Time of Day
 
     
   </span>
@@ -3569,8 +3722,7 @@
   <span class="md-ellipsis">
     
   
-    TheLinkBox
-  
+  TheLinkBox
 
     
   </span>
@@ -3597,8 +3749,7 @@
   <span class="md-ellipsis">
     
   
-    Tonemacros
-  
+  Tonemacros
 
     
   </span>
@@ -3625,8 +3776,7 @@
   <span class="md-ellipsis">
     
   
-    Tone Signalling
-  
+  Tone Signalling
 
     
   </span>
@@ -3653,8 +3803,7 @@
   <span class="md-ellipsis">
     
   
-    UEFI and SecureBoot
-  
+  UEFI and SecureBoot
 
     
   </span>
@@ -3681,8 +3830,7 @@
   <span class="md-ellipsis">
     
   
-    USB Audio Interfaces
-  
+  USB Audio Interfaces
 
     
   </span>
@@ -3774,8 +3922,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
     
   </span>
@@ -3796,8 +3943,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3818,8 +3964,7 @@
   <span class="md-ellipsis">
     
   
-    What is the VOTER?
-  
+  What is the VOTER?
 
     
   </span>
@@ -3846,8 +3991,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Protocol
-  
+  VOTER Protocol
 
     
   </span>
@@ -3874,8 +4018,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER chan_voter
-  
+  VOTER chan_voter
 
     
   </span>
@@ -3902,8 +4045,7 @@
   <span class="md-ellipsis">
     
   
-    RTCM Hardware
-  
+  RTCM Hardware
 
     
   </span>
@@ -3930,8 +4072,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Hardware
-  
+  VOTER Hardware
 
     
   </span>
@@ -3958,8 +4099,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Firmware
-  
+  VOTER/RTCM Firmware
 
     
   </span>
@@ -3982,7 +4122,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -3995,8 +4135,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER GPS Requirements
-  
+  VOTER GPS Requirements
 
     
   </span>
@@ -4006,15 +4145,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    VOTER GPS Requirements
-  
+  VOTER GPS Requirements
 
     
   </span>
@@ -4025,7 +4163,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -4034,16 +4173,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#gps" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         GPS
-      
+      </span>
     </span>
   </a>
   
@@ -4052,9 +4191,9 @@
         <li class="md-nav__item">
   <a href="#nmea-sentences" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         NMEA Sentences
-      
+      </span>
     </span>
   </a>
   
@@ -4063,9 +4202,9 @@
         <li class="md-nav__item">
   <a href="#trimble-tsip-packets" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Trimble TSIP Packets
-      
+      </span>
     </span>
   </a>
   
@@ -4074,9 +4213,9 @@
         <li class="md-nav__item">
   <a href="#rtcm-gps-connections" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         RTCM GPS Connections
-      
+      </span>
     </span>
   </a>
   
@@ -4085,9 +4224,9 @@
         <li class="md-nav__item">
   <a href="#gps-lock" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         GPS Lock
-      
+      </span>
     </span>
   </a>
   
@@ -4096,9 +4235,9 @@
         <li class="md-nav__item">
   <a href="#gps-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         GPS Issues
-      
+      </span>
     </span>
   </a>
   
@@ -4108,9 +4247,9 @@
           <li class="md-nav__item">
   <a href="#gps-desense" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         GPS Desense
-      
+      </span>
     </span>
   </a>
   
@@ -4119,9 +4258,9 @@
           <li class="md-nav__item">
   <a href="#trimble-thunderbolt" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Trimble Thunderbolt
-      
+      </span>
     </span>
   </a>
   
@@ -4130,9 +4269,9 @@
           <li class="md-nav__item">
   <a href="#garmin" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Garmin
-      
+      </span>
     </span>
   </a>
   
@@ -4142,9 +4281,9 @@
           <li class="md-nav__item">
   <a href="#garmin-18x-lvc-wiring-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Garmin 18x LVC Wiring Issues
-      
+      </span>
     </span>
   </a>
   
@@ -4153,9 +4292,9 @@
           <li class="md-nav__item">
   <a href="#garmin-and-the-rtcm" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Garmin and the RTCM
-      
+      </span>
     </span>
   </a>
   
@@ -4164,9 +4303,9 @@
           <li class="md-nav__item">
   <a href="#garmin-speed-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Garmin Speed Issues
-      
+      </span>
     </span>
   </a>
   
@@ -4180,9 +4319,9 @@
           <li class="md-nav__item">
   <a href="#ublox-gps" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         uBlox GPS
-      
+      </span>
     </span>
   </a>
   
@@ -4196,9 +4335,9 @@
         <li class="md-nav__item">
   <a href="#gps-debug" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         GPS Debug
-      
+      </span>
     </span>
   </a>
   
@@ -4207,9 +4346,9 @@
         <li class="md-nav__item">
   <a href="#trimble-debug-status-decoding" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Trimble Debug Status Decoding
-      
+      </span>
     </span>
   </a>
   
@@ -4238,8 +4377,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Hardware Menu System
-  
+  VOTER/RTCM Hardware Menu System
 
     
   </span>
@@ -4266,8 +4404,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio
-  
+  VOTER Audio
 
     
   </span>
@@ -4294,8 +4431,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Buffer Tuning
-  
+  VOTER Buffer Tuning
 
     
   </span>
@@ -4322,8 +4458,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Simulcasting
-  
+  VOTER Simulcasting
 
     
   </span>
@@ -4350,8 +4485,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Mix Mode (General Purpose) Application
-  
+  VOTER Mix Mode (General Purpose) Application
 
     
   </span>
@@ -4378,8 +4512,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Redundant "Proxy" Mode
-  
+  VOTER Redundant "Proxy" Mode
 
     
   </span>
@@ -4406,8 +4539,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio Analysis
-  
+  VOTER Audio Analysis
 
     
   </span>
@@ -4434,8 +4566,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER and the Quantar
-  
+  VOTER and the Quantar
 
     
   </span>
@@ -4495,7 +4626,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4506,8 +4637,7 @@
   <span class="md-ellipsis">
     
   
-    Developer Guide
-  
+  Developer Guide
 
     
   </span>
@@ -4528,8 +4658,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Developer Guide
-  
+  Developer Guide
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4550,8 +4679,7 @@
   <span class="md-ellipsis">
     
   
-    Building ASL3-Asterisk
-  
+  Building ASL3-Asterisk
 
     
   </span>
@@ -4578,8 +4706,7 @@
   <span class="md-ellipsis">
     
   
-    Source Code
-  
+  Source Code
 
     
   </span>
@@ -4606,8 +4733,7 @@
   <span class="md-ellipsis">
     
   
-    Source-Based Installation
-  
+  Source-Based Installation
 
     
   </span>
@@ -4634,8 +4760,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Apt Repos
-  
+  AllStarLink Apt Repos
 
     
   </span>
@@ -4662,8 +4787,7 @@
   <span class="md-ellipsis">
     
   
-    Versioning
-  
+  Versioning
 
     
   </span>
@@ -4690,8 +4814,7 @@
   <span class="md-ellipsis">
     
   
-    APIs and Datasets
-  
+  APIs and Datasets
 
     
   </span>
@@ -4718,8 +4841,7 @@
   <span class="md-ellipsis">
     
   
-    app_rpt IAX Text Protocol
-  
+  app_rpt IAX Text Protocol
 
     
   </span>
@@ -4785,7 +4907,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4796,8 +4918,7 @@
   <span class="md-ellipsis">
     
   
-    Man Pages
-  
+  Man Pages
 
     
   </span>
@@ -4818,8 +4939,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Man Pages
-  
+  Man Pages
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4840,8 +4960,7 @@
   <span class="md-ellipsis">
     
   
-    allmon3-passwd
-  
+  allmon3-passwd
 
     
   </span>
@@ -4868,8 +4987,7 @@
   <span class="md-ellipsis">
     
   
-    asl-backup-menu
-  
+  asl-backup-menu
 
     
   </span>
@@ -4896,8 +5014,7 @@
   <span class="md-ellipsis">
     
   
-    asl-find-sound
-  
+  asl-find-sound
 
     
   </span>
@@ -4924,8 +5041,7 @@
   <span class="md-ellipsis">
     
   
-    asl-node-lookup
-  
+  asl-node-lookup
 
     
   </span>
@@ -4952,8 +5068,7 @@
   <span class="md-ellipsis">
     
   
-    asl-play-arn
-  
+  asl-play-arn
 
     
   </span>
@@ -4980,8 +5095,7 @@
   <span class="md-ellipsis">
     
   
-    asl-say
-  
+  asl-say
 
     
   </span>
@@ -5008,8 +5122,7 @@
   <span class="md-ellipsis">
     
   
-    asl-setup-dkms-mok
-  
+  asl-setup-dkms-mok
 
     
   </span>
@@ -5036,8 +5149,7 @@
   <span class="md-ellipsis">
     
   
-    sa818
-  
+  sa818
 
     
   </span>
@@ -5064,8 +5176,7 @@
   <span class="md-ellipsis">
     
   
-    sa818-menu
-  
+  sa818-menu
 
     
   </span>
@@ -5092,8 +5203,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb-tune-menu
-  
+  simpleusb-tune-menu
 
     
   </span>
@@ -5155,7 +5265,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -5166,8 +5276,7 @@
   <span class="md-ellipsis">
     
   
-    Config Files
-  
+  Config Files
 
     
   </span>
@@ -5188,8 +5297,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Config Files
-  
+  Config Files
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -5210,8 +5318,7 @@
   <span class="md-ellipsis">
     
   
-    Structure of Config Files
-  
+  Structure of Config Files
 
     
   </span>
@@ -5238,8 +5345,7 @@
   <span class="md-ellipsis">
     
   
-    echolink.conf
-  
+  echolink.conf
 
     
   </span>
@@ -5266,8 +5372,7 @@
   <span class="md-ellipsis">
     
   
-    extensions.conf
-  
+  extensions.conf
 
     
   </span>
@@ -5294,8 +5399,7 @@
   <span class="md-ellipsis">
     
   
-    iax.conf
-  
+  iax.conf
 
     
   </span>
@@ -5322,8 +5426,7 @@
   <span class="md-ellipsis">
     
   
-    rpt.conf
-  
+  rpt.conf
 
     
   </span>
@@ -5350,8 +5453,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb.conf
-  
+  simpleusb.conf
 
     
   </span>
@@ -5378,8 +5480,7 @@
   <span class="md-ellipsis">
     
   
-    tlb.conf
-  
+  tlb.conf
 
     
   </span>
@@ -5406,8 +5507,7 @@
   <span class="md-ellipsis">
     
   
-    voter.conf
-  
+  voter.conf
 
     
   </span>
@@ -5442,8 +5542,6 @@
                 
                   
 
-
-
 <h1 id="voter-gps-requirements">VOTER GPS Requirements</h1>
 <p>This page will outline the requirements and troubleshooting for using a GPS with the RTCM/VOTER.</p>
 <h2 id="gps">GPS</h2>
@@ -5464,18 +5562,18 @@ $GPRMC
 <p>It uses <code>$GPGGA</code> to determine whether we have a valid GPS fix, and get the latitude/longitude/altitude.</p>
 <h2 id="trimble-tsip-packets">Trimble TSIP Packets</h2>
 <p>The VOTER/RTCM when in TSIP mode (Trimble), assumes it is a Trimble Thunderbolt and is looking for two packets:</p>
-<p></p><div class="highlight"><pre><span></span><code>0x8F-AB - Primary Timing Packet
+<p><div class="highlight"><pre><span></span><code>0x8F-AB - Primary Timing Packet
 0x8F-AC - Supplemental Timing Packet
 </code></pre></div>
-Grab a copy of the <a href="../assets/Thunderbolt-2012-02.pdf">Thunderbolt User Guide</a>.<p></p>
+Grab a copy of the <a href=".././assets/Thunderbolt-2012-02.pdf">Thunderbolt User Guide</a>.</p>
 <p>Pages 78-83 are the important ones.</p>
 <p>Packet 0x8F-AB is what grabs the timing information, and packet 0x8F-AC is what is used for everything else (including debug).</p>
 <h2 id="rtcm-gps-connections">RTCM GPS Connections</h2>
 <p>There are some quirks specific to the RTCM that are not well documented.</p>
 <p>The GPS connections for the RTCM are on the DB15 connector. Note that the labels for <code>GTX</code> and <code>GRX</code> are misleading. <code>GTX</code> is the data <strong>FROM</strong> the GPS <strong>TO</strong> the RTCM (GPS TX/RTCM RX). <code>GRX</code> is data from the RTCM to the GPS, but that is currently not used, so it does not need to be connected.</p>
 <p><code>PPS</code> is obvious, that is your PPS signal from your GPS.</p>
-<p>Also note, inside the RTCM, there are <a href="../rtcm-hardware/#jumpers">jumpers</a> to set for TTL or RS-232 data, depending on the type of GPS you are connecting. Set them accordingly. The RS-232 setting loops the data through a MAX3232 converter on the board.</p>
-<p>You will still need to set the data and PPS polarity, and baud rate in the <a href="../voter-menus/">configuration menus</a> to get everything to work.</p>
+<p>Also note, inside the RTCM, there are <a href=".././rtcm-hardware/#jumpers">jumpers</a> to set for TTL or RS-232 data, depending on the type of GPS you are connecting. Set them accordingly. The RS-232 setting loops the data through a MAX3232 converter on the board.</p>
+<p>You will still need to set the data and PPS polarity, and baud rate in the <a href=".././voter-menus/">configuration menus</a> to get everything to work.</p>
 <h2 id="gps-lock">GPS Lock</h2>
 <p>The GPS LED will go solid regardless of the connection LED. That <strong>has</strong> to happen or it won't connect to the Asterisk server. </p>
 <p>It is not unusual for it to take up to 20 mins to get a GPS lock LED (ie. using a Trimble Thunderbolt) after any reboot. It is highly dependent on how long your GPS takes to lock up, whether it has a current almanac, etc. </p>
@@ -5520,9 +5618,9 @@ Last Rx Pkt index: 160, inbounds: 1
 <p>Newer Garmin's (GPS 18X, 18X LVC, etc.) MAY NOT output 5V, and can cause issues. <strong>Check the Garmin datasheet</strong>.</p>
 <p>The VOTER is designed to accept both 3.3V or 5V signals, and <em>should</em> work fine.</p>
 <h4 id="garmin-speed-issues">Garmin Speed Issues</h4>
-<p>Some of the Garmin GPS's come with 4800 baud set as default. If you are getting a "Warning:&nbsp;GPS&nbsp;Data time period elapsed" error on your RTCM, change both the GPS and RTCM to use 9600 baud. </p>
-<p>To do this, interface the GPS to a DB9 connector as per Page 9 of the <a href="../assets/GPS_18x_Tech_Specs.pdf"> manual</a> (remembering to ONLY use 5V as the power source <em>facepalm</em>). </p>
-<p>Once done, download, extract and open <a href="http://www8.garmin.com/support/download_details.jsp?id=4053">http://www8.garmin.com/support/download_details.jsp?id=4053</a> SNSRXCFG (<a href="../assets/SNSRXCFG_350.exe">local copy</a>) and run.</p>
+<p>Some of the Garmin GPS's come with 4800 baud set as default. If you are getting a "Warning: GPS Data time period elapsed" error on your RTCM, change both the GPS and RTCM to use 9600 baud. </p>
+<p>To do this, interface the GPS to a DB9 connector as per Page 9 of the <a href=".././assets/GPS_18x_Tech_Specs.pdf"> manual</a> (remembering to ONLY use 5V as the power source <em>facepalm</em>). </p>
+<p>Once done, download, extract and open <a href="http://www8.garmin.com/support/download_details.jsp?id=4053">http://www8.garmin.com/support/download_details.jsp?id=4053</a> SNSRXCFG (<a href=".././assets/SNSRXCFG_350.exe">local copy</a>) and run.</p>
 <ol>
 <li>Select your GPS (in most cases GPS 18x PC/LVC). Press F10 to switch to NMEA mode (Config &gt; Switch to NMEA Mode)</li>
 <li>Select Config &gt; Setup and choose the COM port your GPS is connected too. Leave baud rate as auto for now, OK</li>
@@ -5542,19 +5640,19 @@ Last Rx Pkt index: 160, inbounds: 1
 <p>Make sure to save (<code>99</code>) and reboot (<code>r</code>) your VOTER/RTCM after making changes for them to be effective.</p>
 <h2 id="gps-debug">GPS Debug</h2>
 <p>To turn on GPS Debugging, set the <code>Debug Option Level</code> in the VOTER/RTCM to <code>32</code>.</p>
-<p>See <a href="../voter-hardware/#debug-options">Debug levels</a> for more information on how this works.</p>
+<p>See <a href=".././voter-hardware/#debug-options">Debug levels</a> for more information on how this works.</p>
 <h2 id="trimble-debug-status-decoding">Trimble Debug Status Decoding</h2>
 <p>The VOTER/RTCM when in TSIP mode (Trimble), assumes it is a Trimble Thunderbolt and is looking for two packets:</p>
 <div class="highlight"><pre><span></span><code>0x8F-AB - Primary Timing Packet
 0x8F-AC - Supplemental Timing Packet
 </code></pre></div>
-<p>Grab a copy of the <a href="../assets/Thunderbolt-2012-02.pdf">Thunderbolt User Guide</a>.</p>
+<p>Grab a copy of the <a href=".././assets/Thunderbolt-2012-02.pdf">Thunderbolt User Guide</a>.</p>
 <p>Pages 78-83 are the important ones.</p>
 <p>Packet 0x8F-AB is what grabs the timing information, and packet 0x8F-AC is what is used for everything else (including debug). Not all bytes are used by all TSIP devices.</p>
 <p>Presently, the debug strings that the VOTER/RTCM reports are:</p>
-<div class="highlight"><pre><span></span><code>printf("GPS-DEBUG: gps_epoch_time: %ld, ctime: %s, gps_week: %d\n",gps_time,ctime((time_t *)&amp;gps_time),gpsweek);
+<div class="highlight"><pre><span></span><code>printf(&quot;GPS-DEBUG: gps_epoch_time: %ld, ctime: %s, gps_week: %d\n&quot;,gps_time,ctime((time_t *)&amp;gps_time),gpsweek);
 
-printf("GPS-DEBUG: TSIP: ok %d, 2,3,9 - 14: %02x %02x %02x %02x %02x %02x %02x %02x\n",
+printf(&quot;GPS-DEBUG: TSIP: ok %d, 2,3,9 - 14: %02x %02x %02x %02x %02x %02x %02x %02x\n&quot;,
 happy,gps_buf[2],gps_buf[3],gps_buf[9],gps_buf[10],gps_buf[11],gps_buf[12],gps_buf[13],gps_buf[14]);
 </code></pre></div>
 <p>In real life, this is output like:</p>
@@ -5627,7 +5725,7 @@ Therefore, 00 08 would be Bit 3 set, which would be Not Tracking Satellites.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Byte 12 - GPS Decoding Status (result is in hex)
 0x00  Doing Fixes
-0x01  Don't Have GPS Time
+0x01  Don&#39;t Have GPS Time
 0x03  PDOP is Too High
 0x08  No Usable Sats
 0x09  Only 1 Usable Sat
@@ -5636,7 +5734,7 @@ Therefore, 00 08 would be Bit 3 set, which would be Not Tracking Satellites.
 0x0C  The Chosen Sat is Unusable
 0x10  TRAIM Rejected the Fix
 
-To get "happy", we need 00. Anything else will cause loss of GPS lock. So, a 08 would be No Usable Sats. 
+To get &quot;happy&quot;, we need 00. Anything else will cause loss of GPS lock. So, a 08 would be No Usable Sats. 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Byte 13 - Disciplining Activity (result is in decimal)
 0     Phase Locking
@@ -5651,12 +5749,12 @@ To get "happy", we need 00. Anything else will cause loss of GPS lock. So, a 08 
 9     Calibration/Control Voltage     
 </code></pre></div>
 <p>Former versions of firmware reported less information: </p>
-<div class="highlight"><pre><span></span><code>    printf("GPS-DEBUG: TSIP: ok %d, 9 - 14: %02x %02x %02x %02x %02x %02x\n",
+<div class="highlight"><pre><span></span><code>    printf(&quot;GPS-DEBUG: TSIP: ok %d, 9 - 14: %02x %02x %02x %02x %02x %02x\n&quot;,
                     happy,gps_buf[9],gps_buf[10],gps_buf[11],gps_buf[12],gps_buf[13],gps_buf[14]);
 </code></pre></div>
 <p>Those reported 0x8F-AC bytes 8-13. See above for a breakdown.</p>
 <p>Sample messages:</p>
-<div class="highlight"><pre><span></span><code>GPS-DEBUG: TSIP: ok 1, 9 - 14: 00 00 00 00 00 00 - everything is good in the 'hood, Doing Fixes, Phase Locking
+<div class="highlight"><pre><span></span><code>GPS-DEBUG: TSIP: ok 1, 9 - 14: 00 00 00 00 00 00 - everything is good in the &#39;hood, Doing Fixes, Phase Locking
 
 GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 18 08 06 - not happy, Not Tracking Satellites, Not Disciplining Oscillator (0x18 --&gt; 0b000000011000), No Usable Sats, Inactive
 
@@ -5680,6 +5778,8 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
 
 
 
+
+
                 
               </article>
             </div>
@@ -5690,7 +5790,7 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
   Back to top
 </button>
         
@@ -5700,13 +5800,13 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer">
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../voter-firmware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VOTER/RTCM Firmware">
+          <a href="../voter-firmware/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VOTER&#x2f;RTCM Firmware">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -5720,7 +5820,7 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
         
         
           
-          <a href="../voter-menus/" class="md-footer__link md-footer__link--next" aria-label="Next: VOTER/RTCM Hardware Menu System">
+          <a href="../voter-menus/" class="md-footer__link md-footer__link--next" aria-label="Next: VOTER&#x2f;RTCM Hardware Menu System">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
@@ -5731,7 +5831,7 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </a>
         
@@ -5743,13 +5843,13 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 AllStarLink Inc.
+      Copyright &copy; 2024-2026 AllStarLink Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -5762,7 +5862,7 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
     
     
     <a href="https://www.allstarlink.org/" target="_blank" rel="noopener" title="AllStarLink Home" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"/></svg>
     </a>
   
     
@@ -5770,7 +5870,7 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
     
     
     <a href="https://github.com/AllStarLink" target="_blank" rel="noopener" title="AllStarLink on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
@@ -5833,15 +5933,11 @@ GPS-DEBUG: TSIP: ok 0, 9 - 14: 00 00 00 00 00 04 - not happy, Initializing Loop 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="../../js/print-site.js"></script>
+      <script src="../../assets/javascripts/bundle.0df4f2d0.min.js"></script>
       
     
-  
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(()=>{ lightbox.reload(); });
-</script></body></html>
+  </body>
+</html>

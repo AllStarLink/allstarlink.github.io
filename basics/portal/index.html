@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en" class="no-js"><head>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="zensical-0.0.47">
     
     
       
@@ -30,10 +33,15 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.5e19f6ca.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -47,37 +55,25 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../css/print-site.css">
-    
-      <link rel="stylesheet" href="../../css/print-site-material.css">
-    
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+  </head>
   
   
     
+    
+      
     
     
     
@@ -87,7 +83,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -109,12 +105,12 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -134,58 +130,38 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="allstarlink" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
     
@@ -203,9 +179,6 @@
       <a href="../.." class="md-tabs__link">
         
   
-  
-    
-  
   Home
 
       </a>
@@ -221,13 +194,29 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
-  
-  
-    
   
   Getting Started
 
@@ -243,13 +232,27 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../install/" class="md-tabs__link">
           
-  
-  
-    
   
   Installation
 
@@ -265,13 +268,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../user-guide/" class="md-tabs__link">
           
-  
-  
-    
   
   Basic Operation
 
@@ -287,13 +316,133 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../adv-topics/" class="md-tabs__link">
           
-  
-  
-    
   
   Advanced Topics
 
@@ -309,13 +458,49 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../voter/" class="md-tabs__link">
           
-  
-  
-    
   
   VOTER/RTCM
 
@@ -331,13 +516,33 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../developers/" class="md-tabs__link">
           
-  
-  
-    
   
   Developer Guide
 
@@ -353,13 +558,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../mans/" class="md-tabs__link">
           
-  
-  
-    
   
   Man Pages
 
@@ -375,13 +606,35 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../config/" class="md-tabs__link">
           
-  
-  
-    
   
   Config Files
 
@@ -408,7 +661,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -423,7 +676,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="AllStarLink Manual" class="md-nav__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
     AllStarLink Manual
@@ -445,8 +698,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -510,8 +762,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
-  
+  Getting Started
 
     
   </span>
@@ -532,8 +783,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
-  
+  Getting Started
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -554,8 +804,7 @@
   <span class="md-ellipsis">
     
   
-    Basics
-  
+  Basics
 
     
   </span>
@@ -578,7 +827,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -591,8 +840,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Portal
-  
+  AllStarLink Portal
 
     
   </span>
@@ -602,15 +850,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    AllStarLink Portal
-  
+  AllStarLink Portal
 
     
   </span>
@@ -621,7 +868,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -630,16 +878,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#create-an-account" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Create an Account
-      
+      </span>
     </span>
   </a>
   
@@ -648,9 +896,9 @@
         <li class="md-nav__item">
   <a href="#confirm-your-accounts" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Confirm your Accounts
-      
+      </span>
     </span>
   </a>
   
@@ -659,9 +907,9 @@
         <li class="md-nav__item">
   <a href="#request-a-node-number" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Request a Node Number
-      
+      </span>
     </span>
   </a>
   
@@ -670,9 +918,9 @@
         <li class="md-nav__item">
   <a href="#node-number-extension-nxx" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Node Number Extension (NXX)
-      
+      </span>
     </span>
   </a>
   
@@ -681,9 +929,9 @@
         <li class="md-nav__item">
   <a href="#editing-node-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Editing Node Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -693,9 +941,9 @@
           <li class="md-nav__item">
   <a href="#password" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Password
-      
+      </span>
     </span>
   </a>
   
@@ -704,9 +952,9 @@
           <li class="md-nav__item">
   <a href="#callsign" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Callsign
-      
+      </span>
     </span>
   </a>
   
@@ -715,9 +963,9 @@
           <li class="md-nav__item">
   <a href="#frequency" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Frequency
-      
+      </span>
     </span>
   </a>
   
@@ -726,9 +974,9 @@
           <li class="md-nav__item">
   <a href="#ctcss-tone" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         CTCSS Tone
-      
+      </span>
     </span>
   </a>
   
@@ -737,9 +985,9 @@
           <li class="md-nav__item">
   <a href="#server-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Server Selection
-      
+      </span>
     </span>
   </a>
   
@@ -748,9 +996,9 @@
           <li class="md-nav__item">
   <a href="#web-transceiver-wt-access" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Web Transceiver (WT) Access
-      
+      </span>
     </span>
   </a>
   
@@ -759,9 +1007,9 @@
           <li class="md-nav__item">
   <a href="#show-function-list" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Show Function List
-      
+      </span>
     </span>
   </a>
   
@@ -770,9 +1018,9 @@
           <li class="md-nav__item">
   <a href="#allow-reverse-autopatch-access" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Allow Reverse Autopatch Access?
-      
+      </span>
     </span>
   </a>
   
@@ -781,9 +1029,9 @@
           <li class="md-nav__item">
   <a href="#allow-telephone-portal-access" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Allow Telephone Portal Access?
-      
+      </span>
     </span>
   </a>
   
@@ -792,9 +1040,9 @@
           <li class="md-nav__item">
   <a href="#is-node-a-remote-base" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Is Node a Remote Base?
-      
+      </span>
     </span>
   </a>
   
@@ -803,9 +1051,9 @@
           <li class="md-nav__item">
   <a href="#is-the-remote-base-frequency-agile" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Is the Remote Base Frequency Agile?
-      
+      </span>
     </span>
   </a>
   
@@ -819,9 +1067,9 @@
         <li class="md-nav__item">
   <a href="#editing-server-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Editing Server Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -831,9 +1079,9 @@
           <li class="md-nav__item">
   <a href="#server-name" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Server Name
-      
+      </span>
     </span>
   </a>
   
@@ -842,9 +1090,9 @@
           <li class="md-nav__item">
   <a href="#server-location" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Server Location
-      
+      </span>
     </span>
   </a>
   
@@ -853,9 +1101,9 @@
           <li class="md-nav__item">
   <a href="#site" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Site
-      
+      </span>
     </span>
   </a>
   
@@ -864,9 +1112,9 @@
           <li class="md-nav__item">
   <a href="#affiliation" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Affiliation
-      
+      </span>
     </span>
   </a>
   
@@ -875,9 +1123,9 @@
           <li class="md-nav__item">
   <a href="#iax-port" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         IAX Port
-      
+      </span>
     </span>
   </a>
   
@@ -886,9 +1134,9 @@
           <li class="md-nav__item">
   <a href="#proxy-ip" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Proxy IP
-      
+      </span>
     </span>
   </a>
   
@@ -897,9 +1145,9 @@
           <li class="md-nav__item">
   <a href="#latitude-and-longitude" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Latitude and Longitude
-      
+      </span>
     </span>
   </a>
   
@@ -913,9 +1161,9 @@
         <li class="md-nav__item">
   <a href="#change-callsign" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Change Callsign
-      
+      </span>
     </span>
   </a>
   
@@ -924,9 +1172,9 @@
         <li class="md-nav__item">
   <a href="#find-my-node-number" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Find My Node Number
-      
+      </span>
     </span>
   </a>
   
@@ -935,9 +1183,9 @@
         <li class="md-nav__item">
   <a href="#change-node-password" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Change Node Password
-      
+      </span>
     </span>
   </a>
   
@@ -946,9 +1194,9 @@
         <li class="md-nav__item">
   <a href="#reset-portal-password" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Reset Portal Password
-      
+      </span>
     </span>
   </a>
   
@@ -977,8 +1225,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Standard Commands
-  
+  AllStarLink Standard Commands
 
     
   </span>
@@ -1005,8 +1252,7 @@
   <span class="md-ellipsis">
     
   
-    New Commands
-  
+  New Commands
 
     
   </span>
@@ -1033,8 +1279,7 @@
   <span class="md-ellipsis">
     
   
-    Known Issues &amp; Compatibility Problems
-  
+  Known Issues &amp; Compatibility Problems
 
     
   </span>
@@ -1088,7 +1333,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1099,8 +1344,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -1121,8 +1365,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Installation
-  
+  Installation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1143,8 +1386,7 @@
   <span class="md-ellipsis">
     
   
-    Important Considerations
-  
+  Important Considerations
 
     
   </span>
@@ -1185,7 +1427,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1196,8 +1438,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
     
   </span>
@@ -1218,8 +1459,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1240,8 +1480,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Appliance Installation
-  
+  ASL3 Appliance Installation
 
     
   </span>
@@ -1296,7 +1535,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1307,8 +1546,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
     
   </span>
@@ -1329,8 +1567,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1351,8 +1588,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Install
-  
+  Debian Install
 
     
   </span>
@@ -1379,8 +1615,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Appliance
-  
+  Debian Appliance
 
     
   </span>
@@ -1407,8 +1642,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Installation
-  
+  Docker Installation
 
     
   </span>
@@ -1435,8 +1669,7 @@
   <span class="md-ellipsis">
     
   
-    Debian OS Upgrades
-  
+  Debian OS Upgrades
 
     
   </span>
@@ -1491,7 +1724,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1502,8 +1735,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
     
   </span>
@@ -1524,8 +1756,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1546,8 +1777,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -1574,8 +1804,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
-  
+  Configuration
 
     
   </span>
@@ -1602,8 +1831,7 @@
   <span class="md-ellipsis">
     
   
-    User Management
-  
+  User Management
 
     
   </span>
@@ -1630,8 +1858,7 @@
   <span class="md-ellipsis">
     
   
-    Securing Allmon3 with HTTPS
-  
+  Securing Allmon3 with HTTPS
 
     
   </span>
@@ -1705,7 +1932,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1716,8 +1943,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Operation
-  
+  Basic Operation
 
     
   </span>
@@ -1738,8 +1964,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Basic Operation
-  
+  Basic Operation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1760,8 +1985,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ASL3 Menu
-  
+  Accessing ASL3 Menu
 
     
   </span>
@@ -1788,8 +2012,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Commands and Tools
-  
+  ASL3 Commands and Tools
 
     
   </span>
@@ -1816,8 +2039,7 @@
   <span class="md-ellipsis">
     
   
-    Logins and Passwords
-  
+  Logins and Passwords
 
     
   </span>
@@ -1844,8 +2066,7 @@
   <span class="md-ellipsis">
     
   
-    Updating ASL3
-  
+  Updating ASL3
 
     
   </span>
@@ -1872,8 +2093,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Support
-  
+  ASL3 Support
 
     
   </span>
@@ -1900,8 +2120,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Troubleshooting Tips
-  
+  Basic Troubleshooting Tips
 
     
   </span>
@@ -1928,8 +2147,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Telephone Portal Access
-  
+  ASL Telephone Portal Access
 
     
   </span>
@@ -1956,8 +2174,7 @@
   <span class="md-ellipsis">
     
   
-    External Applications
-  
+  External Applications
 
     
   </span>
@@ -1984,8 +2201,7 @@
   <span class="md-ellipsis">
     
   
-    Beta Testing
-  
+  Beta Testing
 
     
   </span>
@@ -2038,7 +2254,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2049,8 +2265,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
     
   </span>
@@ -2071,8 +2286,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2093,8 +2307,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Web Admin Interface
-  
+  Cockpit Web Admin Interface
 
     
   </span>
@@ -2121,8 +2334,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Basics
-  
+  Cockpit Basics
 
     
   </span>
@@ -2149,8 +2361,7 @@
   <span class="md-ellipsis">
     
   
-    Terminal / Console
-  
+  Terminal / Console
 
     
   </span>
@@ -2177,8 +2388,7 @@
   <span class="md-ellipsis">
     
   
-    Network Configuration
-  
+  Network Configuration
 
     
   </span>
@@ -2205,8 +2415,7 @@
   <span class="md-ellipsis">
     
   
-    Software Updates
-  
+  Software Updates
 
     
   </span>
@@ -2233,8 +2442,7 @@
   <span class="md-ellipsis">
     
   
-    Services Management
-  
+  Services Management
 
     
   </span>
@@ -2261,8 +2469,7 @@
   <span class="md-ellipsis">
     
   
-    Managing the Firewall
-  
+  Managing the Firewall
 
     
   </span>
@@ -2430,7 +2637,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -2441,8 +2648,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Topics
-  
+  Advanced Topics
 
     
   </span>
@@ -2463,8 +2669,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Advanced Topics
-  
+  Advanced Topics
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2485,8 +2690,7 @@
   <span class="md-ellipsis">
     
   
-    44Net Connect for ASL
-  
+  44Net Connect
 
     
   </span>
@@ -2513,8 +2717,7 @@
   <span class="md-ellipsis">
     
   
-    Allow and Deny Lists
-  
+  Allow and Deny Lists
 
     
   </span>
@@ -2541,8 +2744,7 @@
   <span class="md-ellipsis">
     
   
-    APRS
-  
+  APRS
 
     
   </span>
@@ -2569,8 +2771,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Text-to-Speech
-  
+  ASL Text-to-Speech
 
     
   </span>
@@ -2597,8 +2798,7 @@
   <span class="md-ellipsis">
     
   
-    Asterisk Templates
-  
+  Asterisk Templates
 
     
   </span>
@@ -2625,8 +2825,7 @@
   <span class="md-ellipsis">
     
   
-    Audio and Activity Logging
-  
+  Audio and Activity Logging
 
     
   </span>
@@ -2653,8 +2852,7 @@
   <span class="md-ellipsis">
     
   
-    Audio Filters
-  
+  Audio Filters
 
     
   </span>
@@ -2681,8 +2879,7 @@
   <span class="md-ellipsis">
     
   
-    Autopatch
-  
+  Autopatch
 
     
   </span>
@@ -2709,8 +2906,7 @@
   <span class="md-ellipsis">
     
   
-    Calibrating Audio Levels For The AllStarLink System
-  
+  Calibrating Audio Levels For The AllStarLink System
 
     
   </span>
@@ -2737,8 +2933,7 @@
   <span class="md-ellipsis">
     
   
-    Calling app_rpt in a Dialplan
-  
+  Calling app_rpt in a Dialplan
 
     
   </span>
@@ -2765,8 +2960,7 @@
   <span class="md-ellipsis">
     
   
-    Courtesy Tones
-  
+  Courtesy Tones
 
     
   </span>
@@ -2793,8 +2987,7 @@
   <span class="md-ellipsis">
     
   
-    Connect and Disconnect Scripts
-  
+  Connect and Disconnect Scripts
 
     
   </span>
@@ -2821,8 +3014,7 @@
   <span class="md-ellipsis">
     
   
-    DAQ Subsystem
-  
+  DAQ Subsystem
 
     
   </span>
@@ -2849,8 +3041,7 @@
   <span class="md-ellipsis">
     
   
-    DNS Servers
-  
+  DNS Servers
 
     
   </span>
@@ -2877,8 +3068,7 @@
   <span class="md-ellipsis">
     
   
-    DTMF Functions
-  
+  DTMF Functions
 
     
   </span>
@@ -2905,8 +3095,7 @@
   <span class="md-ellipsis">
     
   
-    EchoLink Configuration
-  
+  EchoLink Configuration
 
     
   </span>
@@ -2933,8 +3122,7 @@
   <span class="md-ellipsis">
     
   
-    Elke Link Mode
-  
+  Elke Link Mode
 
     
   </span>
@@ -2961,8 +3149,7 @@
   <span class="md-ellipsis">
     
   
-    European Repeater Operation
-  
+  European Repeater Operation
 
     
   </span>
@@ -2989,8 +3176,7 @@
   <span class="md-ellipsis">
     
   
-    Event Management Subsystem
-  
+  Event Management Subsystem
 
     
   </span>
@@ -3017,8 +3203,7 @@
   <span class="md-ellipsis">
     
   
-    Hot Spot Un-key Delay
-  
+  Hot Spot Un-key Delay
 
     
   </span>
@@ -3045,8 +3230,7 @@
   <span class="md-ellipsis">
     
   
-    HTTP-Based Registration
-  
+  HTTP-Based Registration
 
     
   </span>
@@ -3073,8 +3257,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Direct Authentication
-  
+  IAX Direct Authentication
 
     
   </span>
@@ -3101,8 +3284,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Proxy
-  
+  IAX Proxy
 
     
   </span>
@@ -3129,8 +3311,7 @@
   <span class="md-ellipsis">
     
   
-    IAX-Based Registration
-  
+  IAX-Based Registration
 
     
   </span>
@@ -3157,8 +3338,7 @@
   <span class="md-ellipsis">
     
   
-    Link Activity Timer
-  
+  Link Activity Timer
 
     
   </span>
@@ -3185,8 +3365,7 @@
   <span class="md-ellipsis">
     
   
-    Long Tone Zero (LiTZ)
-  
+  Long Tone Zero (LiTZ)
 
     
   </span>
@@ -3213,8 +3392,7 @@
   <span class="md-ellipsis">
     
   
-    Macros
-  
+  Macros
 
     
   </span>
@@ -3241,8 +3419,7 @@
   <span class="md-ellipsis">
     
   
-    Manipulating GPIO
-  
+  Manipulating GPIO
 
     
   </span>
@@ -3269,8 +3446,7 @@
   <span class="md-ellipsis">
     
   
-    MDC-1200 Signalling
-  
+  MDC-1200 Signalling
 
     
   </span>
@@ -3297,8 +3473,7 @@
   <span class="md-ellipsis">
     
   
-    Multiple Nodes on the Same Network
-  
+  Multiple Nodes on the Same Network
 
     
   </span>
@@ -3325,8 +3500,7 @@
   <span class="md-ellipsis">
     
   
-    Node Number Extensions (NNX)
-  
+  Node Number Extensions (NNX)
 
     
   </span>
@@ -3353,8 +3527,7 @@
   <span class="md-ellipsis">
     
   
-    Node Resolution
-  
+  Node Resolution
 
     
   </span>
@@ -3381,8 +3554,7 @@
   <span class="md-ellipsis">
     
   
-    Other Software Products
-  
+  Other Software Products
 
     
   </span>
@@ -3409,8 +3581,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3437,8 +3608,7 @@
   <span class="md-ellipsis">
     
   
-    Passing DTMF to Shell Scripts
-  
+  Passing DTMF to Shell Scripts
 
     
   </span>
@@ -3465,8 +3635,7 @@
   <span class="md-ellipsis">
     
   
-    Permanent Node Connection
-  
+  Permanent Node Connection
 
     
   </span>
@@ -3493,8 +3662,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3521,8 +3689,7 @@
   <span class="md-ellipsis">
     
   
-    Permissions
-  
+  Permissions
 
     
   </span>
@@ -3549,8 +3716,7 @@
   <span class="md-ellipsis">
     
   
-    Private Nodes
-  
+  Private Nodes
 
     
   </span>
@@ -3577,8 +3743,7 @@
   <span class="md-ellipsis">
     
   
-    Radio Connections
-  
+  Radio Connections
 
     
   </span>
@@ -3605,8 +3770,7 @@
   <span class="md-ellipsis">
     
   
-    Remote Base Nodes
-  
+  Remote Base Nodes
 
     
   </span>
@@ -3633,8 +3797,7 @@
   <span class="md-ellipsis">
     
   
-    RX Toneburst
-  
+  RX Toneburst
 
     
   </span>
@@ -3661,8 +3824,7 @@
   <span class="md-ellipsis">
     
   
-    SA818 RF Modules
-  
+  SA818 RF Modules
 
     
   </span>
@@ -3689,8 +3851,7 @@
   <span class="md-ellipsis">
     
   
-    Setting up a SIP Phone
-  
+  Setting up a SIP Phone
 
     
   </span>
@@ -3717,8 +3878,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduled Events
-  
+  Scheduled Events
 
     
   </span>
@@ -3745,8 +3905,7 @@
   <span class="md-ellipsis">
     
   
-    Sleep Mode
-  
+  Sleep Mode
 
     
   </span>
@@ -3773,8 +3932,7 @@
   <span class="md-ellipsis">
     
   
-    Sound Files
-  
+  Sound Files
 
     
   </span>
@@ -3801,8 +3959,7 @@
   <span class="md-ellipsis">
     
   
-    Simple Voter
-  
+  Simple Voter
 
     
   </span>
@@ -3829,8 +3986,7 @@
   <span class="md-ellipsis">
     
   
-    Streaming Node Audio to Broadcastify
-  
+  Streaming Node Audio to Broadcastify
 
     
   </span>
@@ -3857,8 +4013,7 @@
   <span class="md-ellipsis">
     
   
-    Telemetry Messages
-  
+  Telemetry Messages
 
     
   </span>
@@ -3885,8 +4040,7 @@
   <span class="md-ellipsis">
     
   
-    Tail Messages
-  
+  Tail Messages
 
     
   </span>
@@ -3913,8 +4067,7 @@
   <span class="md-ellipsis">
     
   
-    Time of Day
-  
+  Time of Day
 
     
   </span>
@@ -3941,8 +4094,7 @@
   <span class="md-ellipsis">
     
   
-    TheLinkBox
-  
+  TheLinkBox
 
     
   </span>
@@ -3969,8 +4121,7 @@
   <span class="md-ellipsis">
     
   
-    Tonemacros
-  
+  Tonemacros
 
     
   </span>
@@ -3997,8 +4148,7 @@
   <span class="md-ellipsis">
     
   
-    Tone Signalling
-  
+  Tone Signalling
 
     
   </span>
@@ -4025,8 +4175,7 @@
   <span class="md-ellipsis">
     
   
-    UEFI and SecureBoot
-  
+  UEFI and SecureBoot
 
     
   </span>
@@ -4053,8 +4202,7 @@
   <span class="md-ellipsis">
     
   
-    USB Audio Interfaces
-  
+  USB Audio Interfaces
 
     
   </span>
@@ -4130,7 +4278,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4141,8 +4289,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
     
   </span>
@@ -4163,8 +4310,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4185,8 +4331,7 @@
   <span class="md-ellipsis">
     
   
-    What is the VOTER?
-  
+  What is the VOTER?
 
     
   </span>
@@ -4213,8 +4358,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Protocol
-  
+  VOTER Protocol
 
     
   </span>
@@ -4241,8 +4385,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER chan_voter
-  
+  VOTER chan_voter
 
     
   </span>
@@ -4269,8 +4412,7 @@
   <span class="md-ellipsis">
     
   
-    RTCM Hardware
-  
+  RTCM Hardware
 
     
   </span>
@@ -4297,8 +4439,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Hardware
-  
+  VOTER Hardware
 
     
   </span>
@@ -4325,8 +4466,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Firmware
-  
+  VOTER/RTCM Firmware
 
     
   </span>
@@ -4353,8 +4493,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER GPS Requirements
-  
+  VOTER GPS Requirements
 
     
   </span>
@@ -4381,8 +4520,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Hardware Menu System
-  
+  VOTER/RTCM Hardware Menu System
 
     
   </span>
@@ -4409,8 +4547,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio
-  
+  VOTER Audio
 
     
   </span>
@@ -4437,8 +4574,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Buffer Tuning
-  
+  VOTER Buffer Tuning
 
     
   </span>
@@ -4465,8 +4601,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Simulcasting
-  
+  VOTER Simulcasting
 
     
   </span>
@@ -4493,8 +4628,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Mix Mode (General Purpose) Application
-  
+  VOTER Mix Mode (General Purpose) Application
 
     
   </span>
@@ -4521,8 +4655,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Redundant "Proxy" Mode
-  
+  VOTER Redundant "Proxy" Mode
 
     
   </span>
@@ -4549,8 +4682,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio Analysis
-  
+  VOTER Audio Analysis
 
     
   </span>
@@ -4577,8 +4709,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER and the Quantar
-  
+  VOTER and the Quantar
 
     
   </span>
@@ -4638,7 +4769,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4649,8 +4780,7 @@
   <span class="md-ellipsis">
     
   
-    Developer Guide
-  
+  Developer Guide
 
     
   </span>
@@ -4671,8 +4801,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Developer Guide
-  
+  Developer Guide
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4693,8 +4822,7 @@
   <span class="md-ellipsis">
     
   
-    Building ASL3-Asterisk
-  
+  Building ASL3-Asterisk
 
     
   </span>
@@ -4721,8 +4849,7 @@
   <span class="md-ellipsis">
     
   
-    Source Code
-  
+  Source Code
 
     
   </span>
@@ -4749,8 +4876,7 @@
   <span class="md-ellipsis">
     
   
-    Source-Based Installation
-  
+  Source-Based Installation
 
     
   </span>
@@ -4777,8 +4903,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Apt Repos
-  
+  AllStarLink Apt Repos
 
     
   </span>
@@ -4805,8 +4930,7 @@
   <span class="md-ellipsis">
     
   
-    Versioning
-  
+  Versioning
 
     
   </span>
@@ -4833,8 +4957,7 @@
   <span class="md-ellipsis">
     
   
-    APIs and Datasets
-  
+  APIs and Datasets
 
     
   </span>
@@ -4861,8 +4984,7 @@
   <span class="md-ellipsis">
     
   
-    app_rpt IAX Text Protocol
-  
+  app_rpt IAX Text Protocol
 
     
   </span>
@@ -4928,7 +5050,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4939,8 +5061,7 @@
   <span class="md-ellipsis">
     
   
-    Man Pages
-  
+  Man Pages
 
     
   </span>
@@ -4961,8 +5082,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Man Pages
-  
+  Man Pages
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4983,8 +5103,7 @@
   <span class="md-ellipsis">
     
   
-    allmon3-passwd
-  
+  allmon3-passwd
 
     
   </span>
@@ -5011,8 +5130,7 @@
   <span class="md-ellipsis">
     
   
-    asl-backup-menu
-  
+  asl-backup-menu
 
     
   </span>
@@ -5039,8 +5157,7 @@
   <span class="md-ellipsis">
     
   
-    asl-find-sound
-  
+  asl-find-sound
 
     
   </span>
@@ -5067,8 +5184,7 @@
   <span class="md-ellipsis">
     
   
-    asl-node-lookup
-  
+  asl-node-lookup
 
     
   </span>
@@ -5095,8 +5211,7 @@
   <span class="md-ellipsis">
     
   
-    asl-play-arn
-  
+  asl-play-arn
 
     
   </span>
@@ -5123,8 +5238,7 @@
   <span class="md-ellipsis">
     
   
-    asl-say
-  
+  asl-say
 
     
   </span>
@@ -5151,8 +5265,7 @@
   <span class="md-ellipsis">
     
   
-    asl-setup-dkms-mok
-  
+  asl-setup-dkms-mok
 
     
   </span>
@@ -5179,8 +5292,7 @@
   <span class="md-ellipsis">
     
   
-    sa818
-  
+  sa818
 
     
   </span>
@@ -5207,8 +5319,7 @@
   <span class="md-ellipsis">
     
   
-    sa818-menu
-  
+  sa818-menu
 
     
   </span>
@@ -5235,8 +5346,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb-tune-menu
-  
+  simpleusb-tune-menu
 
     
   </span>
@@ -5298,7 +5408,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -5309,8 +5419,7 @@
   <span class="md-ellipsis">
     
   
-    Config Files
-  
+  Config Files
 
     
   </span>
@@ -5331,8 +5440,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Config Files
-  
+  Config Files
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -5353,8 +5461,7 @@
   <span class="md-ellipsis">
     
   
-    Structure of Config Files
-  
+  Structure of Config Files
 
     
   </span>
@@ -5381,8 +5488,7 @@
   <span class="md-ellipsis">
     
   
-    echolink.conf
-  
+  echolink.conf
 
     
   </span>
@@ -5409,8 +5515,7 @@
   <span class="md-ellipsis">
     
   
-    extensions.conf
-  
+  extensions.conf
 
     
   </span>
@@ -5437,8 +5542,7 @@
   <span class="md-ellipsis">
     
   
-    iax.conf
-  
+  iax.conf
 
     
   </span>
@@ -5465,8 +5569,7 @@
   <span class="md-ellipsis">
     
   
-    rpt.conf
-  
+  rpt.conf
 
     
   </span>
@@ -5493,8 +5596,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb.conf
-  
+  simpleusb.conf
 
     
   </span>
@@ -5521,8 +5623,7 @@
   <span class="md-ellipsis">
     
   
-    tlb.conf
-  
+  tlb.conf
 
     
   </span>
@@ -5549,8 +5650,7 @@
   <span class="md-ellipsis">
     
   
-    voter.conf
-  
+  voter.conf
 
     
   </span>
@@ -5585,24 +5685,22 @@
                 
                   
 
-
-
 <h1 id="allstarlink-portal">AllStarLink Portal</h1>
 <p>The <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a> is where you manage the administration for all the servers and nodes you create to link to the network.</p>
-<p>This is where you will apply for a <a href="../gettingstarted/#what-is-a-node-number">node number</a> to connect to the AllStarLink network, configure options on how network features interact with your node, and set how your node is described to other nodes and the public facing status pages.</p>
+<p>This is where you will apply for a <a href=".././gettingstarted/#what-is-a-node-number">node number</a> to connect to the AllStarLink network, configure options on how network features interact with your node, and set how your node is described to other nodes and the public facing status pages.</p>
 <h2 id="create-an-account">Create an Account</h2>
 <p>The first step in getting an AllStarLink node number assigned is to create an account at <a href="https://allstarlink.org">allstarlink.org</a>. Head over there, and click the <strong>"Login/Sign Up"</strong> link at the top of the page. In the box that opens, click <strong>"Sign Up"</strong> at the bottom of the box.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/1_sign_up.png" data-desc-position="bottom"><img alt="Step 1 Sign Up" src="../img/1_sign_up.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/1_sign_up.png"><img alt="Step 1 Sign Up" src="../img/1_sign_up.png" width="600" /></a></p>
 <p>Carefully read all the information on the page that opens, then click <strong>"Begin Registration"</strong> to get started.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/2_begin_reg.png" data-desc-position="bottom"><img alt="Step 2 Begin Reg" src="../img/2_begin_reg.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/2_begin_reg.png"><img alt="Step 2 Begin Reg" src="../img/2_begin_reg.png" width="600" /></a></p>
 <p>Fill out the registration form and submit it with your valid information for verification.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/2.1_account_info.png" data-desc-position="bottom"><img alt="Step 3 Account Info" src="../img/2.1_account_info.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/2.1_account_info.png"><img alt="Step 3 Account Info" src="../img/2.1_account_info.png" width="600" /></a></p>
 <p>After providing your contact and account information you must upload a copy of your license.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/2.2_license_upload.png" data-desc-position="bottom"><img alt="Step 4 Account Info" src="../img/2.2_license_upload.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/2.2_license_upload.png"><img alt="Step 4 Account Info" src="../img/2.2_license_upload.png" width="600" /></a></p>
 <p>The system will accept standard image types (JPG, PNG, WEBP, GIF) and PDFs. You
 may also use the camera on your device to take a live picture of a document.
 Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/2.3_license_upload.png" data-desc-position="bottom"><img alt="Step 5 Account Info" src="../img/2.3_license_upload.png" width="600"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/2.3_license_upload.png"><img alt="Step 5 Account Info" src="../img/2.3_license_upload.png" width="600" /></a></p>
 <h2 id="confirm-your-accounts">Confirm your Accounts</h2>
 <p>You will then receive an email from the <em>AllStarLink Helpdesk</em> (helpdesk@allstarlink.org if you need to add it to your spam filters) with a link to confirm your email address. <strong>Be sure to click the link in the email to validate your address, or your account request will not proceed.</strong></p>
 <p>You should then receive another email from from the <em>AllStarLink Helpdesk</em> within 24 hours, notifying you that your account has been validated (at which point you will be able to log into the Portal).</p>
@@ -5611,25 +5709,25 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
 <p>Go to <a href="https://allstarlink.org">https://allstarlink.org</a> and click the <strong>Login/Sign Up</strong> link at the top of the page.</p>
 <p>Enter your credentials in the login box, and click <strong>Login</strong>.</p>
 <p>When you have successfully logged in, the <strong>Login/Sign Up</strong> link at the top of the page will change to your <strong>CALLSIGN</strong>. You will also note a new <strong>Portal</strong> link has appeared to the left of your callsign.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/3_portal.png" data-desc-position="bottom"><img alt="Step 6 Login" src="../img/3_portal.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/3_portal.png"><img alt="Step 6 Login" src="../img/3_portal.png" width="400" /></a></p>
 <p>From the <strong>Portal</strong> menu, click <strong>Server Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/4_node_settings.png" data-desc-position="bottom"><img alt="Step 7 Server Settings" src="../img/4_node_settings.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/4_node_settings.png"><img alt="Step 7 Server Settings" src="../img/4_node_settings.png" width="400" /></a></p>
 <p>Since this is the first time you've logged in and you don't currently have any nodes assigned to you, click the <strong>Proceed with Server Setup</strong> button to continue.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/5a_add_server.png" data-desc-position="bottom"><img alt="Step 7a Add Server" src="../img/5a_add_server.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/5a_add_server.png"><img alt="Step 7a Add Server" src="../img/5a_add_server.png" width="400" /></a></p>
 <p>If you inadvertently clicked the <strong>Node Settings</strong> link, it will still ask you to <strong>Add a Server</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/5_add_server.png" data-desc-position="bottom"><img alt="Step 8 Add Server" src="../img/5_add_server.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/5_add_server.png"><img alt="Step 8 Add Server" src="../img/5_add_server.png" width="400" /></a></p>
 <p>Fill in all the information about where your server will be located, be sure to set the latitude and longitude (or click on the map), then click <strong>Submit</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/6_test_server.png" data-desc-position="bottom"><img alt="Step 9 Server Form" src="../img/6_test_server.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/6_test_server.png"><img alt="Step 9 Server Form" src="../img/6_test_server.png" width="400" /></a></p>
 <p>Now you will have a new server created to associate your node number to.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/7_server_complete.png" data-desc-position="bottom"><img alt="Step 10 Server Complete" src="../img/7_server_complete.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/7_server_complete.png"><img alt="Step 10 Server Complete" src="../img/7_server_complete.png" width="400" /></a></p>
 <p>Go back up to the top menu bar, and under the <strong>Portal</strong> menu select <strong>Node Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/4_node_settings.png" data-desc-position="bottom"><img alt="Step 11 Node Settings" src="../img/4_node_settings.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/4_node_settings.png"><img alt="Step 11 Node Settings" src="../img/4_node_settings.png" width="400" /></a></p>
 <p>Now, you can click <strong>Continue</strong> to proceed to the <strong>Request/Extend/Remove</strong> page.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/9_request_node.png" data-desc-position="bottom"><img alt="Step 9 Request Node" src="../img/9_request_node.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/9_request_node.png"><img alt="Step 9 Request Node" src="../img/9_request_node.png" width="400" /></a></p>
 <p>On the <strong>Request/Extend/Remove</strong> page, <strong>Request</strong> will be in <strong>bold</strong> as this is your initial request. Ensure the server you created is selected in the <strong>Server</strong> box, and then click <strong>Submit</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/10_request.png" data-desc-position="bottom"><img alt="Step 10 Request" src="../img/10_request.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/10_request.png"><img alt="Step 10 Request" src="../img/10_request.png" width="400" /></a></p>
 <p>That's it! On the page that opens, you will see your newly assigned node number.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/11_new_node.png" data-desc-position="bottom"><img alt="Step 11 Done" src="../img/11_new_node.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/11_new_node.png"><img alt="Step 11 Done" src="../img/11_new_node.png" width="400" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Additional Node Numbers</p>
 <p>Your first node number is automatically approved. If you need additional nodes, you should consider doing the NXX extension (to create up to ten nodes, based off your initial node number). If you need a completely different additional node number, additional node requests are subject to admin approval.</p>
@@ -5642,7 +5740,7 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
 <p>Node numbers are a limited resource. If you are just starting out, you would be strongly encouraged to click the <strong>Continue</strong> button on your <strong>Node Settings</strong> page, and complete the <a href="../../adv-topics/nnx/">Node Number Extension (NNX)</a> process. This will add a <em>zero</em> to the end of your primary node number (ie 63001 becomes 630010), and open up an additional nine node numbers (ie 630011-630019) for your use.</p>
 <h2 id="editing-node-parameters">Editing Node Parameters</h2>
 <p>Each node number you create has individual parameters associated with it. From your <strong>Node Settings</strong> page, click on the node number to edit its parameters.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/16_edit_node.png" data-desc-position="bottom"><img alt="Node Parameters" src="../img/16_edit_node.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/16_edit_node.png"><img alt="Node Parameters" src="../img/16_edit_node.png" width="400" /></a></p>
 <p>On this page, you will find a number of important settings to modify.</p>
 <h3 id="password">Password</h3>
 <p>By default, a random password is assigned for the node. You can leave this as-is, or change it to something else. Be sure it follows the guidelines shown.</p>
@@ -5670,9 +5768,9 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
 <p>If this node is specifically configured as a <a href="../../adv-topics/remotebase/">Remote Base</a>, AND it is frequency agile, set this to <code>yes</code>. Otherwise, leave it set to <code>no</code>.</p>
 <h2 id="editing-server-parameters">Editing Server Parameters</h2>
 <p>Each server you create has individual parameters associated with it. From your <strong>Server Settings</strong> page, click on the server to edit its parameters.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/7_server_complete.png" data-desc-position="bottom"><img alt="Step 1 Server List" src="../img/7_server_complete.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/7_server_complete.png"><img alt="Step 1 Server List" src="../img/7_server_complete.png" width="400" /></a></p>
 <p>On this page, you will find a number of important settings to modify.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/18_edit_server.png" data-desc-position="bottom"><img alt="Step 2 Edit Server" src="../img/18_edit_server.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/18_edit_server.png"><img alt="Step 2 Edit Server" src="../img/18_edit_server.png" width="400" /></a></p>
 <h3 id="server-name">Server Name</h3>
 <p>Use this field to give your server a descriptive name, so that you know which device it is.</p>
 <h3 id="server-location">Server Location</h3>
@@ -5700,28 +5798,30 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
 <h2 id="change-callsign">Change Callsign</h2>
 <p>Has your callsign changed, and you need to change it on the Portal?</p>
 <p>Click on your callsign after you log in, and then select <strong>Change Callsign</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/19_callsign_change.png" data-desc-position="bottom"><img alt="Step 1 Change Callsign" src="../img/19_callsign_change.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/19_callsign_change.png"><img alt="Step 1 Change Callsign" src="../img/19_callsign_change.png" width="400" /></a></p>
 <p>Follow the instructions on the screen to send a notification to the Help Desk.</p>
 <h2 id="find-my-node-number">Find My Node Number</h2>
 <p>How do you know what node number(s) have been assigned to you? Look under you <strong>Node Settings</strong> in the Portal.</p>
 <p>From the <strong>Portal</strong> menu, click <strong>Node Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/4_node_settings.png" data-desc-position="bottom"><img alt="Step 1 Server Settings" src="../img/4_node_settings.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/4_node_settings.png"><img alt="Step 1 Server Settings" src="../img/4_node_settings.png" width="400" /></a></p>
 <p>Here you will find all your currently assigned node numbers.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../adv-topics/img/6_NNX_New_Nodes.png" data-desc-position="bottom"><img alt="Step 2 Node List" src="../../adv-topics/img/6_NNX_New_Nodes.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../../adv-topics/img/6_NNX_New_Nodes.png"><img alt="Step 2 Node List" src="../../adv-topics/img/6_NNX_New_Nodes.png" width="400" /></a></p>
 <p>Click <strong>Continue</strong> if you want to add or remove nodes.</p>
 <h2 id="change-node-password">Change Node Password</h2>
 <p>When your node was created, it was assigned a random password. This password is used during the provisioning of your ASL3 installation to allow it to authenticate to the registration servers.</p>
 <p>From the <strong>Portal</strong> menu, click <strong>Node Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/4_node_settings.png" data-desc-position="bottom"><img alt="Step 1 Server Settings" src="../img/4_node_settings.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/4_node_settings.png"><img alt="Step 1 Server Settings" src="../img/4_node_settings.png" width="400" /></a></p>
 <p>You can find your node's current password by clicking on the <strong>Show</strong> button</p>
 <p>To change your node's password, click on the <strong>Node Number</strong> that you want to modify.</p>
 <p>See <a href="#editing-node-parameters">Editing Node Parameters</a> in this section for the location to update.</p>
 <h2 id="reset-portal-password">Reset Portal Password</h2>
 <p>If you have forgotten your password to log in to the <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a>, click on the <strong>Login/Sign Up</strong> link at the top of the page, then click on <strong>Forgot Password</strong> to get started.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/20_forgot_password.png" data-desc-position="bottom"><img alt="Step 1 Forgot Password" src="../img/20_forgot_password.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/20_forgot_password.png"><img alt="Step 1 Forgot Password" src="../img/20_forgot_password.png" width="400" /></a></p>
 <p>You will be prompted to enter your callsign and email address that you registered with. Fill out the form and click <strong>Submit</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/21_password_form.png" data-desc-position="bottom"><img alt="Step 2 Password Form" src="../img/21_password_form.png" width="400"></a></p>
+<p><a class="glightbox" data-type="image" href="../img/21_password_form.png"><img alt="Step 2 Password Form" src="../img/21_password_form.png" width="400" /></a></p>
 <p>If your information is valid, further instructions will be sent via email.</p>
+
+
 
 
 
@@ -5744,7 +5844,7 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
   Back to top
 </button>
         
@@ -5754,13 +5854,13 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer">
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
           <a href="../gettingstarted/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basics">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -5785,7 +5885,7 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </a>
         
@@ -5797,13 +5897,13 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 AllStarLink Inc.
+      Copyright &copy; 2024-2026 AllStarLink Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -5816,7 +5916,7 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
     
     
     <a href="https://www.allstarlink.org/" target="_blank" rel="noopener" title="AllStarLink Home" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"/></svg>
     </a>
   
     
@@ -5824,7 +5924,7 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
     
     
     <a href="https://github.com/AllStarLink" target="_blank" rel="noopener" title="AllStarLink on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
@@ -5887,15 +5987,11 @@ Once the file has been selected click on <strong>Upload 1 file</strong>.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="../../js/print-site.js"></script>
+      <script src="../../assets/javascripts/bundle.0df4f2d0.min.js"></script>
       
     
-  
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(()=>{ lightbox.reload(); });
-</script></body></html>
+  </body>
+</html>

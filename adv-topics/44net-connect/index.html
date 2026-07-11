@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en" class="no-js"><head>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,18 +25,23 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="zensical-0.0.47">
     
     
       
-        <title>44Net Connect for ASL - AllStarLink Manual</title>
+        <title>44Net Connect - AllStarLink Manual</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.5e19f6ca.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
       
       
 
@@ -47,37 +55,25 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../css/print-site.css">
-    
-      <link rel="stylesheet" href="../../css/print-site-material.css">
-    
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+  </head>
   
   
     
+    
+      
     
     
     
@@ -87,11 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
-        <a href="#44net-connect-for-asl" class="md-skip">
+        <a href="#44net-connect" class="md-skip">
           Skip to content
         </a>
       
@@ -109,12 +105,12 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AllStarLink Manual" class="md-header__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -126,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              44Net Connect for ASL
+              44Net Connect
             
           </span>
         </div>
@@ -134,58 +130,38 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="allstarlink" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       
       
-        <label class="md-header__button md-icon" for="__search">
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
+    <div class="md-header__source">
+      
+    </div>
   </nav>
   
     
@@ -203,9 +179,6 @@
       <a href="../.." class="md-tabs__link">
         
   
-  
-    
-  
   Home
 
       </a>
@@ -219,13 +192,29 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../basics/" class="md-tabs__link">
           
-  
-  
-    
   
   Getting Started
 
@@ -241,13 +230,27 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../install/" class="md-tabs__link">
           
-  
-  
-    
   
   Installation
 
@@ -263,13 +266,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../user-guide/" class="md-tabs__link">
           
-  
-  
-    
   
   Basic Operation
 
@@ -287,13 +316,133 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
-  
-  
-    
   
   Advanced Topics
 
@@ -309,13 +458,49 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../voter/" class="md-tabs__link">
           
-  
-  
-    
   
   VOTER/RTCM
 
@@ -331,13 +516,33 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../developers/" class="md-tabs__link">
           
-  
-  
-    
   
   Developer Guide
 
@@ -353,13 +558,39 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../mans/" class="md-tabs__link">
           
-  
-  
-    
   
   Man Pages
 
@@ -375,13 +606,35 @@
   
   
     
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
     
       <li class="md-tabs__item">
         <a href="../../config/" class="md-tabs__link">
           
-  
-  
-    
   
   Config Files
 
@@ -408,7 +661,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -423,7 +676,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="AllStarLink Manual" class="md-nav__button md-logo" aria-label="AllStarLink Manual" data-md-component="logo">
       
-  <img src="../../assets/allstar-logo-small.png" alt="logo">
+  <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
     AllStarLink Manual
@@ -445,8 +698,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -494,7 +746,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -505,8 +757,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
-  
+  Getting Started
 
     
   </span>
@@ -527,8 +778,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
-  
+  Getting Started
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -549,8 +799,7 @@
   <span class="md-ellipsis">
     
   
-    Basics
-  
+  Basics
 
     
   </span>
@@ -577,8 +826,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Portal
-  
+  AllStarLink Portal
 
     
   </span>
@@ -605,8 +853,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Standard Commands
-  
+  AllStarLink Standard Commands
 
     
   </span>
@@ -633,8 +880,7 @@
   <span class="md-ellipsis">
     
   
-    New Commands
-  
+  New Commands
 
     
   </span>
@@ -661,8 +907,7 @@
   <span class="md-ellipsis">
     
   
-    Known Issues &amp; Compatibility Problems
-  
+  Known Issues &amp; Compatibility Problems
 
     
   </span>
@@ -716,7 +961,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -727,8 +972,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -749,8 +993,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Installation
-  
+  Installation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -771,8 +1014,7 @@
   <span class="md-ellipsis">
     
   
-    Important Considerations
-  
+  Important Considerations
 
     
   </span>
@@ -813,7 +1055,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -824,8 +1066,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
     
   </span>
@@ -846,8 +1087,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 Appliance (Raspberry Pi)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -868,8 +1108,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Appliance Installation
-  
+  ASL3 Appliance Installation
 
     
   </span>
@@ -924,7 +1163,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -935,8 +1174,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
     
   </span>
@@ -957,8 +1195,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">ASL3 on Debian</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -979,8 +1216,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Install
-  
+  Debian Install
 
     
   </span>
@@ -1007,8 +1243,7 @@
   <span class="md-ellipsis">
     
   
-    Debian Appliance
-  
+  Debian Appliance
 
     
   </span>
@@ -1035,8 +1270,7 @@
   <span class="md-ellipsis">
     
   
-    Docker Installation
-  
+  Docker Installation
 
     
   </span>
@@ -1063,8 +1297,7 @@
   <span class="md-ellipsis">
     
   
-    Debian OS Upgrades
-  
+  Debian OS Upgrades
 
     
   </span>
@@ -1119,7 +1352,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1130,8 +1363,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
     
   </span>
@@ -1152,8 +1384,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Allmon3</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1174,8 +1405,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -1202,8 +1432,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
-  
+  Configuration
 
     
   </span>
@@ -1230,8 +1459,7 @@
   <span class="md-ellipsis">
     
   
-    User Management
-  
+  User Management
 
     
   </span>
@@ -1258,8 +1486,7 @@
   <span class="md-ellipsis">
     
   
-    Securing Allmon3 with HTTPS
-  
+  Securing Allmon3 with HTTPS
 
     
   </span>
@@ -1333,7 +1560,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1344,8 +1571,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Operation
-  
+  Basic Operation
 
     
   </span>
@@ -1366,8 +1592,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Basic Operation
-  
+  Basic Operation
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1388,8 +1613,7 @@
   <span class="md-ellipsis">
     
   
-    Accessing ASL3 Menu
-  
+  Accessing ASL3 Menu
 
     
   </span>
@@ -1416,8 +1640,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Commands and Tools
-  
+  ASL3 Commands and Tools
 
     
   </span>
@@ -1444,8 +1667,7 @@
   <span class="md-ellipsis">
     
   
-    Logins and Passwords
-  
+  Logins and Passwords
 
     
   </span>
@@ -1472,8 +1694,7 @@
   <span class="md-ellipsis">
     
   
-    Updating ASL3
-  
+  Updating ASL3
 
     
   </span>
@@ -1500,8 +1721,7 @@
   <span class="md-ellipsis">
     
   
-    ASL3 Support
-  
+  ASL3 Support
 
     
   </span>
@@ -1528,8 +1748,7 @@
   <span class="md-ellipsis">
     
   
-    Basic Troubleshooting Tips
-  
+  Basic Troubleshooting Tips
 
     
   </span>
@@ -1556,8 +1775,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Telephone Portal Access
-  
+  ASL Telephone Portal Access
 
     
   </span>
@@ -1584,8 +1802,7 @@
   <span class="md-ellipsis">
     
   
-    External Applications
-  
+  External Applications
 
     
   </span>
@@ -1612,8 +1829,7 @@
   <span class="md-ellipsis">
     
   
-    Beta Testing
-  
+  Beta Testing
 
     
   </span>
@@ -1666,7 +1882,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_11" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1677,8 +1893,7 @@
   <span class="md-ellipsis">
     
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
     
   </span>
@@ -1699,8 +1914,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
-  
+  <span style="color:hsl(86.28, 71.6%, 33.14%)">Pi Appliance Specifics (Cockpit)</span>
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -1721,8 +1935,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Web Admin Interface
-  
+  Cockpit Web Admin Interface
 
     
   </span>
@@ -1749,8 +1962,7 @@
   <span class="md-ellipsis">
     
   
-    Cockpit Basics
-  
+  Cockpit Basics
 
     
   </span>
@@ -1777,8 +1989,7 @@
   <span class="md-ellipsis">
     
   
-    Terminal / Console
-  
+  Terminal / Console
 
     
   </span>
@@ -1805,8 +2016,7 @@
   <span class="md-ellipsis">
     
   
-    Network Configuration
-  
+  Network Configuration
 
     
   </span>
@@ -1833,8 +2043,7 @@
   <span class="md-ellipsis">
     
   
-    Software Updates
-  
+  Software Updates
 
     
   </span>
@@ -1861,8 +2070,7 @@
   <span class="md-ellipsis">
     
   
-    Services Management
-  
+  Services Management
 
     
   </span>
@@ -1889,8 +2097,7 @@
   <span class="md-ellipsis">
     
   
-    Managing the Firewall
-  
+  Managing the Firewall
 
     
   </span>
@@ -2074,8 +2281,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Topics
-  
+  Advanced Topics
 
     
   </span>
@@ -2096,8 +2302,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Advanced Topics
-  
+  Advanced Topics
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -2114,7 +2319,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -2127,8 +2332,7 @@
   <span class="md-ellipsis">
     
   
-    44Net Connect for ASL
-  
+  44Net Connect
 
     
   </span>
@@ -2138,15 +2342,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    44Net Connect for ASL
-  
+  44Net Connect
 
     
   </span>
@@ -2157,7 +2360,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -2166,83 +2370,272 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-a-44net-connect-account" class="md-nav__link">
+  <a href="#understanding-security-risks" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Create a 44Net Connect Account
-      
+      <span class="md-typeset">
+        1. Understanding Security Risks
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#obtaining-a-44net-connect-tunnel" class="md-nav__link">
+  <a href="#firewall-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Obtaining a 44Net Connect Tunnel
-      
+      <span class="md-typeset">
+        2. Firewall Setup
+      </span>
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-configure-wireguard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install &amp; Configure Wireguard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-the-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enabling the Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#protecting-a-44net-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Protecting a 44Net Connection
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Protecting a 44Net Connection">
+    <nav class="md-nav" aria-label="2. Firewall Setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linking-only-profile" class="md-nav__link">
+  <a href="#asl3-appliance-systems" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Linking Only Profile
-      
+      <span class="md-typeset">
+        ASL3 Appliance Systems
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ASL3 Appliance Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-appliance-service-definitions-and-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Default Appliance Service Definitions and Ports
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#full-node-profile" class="md-nav__link">
+  <a href="#create-the-44netconnect-zone" class="md-nav__link">
     <span class="md-ellipsis">
+      <span class="md-typeset">
+        Create the 44NetConnect Zone
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iax2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Allow Inbound IAX2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appliance-optional-additional-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Optional Additional Services
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finish-and-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finish and Reload
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-appliance-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Non-Appliance Systems
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-Appliance Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-firewalld" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Install firewalld
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-appliance-create-the-44netconnect-zone" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Create the 44NetConnect Zone
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-appliance-iax2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Allow Inbound IAX2
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-appliance-optional-additional-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Optional Additional Services
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-appliance-finish-and-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Finish and Reload
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-firewall-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other Firewall Tools
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
-        Full Node Profile
-      
+        <li class="md-nav__item">
+  <a href="#create-and-start-the-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Create and Start the Tunnel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Create and Start the Tunnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-44net-connect-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Create a 44Net Connect Account
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-a-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Request a Tunnel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-and-configure-the-vpn-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Install and Configure the VPN Tunnel
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install and Configure the VPN Tunnel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-is-a-full-tunnel-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why This Is a Full-Tunnel VPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-route-only-allstarlink-server-traffic-through-the-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Optional: Route Only AllStarLink Server Traffic Through the VPN
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-the-vpn-tunnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enable the VPN Tunnel
+      </span>
     </span>
   </a>
   
@@ -2276,8 +2669,7 @@
   <span class="md-ellipsis">
     
   
-    Allow and Deny Lists
-  
+  Allow and Deny Lists
 
     
   </span>
@@ -2304,8 +2696,7 @@
   <span class="md-ellipsis">
     
   
-    APRS
-  
+  APRS
 
     
   </span>
@@ -2332,8 +2723,7 @@
   <span class="md-ellipsis">
     
   
-    ASL Text-to-Speech
-  
+  ASL Text-to-Speech
 
     
   </span>
@@ -2360,8 +2750,7 @@
   <span class="md-ellipsis">
     
   
-    Asterisk Templates
-  
+  Asterisk Templates
 
     
   </span>
@@ -2388,8 +2777,7 @@
   <span class="md-ellipsis">
     
   
-    Audio and Activity Logging
-  
+  Audio and Activity Logging
 
     
   </span>
@@ -2416,8 +2804,7 @@
   <span class="md-ellipsis">
     
   
-    Audio Filters
-  
+  Audio Filters
 
     
   </span>
@@ -2444,8 +2831,7 @@
   <span class="md-ellipsis">
     
   
-    Autopatch
-  
+  Autopatch
 
     
   </span>
@@ -2472,8 +2858,7 @@
   <span class="md-ellipsis">
     
   
-    Calibrating Audio Levels For The AllStarLink System
-  
+  Calibrating Audio Levels For The AllStarLink System
 
     
   </span>
@@ -2500,8 +2885,7 @@
   <span class="md-ellipsis">
     
   
-    Calling app_rpt in a Dialplan
-  
+  Calling app_rpt in a Dialplan
 
     
   </span>
@@ -2528,8 +2912,7 @@
   <span class="md-ellipsis">
     
   
-    Courtesy Tones
-  
+  Courtesy Tones
 
     
   </span>
@@ -2556,8 +2939,7 @@
   <span class="md-ellipsis">
     
   
-    Connect and Disconnect Scripts
-  
+  Connect and Disconnect Scripts
 
     
   </span>
@@ -2584,8 +2966,7 @@
   <span class="md-ellipsis">
     
   
-    DAQ Subsystem
-  
+  DAQ Subsystem
 
     
   </span>
@@ -2612,8 +2993,7 @@
   <span class="md-ellipsis">
     
   
-    DNS Servers
-  
+  DNS Servers
 
     
   </span>
@@ -2640,8 +3020,7 @@
   <span class="md-ellipsis">
     
   
-    DTMF Functions
-  
+  DTMF Functions
 
     
   </span>
@@ -2668,8 +3047,7 @@
   <span class="md-ellipsis">
     
   
-    EchoLink Configuration
-  
+  EchoLink Configuration
 
     
   </span>
@@ -2696,8 +3074,7 @@
   <span class="md-ellipsis">
     
   
-    Elke Link Mode
-  
+  Elke Link Mode
 
     
   </span>
@@ -2724,8 +3101,7 @@
   <span class="md-ellipsis">
     
   
-    European Repeater Operation
-  
+  European Repeater Operation
 
     
   </span>
@@ -2752,8 +3128,7 @@
   <span class="md-ellipsis">
     
   
-    Event Management Subsystem
-  
+  Event Management Subsystem
 
     
   </span>
@@ -2780,8 +3155,7 @@
   <span class="md-ellipsis">
     
   
-    Hot Spot Un-key Delay
-  
+  Hot Spot Un-key Delay
 
     
   </span>
@@ -2808,8 +3182,7 @@
   <span class="md-ellipsis">
     
   
-    HTTP-Based Registration
-  
+  HTTP-Based Registration
 
     
   </span>
@@ -2836,8 +3209,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Direct Authentication
-  
+  IAX Direct Authentication
 
     
   </span>
@@ -2864,8 +3236,7 @@
   <span class="md-ellipsis">
     
   
-    IAX Proxy
-  
+  IAX Proxy
 
     
   </span>
@@ -2892,8 +3263,7 @@
   <span class="md-ellipsis">
     
   
-    IAX-Based Registration
-  
+  IAX-Based Registration
 
     
   </span>
@@ -2920,8 +3290,7 @@
   <span class="md-ellipsis">
     
   
-    Link Activity Timer
-  
+  Link Activity Timer
 
     
   </span>
@@ -2948,8 +3317,7 @@
   <span class="md-ellipsis">
     
   
-    Long Tone Zero (LiTZ)
-  
+  Long Tone Zero (LiTZ)
 
     
   </span>
@@ -2976,8 +3344,7 @@
   <span class="md-ellipsis">
     
   
-    Macros
-  
+  Macros
 
     
   </span>
@@ -3004,8 +3371,7 @@
   <span class="md-ellipsis">
     
   
-    Manipulating GPIO
-  
+  Manipulating GPIO
 
     
   </span>
@@ -3032,8 +3398,7 @@
   <span class="md-ellipsis">
     
   
-    MDC-1200 Signalling
-  
+  MDC-1200 Signalling
 
     
   </span>
@@ -3060,8 +3425,7 @@
   <span class="md-ellipsis">
     
   
-    Multiple Nodes on the Same Network
-  
+  Multiple Nodes on the Same Network
 
     
   </span>
@@ -3088,8 +3452,7 @@
   <span class="md-ellipsis">
     
   
-    Node Number Extensions (NNX)
-  
+  Node Number Extensions (NNX)
 
     
   </span>
@@ -3116,8 +3479,7 @@
   <span class="md-ellipsis">
     
   
-    Node Resolution
-  
+  Node Resolution
 
     
   </span>
@@ -3144,8 +3506,7 @@
   <span class="md-ellipsis">
     
   
-    Other Software Products
-  
+  Other Software Products
 
     
   </span>
@@ -3172,8 +3533,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3200,8 +3560,7 @@
   <span class="md-ellipsis">
     
   
-    Passing DTMF to Shell Scripts
-  
+  Passing DTMF to Shell Scripts
 
     
   </span>
@@ -3228,8 +3587,7 @@
   <span class="md-ellipsis">
     
   
-    Permanent Node Connection
-  
+  Permanent Node Connection
 
     
   </span>
@@ -3256,8 +3614,7 @@
   <span class="md-ellipsis">
     
   
-    Parrot Mode
-  
+  Parrot Mode
 
     
   </span>
@@ -3284,8 +3641,7 @@
   <span class="md-ellipsis">
     
   
-    Permissions
-  
+  Permissions
 
     
   </span>
@@ -3312,8 +3668,7 @@
   <span class="md-ellipsis">
     
   
-    Private Nodes
-  
+  Private Nodes
 
     
   </span>
@@ -3340,8 +3695,7 @@
   <span class="md-ellipsis">
     
   
-    Radio Connections
-  
+  Radio Connections
 
     
   </span>
@@ -3368,8 +3722,7 @@
   <span class="md-ellipsis">
     
   
-    Remote Base Nodes
-  
+  Remote Base Nodes
 
     
   </span>
@@ -3396,8 +3749,7 @@
   <span class="md-ellipsis">
     
   
-    RX Toneburst
-  
+  RX Toneburst
 
     
   </span>
@@ -3424,8 +3776,7 @@
   <span class="md-ellipsis">
     
   
-    SA818 RF Modules
-  
+  SA818 RF Modules
 
     
   </span>
@@ -3452,8 +3803,7 @@
   <span class="md-ellipsis">
     
   
-    Setting up a SIP Phone
-  
+  Setting up a SIP Phone
 
     
   </span>
@@ -3480,8 +3830,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduled Events
-  
+  Scheduled Events
 
     
   </span>
@@ -3508,8 +3857,7 @@
   <span class="md-ellipsis">
     
   
-    Sleep Mode
-  
+  Sleep Mode
 
     
   </span>
@@ -3536,8 +3884,7 @@
   <span class="md-ellipsis">
     
   
-    Sound Files
-  
+  Sound Files
 
     
   </span>
@@ -3564,8 +3911,7 @@
   <span class="md-ellipsis">
     
   
-    Simple Voter
-  
+  Simple Voter
 
     
   </span>
@@ -3592,8 +3938,7 @@
   <span class="md-ellipsis">
     
   
-    Streaming Node Audio to Broadcastify
-  
+  Streaming Node Audio to Broadcastify
 
     
   </span>
@@ -3620,8 +3965,7 @@
   <span class="md-ellipsis">
     
   
-    Telemetry Messages
-  
+  Telemetry Messages
 
     
   </span>
@@ -3648,8 +3992,7 @@
   <span class="md-ellipsis">
     
   
-    Tail Messages
-  
+  Tail Messages
 
     
   </span>
@@ -3676,8 +4019,7 @@
   <span class="md-ellipsis">
     
   
-    Time of Day
-  
+  Time of Day
 
     
   </span>
@@ -3704,8 +4046,7 @@
   <span class="md-ellipsis">
     
   
-    TheLinkBox
-  
+  TheLinkBox
 
     
   </span>
@@ -3732,8 +4073,7 @@
   <span class="md-ellipsis">
     
   
-    Tonemacros
-  
+  Tonemacros
 
     
   </span>
@@ -3760,8 +4100,7 @@
   <span class="md-ellipsis">
     
   
-    Tone Signalling
-  
+  Tone Signalling
 
     
   </span>
@@ -3788,8 +4127,7 @@
   <span class="md-ellipsis">
     
   
-    UEFI and SecureBoot
-  
+  UEFI and SecureBoot
 
     
   </span>
@@ -3816,8 +4154,7 @@
   <span class="md-ellipsis">
     
   
-    USB Audio Interfaces
-  
+  USB Audio Interfaces
 
     
   </span>
@@ -3893,7 +4230,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -3904,8 +4241,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
     
   </span>
@@ -3926,8 +4262,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    VOTER/RTCM
-  
+  VOTER/RTCM
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -3948,8 +4283,7 @@
   <span class="md-ellipsis">
     
   
-    What is the VOTER?
-  
+  What is the VOTER?
 
     
   </span>
@@ -3976,8 +4310,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Protocol
-  
+  VOTER Protocol
 
     
   </span>
@@ -4004,8 +4337,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER chan_voter
-  
+  VOTER chan_voter
 
     
   </span>
@@ -4032,8 +4364,7 @@
   <span class="md-ellipsis">
     
   
-    RTCM Hardware
-  
+  RTCM Hardware
 
     
   </span>
@@ -4060,8 +4391,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Hardware
-  
+  VOTER Hardware
 
     
   </span>
@@ -4088,8 +4418,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Firmware
-  
+  VOTER/RTCM Firmware
 
     
   </span>
@@ -4116,8 +4445,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER GPS Requirements
-  
+  VOTER GPS Requirements
 
     
   </span>
@@ -4144,8 +4472,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER/RTCM Hardware Menu System
-  
+  VOTER/RTCM Hardware Menu System
 
     
   </span>
@@ -4172,8 +4499,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio
-  
+  VOTER Audio
 
     
   </span>
@@ -4200,8 +4526,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Buffer Tuning
-  
+  VOTER Buffer Tuning
 
     
   </span>
@@ -4228,8 +4553,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Simulcasting
-  
+  VOTER Simulcasting
 
     
   </span>
@@ -4256,8 +4580,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Mix Mode (General Purpose) Application
-  
+  VOTER Mix Mode (General Purpose) Application
 
     
   </span>
@@ -4284,8 +4607,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Redundant "Proxy" Mode
-  
+  VOTER Redundant "Proxy" Mode
 
     
   </span>
@@ -4312,8 +4634,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER Audio Analysis
-  
+  VOTER Audio Analysis
 
     
   </span>
@@ -4340,8 +4661,7 @@
   <span class="md-ellipsis">
     
   
-    VOTER and the Quantar
-  
+  VOTER and the Quantar
 
     
   </span>
@@ -4401,7 +4721,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4412,8 +4732,7 @@
   <span class="md-ellipsis">
     
   
-    Developer Guide
-  
+  Developer Guide
 
     
   </span>
@@ -4434,8 +4753,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Developer Guide
-  
+  Developer Guide
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4456,8 +4774,7 @@
   <span class="md-ellipsis">
     
   
-    Building ASL3-Asterisk
-  
+  Building ASL3-Asterisk
 
     
   </span>
@@ -4484,8 +4801,7 @@
   <span class="md-ellipsis">
     
   
-    Source Code
-  
+  Source Code
 
     
   </span>
@@ -4512,8 +4828,7 @@
   <span class="md-ellipsis">
     
   
-    Source-Based Installation
-  
+  Source-Based Installation
 
     
   </span>
@@ -4540,8 +4855,7 @@
   <span class="md-ellipsis">
     
   
-    AllStarLink Apt Repos
-  
+  AllStarLink Apt Repos
 
     
   </span>
@@ -4568,8 +4882,7 @@
   <span class="md-ellipsis">
     
   
-    Versioning
-  
+  Versioning
 
     
   </span>
@@ -4596,8 +4909,7 @@
   <span class="md-ellipsis">
     
   
-    APIs and Datasets
-  
+  APIs and Datasets
 
     
   </span>
@@ -4624,8 +4936,7 @@
   <span class="md-ellipsis">
     
   
-    app_rpt IAX Text Protocol
-  
+  app_rpt IAX Text Protocol
 
     
   </span>
@@ -4691,7 +5002,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4702,8 +5013,7 @@
   <span class="md-ellipsis">
     
   
-    Man Pages
-  
+  Man Pages
 
     
   </span>
@@ -4724,8 +5034,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Man Pages
-  
+  Man Pages
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -4746,8 +5055,7 @@
   <span class="md-ellipsis">
     
   
-    allmon3-passwd
-  
+  allmon3-passwd
 
     
   </span>
@@ -4774,8 +5082,7 @@
   <span class="md-ellipsis">
     
   
-    asl-backup-menu
-  
+  asl-backup-menu
 
     
   </span>
@@ -4802,8 +5109,7 @@
   <span class="md-ellipsis">
     
   
-    asl-find-sound
-  
+  asl-find-sound
 
     
   </span>
@@ -4830,8 +5136,7 @@
   <span class="md-ellipsis">
     
   
-    asl-node-lookup
-  
+  asl-node-lookup
 
     
   </span>
@@ -4858,8 +5163,7 @@
   <span class="md-ellipsis">
     
   
-    asl-play-arn
-  
+  asl-play-arn
 
     
   </span>
@@ -4886,8 +5190,7 @@
   <span class="md-ellipsis">
     
   
-    asl-say
-  
+  asl-say
 
     
   </span>
@@ -4914,8 +5217,7 @@
   <span class="md-ellipsis">
     
   
-    asl-setup-dkms-mok
-  
+  asl-setup-dkms-mok
 
     
   </span>
@@ -4942,8 +5244,7 @@
   <span class="md-ellipsis">
     
   
-    sa818
-  
+  sa818
 
     
   </span>
@@ -4970,8 +5271,7 @@
   <span class="md-ellipsis">
     
   
-    sa818-menu
-  
+  sa818-menu
 
     
   </span>
@@ -4998,8 +5298,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb-tune-menu
-  
+  simpleusb-tune-menu
 
     
   </span>
@@ -5061,7 +5360,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -5072,8 +5371,7 @@
   <span class="md-ellipsis">
     
   
-    Config Files
-  
+  Config Files
 
     
   </span>
@@ -5094,8 +5392,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Config Files
-  
+  Config Files
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -5116,8 +5413,7 @@
   <span class="md-ellipsis">
     
   
-    Structure of Config Files
-  
+  Structure of Config Files
 
     
   </span>
@@ -5144,8 +5440,7 @@
   <span class="md-ellipsis">
     
   
-    echolink.conf
-  
+  echolink.conf
 
     
   </span>
@@ -5172,8 +5467,7 @@
   <span class="md-ellipsis">
     
   
-    extensions.conf
-  
+  extensions.conf
 
     
   </span>
@@ -5200,8 +5494,7 @@
   <span class="md-ellipsis">
     
   
-    iax.conf
-  
+  iax.conf
 
     
   </span>
@@ -5228,8 +5521,7 @@
   <span class="md-ellipsis">
     
   
-    rpt.conf
-  
+  rpt.conf
 
     
   </span>
@@ -5256,8 +5548,7 @@
   <span class="md-ellipsis">
     
   
-    simpleusb.conf
-  
+  simpleusb.conf
 
     
   </span>
@@ -5284,8 +5575,7 @@
   <span class="md-ellipsis">
     
   
-    tlb.conf
-  
+  tlb.conf
 
     
   </span>
@@ -5312,8 +5602,7 @@
   <span class="md-ellipsis">
     
   
-    voter.conf
-  
+  voter.conf
 
     
   </span>
@@ -5348,121 +5637,269 @@
                 
                   
 
-
-
-<h1 id="44net-connect-for-asl">44Net Connect for ASL</h1>
-<p>The 44Net Connect services provides publicly-routable IPv4 addresses
-through a point-of-presence (POP) for amateur radio operators.
-Connectivity is provided over VPN tunnels using the Wireguard
-protocol and system.</p>
-<h2 id="create-a-44net-connect-account">Create a 44Net Connect Account</h2>
-<p>To sign up for 44Net Connect, create an account in the
-<a href="https://connect.44net.cloud/account/login">44Net Portal</a>
-and get your callsign verified.</p>
-<h2 id="obtaining-a-44net-connect-tunnel">Obtaining a 44Net Connect Tunnel</h2>
-<p>Follow the <strong>Requesting Tunnels</strong> in the
-<a href="https://connect.44net.cloud/help/">44Net Connect User Guide</a>. Be sure
-to copy the private key at the completion of the tunnel creation
-process.</p>
-<h2 id="install-configure-wireguard">Install &amp; Configure Wireguard</h2>
-<p>The following commands must all be run as root (<code>sudo -s</code>) or using <code>sudo</code>.</p>
+<h1 id="44net-connect">44Net Connect</h1>
+<p><a href="https://wiki.ampr.org/wiki/Main_Page">44Net</a>, also known as AMPRNet, is a block of globally routable IPv4 addresses allocated for amateur radio use.</p>
+<p><a href="https://connect.44net.cloud/">44Net Connect</a> gives an amateur radio operator a publicly routable IPv4 address in the 44Net space. That address is delivered to the operator's system through a VPN tunnel.</p>
+<p>For AllStarLink, 44Net Connect is most useful when a node cannot receive inbound IAX2 connections because it is behind NAT, CGNAT, a restrictive router, or a network where port forwarding is not available. 44Net Connect can provide a public <code>44.x.x.x</code> address that other nodes can reach.</p>
+<p>Most users only need 44Net Connect for inbound AllStarLink IAX2 connections. It can also make other services reachable from the Internet, such as EchoLink, VOTER/RTCM, and web services such as Allmon3. However, every exposed service adds risk. It is recommended to start with allowing just the IAX2 service and only add other services when you know you need them.</p>
+<h2 id="understanding-security-risks">1. Understanding Security Risks</h2>
+<div class="admonition danger">
+<p class="admonition-title">Firewall first!</p>
+<p>44Net Connect adds a public Internet path to the machine through the VPN interface. You should:</p>
+<ul>
+<li>Configure a firewall before starting the VPN</li>
+<li>Only expose necessary services to the Internet</li>
+<li>Secure any service reachable from the Internet with a strong, unique password or other strong authentication method</li>
+</ul>
+<p>A compromised public node can become an entry point into a private local network and other devices on that network.</p>
+</div>
+<p>The default 44Net Connect configuration is a full-tunnel VPN. This means the VPN tunnel is used as the default route and outbound IPv4 traffic is routed through the VPN. Traffic sent from the Internet to the assigned public <code>44.x.x.x</code> address will also reach the node through the VPN tunnel unless the firewall blocks it.</p>
+<p>The safe setup method is:</p>
+<ol>
+<li>Create a dedicated firewall zone for the VPN interface.</li>
+<li>Allow only the inbound services you need.</li>
+<li>Attach the VPN interface to the dedicated zone.</li>
+<li>Start the VPN tunnel only after the firewall is configured.</li>
+</ol>
+<h2 id="firewall-setup">2. Firewall Setup</h2>
+<p>Complete the firewall section that matches your system before creating or starting the VPN tunnel.</p>
+<h3 id="asl3-appliance-systems">ASL3 Appliance Systems</h3>
+<p>Use these instructions if the node is an <a href="../../install/pi-appliance/">ASL3 Appliance</a>. This includes the Raspberry Pi Appliance image and Debian systems where an <a href="../../install/debian/deb-appliance/">appliance package</a> has been installed.</p>
+<p>ASL3 Appliance systems include <code>firewalld</code> and custom AllStarLink firewall service definitions. The safest approach is to create a dedicated <code>44NetConnect</code> zone for the VPN interface and add only the services you need.</p>
+<p>Do not assign the VPN interface that carries the public 44Net address to the appliance's default <code>allstarlink</code> zone unless you intentionally want the default appliance firewall policy on that address. The warning at the end of this section explains why.</p>
+<h4 id="default-appliance-service-definitions-and-ports">Default Appliance Service Definitions and Ports</h4>
+<p>The ASL3 Appliance packages install a few custom <code>firewalld</code> service definitions for common AllStarLink services. The latest source for these definitions is in the <a href="https://github.com/AllStarLink/asl3-pi-appliance/tree/main/src/firewalld/services">asl3-pi-appliance firewalld services directory</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Purpose</th>
+<th>Default Ports Opened</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iax2</code></td>
+<td>AllStarLink IAX2</td>
+<td>UDP <code>4560-4580</code></td>
+</tr>
+<tr>
+<td><code>echolink</code></td>
+<td>EchoLink</td>
+<td>UDP <code>5198-5199</code></td>
+</tr>
+<tr>
+<td><code>rtcm</code></td>
+<td>VOTER/RTCM</td>
+<td>UDP <code>1667</code></td>
+</tr>
+<tr>
+<td><code>astmgr</code></td>
+<td>Asterisk Manager Interface (AMI)</td>
+<td>TCP <code>5038</code></td>
+</tr>
+</tbody>
+</table>
+<p>These service definitions open the default ports used by the ASL3 Appliance. If you manually changed a service to listen on a different port, add that exact port and protocol to the <code>44NetConnect</code> zone instead of assuming the default service definition will match your configuration.</p>
+<h4 id="create-the-44netconnect-zone">Create the 44NetConnect Zone</h4>
+<p>Run these commands before enabling the VPN tunnel. The VPN interface does not need to exist yet.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--new-zone<span class="o">=</span>44NetConnect
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<p>If the first command reports that the <code>44NetConnect</code> zone already exists, continue with the service sections below.</p>
+<p>The reload here makes the new zone available to <code>firewalld</code>. After this point, add all the services you want, then reload once at the end.</p>
+<h4 id="iax2">Allow Inbound IAX2</h4>
+<div class="admonition info">
+<p class="admonition-title">IAX2 is the only service required for most users</p>
+<p>IAX2 is the only inbound protocol most nodes need for normal AllStarLink connections.</p>
+</div>
+<p>Add <code>iax2</code> if you want to accept inbound IAX2 AllStarLink connections from the public Internet.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>iax2
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Non-standard IAX2 ports</p>
+<p>The default appliance <code>iax2</code> service opens UDP <code>4560-4580</code>, which includes the default IAX2 port <code>4569</code>.</p>
+<p>If your IAX2 port is outside UDP <code>4560-4580</code>, add that UDP port to the same firewall zone and make sure the IAX2 port in <code>/etc/asterisk/iax.conf</code> matches the IAX Port setting in the AllStarLink Portal.</p>
+<p>For example, if your IAX2 port is UDP <code>14569</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">14569</span>/udp
+</code></pre></div>
+</div>
+<h4 id="appliance-optional-additional-services">Optional Additional Services</h4>
+<p>If all you need is inbound IAX2, continue to <a href="#finish-and-reload">Finish and Reload</a>. Add only the services you want reachable through the 44Net address.</p>
+<p><strong>EchoLink</strong></p>
+<p>Add <code>echolink</code> if you plan to use EchoLink.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>echolink
+</code></pre></div>
+<p><strong>VOTER/RTCM</strong></p>
+<p>Add <code>rtcm</code> if you need to accept incoming VOTER/RTCM connections from the public Internet on the default UDP port <code>1667</code>.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>rtcm
+</code></pre></div>
+<p>If your VOTER/RTCM configuration uses a different UDP port, add that port instead. For example, if your VOTER/RTCM port is UDP <code>667</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">1668</span>/udp
+</code></pre></div>
+<p><strong>Web dashboards and management tools</strong></p>
+<p>Dashboard and management tools should normally stay private. Use <a href="https://tailscale.com/">Tailscale</a> or a similar private remote access service, a self-hosted WireGuard VPN such as <a href="https://www.pivpn.io/">PiVPN</a>, or a protected tunnel or reverse proxy such as <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/">Cloudflare Tunnel</a>.</p>
+<p>Directly exposing a dashboard, web server, Cockpit, SSH, AMI, or another management service can create an entry point into the node and any private network connected to it. This page intentionally does not provide firewall commands for exposing those services directly to the public Internet.</p>
+<p>If you choose to expose one anyway, you need to understand the service configuration, use strong authentication, and open only the exact service you intend to expose. AMI is especially risky because it can control and inspect Asterisk; do not expose it unless you understand the risk and have secured and restricted <code>/etc/asterisk/manager.conf</code>.</p>
+<p><strong>Other custom services</strong></p>
+<p>If you need to expose another service on the 44Net address, prefer adding only the exact port and protocol needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">12345</span>/udp
+</code></pre></div>
+<p>If you prefer a reusable named service, create a local <code>firewalld</code> service definition and add that service to the <code>44NetConnect</code> zone.</p>
+<h4 id="finish-and-reload">Finish and Reload</h4>
+<p>After adding the service(s) you want to your firewall configuration, attach the VPN interface name (<code>wg0</code>) to the <code>44NetConnect</code> zone and reload <code>firewalld</code>. This permanent <code>firewalld</code> binding can be created before the <code>wg0</code> interface exists; <code>wg-quick@wg0</code> creates that interface when the tunnel starts.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-interface<span class="o">=</span>wg0
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<p>All other inbound services remain blocked on the VPN interface.</p>
+<div class="admonition danger">
+<p class="admonition-title">Do not use the default <code>allstarlink</code> zone on the VPN interface</p>
+<p>On an ASL3 Appliance system, the <a href="https://github.com/AllStarLink/asl3-pi-appliance/blob/main/src/firewalld/zones/allstarlink.xml">default <code>allstarlink</code> zone</a> includes services for normal node operation and local administration: SSH, HTTP, HTTPS, Cockpit, IAX2, EchoLink, VOTER/RTCM, mDNS, and DHCPv6 client handling. The zone also enables forwarding behavior. Assigning the VPN interface to this zone can make those services reachable or active on the public 44Net address.</p>
+<p>This is a last-resort option for users who have reviewed the active zone contents and intentionally want the default appliance firewall policy on 44Net. This page intentionally does not provide the command. If you cannot determine how to assign an interface to a <code>firewalld</code> zone after reviewing the active zone contents, do not use this approach.</p>
+<p>AMI is not included in the default <code>allstarlink</code> zone, but the appliance does provide an AMI service definition. Exposing AMI on a public interface is especially risky because AMI can provide powerful access to Asterisk. Do not expose AMI unless you understand the risk and have secured and restricted <code>/etc/asterisk/manager.conf</code>.</p>
+</div>
+<p>Next: <a href="#create-and-start-the-tunnel">Create and start the tunnel</a>.</p>
+<h3 id="non-appliance-systems">Non-Appliance Systems</h3>
+<p>Plain Debian ASL3 installs do not install the ASL3 Appliance firewall configuration by default. If you installed ASL3 with <code>sudo apt install asl3</code> and did not install an appliance package, the <code>firewall-cmd</code> commands above may not exist or may not have the ASL service names.</p>
+<div class="admonition danger">
+<p class="admonition-title">Stop until a firewall is configured</p>
+<p>Do not continue until the system has a host firewall or upstream firewall policy that protects the 44Net address. Bind the rule to the VPN interface (<code>wg0</code>) or to the assigned 44Net address so that only the intended services are reachable from the public Internet.</p>
+</div>
+<p>On Debian, you can manually install <code>firewalld</code> and use the same dedicated-zone approach as the ASL3 Appliance. The difference is that a plain Debian install does not include the ASL3 Appliance service definitions, so you add the port numbers directly.</p>
+<h4 id="install-firewalld">Install firewalld</h4>
+<p>Install and start <code>firewalld</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>firewalld
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>firewalld
+</code></pre></div>
+<h4 id="non-appliance-create-the-44netconnect-zone">Create the 44NetConnect Zone</h4>
+<p>Create the <code>44NetConnect</code> zone:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--new-zone<span class="o">=</span>44NetConnect
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<h4 id="non-appliance-iax2">Allow Inbound IAX2</h4>
+<p>Most users only need inbound IAX2:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">4569</span>/udp
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Non-standard IAX2 port</p>
+<p>If your IAX2 port is not UDP <code>4569</code>, replace <code>4569/udp</code> with your configured IAX2 port.</p>
+</div>
+<h4 id="non-appliance-optional-additional-services">Optional Additional Services</h4>
+<p>If all you need is inbound IAX2, continue to <a href="#non-appliance-finish-and-reload">Finish and Reload</a>. Add only the services you want reachable through the 44Net address.</p>
+<p><strong>EchoLink</strong></p>
+<p>Add the EchoLink ports if you want to accept incoming EchoLink connections from the public Internet.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">5198</span>-5199/udp
+</code></pre></div>
+<p><strong>VOTER/RTCM</strong></p>
+<p>Add the VOTER/RTCM port if you want to accept incoming VOTER/RTCM connections from the public Internet on the default UDP port <code>1667</code>.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">1667</span>/udp
+</code></pre></div>
+<p>If your VOTER/RTCM port is not UDP <code>1667</code>, replace <code>1667/udp</code> with your configured VOTER/RTCM port.</p>
+<p><strong>Web dashboards and management tools</strong></p>
+<p>Dashboard and management tools should normally stay private. Use <a href="https://tailscale.com/">Tailscale</a> or a similar private remote access service, a self-hosted WireGuard VPN such as <a href="https://www.pivpn.io/">PiVPN</a>, or a protected tunnel or reverse proxy such as <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/">Cloudflare Tunnel</a>.</p>
+<p>Directly exposing a dashboard, web server, Cockpit, SSH, AMI, or another management service can create an entry point into the node and any private network connected to it. This page intentionally does not provide firewall commands for exposing those services directly to the public Internet.</p>
+<p>If you choose to expose one anyway, you need to understand the service configuration, use strong authentication, and open only the exact service you intend to expose. AMI is especially risky because it can control and inspect Asterisk; do not expose it unless you understand the risk and have secured and restricted <code>/etc/asterisk/manager.conf</code>.</p>
+<p><strong>Other custom services</strong></p>
+<p>If you need to expose another service on the 44Net address, prefer adding only the exact port and protocol needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-port<span class="o">=</span><span class="m">12345</span>/udp
+</code></pre></div>
+<h4 id="non-appliance-finish-and-reload">Finish and Reload</h4>
+<p>After adding the port(s) you need, attach the VPN interface name (<code>wg0</code>) to the zone and reload <code>firewalld</code>. This permanent <code>firewalld</code> binding can be created before the <code>wg0</code> interface exists; <code>wg-quick@wg0</code> creates that interface when the tunnel starts.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-interface<span class="o">=</span>wg0
+sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<p>Do not expose SSH, Cockpit, HTTP, HTTPS, AMI, or other management ports on the 44Net address unless you have intentionally planned for public remote administration.</p>
+<h4 id="other-firewall-tools">Other Firewall Tools</h4>
+<p>If you use a different Linux distribution or a different firewall tool, create equivalent rules for the VPN interface or assigned 44Net address. If you are not comfortable creating equivalent firewall rules for your system, use the ASL3 Appliance installation path or get firewall help before enabling the tunnel.</p>
+<p>Next: <a href="#create-and-start-the-tunnel">Create and start the tunnel</a>.</p>
+<h2 id="create-and-start-the-tunnel">3. Create and Start the Tunnel</h2>
+<p>Only continue after the firewall rules for the VPN interface (<code>wg0</code>) are in place.</p>
+<h3 id="create-a-44net-connect-account">Create a 44Net Connect Account</h3>
+<p>Create an account in the <a href="https://connect.44net.cloud/account/login">44Net Portal</a> and complete callsign verification.</p>
+<h3 id="request-a-tunnel">Request a Tunnel</h3>
+<p>Follow the <strong>Requesting Tunnels</strong> instructions in the <a href="https://connect.44net.cloud/help/">44Net Connect User Guide</a>.</p>
+<p>Copy the private key when the tunnel is created. You will need it when creating the WireGuard configuration file.</p>
+<h3 id="install-and-configure-the-vpn-tunnel">Install and Configure the VPN Tunnel</h3>
+<p>44Net Connect uses WireGuard for the VPN tunnel. The following commands must be run as root or with <code>sudo</code>.</p>
 <ol>
 <li>
-<p>Install the Wireguard tools with the following commands:</p>
-<div class="highlight"><pre><span></span><code>apt update
-apt install -y wireguard resolvconf
+<p>Install the WireGuard tools:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wireguard<span class="w"> </span>resolvconf
 </code></pre></div>
 </li>
 <li>
-<p>Create/edit a file named <code>/etc/wireguard/wg0.conf</code></p>
+<p>Create the WireGuard configuration directory if it does not already exist:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>install<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span><span class="m">700</span><span class="w"> </span>/etc/wireguard
+</code></pre></div>
 </li>
 <li>
-<p>Paste in the Wireguard configuration from the 44Net.Connect
-portal into the file.</p>
+<p>Create or edit <code>/etc/wireguard/wg0.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/wireguard/wg0.conf
+</code></pre></div>
 </li>
 <li>
-<p>Replace the string "<code>REPLACE_WITH_YOUR_PRIVATE_KEY</code>" with the
-privacy key that was displayed in the portal when you created your tunnel.</p>
+<p>Paste the WireGuard configuration from the 44Net Connect portal into the file.</p>
 </li>
 <li>
-<p>Save the file.</p>
+<p>Replace <code>REPLACE_WITH_YOUR_PRIVATE_KEY</code> with the private key that was displayed in the portal when the tunnel was created.</p>
+</li>
+<li>
+<p>Save the file and restrict access to it:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/wireguard/wg0.conf
+</code></pre></div>
 </li>
 </ol>
-<h2 id="enabling-the-connection">Enabling the Connection</h2>
-<p>The following commands must all be run as root (<code>sudo -s</code>) or using <code>sudo</code>.</p>
-<div class="admonition danger">
-<p class="admonition-title">VPN Tunnel is a Full-Tunnel</p>
-<p>The default 44Net Connect Wireguard Tunnel is a "full tunnel"
-meaning that all traffic will be routed through the tunnel
-and out through the ARDC POP. If you are accessing your system
-outside of its local subnet/LAN, your connection will be
-interrupted and you must reconnect through the 44Net
-IP address you have been assigned.</p>
+<h4 id="why-this-is-a-full-tunnel-vpn">Why This Is a Full-Tunnel VPN</h4>
+<p>The 44Net Connect configuration normally includes <code>AllowedIPs = 0.0.0.0/0</code>. That setting sends all IPv4 traffic through the VPN tunnel and is why the firewall must be configured before the tunnel is started.</p>
+<h4 id="optional-route-only-allstarlink-server-traffic-through-the-vpn">Optional: Route Only AllStarLink Server Traffic Through the VPN</h4>
+<p>Most users should keep the default full-tunnel configuration. It is simpler, and it avoids return-routing problems for inbound connections to the node's public 44Net address.</p>
+<p>Advanced users may prefer a split-route setup where normal Internet traffic continues to use the local network and only selected outbound AllStarLink server traffic uses the VPN tunnel. This is an advanced routing design, not just a simple <code>AllowedIPs</code> change. Do not put hostnames in <code>AllowedIPs</code>; WireGuard only accepts IP addresses and networks.</p>
+<p>The general pattern is:</p>
+<ol>
+<li>Keep <code>AllowedIPs = 0.0.0.0/0</code> so WireGuard will still accept traffic from the public Internet through the tunnel.</li>
+<li>Add <code>Table = off</code> in the <code>[Interface]</code> section so WireGuard does not automatically install a default route through the VPN.</li>
+<li>Add your own routes for the AllStarLink server IP addresses through the VPN interface.</li>
+<li>If you still need inbound node-to-node connections through the 44Net address, also configure return routing so traffic sourced from the assigned <code>44.x.x.x</code> address goes back out through the VPN tunnel.</li>
+</ol>
+<p>Get the current server IPs at the time you configure routes:</p>
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>register.allstarlink.org
+host<span class="w"> </span>stats.allstarlink.org
+</code></pre></div>
+<p>Use the returned IPv4 addresses when adding routes. Because DNS records can change, avoid hard-coding old IP addresses permanently unless you are prepared to update them. This process can be scripted and triggered on interface up/down events from within <code>wg0.conf</code>. If this routing model is not familiar, use the default full-tunnel configuration.</p>
+<h3 id="enable-the-vpn-tunnel">Enable the VPN Tunnel</h3>
+<p>The following commands must be run as root or with <code>sudo</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Remote connections may drop</p>
+<p>Starting a full-tunnel VPN can change the node's return path to the network. If you are connected from outside the local LAN, your SSH or Cockpit session may drop when the tunnel starts. Use local LAN access or console access if possible. Alternatively, use a terminal multiplexer like <a href="https://github.com/tmux/tmux/wiki">tmux</a> to keep your terminal session running even if you lose connection.</p>
 </div>
 <ol>
 <li>
-<p>Enable the <code>wg0</code> interface to autostart/autoconnect:</p>
-<div class="highlight"><pre><span></span><code>systemctl enable wg-quick@wg0
-systemctl start wg-quick@wg0
+<p>Enable and start the VPN interface (<code>wg0</code>):</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>wg-quick@wg0
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>wg-quick@wg0
 </code></pre></div>
 </li>
 <li>
-<p>Test connectivity to confirm you're traffic is routing
-through the VPN tunnel. The returned text should start
-with an IP address beginning with <code>44.</code>:</p>
-<div class="highlight"><pre><span></span><code># wget -4q -O- https://www.allstarlink.org/myip.php
-44.27.134.30
+<p>Confirm that outbound IPv4 traffic is using the 44Net address:</p>
+<p><div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-4q<span class="w"> </span>-O-<span class="w"> </span>https://www.allstarlink.org/myip.php
 </code></pre></div>
+The returned address should begin with <code>44.</code></p>
 </li>
 <li>
-<p>Wait approximately two minutes, and then confirm your registration
-is perceived as being from that same IP address:</p>
-<div class="highlight"><pre><span></span><code>node63001*CLI&gt; rpt show registrations
-Host                  Username    Perceived              Refresh  State
+<p>Wait approximately two minutes, then check the Asterisk CLI to confirm the node registration is perceived from the same 44Net address. The exact IP address and port shown in the <code>Perceived</code> column will be different on your node; the address should be your assigned <code>44.x.x.x</code> address:</p>
+<p><div class="highlight"><pre><span></span><code>asterisk<span class="w"> </span>-rx<span class="w"> </span><span class="s2">&quot;rpt show registrations&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Host                  Username    Perceived              Refresh  State
 52.44.147.201:443     63001       44.27.134.30:4567          179  Registered
 1 HTTP registration.
-</code></pre></div>
-</li>
-<li>
-<p>Your node should now operate on the 44Net Connect service.</p>
+</code></pre></div></p>
 </li>
 </ol>
-<h2 id="protecting-a-44net-connection">Protecting a 44Net Connection</h2>
-<div class="admonition danger">
-<p class="admonition-title">VPN Security Warning</p>
-<p>Do not skip these steps. If you do, there will be no
-firewall or network protection for your node from
-the whole Internet.</p>
-</div>
-<h3 id="linking-only-profile">Linking Only Profile</h3>
-<p>If you only need to support linking over VPN and are
-using another access method or a local LAN to manage the
-system, enter the following commands:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--new-zone<span class="o">=</span>44NetConnect
-sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>iax2
-sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-service<span class="o">=</span>echolink
-sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>44NetConnect<span class="w"> </span>--add-interface<span class="o">=</span>wg0
-sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
-</code></pre></div>
-<p>This will only permit IAX2 (normal AllStarLink connections)
-and Echolink connections to the node.</p>
-<h3 id="full-node-profile">Full Node Profile</h3>
-<div class="admonition danger">
-<p class="admonition-title">VPN Security Warning</p>
-<p>This will expose SSH (port 22), webservers (ports 80, 443),
-Cockpit (port 9090), and the Asterisk AMI (port 5038)
-to the Internet. Ensure that all passwords and secrets
-(including AMI bind passwords)
-used in this configuration are strong - at least 16 characters
-long and a mix of letters and numbers.</p>
-</div>
-<p>If you need to manage your node through the VPN IP address
-using SSH or Cockpit, the enter the following commands:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>allstarlink<span class="w"> </span>--add-interface<span class="o">=</span>wg0<span class="w"> </span>--permanent
-sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
-</code></pre></div>
-<p>Other restrictions such as AMI's
-<code>bindaddr</code> in <code>manager.conf</code> will always be applied.</p>
+<p>Your node should now operate through the 44Net Connect service.</p>
+
+
 
 
 
@@ -5485,7 +5922,7 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
   Back to top
 </button>
         
@@ -5495,13 +5932,13 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer">
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
           <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced Topics">
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
@@ -5526,7 +5963,7 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
             </div>
             <div class="md-footer__button md-icon">
               
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
           </a>
         
@@ -5538,13 +5975,13 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2025 AllStarLink Inc.
+      Copyright &copy; 2024-2026 AllStarLink Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -5557,7 +5994,7 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
     
     
     <a href="https://www.allstarlink.org/" target="_blank" rel="noopener" title="AllStarLink Home" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M419.5 96c-16.6 0-32.7 4.5-46.8 12.7-15.8-16-34.2-29.4-54.5-39.5 28.2-24 64.1-37.2 101.3-37.2C505.9 32 576 102 576 188.5c0 41.5-16.5 81.3-45.8 110.6l-71.1 71.1C429.8 399.5 390 416 348.5 416 262.1 416 192 346 192 259.5c0-1.5 0-3 .1-4.5.5-17.7 15.2-31.6 32.9-31.1s31.6 15.2 31.1 32.9v2.6c0 51.1 41.4 92.5 92.5 92.5 24.5 0 48-9.7 65.4-27.1l71.1-71.1c17.3-17.3 27.1-40.9 27.1-65.4 0-51.1-41.4-92.5-92.5-92.5zm-144.3 77.3c-1.9-.8-3.8-1.9-5.5-3.1-12.6-6.5-27-10.2-42.1-10.2-24.5 0-48 9.7-65.4 27.1l-71.1 71.1C73.8 275.5 64 299.1 64 323.6c0 51.1 41.4 92.5 92.5 92.5 16.5 0 32.6-4.4 46.7-12.6 15.8 16 34.2 29.4 54.6 39.5-28.2 23.9-64 37.2-101.3 37.2C70.1 480.2 0 410.2 0 323.7c0-41.5 16.5-81.3 45.8-110.6l71.1-71.1c29.3-29.3 69.1-45.8 110.6-45.8 86.6 0 156.5 70.6 156.5 156.9v3.9c-.4 17.7-15.1 31.6-32.8 31.2s-31.6-15.1-31.2-32.8v-2.3c0-33.7-18-63.3-44.8-79.6z"/></svg>
     </a>
   
     
@@ -5565,7 +6002,7 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
     
     
     <a href="https://github.com/AllStarLink" target="_blank" rel="noopener" title="AllStarLink on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
@@ -5628,15 +6065,11 @@ sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="../../js/print-site.js"></script>
+      <script src="../../assets/javascripts/bundle.0df4f2d0.min.js"></script>
       
     
-  
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(()=>{ lightbox.reload(); });
-</script></body></html>
+  </body>
+</html>
