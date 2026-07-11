@@ -5601,6 +5601,11 @@
 <p>The following troubleshooting steps can be used to check if your node has successfully registered to the AllStarLink network:</p>
 <ul>
 <li>
+<p>From your server console, run the <code>asl-node-auth-check</code> command which will do a
+comprehensive check of your node's configuration, reachability, and registration
+status.</p>
+</li>
+<li>
 <p>Go to <a href="https://www.allstarlink.org/nodelist">https://www.allstarlink.org/nodelist</a>, put your node number in the Filter box and see if the system knows about your node. If it is registered, the background behind your node number should be green.</p>
 </li>
 <li>
@@ -5622,7 +5627,7 @@
 <p>If your system/node is behind a firewall/router, make sure you have opened port <code>4569/UDP</code>, and directed it to the correct LAN IP address of your AllStarLink node</p>
 </li>
 <li>
-<p>Make sure that the IAX port configured in your Server Settings of your <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a> account matches the port opened in your firewall </p>
+<p>Make sure that the IAX port configured in your Server Settings of your <a href="https://www.allstarlink.org/portal">AllStarLink Portal</a> account matches the port opened in your firewall</p>
 </li>
 <li>
 <p>Make sure that <code>bindport=4569</code> is set in <a href="../../config/iax_conf/#bindport-and-bindaddr"><code>iax.conf</code></a>, it should be unless you've changed it (perhaps if you are running <a href="../../adv-topics/multinodesnetwork/">Multiple Node on the Same Network</a>)</p>
@@ -5643,7 +5648,7 @@
 <p>Check that the <code>[nodes]</code> section in <a href="../../config/rpt_conf/#nodes-stanza"><code>rpt.conf</code></a> is correct, ie. <code>63001 = radio@127.0.0.1:xxxx/63001,NONE</code>. The port, <code>:xxxx</code> is only needed if not the default port of <code>4569</code></p>
 </li>
 <li>
-<p>If you have a friend with an AllStarLink node, have them do a lookup from the <a href=".././menu/#asterisk-cli">Asterisk CLI</a> and confirm that the IP address returned is your <strong>public</strong> IP address, and that the IAX port is what is expected: </p>
+<p>If you have a friend with an AllStarLink node, have them do a lookup from the <a href=".././menu/#asterisk-cli">Asterisk CLI</a> and confirm that the IP address returned is your <strong>public</strong> IP address, and that the IAX port is what is expected:</p>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code>wb6nil*CLI&gt; rpt lookup 2001
@@ -5768,7 +5773,7 @@ Node: 63001     Data: radio@3.147.238.208:4569/2001,3.147.238.208
 </ul>
 <h4 id="allstarlink-does-not-support-certain-other-projectstools">AllStarLink Does Not Support Certain Other Projects/Tools</h4>
 <p>Core AllStarLink does not support certain other projects/tools such as HamVOIP, Supermon/Supermon2, SkyWarnPlus, or AllScan. Some of the developers of these tools such as SkyWarnPlus and AllScan are active and answer questions on the Community, and others are not.</p>
-<p>If you are told, "that isn't supported but have you tried doing it in this supported way", consider giving it a try. </p>
+<p>If you are told, "that isn't supported but have you tried doing it in this supported way", consider giving it a try.</p>
 <h4 id="allstarlink-v3-contains-14-years-of-changes">AllStarLink v3 Contains 14+ Years of Changes</h4>
 <p>The release of AllStarLink v3 uses modern Asterisk 20 LTS. Legacy installs use Asterisk 1.4 which was end of life in 2012. Thus, there are literally 14+ years of changes of how Asterisk operates that <code>app_rpt</code> (the main engine behind ASL) had to conform to. Notably, the configuration syntax which changed gradually over time for users staying current with Asterisk, is an "all of a sudden" change in ASL3. One cannot paste old configurations into modern ASL3 and expect it to "just work".</p>
 <p>Additionally, Asterisk no longer runs as the root user on Linux which means that its ability to do things to the system such as make OS changes is purposefully restricted. ASL3 and Asterisk are very security conscious as many of our users run ASL3 systems on the open Internet.</p>
@@ -5776,7 +5781,7 @@ Node: 63001     Data: radio@3.147.238.208:4569/2001,3.147.238.208
 <p>In general, if people are asking questions about the details of your problem, they are likely trying to help and not nitpick. In general, if many people are having the problem, it is already known and <a href="../../basics/incompatibles/#known-issues">likely documented</a>.</p>
 <p>If it's not, then likely your issue is unique to your setup and providing the requested troubleshooting is needed to help you further.</p>
 <h3 id="gathering-logs">Gathering Logs</h3>
-<p>If you are asked to provide logs, there are two standard ways to provide logs, using <a href="../../pi/cockpit-basics/"><code>Cockpit</code></a> or using the <code>journalctl</code> tool from the 
+<p>If you are asked to provide logs, there are two standard ways to provide logs, using <a href="../../pi/cockpit-basics/"><code>Cockpit</code></a> or using the <code>journalctl</code> tool from the
 Linux CLI.</p>
 <h4 id="gathering-logs-with-cockpit">Gathering Logs with Cockpit</h4>
 <p>In the <a href="../../pi/cockpit-basics/">Cockpit interface</a>, click <strong>Services</strong> on the left navbar. The service list will display. Wait for the full list to load and then click
@@ -5851,7 +5856,7 @@ live). Press Ctrl+c to exit</p>
 </li>
 <li>
 <p><code>grep SOMETHING FILE</code> - This is for basic searching within a file. For example, you can use <code>grep</code> to answer the question "what does the line with FOO in FILE say?". This command
-would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code> searches are case-sensitive, use the <code>-i</code> flag for case-insensitive searches, i.e. <code>grep -i FOO FILE</code> will find all instances of "foo", "FOO", "FoO", etc. </p>
+would be <code>grep FOO FILE</code>. Note that by default, your <code>grep</code> searches are case-sensitive, use the <code>-i</code> flag for case-insensitive searches, i.e. <code>grep -i FOO FILE</code> will find all instances of "foo", "FOO", "FoO", etc.</p>
 </li>
 </ul>
 <p>When possible, please copy/paste log and search text instead of attaching screenshots into systems for troubleshooting. Text is far easier to deal with (can be quoted in replies), and will make your trouble show up in search engines to help "the next person".</p>
