@@ -1181,10 +1181,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-config-via-asl-menu" class="md-nav__link">
+  <a href="#configuration-pre-requisites" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Quick Config via ASL-Menu
+        Configuration pre-requisites
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-configuration-via-asl-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Quick Configuration via ASL-Menu
       </span>
     </span>
   </a>
@@ -5456,14 +5467,15 @@
 <h1 id="asl3-appliance-installation">ASL3 Appliance Installation</h1>
 <div class="admonition danger">
 <p class="admonition-title">Raspberry Pi Imager</p>
-<p><strong>You must use the Raspberry Pi Imager,</strong> even if you prefer another imager, and carefully follow the instructions below. Failure to do so will result in a system that won't boot or that will not allow logins.</p>
+<p>Even if you prefer another imager, <strong>you must use the Raspberry Pi Imager,</strong> and carefully follow the instructions below. Failure to do so will result in a system that won't boot or that will not allow logins.</p>
 <p>Note: these instructions assume that you are using the <strong>Raspberry Pi Imager, version 2.0.0 (or later)</strong></p>
 </div>
-<p>You will install an image on a microSD card and go. This is the simplest install. For most nodes, the menus will walk you through the setup. </p>
+<p>You will install an image to a microSD card and boot from the card. This is the simplest install. For most nodes, the menus will walk you through the setup. </p>
 <div class="admonition note">
 <p class="admonition-title">SD Card Size</p>
-<p>A minimum SD card size of 4G is required and it is recommended to use at least an 8G SD card.</p>
+<p>A minimum SD card size of 8G is required.</p>
 </div>
+<p>Note: Some Raspberry Pi models allow you to boot from a USB [Flash] or NVME drive. On these models you have the option of writing the image to a USB [Flash] or NVME drive instead of a microSD card. </p>
 <h2 id="step-by-step-pi-appliance-setup">Step-by-Step Pi Appliance Setup</h2>
 <p>These directions are specific for Windows, but in general should work the same for the same tool set on macOS and Linux. For each screenshot below, click on the image for a larger version.</p>
 <p><strong>NOTE:</strong> For this example, the hostname used shall be <code>node63001</code> and the node number is <code>63001</code>. Replace "63001" with your node number as you proceed through these directions.</p>
@@ -5587,7 +5599,10 @@ to the top of this manual</p>
 </li>
 </ul>
 <p>The Terminal window is a complete interface to AllStarLink, Asterisk, and more. No SSH client is required although use of SSH directly is fully supported.</p>
-<h2 id="quick-config-via-asl-menu">Quick Config via ASL-Menu</h2>
+<h2 id="configuration-pre-requisites">Configuration pre-requisites</h2>
+<p>Before configuring you should review the prerequisites.</p>
+<p>{% include-markdown "../index.md" start="<!-- start:prerequisites -->" end="<!-- stop:prerequisites -->" %}</p>
+<h2 id="quick-configuration-via-asl-menu">Quick Configuration via ASL-Menu</h2>
 <p>The node may now be configured. New users or those wanting a quick start experience should use the <a href="../../../user-guide/"><code>asl-menu</code></a> utility with <code>sudo asl-menu</code>.</p>
 <p><a class="glightbox" data-type="image" href="../img/term-asl-menu-1.png"><img alt="Web ASL Menu 1" src="../img/term-asl-menu-1.png" /></a></p>
 <p>The menu will appear:</p>

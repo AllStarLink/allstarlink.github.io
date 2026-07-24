@@ -5465,26 +5465,26 @@
                   
 
 <h1 id="new-commands">New Commands</h1>
-<p>ASL3 is overall very similar to older versions (ASL2). However, due to the upgrade to Asterisk 20 (and newer), there are things that have changed. In addition, some new commands are now available.</p>
-<p>New and different commands to interact with ASL3 are documented here. Older ASL2 commands are still documented on the <a href="https://wiki.allstarlink.org">AllStarLink Wiki</a>, and may still be applicable (with some modifications) to ASL3. The Wiki documentation will remain as a reference, until all the documentation can be updated for ASL3, and added to this manual. </p>
+<p>ASL3 is overall very similar to older versions (ASL2). However, due to the upgrade to Asterisk 20+, there are things that have changed. In addition, some new commands are now available.</p>
+<p>New and different commands to interact with ASL3 are documented here.</p>
 <p>All these commands are available when using the Asterisk Command Line Interface (CLI), also known as the Asterisk Console. This can be accessed through the <a href="../../pi/cockpit-get-started/"><code>Cockpit</code></a> Terminal, from <a href="../../user-guide/"><code>asl-menu</code></a>, or directly from the Linux terminal with <code>asterisk -rvvv</code> or <code>sudo asterisk -rvvv</code>, depending on your system configuration. </p>
 <h2 id="app_rpt-commands"><code>app_rpt</code> commands</h2>
 <p>These commands interact with the <code>app_rpt</code> application itself:</p>
 <ul>
 <li>
+<p><code>rpt show version</code> shows the current version of the <code>app_rpt</code> module specifically</p>
+</li>
+<li>
+<p><code>rpt show registrations</code> shows HTTP registrations. For nodes configured with the old IAX registration system the equivalent command would be <code>iax2 show registry</code>.</p>
+</li>
+<li>
+<p><code>rpt lookup &lt;node&gt;</code> can be used to lookup the IP address and IAX port of a node. Depending on how your node has been configured (in <code>rpt.conf</code>) the lookup will use the AllStarLink DNS servers to resolve the node information or the external <code>rpt_extnodes</code> file.</p>
+</li>
+<li>
 <p><code>rpt show channels &lt;node&gt;</code> shows the channel driver information associated with the node</p>
 </li>
 <li>
 <p><code>rpt show variables &lt;node&gt;</code> (replaces <code>rpt showvars</code>) shows the current value of all the <code>app_rpt</code> variables for the node</p>
-</li>
-<li>
-<p><code>rpt show version</code> shows the current version of the <code>app_rpt</code> module specifically</p>
-</li>
-<li>
-<p><code>rpt show registrations</code> is the new command to show HTTP registrations. ASL3 uses a new HTTP registration system. The old IAX registration system and <code>iax2 show registry</code> command still exist, but HTTP registration should be used in its place.</p>
-</li>
-<li>
-<p><code>rpt lookup &lt;node&gt;</code> can be used to lookup the IP address of a node. In addition to the new registration system, ASL3 now implements a DNS lookup of node information. By default, ASL3 will first query the AllStarLink DNS servers to resolve node information. It will fall back to the external <code>rpt_extnodes</code> file, if the node cannot be resolved by DNS.</p>
 </li>
 </ul>
 <p>For example, <code>rpt lookup 2000</code> will show the IP of node 2000. If you have the <code>bind9-host</code> package installed on your system, the equivalent Linux CLI command to query the IP would be <code>host 2000.nodes.allstarlink.org</code>.</p>
@@ -5497,11 +5497,11 @@ node_lookup_method = both   ;method used to lookup nodes
                             ;file = external file lookup only
 </code></pre></div>
 <h2 id="chan_simpleusb-commands">chan_simpleusb commands</h2>
-<p>The command <code>susb show settings</code> is used to interact with the <code>SimpleUSB</code> channel driver, and will show the current node's settings. This replaces <code>susb tune</code>. The module must be loaded for this command to work.</p>
+<p>The <code>susb show settings</code> command is used to interact with the <code>SimpleUSB</code> channel driver, and will show the current node's settings. This replaces <code>susb tune</code>. The module must be loaded for this command to work.</p>
 <h2 id="chan_usbradio-commands">chan_usbradio commands</h2>
-<p>The command <code>radio show settings</code> is used to interact with the <code>USBRadio</code> channel driver, and will show the current node's settings. This replaces <code>radio tune</code>. The module must be loaded for this command to work.</p>
+<p>The <code>radio show settings</code> command is used to interact with the <code>USBRadio</code> channel driver, and will show the current node's settings. This replaces <code>radio tune</code>. The module must be loaded for this command to work.</p>
 <h2 id="simpleusb-and-usbradio-tune-menus">SimpleUSB and USBRadio Tune Menus</h2>
-<p>The <code>simpleusb-tune-menu</code> and <code>radio-tune-menu</code> utility programs have been updated with new options. These are accessed from the Linux CLI (not the Asterisk CLI). The new options allow you change the operation of the respective channel driver, in realtime, without having to manually edit the <code>simpleusb.conf</code> or <code>usbradio.conf</code> files.</p>
+<p>The <code>simpleusb-tune-menu</code> and <code>radio-tune-menu</code> utility programs have been updated with new options. These commands are accessed from the Linux CLI (not the Asterisk CLI). The new options allow you change the operation of the respective channel driver, in realtime, without having to manually edit the <code>simpleusb.conf</code> or <code>usbradio.conf</code> files.</p>
 <p>In addition to the updating settings, you can now view the live status of the COS, CTCSS inputs and PTT output. This allows you to easily view and change their settings.</p>
 <h2 id="chan_echolink-commands">chan_echolink commands</h2>
 <p>The Echolink channel driver (module) must be loaded for these commands to work. These commands interact directly with the <code>chan_echolink</code> channel driver: </p>
