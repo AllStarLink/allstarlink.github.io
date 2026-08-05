@@ -5455,7 +5455,7 @@ Legacy directions can be found below under "Legacy Method".</p>
 <p>The "modern method" of streaming to Broadcastify uses a helper application
 <code>/usr/libexec/asl3/rpt_audio_writer</code> to take the audio out of Asterisk/app_rpt
 via the <code>outstreamcmd</code> directive and write it to a FIFO pipe. The asl-broadcastify
-service then picks up the audio from the pipe and streams it to Braodcastify
+service then picks up the audio from the pipe and streams it to Broadcastify
 via ffmpeg. This method allows independent restarting of the asl-broadcastify
 service in the case of a hiccup with Broadcastify that doesn't require restarting
 all of Asterisk.</p>
@@ -5548,7 +5548,7 @@ systemctl<span class="w"> </span>stop<span class="w"> </span>asl-broadcastify@40
 <p>Edit <code>/etc/asterisk/rpt.conf</code> using your favorite editor - e.g., <code>nano /etc/asterisk/rpt.conf</code>.</p>
 </li>
 <li>
-<p>Within the configuration for the node you want to stream configure <code>outstreacmd</code> to be
+<p>Within the configuration for the node you want to stream configure <code>outstreamcmd</code> to be
 the string <code>/usr/libexec/asl3/rpt_audio_writer,/var/lib/asterisk/NODE.fifo</code> replacing
 "NODE" with your node number. For the node 63001, an example would look like:</p>
 <div class="highlight"><pre><span></span><code>[63001](node-main)
