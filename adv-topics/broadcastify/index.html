@@ -3671,6 +3671,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#modern-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modern Method
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modern Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-asl-broadcastify-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configure <code>asl-broadcastify</code> Config
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-asterisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Configure Asterisk
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Legacy Method
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Legacy Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#setup-a-feed" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -3680,8 +3731,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#migrating-an-existing-feed" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -3689,6 +3740,11 @@
       </span>
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5390,7 +5446,135 @@
 <h1 id="streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
 <p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
 <p>After you have your account and feed credentials, you a ready to setup AllStarLink.</p>
-<h2 id="setup-a-feed">Setup a Feed</h2>
+<h2 id="modern-method">Modern Method</h2>
+<div class="admonition note">
+<p class="admonition-title">Version Note</p>
+<p>These directions require the asl3 package version 3.18.2-2 or later.
+Legacy directions can be found below under "Legacy Method".</p>
+</div>
+<p>The "modern method" of streaming to Broadcastify uses a helper application
+<code>/usr/libexec/asl3/rpt_audio_writer</code> to take the audio out of Asterisk/app_rpt
+via the <code>outstreamcmd</code> directive and write it to a FIFO pipe. The asl-broadcastify
+service then picks up the audio from the pipe and streams it to Braodcastify
+via ffmpeg. This method allows independent restarting of the asl-broadcastify
+service in the case of a hiccup with Broadcastify that doesn't require restarting
+all of Asterisk.</p>
+<h3 id="configure-asl-broadcastify-config">Configure <code>asl-broadcastify</code> Config</h3>
+<p>The asl-broadcastify service is a "templated" multi-instance systemd service.
+This means that each stream is started and stopped independently. For example,
+if node 63001 is configured to stream, the service would interact with
+<code>asl-broadcastify@63001</code> - for example <code>systemctl start asl-broadcastify@63001</code>.
+This allows independent management of each stream.</p>
+<p>In each command, replace "63001" with your node number.</p>
+<ul>
+<li>
+<p>Log into your node either using <code>Cockpit</code> or SSH and become root with
+<code>sudo -s</code></p>
+</li>
+<li>
+<p><code>cd /etc/asterisk/broadcastify</code></p>
+</li>
+<li>
+<p>Copy the <code>1999.conf.example</code> to your node number followed by conf - e.g., <code>cp 1999.conf.example 63001.conf</code></p>
+</li>
+<li>
+<p>Edit the file with your favorite editor - e.g., <code>nano 63001.conf</code></p>
+</li>
+<li>
+<p>Within the file, edit <code>FIFO</code> to replace "NODE" with your node number. Then
+set the various variables that start with <code>ICECAST_</code> to match your feed information
+from within Broadcastify. The information is found inside the "Feed Technical Details"
+screen on Broadcastify. Then set the <code>STREAM_</code> variables in the "Stream Metadata" section.
+Do not change the items at the end of the file unless you know what you're doing
+and why you're changing them. Save the file. An example might look like:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Broadcastify stream configuration for node 63001</span>
+<span class="c1"># This file must be named NODE.conf - e.g. 1999.conf</span>
+
+<span class="c1"># FIFO path (where rpt_audio_writer is configured in outstreamcmd=)</span>
+<span class="c1"># This needs to be readable by the asterisk user.</span>
+<span class="c1"># Replace &quot;NODE&quot; with the node number.</span>
+<span class="nv">FIFO</span><span class="o">=</span>/var/lib/asterisk/63001.fifo
+
+<span class="c1"># Icecast server details</span>
+<span class="c1"># This is configuration found in your &quot;Feed Technical Details&quot;</span>
+<span class="c1"># section of your configured Broadcastify Stream</span>
+<span class="nv">ICECAST_HOST</span><span class="o">=</span>audio9.radioreference.com
+<span class="nv">ICECAST_PORT</span><span class="o">=</span><span class="m">80</span>
+<span class="nv">ICECAST_MOUNT</span><span class="o">=</span>/8yjcvp04gfwl
+<span class="nv">ICECAST_USER</span><span class="o">=</span><span class="nb">source</span>
+<span class="nv">ICECAST_PASSWORD</span><span class="o">=</span>i8o9092j
+
+<span class="c1"># Stream metadata - This can be wha tever you want within quotes</span>
+<span class="nv">STREAM_NAME</span><span class="o">=</span><span class="s2">&quot;WB6NIL 147.390 MHz&quot;</span>
+<span class="nv">STREAM_DESCRIPTION</span><span class="o">=</span><span class="s2">&quot;Nets and live feeds from the WB6NIL repeater&quot;</span>
+<span class="nv">STREAM_URL</span><span class="o">=</span><span class="s2">&quot;allstarlink.org&quot;</span>
+
+<span class="c1"># Don&#39;t change these unless you know why you&#39;re changing it</span>
+<span class="nv">STREAM_PUBLIC</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">STREAM_GENRE</span><span class="o">=</span><span class="s2">&quot;Amateur Radio&quot;</span>
+<span class="nv">INPUT_SAMPLERATE</span><span class="o">=</span><span class="m">8000</span>
+<span class="nv">INPUT_CHANNELS</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">OUTPUT_BITRATE</span><span class="o">=</span>16k
+</code></pre></div>
+</li>
+<li>
+<p>Enable and start the service:</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl-broadcastify@63001
+systemctl<span class="w"> </span>start<span class="w"> </span>asl-broadcastify@63001
+</code></pre></div>
+</li>
+</ul>
+<p>Log output can be found by reviewing <code>journalctl -xu asl-broadcastify@NODE</code> -
+e.g. <code>journalctl -xu asl-broadcastify@63001</code>.</p>
+<p>Multiple services can be run simultaneously on the same system by simply
+using multiple node numbers for the configuration and the systemd commands.
+Each unit is managed independently:</p>
+<div class="highlight"><pre><span></span><code>/etc/asterisk/broadcastify/63001.conf
+/etc/asterisk/broadcastify/40608.conf
+
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl-broadcastify@63001
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>asl-broadcastify@40608
+
+systemctl<span class="w"> </span>start<span class="w"> </span>asl-broadcastify@63001
+systemctl<span class="w"> </span>start<span class="w"> </span>asl-broadcastify@40608
+
+
+systemctl<span class="w"> </span>stop<span class="w"> </span>asl-broadcastify@63001
+systemctl<span class="w"> </span>stop<span class="w"> </span>asl-broadcastify@40608
+</code></pre></div>
+<h3 id="configure-asterisk">Configure Asterisk</h3>
+<ul>
+<li>
+<p>Edit <code>/etc/asterisk/rpt.conf</code> using your favorite editor - e.g., <code>nano /etc/asterisk/rpt.conf</code>.</p>
+</li>
+<li>
+<p>Within the configuration for the node you want to stream configure <code>outstreacmd</code> to be
+the string <code>/usr/libexec/asl3/rpt_audio_writer,/var/lib/asterisk/NODE.fifo</code> replacing
+"NODE" with your node number. For the node 63001, an example would look like:</p>
+<div class="highlight"><pre><span></span><code>[63001](node-main)
+statpost_url = http://stats.allstarlink.org/uhandler
+idrecording = |iWB6NIL
+duplex = 2
+rxchannel = Local/pseudo
+outstreamcmd = /usr/libexec/asl3/rpt_audio_writer,/var/lib/asterisk/63001.fifo
+</code></pre></div>
+</li>
+<li>
+<p>Save the file.</p>
+</li>
+<li>
+<p>Restart asterisk with <code>systemctl restart asterisk</code>.</p>
+</li>
+</ul>
+<p>Then wait for a few minutes and Broadcastify should mark your stream as online.</p>
+<h2 id="legacy-method">Legacy Method</h2>
+<div class="admonition note">
+<p class="admonition-title">Version Note</p>
+<p>It is strongly suggested to upgrade to ASL3 3.18.2-2 or later.
+These directions are for old versions of asl3 package version 3.18
+or earlier.</p>
+</div>
+<h3 id="setup-a-feed">Setup a Feed</h3>
 <ul>
 <li>Log into your node either using <code>Cockpit</code> or SSH and type the following commands:</li>
 </ul>
@@ -5460,7 +5644,7 @@ sudo chmod 660 /etc/ezstream.xml
 -r = Assume the input file is raw pcm
 -m m = Mode mono
 -s 8 = sample rate 8
---bitwidth 16 = bit width is 16 (default)   
+--bitwidth 16 = bit width is 16 (default)
 </code></pre></div>
 <ul>
 <li>After these changes have been made, you will need to restart Asterisk:</li>
@@ -5468,7 +5652,7 @@ sudo chmod 660 /etc/ezstream.xml
 <div class="highlight"><pre><span></span><code>sudo systemctl restart asterisk
 </code></pre></div>
 <p>If you experience any problems, look at <code>/var/log/ezstream.log</code> for error messages</p>
-<h2 id="migrating-an-existing-feed">Migrating an Existing Feed</h2>
+<h3 id="migrating-an-existing-feed">Migrating an Existing Feed</h3>
 <p>If you have an existing feed, you will need to upgrade your existing <code>xml</code> configuration file to the new format. You can use the following commands:</p>
 <div class="highlight"><pre><span></span><code>cd /etc
 ezstream-cfgmigrate -0 ezstream.xml &gt; ezstream.xml.new
