@@ -7868,7 +7868,6 @@ startup_macro = *31000 *31001 pppppppppp *31002
 </code></pre></div>
 <p>The <code>statpost_url=</code> option can be implemented in the <code>[node-main](!)</code> stanza to apply to all nodes on the server, or in the per-node stanza for limiting statistics posting to an individual nodes. See <a href="../../adv-topics/conftmpl/#asterisk-templates">config file templating</a> for more information.</p>
 <h3 id="tailmessagelist">tailmessagelist=</h3>
-<!-- start:tailmessagelist -->
 <p>This option allows a comma-separated list of audio files to be specified for the tail message function. The tail messages will <em>rotate</em> from one to the next until the end of the list is reached, at which point the first message in the list will be selected. If no absolute path name is specified, the directory <code>/usr/share/asterisk/sounds/en</code> will be searched for the sound file. The file extension should be omitted.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailmessagelist = welcome,clubmeeting,wx ; rotate 3 tail messages
@@ -7879,25 +7878,18 @@ startup_macro = *31000 *31001 pppppppppp *31002
 <p>Audio files must have extension .gsm, .ulaw, .pcm, or .wav. The extension is left off when it is defined as the example shows above. File extensions are used by Asterisk to determine how to decode the file. All audio files should be sampled at 8KHz mono.</p>
 </div>
 <p>See the <a href="../../adv-topics/soundfiles/">Sound Files</a> page for more information.</p>
-<!-- stop:tailmessagelist -->
-
 <h3 id="tailmessagetime">tailmessagetime=</h3>
-<!-- start:tailmessagetime -->
 <p>This option sets the amount of time in milliseconds between tail messages. Tail Messages are played when a user unkeys on the node input at the point where the hang timer expires, and after the courtesy tone is sent.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailmessagetime = 900000            ; 15 minutes between tail messages
 </code></pre></div>
 <p>The maximum value is 200000000ms (55.5555 hours).</p>
-<!-- stop:tailmessagetime -->
 <h3 id="tailsquashedtime">tailsquashedtime=</h3>
-<!-- start:tailsquashedtime -->
 <p>If a tail message is "squashed" by a user keying up over the top of it, a separate time value can be loaded to make the tail message be retried at a shorter time interval than the standard <code>tailmessagetime=</code> option. The <code>tailsquashedtime=</code> option takes a value in milliseconds.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailsquashedtime = 300000           ; 5 minutes
 </code></pre></div>
-<!-- stop:tailsquashedtime -->
 <h3 id="telemetry">telemetry=</h3>
-<!-- start:telemetry -->
 <p>This option allows you to override the stanza name used for the <code>telemetry</code> stanza in <code>rpt.conf</code>. Telemetry definitions define courtesy tone parameters, and tones sent when certain actions take place on the node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>telemetry = telemetry               ; name telemetry to &#39;telemetry&#39;
@@ -7907,7 +7899,6 @@ startup_macro = *31000 *31001 pppppppppp *31002
 </code></pre></div>
 <p>The default is to have <code>telemetry=</code> point to a stanza called <code>telemetry</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href=".././config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="../../config/rpt_conf/#telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p>
-<!-- stop:telemetry -->
 <h3 id="telemdefault">telemdefault=</h3>
 <p>This option sets whether telemetry is turned on or off by default.</p>
 <p>Sample:</p>

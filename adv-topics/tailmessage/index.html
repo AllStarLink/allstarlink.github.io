@@ -5459,7 +5459,17 @@
 There are two methods that can be configured to setup the playing of tail messages, as shown below.</p>
 <h2 id="standard-tail-message-configuration">Standard Tail Message Configuration</h2>
 <h3 id="tailmessagelist"><a href="../../config/rpt_conf/#tailmessagelist">tailmessagelist=</a></h3>
-<p _="%" _.._config_rpt_conf.md_="&quot;../config/rpt_conf.md&quot;" end="<!-- stop:tailmessagelist -->" include-markdown="include-markdown" start="<!-- start:tailmessagelist -->">Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a></p>
+<p>Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>
+This option allows a comma-separated list of audio files to be specified for the tail message function. The tail messages will <em>rotate</em> from one to the next until the end of the list is reached, at which point the first message in the list will be selected. If no absolute path name is specified, the directory <code>/usr/share/asterisk/sounds/en</code> will be searched for the sound file. The file extension should be omitted.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>tailmessagelist = welcome,clubmeeting,wx ; rotate 3 tail messages
+</code></pre></div>
+<p>Tail messages can be "squashed" if a user keys up over them.</p>
+<div class="admonition note">
+<p class="admonition-title">File Extensions</p>
+<p>Audio files must have extension .gsm, .ulaw, .pcm, or .wav. The extension is left off when it is defined as the example shows above. File extensions are used by Asterisk to determine how to decode the file. All audio files should be sampled at 8KHz mono.</p>
+</div>
+<p>See the <a href="../../adv-topics/soundfiles/">Sound Files</a> page for more information.</p>
 <h2 id="alternate-tail-message-configuration">Alternate Tail Message Configuration</h2>
 <p>An extension <code>TAIL</code> can be added to the <code>extensions.conf</code> file under the context <code>[telemetry]</code> or the context defined in <a href="#telemetry">telemetry</a> parameter found in <code>rpt.conf</code>.  This allows full control of messages via the dialplan.</p>
 <div class="admonition note">
@@ -5507,11 +5517,29 @@ ID recording files must have extension .gsm, .ulaw, .pcm, or .wav. The extension
 </div>
 <p>See the <a href="../../adv-topics/soundfiles/">Sound Files</a> page for more information.</p>
 <h3 id="tailmessagetime"><a href="../../config/rpt_conf/#tailmessagetime">tailmessagetime=</a></h3>
-<p _="%" _.._config_rpt_conf.md_="&quot;../config/rpt_conf.md&quot;" end="<!-- stop:tailmessagetime -->" include-markdown="include-markdown" start="<!-- start:tailmessagetime -->">Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a></p>
+<p>Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>
+This option sets the amount of time in milliseconds between tail messages. Tail Messages are played when a user unkeys on the node input at the point where the hang timer expires, and after the courtesy tone is sent.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>tailmessagetime = 900000            ; 15 minutes between tail messages
+</code></pre></div>
+<p>The maximum value is 200000000ms (55.5555 hours).</p>
 <h3 id="tailsquashedtime"><a href="../../config/rpt_conf/#tailsquashedtime">tailsquashedtime=</a></h3>
-<p _="%" _.._config_rpt_conf.md_="&quot;../config/rpt_conf.md&quot;" end="<!-- stop:tailsquashedtime -->" include-markdown="include-markdown" start="<!-- start:tailsquashedtime -->">Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a></p>
+<p>Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>
+If a tail message is "squashed" by a user keying up over the top of it, a separate time value can be loaded to make the tail message be retried at a shorter time interval than the standard <code>tailmessagetime=</code> option. The <code>tailsquashedtime=</code> option takes a value in milliseconds.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>tailsquashedtime = 300000           ; 5 minutes
+</code></pre></div>
 <h3 id="telemetry"><a href="../../config/rpt_conf/#telemetry">telemetry=</a></h3>
-<p _="%" _.._config_rpt_conf.md_="&quot;../config/rpt_conf.md&quot;" end="<!-- stop:telemetry -->" include-markdown="include-markdown" start="<!-- start:telemetry -->">Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a></p>
+<p>Found in <a href="../../config/rpt_conf/"><code>rpt.conf</code></a>
+This option allows you to override the stanza name used for the <code>telemetry</code> stanza in <code>rpt.conf</code>. Telemetry definitions define courtesy tone parameters, and tones sent when certain actions take place on the node.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>telemetry = telemetry               ; name telemetry to &#39;telemetry&#39;
+
+[telemetry]
+...
+</code></pre></div>
+<p>The default is to have <code>telemetry=</code> point to a stanza called <code>telemetry</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href=".././config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
+<p>See the <a href="../../config/rpt_conf/#telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p>
 
 
 

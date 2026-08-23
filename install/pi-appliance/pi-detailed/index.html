@@ -5601,7 +5601,35 @@ to the top of this manual</p>
 <p>The Terminal window is a complete interface to AllStarLink, Asterisk, and more. No SSH client is required although use of SSH directly is fully supported.</p>
 <h2 id="configuration-pre-requisites">Configuration pre-requisites</h2>
 <p>Before configuring you should review the prerequisites.</p>
-<p>{% include-markdown "../index.md" start="<!-- start:prerequisites -->" end="<!-- stop:prerequisites -->" %}</p>
+<ul>
+<li>
+<p>Do you need a node number to connect to the AllStarLink network?  Please refer to the <a href="/basics/">Getting Started</a> section to find out how to request a node number.</p>
+</li>
+<li>
+<p>Will your node be connected to one (or more) radios or RF modules (e.g. SA818)?</p>
+</li>
+<li>
+<p>What TX frequencies will be used?</p>
+</li>
+<li>What RX frequencies will be used?</li>
+<li>Will you be using CTCSS (or DCS) tone?  If so, what tones?</li>
+</ul>
+<p>We recommend programming your radio(s) prior to powering up and configuring your AllStarLink node.  This will ensure that any transmissions are on the correct frequencies right from the start.</p>
+<p>Note: when selecting TX/RX frequencies, be sure to use only those allowed by your amateur radio license and are appropriate for your location (i.e. consult the local band plans).</p>
+<ul>
+<li>
+<p>Do you have the configuration information (initial settings) for any USB audio interfaces that will be associated with your node?</p>
+</li>
+<li>
+<p>Does your interface provide a COR/COS carrier detection signal? If so, it is active high or low?</p>
+</li>
+<li>Does your interface provide a separate/external CTCSS signal?</li>
+<li>Does the PTT signal need to be inverted?</li>
+<li>
+<p>Does your interface have a "clip" LED?</p>
+<p>This information should be available from the audo interface vendor/supplier.</p>
+</li>
+</ul>
 <h2 id="quick-configuration-via-asl-menu">Quick Configuration via ASL-Menu</h2>
 <p>The node may now be configured. New users or those wanting a quick start experience should use the <a href="../../../user-guide/"><code>asl-menu</code></a> utility with <code>sudo asl-menu</code>.</p>
 <p><a class="glightbox" data-type="image" href="../img/term-asl-menu-1.png"><img alt="Web ASL Menu 1" src="../img/term-asl-menu-1.png" /></a></p>
