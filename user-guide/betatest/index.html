@@ -5433,18 +5433,16 @@ validates the product. They explore its features, uncover bugs, and provide feed
 <p>If you cannot adhere to the above four conditions, you should not use the beta channel software.</p>
 <h2 id="enabling-beta-channel-software">Enabling Beta Channel Software</h2>
 <p>Enabling beta channel software is done with the <code>asl-repo-switch</code> command as <code>root</code>. Set the channel to "beta" using <code>asl-repo-switch -l beta</code>. For example:</p>
-<div class="highlight"><pre><span></span><code>bash
-# asl-repo-switch -l beta
-Setting level beta... DONE
-Run &#39;apt update&#39; to refresh the package repo cache.
+<div class="highlight"><pre><span></span><code><span class="c1"># asl-repo-switch -l beta</span>
+Setting<span class="w"> </span>level<span class="w"> </span>beta...<span class="w"> </span>DONE
+Run<span class="w"> </span><span class="s1">&#39;apt update&#39;</span><span class="w"> </span>to<span class="w"> </span>refresh<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>repo<span class="w"> </span>cache.
 </code></pre></div>
 <h2 id="disabling-beta-channel-software">Disabling Beta Channel Software</h2>
 <p>Disabling beta channel software is done with the <code>asl-repo-switch</code> command as <code>root</code>. Set the channel to "main" using <code>asl-repo-switch -l main</code>.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code>bash
-# asl-repo-switch -l main
-Setting level main... DONE
-Run &#39;apt update&#39; to refresh the package repo cache.
+<div class="highlight"><pre><span></span><code><span class="c1"># asl-repo-switch -l main</span>
+Setting<span class="w"> </span>level<span class="w"> </span>main...<span class="w"> </span>DONE
+Run<span class="w"> </span><span class="s1">&#39;apt update&#39;</span><span class="w"> </span>to<span class="w"> </span>refresh<span class="w"> </span>the<span class="w"> </span>package<span class="w"> </span>repo<span class="w"> </span>cache.
 </code></pre></div>
 <h2 id="installing-updates-using-beta-channel">Installing Updates Using Beta Channel</h2>
 <p>The most common case to use the beta channel for software packages is to test a proposed fix to a problem you are having. In those cases, the following commands should be run <strong>one at a time</strong> from a terminal/console as <code>root</code> (using <code>sudo</code> or <code>sudo -s</code>):</p>
