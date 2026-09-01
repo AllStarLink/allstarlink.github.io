@@ -432,8 +432,6 @@
       
         
       
-        
-      
     
     
     
@@ -2250,8 +2248,6 @@
       
         
       
-        
-      
     
     
     
@@ -3264,33 +3260,6 @@
     
   
   Permanent Node Connection
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Parrot Mode
 
     
   </span>
@@ -5395,12 +5364,12 @@
 <h1 id="description">DESCRIPTION</h1>
 <p>Allmon3's user database is managed by <code>allmon3-passwd</code>. Adding a new user or editing an existing user is the same command. If the user does not exist, it will be added. If the user does exist, the password will be updated.</p>
 <p>To add or edit a user's password:</p>
-<div class="highlight"><pre><span></span><code>allmon3-passwd allmon3
+<div class="highlight"><pre><span></span><code>sudo allmon3-passwd allmon3
  Enter the password for allmon3: password
  Confirm the password for allmon3: password
 </code></pre></div>
 <p>To specify the password for a user directly from the command line:</p>
-<div class="highlight"><pre><span></span><code>allmon3-passwd --password foobar allmon3
+<div class="highlight"><pre><span></span><code>sudo allmon3-passwd --password foobar allmon3
 </code></pre></div>
 <p>This will set the password for the <code>allmon3</code> user to <code>foobar</code> directly.</p>
 <div class="admonition note">
@@ -5409,7 +5378,7 @@
 </div>
 <p>The <code>/etc/allmon3/users</code> file is readable to see that the Argon2 hash has changed for the user.</p>
 <p>To delete a user, add the <code>--delete</code> flag to the command:</p>
-<div class="highlight"><pre><span></span><code>allmon3-passwd --delete allmon3
+<div class="highlight"><pre><span></span><code>sudo allmon3-passwd --delete allmon3
 </code></pre></div>
 <h1 id="bugs">BUGS</h1>
 <p>Report bugs to https://github.com/AllStarLink/Allmon3/issues</p>

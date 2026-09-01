@@ -434,8 +434,6 @@
       
         
       
-        
-      
     
     
     
@@ -2335,8 +2333,6 @@
       
         
       
-        
-      
     
     
     
@@ -3349,33 +3345,6 @@
     
   
   Permanent Node Connection
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Parrot Mode
 
     
   </span>
@@ -5409,13 +5378,13 @@
 <h2 id="user-database">User Database</h2>
 <p>Allmon3's user database is managed by <a href="../../mans/allmon3-passwd/"><code>allmon3-passwd</code></a>. Adding a new user or editing an existing user is the same command. If the user does not exist, it will be added. If the user does exist, the password will be updated. </p>
 <p>To add or edit a user's password: </p>
-<div class="highlight"><pre><span></span><code>$ allmon3-passwd allmon3
+<div class="highlight"><pre><span></span><code>$ sudo allmon3-passwd allmon3
 Enter the password for allmon3: password
 Confirm the password for allmon3: password
 </code></pre></div>
 <p>That's all there is to it. The <code>/etc/allmon3/users</code> file is readable to see that the Argon2 hash changed for the user.</p>
 <p>Deleting a user is simply adding the <code>--delete</code> flag to the command:</p>
-<div class="highlight"><pre><span></span><code>$ allmon3-passwd --delete allmon3
+<div class="highlight"><pre><span></span><code>$ sudo allmon3-passwd --delete allmon3
 </code></pre></div>
 <p>After changing a user's password, the Allmon3 daemon must be reloaded with <code>sudo systemctl reload allmon3</code>.</p>
 <p>See the <a href="../../mans/allmon3-passwd/"><code>allmon3-passwd</code></a> manual page for more available options.</p>
