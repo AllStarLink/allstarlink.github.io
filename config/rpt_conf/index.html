@@ -5706,6 +5706,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#first_keyup_inactivity_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        first_keyup_inactivity_time=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first_keyup_min_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        first_keyup_min_time=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#funcchar" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -6465,28 +6487,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#first_keyup_inactivity_time" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        first_keyup_inactivity_time=
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#first_keyup_min_time" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        first_keyup_min_time=
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#unlinkedct" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -6918,7 +6918,7 @@ control points.</p>
 </tr>
 <tr>
 <td>2</td>
-<td><a href="../../adv-topics/timeofday/">Give Time of Day (global)</a></td>
+<td><a href="../../adv-topics/timeofday/">Give Time of Day</a> (global)</td>
 </tr>
 <tr>
 <td>3</td>
@@ -6938,15 +6938,15 @@ control points.</p>
 </tr>
 <tr>
 <td>12</td>
-<td><a href="../../adv-topics/timeofday/">Give Time of Day (local only)</a></td>
+<td><a href="../../adv-topics/timeofday/">Give Time of Day</a> (local only)</td>
 </tr>
 <tr>
 <td>13</td>
-<td><a href="#ilink5">System status report (local only version of ilink, 5)</a></td>
+<td>System status report (local only version of <a href="#ilink5">ilink,5</a>)</td>
 </tr>
 <tr>
 <td>14</td>
-<td><a href="#ilink15">Full System status report (local only version of ilink, 15)</a></td>
+<td>Full System status report (local only version of <a href="#ilink15">ilink,15</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -7613,6 +7613,35 @@ status,2 = c|f|RPT_NUMLINKS      ; Say time of day when all links disconnect.
 <p>In this example, you would need to configure the section <code>[myextnodes]</code> in your custom <code>rpt_extnodes</code> file. <code>app_rpt</code> will no longer look for an <code>[extnodes]</code> section header for this node, it will look for <code>[myextnodes]</code> instead.</p>
 <p>See the <a href="#extnodefile">extnodefile</a> for more information on how the <code>extnodes</code> section is used.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
+<h3 id="first_keyup_inactivity_time">first_keyup_inactivity_time=</h3>
+<p>Sets the inactivity timer after which the <code>first_keyup_min_time</code> timer becomes active.  The value is in seconds and defaults to 0s (disabled).
+The <code>first_keyup_inactivity_time</code> timer resets after a valid keyup and prevents the <code>first_keyup_min_time</code> from functioning until activity has not been detected for the configured value.</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>;first_keyup_inactivity_time = 180  ; the time (in seconds) with no local RX activity
+                                    ; before the longer "first keyup" event is needed
+                                    ; for TX keying.  Longer intervals would allow
+                                    ; quick conversations, shorter intervals would
+                                    ; force key-wait-talk behavior.
+                                    ; Optional, default 0.
+</code></pre></div></p>
+<h3 id="first_keyup_min_time">first_keyup_min_time=</h3>
+<p>Sets the keyup delay time.  Keyup delay prevents short keyups (less than the configured value) from keyingup the repeater output.  This value is in milliseconds and defaults to 0ms (disabled).</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>;first_keyup_min_time = 200         ; after a period of inactivity, the "first keyup"
+                                    ; time (in ms) that a local RX key event must be
+                                    ; present before the TX will be keyed. This setting
+                                    ; can be used to suppress short noise bursts or
+                                    ; quick keying (kerchunk'ing).
+                                    ; Optional, range 0..1000, default 0.
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title"><code>first_keyup_inactivity_time</code> required</p>
+<p>The <code>first_keyup_min_time</code> is only available if <code>first_keyup_inactivity_time</code> is configured to a non 0 value.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Truncated Audio</p>
+<p>During the <code>first_keyup_min_time</code>, audio is not repeated and will be truncated.</p>
+</div>
 <h3 id="funcchar">funcchar=</h3>
 <p>This setting can be used to change the default function starting character of <code>*</code> to something else. Please note that the new value chosen must not be the same as the default (<code>#</code>) or overridden value for <a href="#endchar"><code>endchar=</code></a>.</p>
 <h3 id="functions">functions=</h3>
@@ -8210,35 +8239,6 @@ This value defaults to 250ms.  If this value is set to 0, the kerchunk will have
 <div class="admonition note">
 <p class="admonition-title"><code>time_out_reset_unkey_interval</code> required</p>
 <p>The use of a kerchunk to reset a timeout is only available if the <code>time_out_reset_unkey_interval</code> is set to a nonzero value. If <code>time_out_reset_unkey_interval</code> is zero (or not defined in rpt.conf) then the traditional way of resetting the time out timer will be used. The traditional way is no delay on local unkey/key to reset a timeout.</p>
-</div>
-<h3 id="first_keyup_inactivity_time">first_keyup_inactivity_time=</h3>
-<p>Sets the inactivity timer after which the <code>first_keyup_min_time</code> timer becomes active.  The value is in seconds and defaults to 0s (disabled).
-The <code>first_keyup_inactivity_time</code> timer resets after a valid keyup and prevents the <code>first_keyup_min_time</code> from functioning until activity has not been detected for the configured value.</p>
-<p>Sample:
-<div class="highlight"><pre><span></span><code>;first_keyup_inactivity_time = 180  ; the time (in seconds) with no local RX activity
-                                    ; before the longer "first keyup" event is needed
-                                    ; for TX keying.  Longer intervals would allow
-                                    ; quick conversations, shorter intervals would
-                                    ; force key-wait-talk behavior.
-                                    ; Optional, default 0.
-</code></pre></div></p>
-<h3 id="first_keyup_min_time">first_keyup_min_time=</h3>
-<p>Sets the keyup delay time.  Keyup delay prevents short keyups (less than the configured value) from keyingup the repeater output.  This value is in milliseconds and defaults to 0ms (disabled).</p>
-<p>Sample:
-<div class="highlight"><pre><span></span><code>;first_keyup_min_time = 200         ; after a period of inactivity, the "first keyup"
-                                    ; time (in ms) that a local RX key event must be
-                                    ; present before the TX will be keyed. This setting
-                                    ; can be used to suppress short noise bursts or
-                                    ; quick keying (kerchunk'ing).
-                                    ; Optional, range 0..1000, default 0.
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title"><code>first_keyup_inactivity_time</code> required</p>
-<p>The <code>first_keyup_min_time</code> is only available if <code>first_keyup_inactivity_time</code> is configured to a non 0 value.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Truncated Audio</p>
-<p>During the <code>first_keyup_min_time</code>, audio is not repeated and will be truncated.</p>
 </div>
 <h3 id="unlinkedct">unlinkedct=</h3>
 <p>This option selects the courtesy tone to be used when the system has no remote nodes connected and is operating as a standalone repeater.</p>
