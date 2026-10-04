@@ -283,6 +283,9 @@
         <loc>https://allstarlink.github.io/adv-topics/tonesignalling/</loc>
       </url>
       <url>
+        <loc>https://allstarlink.github.io/adv-topics/totp-auth/</loc>
+      </url>
+      <url>
         <loc>https://allstarlink.github.io/adv-topics/uefi-secureboot/</loc>
       </url>
       <url>
@@ -410,6 +413,9 @@
       </url>
       <url>
         <loc>https://allstarlink.github.io/config/rpt_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/rpt_auth_conf/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/config/simpleusb_conf/</loc>
