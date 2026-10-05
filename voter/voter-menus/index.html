@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#voterrtcm-hardware-menu-system" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3300,6 +3326,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permissions/" class="md-nav__link">
         
   
@@ -3767,33 +3820,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5389,8 +5415,6 @@
       
         
       
-        
-      
     
     
     
@@ -5586,33 +5610,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5707,8 +5704,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="voterrtcm-hardware-menu-system">VOTER/RTCM Hardware Menu System</h1>
 <p>Both the VOTER and the RTCM run the same (similar) firmware. The menus are consistent between them both.</p>
@@ -5744,7 +5743,7 @@ Logged in successfully, now joining console session...
 15  - Alt. VOTER Server Address (FQDN) ()
 16  - Alt. VOTER Server Port (Override) (0)
 17  - DSP/BEW Mode NOT SUPPORTED
-18 - "Duplex Mode 3" (0=DISABLED, 1-255 Hang Time) (1/10 secs) (0)
+18 - &quot;Duplex Mode 3&quot; (0=DISABLED, 1-255 Hang Time) (1/10 secs) (0)
 19 - Simulcast Launch Delay (0) (approx 200 ns, 5 = 1us, &gt; 0 to ENA SC)
 97 - RX Level,  98 - Status,  99 - Save Values to EEPROM
 i - IP Parameters menu, o - Offline Mode Parameters menu, s - Squelch menu
@@ -5920,9 +5919,9 @@ Select the following values to View/Modify:
 2  - CW Speed (400) (1/8000 secs)
 3  - Pre-CW Delay (4000) (1/8000 secs)
 4  - Post-CW Delay (4000) (1/8000 secs)
-5  - CW "Offline" (ID) String (N0CALL/R)
-6  - CW "Online" String (OK)
-7  - "Offline" (CW ID) Period Time (18000) (1/10 secs)
+5  - CW &quot;Offline&quot; (ID) String (N0CALL/R)
+6  - CW &quot;Online&quot; String (OK)
+7  - &quot;Offline&quot; (CW ID) Period Time (18000) (1/10 secs)
 8  - Offline Repeat Hang Time (15) (1/10 secs)
 9  - Offline CTCSS Tone (136.5) Hz
 10 - Offline CTCSS Level (0-32767) (1500)
@@ -5991,7 +5990,7 @@ Enter Selection (1-3,99,x,q,r) :
 
 1  - Set Initial Tone Level (and assert PTT)
 2  - Display Value of DIP Switches
-3  - Flash LED's in sequence
+3  - Flash LED&#39;s in sequence
 4  - Run entire diag suite
 x -  Exit Diagnostic Menu (back to main menu)
 q - Disconnect Remote Console Session, r - reboot system
@@ -6011,7 +6010,7 @@ Enter Selection (1-4,x,q,r) :
 <p>In order to run the diagnostic suite, you will need to build the following test cables/connectors. Note that these instructions are for the RTCM, the connections will be different for the VOTER.</p>
 <div class="highlight"><pre><span></span><code>DB9(f) 9 Pin D-Shell Connector (Radio Connector):
 1 - VIN (+12V or so)
-2 (TX Audio Out) - connects to - 3 (RX Audio In) and also is output to 'scope for tone measurement
+2 (TX Audio Out) - connects to - 3 (RX Audio In) and also is output to &#39;scope for tone measurement
 4 (External CTCSS In) - connects to - 7 (/PTT Out)
 5 - Gnd
 </code></pre></div>
@@ -6154,7 +6153,7 @@ Press The Any Key (Enter) To Continue
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -6211,10 +6210,10 @@ Press The Any Key (Enter) To Continue
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

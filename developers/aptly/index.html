@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#allstarlink-apt-repos" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3300,6 +3326,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permissions/" class="md-nav__link">
         
   
@@ -3767,33 +3820,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5243,8 +5269,6 @@
       
         
       
-        
-      
     
     
     
@@ -5440,33 +5464,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5561,8 +5558,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="allstarlink-apt-repos">AllStarLink Apt Repos</h1>
 <p>AllStarLink's primary installation method is through the use of Debian packages and the Apt deployment system.</p>
@@ -5609,7 +5608,7 @@ deb [signed-by=/etc/apt/keyrings/allstarlink.gpg] https://repo.allstarlink.org/p
 <h3 id="setup">Setup</h3>
 <p>All commands to Aptly must be run as the <code>aptly</code> user. To do this, each account on the repository server should be member of the <code>sudo</code> and <code>aptly</code> UNIX groups.</p>
 <p>Before issuing any Aptly commands run the following:</p>
-<div class="highlight"><pre><span></span><code>alias aptly="sudo -u aptly -- aptly"
+<div class="highlight"><pre><span></span><code>alias aptly=&quot;sudo -u aptly -- aptly&quot;
 </code></pre></div>
 <p>to ensure that all commands are run as the <code>aptly</code> user.</p>
 <h3 id="adding-a-file-to-a-local-repo">Adding a File to a Local Repo</h3>
@@ -5631,9 +5630,9 @@ Loading packages...
 Loading packages...
 Generating metadata files and linking package files...
 Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix "." components beta, devel, main...
+Signing file &#39;Release&#39; with gpg, please enter your passphrase when prompted:
+Clearsigning file &#39;Release&#39; with gpg, please enter your passphrase when prompted:
+Cleaning up prefix &quot;.&quot; components beta, devel, main...
 
 Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-bookworm-beta]}, {devel: [asl3-bookworm-devel]}, {main: [asl3-bookworm-prod]} has been successfully updated.
 </code></pre></div>
@@ -5648,11 +5647,11 @@ asl3_3.0.0-1.deb_all
 [...]
 </code></pre></div>
 <h4 id="search-by-name">Search by name</h4>
-<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod 'Name (asl3)'
+<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod &#39;Name (asl3)&#39;
 asl3_3.0.0-1.deb_all
 </code></pre></div>
 <h4 id="search-by-name-glob-version">Search by name glob + version</h4>
-<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod &#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -5664,7 +5663,7 @@ asl3-asterisk-tests_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 </code></pre></div>
 <h4 id="search-by-name-glob-version-range">Search by name glob + version range</h4>
-<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod 'Name (~ asl3-asterisk*), Version (&gt;= 1.0)'
+<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-prod &#39;Name (~ asl3-asterisk*), Version (&gt;= 1.0)&#39;
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
@@ -5680,7 +5679,7 @@ asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_amd64
 <ol>
 <li>
 <p>Test package selection using <code>aptly repo search</code></p>
-<div class="highlight"><pre><span></span><code>$ $ aptly repo search asl3-bookworm-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<div class="highlight"><pre><span></span><code>$ $ aptly repo search asl3-bookworm-beta &#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_amd64
 asl3-asterisk_2:20.7.0+asl3-1.0-5.deb12_arm64
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
@@ -5700,7 +5699,7 @@ asl3-asterisk-tests-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64
 </li>
 <li>
 <p>Move the packages into the production repository using <code>aptly repo move</code></p>
-<div class="highlight"><pre><span></span><code>$ aptly repo move asl3-bookworm-beta asl3-bookworm-prod 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)'
+<div class="highlight"><pre><span></span><code>$ aptly repo move asl3-bookworm-beta asl3-bookworm-prod &#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12)&#39;
 Loading packages...
 [o] asl3-asterisk-dbgsym_2:20.7.0+asl3-1.0-5.deb12_arm64 moved
 [o] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all moved
@@ -5725,9 +5724,9 @@ Loading packages...
 Loading packages...
 Generating metadata files and linking package files...
 Finalizing metadata files...
-Signing file 'Release' with gpg, please enter your passphrase when prompted:
-Clearsigning file 'Release' with gpg, please enter your passphrase when prompted:
-Cleaning up prefix "." components beta, devel, main...
+Signing file &#39;Release&#39; with gpg, please enter your passphrase when prompted:
+Clearsigning file &#39;Release&#39; with gpg, please enter your passphrase when prompted:
+Cleaning up prefix &quot;.&quot; components beta, devel, main...
 
 Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [asl3-bookworm-beta]}, {devel: [asl3-bookworm-devel]}, {main: [asl3-bookworm-prod]} has been successfully updated.
 </code></pre></div>
@@ -5736,12 +5735,12 @@ Publish for local repo ./bookworm [all, amd64, arm64, armhf] publishes {beta: [a
 <h2 id="note-on-all-architecture-packages">Note on 'all' Architecture Packages</h2>
 <p>The architecture <code>all</code> denotes that the package contains no binary compiled code and runs on any architecture. This is meaningful when handling asl3-asterisk packages for multiple architectures. <strong>Within the same version and release</strong> only one copy of the <code>all</code> packages needs to and CAN exist in the repository. The GitHub Runner builder will delete the <code>all</code> packages for the <code>arm64</code> build since the <code>arm64</code> and <code>amd64</code> builds should occur simultaneously.</p>
 <p>To delete an extra set of <code>all</code> packages that may have ended up in the repository:</p>
-<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
+<div class="highlight"><pre><span></span><code>$ aptly repo search asl3-bookworm-beta &#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;
 asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-dev_2:20.7.0+asl3-1.0-5.deb12_all
 asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all
 
-$ aptly repo remove asl3-bookworm-beta 'Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)'
+$ aptly repo remove asl3-bookworm-beta &#39;Name (~ asl3-asterisk*), Version (2:20.7.0+asl3-1.0-5.deb12), Architecture (all)&#39;
 Loading packages...
 [-] asl3-asterisk-config_2:20.7.0+asl3-1.0-5.deb12_all removed
 [-] asl3-asterisk-doc_2:20.7.0+asl3-1.0-5.deb12_all removed
@@ -5861,7 +5860,7 @@ Loading packages...
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5918,10 +5917,10 @@ Loading packages...
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

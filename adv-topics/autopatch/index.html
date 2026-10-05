@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#autopatch" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3507,6 +3533,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -3974,33 +4027,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5254,8 +5280,6 @@
       
         
       
-        
-      
     
     
     
@@ -5451,33 +5475,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5572,8 +5569,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="autopatch">Autopatch</h1>
 <p>The autopatch feature in <code>app_rpt</code> allows users on the radio to interconnect with the public switched telephone network (PSTN). This means an amateur radio operator can dial a phone number from the radio and be connected to a phone. The reverse is also possible with someone being able to dial a phone number and be connected to the node. This is achieved using an account with a VOIP service provider and connecting the AllStar node.</p>
@@ -5688,7 +5687,7 @@ load = res_sorcery_realtime.so
 <p>In the <code>/etc/asterisk/rpt.conf</code> configuration file, the stanza for the node needs to specify the context for the autopatch. The name of the context should match the name added to <code>extensions.conf</code>:</p>
 <p><div class="highlight"><pre><span></span><code>[1234]
 context = autopatch                ; dialing context for phone
-callerid = "Repeater" &lt;0000000000&gt; ; callerid for phone calls
+callerid = &quot;Repeater&quot; &lt;0000000000&gt; ; callerid for phone calls
 accountcode = RADIO                ; account code (optional)
 </code></pre></div>
 You should also add entries to the <code>[functions]</code> stanza so that users can bring up or take down the autopatch:</p>
@@ -5747,22 +5746,22 @@ You should also add entries to the <code>[functions]</code> stanza so that users
 <p>Paste this script into the file:</p>
 <div class="highlight"><pre><span></span><code>#!/bin/bash
 # Target pattern to match (adjust as needed for different calls)
-TARGET_PATTERN="IAX2/voipms-"
-# TARGET_PATTERN="PJSIP/flowroute-"
+TARGET_PATTERN=&quot;IAX2/voipms-&quot;
+# TARGET_PATTERN=&quot;PJSIP/flowroute-&quot;
 # Get the list of channels and their concise details
-CHANNELS=$(asterisk -rx "core show channels concise")
-echo "Checking for matching channels..."
-echo "--------------------------------"
+CHANNELS=$(asterisk -rx &quot;core show channels concise&quot;)
+echo &quot;Checking for matching channels...&quot;
+echo &quot;--------------------------------&quot;
 # Iterate over each line to find the target channel
 while IFS= read -r line; do
     if [[ $line == $TARGET_PATTERN* ]]; then
-        CHANNEL=$(echo "$line" | awk -F'!' '{print $1}')
-        CALLERID=$(echo "$line" | awk -F'!' '{print $3}')
-        echo "Found matching channel: $CHANNEL with Caller ID: $CALLERID"
-        echo "Hanging up channel: $CHANNEL"
-        asterisk -rx "channel request hangup $CHANNEL"
+        CHANNEL=$(echo &quot;$line&quot; | awk -F&#39;!&#39; &#39;{print $1}&#39;)
+        CALLERID=$(echo &quot;$line&quot; | awk -F&#39;!&#39; &#39;{print $3}&#39;)
+        echo &quot;Found matching channel: $CHANNEL with Caller ID: $CALLERID&quot;
+        echo &quot;Hanging up channel: $CHANNEL&quot;
+        asterisk -rx &quot;channel request hangup $CHANNEL&quot;
     fi
-done &lt;&lt;&lt; "$CHANNELS"
+done &lt;&lt;&lt; &quot;$CHANNELS&quot;
 </code></pre></div>
 <p>Save the file and make it executable:</p>
 <div class="highlight"><pre><span></span><code>sudo chmod +x /var/lib/asterisk/hangupPhones
@@ -5788,7 +5787,7 @@ exten =&gt; _NXXNXXXXXX,n,Hangup()
 <p>To setup the 911 extension, add the following lines to the <code>[autopatch]</code> stanza:</p>
 <div class="highlight"><pre><span></span><code>; Match 911
 exten =&gt; 911,1,Dial(IAX2/voipms/${EXTEN})
-; The Dial command routes the call through the IAX2 channel to the "voipms" trunk,
+; The Dial command routes the call through the IAX2 channel to the &quot;voipms&quot; trunk,
 ; passing the dialed number (${EXTEN}) to the provider.
 
 ; After the call is completed, hang up the line.
@@ -5822,10 +5821,10 @@ exten =&gt; _X.,n,Wait(1)
 ; Optional: Bypass PIN for trusted caller
 ; Uncomment the below line to enable this feature:
 ; If the incoming call is from a trusted number (5551234567 or 5559876543 in this example),
-; skip the PIN code and go directly to the "${VOIPDID}" label.
-;exten =&gt; _X.,n,GotoIf($["${CALLERID(num)}" = "+15555551234"]?5555554321,1)
-; Example of how to "trust" two (or more) phone numbers
-; exten =&gt; _X.,n,GotoIf($["${CALLERID(num)}" = "5551234567" | "${CALLERID(num)}" = "5559876543"]?${VOIPDID},1)
+; skip the PIN code and go directly to the &quot;${VOIPDID}&quot; label.
+;exten =&gt; _X.,n,GotoIf($[&quot;${CALLERID(num)}&quot; = &quot;+15555551234&quot;]?5555554321,1)
+; Example of how to &quot;trust&quot; two (or more) phone numbers
+; exten =&gt; _X.,n,GotoIf($[&quot;${CALLERID(num)}&quot; = &quot;5551234567&quot; | &quot;${CALLERID(num)}&quot; = &quot;5559876543&quot;]?${VOIPDID},1)
 
 ; Initialize an attempt counter
 exten =&gt; _X.,n,Set(ATTEMPTS=0)
@@ -5833,25 +5832,25 @@ exten =&gt; _X.,n,Set(ATTEMPTS=0)
 exten =&gt; _X.,n(start),Playback(message)
 
 ; Wait for the caller to enter a 4-digit PIN.
-; - "PIN" is the variable where the entered digits will be stored.
-; - "beep" will play a beep sound to prompt the user.
-; - "4" specifies the PIN length (4 digits).
-; - ",,5" sets a 5-second timeout for the user to start entering the PIN.
+; - &quot;PIN&quot; is the variable where the entered digits will be stored.
+; - &quot;beep&quot; will play a beep sound to prompt the user.
+; - &quot;4&quot; specifies the PIN length (4 digits).
+; - &quot;,,5&quot; sets a 5-second timeout for the user to start entering the PIN.
 exten =&gt; _X.,n,Read(PIN,beep,4,,,5)
 
 ; SET YOUR PIN(s) HERE! THESE PIN(s) WILL BE USED TO PATCH INTO THE REPEATER
 ; Check if the entered PIN is one of the valid PINs.
-; - If the PIN is correct, the call will go to the label "wait-for-pound".
+; - If the PIN is correct, the call will go to the label &quot;wait-for-pound&quot;.
 ; - If not, it will continue to the next step.
-exten =&gt; _X.,n,GotoIf($["${PIN}" = "1234"]?wait-for-pound)
+exten =&gt; _X.,n,GotoIf($[&quot;${PIN}&quot; = &quot;1234&quot;]?wait-for-pound)
 ; Example of how to set up two (or more) PINs:
-; exten =&gt; _X.,n,GotoIf($["${PIN}" = "1234" | "${PIN}" = "5678"]?wait-for-pound)
+; exten =&gt; _X.,n,GotoIf($[&quot;${PIN}&quot; = &quot;1234&quot; | &quot;${PIN}&quot; = &quot;5678&quot;]?wait-for-pound)
 
 ; Increment the attempt counter
 exten =&gt; _X.,n,Set(ATTEMPTS=$[${ATTEMPTS}+1])
 
 ; If the PIN is invalid, play a message saying it was incorrect.
-; "confbridge-invalid" says: "You have entered an invalid option."
+; &quot;confbridge-invalid&quot; says: &quot;You have entered an invalid option.&quot;
 exten =&gt; _X.,n,Playback(confbridge-invalid)
 
 ; Check if the attempt counter has reached 3
@@ -5862,29 +5861,29 @@ exten =&gt; _X.,n,GotoIf($[${ATTEMPTS} &gt;= 3]?too-many-failures)
 exten =&gt; _X.,n,Goto(start)
 
 ; If the user fails to enter a valid PIN after 3 attempts, play a message saying they have entered too many invalid PINs.
-; "confbridge-pin-bad" says: "You have entered too many invalid personal identification numbers."
+; &quot;confbridge-pin-bad&quot; says: &quot;You have entered too many invalid personal identification numbers.&quot;
 exten =&gt; _X.,n(too-many-failures),Playback(confbridge-pin-bad)
 
 ; Hang up the call after the failure message.
 exten =&gt; _X.,n,Hangup()
 
-; After the valid PIN is entered, wait for the user to press the "#" key.
-; - This command waits for the user to press "#" to confirm the PIN entry.
-; - The 5-second timeout will give the user time to press "#".
+; After the valid PIN is entered, wait for the user to press the &quot;#&quot; key.
+; - This command waits for the user to press &quot;#&quot; to confirm the PIN entry.
+; - The 5-second timeout will give the user time to press &quot;#&quot;.
 exten =&gt; _X.,n(wait-for-pound),WaitExten(5)
 
-; If the user presses "#", go to the "${VOIPDID}" label.
+; If the user presses &quot;#&quot;, go to the &quot;${VOIPDID}&quot; label.
 exten =&gt; #,1,Goto(${VOIPDID},1)
 
-; If "#" is not pressed, go to the start label.
+; If &quot;#&quot; is not pressed, go to the start label.
 exten =&gt; _X.,89,Goto(start)
 
-; If the correct PIN was entered and "#" was pressed, play a message confirming the connection.
-; "rpt/connected" could say something like: "You are now connected."
+; If the correct PIN was entered and &quot;#&quot; was pressed, play a message confirming the connection.
+; &quot;rpt/connected&quot; could say something like: &quot;You are now connected.&quot;
 exten =&gt; ${VOIPDID},1,Playback(rpt/connected)
 
-; Connect the caller to the repeater using the "rpt" command.
-; The "|P" option is used to specify "phone" mode in app_rpt.
+; Connect the caller to the repeater using the &quot;rpt&quot; command.
+; The &quot;|P&quot; option is used to specify &quot;phone&quot; mode in app_rpt.
 exten =&gt; ${VOIPDID},n,rpt(${NODE}|Pv)
 
 ; Hang up the call after the connection is made.
@@ -6095,7 +6094,7 @@ simplexphonedelay = 25 ; Delay for phone while in patch for 20ms increments
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -6152,10 +6151,10 @@ simplexphonedelay = 25 ; Delay for phone while in patch for 20ms increments
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

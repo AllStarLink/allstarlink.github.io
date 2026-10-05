@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#debian-os-upgrades" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3326,6 +3352,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../adv-topics/parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../adv-topics/permissions/" class="md-nav__link">
         
   
@@ -3793,33 +3846,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../adv-topics/totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5073,8 +5099,6 @@
       
         
       
-        
-      
     
     
     
@@ -5270,33 +5294,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5391,8 +5388,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="debian-os-upgrades">Debian OS Upgrades</h1>
 <div class="admonition warning">
@@ -5423,7 +5422,7 @@ apt<span class="w"> </span>dist-upgrade<span class="w"> </span>-y
 <li>
 <p>Change the <code>apt</code> configuration to pull packages from the
 Trixie release:</p>
-<div class="highlight"><pre><span></span><code>perl<span class="w"> </span>-pi<span class="w"> </span>-e<span class="w"> </span><span class="s1">'s/bookworm/trixie/g'</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>perl<span class="w"> </span>-pi<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s/bookworm/trixie/g&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/etc/apt/sources.list<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/etc/apt/sources.list.d/*
 </code></pre></div>
@@ -5433,9 +5432,9 @@ Trixie release:</p>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update
 </code></pre></div>
 <p>If the last few lines complain about the following:
-<div class="highlight"><pre><span></span><code>N: Skipping acquire of configured file 'main/binary-armhf/Packages' as repository 'https://repo.allstarlink.org/public trixie InRelease' doesn't support architecture 'armhf'
-N: Skipping acquire of configured file 'beta/binary-armhf/Packages' as repository 'https://repo.allstarlink.org/public trixie InRelease' doesn't support architecture 'armhf'
-N: Skipping acquire of configured file 'devel/binary-armhf/Packages' as repository 'https://repo.allstarlink.org/public trixie InRelease' doesn't support architecture 'armhf'
+<div class="highlight"><pre><span></span><code>N: Skipping acquire of configured file &#39;main/binary-armhf/Packages&#39; as repository &#39;https://repo.allstarlink.org/public trixie InRelease&#39; doesn&#39;t support architecture &#39;armhf&#39;
+N: Skipping acquire of configured file &#39;beta/binary-armhf/Packages&#39; as repository &#39;https://repo.allstarlink.org/public trixie InRelease&#39; doesn&#39;t support architecture &#39;armhf&#39;
+N: Skipping acquire of configured file &#39;devel/binary-armhf/Packages&#39; as repository &#39;https://repo.allstarlink.org/public trixie InRelease&#39; doesn&#39;t support architecture &#39;armhf&#39;
 </code></pre></div></p>
 <p>Then remove the "armhf" architecture legacy configuration
 with:
@@ -5470,7 +5469,7 @@ it is safe to choose "Yes".</p>
 <li>
 <p>Remove all legacy package data or other information
 that is no longer needed:</p>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>purge<span class="w"> </span>-y<span class="w"> </span><span class="k">$(</span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">'^rc'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>purge<span class="w"> </span>-y<span class="w"> </span><span class="k">$(</span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;^rc&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
 </code></pre></div>
 </li>
 <li>
@@ -5596,7 +5595,7 @@ applications.</p>
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5653,10 +5652,10 @@ applications.</p>
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

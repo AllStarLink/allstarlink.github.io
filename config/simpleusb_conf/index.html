@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/config/simpleusb_conf/">
       
       
-        <link rel="prev" href="../rpt_auth_conf/">
+        <link rel="prev" href="../rpt_conf/">
       
       
         <link rel="next" href="../tlb_conf/">
@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#simpleusbconf" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3300,6 +3326,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permissions/" class="md-nav__link">
         
   
@@ -3767,33 +3820,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5049,8 +5075,6 @@
       
         
       
-        
-      
     
     
     
@@ -5230,33 +5254,6 @@
     
   
   rpt.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
 
     
   </span>
@@ -5854,8 +5851,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="simpleusbconf">simpleusb.conf</h1>
 <p><code>simpleusb.conf</code> (<code>/etc/asterisk/simpleusb.conf</code>) is used to configure SimpleUSB channel driver, <code>chan_simpleusb</code>, for use with interfacing a radio interface module (often a C-Media compatible sound card) to <code>Asterisk/app_rpt</code>.</p>
@@ -6014,7 +6013,7 @@ gpio6 = out1                        ; set GPIO 6 as a normally high output
 <h3 id="pager">pager=</h3>
 <p>This option sets which channel should be used to send POCSAG paging data. The valid options are <code>no</code>, <code>a</code> (left), or <code>b</code> (right). The default is <code>no</code>. </p>
 <p>Sample:</p>
-<div class="highlight"><pre><span></span><code>pager = b                           ; put normal repeat audio on channel "a", and paging data on channel "b"
+<div class="highlight"><pre><span></span><code>pager = b                           ; put normal repeat audio on channel &quot;a&quot;, and paging data on channel &quot;b&quot;
 </code></pre></div>
 <p><strong>This option is not included in the default <code>simpleusb.conf</code></strong></p>
 <h3 id="plfilter">plfilter=</h3>
@@ -6099,7 +6098,7 @@ frags = 1966092                     ; request 30 buffers (fragments) of size 409
 <p>The default <code>frags</code> value is <code>0x001E000C</code> (<code>1966092</code> decimal).  <code>0x001E</code> is <code>30</code> decimal. This asks for 30 buffers. <code>0x000C</code> is <code>12</code> decimal. This requests 2 raised to the power of 12, which is 4096 bytes. The value <code>1966092</code> decimal (<code>0x001E000C</code>) requests that the sound card driver give <code>chan_simpleusb</code> 30 buffers that are 4096 bytes in length.</p>
 <h2 id="hardware-type-hdwtype">Hardware Type (hdwtype=)</h2>
 <p>The hardware type option (<code>hdwtype</code>) sets how <code>chan_simpleusb</code> expects different I/O signals to be mapped on the USB radio interface. The valid settings are <code>0</code>, <code>1</code>, <code>2</code>, or <code>3</code>. Those are further defined as:</p>
-<div class="highlight"><pre><span></span><code>hdwtype = 0                         ; USB radio interfaces designed for `app_rpt`, "DudeUSB", RIM, URI, or generic modified CM-xxx sound fobs
+<div class="highlight"><pre><span></span><code>hdwtype = 0                         ; USB radio interfaces designed for `app_rpt`, &quot;DudeUSB&quot;, RIM, URI, or generic modified CM-xxx sound fobs
 VOL DN - COR
 VOL UP - EXT CTCSS
 GPIO 3 - PTT
@@ -6160,7 +6159,7 @@ VALID GPIOs - 1
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../rpt_auth_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: rpt_auth.conf">
+          <a href="../rpt_conf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: rpt.conf">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
@@ -6170,7 +6169,7 @@ VALID GPIOs - 1
                 Previous
               </span>
               <div class="md-ellipsis">
-                rpt_auth.conf
+                rpt.conf
               </div>
             </div>
           </a>
@@ -6237,7 +6236,7 @@ VALID GPIOs - 1
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -6294,10 +6293,10 @@ VALID GPIOs - 1
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#asl-text-to-speech" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3396,6 +3422,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -3863,33 +3916,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5143,8 +5169,6 @@
       
         
       
-        
-      
     
     
     
@@ -5340,33 +5364,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5461,8 +5458,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="asl-text-to-speech">ASL Text-to-Speech</h1>
 <p>ASL provides the <code>asl-tts</code> command. This is a text to speech speaker for ASL3. It uses the <a href="https://github.com/rhasspy/piper">piper</a> open source TTS system that is not dependent on cloud providers and has opensource voice models for dozens of languages.</p>
@@ -5476,23 +5475,23 @@
 <p>Running the <code>piper-tts</code> system takes a few seconds to compile the voice into the sound file. Larger text blocks may take tens of seconds to compile. <code>asl-tts</code> is not appropriate for time-sensitive communications such as speaking the current time.</p>
 </div>
 <p>The command format is as follows:</p>
-<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n &lt;node&gt; -t 'TEXT' [ -v &lt;voice&gt; ] [ -f &lt;file&gt; ]
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n &lt;node&gt; -t &#39;TEXT&#39; [ -v &lt;voice&gt; ] [ -f &lt;file&gt; ]
 </code></pre></div>
 <p>The general use case is to speak to a node immediately. This this case speaking the text "Good morning" to node 63001 would look like this:</p>
-<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -t 'Good morning'
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -t &#39;Good morning&#39;
 </code></pre></div>
 <p>The TTS engine will start, create the audio, and execute the playback on the node. The playback follows normal <code>app_rpt</code> rules and will be played back as soon as its turn arrives. The command will not preempt or "talk over" other traffic on the node.</p>
 <p>Keep in mind the differences between quoting in a shell command. In general, the <code>"</code> and <code>'</code> work the same but the double-quote will allow variable substitution while the single quote will not. This can be useful if you want to create text based on a system condition. For example:</p>
-<div class="highlight"><pre><span></span><code>TODAY=$(date +"%A, %B %d, %Y")
-sudo -u asterisk asl-tts -n 63001 -t "Today is ${TODAY}"
+<div class="highlight"><pre><span></span><code>TODAY=$(date +&quot;%A, %B %d, %Y&quot;)
+sudo -u asterisk asl-tts -n 63001 -t &quot;Today is ${TODAY}&quot;
 </code></pre></div>
 <p>Obviously the above example is a bit contrived as the <code>date</code> command doesn't generate nice words such as "first", "seventeenth", etc. However, it demonstrates the flexibility of the tool. A script could be used to populate <code>$TODAY</code> with natural words. For a hypothetical example:</p>
 <div class="highlight"><pre><span></span><code>TODAY=$(/path/to/today-script)
-sudo -u asterisk asl-tts -n 63001 -t "Today is ${TODAY}"
+sudo -u asterisk asl-tts -n 63001 -t &quot;Today is ${TODAY}&quot;
 </code></pre></div>
 <p>More complex message can be created with additional shell coding. As an example here's how the current public IP address of the system could be obtained and spoken:</p>
-<div class="highlight"><pre><span></span><code>IPADDR=$(wget -q -O - checkip.dyndns.com | grep -Po "[\d\.]+" | sed 's/\./ dot /g')
-MSG="The node public IP is ${IPADDR}"
+<div class="highlight"><pre><span></span><code>IPADDR=$(wget -q -O - checkip.dyndns.com | grep -Po &quot;[\d\.]+&quot; | sed &#39;s/\./ dot /g&#39;)
+MSG=&quot;The node public IP is ${IPADDR}&quot;
 sudo -u asterisk asl-tts -n 63001 -t ${MSG}
 </code></pre></div>
 <p>A <code>bash</code> shell variable can generally hold up to a 2 Mb-sized string so any reasonably-formatted text can be stored in a variable and then played with the <code>-t</code> command. Keep in mind that the text or the variable contents must not contain the same quote type used in the command without escaping it with a backslash. For example <code>"Nested \" mark"</code>.</p>
@@ -5503,11 +5502,11 @@ sudo -u asterisk asl-tts -n 63001 -t ${MSG}
 <h2 id="creating-a-sound-file-for-later">Creating a Sound File for Later</h2>
 <p>To create the text for other usage, such as cron jobs, use the <code>-f FILE</code> option to specify where the file should be created. Do not use an extension, the file will be automatically appended with the <code>.ul</code> suffix.</p>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code>AUD_TEXT="The club net will begin in five minutes!"
-sudo -u asterisk asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
+<div class="highlight"><pre><span></span><code>AUD_TEXT=&quot;The club net will begin in five minutes!&quot;
+sudo -u asterisk asl-tts -n 460181 -t &quot;${AUD_TEXT}&quot; -f /tmp/netstartsin5
 </code></pre></div>
 <p>This will create a sound file <code>/tmp/netstartsin5.ul</code> that can be used later with an asterisk playback such as:</p>
-<div class="highlight"><pre><span></span><code>asterisk -rx 'rpt playback 63001 /tmp/netstartsin5
+<div class="highlight"><pre><span></span><code>asterisk -rx &#39;rpt playback 63001 /tmp/netstartsin5
 </code></pre></div>
 <p>Note that <code>-n</code> is required but irrelevant to this use case.</p>
 <h2 id="voices">Voices</h2>
@@ -5521,7 +5520,7 @@ sudo -u asterisk asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
 <p>Specify <code>-v en_GB-alan-low.onnx</code> on the command line to <code>asl-tts</code>. As an example:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -v en_GB-alan-low.onnx -t "Good morning"
+<div class="highlight"><pre><span></span><code>sudo -u asterisk asl-tts -n 63001 -v en_GB-alan-low.onnx -t &quot;Good morning&quot;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">File Quality</p>
@@ -5643,7 +5642,7 @@ sudo -u asterisk asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5700,10 +5699,10 @@ sudo -u asterisk asl-tts -n 460181 -t "${AUD_TEXT}" -f /tmp/netstartsin5
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

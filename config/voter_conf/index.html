@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -81,14 +81,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#voterconf" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -194,6 +191,8 @@
       
         
           
+        
+      
         
       
         
@@ -626,8 +625,6 @@
       
         
       
-        
-      
     
     
     
@@ -721,6 +718,8 @@
       
         
           
+        
+      
         
       
         
@@ -909,6 +908,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3298,6 +3324,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/permissions/" class="md-nav__link">
         
   
@@ -3765,33 +3818,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5047,8 +5073,6 @@
       
         
       
-        
-      
     
     
     
@@ -5228,33 +5252,6 @@
     
   
   rpt.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
 
     
   </span>
@@ -5774,8 +5771,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="voterconf">voter.conf</h1>
 <p>The <code>voter.conf</code> file is generally going to be located with the rest of the Asterisk configuration files, in <code>/etc/asterisk</code>.</p>
@@ -5836,8 +5835,8 @@ txctcss = 100.0             ; Transmit CTCSS frequency
 txctcsslevel = 62           ; Transmit CTCSS level (default of 62 if txctcss is supplied, but txctcsslevel is not set)
 txtoctype = phase           ; Transmit tone control type: none,phase,notone
                             ; none - CTCSS tone encoding with no hang time (default)
-                            ; phase - encode CTCSS and reverse phase (AKA "reverse burst") before un-keying TX
-                            ; notone - encode CTCSS and stop sending tone before un-keying TX (AKA "chicken burst")
+                            ; phase - encode CTCSS and reverse phase (AKA &quot;reverse burst&quot;) before un-keying TX
+                            ; notone - encode CTCSS and stop sending tone before un-keying TX (AKA &quot;chicken burst&quot;)
 
 ;gtxgain = 3.0              ; adjust the audio gain to all transmitters (in db voltage gain)
 ;hostdeemp = 1              ; force the use of the DSP FIR Integrator providing de-emphasis at 8000 samples/sec. Used with Duplex Mode 3 setting in RTCM/VOTER
@@ -5850,14 +5849,14 @@ thresholds = 255,110=5      ;
 ; primary = 10.20.20.1:667,mypaswd  ; used in redundant server applications only. must be ONLY set on the secondary server to point to the primary
 
 [1998]                      ; define another voting instance on this server (for another node). Three simulcast transmitters and four receivers.
-                            ; NOTE: there is NO "master" in this instance, since we already have a master timing source on this server defined above 
+                            ; NOTE: there is NO &quot;master&quot; in this instance, since we already have a master timing source on this server defined above 
 
 NORTH = password_1,transmit ; transmit/receive site
 SOUTH = Password_2,transmit ; transmit/receive site
 EAST = password_3,nodeemp   ; receive-only site, bypass de-emphasis filter in RTCM
 WEST = Password_4,transmit,noplfilter   ; transmit/receive site, bypass CTCSS filter in RTCM
 
-[1997]                      ; special application using mix-mode (aka general purpose) nodes in a "mixminus" configuration
+[1997]                      ; special application using mix-mode (aka general purpose) nodes in a &quot;mixminus&quot; configuration
 Site01 = secret1,transmit,nodeemp,noplfilter
 Site02 = secret2,transmit,nodeemp,noplfilter
 Site03 = secret3,transmit,nodeemp,noplfilter
@@ -5946,13 +5945,13 @@ buflen * 8).</p>
 <h3 id="puckit">puckit</h3>
 <p>This directive is only used for debugging.</p>
 <p><code>puckit</code> attempts to fix a problem with Garmin GPS pucks. Use at your own risk. Per Jim's notes in the source:</p>
-<div class="highlight"><pre><span></span><code>/* This is just a horrendous KLUDGE!! Some Garmin LVC-18 GPS "pucks"
- *sometimes* get EXACTLY 1 second off!! Some don't do it at all.
+<div class="highlight"><pre><span></span><code>/* This is just a horrendous KLUDGE!! Some Garmin LVC-18 GPS &quot;pucks&quot;
+ *sometimes* get EXACTLY 1 second off!! Some don&#39;t do it at all.
  Some do it constantly. Some just do it once in a while. In an attempt
- to be at least somewhat tolerant of such swine poo-poo, the "puckit"
+ to be at least somewhat tolerant of such swine poo-poo, the &quot;puckit&quot;
  configuration flag may be set, which makes an attempt to deal with
- this problem by keeping a "time differential" for each client (compared
- with the "master") and applying it to time information within the protocol.
+ this problem by keeping a &quot;time differential&quot; for each client (compared
+ with the &quot;master&quot;) and applying it to time information within the protocol.
  Obviously, this SHOULD NEVER HAVE TO BE DONE. */
 </code></pre></div>
 <h2 id="voter-instances">VOTER Instances</h2>
@@ -6008,8 +6007,8 @@ txctcss = 100.0         ; Transmit CTCSS frequency
 txctcsslevel = 62       ; Transmit CTCSS level (default of 62 if txctcss is supplied, but txctcsslevel is not set)
 txtoctype = phase       ; Transmit tone control type: none,phase,notone
                 ; none - CTCSS tone encoding with no hang time (default)
-                ; phase - encode CTCSS and reverse phase (AKA "reverse burst") before unkeying TX
-                ; notone - encode CTCSS and stop sending tone before unkeying TX (AKA "chicken burst")
+                ; phase - encode CTCSS and reverse phase (AKA &quot;reverse burst&quot;) before unkeying TX
+                ; notone - encode CTCSS and stop sending tone before unkeying TX (AKA &quot;chicken burst&quot;)
 
 ;gtxgain = 3.0          ; adjust the audio gain to all transmitters (in db voltage gain)
 ;hostdeemp = y          ; force the use of the DSP FIR Integrator providing de-emphasis at 8000 samples/sec. Used with Duplex Mode 3 setting in RTCM/VOTER
@@ -6158,7 +6157,7 @@ thresholds = 255,110=5      ;
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -6215,10 +6214,10 @@ thresholds = 255,110=5      ;
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

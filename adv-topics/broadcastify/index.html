@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#streaming-node-audio-to-broadcastify" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3305,6 +3331,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -3897,33 +3950,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5177,8 +5203,6 @@
       
         
       
-        
-      
     
     
     
@@ -5374,33 +5398,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5495,8 +5492,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="streaming-node-audio-to-broadcastify">Streaming Node Audio to Broadcastify</h1>
 <p>To broadcast your node's audio on <a href="https://www.broadcastify.com/">Broadcastify</a>, you will need a Broadcastify account. You can then apply for a feed. This <a href="https://support.broadcastify.com/hc/en-us/articles/204740055-Becoming-a-Feed-Provider">link</a> provides information on applying for a feed.</p>
@@ -5547,11 +5546,11 @@ and why you're changing them. Save the file. An example might look like:</p>
 
 <span class="c1"># FIFO path (where rpt_audio_writer is configured in outstreamcmd=)</span>
 <span class="c1"># This needs to be readable by the asterisk user.</span>
-<span class="c1"># Replace "NODE" with the node number.</span>
+<span class="c1"># Replace &quot;NODE&quot; with the node number.</span>
 <span class="nv">FIFO</span><span class="o">=</span>/var/lib/asterisk/63001.fifo
 
 <span class="c1"># Icecast server details</span>
-<span class="c1"># This is configuration found in your "Feed Technical Details"</span>
+<span class="c1"># This is configuration found in your &quot;Feed Technical Details&quot;</span>
 <span class="c1"># section of your configured Broadcastify Stream</span>
 <span class="nv">ICECAST_HOST</span><span class="o">=</span>audio9.radioreference.com
 <span class="nv">ICECAST_PORT</span><span class="o">=</span><span class="m">80</span>
@@ -5560,13 +5559,13 @@ and why you're changing them. Save the file. An example might look like:</p>
 <span class="nv">ICECAST_PASSWORD</span><span class="o">=</span>i8o9092j
 
 <span class="c1"># Stream metadata - This can be wha tever you want within quotes</span>
-<span class="nv">STREAM_NAME</span><span class="o">=</span><span class="s2">"WB6NIL 147.390 MHz"</span>
-<span class="nv">STREAM_DESCRIPTION</span><span class="o">=</span><span class="s2">"Nets and live feeds from the WB6NIL repeater"</span>
-<span class="nv">STREAM_URL</span><span class="o">=</span><span class="s2">"allstarlink.org"</span>
+<span class="nv">STREAM_NAME</span><span class="o">=</span><span class="s2">&quot;WB6NIL 147.390 MHz&quot;</span>
+<span class="nv">STREAM_DESCRIPTION</span><span class="o">=</span><span class="s2">&quot;Nets and live feeds from the WB6NIL repeater&quot;</span>
+<span class="nv">STREAM_URL</span><span class="o">=</span><span class="s2">&quot;allstarlink.org&quot;</span>
 
-<span class="c1"># Don't change these unless you know why you're changing it</span>
+<span class="c1"># Don&#39;t change these unless you know why you&#39;re changing it</span>
 <span class="nv">STREAM_PUBLIC</span><span class="o">=</span><span class="m">1</span>
-<span class="nv">STREAM_GENRE</span><span class="o">=</span><span class="s2">"Amateur Radio"</span>
+<span class="nv">STREAM_GENRE</span><span class="o">=</span><span class="s2">&quot;Amateur Radio&quot;</span>
 <span class="nv">INPUT_SAMPLERATE</span><span class="o">=</span><span class="m">8000</span>
 <span class="nv">INPUT_CHANNELS</span><span class="o">=</span><span class="m">1</span>
 <span class="nv">OUTPUT_BITRATE</span><span class="o">=</span>16k
@@ -5828,7 +5827,7 @@ mv ezstream.new ezstream.xml
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5885,10 +5884,10 @@ mv ezstream.new ezstream.xml
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

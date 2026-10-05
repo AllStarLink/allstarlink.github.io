@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://allstarlink.github.io/adv-topics/uefi-secureboot/">
       
       
-        <link rel="prev" href="../totp-auth/">
+        <link rel="prev" href="../tonesignalling/">
       
       
         <link rel="next" href="../usbinterfaces/">
@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#uefi-and-secureboot" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3305,6 +3331,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -3772,33 +3825,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5110,8 +5136,6 @@
       
         
       
-        
-      
     
     
     
@@ -5307,33 +5331,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5428,8 +5425,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="uefi-and-secureboot">UEFI and SecureBoot</h1>
 <p>UEFI (Unified Extensible Firmware Interface) is a modern firmware interface that replaces the older BIOS system, providing a more flexible and powerful environment for booting and managing hardware. It supports larger hard drives, faster boot times, and a more user-friendly interface.</p>
@@ -5452,7 +5451,7 @@
 !!! ARE RUNNING THIS SCRIPT BECAUSE YOU NEED TO AND YOU KNOW WHY
 !!! YOU ARE DOING IT. HOWEVER BE WARNED!
 !!!
-ENTER "galaxy" TO CONTINUE&gt;&gt; galaxy
+ENTER &quot;galaxy&quot; TO CONTINUE&gt;&gt; galaxy
 
 Generating an MOK requires a name for the certificate. This can be
 anything, however your name or your callsign is recommended.
@@ -5467,7 +5466,7 @@ Generating the MOK...
 Enter a one-time password for this key. This password will be prompted
 for at the next reboot to properly install the key in the UEFI
 bootloader keyring. This does not need to be an incredibly complex
-password and you may write it down until it's used.
+password and you may write it down until it&#39;s used.
 
 input password:
 input password again:
@@ -5513,7 +5512,7 @@ have a slightly different process or look.</p>
 </code></pre></div>
 <p>The output will look like:
 <div class="highlight"><pre><span></span><code>$ sudo dmesg | grep -i N8EI
-[    0.674788] integrity: Loaded X.509 cert 'N8EI: 92ed492eeb11594eb25af5cc70ff0587115f2577'
+[    0.674788] integrity: Loaded X.509 cert &#39;N8EI: 92ed492eeb11594eb25af5cc70ff0587115f2577&#39;
 </code></pre></div></p>
 </li>
 <li>
@@ -5568,7 +5567,7 @@ dahdi                 258048  2 dahdi_dummy,dahdi_transcode
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../totp-auth/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Time Based One Time Password Authentication">
+          <a href="../tonesignalling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tone Signalling">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
@@ -5578,7 +5577,7 @@ dahdi                 258048  2 dahdi_dummy,dahdi_transcode
                 Previous
               </span>
               <div class="md-ellipsis">
-                Time Based One Time Password Authentication
+                Tone Signalling
               </div>
             </div>
           </a>
@@ -5645,7 +5644,7 @@ dahdi                 258048  2 dahdi_dummy,dahdi_transcode
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5702,10 +5701,10 @@ dahdi                 258048  2 dahdi_dummy,dahdi_transcode
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>

@@ -4,120 +4,6 @@
         <loc>https://allstarlink.github.io/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/basics/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/basics/gettingstarted/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/basics/portal/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/basics/standardcommands/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/basics/commands/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/basics/incompatibles/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/whats-new/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/pi-appliance/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/pi-appliance/pi-detailed/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/debian/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/debian/install/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/debian/deb-appliance/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/debian/docker/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/install/debian/os-upgrades/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/allmon3/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/allmon3/install/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/allmon3/config/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/allmon3/usermgmt/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/allmon3/https/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/menu/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/asl-cmds-tools/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/passwords/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/updates/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/support/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/troubleshooting/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/phoneportal/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/externalapps/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/user-guide/betatest/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-get-started/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-basics/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-console/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-network/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-updates/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-services/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/pi/cockpit-firewall/</loc>
-      </url>
-      <url>
         <loc>https://allstarlink.github.io/adv-topics/</loc>
       </url>
       <url>
@@ -127,16 +13,16 @@
         <loc>https://allstarlink.github.io/adv-topics/allowdenylists/</loc>
       </url>
       <url>
+        <loc>https://allstarlink.github.io/adv-topics/apprpt-dialplan/</loc>
+      </url>
+      <url>
         <loc>https://allstarlink.github.io/adv-topics/aprs/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/tts/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/conftmpl/</loc>
-      </url>
-      <url>
         <loc>https://allstarlink.github.io/adv-topics/archivedir/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/audio-level/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/audiofilters/</loc>
@@ -145,16 +31,16 @@
         <loc>https://allstarlink.github.io/adv-topics/autopatch/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/audio-level/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/apprpt-dialplan/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/courtesytones/</loc>
+        <loc>https://allstarlink.github.io/adv-topics/broadcastify/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/condiscpgm/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/conftmpl/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/courtesytones/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/daq/</loc>
@@ -164,6 +50,9 @@
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/dtmffunctions/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/dtmftoscript/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/echolink/</loc>
@@ -176,6 +65,9 @@
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/eventmgmt/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/gpio/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/hotspot_hd/</loc>
@@ -202,9 +94,6 @@
         <loc>https://allstarlink.github.io/adv-topics/macros/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/gpio/</loc>
-      </url>
-      <url>
         <loc>https://allstarlink.github.io/adv-topics/mdc1200/</loc>
       </url>
       <url>
@@ -221,9 +110,6 @@
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/parrotmode/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/dtmftoscript/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/permanentnode/</loc>
@@ -247,10 +133,13 @@
         <loc>https://allstarlink.github.io/adv-topics/sa818modules/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/sip-phone/</loc>
+        <loc>https://allstarlink.github.io/adv-topics/scheduler/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/scheduler/</loc>
+        <loc>https://allstarlink.github.io/adv-topics/simplevoter/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/adv-topics/sip-phone/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/sleepmode/</loc>
@@ -259,16 +148,10 @@
         <loc>https://allstarlink.github.io/adv-topics/soundfiles/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/simplevoter/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/broadcastify/</loc>
+        <loc>https://allstarlink.github.io/adv-topics/tailmessage/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/telemetry/</loc>
-      </url>
-      <url>
-        <loc>https://allstarlink.github.io/adv-topics/tailmessage/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/timeofday/</loc>
@@ -283,7 +166,7 @@
         <loc>https://allstarlink.github.io/adv-topics/tonesignalling/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/adv-topics/totp-auth/</loc>
+        <loc>https://allstarlink.github.io/adv-topics/tts/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/adv-topics/uefi-secureboot/</loc>
@@ -292,55 +175,79 @@
         <loc>https://allstarlink.github.io/adv-topics/usbinterfaces/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/</loc>
+        <loc>https://allstarlink.github.io/allmon3/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/about-voter/</loc>
+        <loc>https://allstarlink.github.io/allmon3/config/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-protocol/</loc>
+        <loc>https://allstarlink.github.io/allmon3/https/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-chan_voter/</loc>
+        <loc>https://allstarlink.github.io/allmon3/install/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/rtcm-hardware/</loc>
+        <loc>https://allstarlink.github.io/allmon3/usermgmt/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-hardware/</loc>
+        <loc>https://allstarlink.github.io/basics/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-firmware/</loc>
+        <loc>https://allstarlink.github.io/basics/commands/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-gps/</loc>
+        <loc>https://allstarlink.github.io/basics/gettingstarted/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-menus/</loc>
+        <loc>https://allstarlink.github.io/basics/glossary/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-audio/</loc>
+        <loc>https://allstarlink.github.io/basics/incompatibles/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-buffers/</loc>
+        <loc>https://allstarlink.github.io/basics/portal/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-simulcasting/</loc>
+        <loc>https://allstarlink.github.io/basics/standardcommands/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-mixmode/</loc>
+        <loc>https://allstarlink.github.io/config/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-proxy/</loc>
+        <loc>https://allstarlink.github.io/config/config-structure/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-audioanalysis/</loc>
+        <loc>https://allstarlink.github.io/config/echolink_conf/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/voter/voter-quantar/</loc>
+        <loc>https://allstarlink.github.io/config/extensions_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/iax_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/rpt_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/simpleusb_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/tlb_conf/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/config/voter_conf/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/developers/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/developers/api/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/developers/aptly/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/developers/iaxtext/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/developers/package-builds/</loc>
@@ -352,16 +259,34 @@
         <loc>https://allstarlink.github.io/developers/source-install/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/developers/aptly/</loc>
-      </url>
-      <url>
         <loc>https://allstarlink.github.io/developers/versioning/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/developers/api/</loc>
+        <loc>https://allstarlink.github.io/install/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/developers/iaxtext/</loc>
+        <loc>https://allstarlink.github.io/install/debian/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/debian/deb-appliance/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/debian/docker/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/debian/install/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/debian/os-upgrades/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/pi-appliance/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/pi-appliance/pi-detailed/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/install/whats-new/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/mans/</loc>
@@ -388,42 +313,114 @@
         <loc>https://allstarlink.github.io/mans/asl-setup-dkms-mok/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/mans/sa818/</loc>
+        <loc>https://allstarlink.github.io/mans/sa818-menu/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/mans/sa818-menu/</loc>
+        <loc>https://allstarlink.github.io/mans/sa818/</loc>
       </url>
       <url>
         <loc>https://allstarlink.github.io/mans/simpleusb-tune-menu/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/</loc>
+        <loc>https://allstarlink.github.io/pi/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/config-structure/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-basics/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/echolink_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-console/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/extensions_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-firewall/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/iax_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-get-started/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/rpt_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-network/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/rpt_auth_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-services/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/simpleusb_conf/</loc>
+        <loc>https://allstarlink.github.io/pi/cockpit-updates/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/tlb_conf/</loc>
+        <loc>https://allstarlink.github.io/user-guide/</loc>
       </url>
       <url>
-        <loc>https://allstarlink.github.io/config/voter_conf/</loc>
+        <loc>https://allstarlink.github.io/user-guide/asl-cmds-tools/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/betatest/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/externalapps/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/menu/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/passwords/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/phoneportal/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/support/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/troubleshooting/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/user-guide/updates/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/about-voter/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/rtcm-hardware/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-audio/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-audioanalysis/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-buffers/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-chan_voter/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-firmware/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-gps/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-hardware/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-menus/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-mixmode/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-protocol/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-proxy/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-quantar/</loc>
+      </url>
+      <url>
+        <loc>https://allstarlink.github.io/voter/voter-simulcasting/</loc>
       </url>
 </urlset>

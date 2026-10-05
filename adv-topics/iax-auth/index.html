@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.65">
+      <meta name="generator" content="zensical-0.0.68">
     
     
       
@@ -36,12 +36,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.40d3fdbb.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.812a03bb.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
       
       
 
@@ -83,14 +83,11 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#iax-direct-authentication" class="md-skip">
-          Skip to content
-        </a>
-      
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
     </div>
     <div data-md-component="announce">
       
@@ -196,6 +193,8 @@
       
         
           
+        
+      
         
       
         
@@ -628,8 +627,6 @@
       
         
       
-        
-      
     
     
     
@@ -723,6 +720,8 @@
       
         
           
+        
+      
         
       
         
@@ -911,6 +910,33 @@
     
   
   Known Issues &amp; Compatibility Problems
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
 
     
   </span>
@@ -3374,6 +3400,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../parrotmode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parrot Mode
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../permissions/" class="md-nav__link">
         
   
@@ -3841,33 +3894,6 @@
     
   
   Tone Signalling
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../totp-auth/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Time Based One Time Password Authentication
 
     
   </span>
@@ -5121,8 +5147,6 @@
       
         
       
-        
-      
     
     
     
@@ -5318,33 +5342,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../config/rpt_auth_conf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  rpt_auth.conf
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../config/simpleusb_conf/" class="md-nav__link">
         
   
@@ -5439,8 +5436,10 @@
             <div class="md-content" data-md-component="content">
               
               <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
                 
                   
+
 
 <h1 id="iax-direct-authentication">IAX Direct Authentication</h1>
 <p>IAX Direct Authentication is the most flexible and reliable way to connect to an ASL node without using the full ASL Registration infrastructure. This describes how to configure IAX direct authentication for node operators who wish to allow direct IAX connections.</p>
@@ -5480,9 +5479,9 @@ Unfortunately, most of the commonly used applications that work with ASL do not 
 </div>
 <p>Then, in <code>/etc/asterisk/custom/iax/iaxrpt-users.conf</code>, each user can be configured according to the following pattern:</p>
 <div class="highlight"><pre><span></span><code><span class="na">[N0CALL]](iaxrpt)                   ; pull in the config from the [iaxrpt] section in</span>
-<span class="na">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">N0CALL</span><span class="w">                      </span><span class="c1">; iax.conf and then add this user's specific information</span>
+<span class="na">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">N0CALL</span><span class="w">                      </span><span class="c1">; iax.conf and then add this user&#39;s specific information</span>
 <span class="na">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Some_Secret_Password_Here</span><span class="w"> </span><span class="c1">; (user, secret, and callerid). n0call is the USERNAME in</span>
-<span class="na">callerid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"N0CALL"</span><span class="w"> </span><span class="na">&lt;0&gt;            ; the iaxRPT client account configuration.</span>
+<span class="na">callerid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;N0CALL&quot;</span><span class="w"> </span><span class="na">&lt;0&gt;            ; the iaxRPT client account configuration.</span>
 </code></pre></div>
 <p>Obviously, replace N0CALL with the appropriate callign and "Some_Secret_Password_Here" with a reasonably strong password.</p>
 <div class="admonition tip">
@@ -5500,7 +5499,7 @@ Unfortunately, most of the commonly used applications that work with ASL do not 
 <span class="c1">; Info: The X option passed to the Rpt application</span>
 <span class="c1">; disables the normal security checks.</span>
 <span class="c1">; Because incoming connections are validated in iax.conf,</span>
-<span class="c1">; and we don't know where the user will be coming from in advance,</span>
+<span class="c1">; and we don&#39;t know where the user will be coming from in advance,</span>
 <span class="c1">; the X option is required.</span>
 <span class="na">exten</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; _XXXX!,1,Set(NODENUM=${CALLERID(num)})</span>
 <span class="w">    </span><span class="na">same</span><span class="w"> </span><span class="o">=</span><span class="s">&gt; n,NoOp(Connect from node ${NODENUM} to node ${EXTEN} using ${CHANNEL(channeltype)})</span>
@@ -5626,7 +5625,7 @@ Unfortunately, most of the commonly used applications that work with ASL do not 
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
@@ -5683,10 +5682,10 @@ Unfortunately, most of the commonly used applications that work with ASL do not 
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c04ba553.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
       
     
   </body>
