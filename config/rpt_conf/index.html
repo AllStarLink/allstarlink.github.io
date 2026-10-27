@@ -15,17 +15,18 @@
         <link rel="canonical" href="https://allstarlink.github.io/config/rpt_conf/">
       
       
+      
         <link rel="prev" href="../iax_conf/">
       
       
-        <link rel="next" href="../simpleusb_conf/">
+        <link rel="next" href="../rpt_auth_conf/">
       
       
         
       
       
       <link rel="icon" href="../../assets/allstarlink.png">
-      <meta name="generator" content="zensical-0.0.68">
+      <meta name="generator" content="zensical-0.0.72">
     
     
       
@@ -36,12 +37,12 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.595f2bf5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.4ab2de0c.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b27955a4.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
       
       
 
@@ -105,9 +106,10 @@
   <img src="../../assets/allstar-logo-small.png" alt="AllStarLink Manual">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+    <label class="md-header__button md-icon" for="__drawer">
       
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -145,9 +147,10 @@
     
       
       
-        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+        <label class="md-header__button md-icon" for="__search">
           
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
         </label>
         <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
   <button type="button" class="md-search__button">
@@ -317,6 +320,8 @@
       
         
           
+        
+      
         
       
         
@@ -609,6 +614,8 @@
       
         
           
+        
+      
         
       
         
@@ -2294,6 +2301,8 @@
       
         
       
+        
+      
     
     
     
@@ -2867,6 +2876,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../adv-topics/fallback-ap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fallback Access Point
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../adv-topics/hotspot_hd/" class="md-nav__link">
         
   
@@ -3307,33 +3343,6 @@
     
   
   Permanent Node Connection
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-                
-              
-                
-                  
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../adv-topics/parrotmode/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Parrot Mode
 
     
   </span>
@@ -3820,6 +3829,33 @@
     
   
   Tone Signalling
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adv-topics/totp-auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Time Based One Time Password Authentication
 
     
   </span>
@@ -5075,6 +5111,8 @@
       
         
       
+        
+      
     
     
     
@@ -5349,6 +5387,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#auth-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Auth Commands
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5448,6 +5497,72 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         archiveaudio=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_users" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_users=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_timeout=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_lockout_threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_lockout_threshold=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_lockout_duration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_lockout_duration=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_otp_step" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_otp_step=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_otp_window" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        auth_otp_window=
       </span>
     </span>
   </a>
@@ -5646,6 +5761,28 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         extnodes=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first_keyup_inactivity_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        first_keyup_inactivity_time=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first_keyup_min_time" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        first_keyup_min_time=
       </span>
     </span>
   </a>
@@ -5866,6 +6003,17 @@
     <span class="md-ellipsis">
       <span class="md-typeset">
         linkunkeyct=
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linkunkeyct_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        linkunkeyct_&lt;node>=
       </span>
     </span>
   </a>
@@ -6680,6 +6828,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../rpt_auth_conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  rpt_auth.conf
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../simpleusb_conf/" class="md-nav__link">
         
   
@@ -6818,7 +6993,7 @@ control points.</p>
 </tr>
 <tr>
 <td>2</td>
-<td><a href="../../adv-topics/timeofday/">Give Time of Day (global)</a></td>
+<td><a href="../../adv-topics/timeofday/">Give Time of Day</a> (global)</td>
 </tr>
 <tr>
 <td>3</td>
@@ -6838,7 +7013,15 @@ control points.</p>
 </tr>
 <tr>
 <td>12</td>
-<td><a href="../../adv-topics/timeofday/">Give Time of Day (local only)</a></td>
+<td><a href="../../adv-topics/timeofday/">Give Time of Day</a> (local only)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>System status report (local only version of <a href="#ilink5">ilink,5</a>)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Full System status report (local only version of <a href="#ilink15">ilink,15</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -6879,7 +7062,7 @@ control points.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td>5</td>
+<td><a id="ilink5"></a>5</td>
 <td>System status</td>
 <td>No</td>
 </tr>
@@ -6924,7 +7107,7 @@ control points.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td>15</td>
+<td><a id="ilink15"></a>15</td>
 <td>Full system status (all nodes)</td>
 <td>No</td>
 </tr>
@@ -7213,6 +7396,36 @@ control points.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="auth-commands">Auth Commands</h3>
+<p>Commands using the <code>auth</code> function class provide <a href="../../adv-topics/totp-auth/">TOTP DTMF Authentication</a> — per-user, one-time-password access control for privileged DTMF commands.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>A1 = auth,a   ; Login (expects 4-digit user ID + 6-digit OTP)
+A2 = auth,s   ; Status query
+A3 = auth,l   ; Logout
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>auth</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Login. Collects exactly 10 additional digits (4-digit user ID + 6-digit TOTP code) and authenticates.</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Status. Plays a courtesy tone indicating whether a session is active.</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Logout. Clears the active authentication session on this node.</td>
+</tr>
+</tbody>
+</table>
+<p>The auth function requires additional configuration. See <a href="../../adv-topics/totp-auth/">TOTP DTMF Authentication</a> for full setup instructions and the <a href="../rpt_auth_conf/"><code>rpt_auth.conf</code></a> reference for the user/secret file format.</p>
 <h2 id="general-stanza">General Stanza</h2>
 <p>ASL3 introduces a new stanza in <code>rpt.conf</code>, the <code>[general]</code> stanza.</p>
 <p>Presently, this stanza just contains <code>key=value</code> pairs that specify how node lookups are handled:</p>
@@ -7286,6 +7499,37 @@ node_lookup_method = both           ; method used to lookup nodes
 <div class="highlight"><pre><span></span><code>archiveaudio = yes                  ; enable/disable audio recordings (default = yes)
 </code></pre></div>
 <p>See the <a href="../../adv-topics/archivedir/">Audio and Activity Logging</a> page for additional details on this feature.</p>
+<h3 id="auth_users">auth_users=</h3>
+<p>Path to the <a href="../rpt_auth_conf/">rpt_auth.conf</a> user/secret file for <a href="../../adv-topics/totp-auth/">TOTP DTMF Authentication</a>. If not set or the file is unreadable, the auth feature is disabled.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_users = /etc/asterisk/rpt_auth.conf
+</code></pre></div>
+<h3 id="auth_timeout">auth_timeout=</h3>
+<p>Sliding session timeout in seconds for authenticated users. Each successful privileged command refreshes the timer. Default: <code>300</code>. Range: 30–86400.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_timeout = 300
+</code></pre></div>
+<h3 id="auth_lockout_threshold">auth_lockout_threshold=</h3>
+<p>Number of consecutive failed login attempts before a user ID is locked out. Set to <code>0</code> to disable lockout. Default: <code>5</code>. Range: 0–1000.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_lockout_threshold = 5
+</code></pre></div>
+<h3 id="auth_lockout_duration">auth_lockout_duration=</h3>
+<p>Duration in seconds that a locked-out user must wait before attempting login again. Default: <code>60</code>. Range: 0–86400.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_lockout_duration = 60
+</code></pre></div>
+<h3 id="auth_otp_step">auth_otp_step=</h3>
+<p>TOTP time step in seconds. Must match the period configured in the user's authenticator app (typically 30). Default: <code>30</code>. Range: 10–120.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_otp_step = 30
+</code></pre></div>
+<h3 id="auth_otp_window">auth_otp_window=</h3>
+<p>Number of time steps to accept on each side of the current step, controlling clock-skew tolerance. With the default values (<code>step=30</code>, <code>window=1</code>), codes from ±30 seconds are accepted. Default: <code>1</code>. Range: 0–3.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>auth_otp_window = 1
+</code></pre></div>
+<p>See <a href="../../adv-topics/totp-auth/">TOTP DTMF Authentication</a> for full setup instructions.</p>
 <h3 id="beaconing">beaconing=</h3>
 <p>This option, when set to <code>1</code> will send the repeater ID at the <a href="#idtime"><code>idtime</code></a> interval, regardless of whether there was repeater activity or not. This feature appears to be required in the UK, but is probably illegal in the US.</p>
 <p>Sample:</p>
@@ -7444,6 +7688,35 @@ status,2 = c|f|RPT_NUMLINKS      ; Say time of day when all links disconnect.
 <p>In this example, you would need to configure the section <code>[myextnodes]</code> in your custom <code>rpt_extnodes</code> file. <code>app_rpt</code> will no longer look for an <code>[extnodes]</code> section header for this node, it will look for <code>[myextnodes]</code> instead.</p>
 <p>See the <a href="#extnodefile">extnodefile</a> for more information on how the <code>extnodes</code> section is used.</p>
 <p><strong>This option does not appear in the default <code>rpt.conf</code>.</strong></p>
+<h3 id="first_keyup_inactivity_time">first_keyup_inactivity_time=</h3>
+<p>Sets the inactivity timer after which the <code>first_keyup_min_time</code> timer becomes active.  The value is in seconds and defaults to 0s (disabled).
+The <code>first_keyup_inactivity_time</code> timer resets after a valid keyup and prevents the <code>first_keyup_min_time</code> from functioning until activity has not been detected for the configured value.</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>;first_keyup_inactivity_time = 180  ; the time (in seconds) with no local RX activity
+                                    ; before the longer &quot;first keyup&quot; event is needed
+                                    ; for TX keying.  Longer intervals would allow
+                                    ; quick conversations, shorter intervals would
+                                    ; force key-wait-talk behavior.
+                                    ; Optional, default 0.
+</code></pre></div></p>
+<h3 id="first_keyup_min_time">first_keyup_min_time=</h3>
+<p>Sets the keyup delay time.  Keyup delay prevents short keyups (less than the configured value) from keyingup the repeater output.  This value is in milliseconds and defaults to 0ms (disabled).</p>
+<p>Sample:
+<div class="highlight"><pre><span></span><code>;first_keyup_min_time = 200         ; after a period of inactivity, the &quot;first keyup&quot;
+                                    ; time (in ms) that a local RX key event must be
+                                    ; present before the TX will be keyed. This setting
+                                    ; can be used to suppress short noise bursts or
+                                    ; quick keying (kerchunk&#39;ing).
+                                    ; Optional, range 0..1000, default 0.
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title"><code>first_keyup_inactivity_time</code> required</p>
+<p>The <code>first_keyup_min_time</code> is only available if <code>first_keyup_inactivity_time</code> is configured to a non 0 value.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Truncated Audio</p>
+<p>During the <code>first_keyup_min_time</code>, audio is not repeated and will be truncated.</p>
+</div>
 <h3 id="funcchar">funcchar=</h3>
 <p>This setting can be used to change the default function starting character of <code>*</code> to something else. Please note that the new value chosen must not be the same as the default (<code>#</code>) or overridden value for <a href="#endchar"><code>endchar=</code></a>.</p>
 <h3 id="functions">functions=</h3>
@@ -7601,6 +7874,12 @@ Sample:</p>
 <p>This option selects the courtesy tone to send when a connected remote node unkeys. The default is no courtesy tone when a remote node unkeys.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>linkunkeyct = ct8                   ; use courtesy tone 8
+</code></pre></div>
+<p>See the <a href="../../adv-topics/courtesytones/">Courtesy Tones</a> page for more information on defining telemetry tones.</p>
+<h3 id="linkunkeyct_node">linkunkeyct_&lt;node&gt;=</h3>
+<p>This option selects the courtesy tone to be used when a remote node has unkeyed and matches a <code>linkunkeyct_&lt;node&gt;</code>.</p>
+<p>Sample:</p>
+<div class="highlight"><pre><span></span><code>linkunkeyct_4321 = ct8                    ; use courtesy tone 8 when node 4321 unkeys
 </code></pre></div>
 <p>See the <a href="../../adv-topics/courtesytones/">Courtesy Tones</a> page for more information on defining telemetry tones.</p>
 <h3 id="litzchar">litzchar=</h3>
@@ -7922,7 +8201,6 @@ startup_macro = *31000 *31001 pppppppppp *31002
 </code></pre></div>
 <p>The <code>statpost_url=</code> option can be implemented in the <code>[node-main](!)</code> stanza to apply to all nodes on the server, or in the per-node stanza for limiting statistics posting to an individual nodes. See <a href="../../adv-topics/conftmpl/#asterisk-templates">config file templating</a> for more information.</p>
 <h3 id="tailmessagelist">tailmessagelist=</h3>
-<!-- start:tailmessagelist -->
 <p>This option allows a comma-separated list of audio files to be specified for the tail message function. The tail messages will <em>rotate</em> from one to the next until the end of the list is reached, at which point the first message in the list will be selected. If no absolute path name is specified, the directory <code>/usr/share/asterisk/sounds/en</code> will be searched for the sound file. The file extension should be omitted.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailmessagelist = welcome,clubmeeting,wx ; rotate 3 tail messages
@@ -7933,25 +8211,18 @@ startup_macro = *31000 *31001 pppppppppp *31002
 <p>Audio files must have extension .gsm, .ulaw, .pcm, or .wav. The extension is left off when it is defined as the example shows above. File extensions are used by Asterisk to determine how to decode the file. All audio files should be sampled at 8KHz mono.</p>
 </div>
 <p>See the <a href="../../adv-topics/soundfiles/">Sound Files</a> page for more information.</p>
-<!-- stop:tailmessagelist -->
-
 <h3 id="tailmessagetime">tailmessagetime=</h3>
-<!-- start:tailmessagetime -->
 <p>This option sets the amount of time in milliseconds between tail messages. Tail Messages are played when a user unkeys on the node input at the point where the hang timer expires, and after the courtesy tone is sent.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailmessagetime = 900000            ; 15 minutes between tail messages
 </code></pre></div>
 <p>The maximum value is 200000000ms (55.5555 hours).</p>
-<!-- stop:tailmessagetime -->
 <h3 id="tailsquashedtime">tailsquashedtime=</h3>
-<!-- start:tailsquashedtime -->
 <p>If a tail message is "squashed" by a user keying up over the top of it, a separate time value can be loaded to make the tail message be retried at a shorter time interval than the standard <code>tailmessagetime=</code> option. The <code>tailsquashedtime=</code> option takes a value in milliseconds.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>tailsquashedtime = 300000           ; 5 minutes
 </code></pre></div>
-<!-- stop:tailsquashedtime -->
 <h3 id="telemetry">telemetry=</h3>
-<!-- start:telemetry -->
 <p>This option allows you to override the stanza name used for the <code>telemetry</code> stanza in <code>rpt.conf</code>. Telemetry definitions define courtesy tone parameters, and tones sent when certain actions take place on the node.</p>
 <p>Sample:</p>
 <div class="highlight"><pre><span></span><code>telemetry = telemetry               ; name telemetry to &#39;telemetry&#39;
@@ -7961,7 +8232,6 @@ startup_macro = *31000 *31001 pppppppppp *31002
 </code></pre></div>
 <p>The default is to have <code>telemetry=</code> point to a stanza called <code>telemetry</code>, and have a common set of commands for all nodes. However, you can have it point to another named stanza, see <a href=".././config-structure/#settings-to-name-other-stanzas">Settings to Name Other Stanzas</a> for more information.</p>
 <p>See the <a href="../../config/rpt_conf/#telemetry-stanza">Telemetry Stanza</a> for more information on the options that can be configured.</p>
-<!-- stop:telemetry -->
 <h3 id="telemdefault">telemdefault=</h3>
 <p>This option sets whether telemetry is turned on or off by default.</p>
 <p>Sample:</p>
@@ -8543,13 +8813,13 @@ calltermwait = 2000                 ; time to wait before announcing &quot;call 
         
         
           
-          <a href="../simpleusb_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: simpleusb.conf">
+          <a href="../rpt_auth_conf/" class="md-footer__link md-footer__link--next" aria-label="Next: rpt_auth.conf">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                simpleusb.conf
+                rpt_auth.conf
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -8660,10 +8930,10 @@ calltermwait = 2000                 ; time to wait before announcing &quot;call 
       
         
         
-      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["content.code.copy","navigation.footer","navigation.indexes","navigation.sections","navigation.tabs","navigation.tabs.sticky","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow","toc.integrate"],"redirect":null,"search":"../../assets/javascripts/workers/search.c47bb847.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3c842f4c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.10ee5ab6.min.js"></script>
       
     
   </body>
